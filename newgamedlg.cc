@@ -12,6 +12,7 @@
 #include <kapplication.h>
 #include <kconfig.h>
 #include <klocale.h>
+#include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 
@@ -231,6 +232,27 @@ NewGameDlg::updateLabels()
     w->labelPlayers->setText(i18n("Number of &players: %1").arg(w->sliderPlayers->value()));
     w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1").arg(w->sliderPlanets->value()));
     w->labelTurns->setText(i18n("Number of &turns: %1").arg(w->sliderTurns->value()));
+}
+
+void
+NewGameDlg::slotOk()
+{
+    bool hasHumans = false;
+    for( QListViewItem *item = w->listPlayers->firstChild(); 
+         item; item = item->nextSibling() )
+    {
+        bool ai = (item->text(2) == "A");
+        if (!ai)
+           hasHumans = true;
+    }
+
+    if (!hasHumans)
+    {
+        KMessageBox::information(this, i18n("The game is much more fun when you add a human player!"));
+        w->newPlayer->setFocus();
+        return;
+    }
+    KDialogBase::slotOk();
 }
 
 void
