@@ -14,18 +14,22 @@
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
 
+#include <iostream.h>
+
 /*************************************************************************
  New Game Dialog Members
  ************************************************************************/
 
 NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
                         Player *neutralPlayer, PlanetList *planets )
-    : plrList(players), plnetList(planets), neutral(neutralPlayer),
-    map(pmap), QDialog( parent, 0, true  )
+    : QDialog( parent, 0, true ),
+      plrList(players), plnetList(planets), neutral(neutralPlayer),
+      map(pmap)
 {
 
     // Create widgets
     QLabel *mapLabel = new QLabel( i18n("Preview Map"), this );
+    mapLabel->setMinimumSize( mapLabel->sizeHint() );
     miniMap = new MiniMap( map, this );
 
     rejectMapBtn = new QPushButton( i18n("&Reject Map"), this );
@@ -33,13 +37,13 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     
     playerList = new QListBox( this );
     playerList->setMinimumSize( 0, 150 );
-    playerList->setMaximumSize( 32767, 150 );
     
     QLabel *listLabel = new QLabel( playerList, i18n("&Player List"), this );
     listLabel->setFixedSize( listLabel->size() );
 
     newPlayer = new QLineEdit( this );
     newPlayer->setMaxLength( 8 );
+    newPlayer->setMinimumSize(newPlayer->sizeHint());
     
     addPlayer = new QPushButton( i18n("&Add"), this );
     addPlayer->setFixedSize( addPlayer->sizeHint() );
@@ -51,21 +55,21 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     clearList->setFixedSize( clearList->sizeHint() );
 
     neutralPlanets = new KSlider( 1, 35, 1, 1, KSlider::Horizontal, this );
-    neutralPlanets->setTickmarks( KSlider::Below );
+    neutralPlanets->setMinimumHeight(neutralPlanets->sizeHint().height());
 
-    neutralPlanetLbl = new QLabel( this );
-    neutralPlanetLbl->setMaximumSize( 32767, 15 );
-    neutralPlanetLbl->setMinimumSize( 0, 15 );
+    neutralPlanetLbl = new QLabel("Number of Neutral Planets: 99",this);
+    neutralPlanetLbl->setMinimumSize(neutralPlanetLbl->sizeHint());
 
     turnCount = new KSlider( 5, 40, 1, 15, KSlider::Horizontal, this );
     turnCount->setTickmarks( KSlider::Below );
+    turnCount->setMinimumHeight(turnCount->sizeHint().height());
 
-    turnCountLbl = new QLabel( this );
-    turnCountLbl->setMaximumSize( 32767, 15 );
-    turnCountLbl->setMinimumSize( 0, 15 );
+    turnCountLbl = new QLabel("Number of turns: 99", this);
+    turnCountLbl->setMinimumSize(turnCountLbl->sizeHint());
     
     okBtn = new QPushButton( i18n("&Start Game"), this );
     okBtn->setFixedSize( okBtn->sizeHint() );
+    okBtn->setEnabled(false);
 
     cancelBtn = new QPushButton( i18n("&Cancel"), this );
     cancelBtn->setFixedSize( cancelBtn->sizeHint() );
@@ -76,18 +80,15 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     QBoxLayout *mainLayout = new QVBoxLayout( this );
 
     QBoxLayout *mainHLayout = new QHBoxLayout;
-    QBoxLayout *btnRow = new QHBoxLayout;
+    QBoxLayout *btnRow = new QHBoxLayout(10);
 
     QBoxLayout *mapColumn = new QVBoxLayout;
 
-    QBoxLayout *playerColumn = new QVBoxLayout;
+    QBoxLayout *playerColumn = new QVBoxLayout(5);
 
     QBoxLayout *playerEditRow = new QHBoxLayout;
-    QBoxLayout *sliderRow = new QHBoxLayout;
-    QBoxLayout *sliderRow2 = new QHBoxLayout;
 
-
-    mainLayout->addLayout( mainHLayout );
+    mainLayout->addLayout( mainHLayout, 2 );
 
     mainHLayout->addSpacing( 5 );
     mainHLayout->addLayout( playerColumn, 2 );
@@ -100,41 +101,36 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     mapColumn->addWidget( miniMap, 0, AlignLeft );
     mapColumn->addSpacing( 5 );
     mapColumn->addWidget( rejectMapBtn, 0, AlignCenter );
-    mapColumn->addStretch();
+    mapColumn->addStretch(1);
     
     playerColumn->addWidget( listLabel, 0, AlignLeft );
-    playerColumn->addWidget( playerList, 0, AlignLeft );
+    playerColumn->addWidget( playerList, 1, AlignLeft );
     playerColumn->addLayout( playerEditRow );
 
-    playerEditRow->addStrut( 20 );
     playerEditRow->addWidget( newPlayer, 1 );
     playerEditRow->addWidget( addPlayer );
     playerEditRow->addWidget( deletePlayer );
     playerEditRow->addWidget( clearList );
 
-    playerColumn->addWidget( neutralPlanetLbl, 1, AlignLeft );
-    playerColumn->addLayout( sliderRow );
-
-    sliderRow->addStrut( 15 );
-    sliderRow->addWidget( neutralPlanets, 1 );
-
-    playerColumn->addWidget( turnCountLbl, 1, AlignLeft );
-    playerColumn->addLayout( sliderRow2 );
-
-    sliderRow2->addStrut( 15 );
-    sliderRow2->addWidget( turnCount, 1 );
-    
-    playerColumn->addStretch();
-
     mainLayout->addStretch(1);
+
+    mainLayout->addWidget( neutralPlanetLbl, 1, AlignLeft );
+    mainLayout->addWidget( neutralPlanets, 1 );
+    mainLayout->addWidget( turnCountLbl, 1, AlignLeft );
+    mainLayout->addWidget( turnCount, 1 );
+    
+    mainLayout->addStretch(1);
+
+    mainLayout->addSpacing(10);
     mainLayout->addLayout( btnRow, 0 );
     mainLayout->addSpacing( 5 );
 
     btnRow->addStrut( 40 );
     btnRow->addWidget( okBtn );
-    btnRow->addStretch( 1 );
     btnRow->addWidget( cancelBtn );
+    btnRow->addStretch( 1 );
 
+    mainLayout->activate();
 
     // Connect controls
     
@@ -201,6 +197,9 @@ NewGameDlg::addNewPlayer()
     playerList->insertItem( newPlayer->text() );
     newPlayer->setText( "" );
 
+    if( playerList->count() > 1)
+       okBtn->setEnabled(true);
+
     // update the map and game objects
     updateMiniMap();
 }
@@ -213,6 +212,8 @@ NewGameDlg::removePlayer()
     if( player >= 0 ) {
         playerList->removeItem( player );
     }
+    if( playerList->count() < 2)
+       okBtn->setEnabled(false);
 
     updateMiniMap();
 }
