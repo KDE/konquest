@@ -20,20 +20,6 @@ CoreLogic::CoreLogic()
     {
         srand( time(NULL) );
         
-
-#if 0
-        // make a random bit generator,
-        // with a cheap seed
-        rng = new ACG( time(0) );
-
-        // make a coordinate generator (uniform over 0..15
-        coordinate_source = new RandomInteger( 0, 15, rng );
-        kill_percentage_source = new Normal( 0.50, 0.01,  rng );
-        planet_production_source = new Normal( 10, 10, rng );
-        morale_source = new Normal( 0.50, 0.02, rng  );
-        dice_source = new Uniform( 0.0, 100.0, rng );
-#endif
-        
         class_init = true;
     }
 }

@@ -1,3 +1,9 @@
+0.99.4 --
+	Brought the KDE CVS tree in sync with my own. Changes from previous version
+        include:
+		-- removed dependence on libg++ random integer classes
+                -- fixed a couple of problems with the game state machine.
+
 0.0.4 --
 	Fixed (hopefully) a compiler error. gamecore.cc would compile fine with
 		debug (-g), but not with the optimizer (-O2). Added a destructor
