@@ -66,4 +66,4 @@ Terminal=0
 DocPath=konquest/index.html
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
-Categories=QT;KDE;Game;StrategyGame
+Categories=Qt;KDE;Game;StrategyGame
