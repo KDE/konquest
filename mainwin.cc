@@ -47,8 +47,8 @@ MainWindow::setupMenu()
     game_menu->insertItem( i18n("&Quit"), qApp, SLOT( quit() ) );
 
     QString about;
-    about = i18n("Version %1\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
-        "KDE version by Russ Steffen <rsteffen@ia.net>\n"
+    about = i18n("Version %1\nCopyright (c) 2000 by\nThe Gnu-Lactic Conquest Project\n\n"
+        "KDE version by Russ Steffen <rsteffen@bayarea.net>\n"
         "See http://www.ia.net/~rsteffen/konquest.html for more info")
 	.arg(KONQUEST_VERSION);
     
