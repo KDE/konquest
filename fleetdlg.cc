@@ -20,6 +20,12 @@ int FleetDlgListViewItem::compare(QListViewItem *i, int col, bool) const
 		else if (text(col) < i -> text(col)) return -1;
 		else return compare(i, 0, true);
 	}
+	else if (col == 3)
+	{
+		if (text(col).toDouble() > i -> text(col).toDouble()) return 1;
+		else if (text(col).toDouble() < i -> text(col).toDouble()) return -1;
+		else return compare(i, 0, true);
+	}
 	else
 	{
 		if (text(col).toInt() > i -> text(col).toInt()) return 1;
