@@ -2,6 +2,7 @@
 #include <qlayout.h>
 #include <qcolor.h>
 #include <qpalette.h>
+#include <qcolor.h>
 #include <kapplication.h>
 #include <klocale.h>
 
@@ -15,19 +16,10 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
     setPalette( palette );
 
     name = new QLabel( this );
-    name->setPalette( palette );
-
     owner = new QLabel( this );
-    owner->setPalette( palette );
-
     ships = new QLabel( this );
-    ships->setPalette( palette );
-
     production = new QLabel( this );
-    production->setPalette( palette );
-
     kill_percent = new QLabel( this );
-    kill_percent->setPalette( palette );
 
     clearDisplay();
 
@@ -37,13 +29,27 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
     layout->addWidget( ships );
     layout->addWidget( production );
     layout->addWidget( kill_percent );
+    layout->addStretch(1);
 
-    setMaximumSize( 32767, 80 );
+    setMaximumSize( sizeHint() );
 }
 
 PlanetInfo::~PlanetInfo()
 {
     emptyPlanetInfoList();
+}
+
+QSize PlanetInfo::sizeHint() const
+{
+    int height;
+    
+    height = name->sizeHint().height() +
+    		owner->sizeHint().height() +
+		ships->sizeHint().height() +
+		production->sizeHint().height()+
+		kill_percent->sizeHint().height();
+		
+    return QSize( 80, height );
 }
 
 void PlanetInfo::setPlanetList( PlanetList &newPlanets )

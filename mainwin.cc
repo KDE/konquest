@@ -23,7 +23,7 @@
 MainWindow::MainWindow( const char *name) : KMainWindow( 0, name )
 {
 
-    setCaption( i18n("GNU-Lactic Conquest") );
+    setCaption( i18n("Galactic Conquest") );
 
     setupGameBoard();
     setupKAction();

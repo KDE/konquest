@@ -50,6 +50,7 @@ GameBoard::GameBoard( QWidget *parent )
     turnCounter = new QLabel( this );
     turnCounter->setPalette( palette );
     turnCounter->setText( "Turn" );
+    turnCounter->setMaximumHeight( turnCounter->sizeHint().height() );
 
     endTurn = new QPushButton( i18n("End Turn"), this );
     endTurn->setFixedSize( endTurn->sizeHint() );
@@ -83,6 +84,7 @@ GameBoard::GameBoard( QWidget *parent )
     layout1->addLayout( layout2 );
     layout2->addLayout( layout3 );
 
+    layout3->addSpacing( 5 );
     layout3->addWidget( gameMessage, 10 );
     layout3->addWidget( shipCountEdit, 1 );
     layout3->addWidget( endTurn, 1 );
@@ -95,6 +97,7 @@ GameBoard::GameBoard( QWidget *parent )
     layout1->addLayout( layout4, 10 );
 
     layout4->addWidget( planetInfo, 1 );
+    layout4->addSpacing( 10 );
     layout4->addWidget( turnCounter,  1 );
     layout4->addStretch( 1 );
 

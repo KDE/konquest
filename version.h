@@ -1,4 +1,4 @@
 #ifndef KONQUEST_VERSION
-#define KONQUEST_VERSION		"0.99.2"
+#define KONQUEST_VERSION		"0.99.3"
 #endif
 

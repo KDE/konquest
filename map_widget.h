@@ -27,9 +27,9 @@ public:
     void unselectPlanet( void );
 
 protected:
-    void mousePressEvent( QMouseEvent * );
-    void mouseMoveEvent( QMouseEvent * );
-    void paintCell( QPainter *p, int row, int col );
+    virtual void mousePressEvent( QMouseEvent *e );
+    virtual void mouseMoveEvent( QMouseEvent *e );
+    virtual void paintCell( QPainter *p, int row, int col );
 
 private slots:
     void mapUpdate();
