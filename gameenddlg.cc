@@ -1,9 +1,9 @@
-#include <kslider.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <kapp.h>
 #include <klocale.h>
+#include <qslider.h>
 
 #include "gameenddlg.h"
 #include <klocale.h>
@@ -16,7 +16,7 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add more turns?"), this );
     label1->setAlignment( AlignCenter );
     
-    turnCount = new KSlider( 1, 40, 1, 5, KSlider::Horizontal, this );
+    turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, this );
     turnCountLbl = new QLabel( this );
 
     QPushButton *yesBtn = new QPushButton( i18n("Yes"), this );

@@ -12,7 +12,6 @@
 #include <klocale.h>
 #include <qmessagebox.h>
 #include <kglobal.h>
-#include <kslider.h>
 #include <kiconloader.h>
 
 #include <ctype.h>

@@ -9,7 +9,6 @@
 #include <qlineedit.h>
 #include <kapp.h>
 #include <klocale.h>
-#include <kslider.h>
 
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
@@ -55,14 +54,14 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     clearList = new QPushButton( i18n("&Clear"), this );
     clearList->setFixedSize( clearList->sizeHint() );
 
-    neutralPlanets = new KSlider( 1, 35, 1, 1, KSlider::Horizontal, this );
+    neutralPlanets = new QSlider( 1, 35, 1, 1, Qt::Horizontal, this );
     neutralPlanets->setMinimumHeight(neutralPlanets->sizeHint().height());
 
     neutralPlanetLbl = new QLabel("Number of Neutral Planets: 99",this);
     neutralPlanetLbl->setMinimumSize(neutralPlanetLbl->sizeHint());
 
-    turnCount = new KSlider( 5, 40, 1, 15, KSlider::Horizontal, this );
-    turnCount->setTickmarks( KSlider::Below );
+    turnCount = new QSlider( 5, 40, 1, 15, Qt::Horizontal, this );
+    turnCount->setTickmarks( QSlider::Below );
     turnCount->setMinimumHeight(turnCount->sizeHint().height());
 
     turnCountLbl = new QLabel("Number of turns: 99", this);

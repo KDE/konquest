@@ -3,7 +3,7 @@
 
 #include <qdialog.h>
 
-class KSlider;
+class QSlider;
 class QPushButton;
 
 class GameEndDlg : public QDialog
@@ -20,7 +20,7 @@ private slots:
     void turnCountChange( int );
     
 private:
-    KSlider *turnCount;
+    QSlider *turnCount;
     QLabel *turnCountLbl;
     
 };
