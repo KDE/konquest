@@ -479,11 +479,16 @@ Player::getName( void )
     return name;
 }
 
+QString
+Player::getColoredName( void )
+{
+    return QString("<font color=\"%1\">%2</font>").arg(color.name(), name);
+}
+
 Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool isAi )
 {
     return new Player( newName, color, playerNum, isAi );
 }
-
 
 Player *Player::createNeutralPlayer( void )
 {

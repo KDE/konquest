@@ -121,6 +121,7 @@ public:
     
 public:
     QString &getName( void );
+    QString getColoredName( void );
     QColor &getColor( void );
     bool isNeutral( void );
     QPtrList<AttackFleet> &getAttackList( void );

@@ -7,12 +7,12 @@
 #include "minimap.h"
 #include "minimap.moc"
 
-MiniMap::MiniMap(  Map *newMap, QWidget *parent )
-    : QGridView( parent ),
+MiniMap::MiniMap(  QWidget *parent, const char *name )
+    : QGridView( parent, name ),
     SECTOR_HEIGHT( 12 ), SECTOR_WIDTH( 12 ),
-    BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
-    BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
-    map( newMap )
+    BOARD_HEIGHT( 10 * SECTOR_HEIGHT ),
+    BOARD_WIDTH( 10 * SECTOR_WIDTH ),
+    map( 0 )
 {
     setFrameStyle( NoFrame );
     setPaletteBackgroundColor( black );
@@ -20,6 +20,19 @@ MiniMap::MiniMap(  Map *newMap, QWidget *parent )
 
     setCellWidth( SECTOR_WIDTH );
     setCellHeight( SECTOR_HEIGHT );
+    setNumRows( 10 );
+    setNumCols( 10 );
+
+    setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
+    setMaximumSize( BOARD_HEIGHT, BOARD_WIDTH );
+}
+
+void
+MiniMap::setMap(Map *newMap)
+{
+    map = newMap;
+    BOARD_HEIGHT = map->getRows() * SECTOR_HEIGHT;
+    BOARD_WIDTH  = map->getColumns() * SECTOR_WIDTH;
     setNumRows( map->getRows() );
     setNumCols( map->getColumns() );
 
@@ -27,8 +40,6 @@ MiniMap::MiniMap(  Map *newMap, QWidget *parent )
     setMaximumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
-
-    show();
 }
 
 MiniMap::~MiniMap()

@@ -1,18 +1,18 @@
 #ifndef _NEWGAMEDLG_H_
 #define _NEWGAMEDLG_H_
 
-#include <qdialog.h>
+#include <kdialogbase.h>
 
 #include "gamecore.h"
 #include "minimap.h"
 
-class KPushButton;
+class NewGameDlgUI;
 
 /*************************************************************************
  New Game Dialog
  ************************************************************************/
 
-class NewGameDlg : public QDialog
+class NewGameDlg : public KDialogBase
 {
     Q_OBJECT
 
@@ -22,40 +22,29 @@ public:
 
     int turns( void );
 
-public slots:
-    void changeNeutralPlanets( int );
-    void changeTurnCount( int );
-    void addNewPlayer();
-    void addNewAiPlayer();
-    void removePlayer();
-    void clearPlayerList();
-    void startGame();
-    void rejectMap();
+    void save();
+
+protected slots:
+    void slotPlayerCount(int playerCount);
+    void slotNewMap();
+    void slotTurns();
+    void slotNewPlayer();
+    void slotAddPlayer();
+    void slotDefault();
 
 private:
-    void updateMiniMap( void );
+    void init();
+    void updateMiniMap();
+    void updateLabels();
+    void setPlayerCount(int playerCount);
 
+private:
     PlayerList *plrList;
     PlanetList *plnetList;
     Player *neutral;
     Map *map;
 
-    QListBox *playerList;
-    QPushButton *okBtn;
-    QPushButton *cancelBtn;
-    QLineEdit *newPlayer;
-    QPushButton *addAiPlayer;
-    QPushButton *addPlayer;
-    QPushButton *deletePlayer;
-    KPushButton *clearList;
-    QSlider *neutralPlanets;
-    QSlider *turnCount;
-    QLabel *neutralPlanetLbl;
-    QLabel *turnCountLbl;
-    MiniMap *miniMap;
-    QPushButton *rejectMapBtn;
-    int AiPlayers;
-
+    NewGameDlgUI *w;
 };
 
 #endif

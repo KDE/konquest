@@ -14,6 +14,7 @@ class QLabel;
 class QListBox;
 class QPushButton;
 class QLineEdit;
+class QTextEdit;
 
 enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST, AI_PLAYER };
 
@@ -30,7 +31,7 @@ public:
 
     bool isGameInProgress(void) const { return gameInProgress; };
 
-    virtual QSize sizeHint() const;
+//    virtual QSize sizeHint() const;
 
 protected slots:
     void startNewGame();
@@ -64,9 +65,13 @@ private:
     void doFleetArrival( AttackFleet *arrivingFleet );
     void scanForSurvivors( void );
 
+    void gameMsg(const QString &msg, Player *player = 0, Planet *planet = 0, Player *planetPlayer = 0);
+
     void changeGameBoard( bool inPlay );
     void cleanupGame( void );
 
+    QString playerString(Player *player = 0);
+    
     //***************************************************************
     // Game State information
     //***************************************************************
@@ -84,6 +89,7 @@ private:
     QPushButton *endTurn;
     QLineEdit *shipCountEdit;
     QLabel *splashScreen;
+    QTextEdit *msgWidget;
 
 
     //***************************************************************

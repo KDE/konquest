@@ -8,6 +8,7 @@
 #include <qpushbutton.h>
 #include <qlineedit.h>
 #include <qvalidator.h>
+#include <qtextedit.h>
 
 #include <kapplication.h>
 #include <klocale.h>
@@ -40,11 +41,19 @@ GameBoard::GameBoard( QWidget *parent )
 
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
+    
+    planets.setAutoDelete(true);
+    players.setAutoDelete(true);
 
     //********************************************************************
     // Create the widgets in the main window
     //********************************************************************
     mapWidget = new ConquestMap( map, this );
+    msgWidget = new QTextEdit( this );
+    msgWidget->setTextFormat(LogText);
+    msgWidget->setMinimumHeight(100);
+    msgWidget->setHScrollBarMode(QScrollView::AlwaysOff);
+    msgWidget->setPaper(QBrush(Qt::black));
     planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
@@ -70,7 +79,7 @@ GameBoard::GameBoard( QWidget *parent )
     splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
     splashScreen->setGeometry( 0, 0, 600, 550 );
 
-    setMinimumSize( 600, 550 );
+    setMinimumSize( 600, 600 );
 
     setMouseTracking( true );
     setFocusPolicy( StrongFocus );
@@ -94,6 +103,7 @@ GameBoard::GameBoard( QWidget *parent )
 
     layout2->addSpacing( 5 );
     layout2->addWidget( mapWidget, 0, AlignTop );
+    layout2->addWidget( msgWidget );
     layout2->addStretch( 1 );
 
     layout1->addSpacing( 5 );
@@ -126,10 +136,12 @@ GameBoard::~GameBoard()
     // Nothing much to do yet
 }
 
+#if 0
 QSize GameBoard::sizeHint() const
 {
     return QSize( 600, 550 );
 }
+#endif
 
 //************************************************************************
 // Keyboard Event handlers
@@ -175,6 +187,14 @@ GameBoard::keyPressEvent( QKeyEvent *e )
 
 }
 
+QString
+GameBoard::playerString(Player *player)
+{
+    if (!player)
+        player = currentPlayer->current();
+    return player->getColoredName();
+}
+
 //************************************************************************
 // Game engine/state machine
 //************************************************************************
@@ -213,8 +233,8 @@ GameBoard::turn( void )
             endTurn->setEnabled( true );
             mapWidget->unselectPlanet();
 
-            gameMessage->setText( currentPlayer->current()->getName() +
-                                    i18n(": Select source planet...") );
+            gameMessage->setText( "<qt>" + playerString() + ": " +
+                                    i18n("Select source planet...") + "</qt>" );
             setFocus();
         }
 
@@ -231,8 +251,8 @@ GameBoard::turn( void )
             shipCountEdit->hide();
             endTurn->setEnabled( false );
             sourcePlanet->select();
-            gameMessage->setText( currentPlayer->current()->getName() +
-                                    i18n(": Select destination planet...") );
+            gameMessage->setText( "<qt>" + playerString() + ": " +
+                                    i18n("Select destination planet...") + "</qt>" );
             setFocus();
         }
 
@@ -493,6 +513,41 @@ GameBoard::resolveShipsInFlight( void )
 
 }
 
+void
+GameBoard::gameMsg(const QString &msg, Player *player, Planet *planet, Player *planetPlayer)
+{
+    bool isHumanInvolved = false;
+       
+    QString color = "white";
+    QString colorMsg = msg;
+    QString plainMsg = msg;
+
+    if (player)
+    {
+       if (!player->isAiPlayer())
+          isHumanInvolved = true;
+       colorMsg = colorMsg.arg(playerString(player));
+       plainMsg = plainMsg.arg(player->getName());
+    }
+
+    if (planet)
+    {
+       if (!planetPlayer)
+          planetPlayer = planet->getPlayer();
+       if (!planetPlayer->isAiPlayer() && !planetPlayer->isNeutral())
+          isHumanInvolved = true;
+
+       QString color = planetPlayer->getColor().name();
+       colorMsg = colorMsg.arg(QString("<font color=\"%1\">%2</font>").arg(color, planet->getName()));
+       plainMsg = plainMsg.arg(planet->getName());
+    }
+    msgWidget->append(("<qt><font color=\"white\">Turn %1:</font> <font color=\""+color+"\">").arg(turnNumber)+colorMsg+"</font></qt>");
+    msgWidget->scrollToBottom();
+    
+    if (isHumanInvolved)
+       KMessageBox::information(this, plainMsg);
+}
+
 //************************************************************************
 // check to see any players have been eliminated
 //************************************************************************
@@ -531,10 +586,8 @@ GameBoard::scanForSurvivors( void )
         if( !plr->isInPlay() ) {
             // Player has bitten the dust
             QString msg;
-            msg = i18n("The once mighty empire of %1 has fallen in ruins.")
-                  .arg(plr->getName());
-            KMessageBox::information( this, msg,
-				      i18n("An Empire Has Fallen") );
+            msg = i18n("The once mighty empire of %1 has fallen in ruins.");
+            gameMsg(msg, plr);
         }
     }
 
@@ -543,10 +596,8 @@ GameBoard::scanForSurvivors( void )
         if( plr->isInPlay() ) {
             // Player has bitten the dust
             QString msg;
-            msg = i18n("The fallen empire of %1 has staggered back to life.")
-		  .arg(plr->getName());
-	    KMessageBox::information( this, msg,
-				      i18n("Up From the Ashes") );
+            msg = i18n("The fallen empire of %1 has staggered back to life.");
+            gameMsg(msg, plr);
         }
     }
 }
@@ -567,9 +618,8 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
 
         	QString msg;
         	msg = i18n("Reinforcements (%1 ships) have arrived for planet %2.")
-        	      .arg(arrivingFleet->getShipCount())
-        	      .arg(arrivingFleet->destination->getName());
-        	KMessageBox::information(this, msg, i18n("Fleet Arrival"));
+        	      .arg(arrivingFleet->getShipCount());
+                gameMsg(msg, 0, arrivingFleet->destination);
         }
     } else {
 
@@ -611,20 +661,17 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         if( planetHolds ) {
             prizePlanet.getPlayer()->statEnemyFleetsDestroyed(1);
             QString msg;
-            msg = i18n("Planet %1 has held against an attack from %2.")
-		  .arg(prizePlanet.getName())
-		  .arg(attacker.owner->getName());
-            KMessageBox::information(this, msg, i18n("Planet Holds"));
+            msg = i18n("Planet %2 has held against an attack from %1.");
+            gameMsg(msg, attacker.owner, &prizePlanet);
         } else {
+            Player *defender = prizePlanet.getPlayer();
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
             arrivingFleet->destination->conquer( arrivingFleet );
 
             QString msg;
-            msg = i18n("Planet %1 has fallen to %2.")
-                  .arg(prizePlanet.getName())
-		  .arg(attacker.owner->getName());
-            KMessageBox::information(this, msg, i18n("Planet Conquered"));
+            msg = i18n("Planet %2 has fallen to %1.");
+            gameMsg(msg, attacker.owner, &prizePlanet, defender);
         }
     }
 
@@ -644,12 +691,14 @@ GameBoard::startNewGame()
 
     NewGameDlg *newGame = new NewGameDlg( this, map, &players, neutralPlayer, &planets );
 
-
     if( !newGame->exec() )
     {
         delete newGame;
         return;
     }
+    newGame->save(); // Save settings for next time
+    
+    msgWidget->clear();
 
     changeGameBoard( true );
 
@@ -701,17 +750,8 @@ GameBoard::cleanupGame( void )
 {
     map->clearMap();
 
-    Planet *planet;
-    planet = planets.first();
-    for( planet = planets.take(); planet != 0; planet = planets.take() ) {
-        delete planet;
-    }
-
-    Player *player;
-    player = players.first();
-    for( player = players.take(); player != 0; player = players.take() ) {
-        delete player;
-    }
+    planets.clear();
+    players.clear();
 
     delete currentPlayer;
     currentPlayer = NULL;

@@ -14,12 +14,12 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     setCaption( kapp->makeStdCaption(title) );
 
     scoreTable = new KListView( this, 0 );
-    scoreTable->addColumn(i18n("Player"), 70 );
-    scoreTable->addColumn(i18n("Ships Built"), 70 );
-    scoreTable->addColumn(i18n("Planets Conquered"), 120 );
-    scoreTable->addColumn(i18n("Fleets Launched"), 110 );
-    scoreTable->addColumn(i18n("Fleets Destroyed"), 100 );
-    scoreTable->addColumn(i18n("Ships Destroyed"), 100 );
+    scoreTable->addColumn(i18n("Player"));
+    scoreTable->addColumn(i18n("Ships Built"));
+    scoreTable->addColumn(i18n("Planets Conquered"));
+    scoreTable->addColumn(i18n("Fleets Launched"));
+    scoreTable->addColumn(i18n("Fleets Destroyed"));
+    scoreTable->addColumn(i18n("Ships Destroyed"));
 
     QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );

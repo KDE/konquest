@@ -92,21 +92,20 @@ void PlanetInfo::clearDisplay( void )
 {
     QString temp;
 
-    temp = i18n("Planet name: ");
+    temp = "<qt>" + i18n("Planet name: ");
     name->setText( temp );
 
-    temp = i18n("Owner: ");
+    temp = "<qt>" + i18n("Owner: ");
     owner->setText( temp );
 
-    temp = i18n("Ships: ");
+    temp = "<qt>" + i18n("Ships: ");
     ships->setText( temp );
 
-    temp = i18n("Production: ");
+    temp = "<qt>" + i18n("Production: ");
     production->setText( temp );
 
-    temp = i18n("Kill percent: ");
+    temp = "<qt>" + i18n("Kill percent: ");
     kill_percent->setText( temp );
-
 }
 
 void PlanetInfo::emptyPlanetInfoList( void )
@@ -127,7 +126,7 @@ void PlanetInfo::showPlanet( Planet *planet )
 
         QString temp;
 
-        temp = i18n("Planet name: %1").arg(planet->getName());
+        temp = "<qt>" + i18n("Planet name: %1").arg(planet->getName());
         name->setText( temp );
         return;
     }
@@ -142,19 +141,19 @@ void PlanetInfo::showPlanet( Planet *planet )
 
             QString temp;
 
-            temp = i18n("Planet name: %1").arg(p->planet->getName());
+            temp = "<qt>" + i18n("Planet name: %1").arg(p->planet->getName());
             name->setText( temp );
 
-            temp = i18n("Owner: %1").arg(p->planet->getPlayer()->getName());
+            temp = "<qt>" + i18n("Owner: %1").arg(p->planet->getPlayer()->getColoredName());
             owner->setText( temp );
 
-            temp = i18n("Ships: %1").arg( KGlobal::locale()->formatNumber(p->ships, 0) );
+            temp = "<qt>" + i18n("Ships: %1").arg( KGlobal::locale()->formatNumber(p->ships, 0) );
             ships->setText( temp );
 
-            temp = i18n("Production: %1").arg( KGlobal::locale()->formatNumber(p->production, 0) );
+            temp = "<qt>" + i18n("Production: %1").arg( KGlobal::locale()->formatNumber(p->production, 0) );
             production->setText( temp );
 
-            temp = i18n("Kill percent: %1").arg( KGlobal::locale()->formatNumber(p->killRate, 3) );
+            temp = "<qt>" + i18n("Kill percent: %1").arg( KGlobal::locale()->formatNumber(p->killRate, 3) );
             kill_percent->setText( temp );
         }
     }

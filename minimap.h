@@ -17,8 +17,10 @@ class MiniMap : public QGridView
 
     // Constructors
 public:
-    MiniMap( Map *newMap, QWidget *parent = 0 );
+    MiniMap( QWidget *parent = 0, const char* name = 0 );
     virtual ~MiniMap();
+
+    void setMap( Map *newMap );
 
 protected:
     void paintCell( QPainter *p, int row, int col );
@@ -27,11 +29,11 @@ private slots:
     void mapUpdate();
 
 private:
-    const int SECTOR_HEIGHT;
-    const int SECTOR_WIDTH;
+    int SECTOR_HEIGHT;
+    int SECTOR_WIDTH;
 
-    const int BOARD_HEIGHT;
-    const int BOARD_WIDTH;
+    int BOARD_HEIGHT;
+    int BOARD_WIDTH;
 
     void drawSector( QPainter *, Sector & );
 

@@ -1,13 +1,16 @@
+#include <qheader.h>
 #include <qlayout.h>
 #include <qcolor.h>
 #include <qlabel.h>
 #include <qslider.h>
 #include <qevent.h>
 #include <qkeycode.h>
-#include <qlistbox.h>
+#include <qlistview.h>
 #include <qpushbutton.h>
 #include <qlineedit.h>
+
 #include <kapplication.h>
+#include <kconfig.h>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
@@ -15,6 +18,7 @@
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
 
+#include "newGameDlg_ui.h"
 
 /*************************************************************************
  New Game Dialog Members
@@ -22,283 +26,247 @@
 
 NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
                         Player *neutralPlayer, PlanetList *planets )
-    : QDialog( parent, 0, true ),
+    : KDialogBase( parent, "new_game_dialog", true, i18n("Start New Game"),
+                   KDialogBase::Ok|KDialogBase::Default|KDialogBase::Cancel, KDialogBase::NoDefault, true ),
       plrList(players), plnetList(planets), neutral(neutralPlayer),
       map(pmap)
 {
-    setCaption(kapp->makeStdCaption(""));
-    // Create widgets
-    QLabel *mapLabel = new QLabel( i18n("Preview map:"), this );
-    mapLabel->setMinimumSize( mapLabel->sizeHint() );
-    miniMap = new MiniMap( map, this );
+    w = new NewGameDlgUI(this);
+    w->map->setMap(map);
+    w->listPlayers->header()->hide();
+//    w->listPlayers->setMinimumSize( 100, 150 );
+    w->listPlayers->setSortColumn(-1);
+    w->listPlayers->setHScrollBarMode(QScrollView::AlwaysOff);
+    w->sliderPlayers->setMinimumWidth(270);
+    w->sliderPlanets->setMinimumWidth(270);
 
-    rejectMapBtn = new QPushButton( i18n("&Reject Map"), this );
-    rejectMapBtn->setFixedSize( rejectMapBtn->sizeHint() );
+    w->newPlayer->setMaxLength( 8 );
 
-    playerList = new QListBox( this );
-    playerList->setMinimumSize( 0, 150 );
+    connect(w->sliderPlayers, SIGNAL(valueChanged(int)), this, SLOT(slotPlayerCount(int)));
+    connect(w->sliderPlanets, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+    connect(w->sliderTurns, SIGNAL(valueChanged(int)), this, SLOT(slotTurns()));
+    connect(w->rejectMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
+    connect(w->newPlayer, SIGNAL(textChanged(const QString &)), this, SLOT(slotNewPlayer()));
+    connect(w->newPlayer, SIGNAL(returnPressed()), this, SLOT(slotAddPlayer()));
+    connect(w->addPlayer, SIGNAL(clicked()), this, SLOT(slotAddPlayer()));
 
-    QLabel *listLabel = new QLabel( playerList, i18n("&Player list:"), this );
-    listLabel->setFixedSize( listLabel->size() );
+    init();
 
-    addAiPlayer = new QPushButton( i18n("&Add Computer Player"), this );
-    addAiPlayer->setMinimumSize( addAiPlayer->sizeHint() );
-
-    newPlayer = new QLineEdit( this );
-    newPlayer->setMaxLength( 8 );
-    newPlayer->setMaximumWidth(100);
-
-    addPlayer = new QPushButton( i18n("&Add"), this );
-    addPlayer->setMinimumSize( addPlayer->sizeHint() );
-
-    deletePlayer = new QPushButton( i18n("&Delete"), this );
-    deletePlayer->setMinimumSize( deletePlayer->sizeHint() );
-
-    clearList = new KPushButton( KStdGuiItem::clear(), this );
-    clearList->setMinimumSize( clearList->sizeHint() );
-
-    neutralPlanets = new QSlider( 1, 35, 1, 1, Qt::Horizontal, this );
-    neutralPlanets->setMinimumHeight(neutralPlanets->sizeHint().height());
-
-    neutralPlanetLbl = new QLabel("Number of neutral planets: 99",this);
-    neutralPlanetLbl->setMinimumSize(neutralPlanetLbl->sizeHint());
-
-    turnCount = new QSlider( 5, 40, 1, 15, Qt::Horizontal, this );
-    turnCount->setTickmarks( QSlider::Below );
-    turnCount->setMinimumHeight(turnCount->sizeHint().height());
-
-    turnCountLbl = new QLabel("Number of turns:", this);
-    turnCountLbl->setMinimumSize(turnCountLbl->sizeHint());
-
-    okBtn = new QPushButton( i18n("&Start Game"), this );
-    okBtn->setFixedSize( okBtn->sizeHint() );
-    okBtn->setEnabled(false);
-
-    cancelBtn = new KPushButton( KStdGuiItem::cancel(), this );
-    cancelBtn->setFixedSize( cancelBtn->sizeHint() );
-
-
-    // Layout Dialog
-
-    QBoxLayout *mainLayout = new QVBoxLayout( this );
-
-    QBoxLayout *mainHLayout = new QHBoxLayout;
-    QBoxLayout *btnRow = new QHBoxLayout(10);
-
-    QBoxLayout *mapColumn = new QVBoxLayout;
-
-    QBoxLayout *playerColumn = new QVBoxLayout(5);
-
-    QBoxLayout *playerEditRow = new QVBoxLayout( );
-
-    mainLayout->addLayout( mainHLayout, 2 );
-
-    mainHLayout->addSpacing( 5 );
-    mainHLayout->addLayout( playerColumn, 2 );
-    mainHLayout->addLayout( playerEditRow );
-    mainHLayout->addSpacing( 20 );
-    mainHLayout->addLayout( mapColumn );
-    mainHLayout->addSpacing(5);
-
-    mapColumn->addSpacing( 5 );
-    mapColumn->addWidget( mapLabel, 0, AlignLeft );
-    mapColumn->addWidget( miniMap, 0, AlignLeft );
-    mapColumn->addSpacing( 5 );
-    mapColumn->addWidget( rejectMapBtn, 0, AlignCenter );
-    mapColumn->addStretch(1);
-
-    playerColumn->addWidget( listLabel, 0, AlignLeft );
-    playerColumn->addWidget( newPlayer, 1, AlignLeft );
-    playerColumn->addWidget( playerList, 1, AlignLeft );
-
-    playerEditRow->addSpacing( 35 );
-    playerEditRow->addWidget( addPlayer, 0 );
-    playerEditRow->addWidget( addAiPlayer, 0 );
-    playerEditRow->addWidget( deletePlayer, 0 );
-    playerEditRow->addWidget( clearList, 0, AlignTop );
-
-    mainLayout->addStretch(1);
-
-    mainLayout->addWidget( neutralPlanetLbl, 1, AlignLeft );
-    mainLayout->addWidget( neutralPlanets, 1 );
-    mainLayout->addWidget( turnCountLbl, 1, AlignLeft );
-    mainLayout->addWidget( turnCount, 1 );
-
-    mainLayout->addStretch(1);
-
-    mainLayout->addSpacing(10);
-    mainLayout->addLayout( btnRow, 0 );
-    mainLayout->addSpacing( 5 );
-
-    btnRow->addStrut( 40 );
-    btnRow->addWidget( okBtn );
-    btnRow->addWidget( cancelBtn );
-    btnRow->addStretch( 1 );
-
-    mainLayout->activate();
-
-    // Connect controls
-
-    connect( okBtn, SIGNAL( clicked() ), this, SLOT( startGame() ) );
-    connect( cancelBtn, SIGNAL( clicked() ), this, SLOT( reject() ) );
-    connect( neutralPlanets, SIGNAL( valueChanged(int) ), this, SLOT( changeNeutralPlanets(int)) );
-    connect( turnCount, SIGNAL( valueChanged(int) ), this, SLOT( changeTurnCount(int)) );
-    connect( addPlayer, SIGNAL( clicked() ), this, SLOT( addNewPlayer() ) );
-    connect( addAiPlayer, SIGNAL( clicked() ), this, SLOT( addNewAiPlayer() ) );
-    connect( newPlayer, SIGNAL( returnPressed() ), this, SLOT( addNewPlayer() ) );
-    connect( deletePlayer, SIGNAL( clicked() ), this, SLOT( removePlayer() ) );
-    connect( clearList, SIGNAL( clicked() ), this, SLOT( clearPlayerList() ) );
-    connect( rejectMapBtn, SIGNAL( clicked() ), this, SLOT( rejectMap() ) );
-
-    newPlayer->setFocus();
-
-    changeTurnCount( 15 );
-    changeNeutralPlanets( 1 );
-
-    setMaximumSize( 490, 320 );
-    setMinimumSize( 490, 320 );
-    resize( 490, 320 );
+    setMainWidget(w);
 }
 
 void
-NewGameDlg::changeNeutralPlanets( int newValue )
+NewGameDlg::slotDefault()
 {
-    QString newText;
+    w->sliderPlayers->setValue(2);
+    w->sliderPlanets->setValue(3);
+    w->sliderTurns->setValue(15);
 
-    newText = i18n("Number of neutral planets: %1").arg( newValue );
+    w->listPlayers->clear();
 
-    neutralPlanetLbl->setText( newText );
+    setPlayerCount(2);
+    
+    updateMiniMap();
+    updateLabels();
+}
+
+void
+NewGameDlg::init()
+{
+    KConfig *config = kapp->config();
+    config->setGroup("Game");
+    int nrOfPlayers = config->readNumEntry("NrOfPlayers");
+    if (nrOfPlayers < 2)
+       nrOfPlayers = 2;
+    if (nrOfPlayers > MAX_PLAYERS)
+       nrOfPlayers = MAX_PLAYERS;
+
+    int nrOfPlanets = config->readNumEntry("NrOfPlanets", 3);
+    int nrOfTurns = config->readNumEntry("NrOfTurns", 15);
+       
+    w->sliderPlayers->setValue(nrOfPlayers);
+    w->sliderPlanets->setValue(nrOfPlanets);
+    w->sliderTurns->setValue(nrOfTurns);
+    setPlayerCount(nrOfPlayers);
+    slotNewPlayer();
+    
+    // Restore player names
+    int plrNum = 0;
+    for( QListViewItem *item = w->listPlayers->firstChild(); 
+         item; item = item->nextSibling(), plrNum++ )
+    {
+       QString key = QString("Player_%1").arg(plrNum);
+       
+       QString playerName = config->readEntry(key);
+       if (playerName.isEmpty())
+          continue;
+
+       item->setText(2, "H"); // Human
+       item->setText(1, i18n("Human Player"));
+       item->setText(0, playerName);
+    }
 
     updateMiniMap();
+    updateLabels();
 }
 
 void
-NewGameDlg::changeTurnCount( int newTurnCount )
+NewGameDlg::slotNewPlayer()
 {
-    QString newText;
-
-    newText = i18n("Number of turns: %1").arg( newTurnCount );
-
-    turnCountLbl->setText( newText );
+    w->addPlayer->setEnabled(!w->newPlayer->text().isEmpty());
 }
 
 void
-NewGameDlg::addNewPlayer()
+NewGameDlg::slotAddPlayer()
 {
-    // Is there room for a new player
-    if( playerList->count() >= MAX_PLAYERS )
-        return;
+    QString playerName = w->newPlayer->text();
+    if (playerName.isEmpty())
+       return;
+       
+    QListViewItem *item;
+    do
+    {
+       item = w->listPlayers->firstChild();
+       while( item )
+       {
+          if (item->text(2) == "A")
+             break;
 
-    // Is the name empty
-    if( newPlayer->text().isEmpty() )
-        return;
-
-    // Does the name already exist in the list
-    for( unsigned int x = 0; x < playerList->count(); x++ ) {
-        if( newPlayer->text() == playerList->text(x) )
-            return;
+          item = item->nextSibling();
+       }
+       if (!item)
+       {
+          int nrPlayers = w->listPlayers->childCount();
+          if (nrPlayers >= MAX_PLAYERS)
+             return; // Too bad
+          nrPlayers++;
+          w->sliderPlayers->setValue(nrPlayers);
+          setPlayerCount(nrPlayers);
+       }
     }
-
-    // Insert the player
-    playerList->insertItem( newPlayer->text() );
-    newPlayer->setText( "" );
-
-    if( playerList->count() > 1)
-       okBtn->setEnabled(true);
-
-    // update the map and game objects
+    while(!item);
+    
+    item->setText(2, "H"); // Human
+    item->setText(1, i18n("Human Player"));
+    item->setText(0, playerName);
+    
+    w->newPlayer->setText(QString::null);
+    
     updateMiniMap();
-}
-
-void NewGameDlg::addNewAiPlayer() {
-
-    // Is there room for a new player
-    if( playerList->count() >= MAX_PLAYERS )
-        return;
-
-    // Does the name already exist in the list
-    for( unsigned int x = 0; x < playerList->count(); x++ ) {
-        if( newPlayer->text() == playerList->text(x) )
-            return;
-    }
-
-    // Insert the player
-    QString name;
-    int aiNumber = 0;
-
-    for( unsigned int plrNum = 0; plrNum < playerList->count(); plrNum++ ) {
-        QString plrName( playerList->text( plrNum ) );
-        if (plrName.startsWith("Comp"))
-        	aiNumber++;
-    }
-
-    name = i18n("Generated AI player name", "Comp%1").arg(aiNumber+1);
-    playerList->insertItem( name );
-
-    if( playerList->count() > 1)
-       okBtn->setEnabled(true);
-
-    // update the map and game objects
-    updateMiniMap();
+    updateLabels();
 }
 
 void
-NewGameDlg::removePlayer()
-{
-    int player = playerList->currentItem();
-
-    if( player >= 0 ) {
-        playerList->removeItem( player );
-    }
-    if( playerList->count() < 2)
-       okBtn->setEnabled(false);
-
-    updateMiniMap();
-}
-
-void
-NewGameDlg::clearPlayerList()
-{
-    playerList->clear();
-
-    updateMiniMap();
-}
-
-void
-NewGameDlg::startGame()
-{
-    if( playerList->count() > 1 ) {
-        accept();
-    }
-}
-
-void
-NewGameDlg::rejectMap()
-{
-    map->clearMap();
-
-    // clear out the planet list
-    Planet *planet;
-    planet = plnetList->first();
-    for( planet = plnetList->take(); planet != 0; planet = plnetList->take() ) {
-        delete planet;
-    }
-
-    // relayout the map
-    map->populateMap( *plrList, neutral,
-                      neutralPlanets->value(),
-                      *plnetList );
-
-}
-
-void
-NewGameDlg::updateMiniMap( void )
+NewGameDlg::setPlayerCount(int playerCount)
 {
     QColor PlayerColors[MAX_PLAYERS] = { QColor( 130, 130, 255 ), yellow, red, green,
-    		white, cyan, magenta,  QColor( 131, 153, 128), QColor( 235, 153, 46 ),
-		QColor( 106, 157, 104 ) };
+    		white, cyan, magenta, QColor( 235, 153, 46 ),
+		QColor( 106, 157, 104 ),  QColor( 131, 153, 128) };
+       
+    int i = 0;
+    QListViewItem *lastItem = 0;
+    QListViewItem *item = 0;
+    QListViewItem *nextItem = w->listPlayers->firstChild();
+    while( (item = nextItem) )
+    {
+       nextItem = item->nextSibling();
+       if (i >= playerCount)
+       {
+          delete item;
+       }
+       else
+       {
+          lastItem = item;
+       }
+       i++;
+    }
+    
+    while(w->listPlayers->childCount() < playerCount)
+    {
+       QString playerName = i18n("Generated AI player name", "Comp%1").arg(i+1);
+       QPixmap pm(16,16);
+       QColor color(PlayerColors[i]);
+       pm.fill(color);
+       QListViewItem *item = new QListViewItem(w->listPlayers, lastItem, playerName, i18n("Computer Player"), "A", color.name());
+       item->setPixmap(0, pm);
+       lastItem = item;
+       i++;
+    }
+}
 
+void
+NewGameDlg::slotPlayerCount(int playerCount)
+{
+    if (w->listPlayers->childCount() == playerCount)
+       return;
+       
+    setPlayerCount(playerCount);
+       
+    updateMiniMap();
+    updateLabels();
+}
 
+void
+NewGameDlg::slotTurns()
+{
+    updateLabels();
+}
+
+void
+NewGameDlg::slotNewMap()
+{
+    updateMiniMap();
+    updateLabels();
+}
+
+int
+NewGameDlg::turns()
+{
+    return w->sliderTurns->value();
+}
+
+void
+NewGameDlg::updateLabels()
+{
+    w->labelPlayers->setText(i18n("Number of &players: %1").arg(w->sliderPlayers->value()));
+    w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1").arg(w->sliderPlanets->value()));
+    w->labelTurns->setText(i18n("Number of &turns: %1").arg(w->sliderTurns->value()));
+}
+
+void
+NewGameDlg::save()
+{
+    KConfig *config = kapp->config();
+    config->setGroup("Game");
+    
+    config->writeEntry("NrOfPlayers", w->sliderPlayers->value());
+    config->writeEntry("NrOfPlanets", w->sliderPlanets->value());
+    config->writeEntry("NrOfTurns", w->sliderTurns->value());
+
+    int plrNum = 0;
+    for( QListViewItem *item = w->listPlayers->firstChild(); 
+         item; item = item->nextSibling() )
+    {
+        QString key = QString("Player_%1").arg(plrNum);
+        QString playerName = item->text(0);
+        bool ai = (item->text(2) == "A");
+        if (ai)
+        {
+           if (config->hasKey(key))
+              config->deleteEntry(key);
+        }
+        else
+        {
+           config->writeEntry(key, playerName);
+        }
+        plrNum++;
+    }
+    config->sync();
+}
+
+void
+NewGameDlg::updateMiniMap()
+{
     // Clear map,, player and planet lists
     map->clearMap();
 
@@ -315,23 +283,21 @@ NewGameDlg::updateMiniMap( void )
     }
 
     // Make player list
-    for( unsigned int plrNum = 0; plrNum < playerList->count(); plrNum++ ) {
-        QString plrName( playerList->text( plrNum ) );
-        bool ai = false;
-        if (plrName.startsWith("Comp"))
-        	ai = true;
-        plrList->append( Player::createPlayer( plrName, PlayerColors[plrNum], plrNum, ai ));
+    // Does the name already exist in the list
+    int plrNum = 0;
+    for( QListViewItem *item = w->listPlayers->firstChild(); 
+         item; item = item->nextSibling() )
+    {
+        QString playerName = item->text(0);
+        bool ai = (item->text(2) == "A");
+        QColor color(item->text(3));
+        plrList->append( Player::createPlayer( playerName, color, plrNum, ai ));
+        plrNum++;
     }
 
     // make the planets
     map->populateMap( *plrList, neutral,
-                      neutralPlanets->value(),
+                      w->sliderPlanets->value(),
                       *plnetList );
-
 }
 
-int
-NewGameDlg::turns()
-{
-    return turnCount->value();
-}
