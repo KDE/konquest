@@ -30,15 +30,8 @@ METASOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(konquest_SOURCES) && mv messages.po ../po/konquest.pot
 
-kde_icon_DATA = konquest.xpm
+KDE_ICON = konquest
 
 appsdir = $(kde_appsdir)/Games
 apps_DATA = konquest.desktop
 
-install-data-local: 
-	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) $(srcdir)/mini-konquest.xpm $(kde_minidir)/konquest.xpm
-
-# remove ALL you have installed in install-data-local or install-exec-local
-uninstall-local:
-	-rm -f $(kde_minidir)/konquest.xpm
