@@ -332,7 +332,7 @@ GameBoard::nextTurn( void )
 
     // advance to first living player
     while( currentPlayer->current() && !currentPlayer->current()->isInPlay() ) {
-    	(*currentPlayer)++;
+    	++(*currentPlayer);
     };
 
     // advance turn counter
