@@ -13,6 +13,7 @@
 #include "mainwin.h"
 #include "mainwin.moc"
 #include "gameboard.h"
+#include <klocale.h>
 
 // KonquestMainWindow
 

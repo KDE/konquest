@@ -7,6 +7,7 @@
 #include <iostream.h>
 
 #include "planet_info.h"
+#include <klocale.h>
 #include "planet_info.moc"
 
 PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )

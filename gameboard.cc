@@ -24,6 +24,7 @@
 #include "gameenddlg.h"
 #include "scoredlg.h"
 #include "gameboard.h"
+#include <klocale.h>
 #include "gameboard.moc"
 
 

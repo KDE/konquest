@@ -6,6 +6,7 @@
 #include <iostream.h>
 
 #include "scoredlg.h"
+#include <klocale.h>
 #include "scoredlg.moc"
 
 ScoreDlg::ScoreDlg( QWidget *parent, const char *title, PlayerList *players )
