@@ -6,6 +6,8 @@
 #include "gamecore.h"
 #include "minimap.h"
 
+class KPushButton;
+
 /*************************************************************************
  New Game Dialog
  ************************************************************************/
@@ -19,7 +21,7 @@ public:
                 Player *neutralPlayer, PlanetList *planetList );
 
     int turns( void );
-    
+
 public slots:
     void changeNeutralPlanets( int );
     void changeTurnCount( int );
@@ -29,7 +31,7 @@ public slots:
     void clearPlayerList();
     void startGame();
     void rejectMap();
-    
+
 private:
     void updateMiniMap( void );
 
@@ -45,7 +47,7 @@ private:
     QPushButton *addAiPlayer;
     QPushButton *addPlayer;
     QPushButton *deletePlayer;
-    QPushButton *clearList;
+    KPushButton *clearList;
     QSlider *neutralPlanets;
     QSlider *turnCount;
     QLabel *neutralPlanetLbl;
