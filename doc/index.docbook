@@ -38,6 +38,8 @@
 <contrib>Reviewer</contrib>
 </othercredit>
 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+
 <copyright>
 <year>2000</year>
 <holder>Nicholas Robbins</holder>
@@ -196,6 +198,8 @@ for more information.</para>
 
 <para>Documentation copyright 2000 Nicholas Robbins
 <email>logik9000@home.com</email></para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;               <!-- FDL: do not remove -->
 
