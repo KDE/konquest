@@ -1,4 +1,5 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN">
+
 <book lang="en">
 <bookinfo>
 <title>The Konquest Handbook</title>
@@ -8,26 +9,22 @@
 <surname>Steffen</surname>
 </author>
 </authorgroup>
-<date>Last Update 13 May 1999</date>
-<releaseinfo><!-- information about this particular version --></releaseinfo>
-<revhistory>
-<revision>
-<revnumber></revnumber>
-<date></date>
-</revision>
-</revhistory>
+<date>13/05/1999</date>
+<releaseinfo>1.00.00</releaseinfo>
 <abstract>
 <para>This the KDE version of Gnu-Lactic Konquest, a multi-player strategy
 game. The goal of the game is to expand your interstellar empire across the
-galaxy and of course, crush your rivals in the process. </para>
-<para>This the KDE version of Gnu-Lactic Konquest, a multi-player strategy game.</para><!-- Merge this with the previous paragraph; it comes from <META NAME="description" CONTENT="..."> --></abstract>
+galaxy and of course, crush your rivals in the process.</para>
+</abstract>
 <keywordset>
-<keyword>Gnu-Lactic Konquest</keyword>
-<keyword>galaxies</keyword>
 <keyword>KDE</keyword>
+<keyword>Konquest</keyword>
+<keyword>Gnu-Lactic</keyword>
+<keyword>galaxies</keyword>
 <keyword>game</keyword>
 </keywordset>
 </bookinfo>
+
 <chapter id="PlayingTheGame">
 <title>Playing The Game</title>
 <para>When the game starts, you and all of your opponents each have control of one
