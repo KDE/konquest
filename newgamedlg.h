@@ -31,6 +31,7 @@ protected slots:
     void slotNewPlayer();
     void slotAddPlayer();
     void slotDefault();
+    void slotOk();
 
 private:
     void init();
