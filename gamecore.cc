@@ -7,6 +7,7 @@
 
 #include <iostream.h>
 
+#include <config.h>
 
 //*******************************************************************
 // Game Core Logic
@@ -18,7 +19,7 @@ CoreLogic::CoreLogic()
 {
     if( !class_init )
     {
-        srand( time(NULL) );
+        srandom( time(NULL) );
         
         class_init = true;
     }
@@ -28,22 +29,22 @@ void
 CoreLogic::generatePlanetCoordinates( int &x, int &y )
 {
     // 0 - 15
-    x = (int)(16.0*rand()/(RAND_MAX+1.0));
-    y = (int)(16.0*rand()/(RAND_MAX+1.0));
+    x = random() % 16;
+    y = random() % 16;
 }
 
 double
 CoreLogic::generateKillPercentage( void )
 {
     // 0.30 - 0.90
-    return 0.30 + (0.60*rand()/(RAND_MAX+1.0));
+    return 0.30 + (random()%6000)/10000;
 }
 
 int
 CoreLogic::generatePlanetProduction( void )
 {
     // 5 - 15
-    return 5+(int)(15.0*rand()/(RAND_MAX+1.0));
+    return 5+random()%11;
 }
 
 double
@@ -65,8 +66,9 @@ CoreLogic::distance( Planet *p1, Planet *p2 )
 double
 CoreLogic::roll( void )
 {
-    // 0 - 100
-    return (1.00*rand()/(RAND_MAX+1.0));
+    // 0 - 100 //// ??? Looks like 0 - 1 to me ! David.
+    //return (1.00*rand()/(RAND_MAX+1.0));
+    return (random()%30000/30000);    // don't rely on RAND_MAX
 }
 
 //---------------------------------------------------------------------------
