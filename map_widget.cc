@@ -7,13 +7,8 @@
 #include <kglobal.h>
 #include "map_widget.moc"
 
-#if QT_VERSION < 300
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
-    : QTableView( parent ),
-#else
-ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
-    : QtTableView( parent ),
-#endif
+    : QGridView( parent ),
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
@@ -33,13 +28,13 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     setMaximumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
-    
+
     QTimer *timer = new QTimer( this );
     connect( timer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
     timer->start( 500, false );
 
     setMouseTracking( true );
-    
+
     show();
 
 };
@@ -54,9 +49,9 @@ ConquestMap::mousePressEvent( QMouseEvent *e )
 {
     int row, col;
 
-    row = findRow( e->y() );
-    col = findCol( e->x() );
-    
+    row = rowAt( e->y() );
+    col = columnAt( e->x() );
+
     if( map->getSector( row, col ).hasPlanet() ) {
         emit planetSelected( map->getSector( row, col ).getPlanet() );
     }
@@ -68,22 +63,18 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
     // highlight the square under the mouse
     int row, col;
 
-    row = findRow( e->y() );
-    col = findCol( e->x() );
+    row = rowAt( e->y() );
+    col = columnAt( e->x() );
 
     if( row == -1 || col == -1 ) {
 	    return;
     }
-    
+
 
     if( (hiLiteRow != -1) && (hiLiteCol != -1)  ) {
         QPainter p( this );
 
-        int x, y;
-        colXPos( hiLiteCol, &x );
-        rowYPos( hiLiteRow, &y );
-
-        p.translate( x,y );
+        p.translate( hiLiteCol * cellWidth(), hiLiteRow * cellHeight() );
 
         drawSector( &p, map->getSector(hiLiteRow,hiLiteCol) );
 
@@ -95,15 +86,11 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
     if( map->getSector( row, col ).hasPlanet() ) {
         QPainter p( this );
 
-        int x, y;
-        colXPos( col, &x );
-        rowYPos( row, &y );
-
-        p.translate( x,y );
+        p.translate( col * cellWidth(),row * cellHeight() );
 
         drawSector( &p, map->getSector(row,col), false, true );
         emit planetHighlighted(map->getSector( row, col ).getPlanet() );
-        
+
         hiLiteRow = row;
         hiLiteCol = col;
 
@@ -133,11 +120,7 @@ ConquestMap::squareBlink()
     if( map->selectedSector( row, col ) ) {
         QPainter p( this );
 
-        int x, y;
-        colXPos( col, &x );
-        rowYPos( row, &y );
-
-        p.translate( x,y );
+        p.translate( col * cellWidth(), row * cellHeight() );
 
         if( blinkState ) {
             drawSector( &p, map->getSector(row,col), true );
@@ -163,14 +146,12 @@ ConquestMap::mapUpdate()
 void
 ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool highlight )
 {
-    int x, y;  // sector graphic coords
-
     QColor labelColor( white );
     QPoint labelCorner;
-    
+
     // calculate the x,y coordinates of the sector
-    colXPos( sector.getRow(), &x );
-    rowYPos( sector.getColumn(), &y );
+    int x = sector.getColumn() * cellWidth();
+    int y = sector.getRow() * cellHeight();
 
     if( sector.hasPlanet() ) {
         QPixmap pm;
@@ -220,13 +201,13 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
         pos.setX( ( SECTOR_HEIGHT / 2 ) - ( pm.height() / 2 ) );
         pos.setY( ( SECTOR_WIDTH / 2 ) - ( pm.width() / 2 ) );
-        
+
         p->drawPixmap( pos, pm, QRect(0, 0, pm.height(), pm.width() ) );
-        
+
         p->setFont( labelFont );
         p->setPen( labelColor );
         p->drawText( labelCorner, sector.getPlanet()->getName() );
-        
+
         if( borderStrobe ) {
             QPen gridPen( sector.getPlanet()->getPlayer()->getColor() );
             p->setPen( gridPen );
@@ -240,7 +221,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
     } else {
         p->eraseRect( 0, 0, SECTOR_WIDTH, SECTOR_HEIGHT );
-        
+
         QPen gridPen( gridColor );
 
         p->setPen( gridPen );

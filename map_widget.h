@@ -6,22 +6,14 @@
 #include <qframe.h>
 #include <qpixmap.h>
 
-#if QT_VERSION < 300
-#include <qtableview.h>
-#else
-#include <qttableview.h>
-#endif
+#include <qgridview.h>
 
 #include <qtimer.h>
 
 #include "gamecore.h"
 #include "images.h"
 
-//#if QT_VERSION < 300
-//class ConquestMap : public QTableView
-//#else
-class ConquestMap : public QtTableView
-//#endif
+class ConquestMap : public QGridView
 {
     Q_OBJECT
 
@@ -46,7 +38,7 @@ private slots:
 signals:
     void planetSelected( Planet * );
     void planetHighlighted( Planet * );
-    
+
 private:
     const int SECTOR_HEIGHT;
     const int SECTOR_WIDTH;

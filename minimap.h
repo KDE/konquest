@@ -4,14 +4,14 @@
 #include <qwidget.h>
 #include <qframe.h>
 #include <qpixmap.h>
-#include <qttableview.h>
+#include <qgridview.h>
 #include <qtimer.h>
 
 #include "gamecore.h"
 #include "images.h"
 
 
-class MiniMap : public QtTableView
+class MiniMap : public QGridView
 {
     Q_OBJECT
 
