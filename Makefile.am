@@ -9,6 +9,7 @@ konquest_SOURCES = Konquest.cc gameboard.cc gamecore.cc int_validator.cc \
 	gameenddlg.cc  scoredlg.cc fleetdlg.cc
 konquest_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 konquest_LDADD = $(LIB_KDEGAMES)
+konquest_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 
 METASOURCES = gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
