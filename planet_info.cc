@@ -2,7 +2,7 @@
 #include <qlayout.h>
 #include <qcolor.h>
 #include <qpalette.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 
 #include "planet_info.h"

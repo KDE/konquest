@@ -7,7 +7,7 @@
 #include <qlistbox.h>
 #include <qpushbutton.h>
 #include <qlineedit.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 
 #include "newgamedlg.h"

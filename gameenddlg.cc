@@ -1,7 +1,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 #include <qslider.h>
 

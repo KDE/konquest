@@ -5,7 +5,7 @@
 #include <qpopupmenu.h>
 #include <qfont.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <ktoolbar.h>
 #include <klocale.h>
 #include <kmenubar.h>

@@ -1,7 +1,7 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <kiconloader.h>
 
 #include "minimap.h"
