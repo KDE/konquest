@@ -51,7 +51,7 @@ MainWindow::setupKAction()
     standingAction->setEnabled(false);
     fleetAction = new KAction( i18n("&Fleet Overview"), "launch", 0, gameBoard, SLOT( showFleets() ), actionCollection(), "game_fleets" );
     fleetAction->setEnabled(false);
-    createGUI();
+    setupGUI();
 
     toolBar()->setBarPos( KToolBar::Left );
     toolBar()->setMovingEnabled( false );
