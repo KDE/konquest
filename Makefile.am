@@ -1,41 +1,28 @@
-
-# set the include path for X, qt and KDE
-INCLUDES= -I$(top_srcdir)/libkdegames $(all_includes)
-# claim, which subdirectories you want to install
 SUBDIRS = pics 
 
-####### This part is very khexdit specific
-# you can add here more. This one gets installed 
-bin_PROGRAMS = 	konquest
+INCLUDES= -I$(top_srcdir)/libkdegames $(all_includes)
+LDFLAGS = $(all_libraries) $(KDE_RPATH)
+LDADD = $(LIB_KDEGAMES)
+KDE_ICON = konquest
 
-# Which sources should be compiled for khexdit.
+bin_PROGRAMS = konquest
 konquest_SOURCES = Konquest.cc gameboard.cc gamecore.cc int_validator.cc \
 	mainwin.cc map_widget.cc minimap.cc newgamedlg.cc planet_info.cc \
 	gameenddlg.cc  scoredlg.cc
-
-# the library search path
-konquest_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-
-# the libraries to link against. Be aware of the order. First the libraries,
-# that depend on the following ones.
-konquest_LDADD   = $(LIB_KDEGAMES) $(LIB_KDEUI)
-
-# this option you can leave out. Just, if you use "make dist", you need it
-noinst_HEADERS = gameboard.h gamecore.h images.h int_validator.h mainwin.h map_widget.h minimap.h newgamedlg.h planet_info.h gameenddlg.h
-
-METASOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
-      map_widget.moc minimap.moc newgamedlg.moc planet_info.moc scoredlg.moc \
+METASOURCES = gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
+    map_widget.moc minimap.moc newgamedlg.moc planet_info.moc scoredlg.moc \
 	gameenddlg.moc
+
+appsdir   = $(kde_appsdir)/Games/TacticStrategy
+apps_DATA = konquest.desktop
+
+EXTRA_DIST = $(apps_DATA)
 
 rcdir = $(kde_datadir)/konquest
 rc_DATA = konquestui.rc
 
 messages: rc.cpp
-	$(XGETTEXT) rc.cpp $(konquest_SOURCES) -o $(podir)/konquest.pot
-
-KDE_ICON  = konquest
-appsdir   = $(kde_appsdir)/Games/TacticStrategy
-apps_DATA = konquest.desktop
+	$(XGETTEXT) rc.cpp *.cc -o $(podir)/konquest.pot
 
 install-data-local:
 	rm -rf $(DESTDIR)$(kde_appsdir)/Games/konquest.desktop
