@@ -1,4 +1,4 @@
-#include <ktablistbox.h>
+#include <klistview.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <kapp.h>
@@ -15,14 +15,13 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 {
     setCaption( title );
 
-    scoreTable = new KTabListBox( this, 0 );
-    scoreTable->setNumCols( 6 );
-    scoreTable->setColumn( 0, i18n("Player"), 70 );
-    scoreTable->setColumn( 1, i18n("Ships Built"), 70 );
-    scoreTable->setColumn( 2, i18n("Planets Conquered"), 120 );
-    scoreTable->setColumn( 3, i18n("Fleets Launched"), 110 );
-    scoreTable->setColumn( 4, i18n("Fleets Destroyed"), 100 );
-    scoreTable->setColumn( 5, i18n("Ships Destroyed"), 100 );
+    scoreTable = new QListView( this, 0 );
+    scoreTable->addColumn(i18n("Player"), 70 );
+    scoreTable->addColumn(i18n("Ships Built"), 70 );
+    scoreTable->addColumn(i18n("Planets Conquered"), 120 );
+    scoreTable->addColumn(i18n("Fleets Launched"), 110 );
+    scoreTable->addColumn(i18n("Fleets Destroyed"), 100 );
+    scoreTable->addColumn(i18n("Ships Destroyed"), 100 );
 
     QPushButton *okButton = new QPushButton( i18n("OK"), this );
     okButton->setMinimumSize( okButton->sizeHint() );
@@ -30,7 +29,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 
     QVBoxLayout *layout1 = new QVBoxLayout( this );
     QHBoxLayout *layout2 = new QHBoxLayout;
-    
+
     layout1->addWidget( scoreTable, 1 );
     layout1->addLayout( layout2 );
 
@@ -39,7 +38,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     layout2->addStretch( 2 );
 
     connect( okButton, SIGNAL(clicked()), this, SLOT(accept()) );
-    
+
     init();
 
     resize( 580, 140  );
@@ -51,24 +50,13 @@ ScoreDlg::init( void )
     Player *curPlayer;
     PlayerListIterator itr( *plrList );
 
-    for( ;(curPlayer = itr()); ) {
-        QString item;
-
-        QChar sep = scoreTable->separator();
-        
-        item  = curPlayer->getName();
-        item += sep;
-        item += curPlayer->getShipsBuilt();
-        item += sep;
-        item += curPlayer->getPlanetsConquered();
-        item += sep;
-        item += curPlayer->getFleetsLaunched();
-        item += sep;
-        item += curPlayer->getEnemyFleetsDestroyed();
-        item += sep;
-        item += curPlayer->getEnemyShipsDestroyed();
-
-        scoreTable->insertItem( item );
-    }
+    for( ;(curPlayer = itr()); )
+        (void) new QListViewItem(scoreTable,
+                                 curPlayer->getName(),
+                                 QString("%1").arg(curPlayer->getShipsBuilt()),
+                                 QString("%1").arg(curPlayer->getPlanetsConquered()),
+                                 QString("%1").arg(curPlayer->getFleetsLaunched()),
+                                 QString("%1").arg(curPlayer->getEnemyFleetsDestroyed()),
+                                 QString("%1").arg(curPlayer->getEnemyShipsDestroyed()));
 }
 

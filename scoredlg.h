@@ -5,19 +5,19 @@
 
 #include "gamecore.h"
 
-class KTabListBox;
+class QListView;
 
 class ScoreDlg : public QDialog
 {
     Q_OBJECT
 public:
     ScoreDlg( QWidget *parent, const QString& title, PlayerList *players );
-    
+
 private:
     void init( void );
 
     PlayerList *plrList;
-    KTabListBox *scoreTable;
+    QListView *scoreTable;
 
 };
 
