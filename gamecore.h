@@ -13,7 +13,7 @@
 #define BOARD_COLS 16
 
 // Maximum Number of Players
-#define MAX_PLAYERS 5
+#define MAX_PLAYERS 10
 
 
 //**********************************************************
@@ -228,7 +228,7 @@ private:
 class Sector : public QObject
 {
     Q_OBJECT
-        
+
 public:
 
     // constructors
