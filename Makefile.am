@@ -46,7 +46,6 @@ BUILTSOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
 DISTCLEANFILES = $(BUILTSOURCES)
 
 messages:
-	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(konquest_SOURCES) && mv messages.po ../po/konquest.pot
 
 # just install datas here. Use install-exec-data for scripts and etc.
 # the binary itself is already installed from automake
