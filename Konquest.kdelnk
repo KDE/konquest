@@ -11,6 +11,7 @@ Name[sv]=Erövring
 Exec=konquest -caption %c
 Type=Application
 Comment=A game of galactic conquest
+Comment[ca]=Un joc de conquestes galàctiques
 Comment[cs]=Hra o dobývání galaxie
 Comment[da]=Et spil om galaktisk erobring
 Comment[es]=Un juego de conquista galáctica
