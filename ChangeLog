@@ -1,3 +1,8 @@
+2005-02-18  Inge Wallin  <ingwa@dhcp-254-182.lkpg.cendio.se>
+
+	* version.h (KONQUEST_VERSION): Bumped version number to 1.1
+	because of the upcoming release of KDE 3.4.
+
 2004-08-22  Inge Wallin  <inge@lysator.liu.se>
 
 	* gameboard.cc (nextTurn): Fixed a grammatical error.
