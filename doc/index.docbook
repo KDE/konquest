@@ -1,0 +1,89 @@
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN">
+<book lang="en">
+<bookinfo>
+<title>The Konquest Handbook</title>
+<authorgroup>
+<author>
+<firstname>Russ</firstname>
+<surname>Steffen</surname>
+</author>
+</authorgroup>
+<date>Last Update 13 May 1999</date>
+<releaseinfo><!-- information about this particular version --></releaseinfo>
+<revhistory>
+<revision>
+<revnumber></revnumber>
+<date></date>
+</revision>
+</revhistory>
+<abstract>
+<para>This the KDE version of Gnu-Lactic Konquest, a multi-player strategy
+game. The goal of the game is to expand your interstellar empire across the
+galaxy and of course, crush your rivals in the process. </para>
+<para>This the KDE version of Gnu-Lactic Konquest, a multi-player strategy game.</para><!-- Merge this with the previous paragraph; it comes from <META NAME="description" CONTENT="..."> --></abstract>
+<keywordset>
+<keyword>Gnu-Lactic Konquest</keyword>
+<keyword>galaxies</keyword>
+<keyword>KDE</keyword>
+<keyword>game</keyword>
+</keywordset>
+</bookinfo>
+<chapter id="PlayingTheGame">
+<title>Playing The Game</title>
+<para>When the game starts, you and all of your opponents each have control of one
+planet, with the remainder of the planets under control of their native,
+agrarian, non-aggressive inhabitants.</para>
+<para>To begin your conquest of the galaxy, you will need to send out raiding parties
+to your neighboring planets. Each player in turn will be prompted to enter a set
+of fleet movements for the current turn. To enter a fleet movement, select the
+source planet by keyboard (the planets are &quot;named&quot; after single
+letters/numbers/glyphs) or by mouse (click once on the planet). Then, enter the
+number of ships to send. </para>
+<para>Each grid on the map represents 0.5 light years, and the ships travel at
+&quot;light speed&quot;. So, a fleet traveling to an adjacent sector will
+arrive at the end of the current turn. A fleet traveling to a sector 2 grids
+away will arrive in the next turn. </para>
+<para>After entering all of your moves, click the &quot;End Turn&quot; button.</para>
+<para>When a fleet arrives at a planet that you already own, the arriving fleet will be absorbed into the defense fleet stationed at the planet. </para>
+<para>When a fleet arrives at a planet you don't own, a fight for control of the planet will begin. It is a fight to the death, and either the attacking fleet will be destroyed and the planet will hold. Or, the home
+defense fleet will be destroyed and the attacker will assume control of the planet </para>
+<para><emphasis remap="bf">Hint</emphasis> Defense fleets have an advantage over attackers. It's safe to assume
+that you will need several more ships to take a planet than currently hold it.</para>
+<sect1>
+<title>Planet Status</title>
+<para>The Planet Status indicator (the big black box on the left) is your source for
+intelligence on the state of the Galaxy. Your spies will report on the status of
+your rivals, but not on the native-controlled planets. The information present
+in the display is: name, owner, production rate, fleet strength and kill
+percentage. The production rate is the number of ships that planet will
+construct in one turn. The fleet strength is the number of ships currently in
+place at the planet. And, the kill percentage is a measure of the effectiveness
+of the ships produced at that planet. Attack fleets take the kill percentage 
+of their planet of departure, and defense fleets use the kill percentage of the
+planet they are defending.</para>
+<para><emphasis remap="bf">Hint</emphasis> If you capture a planet with a high kill percentage, you may want to
+funnel some of your attack fleets through this planet, as they will &quot;pick
+up&quot; the kill percentage of this planet.</para>
+</sect1>
+</chapter>
+<chapter id="Notes">
+<title>Notes</title>
+<para>You may experience problems on low-color (8bpp) displays. Konquest is color-eater, entirely because of the scanned graphics. </para>
+</chapter>
+<chapter id="Epilogue">
+<title>Epilogue</title>
+<sect1>
+<title>Author</title>
+<para>GNU-Lactic Conquest Project, KDE version by Russ Steffen, <ulink url="mailto:rsteffen@ia.net">rsteffen@ia.net</ulink>. See 
+<ulink url="http://www.ia.net/~rsteffen/konquest/">http://www.ia.net/~rsteffen/konquest/</ulink> for more information.</para>
+<para>Copyright &copy; 1998 by the GNU-Lactic Conquest Project </para>
+</sect1>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

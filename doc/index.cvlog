@@ -1,0 +1,13 @@
+=== LinuxDoc conversion errors ===================
+Russ Steffen, Russ, , Steffen, 
+-> Check if any important attributes have been left behind.
+    INPUT                     OUTPUT
+Line Tag                  Line Tag
+  12 `TOC'                   0 `'
+  39 `BF'                    0 `<emphasis remap="bf">'
+! Check and correct manually
+  55 `BF'                    0 `<emphasis remap="bf">'
+! Check and correct manually
+  66 `HTMLURL'               0 `<ulink>'
+  67 `URL'                   0 `<ulink>'
+=== NIF conversion errors ========================
