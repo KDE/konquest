@@ -1,0 +1,18 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="konquest" version="1">
+<MenuBar>
+  <Menu name="game"><text>&amp;Game</text>
+  <Action name="game_end"/>
+  <Separator/>
+  <Action name="game_measure"/>
+  <Action name="game_scores"/>
+  </Menu>
+</MenuBar>
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="game_new"/>
+  <Action name="game_end"/>
+  <Separator/>
+  <Action name="game_measure"/>
+  <Action name="game_scores"/>
+</ToolBar>
+</kpartgui>

@@ -27,8 +27,11 @@ METASOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
       map_widget.moc minimap.moc newgamedlg.moc planet_info.moc scoredlg.moc \
 	gameenddlg.moc
 
-messages:
-	$(XGETTEXT) $(konquest_SOURCES) -o $(podir)/konquest.pot
+rcdir = $(kde_datadir)/konquest
+rc_DATA = konquestui.rc
+
+messages: rc.cpp
+	$(XGETTEXT) rc.cpp $(konquest_SOURCES) -o $(podir)/konquest.pot
 
 KDE_ICON  = konquest
 appsdir   = $(kde_appsdir)/Games

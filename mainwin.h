@@ -21,13 +21,10 @@ public:
 
 
 protected:
-    void setupMenu();
-    void setupToolBar();
+    void setupKAction();
     void setupGameBoard();
 
 private:
-    KMenuBar *menubar;
-    KToolBar *toolbar;
     GameBoard *gameBoard;
 
 private slots:
