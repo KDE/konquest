@@ -52,7 +52,7 @@ MainWindow::setupMenu()
         "See http://www.ia.net/~rsteffen/konquest.html for more info")
 	.arg(KONQUEST_VERSION);
     
-    QPopupMenu *help_menu = KApplication::kApplication()->helpMenu( true, about );
+    QPopupMenu *help_menu = helpMenu( about );
     
     menubar = new KMenuBar( this );
     menubar->insertItem( i18n("&Game"), game_menu );
