@@ -3,8 +3,10 @@
 Icon=konquest.xpm
 Name=Konquest
 Name[pl]=Konquest
+Name[pt_BR]=Konquest
 Exec=konquest -caption %c
 Type=Application
 Comment=A game of galactic conquest
 Comment[pl]=Podbój galaktyki
+Comment[pt_BR]=Jogo de conquista galáctica
 Terminal=0
