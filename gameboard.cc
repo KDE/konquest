@@ -184,7 +184,7 @@ GameBoard::turn( void )
     PlanetListIterator planetAi( planets );
     PlanetListIterator planetAttack( planets );
     Planet *target = 0;
-   
+
     switch( gameState ) {
     case NONE :
         // stuff for none
@@ -322,13 +322,13 @@ GameBoard::turn( void )
 
          int ships;
          planetAi.toFirst();
-         
+
          while ((home = planetAi())) {
             if (home->getPlayer() == currentPlayer->current()) {
 
                            bool hasAttack = false;
                            ships = (int)floor(home->getFleet().getShipCount() * 0.7 );
-                           
+
                            if (ships >= 20) {
 
 				Planet *attack;
@@ -336,7 +336,7 @@ GameBoard::turn( void )
 			        planetAttack.toFirst();
 				while ((attack = planetAttack())) {
                                         bool skip = false;
-                                        
+
 					CoreLogic cl;
 					double dist = cl.distance( home, attack );
 
@@ -357,7 +357,7 @@ GameBoard::turn( void )
 					 	minDistance = dist;
 					}
 				}
-                           
+
                                 if (hasAttack) {
 			    		sendAttackFleet( home, target, ships );
                                 }
@@ -366,13 +366,13 @@ GameBoard::turn( void )
                                     minDistance = 100;
                                     int shipsToSend = 0;
                                     bool hasDestination = false;
-                                    
+
                                     while ((attack = planetAttack())) {
                                         bool skip = false;
                                         CoreLogic cl;
                                         double dist = cl.distance( home, attack );
                                         int homeships = (int)floor(home->getFleet().getShipCount() * 0.5 );
-                                        
+
                                         if ((dist < minDistance) &&  (attack->getPlayer() == currentPlayer->current()) &&
                                                         (attack->getFleet().getShipCount() < homeships )) {
                                                 AttackFleetListIterator FleetsinFlight( currentPlayer->current()->getAttackList() );
@@ -386,7 +386,7 @@ GameBoard::turn( void )
                                                 if (skip) continue;
 
                                                 shipsToSend = (int)floor((home->getFleet().getShipCount() - attack->getFleet().getShipCount()) / 2) ;
-                                                
+
 					  	target = attack;
 					   	hasDestination = true;
                                                 minDistance = dist;
@@ -400,12 +400,12 @@ GameBoard::turn( void )
     			  }
 		}
         }
-         
+
          endTurn->setEnabled( true );
          nextPlayer();
-         
+
     	break;
-     
+
     default:
         break;
     }
@@ -685,7 +685,7 @@ GameBoard::shutdownGame()
       ( this,
 	i18n("Do you wish to retire this game?"),
 	i18n("End Game"),
-        i18n("&OK") );
+        KStdGuiItem::ok() );
 
     if( choice == KMessageBox::Cancel )
         return;
@@ -849,9 +849,9 @@ GameBoard::nextPlayer()
          }
          else {
              gameState = SOURCE_PLANET;
-        
+
         }
-       turn();   
+       turn();
     }
 }
 

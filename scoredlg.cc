@@ -1,8 +1,9 @@
 #include <klistview.h>
 #include <qlayout.h>
-#include <qpushbutton.h>
 #include <kapplication.h>
 #include <klocale.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #include "scoredlg.h"
 #include "scoredlg.moc"
@@ -20,7 +21,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     scoreTable->addColumn(i18n("Fleets Destroyed"), 100 );
     scoreTable->addColumn(i18n("Ships Destroyed"), 100 );
 
-    QPushButton *okButton = new QPushButton( i18n("&OK"), this );
+    QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 

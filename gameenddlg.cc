@@ -1,9 +1,10 @@
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qpushbutton.h>
 #include <kapplication.h>
 #include <klocale.h>
 #include <qslider.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"
@@ -14,19 +15,19 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add more turns?"), this );
     label1->setAlignment( AlignCenter );
-    
+
     turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, this );
     turnCountLbl = new QLabel( this );
 
-    QPushButton *yesBtn = new QPushButton( i18n("Yes"), this );
+    QPushButton *yesBtn = new KPushButton( KStdGuiItem::yes(), this );
     yesBtn->setFixedSize( yesBtn->sizeHint() );
     yesBtn->setAutoDefault( true );
 
-    QPushButton *noBtn = new QPushButton( i18n("No"), this );
+    QPushButton *noBtn = new KPushButton( KStdGuiItem::no(), this );
     noBtn->setFixedSize( noBtn->sizeHint() );
 
     turnCountChange( 5 );
-    
+
     // Layout controls
     QBoxLayout *layout1 = new QVBoxLayout( this );
     QBoxLayout *layout2 = new QHBoxLayout;
@@ -59,7 +60,7 @@ void
 GameEndDlg::turnCountChange( int newTurnCount )
 {
     QString newLbl;
-    
+
     addTurns = newTurnCount;
 
     newLbl = i18n("Add %1 turns").arg( addTurns );
