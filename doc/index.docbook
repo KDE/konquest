@@ -1,86 +1,267 @@
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN">
+<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+  <!ENTITY konquest "<application>Konquest</application>" -- replace kapp and Kapp here -->
+  <!ENTITY konquest "&kapp;" -- replace kapp here. This only *seems* redundant -->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE" -- change language only here -->
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
+  %ents;
+]>
 
-<book lang="en">
+<book lang="&language;">
+
 <bookinfo>
-<title>The Konquest Handbook</title>
+<title>The &konquest; Handbook</title>
+
 <authorgroup>
 <author>
-<firstname>Russ</firstname>
-<surname>Steffen</surname>
+<firstname>Nicholas</firstname>
+<surname>Robbins</surname>
+<affiliation>
+<address><email>logik9000@home.com</email></address>
+</affiliation>
 </author>
 </authorgroup>
-<date>13/05/1999</date>
-<releaseinfo>1.00.00</releaseinfo>
-<abstract>
-<para>This the KDE version of Gnu-Lactic Konquest, a multi-player strategy
-game. The goal of the game is to expand your interstellar empire across the
-galaxy and of course, crush your rivals in the process.</para>
-</abstract>
+
+<othercredit role="developer">
+<firstname>Russ</firstname>
+<surname>Steffen</surname>
+<affiliation>
+<address><email>rsteffen@bayarea.net</email></address></affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>vampyr@atconnex.net</email></address>
+</affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
+
+<copyright>
+<year>2000</year>
+<holder>Nicholas Robbins</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>08/11/2000</date>
+<releaseinfo>0.99.02</releaseinfo>
+
+<abstract><para>&konquest; is a wonderfully complex game for universal domination,
+or konquest, if you like.  :)</para></abstract>
+
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>Konquest</keyword>
-<keyword>Gnu-Lactic</keyword>
-<keyword>galaxies</keyword>
-<keyword>game</keyword>
+<keyword>kdegames</keyword>
 </keywordset>
+
 </bookinfo>
 
-<chapter id="PlayingTheGame">
-<title>Playing The Game</title>
-<para>When the game starts, you and all of your opponents each have control of one
-planet, with the remainder of the planets under control of their native,
-agrarian, non-aggressive inhabitants.</para>
-<para>To begin your conquest of the galaxy, you will need to send out raiding parties
-to your neighboring planets. Each player in turn will be prompted to enter a set
-of fleet movements for the current turn. To enter a fleet movement, select the
-source planet by keyboard (the planets are &quot;named&quot; after single
-letters/numbers/glyphs) or by mouse (click once on the planet). Then, enter the
-number of ships to send. </para>
-<para>Each grid on the map represents 0.5 light years, and the ships travel at
-&quot;light speed&quot;. So, a fleet traveling to an adjacent sector will
-arrive at the end of the current turn. A fleet traveling to a sector 2 grids
-away will arrive in the next turn. </para>
-<para>After entering all of your moves, click the &quot;End Turn&quot; button.</para>
-<para>When a fleet arrives at a planet that you already own, the arriving fleet will be absorbed into the defense fleet stationed at the planet. </para>
-<para>When a fleet arrives at a planet you don't own, a fight for control of the planet will begin. It is a fight to the death, and either the attacking fleet will be destroyed and the planet will hold. Or, the home
-defense fleet will be destroyed and the attacker will assume control of the planet </para>
-<para><emphasis remap="bf">Hint</emphasis> Defense fleets have an advantage over attackers. It's safe to assume
-that you will need several more ships to take a planet than currently hold it.</para>
-<sect1 id="planet-status">
-<title>Planet Status</title>
-<para>The Planet Status indicator (the big black box on the left) is your source for
-intelligence on the state of the Galaxy. Your spies will report on the status of
-your rivals, but not on the native-controlled planets. The information present
-in the display is: name, owner, production rate, fleet strength and kill
-percentage. The production rate is the number of ships that planet will
-construct in one turn. The fleet strength is the number of ships currently in
-place at the planet. And, the kill percentage is a measure of the effectiveness
-of the ships produced at that planet. Attack fleets take the kill percentage 
-of their planet of departure, and defense fleets use the kill percentage of the
-planet they are defending.</para>
-<para><emphasis remap="bf">Hint</emphasis> If you capture a planet with a high kill percentage, you may want to
-funnel some of your attack fleets through this planet, as they will &quot;pick
-up&quot; the kill percentage of this planet.</para>
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>This the KDE version of <application>Gnu-Lactic Konquest</application>, a
+multi-player strategy game. The goal of the game is to expand your interstellar
+empire across the galaxy and of course, crush your rivals in the process.</para>
+
+</chapter>
+
+<chapter id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-kapp">
+<title>How to obtain &konquest;</title>
+
+<para>&konquest; is part of the KDE project <ulink
+url="http://www.kde.org">http://www.kde.org</ulink>.  &konquest; can be found in the
+kdegames package on <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the main
+ftp site of the KDE project. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>In order to successfully use &konquest;, you need KDE 2.0. It is also
+reccomended that you have your X server set to over 8bpp, as the plants are
+scanned and require a rather high color depth. </para>
+
+<para>All required libraries as well as &konquest; itself can be found on <ulink
+url="http://www.ia.net/~rsteffen/konquest.html">The &konquest; home
+page</ulink>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and installation</title>
+
+<para>In order to compile and install &konquest; on your system, type the
+following in the base directory of the kdegames distribution:</para>
+<screen width="40">
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+
+<para>Since Kdegames uses <application>autoconf</application> and
+<application>automake</application> you should have not trouble compiling
+it. Should you run into problems please report them to the KDE mailing
+lists.</para> 
+
+</sect1>
+
+<sect1 id="configuration">
+<title>Configuration</title>
+
+<para>When you start &konquest;, you a window settings window pop up.  From here
+you need to enter player names, decide the number of planets, and how many turns
+are allowed.  (Don't worry, you can add more later) You can also reject the map,
+until a you find a galaxy layout you like.  After this, just <guibutton>Start
+Game</guibutton>!</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kapp">
+<title>Using &konquest;</title>
+
+<sect1 id="kapp-features">
+<title>More &konquest; features</title>
+
+<para>A really entertaining game of universal domination.  The only downfall is
+there is no one player mode.  Which means you'll have to find a friend to play
+this with.</para>
+
 </sect1>
 </chapter>
-<chapter id="Notes">
-<title>Notes</title>
-<para>You may experience problems on low-color (8bpp) displays. Konquest is color-eater, entirely because of the scanned graphics. </para>
+
+<chapter id="commands">
+<title>Command Reference</title>
+
+<para></para>
+
+<sect1 id="kapp-mainwindow">
+<title>The main Konquest window</title>
+
+<para>The Planet Status indicator (the big black box on the left) is your source
+for intelligence on the state of the Galaxy. Your spies will report on the
+status of your rivals, but not on the native-controlled planets. The information
+present in the display is: <guilabel>name</guilabel>,
+<guilabel>owner</guilabel>, <guilabel>production</guilabel> rate, fleet strength
+(<guilabel>ships</guilabel> and <guilabel>kill percent</guilabel>.</para>
+
+<para>The <guilabel>production</guilabel> rate is the number of ships that
+planet will construct in one turn. The fleet strength is the number of
+<guilabel>ships</guilabel> currently in place at the planet. And, the
+<guilabel>kill percent</guilabel> is a measure of the effectiveness of the ships
+produced at that planet. Attack fleets take the kill percentage of their planet
+of departure, and defense fleets use the kill percentage of the planet they are
+defending.</para>
+
+<sect2>
+<title>The <guimenu>Game</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>New</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Starts a new game.</action></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Quits the game.</action></para></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title>The <guimenu>Help</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
+<listitem><para>This invokes the KDE help system starting at the the top of this
+help file.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo
+action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem>What's
+<accel>T</accel>his?</guimenuitem></menuchoice></term>
+<listitem>
+<para>This changes the mouse cursor to a combination arrow and question mark.
+Clicking on items within &konquest; with this arrow will open a help window (if
+one exists for the particular item) explaining the item's function.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport
+Bug.</guimenuitem></menuchoice></term>
+<listitem><para>If you find an error in the program, or you have an idea on how
+to improve the game, clicking this option will let you send an official bug
+report to the KDE team.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout
+Ksame</guimenuitem></menuchoice></term>
+<listitem><para>This will <action>display version and author
+information</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem>About
+<accel>K</accel>DE</guimenuitem></menuchoice></term>
+<listitem><para>This <action>displays the KDE version</action> and other basic
+information.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+</sect1>
 </chapter>
-<chapter id="Epilogue">
-<title>Epilogue</title>
-<sect1 id="author">
-<title>Author</title>
-<para>GNU-Lactic Conquest Project, KDE version by Russ Steffen, <ulink url="mailto:rsteffen@ia.net">rsteffen@ia.net</ulink>. See 
-<ulink url="http://www.ia.net/~rsteffen/konquest/">http://www.ia.net/~rsteffen/konquest/</ulink> for more information.</para>
+
+<chapter id="credits">
+
+
+<title>Credits and License</title>
+
+<para>&konquest;</para>
+
+<para>GNU-Lactic Conquest Project, KDE version by Russ Steffen,
+<email>rsteffen@ia.net</email>.  See <ulink
+url="http://www.ia.net/~rsteffen/konquest.html">http://www.ia.net/~rsteffen/konquest.html</ulink>
+for more information.</para>
+
 <para>Copyright &copy; 1998 by the GNU-Lactic Conquest Project </para>
-</sect1>
+
+<para>Documentation copyright 2000 Nicholas Robbins
+<email>logik9000@home.com</email></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
 </chapter>
+
+&kdedocindex;
+
 </book>
-<!--
-Local Variables:
-mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
-End:
--->
