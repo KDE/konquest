@@ -1,7 +1,7 @@
 #ifndef _MAIN_WIN_H
 #define _MAIN_WIN_H
 
-#include <ktmainwindow.h>
+#include <kmainwindow.h>
 #include <ktoolbar.h>
 #include <kmenubar.h>
 #include <qdialog.h>
@@ -11,7 +11,7 @@
 class ConquestMap;
 class PlanetStatusTable;
 
-class MainWindow : public KTMainWindow
+class MainWindow : public KMainWindow
 {
     Q_OBJECT
 

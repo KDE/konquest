@@ -20,7 +20,7 @@
 // KonquestMainWindow
 
 
-MainWindow::MainWindow( const char *name) : KTMainWindow( name )
+MainWindow::MainWindow( const char *name) : KMainWindow( 0, name )
 {
 
     setCaption( i18n("GNU-Lactic Conquest") );
@@ -58,8 +58,6 @@ MainWindow::setupMenu()
     menubar->insertItem( i18n("&Game"), game_menu );
     menubar->insertSeparator( -1 );
     menubar->insertItem( i18n("&Help"), help_menu );
-
-    setMenu( menubar );
 }
 
 void
@@ -94,14 +92,13 @@ MainWindow::setupToolBar()
 
     toolbar->setBarPos( KToolBar::Left );
     toolbar->enableMoving( false );
-    addToolBar( toolbar );
 }
 
 void
 MainWindow::setupGameBoard()
 {
     gameBoard = new GameBoard( this );
-    setView(gameBoard);
+    setCentralWidget(gameBoard);
 
     connect( gameBoard, SIGNAL( newGameState( GameState )), this, SLOT( gameStateChange( GameState ) ) );
 }
