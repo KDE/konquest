@@ -1,7 +1,7 @@
 #ifndef _MAIN_WIN_H
 #define _MAIN_WIN_H
 
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 #include <ktoolbar.h>
 #include <kmenubar.h>
 #include <qdialog.h>

@@ -6,7 +6,7 @@
 #include <qfont.h>
 
 #include <kapp.h>
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 #include <ktoolbar.h>
 #include <kmenubar.h>
 
