@@ -1,10 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames">	
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
-  
-  
 ]>
 
 <book lang="&language;">
@@ -51,8 +50,8 @@
 <date>2000-12-16</date>
 <releaseinfo>0.99.02</releaseinfo>
 
-<abstract><para>&konquest; is a wonderfully complex game for universal domination,
-or konquest, if you like.  :)</para></abstract>
+<abstract><para>&konquest; is a wonderfully complex game for universal
+domination, or konquest, if you like.  :)</para></abstract>
 
 <keywordset>
 <keyword>KDE</keyword>
@@ -65,12 +64,12 @@ or konquest, if you like.  :)</para></abstract>
 <chapter id="introduction">
 <title>Introduction</title>
 
-<para>This the KDE version of <application>Gnu-Lactic Konquest</application>, a
-multi-player strategy game. The goal of the game is to expand your interstellar
-empire across the galaxy and of course, crush your rivals in the process.</para>
+<para>This the &kde; version of <application>Gnu-Lactic
+Konquest</application>, a multi-player strategy game. The goal of the
+game is to expand your interstellar empire across the galaxy and of
+course, crush your rivals in the process.</para>
 
 </chapter>
-
 
 <chapter id="using-kapp">
 <title>Using &konquest;</title>
@@ -78,11 +77,24 @@ empire across the galaxy and of course, crush your rivals in the process.</para>
 <sect1 id="kapp-features">
 <title>More &konquest; features</title>
 
-<para>A really entertaining game of universal domination.  The only downfall is
-there is no one player mode.  Which means you'll have to find a friend to play
-this with.</para>
+<para>A really entertaining game of universal domination.  The only
+downfall is there is no one player mode.  Which means you'll have to
+find a friend to play this with.</para>
 
 </sect1>
+
+<sect1 id="configuration">
+<title>Configuration</title>
+
+<para>When you start &konquest;, you a window settings window pop up.
+From here you need to enter player names, decide the number of
+planets, and how many turns are allowed.  (Don't worry, you can add
+more later) You can also reject the map, until a you find a galaxy
+layout you like.  After this, just <guibutton>Start
+Game</guibutton>!</para>
+
+</sect1>
+
 </chapter>
 
 <chapter id="commands">
@@ -91,22 +103,24 @@ this with.</para>
 <para></para>
 
 <sect1 id="kapp-mainwindow">
-<title>The main Konquest window</title>
+<title>The main &konquest; window</title>
 
-<para>The Planet Status indicator (the big black box on the left) is your source
-for intelligence on the state of the Galaxy. Your spies will report on the
-status of your rivals, but not on the native-controlled planets. The information
-present in the display is: <guilabel>name</guilabel>,
-<guilabel>owner</guilabel>, <guilabel>production</guilabel> rate, fleet strength
-(<guilabel>ships</guilabel> and <guilabel>kill percent</guilabel>.</para>
+<para>The Planet Status indicator (the big black box on the left) is
+your source for intelligence on the state of the Galaxy. Your spies
+will report on the status of your rivals, but not on the
+native-controlled planets. The information present in the display is:
+<guilabel>name</guilabel>, <guilabel>owner</guilabel>,
+<guilabel>production</guilabel> rate, fleet strength
+(<guilabel>ships</guilabel> and <guilabel>kill
+percent</guilabel>.</para>
 
-<para>The <guilabel>production</guilabel> rate is the number of ships that
-planet will construct in one turn. The fleet strength is the number of
-<guilabel>ships</guilabel> currently in place at the planet. And, the
-<guilabel>kill percent</guilabel> is a measure of the effectiveness of the ships
-produced at that planet. Attack fleets take the kill percentage of their planet
-of departure, and defense fleets use the kill percentage of the planet they are
-defending.</para>
+<para>The <guilabel>production</guilabel> rate is the number of ships
+that planet will construct in one turn. The fleet strength is the
+number of <guilabel>ships</guilabel> currently in place at the
+planet. And, the <guilabel>kill percent</guilabel> is a measure of the
+effectiveness of the ships produced at that planet. Attack fleets take
+the kill percentage of their planet of departure, and defense fleets
+use the kill percentage of the planet they are defending.</para>
 
 <sect2>
 <title>The <guimenu>Game</guimenu> Menu</title>
@@ -132,53 +146,7 @@ defending.</para>
 <sect2>
 <title>The <guimenu>Help</guimenu> Menu</title>
 
-<variablelist>
-<varlistentry>
-<term><anchor id="contents"/><menuchoice>
-<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
-<listitem><para>This invokes the KDE help system starting at the the top of this
-help file.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<shortcut><keycombo
-action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem>What's
-<accel>T</accel>his?</guimenuitem></menuchoice></term>
-<listitem>
-<para>This changes the mouse cursor to a combination arrow and question mark.
-Clicking on items within &konquest; with this arrow will open a help window (if
-one exists for the particular item) explaining the item's function.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport
-Bug.</guimenuitem></menuchoice></term>
-<listitem><para>If you find an error in the program, or you have an idea on how
-to improve the game, clicking this option will let you send an official bug
-report to the KDE team.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout
-Ksame</guimenuitem></menuchoice></term>
-<listitem><para>This will <action>display version and author
-information</action>.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem>About
-<accel>K</accel>DE</guimenuitem></menuchoice></term>
-<listitem><para>This <action>displays the KDE version</action> and other basic
-information.</para></listitem>
-</varlistentry>
-</variablelist>
+&help.menu.documentation;
 
 </sect2>
 </sect1>
@@ -191,8 +159,9 @@ information.</para></listitem>
 
 <para>&konquest;</para>
 
-<para>GNU-Lactic Conquest Project, KDE version by Russ Steffen, <email>rsteffen@ia.net</email>. 
-See <ulink url="http://www.ia.net/~rsteffen/konquest.html">http://www.ia.net/~rsteffen/konquest.html</ulink>
+<para>GNU-Lactic Conquest Project, &kde; version by Russ Steffen,
+<email>rsteffen@ia.net</email>.  See <ulink
+url="http://www.ia.net/~rsteffen/konquest.html">http://www.ia.net/~rsteffen/konquest.html</ulink>
 for more information.</para>
 
 <para>Copyright &copy; 1998 by the GNU-Lactic Conquest Project </para>
@@ -214,53 +183,27 @@ for more information.</para>
 <sect1 id="getting-kapp">
 <title>How to obtain &konquest;</title>
 
-<para>&konquest; is part of the KDE project <ulink
-url="http://www.kde.org">http://www.kde.org</ulink>.  &konquest; can be found in the
-kdegames package on <ulink
-url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the main
-ftp site of the KDE project. </para>
+&install.intro.documentation;
 
 </sect1>
 
 <sect1 id="requirements">
 <title>Requirements</title>
 
-<para>In order to successfully use &konquest;, you need KDE 2.0. It is also
-reccomended that you have your X server set to over 8bpp, as the plants are
-scanned and require a rather high color depth. </para>
+<para>In order to successfully use &konquest;, you need &kde; 3.0. It
+is also reccomended that you have your X server set to over 8bpp, as
+the plants are scanned and require a rather high color depth. </para>
 
-<para>All required libraries as well as &konquest; itself can be found on <ulink
-url="http://www.ia.net/~rsteffen/konquest.html">The &konquest; home
-page</ulink>.</para>
+<para>All required libraries as well as &konquest; itself can also be
+found on <ulink url="http://www.ia.net/~rsteffen/konquest.html">The
+&konquest; home page</ulink>.</para>
 
 </sect1>
 
 <sect1 id="compilation">
 <title>Compilation and Installation</title>
 
-<para>In order to compile and install &konquest; on your system, type the
-following in the base directory of the kdegames distribution:</para>
-<screen width="40">
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-
-<para>Since Kdegames uses <application>autoconf</application> and
-<application>automake</application> you should have not trouble compiling
-it. Should you run into problems please report them to the KDE mailing
-lists.</para> 
-
-</sect1>
-
-<sect1 id="configuration">
-<title>Configuration</title>
-
-<para>When you start &konquest;, you a window settings window pop up.  From here
-you need to enter player names, decide the number of planets, and how many turns
-are allowed.  (Don't worry, you can add more later) You can also reject the map,
-until a you find a galaxy layout you like.  After this, just <guibutton>Start
-Game</guibutton>!</para>
+&install.compile.documentation;
 
 </sect1>
 
@@ -270,3 +213,10 @@ Game</guibutton>!</para>
 
 </book>
 
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
