@@ -8,6 +8,7 @@
 
 #include <config.h>
 
+#include "version.h"
 #include "gamecore.h"
 #include "mainwin.h"
 #include "mainwin.moc"
@@ -41,7 +42,7 @@ MainWindow::setupMenu()
     game_menu->insertItem( "&New Game", gameBoard, SLOT( startNewGame()  ) );
     game_menu->insertItem( "&Quit", qApp, SLOT( quit() ) );
 
-    QString about = "Version " + QString( VERSION ) + "\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
+    QString about = "Version " + QString( KONQUEST_VERSION ) + "\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
         "KDE version by Russ Steffen <rsteffen@ia.net>\n"
         "See http://www.ia.net/~rsteffen/konquest.html for more info";
     
