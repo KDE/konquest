@@ -7,7 +7,7 @@
 #include "mainwin.h"
 #include "map_widget.h"
 
-static const char *description= I18N_NOOP("Galactic Strategy KDE Game");
+static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 
 int
 main(int argc, char **argv)
