@@ -22,7 +22,7 @@ enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RUL
 //************************************************************************
 class GameBoard : public QWidget
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     GameBoard( QWidget *parent );

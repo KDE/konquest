@@ -12,7 +12,7 @@
 
 class NewGameDlg : public QDialog
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     NewGameDlg( QWidget *parent, Map *map, PlayerList *playerList,
