@@ -472,7 +472,7 @@ GameBoard::nextTurn()
     {
         mapWidget->repaint(true);
         KMessageBox::information(this, 
-              i18n("The mighty %1 has conquered the Galactic!").arg(winner->getName()),
+              i18n("The mighty %1 has conquered the galaxy!").arg(winner->getName()),
               i18n("Game Over"));
     }
 

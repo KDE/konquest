@@ -1,3 +1,7 @@
+2004-08-22  Inge Wallin  <inge@lysator.liu.se>
+
+	* gameboard.cc (nextTurn): Fixed a grammatical error.
+
 0.99.4 --
 	Brought the KDE CVS tree in sync with my own. Changes from previous version
         include:
