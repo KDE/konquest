@@ -254,7 +254,9 @@ NewGameDlg::rejectMap()
 void
 NewGameDlg::updateMiniMap( void )
 {
-    QColor PlayerColors[MAX_PLAYERS] = { QColor( 130, 130, 255 ), yellow, red, green, white };
+    QColor PlayerColors[MAX_PLAYERS] = { QColor( 130, 130, 255 ), yellow, red, green,
+    		white, cyan, magenta,  QColor( 131, 153, 128), QColor( 235, 153, 46 ),
+		QColor( 106, 157, 104 ) };
 
 
     // Clear map,, player and planet lists
