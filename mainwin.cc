@@ -20,7 +20,7 @@
 // KonquestMainWindow
 
 
-MainWindow::MainWindow( const char *name) : KTopLevelWidget( name )
+MainWindow::MainWindow( const char *name) : KTMainWindow( name )
 {
 
     setCaption( i18n("GNU-Lactic Conquest") );

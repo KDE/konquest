@@ -11,7 +11,7 @@
 class ConquestMap;
 class PlanetStatusTable;
 
-class MainWindow : public KTopLevelWidget
+class MainWindow : public KTMainWindow
 {
     Q_OBJECT
 
