@@ -230,7 +230,7 @@ void NewGameDlg::addNewAiPlayer() {
         	aiNumber++;
     }
     
-    name = i18n("Comp%1").arg(aiNumber+1);
+    name = i18n("Generated AI player name", "Comp%1").arg(aiNumber+1);
     playerList->insertItem( name );
 
     if( playerList->count() > 1)
