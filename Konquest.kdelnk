@@ -2,6 +2,7 @@
 [KDE Desktop Entry]
 Icon=konquest.xpm
 Name=Konquest
+Name[is]=Geimstyrjöld
 Name[no]=Beseirer
 Name[ru]=úÁ×ÏÅ×ÁÔÅÌØ
 Exec=konquest -caption %c
@@ -10,6 +11,7 @@ Comment=A game of galactic conquest
 Comment[cs]=Hra o dobývání galaxie
 Comment[es]=Un juego de conquista galáctica
 Comment[fi]=Galaksinvaltauspeli
+Comment[is]=konquest:  Náðu alheiminum á þitt vald
 Comment[no]=Et spill om herredømme over universet
 Comment[pl]=Podbój galaktyki
 Comment[pt_BR]=Jogo de conquista galáctica
