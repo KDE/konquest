@@ -1,7 +1,7 @@
 #ifndef _IMAGES_H
 #define _IMAGES_H
 
-#define IMAGE_SPLASH 		"konquest-splash.gif"
+#define IMAGE_SPLASH 		"konquest-splash.bmp"
 #define IMAGE_PLANET_1		"planet1.xpm"
 #define IMAGE_PLANET_2		"planet2.xpm"
 #define IMAGE_PLANET_3		"planet3.xpm"
