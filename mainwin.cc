@@ -2,7 +2,7 @@
 #include <kmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 
 #include <iostream.h>
 

@@ -1,6 +1,6 @@
 #include <ktablistbox.h>
 #include <qlayout.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <kapp.h>
 
 #include <iostream.h>

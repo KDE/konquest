@@ -1,7 +1,7 @@
 #include <kslider.h>
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <kapp.h>
 
 #include "gameenddlg.h"

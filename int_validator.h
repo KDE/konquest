@@ -14,7 +14,7 @@ public:
 
     virtual ~IntValidator();
 
-    QValidator::State validate( QString &, int & );
+    virtual QValidator::State validate( QString &, int & ) const;
     
     virtual void setRange( int bottom, int top );
 

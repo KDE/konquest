@@ -5,7 +5,7 @@
 #include <qwidget.h>
 #include <qframe.h>
 #include <qpixmap.h>
-#include <qtablevw.h>
+#include <qtableview.h>
 #include <qtimer.h>
 
 #include "gamecore.h"

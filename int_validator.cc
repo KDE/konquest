@@ -24,7 +24,7 @@ QValidator( parent, name )
 IntValidator::~IntValidator() {}
 
 QValidator::State
-IntValidator::validate( QString &input, int & )
+IntValidator::validate( QString &input, int & ) const
 {
     if( input.isEmpty() ) {
         return QValidator::Valid;

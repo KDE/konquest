@@ -1,8 +1,8 @@
-#include <qapp.h>
-#include <qpushbt.h>
+#include <qapplication.h>
+#include <qpushbutton.h>
 #include <qwidget.h>
 #include <qmenubar.h>
-#include <qpopmenu.h>
+#include <qpopupmenu.h>
 #include <qfont.h>
 
 #include <kapp.h>

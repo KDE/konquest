@@ -5,8 +5,8 @@
 #include <qevent.h>
 #include <qkeycode.h>
 #include <qlistbox.h>
-#include <qpushbt.h>
-#include <qlined.h>
+#include <qpushbutton.h>
+#include <qlineedit.h>
 #include <qvalidator.h>
 #include <kmsgbox.h>
 #include <kapp.h>
