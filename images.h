@@ -1,5 +1,5 @@
 #ifndef _IMAGES_H
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #define _IMAGES_H
 
 #define IMAGE_SPLASH 		locate("appdata", "pics/konquest-splash.gif")

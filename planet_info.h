@@ -3,7 +3,7 @@
 
 #include <qframe.h>
 #include <qstring.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qpalette.h>
 
 #include "gamecore.h"
