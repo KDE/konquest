@@ -2,7 +2,6 @@
 [KDE Desktop Entry]
 Icon=konquest.xpm
 Name=Konquest
-Name[br]=KAloubadur
 Name[da]=Erobring
 Name[hu]=Hódítás
 Name[is]=Geimstyrjöld
@@ -14,7 +13,6 @@ Name[sv]=Erövring
 Exec=konquest -caption %c
 Type=Application
 Comment=A game of galactic conquest
-Comment[br]=Ur c'hoari aloubardur en egor
 Comment[ca]=Un joc de conquestes galàctiques
 Comment[cs]=Hra o dobývání galaxie
 Comment[da]=Et spil om galaktisk erobring
