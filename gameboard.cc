@@ -434,7 +434,7 @@ GameBoard::scanForSurvivors( void )
             msg = i18n("The fallen empire of %1 has staggered back to life.")
 		  .arg(plr->getName());
 	    KMessageBox::information( this, msg,
-				      i18n("Up from the ashes...") );
+				      i18n("Up From the Ashes...") );
         }
     }
 }
