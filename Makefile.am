@@ -28,7 +28,7 @@ konquest_SOURCES = Konquest.cc gameboard.cc gamecore.cc int_validator.cc \
 	mainwin.cc map_widget.cc minimap.cc newgamedlg.cc planet_info.cc gameenddlg.cc  scoredlg.cc
 
 # the library search path
-konquest_LDFLAGS = @all_libraries@
+konquest_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 # the libraries to link against. Be aware of the order. First the libraries,
 # that depend on the following ones.
