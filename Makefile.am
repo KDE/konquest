@@ -32,7 +32,7 @@ konquest_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 # the libraries to link against. Be aware of the order. First the libraries,
 # that depend on the following ones.
-konquest_LDADD   = -lkdeui -lkdecore -lqt -lX11 -lXext @LIBSOCKET@     
+konquest_LDADD   = -lkdeui -lkdecore -lXext $(LIB_QT)
 
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = gameboard.h gamecore.h images.h int_validator.h mainwin.h map_widget.h minimap.h newgamedlg.h planet_info.h gameenddlg.h
