@@ -71,7 +71,9 @@ ConquestMap::contentsMouseMoveEvent( QMouseEvent *e )
     row = rowAt( e->y() );
     col = columnAt( e->x() );
 
-    if( row == -1 || col == -1 ) {
+    // Check to make sure the mouse is in a valid grid location
+    if( (row < 0 || col < 0) ||
+    	(row >= BOARD_ROWS || col >= BOARD_COLS) )  {
 	    return;
     }
 
