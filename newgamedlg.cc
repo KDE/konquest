@@ -55,7 +55,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     neutralPlanets = new QSlider( 1, 35, 1, 1, Qt::Horizontal, this );
     neutralPlanets->setMinimumHeight(neutralPlanets->sizeHint().height());
 
-    neutralPlanetLbl = new QLabel("Number of Neutral Planets: 99",this);
+    neutralPlanetLbl = new QLabel("Number of neutral planets: 99",this);
     neutralPlanetLbl->setMinimumSize(neutralPlanetLbl->sizeHint());
 
     turnCount = new QSlider( 5, 40, 1, 15, Qt::Horizontal, this );
@@ -157,7 +157,7 @@ NewGameDlg::changeNeutralPlanets( int newValue )
 {
     QString newText;
 
-    newText = i18n("Number of Neutral Planets: %1").arg( newValue );
+    newText = i18n("Number of neutral planets: %1").arg( newValue );
 
     neutralPlanetLbl->setText( newText );
 

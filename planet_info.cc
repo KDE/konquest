@@ -92,7 +92,7 @@ void PlanetInfo::clearDisplay( void )
 {
     QString temp;
 
-    temp = i18n("Planet Name: ");
+    temp = i18n("Planet name: ");
     name->setText( temp );
 
     temp = i18n("Owner: ");
@@ -104,7 +104,7 @@ void PlanetInfo::clearDisplay( void )
     temp = i18n("Production: ");
     production->setText( temp );
 
-    temp = i18n("Kill Percent: ");
+    temp = i18n("Kill percent: ");
     kill_percent->setText( temp );
 
 }
@@ -127,7 +127,7 @@ void PlanetInfo::showPlanet( Planet *planet )
 
         QString temp;
 
-        temp = i18n("Planet Name: %1").arg(planet->getName());
+        temp = i18n("Planet name: %1").arg(planet->getName());
         name->setText( temp );
         return;
     }
@@ -142,7 +142,7 @@ void PlanetInfo::showPlanet( Planet *planet )
 
             QString temp;
 
-            temp = i18n("Planet Name: %1").arg(p->planet->getName());
+            temp = i18n("Planet name: %1").arg(p->planet->getName());
             name->setText( temp );
 
             temp = i18n("Owner: %1").arg(p->planet->getPlayer()->getName());
@@ -154,7 +154,7 @@ void PlanetInfo::showPlanet( Planet *planet )
             temp = i18n("Production: %1").arg( KGlobal::locale()->formatNumber(p->production, 0) );
             production->setText( temp );
 
-            temp = i18n("Kill Percent: %1").arg( KGlobal::locale()->formatNumber(p->killRate, 3) );
+            temp = i18n("Kill percent: %1").arg( KGlobal::locale()->formatNumber(p->killRate, 3) );
             kill_percent->setText( temp );
         }
     }
