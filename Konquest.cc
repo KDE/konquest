@@ -30,7 +30,9 @@ main(int argc, char **argv)
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
-    
+
+    KGlobal::locale()->insertCatalogue("libkdegames");      
+
     MainWindow *w = new MainWindow();
 
     a.setMainWidget(w);
