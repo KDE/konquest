@@ -1,4 +1,4 @@
-#include <values.h>
+#include <limits.h>
 
 #include "int_validator.h"
 #include "int_validator.moc"
@@ -6,12 +6,12 @@
 IntValidator::IntValidator( QWidget *parent, const char *name ) :
     QValidator( parent, name )
 {
-#ifdef MININT
-    v_bottom = MININT;
+#ifdef INT_MIN
+    v_bottom = INT_MIN;
 #else
-    v_bottom = ~MAXINT;
+    v_bottom = ~INT_MAX;
 #endif
-    v_top = MAXINT;
+    v_top = INT_MIN;
 }
 
 IntValidator::IntValidator( int bottom, int top, QWidget *parent, const char *name ) :
