@@ -34,6 +34,6 @@ messages: rc.cpp
 	$(XGETTEXT) rc.cpp $(konquest_SOURCES) -o $(podir)/konquest.pot
 
 KDE_ICON  = konquest
-appsdir   = $(kde_appsdir)/Games
+appsdir   = $(kde_appsdir)/Games/TacticStrategy
 apps_DATA = konquest.desktop
 
