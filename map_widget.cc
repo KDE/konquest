@@ -7,6 +7,7 @@
 #include <iostream.h>
 
 #include "map_widget.h"
+#include <kglobal.h>
 #include "map_widget.moc"
 
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
@@ -167,7 +168,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
     rowYPos( sector.getColumn(), &y );
 
     if( sector.hasPlanet() ) {
-        KIconLoader *iconloader = KApplication::getKApplication()->getIconLoader();
+        KIconLoader *iconloader = KGlobal::iconLoader();
         QPixmap pm;
 
         // simple (pathetic) way to "randomize"

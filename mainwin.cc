@@ -1,5 +1,6 @@
 #include <kapp.h>
 #include <klocale.h>
+#include <kglobal.h>
 #include <kmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
@@ -68,7 +69,7 @@ MainWindow::setupToolBar()
 {
     toolbar = new KToolBar( this );
 
-    KIconLoader *iconloader = KApplication::getKApplication()->getIconLoader();
+    KIconLoader *iconloader = KGlobal::iconLoader();
 
     QPixmap pixmap1 = iconloader->loadApplicationIcon( "stop.xpm" );
     QPixmap pixmap2 = iconloader->loadApplicationIcon( "reload.xpm" );

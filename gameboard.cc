@@ -11,6 +11,7 @@
 #include <kmsgbox.h>
 #include <kapp.h>
 #include <klocale.h>
+#include <kglobal.h>
 #include <kslider.h>
 #include <kiconloader.h>
 
@@ -38,7 +39,7 @@ GameBoard::GameBoard( QWidget *parent )
     QColorGroup cg( white, black, green.light(), green.dark(), green, green.dark(75), green.dark() );
     QPalette palette( cg, cg, cg );
 
-    KIconLoader *iconloader = KApplication::getKApplication()->getIconLoader();
+    KIconLoader *iconloader = KGlobal::iconLoader();
 
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
