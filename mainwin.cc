@@ -16,6 +16,7 @@
 #include <klocale.h>
 #include <kaction.h>
 #include <kstdaction.h>
+#include <kstdgameaction.h>
 
 // KonquestMainWindow
 
@@ -40,12 +41,10 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupKAction()
 {
-//Game
-    KStdAction::openNew( gameBoard, SLOT( startNewGame() ), actionCollection(), "game_new" );
-    KStdAction::quit( kapp, SLOT( quit() ), actionCollection(), "game_quit" );
-
     KAction* a;
-    a = new KAction( i18n("&End Game"), "stop", 0, gameBoard, SLOT( shutdownGame() ), actionCollection(), "game_end" );
+    KStdGameAction::gameNew( gameBoard, SLOT( startNewGame() ), actionCollection() );
+    KStdGameAction::quit( kapp, SLOT( quit() ), actionCollection() );
+    a = KStdGameAction::end( gameBoard, SLOT( shutdownGame() ), actionCollection() );
     a->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
@@ -75,9 +74,9 @@ MainWindow::gameStateChange( GameState newState )
 {
 
     if( gameBoard->isGameInProgress() ) {
-        actionCollection()->action("game_end")->setEnabled(true);
+        actionCollection()->action(KStdGameAction::stdName(KStdGameAction::End))->setEnabled(true);
     } else {
-        actionCollection()->action("game_end")->setEnabled(false);
+        actionCollection()->action(KStdGameAction::stdName(KStdGameAction::End))->setEnabled(false);
     }
 
     switch( newState ) {

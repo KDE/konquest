@@ -2,8 +2,6 @@
 <kpartgui name="konquest" version="1">
 <MenuBar>
   <Menu name="game"><text>&amp;Game</text>
-  <Action name="game_end"/>
-  <Separator/>
   <Action name="game_measure"/>
   <Action name="game_scores"/>
   </Menu>

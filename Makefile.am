@@ -1,6 +1,6 @@
 
 # set the include path for X, qt and KDE
-INCLUDES= $(all_includes)
+INCLUDES= -I$(top_srcdir)/libkdegames $(all_includes)
 # claim, which subdirectories you want to install
 SUBDIRS = pics 
 
@@ -14,11 +14,11 @@ konquest_SOURCES = Konquest.cc gameboard.cc gamecore.cc int_validator.cc \
 	gameenddlg.cc  scoredlg.cc
 
 # the library search path
-konquest_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+konquest_LDFLAGS = -L$(top_builddir)/libkdegames $(all_libraries) $(KDE_RPATH)
 
 # the libraries to link against. Be aware of the order. First the libraries,
 # that depend on the following ones.
-konquest_LDADD   =     $(LIB_KDEUI)
+konquest_LDADD   = -lkdegames $(LIB_KDEUI)
 
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = gameboard.h gamecore.h images.h int_validator.h mainwin.h map_widget.h minimap.h newgamedlg.h planet_info.h gameenddlg.h
