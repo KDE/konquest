@@ -9,6 +9,7 @@
 #include <qlineedit.h>
 #include <kmsgbox.h>
 #include <kapp.h>
+#include <klocale.h>
 #include <kslider.h>
 
 #include "newgamedlg.h"

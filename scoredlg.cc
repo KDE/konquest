@@ -2,6 +2,7 @@
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <kapp.h>
+#include <klocale.h>
 
 #include <iostream.h>
 

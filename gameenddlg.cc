@@ -3,6 +3,7 @@
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <kapp.h>
+#include <klocale.h>
 
 #include "gameenddlg.h"
 #include <klocale.h>

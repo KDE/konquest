@@ -1,4 +1,5 @@
 #include <kapp.h>
+#include <klocale.h>
 #include <kmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
