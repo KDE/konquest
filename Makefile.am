@@ -33,7 +33,7 @@ messages:
 kde_icon_DATA = konquest.xpm
 
 appsdir = $(kde_appsdir)/Games
-apps_DATA = Konquest.kdelnk
+apps_DATA = konquest.desktop
 
 install-data-local: 
 	$(mkinstalldirs) $(kde_minidir)
