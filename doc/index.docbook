@@ -49,7 +49,7 @@ away will arrive in the next turn. </para>
 defense fleet will be destroyed and the attacker will assume control of the planet </para>
 <para><emphasis remap="bf">Hint</emphasis> Defense fleets have an advantage over attackers. It's safe to assume
 that you will need several more ships to take a planet than currently hold it.</para>
-<sect1>
+<sect1 id="planet-status">
 <title>Planet Status</title>
 <para>The Planet Status indicator (the big black box on the left) is your source for
 intelligence on the state of the Galaxy. Your spies will report on the status of
@@ -72,7 +72,7 @@ up&quot; the kill percentage of this planet.</para>
 </chapter>
 <chapter id="Epilogue">
 <title>Epilogue</title>
-<sect1>
+<sect1 id="author">
 <title>Author</title>
 <para>GNU-Lactic Conquest Project, KDE version by Russ Steffen, <ulink url="mailto:rsteffen@ia.net">rsteffen@ia.net</ulink>. See 
 <ulink url="http://www.ia.net/~rsteffen/konquest/">http://www.ia.net/~rsteffen/konquest/</ulink> for more information.</para>
