@@ -13,7 +13,6 @@
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
 
-#include <iostream.h>
 #include <klocale.h>
 
 /*************************************************************************

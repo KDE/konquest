@@ -17,7 +17,6 @@
 
 #include <ctype.h>
 #include <math.h>
-#include <iostream.h>
 
 #include "gamecore.h"
 
@@ -95,7 +94,7 @@ GameBoard::GameBoard( QWidget *parent )
 
     layout1->addSpacing( 5 );
     layout1->addLayout( layout4, 10 );
-    
+
     layout4->addWidget( planetInfo, 1 );
     layout4->addWidget( turnCounter,  1 );
     layout4->addStretch( 1 );
@@ -145,7 +144,7 @@ GameBoard::keyPressEvent( QKeyEvent *e )
         }
         return;
     }
-    
+
     if( !isgraph( e->ascii() ) ) {
         e->ignore();
         return;
@@ -254,7 +253,7 @@ GameBoard::turn( void )
         }
 
         break;
-        
+
     case RULER_SOURCE:
         if( haveSourcePlanet ) {
             gameState = RULER_DEST;
@@ -321,7 +320,7 @@ GameBoard::nextTurn( void )
     resolveShipsInFlight();
 
     scanForSurvivors();
-    
+
     // advance turn counter
     turnNumber++;
 
@@ -337,12 +336,12 @@ GameBoard::nextTurn( void )
 
         delete dlg;
     }
-    
+
     if( turnNumber > lastTurn ) {
         // Game over, man! Game over.
         cleanupGame();
     };
-    
+
     // update the planets
     PlanetListIterator nextPlanet( planets );
     Planet *planet;
@@ -392,7 +391,7 @@ GameBoard::scanForSurvivors( void )
     PlayerListIterator nextPlayer( players );
     PlayerList activePlayers;
     PlayerList inactivePlayers;
-    
+
     // insert all of the active players into a special
     // list, the deactivate them
     Player *plr;
@@ -552,10 +551,10 @@ GameBoard::startNewGame()
     gameMessage->show();
 
     lastTurn = newGame->turns();
-    
+
     turnNumber = 1;
     turn();
-    
+
     delete newGame;
 }
 
@@ -650,7 +649,7 @@ GameBoard::planetSelected( Planet *planet )
         }
 
         break;
-        
+
     default:
     case NONE :
         break;
@@ -666,7 +665,7 @@ GameBoard::newShipCount()
 {
     QString temp( shipCountEdit->text() );
     bool ok;
-        
+
     switch( gameState ) {
     case SHIP_COUNT:
         shipCount = temp.toInt(&ok);
@@ -675,14 +674,14 @@ GameBoard::newShipCount()
             haveShipCount = true;
 
         shipCountEdit->setText( "" );
-        
+
         turn();
         break;
-        
+
     default:
         break;
     };
-    
+
 }
 
 //**********************************************************************

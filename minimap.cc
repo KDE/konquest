@@ -4,8 +4,6 @@
 #include <kapp.h>
 #include <kiconloader.h>
 
-#include <iostream.h>
-
 #include "minimap.h"
 #include "minimap.moc"
 
@@ -68,7 +66,7 @@ MiniMap::drawSector( QPainter *p, Sector &sector )
     if( sector.hasPlanet() ) {
         p->setPen( sector.getPlanet()->getPlayer()->getColor() );
         p->setBrush( sector.getPlanet()->getPlayer()->getColor() );
-        
+
         p->drawPie( r, 0, (360 * 16)-1 );
     }
 }

@@ -5,8 +5,6 @@
 #include <kapp.h>
 #include <klocale.h>
 
-#include <iostream.h>
-
 #include "planet_info.h"
 #include <kglobal.h>
 #include <klocale.h>
@@ -101,7 +99,7 @@ void PlanetInfo::clearDisplay( void )
 void PlanetInfo::emptyPlanetInfoList( void )
 {
     planet_stats.first();
-    
+
     planet_info_buffer *p;
     while( (p = planet_stats.take()) ) {
         delete p;
@@ -113,14 +111,14 @@ void PlanetInfo::showPlanet( Planet *planet )
 {
     if( planet->getPlayer()->isNeutral() ) {
         clearDisplay();
-        
+
         QString temp;
-        
+
         temp = i18n("Planet Name: %1").arg(planet->getName());
         name->setText( temp );
         return;
     }
-    
+
     QString nameToShow = planet->getName();
 
     PlanetInfoListIterator itr( planet_stats );

@@ -4,8 +4,6 @@
 #include <kapp.h>
 #include <klocale.h>
 
-#include <iostream.h>
-
 #include "scoredlg.h"
 #include <klocale.h>
 #include "scoredlg.moc"

@@ -6,8 +6,6 @@
 #include <kiconloader.h>
 #include <qpushbutton.h>
 
-#include <iostream.h>
-
 #include <config.h>
 
 #include "version.h"
@@ -51,9 +49,9 @@ MainWindow::setupMenu()
         "KDE version by Russ Steffen <rsteffen@bayarea.net>\n"
         "See http://www.ia.net/~rsteffen/konquest.html for more info")
 	.arg(KONQUEST_VERSION);
-    
+
     QPopupMenu *help_menu = helpMenu( about );
-    
+
     menubar = new KMenuBar( this );
     menubar->insertItem( i18n("&Game"), game_menu );
     menubar->insertSeparator( -1 );
@@ -120,7 +118,7 @@ MainWindow::gameStateChange( GameState newState )
         toolbar->setItemEnabled( 3, true );
         toolbar->setItemEnabled( 4, true );
         break;
-        
+
     default:
         toolbar->setItemEnabled( 3, false );
         toolbar->setItemEnabled( 4, false );
@@ -128,7 +126,7 @@ MainWindow::gameStateChange( GameState newState )
 
     }
 
-    
+
 }
 
 

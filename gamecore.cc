@@ -4,8 +4,6 @@
 #include <stddef.h>
 #include <math.h>
 
-#include <iostream.h>
-
 #include <config.h>
 
 //*******************************************************************
