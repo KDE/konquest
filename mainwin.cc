@@ -49,6 +49,8 @@ MainWindow::setupKAction()
     measureAction->setEnabled(false);
     standingAction = new KAction( i18n("&Show Standings"), "help", 0, gameBoard, SLOT( showScores() ), actionCollection(), "game_scores" );
     standingAction->setEnabled(false);
+    fleetAction = new KAction( i18n("&Fleet Overview"), "launch", 0, gameBoard, SLOT( showFleets() ), actionCollection(), "game_fleets" );
+    fleetAction->setEnabled(false);
     createGUI();
 
     toolBar()->setBarPos( KToolBar::Left );
@@ -71,6 +73,7 @@ MainWindow::gameStateChange( GameState newState )
     endAction->setEnabled( gameBoard->isGameInProgress() );
     measureAction->setEnabled( newState==SOURCE_PLANET );
     standingAction->setEnabled( newState==SOURCE_PLANET );
+    fleetAction->setEnabled( newState==SOURCE_PLANET );
 }
 
 

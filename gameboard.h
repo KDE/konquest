@@ -15,7 +15,7 @@ class QListBox;
 class QPushButton;
 class QLineEdit;
 
-enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST };
+enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST, AI_PLAYER };
 
 //************************************************************************
 // GameBoard Widget
@@ -44,6 +44,7 @@ protected slots:
     //***************************************************************
     void measureDistance();
     void showScores();
+    void showFleets();
 
 signals:
     void newGameState( GameState newState );
@@ -59,7 +60,7 @@ private:
     void nextTurn( void );
 
     void resolveShipsInFlight( void );
-    void sendAttackFleet( void );
+    void sendAttackFleet( Planet *source, Planet *dest, int ships );
     void doFleetArrival( AttackFleet *arrivingFleet );
     void scanForSurvivors( void );
 

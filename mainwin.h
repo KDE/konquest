@@ -22,7 +22,7 @@ protected:
 
 private:
     GameBoard *gameBoard;
-    KAction *endAction, *measureAction, *standingAction;
+    KAction *endAction, *measureAction, *standingAction, *fleetAction;
 
 private slots:
     void gameStateChange( GameState );

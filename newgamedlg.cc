@@ -39,18 +39,21 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     QLabel *listLabel = new QLabel( playerList, i18n("&Player list:"), this );
     listLabel->setFixedSize( listLabel->size() );
 
+    addAiPlayer = new QPushButton( i18n("&Add Computer Player"), this );
+    addAiPlayer->setMinimumSize( addAiPlayer->sizeHint() );
+    
     newPlayer = new QLineEdit( this );
     newPlayer->setMaxLength( 8 );
-    newPlayer->setMinimumSize(newPlayer->sizeHint());
+    newPlayer->setMaximumWidth(100);
     
     addPlayer = new QPushButton( i18n("&Add"), this );
-    addPlayer->setFixedSize( addPlayer->sizeHint() );
+    addPlayer->setMinimumSize( addPlayer->sizeHint() );
 
     deletePlayer = new QPushButton( i18n("&Delete"), this );
-    deletePlayer->setFixedSize( addPlayer->sizeHint() );
+    deletePlayer->setMinimumSize( deletePlayer->sizeHint() );
     
     clearList = new QPushButton( i18n("&Clear"), this );
-    clearList->setFixedSize( clearList->sizeHint() );
+    clearList->setMinimumSize( clearList->sizeHint() );
 
     neutralPlanets = new QSlider( 1, 35, 1, 1, Qt::Horizontal, this );
     neutralPlanets->setMinimumHeight(neutralPlanets->sizeHint().height());
@@ -62,7 +65,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     turnCount->setTickmarks( QSlider::Below );
     turnCount->setMinimumHeight(turnCount->sizeHint().height());
 
-    turnCountLbl = new QLabel("Number of turns: 99", this);
+    turnCountLbl = new QLabel("Number of turns:", this);
     turnCountLbl->setMinimumSize(turnCountLbl->sizeHint());
     
     okBtn = new QPushButton( i18n("&Start Game"), this );
@@ -84,13 +87,14 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
 
     QBoxLayout *playerColumn = new QVBoxLayout(5);
 
-    QBoxLayout *playerEditRow = new QHBoxLayout;
+    QBoxLayout *playerEditRow = new QVBoxLayout( );
 
     mainLayout->addLayout( mainHLayout, 2 );
 
     mainHLayout->addSpacing( 5 );
     mainHLayout->addLayout( playerColumn, 2 );
-    mainHLayout->addSpacing( 5 );
+    mainHLayout->addLayout( playerEditRow );
+    mainHLayout->addSpacing( 20 );
     mainHLayout->addLayout( mapColumn );
     mainHLayout->addSpacing(5);
     
@@ -100,16 +104,17 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     mapColumn->addSpacing( 5 );
     mapColumn->addWidget( rejectMapBtn, 0, AlignCenter );
     mapColumn->addStretch(1);
-    
+
     playerColumn->addWidget( listLabel, 0, AlignLeft );
+    playerColumn->addWidget( newPlayer, 1, AlignLeft );
     playerColumn->addWidget( playerList, 1, AlignLeft );
-    playerColumn->addLayout( playerEditRow );
 
-    playerEditRow->addWidget( newPlayer, 1 );
-    playerEditRow->addWidget( addPlayer );
-    playerEditRow->addWidget( deletePlayer );
-    playerEditRow->addWidget( clearList );
-
+    playerEditRow->addSpacing( 35 );
+    playerEditRow->addWidget( addPlayer, 0 );
+    playerEditRow->addWidget( addAiPlayer, 0 );
+    playerEditRow->addWidget( deletePlayer, 0 );
+    playerEditRow->addWidget( clearList, 0, AlignTop );
+    
     mainLayout->addStretch(1);
 
     mainLayout->addWidget( neutralPlanetLbl, 1, AlignLeft );
@@ -137,6 +142,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     connect( neutralPlanets, SIGNAL( valueChanged(int) ), this, SLOT( changeNeutralPlanets(int)) );
     connect( turnCount, SIGNAL( valueChanged(int) ), this, SLOT( changeTurnCount(int)) );
     connect( addPlayer, SIGNAL( clicked() ), this, SLOT( addNewPlayer() ) );
+    connect( addAiPlayer, SIGNAL( clicked() ), this, SLOT( addNewAiPlayer() ) );
     connect( newPlayer, SIGNAL( returnPressed() ), this, SLOT( addNewPlayer() ) );
     connect( deletePlayer, SIGNAL( clicked() ), this, SLOT( removePlayer() ) );
     connect( clearList, SIGNAL( clicked() ), this, SLOT( clearPlayerList() ) );
@@ -194,6 +200,38 @@ NewGameDlg::addNewPlayer()
     // Insert the player
     playerList->insertItem( newPlayer->text() );
     newPlayer->setText( "" );
+
+    if( playerList->count() > 1)
+       okBtn->setEnabled(true);
+
+    // update the map and game objects
+    updateMiniMap();
+}
+
+void NewGameDlg::addNewAiPlayer() {
+
+    // Is there room for a new player
+    if( playerList->count() >= MAX_PLAYERS )
+        return;
+
+    // Does the name already exist in the list
+    for( unsigned int x = 0; x < playerList->count(); x++ ) {
+        if( newPlayer->text() == playerList->text(x) )
+            return;
+    }
+    
+    // Insert the player
+    QString name;
+    int aiNumber = 0;
+
+    for( unsigned int plrNum = 0; plrNum < playerList->count(); plrNum++ ) {
+        QString plrName( playerList->text( plrNum ) );
+        if (plrName.startsWith("Comp"))
+        	aiNumber++;
+    }
+    
+    name = i18n("Comp%1").arg(aiNumber+1);
+    playerList->insertItem( name );
 
     if( playerList->count() > 1)
        okBtn->setEnabled(true);
@@ -277,7 +315,10 @@ NewGameDlg::updateMiniMap( void )
     // Make player list
     for( unsigned int plrNum = 0; plrNum < playerList->count(); plrNum++ ) {
         QString plrName( playerList->text( plrNum ) );
-        plrList->append( Player::createPlayer( plrName, PlayerColors[plrNum], plrNum ));
+        bool ai = false;
+        if (plrName.startsWith("Comp"))
+        	ai = true;
+        plrList->append( Player::createPlayer( plrName, PlayerColors[plrNum], plrNum, ai ));
     }
 
     // make the planets

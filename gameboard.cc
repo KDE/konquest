@@ -24,6 +24,7 @@
 #include "newgamedlg.h"
 #include "gameenddlg.h"
 #include "scoredlg.h"
+#include "fleetdlg.h"
 #include "gameboard.h"
 #include "gameboard.moc"
 
@@ -180,6 +181,10 @@ GameBoard::keyPressEvent( QKeyEvent *e )
 void
 GameBoard::turn( void )
 {
+    PlanetListIterator planetAi( planets );
+    PlanetListIterator planetAttack( planets );
+    Planet *target = 0;
+   
     switch( gameState ) {
     case NONE :
         // stuff for none
@@ -237,7 +242,7 @@ GameBoard::turn( void )
 
         if( haveShipCount ) {
             // We now have a complete fleet to send, so send it
-            sendAttackFleet();
+            sendAttackFleet( sourcePlanet, destPlanet, shipCount);
 
             shipCountEdit->hide();
             endTurn->setEnabled( true );
@@ -309,6 +314,98 @@ GameBoard::turn( void )
 
         break;
 
+     case AI_PLAYER:
+         endTurn->setEnabled( false );
+         gameMessage->setText( i18n("Computer Player thinking...") );
+
+         Planet *home;
+
+         int ships;
+         planetAi.toFirst();
+         
+         while ((home = planetAi())) {
+            if (home->getPlayer() == currentPlayer->current()) {
+
+                           bool hasAttack = false;
+                           ships = (int)floor(home->getFleet().getShipCount() * 0.7 );
+                           
+                           if (ships >= 20) {
+
+				Planet *attack;
+				double minDistance = 100;
+			        planetAttack.toFirst();
+				while ((attack = planetAttack())) {
+                                        bool skip = false;
+                                        
+					CoreLogic cl;
+					double dist = cl.distance( home, attack );
+
+					 if ((dist < minDistance) &&  (attack->getPlayer() != currentPlayer->current()) &&
+                                                        (attack->getFleet().getShipCount() < ships )) {
+                                                AttackFleetListIterator FleetsinFlight( currentPlayer->current()->getAttackList() );
+                                                AttackFleet *curFleet;
+
+                                                while ( (curFleet = FleetsinFlight())) {
+                                                 	if (curFleet->destination == attack) {
+                                                        	skip = true;
+							}
+						}
+                                                if (skip) continue;
+
+					  	target = attack;
+					   	hasAttack = true;
+					 	minDistance = dist;
+					}
+				}
+                           
+                                if (hasAttack) {
+			    		sendAttackFleet( home, target, ships );
+                                }
+                                else {
+                                    planetAttack.toFirst();
+                                    minDistance = 100;
+                                    int shipsToSend = 0;
+                                    bool hasDestination = false;
+                                    
+                                    while ((attack = planetAttack())) {
+                                        bool skip = false;
+                                        CoreLogic cl;
+                                        double dist = cl.distance( home, attack );
+                                        int homeships = (int)floor(home->getFleet().getShipCount() * 0.5 );
+                                        
+                                        if ((dist < minDistance) &&  (attack->getPlayer() == currentPlayer->current()) &&
+                                                        (attack->getFleet().getShipCount() < homeships )) {
+                                                AttackFleetListIterator FleetsinFlight( currentPlayer->current()->getAttackList() );
+                                                AttackFleet *curFleet;
+
+                                                while ( (curFleet = FleetsinFlight())) {
+                                                 	if (curFleet->destination == attack) {
+                                                        	skip = true;
+							}
+						}
+                                                if (skip) continue;
+
+                                                shipsToSend = (int)floor((home->getFleet().getShipCount() - attack->getFleet().getShipCount()) / 2) ;
+                                                
+					  	target = attack;
+					   	hasDestination = true;
+                                                minDistance = dist;
+                                        }
+                                    }
+
+                                    if (hasDestination) {
+                                            sendAttackFleet( home, target, shipsToSend );
+                                      }
+                                }
+    			  }
+		}
+        }
+         
+         endTurn->setEnabled( true );
+         nextPlayer();
+         
+    	break;
+     
     default:
         break;
     }
@@ -464,13 +561,16 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
     // if the planet and fleet owner are the same, then merge the fleets
     // otherwise attack.
 
-    if( (*arrivingFleet->owner) == (*arrivingFleet->destination->getPlayer()) ) {
-        arrivingFleet->destination->getFleet().absorb(arrivingFleet);
+    if( (*arrivingFleet->owner) == (*arrivingFleet->destination->getPlayer())) {
+        if (!arrivingFleet->owner->isAiPlayer()) {
+        	arrivingFleet->destination->getFleet().absorb(arrivingFleet);
 
-        QString msg;
-        msg = i18n("Reinforcements have arrived for planet %1")
-              .arg(arrivingFleet->destination->getName());
-        KMessageBox::information(this, msg, i18n("Fleet Arrival"));
+        	QString msg;
+        	msg = i18n("Reinforcements (%1 ships) have arrived for planet %2")
+        	      .arg(arrivingFleet->getShipCount())
+        	      .arg(arrivingFleet->destination->getName());
+        	KMessageBox::information(this, msg, i18n("Fleet Arrival"));
+        }
     } else {
 
         // let's get ready to rumble...
@@ -744,8 +844,14 @@ GameBoard::nextPlayer()
     }
 
     if( gameInProgress ) {
-        gameState = SOURCE_PLANET;
-        turn();
+       if (currentPlayer->current()->isAiPlayer()) {
+             gameState = AI_PLAYER;
+         }
+         else {
+             gameState = SOURCE_PLANET;
+        
+        }
+       turn();   
     }
 }
 
@@ -754,12 +860,12 @@ GameBoard::nextPlayer()
 // entered, so do something about it
 //************************************************************************
 void
-GameBoard::sendAttackFleet( void )
+GameBoard::sendAttackFleet( Planet *source, Planet *dest, int ship )
 {
     bool ok;
 
-    ok = currentPlayer->current()->NewAttack( sourcePlanet, destPlanet,
-                                                shipCount, turnNumber );
+    ok = currentPlayer->current()->NewAttack( source, dest,
+                                                ship, turnNumber );
 
     if( !ok ) {
       KMessageBox::error( this,
@@ -789,3 +895,9 @@ GameBoard::showScores()
     scoreDlg->show();
 }
 
+void
+GameBoard::showFleets()
+{
+  FleetDlg *fleetDlg = new FleetDlg( this, &(currentPlayer->current()->getAttackList()) );
+  fleetDlg->show();
+}

@@ -24,6 +24,7 @@ public slots:
     void changeNeutralPlanets( int );
     void changeTurnCount( int );
     void addNewPlayer();
+    void addNewAiPlayer();
     void removePlayer();
     void clearPlayerList();
     void startGame();
@@ -41,6 +42,7 @@ private:
     QPushButton *okBtn;
     QPushButton *cancelBtn;
     QLineEdit *newPlayer;
+    QPushButton *addAiPlayer;
     QPushButton *addPlayer;
     QPushButton *deletePlayer;
     QPushButton *clearList;
@@ -50,6 +52,7 @@ private:
     QLabel *turnCountLbl;
     MiniMap *miniMap;
     QPushButton *rejectMapBtn;
+    int AiPlayers;
 
 };
 

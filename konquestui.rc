@@ -5,6 +5,7 @@
   <Menu name="game"><text>&amp;Game</text>
   <Action name="game_measure"/>
   <Action name="game_scores"/>
+  <Action name="game_fleets"/>
   </Menu>
 </MenuBar>
 
@@ -14,6 +15,7 @@
   <Separator/>
   <Action name="game_measure"/>
   <Action name="game_scores"/>
+  <Action name="game_fleets"/>
 </ToolBar>
 
 </kpartgui>

@@ -114,7 +114,7 @@ class Player : public QObject
     Q_OBJECT
 
 public:
-    Player( QString newName, QColor color, int number  );
+    Player( QString newName, QColor color, int number, bool isAi );
     virtual ~Player();
 
     enum { NEUTRAL_PLAYER_NUMBER = -1 };
@@ -126,7 +126,7 @@ public:
     QPtrList<AttackFleet> &getAttackList( void );
 
     // factory functions
-    static Player *createPlayer( QString newName, QColor newColor, int playerNum  );
+    static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
     static Player *createNeutralPlayer( void );
 
     bool NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int departureTurn );
@@ -141,6 +141,7 @@ private:
     QColor  color;
     int playerNum;
     bool inPlay;
+    bool aiPlayer;
 
     QPtrList<AttackFleet> attackList;
 
@@ -163,6 +164,7 @@ public:
     int getFleetsLaunched( void ) { return  fleetsLaunched; };
     int getEnemyFleetsDestroyed( void ) { return  enemyFleetsDestroyed; };
     int getEnemyShipsDestroyed( void ) { return  enemyShipsDestroyed; };
+    bool isAiPlayer();
 
 };
 

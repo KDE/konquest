@@ -454,8 +454,8 @@ Planet::turn( void )
 //---------------------------------------------------------------------------
 // class Player
 //---------------------------------------------------------------------------
-Player::Player( QString newName, QColor newColor, int newPlrNum ) : name( newName ), color( newColor ),
-playerNum( newPlrNum ), inPlay( true ), shipsBuilt(0), planetsConquered(0), fleetsLaunched(0),
+Player::Player( QString newName, QColor newColor, int newPlrNum, bool isAi ) : name( newName ), color( newColor ),
+playerNum( newPlrNum ), inPlay( true ), aiPlayer( isAi ), shipsBuilt(0), planetsConquered(0), fleetsLaunched(0),
 enemyFleetsDestroyed(0), enemyShipsDestroyed(0)
 {
 }
@@ -479,15 +479,15 @@ Player::getName( void )
     return name;
 }
 
-Player *Player::createPlayer( QString newName, QColor color, int playerNum )
+Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool isAi )
 {
-    return new Player( newName, color, playerNum );
+    return new Player( newName, color, playerNum, isAi );
 }
 
 
 Player *Player::createNeutralPlayer( void )
 {
-    return new Player( QString::null, gray, NEUTRAL_PLAYER_NUMBER );
+    return new Player( QString::null, gray, NEUTRAL_PLAYER_NUMBER, false );
 }
 
 QColor &Player::getColor( void )
@@ -566,6 +566,10 @@ void Player::statEnemyFleetsDestroyed( int x )
 void Player::statEnemyShipsDestroyed( int x )
 {
     enemyShipsDestroyed += x;
+}
+
+bool Player::isAiPlayer() {
+  return aiPlayer;
 }
 
 //---------------------------------------------------------------------------
