@@ -15,8 +15,8 @@ struct planet_info_buffer {
     float killRate;
 };
 
-typedef QList<planet_info_buffer> PlanetInfoList;
-typedef QListIterator<planet_info_buffer> PlanetInfoListIterator;
+typedef QPtrList<planet_info_buffer> PlanetInfoList;
+typedef QPtrListIterator<planet_info_buffer> PlanetInfoListIterator;
 
 class PlanetInfo : public QFrame
 {

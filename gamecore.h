@@ -123,7 +123,7 @@ public:
     QString &getName( void );
     QColor &getColor( void );
     bool isNeutral( void );
-    QList<AttackFleet> &getAttackList( void );
+    QPtrList<AttackFleet> &getAttackList( void );
 
     // factory functions
     static Player *createPlayer( QString newName, QColor newColor, int playerNum  );
@@ -142,7 +142,7 @@ private:
     int playerNum;
     bool inPlay;
 
-    QList<AttackFleet> attackList;
+    QPtrList<AttackFleet> attackList;
 
     // statistics counters
     int shipsBuilt;
@@ -278,8 +278,8 @@ public:
     const int getRows( void ) const;
     const int getColumns( void ) const;
 
-    void populateMap( QList<Player> &players, Player *neutral,
-                      int numNeutralPlanets, QList<Planet> &thePlanets );
+    void populateMap( QPtrList<Player> &players, Player *neutral,
+                      int numNeutralPlanets, QPtrList<Planet> &thePlanets );
     void clearMap( void );
     
     bool selectedSector( int &x, int &y ) const;
@@ -318,12 +318,12 @@ protected:
 // Typedefs
 //---------------------------------------------------------------------------------
 typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
-typedef QList<AttackFleet> AttackFleetList;
-typedef QListIterator<AttackFleet> AttackFleetListIterator;
-typedef QList<Player> PlayerList;
-typedef QList<Planet> PlanetList;
-typedef QListIterator<Player> PlayerListIterator;
-typedef QListIterator<Planet> PlanetListIterator;
+typedef QPtrList<AttackFleet> AttackFleetList;
+typedef QPtrListIterator<AttackFleet> AttackFleetListIterator;
+typedef QPtrList<Player> PlayerList;
+typedef QPtrList<Planet> PlanetList;
+typedef QPtrListIterator<Player> PlayerListIterator;
+typedef QPtrListIterator<Planet> PlanetListIterator;
 
 #endif // _GAMECORE_H_
 

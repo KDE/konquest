@@ -8,7 +8,7 @@
 #include "minimap.moc"
 
 MiniMap::MiniMap(  Map *newMap, QWidget *parent )
-    : QTableView( parent ),
+    : QtTableView( parent ),
     SECTOR_HEIGHT( 12 ), SECTOR_WIDTH( 12 ),
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),

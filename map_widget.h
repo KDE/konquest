@@ -5,14 +5,23 @@
 #include <qwidget.h>
 #include <qframe.h>
 #include <qpixmap.h>
+
+#if QT_VERSION < 300
 #include <qtableview.h>
+#else
+#include <qttableview.h>
+#endif
+
 #include <qtimer.h>
 
 #include "gamecore.h"
 #include "images.h"
 
-
-class ConquestMap : public QTableView
+//#if QT_VERSION < 300
+//class ConquestMap : public QTableView
+//#else
+class ConquestMap : public QtTableView
+//#endif
 {
     Q_OBJECT
 

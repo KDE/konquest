@@ -7,8 +7,13 @@
 #include <kglobal.h>
 #include "map_widget.moc"
 
+#if QT_VERSION < 300
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     : QTableView( parent ),
+#else
+ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
+    : QtTableView( parent ),
+#endif
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
