@@ -1,7 +1,7 @@
 #ifndef _GAMECORE_H_
 #define _GAMECORE_H_
 
-#include <stdlib.h>
+#include <krandomsequence.h>
 
 #include <qobject.h>
 #include <qstring.h>
@@ -45,6 +45,7 @@ public:
     double roll( void );
 
 private:
+    KRandomSequence random;
     static bool class_init;
 };
 

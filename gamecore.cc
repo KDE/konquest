@@ -3,7 +3,6 @@
 
 #include <stddef.h>
 #include <math.h>
-#include <time.h>
 
 #include <iostream.h>
 
@@ -17,34 +16,29 @@ bool CoreLogic::class_init = false;
 
 CoreLogic::CoreLogic()
 {
-    if( !class_init )
-    {
-        srandom( time(NULL) );
-        
-        class_init = true;
-    }
+    random.setSeed(0);
 }
 
 void
 CoreLogic::generatePlanetCoordinates( int &x, int &y )
 {
     // 0 - 15
-    x = random() % 16;
-    y = random() % 16;
+    x = random.getLong(16);
+    y = random.getLong(16);
 }
 
 double
 CoreLogic::generateKillPercentage( void )
 {
     // 0.30 - 0.90
-    return 0.30 + (random()%6000)/10000;
+    return 0.30 + random.getDouble()*0.60;
 }
 
 int
 CoreLogic::generatePlanetProduction( void )
 {
     // 5 - 15
-    return 5+random()%11;
+    return 5 + random.getLong(10);
 }
 
 double
@@ -66,9 +60,8 @@ CoreLogic::distance( Planet *p1, Planet *p2 )
 double
 CoreLogic::roll( void )
 {
-    // 0 - 100 //// ??? Looks like 0 - 1 to me ! David.
-    //return (1.00*rand()/(RAND_MAX+1.0));
-    return (random()%30000/30000);    // don't rely on RAND_MAX
+    // 0.00 - 1.00 
+    return random.getDouble();   
 }
 
 //---------------------------------------------------------------------------
