@@ -54,7 +54,7 @@ MainWindow::setupKAction()
     createGUI();
 
     toolBar()->setBarPos( KToolBar::Left );
-    toolBar()->enableMoving( false );
+    toolBar()->setMovingEnabled( false );
 }
 
 void
