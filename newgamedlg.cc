@@ -7,7 +7,6 @@
 #include <qlistbox.h>
 #include <qpushbutton.h>
 #include <qlineedit.h>
-#include <kmsgbox.h>
 #include <kapp.h>
 #include <klocale.h>
 #include <kslider.h>

@@ -8,9 +8,9 @@
 #include <qpushbutton.h>
 #include <qlineedit.h>
 #include <qvalidator.h>
-#include <kmsgbox.h>
 #include <kapp.h>
 #include <klocale.h>
+#include <qmessagebox.h>
 #include <kglobal.h>
 #include <kslider.h>
 #include <kiconloader.h>
@@ -293,7 +293,7 @@ GameBoard::turn( void )
 		  .arg(destPlanet->getName())
                   .arg(distString)
 		  .arg(travelTime);
-            KMsgBox::message( this, i18n("Distance"), msg, KMsgBox::INFORMATION );
+	    QMessageBox::information( this, i18n("Distance"), msg, i18n("OK"));
 
             gameState = NONE;
             turn();
@@ -430,8 +430,8 @@ GameBoard::scanForSurvivors( void )
             QString msg;
             msg = i18n("The once mighty empire of %1 has fallen in ruins.")
                   .arg(plr->getName());
-            KMsgBox::message( this, i18n("An Empire has fallen..."),
-                              msg, KMsgBox::INFORMATION );
+            QMessageBox::information( this, i18n("An Empire has fallen..."),
+				      msg, i18n("OK"));
         }
     }
 
@@ -442,8 +442,8 @@ GameBoard::scanForSurvivors( void )
             QString msg;
             msg = i18n("The fallen empire of %1 has staggered back to life.")
 		  .arg(plr->getName());
-            KMsgBox::message( this, i18n("Up from the ashes..."),
-                              msg, KMsgBox::INFORMATION );
+	    QMessageBox::information( this, i18n("Up from the ashes..."),
+				      msg, i18n("OK"));
         }
     }
 }
@@ -464,8 +464,8 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         QString msg;
         msg = i18n("Reinforcements have arrived for planet %1")
               .arg(arrivingFleet->destination->getName());
-        KMsgBox::message(this, i18n("Fleet Arrival"),
-                         msg, KMsgBox::INFORMATION );
+        QMessageBox::information(this, i18n("Fleet Arrival"),
+				 msg, i18n("OK"));
         
     } else {
 
@@ -510,8 +510,8 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             msg = i18n("Planet %1 has held against an attack from %2")
 		  .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
-            KMsgBox::message(this, i18n("Planet Holds"),
-                             msg, KMsgBox::INFORMATION );
+            QMessageBox::information(this, i18n("Planet Holds"),
+				     msg, i18n("OK"));
         } else {
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
@@ -521,8 +521,8 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             msg = i18n("Planet %1 has fallen to %2")
                   .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
-            KMsgBox::message(this, i18n("Planet Conquered"),
-                             msg, KMsgBox::INFORMATION );
+            QMessageBox::information(this, i18n("Planet Conquered"),
+				     msg, i18n("OK") );
 
         }
 
@@ -582,10 +582,10 @@ GameBoard::shutdownGame()
     if( !gameInProgress )
         return;
 
-    int choice = KMsgBox::yesNo( this,
-                                 i18n("End Game"),
-                                 i18n("Do you wish to retire this game?"),
-                                 0, i18n("Yes"), i18n("Cancel") );
+    int choice = QMessageBox::information( this,
+			      i18n("End Game"),
+			      i18n("Do you wish to retire this game?"),
+                              i18n("Yes"), i18n("Cancel") );
 
     if( choice != 1 )
         return;
@@ -762,7 +762,9 @@ GameBoard::sendAttackFleet( void )
                                                 shipCount, turnNumber );
 
     if( !ok ) {
-        KMsgBox::message( this, i18n("Error"), i18n("Not enough ships to send."), KMsgBox::EXCLAMATION  );
+        QMessageBox::information( this, i18n("Error"), 
+				  i18n("Not enough ships to send."), 
+				  i18n("OK"));
     }
 }
 
