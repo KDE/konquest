@@ -4,6 +4,7 @@
 
 #include <kapplication.h>
 #include <kiconloader.h>
+#include <kglobalsettings.h>
 
 #include <kglobal.h>
 #include "map_widget.moc"
@@ -14,9 +15,11 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
-    labelFont("Helvetica", 8 ),
     hiLiteRow( -1 ), hiLiteCol( -1 )
 {
+    labelFont = KGlobalSettings::generalFont();
+    labelFont.setPointSize( 8 );
+
     setFrameStyle( NoFrame );
     setPaletteBackgroundColor( black );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
