@@ -14,7 +14,8 @@ MiniMap::MiniMap(  Map *newMap, QWidget *parent )
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
     map( newMap )
 {
-    setBackgroundColor( black );
+    setFrameStyle( NoFrame );
+    setPaletteBackgroundColor( black );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );
@@ -44,7 +45,7 @@ MiniMap::paintCell( QPainter *p, int row, int col )
 void
 MiniMap::mapUpdate()
 {
-    repaint( false );
+    updateContents();
 }
 
 

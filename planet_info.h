@@ -30,10 +30,11 @@ public:
 
     void setPlanetList( PlanetList &newPlanets );
     void rescanPlanets( void );
+    QSize sizeHint() const;
     
 public slots:
     void showPlanet( Planet * );
-    
+
 private:
     void emptyPlanetInfoList( void );
     void clearDisplay( void );

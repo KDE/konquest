@@ -2,7 +2,7 @@
 #include <kstandarddirs.h>
 #define _IMAGES_H
 
-#define IMAGE_SPLASH 		locate("appdata", "pics/konquest-splash.gif")
+#define IMAGE_SPLASH 		locate("appdata", "pics/konquest-splash.png")
 #define IMAGE_PLANET_1		locate("appdata", "pics/planet1.xpm")
 #define IMAGE_PLANET_2		locate("appdata", "pics/planet2.xpm")
 #define IMAGE_PLANET_3		locate("appdata", "pics/planet3.xpm")

@@ -1,5 +1,6 @@
 #include <qpixmap.h>
 #include <qpainter.h>
+#include <qcolor.h>
 
 #include <kapplication.h>
 #include <kiconloader.h>
@@ -13,10 +14,11 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
-    labelFont("Helvetica", 12 ),
+    labelFont("Helvetica", 8 ),
     hiLiteRow( -1 ), hiLiteCol( -1 )
 {
-    setBackgroundColor( black );
+    setFrameStyle( NoFrame );
+    setPaletteBackgroundColor( black );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );
@@ -33,9 +35,11 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     connect( timer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
     timer->start( 500, false );
 
+    viewport()->setMouseTracking( true );
     setMouseTracking( true );
-
+	
     show();
+
 
 };
 
@@ -43,9 +47,9 @@ ConquestMap::~ConquestMap()
 {
 }
 
-
+	
 void
-ConquestMap::mousePressEvent( QMouseEvent *e )
+ConquestMap::contentsMousePressEvent( QMouseEvent *e )
 {
     int row, col;
 
@@ -55,10 +59,11 @@ ConquestMap::mousePressEvent( QMouseEvent *e )
     if( map->getSector( row, col ).hasPlanet() ) {
         emit planetSelected( map->getSector( row, col ).getPlanet() );
     }
+
 }
 
 void
-ConquestMap::mouseMoveEvent( QMouseEvent *e )
+ConquestMap::contentsMouseMoveEvent( QMouseEvent *e )
 {
     // highlight the square under the mouse
     int row, col;
@@ -66,13 +71,15 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
     row = rowAt( e->y() );
     col = columnAt( e->x() );
 
-    if( row == -1 || col == -1 ) {
+    // Check to make sure the mouse is in a valid grid location
+    if( (row < 0 || col < 0) ||
+    	(row >= BOARD_ROWS || col >= BOARD_COLS) )  {
 	    return;
     }
 
 
     if( (hiLiteRow != -1) && (hiLiteCol != -1)  ) {
-        QPainter p( this );
+        QPainter p( viewport() );
 
         p.translate( hiLiteCol * cellWidth(), hiLiteRow * cellHeight() );
 
@@ -84,7 +91,7 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
      }
 
     if( map->getSector( row, col ).hasPlanet() ) {
-        QPainter p( this );
+        QPainter p( viewport() );
 
         p.translate( col * cellWidth(),row * cellHeight() );
 
@@ -118,7 +125,7 @@ ConquestMap::squareBlink()
 
     int row, col;
     if( map->selectedSector( row, col ) ) {
-        QPainter p( this );
+        QPainter p( this, true );
 
         p.translate( col * cellWidth(), row * cellHeight() );
 
@@ -139,7 +146,7 @@ ConquestMap::squareBlink()
 void
 ConquestMap::mapUpdate()
 {
-    repaint( false );
+    viewport()->repaint(false);
 }
 
 
@@ -149,15 +156,13 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
     QColor labelColor( white );
     QPoint labelCorner;
 
-    // calculate the x,y coordinates of the sector
-    int x = sector.getColumn() * cellWidth();
-    int y = sector.getRow() * cellHeight();
-
     if( sector.hasPlanet() ) {
         QPixmap pm;
 
         // simple (pathetic) way to "randomize"
         // the planet graphic
+	// and also a really dirty hack to make the planet
+	// name more visible (hard coded pixel offsets)
         switch( ((sector.getRow()+sector.getColumn()) % 9) + 1  ) {
         case 1 :
             pm = QPixmap( IMAGE_PLANET_1 );
@@ -206,6 +211,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
         p->setFont( labelFont );
         p->setPen( labelColor );
+	
         p->drawText( labelCorner, sector.getPlanet()->getName() );
 
         if( borderStrobe ) {
