@@ -175,39 +175,39 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
         // the planet graphic
         switch( ((sector.getRow()+sector.getColumn()) % 9) + 1  ) {
         case 1 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_1 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_1 );
             labelCorner = QPoint( 18, 14 );
             break;
         case 2 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_2 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_2 );
             labelCorner = QPoint( 2, 14 );
             break;
         case 3 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_3 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_3 );
             labelCorner = QPoint( 2, 26 );
             break;
         case 4 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_4 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_4 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 5 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_5 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_5 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 6 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_6 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_6 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 7 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_7 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_7 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 8 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_8 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_8 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 9 :
-            pm = iconloader->loadApplicationIcon( IMAGE_PLANET_9 );
+            pm = iconloader->loadIcon( IMAGE_PLANET_9 );
             labelCorner = QPoint( 18, 26 );
             break;
         }
@@ -245,4 +245,5 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
     p->drawRect( 0, 0, SECTOR_HEIGHT, SECTOR_WIDTH );
 
 }
+
 

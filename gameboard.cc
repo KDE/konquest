@@ -68,7 +68,7 @@ GameBoard::GameBoard( QWidget *parent )
     shipCountEdit->setEchoMode( QLineEdit::Password );
 
     splashScreen = new QLabel( this );
-    splashScreen->setPixmap( iconloader->loadApplicationIcon( IMAGE_SPLASH ));
+    splashScreen->setPixmap( iconloader->loadIcon( IMAGE_SPLASH ));
     splashScreen->setGeometry( 0, 0, 600, 550 );
 
 
@@ -790,3 +790,4 @@ GameBoard::showScores()
     scoreDlg->show();
 
 }
+

@@ -71,10 +71,10 @@ MainWindow::setupToolBar()
 
     KIconLoader *iconloader = KGlobal::iconLoader();
 
-    QPixmap pixmap1 = iconloader->loadApplicationIcon( "stop.xpm" );
-    QPixmap pixmap2 = iconloader->loadApplicationIcon( "reload.xpm" );
-    QPixmap pixmap3 = iconloader->loadApplicationIcon( "ruler.xpm" );
-    QPixmap pixmap4 = iconloader->loadApplicationIcon( "help.xpm" );
+    QPixmap pixmap1 = iconloader->loadIcon( "stop.xpm" );
+    QPixmap pixmap2 = iconloader->loadIcon( "reload.xpm" );
+    QPixmap pixmap3 = iconloader->loadIcon( "ruler.xpm" );
+    QPixmap pixmap4 = iconloader->loadIcon( "help.xpm" );
 
     toolbar->insertButton( pixmap2, 1,
                            SIGNAL( clicked() ), gameBoard, SLOT( startNewGame() ),
@@ -135,5 +135,6 @@ MainWindow::gameStateChange( GameState newState )
 
     
 }
+
 
 
