@@ -234,6 +234,7 @@ public:
     // constructors
     Sector();
     Sector( Map *parentMap, int xpos, int ypos );
+    Sector( const Sector & );
 
     // assignment operator (makes initialization easy)
     Sector &operator=( const Sector & );

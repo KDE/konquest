@@ -250,6 +250,11 @@ Sector::Sector( Map *newParentMap, int xPos, int yPos )
 {
 }
 
+Sector::Sector( const Sector & other )
+: QObject(0,0), planet(other.planet), parentMap(other.parentMap), x(other.x), y(other.y)
+{
+}
+
 bool Sector::hasPlanet() const
 {
     return (planet != NULL);
