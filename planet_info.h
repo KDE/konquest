@@ -8,6 +8,8 @@
 
 #include "gamecore.h"
 
+class QLabel;
+
 struct planet_info_buffer {
     Planet *planet;
     int production;
