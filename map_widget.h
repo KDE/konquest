@@ -27,8 +27,8 @@ public:
     void unselectPlanet( void );
 
 protected:
-    virtual void mousePressEvent( QMouseEvent *e );
-    virtual void mouseMoveEvent( QMouseEvent *e );
+    virtual void contentsMousePressEvent( QMouseEvent *e );
+    virtual void contentsMouseMoveEvent( QMouseEvent *e );
     virtual void paintCell( QPainter *p, int row, int col );
 
 private slots:

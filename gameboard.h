@@ -29,6 +29,8 @@ public:
     virtual ~GameBoard();
 
     bool isGameInProgress(void) { return gameInProgress; };
+    
+    virtual QSize sizeHint() const;
 
 protected slots:
     void startNewGame();
@@ -50,7 +52,7 @@ signals:
     // Event Handlers
     //***************************************************************
 protected:
-    void keyPressEvent( QKeyEvent * );
+    virtual void keyPressEvent( QKeyEvent * );
 
 private:
     void turn( void );

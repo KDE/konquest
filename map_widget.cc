@@ -35,6 +35,7 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     connect( timer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
     timer->start( 500, false );
 
+    viewport()->setMouseTracking( true );
     setMouseTracking( true );
 	
     show();
@@ -48,7 +49,7 @@ ConquestMap::~ConquestMap()
 
 	
 void
-ConquestMap::mousePressEvent( QMouseEvent *e )
+ConquestMap::contentsMousePressEvent( QMouseEvent *e )
 {
     int row, col;
 
@@ -62,7 +63,7 @@ ConquestMap::mousePressEvent( QMouseEvent *e )
 }
 
 void
-ConquestMap::mouseMoveEvent( QMouseEvent *e )
+ConquestMap::contentsMouseMoveEvent( QMouseEvent *e )
 {
     // highlight the square under the mouse
     int row, col;
@@ -76,7 +77,7 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
 
 
     if( (hiLiteRow != -1) && (hiLiteCol != -1)  ) {
-        QPainter p( this );
+        QPainter p( viewport() );
 
         p.translate( hiLiteCol * cellWidth(), hiLiteRow * cellHeight() );
 
@@ -88,7 +89,7 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
      }
 
     if( map->getSector( row, col ).hasPlanet() ) {
-        QPainter p( this );
+        QPainter p( viewport() );
 
         p.translate( col * cellWidth(),row * cellHeight() );
 
@@ -143,7 +144,7 @@ ConquestMap::squareBlink()
 void
 ConquestMap::mapUpdate()
 {
-    updateContents();
+    viewport()->repaint(false);
 }
 
 
@@ -208,6 +209,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
         p->setFont( labelFont );
         p->setPen( labelColor );
+	
         p->drawText( labelCorner, sector.getPlanet()->getName() );
 
         if( borderStrobe ) {

@@ -28,8 +28,6 @@ MainWindow::MainWindow( const char *name) : KMainWindow( 0, name )
     setupGameBoard();
     setupKAction();
 
-    resize( 600,550 );
-    setFixedSize( 600, 550 );
     show();
 }
 

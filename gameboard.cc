@@ -69,7 +69,9 @@ GameBoard::GameBoard( QWidget *parent )
     splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
     splashScreen->setGeometry( 0, 0, 600, 550 );
 
+    setFixedSize( 600, 550 );
 
+    setMouseTracking( true );
     setFocusPolicy( StrongFocus );
     setFocus();
 
@@ -121,6 +123,11 @@ GameBoard::GameBoard( QWidget *parent )
 GameBoard::~GameBoard()
 {
     // Nothing much to do yet
+}
+
+QSize GameBoard::sizeHint() const
+{
+    return QSize( 600, 550 );
 }
 
 //************************************************************************

@@ -34,7 +34,7 @@ public:
     
 public slots:
     void showPlanet( Planet * );
-    
+
 private:
     void emptyPlanetInfoList( void );
     void clearDisplay( void );

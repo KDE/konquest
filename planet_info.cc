@@ -16,20 +16,28 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
     setPalette( palette );
 
     name = new QLabel( this );
+    name->setMinimumWidth( 100 );
     owner = new QLabel( this );
+    owner->setMinimumWidth( 100 );
     ships = new QLabel( this );
+    ships->setMinimumWidth( 100 );
     production = new QLabel( this );
+    production->setMinimumWidth( 100 );
     kill_percent = new QLabel( this );
+    kill_percent->setMinimumWidth( 100 );
 
     clearDisplay();
 
-    QVBoxLayout *layout = new QVBoxLayout( this );
-    layout->addWidget( name );
-    layout->addWidget( owner );
-    layout->addWidget( ships );
-    layout->addWidget( production );
-    layout->addWidget( kill_percent );
-    layout->addStretch(1);
+    QVBoxLayout *layout1 = new QVBoxLayout( this );
+    
+    layout1->addWidget( name );
+    layout1->addWidget( owner );
+    layout1->addWidget( ships );
+    layout1->addWidget( production );
+    layout1->addWidget( kill_percent );
+    layout1->addStretch(1);
+
+    setMouseTracking( true );
 
     setMaximumSize( sizeHint() );
 }
@@ -49,7 +57,7 @@ QSize PlanetInfo::sizeHint() const
 		production->sizeHint().height()+
 		kill_percent->sizeHint().height();
 		
-    return QSize( 80, height );
+    return QSize( 100, height );
 }
 
 void PlanetInfo::setPlanetList( PlanetList &newPlanets )
@@ -151,3 +159,4 @@ void PlanetInfo::showPlanet( Planet *planet )
         }
     }
 }
+
