@@ -69,6 +69,10 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
     row = findRow( e->y() );
     col = findCol( e->x() );
 
+    if( row == -1 || col == -1 ) {
+	    return;
+    }
+    
 
     if( (hiLiteRow != -1) && (hiLiteCol != -1)  ) {
         QPainter p( this );
@@ -86,7 +90,6 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
 
      }
 
-
     if( map->getSector( row, col ).hasPlanet() ) {
         QPainter p( this );
 
@@ -97,13 +100,13 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
         p.translate( x,y );
 
         drawSector( &p, map->getSector(row,col), false, true );
-
         emit planetHighlighted(map->getSector( row, col ).getPlanet() );
         
         hiLiteRow = row;
         hiLiteCol = col;
 
     }
+
 }
 
 void
