@@ -685,7 +685,7 @@ GameBoard::shutdownGame()
       ( this,
 	i18n("Do you wish to retire this game?"),
 	i18n("End Game"),
-        i18n("&OK") );
+        KStdGuiItem::ok() );
 
     if( choice == KMessageBox::Cancel )
         return;

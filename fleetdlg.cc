@@ -1,10 +1,11 @@
 #include <klistview.h>
 #include <qlayout.h>
-#include <qpushbutton.h>
 #include <kapplication.h>
 #include <klocale.h>
 #include <math.h>
 #include <kglobal.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #include "fleetdlg.h"
 #include "fleetdlg.moc"
@@ -21,7 +22,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     fleetTable->addColumn(i18n("Kill Percentage"), 100 );
     fleetTable->addColumn(i18n("Arrival Turn"), 90 );
 
-    QPushButton *okButton = new QPushButton( i18n("&OK"), this );
+    QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 

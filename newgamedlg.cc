@@ -74,7 +74,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     okBtn->setFixedSize( okBtn->sizeHint() );
     okBtn->setEnabled(false);
 
-    cancelBtn = new QPushButton( i18n("&Cancel"), this );
+    cancelBtn = new KPushButton( KStdGuiItem::cancel(), this );
     cancelBtn->setFixedSize( cancelBtn->sizeHint() );
 
 

@@ -1,9 +1,10 @@
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qpushbutton.h>
 #include <kapplication.h>
 #include <klocale.h>
 #include <qslider.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"
@@ -18,11 +19,11 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, this );
     turnCountLbl = new QLabel( this );
 
-    QPushButton *yesBtn = new QPushButton( i18n("Yes"), this );
+    QPushButton *yesBtn = new KPushButton( KStdGuiItem::yes(), this );
     yesBtn->setFixedSize( yesBtn->sizeHint() );
     yesBtn->setAutoDefault( true );
 
-    QPushButton *noBtn = new QPushButton( i18n("No"), this );
+    QPushButton *noBtn = new KPushButton( KStdGuiItem::no(), this );
     noBtn->setFixedSize( noBtn->sizeHint() );
 
     turnCountChange( 5 );
