@@ -1,0 +1,8 @@
+# KDE Config File  
+[KDE Desktop Entry]
+Icon=konquest.xpm
+Name=Konquest
+Exec=konquest -caption %c
+Type=Application
+Comment=A game of galactic conquest
+Terminal=0

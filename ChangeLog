@@ -1,0 +1,11 @@
+0.0.4 --
+	Fixed (hopefully) a compiler error. gamecore.cc would compile fine with
+		debug (-g), but not with the optimizer (-O2). Added a destructor
+		and things seem okay.
+
+	Added the distance measuring function of the original game. It appears as a
+		in the toolbar.
+
+0.0.3 -- 
+	wasn't keeping a changelog prior to 0.0.4
+
