@@ -28,8 +28,8 @@ public:
     GameBoard( QWidget *parent );
     virtual ~GameBoard();
 
-    bool isGameInProgress(void) { return gameInProgress; };
-    
+    bool isGameInProgress(void) const { return gameInProgress; };
+
     virtual QSize sizeHint() const;
 
 protected slots:
@@ -47,7 +47,7 @@ protected slots:
 
 signals:
     void newGameState( GameState newState );
-    
+
     //***************************************************************
     // Event Handlers
     //***************************************************************
@@ -90,7 +90,7 @@ private:
     //***************************************************************
     int turnNumber;
     int lastTurn;
-    
+
     PlayerList players;
     PlanetList planets;
     Player *neutralPlayer;
