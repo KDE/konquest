@@ -2,6 +2,7 @@
 #include <qlayout.h>
 #include <qcolor.h>
 #include <qpalette.h>
+#include <kapp.h>
 
 #include <iostream.h>
 
@@ -77,19 +78,19 @@ void PlanetInfo::clearDisplay( void )
 {
     QString temp;
 
-    temp = "Planet Name : ";
+    temp = i18n("Planet Name : ");
     name->setText( temp );
 
-    temp = "Owner : ";
+    temp = i18n("Owner : ");
     owner->setText( temp );
 
-    temp = "Ships : ";
+    temp = i18n("Ships : ");
     ships->setText( temp );
 
-    temp = "Production : ";
+    temp = i18n("Production : ");
     production->setText( temp );
 
-    temp = "Kill Percent : ";
+    temp = i18n("Kill Percent : ");
     kill_percent->setText( temp );
 
 }
@@ -112,7 +113,7 @@ void PlanetInfo::showPlanet( Planet *planet )
         
         QString temp;
         
-        temp = "Planet Name : " + planet->getName();
+        temp = i18n("Planet Name : ") + planet->getName();
         name->setText( temp );
         return;
     }
@@ -127,19 +128,19 @@ void PlanetInfo::showPlanet( Planet *planet )
 
             QString temp;
 
-            temp = "Planet Name : " + p->planet->getName();
+            temp = i18n("Planet Name : ") + p->planet->getName();
             name->setText( temp );
 
-            temp = "Owner : " + p->planet->getPlayer()->getName();
+            temp = i18n("Owner : ") + p->planet->getPlayer()->getName();
             owner->setText( temp );
 
-            temp.sprintf( "Ships : %d",  p->ships );
+            temp.sprintf( i18n("Ships : %d"),  p->ships );
             ships->setText( temp );
 
-            temp.sprintf( "Production : %d", p->production );
+            temp.sprintf( i18n("Production : %d"), p->production );
             production->setText( temp );
 
-            temp.sprintf( "Kill Percent : %.3f", p->killRate );
+            temp.sprintf( i18n("Kill Percent : %.3f"), p->killRate );
             kill_percent->setText( temp );
         }
     }

@@ -2,6 +2,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpushbt.h>
+#include <kapp.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"
@@ -10,17 +11,17 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     : QDialog( parent, 0, true )
 {
     // Create controls
-    QLabel *label1 = new QLabel( "This is the last turn.\nDo you wish to add more turns?", this );
+    QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add more turns?"), this );
     label1->setAlignment( AlignCenter );
     
     turnCount = new KSlider( 1, 40, 1, 5, KSlider::Horizontal, this );
     turnCountLbl = new QLabel( this );
 
-    QPushButton *yesBtn = new QPushButton( "Yes", this );
+    QPushButton *yesBtn = new QPushButton( i18n("Yes"), this );
     yesBtn->setFixedSize( yesBtn->sizeHint() );
     yesBtn->setAutoDefault( true );
 
-    QPushButton *noBtn = new QPushButton( "No", this );
+    QPushButton *noBtn = new QPushButton( i18n("No"), this );
     noBtn->setFixedSize( noBtn->sizeHint() );
 
     turnCountChange( 5 );
@@ -60,7 +61,7 @@ GameEndDlg::turnCountChange( int newTurnCount )
     
     addTurns = newTurnCount;
 
-    newLbl.sprintf( "Add %d turns", addTurns );
+    newLbl.sprintf( i18n("Add %d turns"), addTurns );
 
     turnCountLbl->setText( newLbl);
 
