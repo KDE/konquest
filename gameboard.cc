@@ -780,9 +780,7 @@ GameBoard::measureDistance()
 void
 GameBoard::showScores()
 {
-
-    ScoreDlg *scoreDlg = new ScoreDlg( this, "Current Standings", &players );
+    ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Current Standings"), &players );
     scoreDlg->show();
-
 }
 
