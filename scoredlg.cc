@@ -20,6 +20,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     scoreTable->addColumn(i18n("Fleets Launched"));
     scoreTable->addColumn(i18n("Fleets Destroyed"));
     scoreTable->addColumn(i18n("Ships Destroyed"));
+    scoreTable->setMinimumSize( scoreTable->sizeHint() );
 
     QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );

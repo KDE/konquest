@@ -57,18 +57,20 @@ protected:
     virtual void keyPressEvent( QKeyEvent * );
 
 private:
-    void turn( void );
-    void nextTurn( void );
+    void turn();
+    void nextTurn();
+    void gameOver();
 
-    void resolveShipsInFlight( void );
+    void resolveShipsInFlight();
     void sendAttackFleet( Planet *source, Planet *dest, int ships );
     void doFleetArrival( AttackFleet *arrivingFleet );
-    void scanForSurvivors( void );
+    void scanForSurvivors();
 
     void gameMsg(const QString &msg, Player *player = 0, Planet *planet = 0, Player *planetPlayer = 0);
 
     void changeGameBoard( bool inPlay );
-    void cleanupGame( void );
+    void cleanupGame();
+    Player *findWinner();
 
     QString playerString(Player *player = 0);
     

@@ -199,7 +199,7 @@ GameBoard::playerString(Player *player)
 // Game engine/state machine
 //************************************************************************
 void
-GameBoard::turn( void )
+GameBoard::turn()
 {
     PlanetListIterator planetAi( planets );
     PlanetListIterator planetAttack( planets );
@@ -441,7 +441,7 @@ GameBoard::turn( void )
 // To the end turn processing (resolve combat, etc.)
 //************************************************************************
 void
-GameBoard::nextTurn( void )
+GameBoard::nextTurn()
 {
     resolveShipsInFlight();
 
@@ -455,41 +455,54 @@ GameBoard::nextTurn( void )
     // advance turn counter
     turnNumber++;
 
-    if( turnNumber == lastTurn ) {
-        // Last call
-        //KMsgBox::message( this, i18n("Last Turn"), i18n("This is the last turn."), KMsgBox::INFORMATION );
-
-        GameEndDlg *dlg = new GameEndDlg( this );
-
-        if( dlg->exec() ) {
-            lastTurn += dlg->addTurns;
-        }
-
-        delete dlg;
-    }
-
-    if( turnNumber > lastTurn ) {
-        // Game over, man! Game over.
-        cleanupGame();
-    };
-
     // update the planets
     PlanetListIterator nextPlanet( planets );
     Planet *planet;
 
-    while( (planet = nextPlanet()) ) {
+    while( (planet = nextPlanet()) )
+    {
         planet->turn();
     }
 
     // Tell the status widget to update itself
     planetInfo->rescanPlanets();
+
+    Player *winner = findWinner();
+    if (winner)
+    {
+        mapWidget->repaint(true);
+        KMessageBox::information(this, 
+              i18n("The mighty %1 has conquered the Galactic!").arg(winner->getName()),
+              i18n("Game Over"));
+    }
+
+    if( (turnNumber == lastTurn) && !winner )
+    {
+        mapWidget->repaint(true);
+        GameEndDlg *dlg = new GameEndDlg( this );
+
+        if( dlg->exec() == KDialogBase::Yes ) {
+            lastTurn += dlg->extraTurns();
+        }
+
+        delete dlg;
+    }
+
+    if( winner || (turnNumber >= lastTurn) )
+    {
+        // Game over, man! Game over.
+
+        mapWidget->repaint(true);
+
+        gameOver();
+    };
 }
 
 //************************************************************************
 // determine the fate of the ships in transit
 //************************************************************************
 void
-GameBoard::resolveShipsInFlight( void )
+GameBoard::resolveShipsInFlight()
 {
     AttackFleetList arrivingShips;
     PlayerListIterator nextPlayer( players );
@@ -511,6 +524,32 @@ GameBoard::resolveShipsInFlight( void )
         }
     }
 
+}
+
+Player *
+GameBoard::findWinner()
+{
+    Player *winner = 0;
+    int activePlayers = 0;
+
+    PlayerListIterator nextPlayer( players );
+    Player *plr;
+    
+    while( (plr = nextPlayer()) ) {
+        if (plr->isInPlay())
+        {
+            winner = plr;
+            activePlayers++;
+        }
+        else if (plr->getAttackList().count() != 0)
+        {
+            activePlayers++;
+        }
+    }
+    if (activePlayers == 1)
+        return winner;
+
+    return 0;
 }
 
 void
@@ -545,14 +584,17 @@ GameBoard::gameMsg(const QString &msg, Player *player, Planet *planet, Player *p
     msgWidget->scrollToBottom();
     
     if (isHumanInvolved)
+    {
+       mapWidget->repaint(true);
        KMessageBox::information(this, plainMsg);
+    }
 }
 
 //************************************************************************
 // check to see any players have been eliminated
 //************************************************************************
 void
-GameBoard::scanForSurvivors( void )
+GameBoard::scanForSurvivors()
 {
     PlayerListIterator nextPlayer( players );
     PlayerList activePlayers;
@@ -739,6 +781,12 @@ GameBoard::shutdownGame()
     if( choice == KMessageBox::Cancel )
         return;
 
+    gameOver();
+}
+
+void
+GameBoard::gameOver()
+{
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"), &players );
     scoreDlg->exec();
 
@@ -746,7 +794,7 @@ GameBoard::shutdownGame()
 }
 
 void
-GameBoard::cleanupGame( void )
+GameBoard::cleanupGame()
 {
     map->clearMap();
 

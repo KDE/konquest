@@ -16,11 +16,12 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     setCaption( kapp->makeStdCaption(i18n("Fleet Overview")) );
 
     fleetTable = new KListView( this, 0 );
-    fleetTable->addColumn(i18n("Fleet No."), 70 );
-    fleetTable->addColumn(i18n("Destination"), 80 );
-    fleetTable->addColumn(i18n("Ships"), 60 );
-    fleetTable->addColumn(i18n("Kill Percentage"), 100 );
-    fleetTable->addColumn(i18n("Arrival Turn"), 90 );
+    fleetTable->addColumn(i18n("Fleet No."));
+    fleetTable->addColumn(i18n("Destination"));
+    fleetTable->addColumn(i18n("Ships"));
+    fleetTable->addColumn(i18n("Kill Percentage"));
+    fleetTable->addColumn(i18n("Arrival Turn"));
+    fleetTable->setMinimumSize( fleetTable->sizeHint() );
 
     QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );

@@ -1,55 +1,41 @@
 #include <qlabel.h>
 #include <qlayout.h>
-#include <kapplication.h>
-#include <klocale.h>
 #include <qslider.h>
-#include <kpushbutton.h>
+#include <qvbox.h>
+
+#include <kapplication.h>
+#include <kconfig.h>
+#include <klocale.h>
 #include <kstdguiitem.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"
 
 GameEndDlg::GameEndDlg( QWidget *parent )
-    : QDialog( parent, 0, true )
+    : KDialogBase( i18n("Out of Turns"), 
+      KDialogBase::Yes|KDialogBase::No, KDialogBase::Yes, KDialogBase::No,
+      parent, "end_game_dialog", true, true )
 {
+    QVBox *page = makeVBoxMainWidget();
+
     // Create controls
-    QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add more turns?"), this );
+    QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );
     label1->setAlignment( AlignCenter );
     
-    turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, this );
-    turnCountLbl = new QLabel( this );
+    turnCountLbl = new QLabel( page );
+    turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, page );
 
-    QPushButton *yesBtn = new KPushButton( KStdGuiItem::yes(), this );
-    yesBtn->setFixedSize( yesBtn->sizeHint() );
-    yesBtn->setAutoDefault( true );
-
-    QPushButton *noBtn = new KPushButton( KStdGuiItem::no(), this );
-    noBtn->setFixedSize( noBtn->sizeHint() );
-
-    turnCountChange( 5 );
+    KGuiItem addTurns(i18n("&Add Turns"), QString::null, QString::null,
+                      i18n("Add the specified number of turns to the game and continue playing."));
+    KGuiItem gameOver(i18n("&Game Over"), QString::null, QString::null,
+                      i18n("Terminate the current game."));
     
-    // Layout controls
-    QBoxLayout *layout1 = new QVBoxLayout( this );
-    QBoxLayout *layout2 = new QHBoxLayout;
+    setButtonGuiItem(KDialogBase::Yes, addTurns);
+    setButtonGuiItem(KDialogBase::No, gameOver);
 
-    layout1->addWidget( label1 );
-    layout1->addWidget( turnCountLbl );
-    layout1->addWidget( turnCount );
+    init();
 
-    layout1->addLayout( layout2 );
-
-    layout2->addSpacing( 5 );
-    layout2->addWidget( yesBtn );
-    layout2->addStretch( 0 );
-    layout2->addWidget( noBtn );
-    layout2->addSpacing( 5 );
-
-
-    connect( yesBtn, SIGNAL(clicked()), this, SLOT(accept()) );
-    connect( noBtn, SIGNAL(clicked()), this, SLOT(reject()) );
     connect( turnCount, SIGNAL(valueChanged( int )), this, SLOT(turnCountChange( int )) );
-
-    setFixedSize( 250, 170 );
 }
 
 GameEndDlg::~GameEndDlg()
@@ -57,20 +43,34 @@ GameEndDlg::~GameEndDlg()
 }
 
 void
-GameEndDlg::turnCountChange( int newTurnCount )
+GameEndDlg::init()
 {
-    QString newLbl;
-    
-    addTurns = newTurnCount;
-
-    newLbl = i18n("Add %1 turns").arg( addTurns );
-
-    turnCountLbl->setText( newLbl);
-
+    KConfig *config = kapp->config();
+    config->setGroup("Game");
+    int turns = config->readNumEntry("ExtraTurns", 10);
+    turnCount->setValue(turns);
+    turnCountChange(turns);
 }
 
+void
+GameEndDlg::slotYes()
+{
+    KConfig *config = kapp->config();
+    config->setGroup("Game");
+    config->writeEntry("ExtraTurns", extraTurns());
+    config->sync();
+    KDialogBase::slotYes();
+}
 
+int
+GameEndDlg::extraTurns()
+{
+    return turnCount->value();
+}
 
-
-
-
+void
+GameEndDlg::turnCountChange( int newTurnCount )
+{
+    QString newLbl = i18n("Extra turns: %1").arg( newTurnCount );
+    turnCountLbl->setText( newLbl);
+}
