@@ -1,6 +1,5 @@
 #include <qlabel.h>
 #include <qlayout.h>
-#include <qcolor.h>
 #include <qpalette.h>
 #include <qcolor.h>
 #include <kapplication.h>
@@ -29,7 +28,7 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
     clearDisplay();
 
     QVBoxLayout *layout1 = new QVBoxLayout( this );
-    
+
     layout1->addWidget( name );
     layout1->addWidget( owner );
     layout1->addWidget( ships );
@@ -50,13 +49,13 @@ PlanetInfo::~PlanetInfo()
 QSize PlanetInfo::sizeHint() const
 {
     int height;
-    
+
     height = name->sizeHint().height() +
     		owner->sizeHint().height() +
 		ships->sizeHint().height() +
 		production->sizeHint().height()+
 		kill_percent->sizeHint().height();
-		
+
     return QSize( 100, height );
 }
 
