@@ -3,6 +3,7 @@
 Icon=konquest.xpm
 Name=Konquest
 Name[no]=Beseirer
+Name[ru]=Завоеватель
 Exec=konquest -caption %c
 Type=Application
 Comment=A game of galactic conquest
@@ -12,6 +13,7 @@ Comment[fi]=Galaksinvaltauspeli
 Comment[no]=Et spill om herredЬmme over universet
 Comment[pl]=PodbСj galaktyki
 Comment[pt_BR]=Jogo de conquista galАctica
+Comment[ru]=Игра завоевания галактики
 Comment[sv]=Ett spel dДr du ska erЖvra galaxen
 Commnet[cs]=Hra o dobЩvАnМ galaxie
 Terminal=0
