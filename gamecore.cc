@@ -51,15 +51,15 @@ CoreLogic::distance( Planet *p1, Planet *p2 )
 {
     int k = (p1->getSector().getRow() - p2->getSector().getRow()) / 2;
     int l = (p1->getSector().getColumn() - p2->getSector().getColumn()) / 2;
-    
-    return sqrt((k*k) + (l*l));
+
+    return sqrt(double((k*k) + (l*l)));
 }
 
 double
 CoreLogic::roll( void )
 {
-    // 0.00 - 1.00 
-    return random.getDouble();   
+    // 0.00 - 1.00
+    return random.getDouble();
 }
 
 //---------------------------------------------------------------------------
@@ -92,7 +92,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
                   int numNeutralPlanets, PlanetList &thePlanets )
 {
     Freeze();
-    
+
     int index = 0;
     QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/?-+\\|" );
 
@@ -117,7 +117,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
     }
 
     Thaw();
-    
+
     emit update();
 }
 
@@ -133,7 +133,7 @@ Map::clearMap( void )
         {
             grid[x][y].removePlanet();
         }
-    
+
 
     Thaw();
 
@@ -146,7 +146,7 @@ Map::findRandomFreeSector( void )
     CoreLogic cl;
 
     bool found = false;
-    
+
     while( !found )
     {
         int x,y;
@@ -161,10 +161,10 @@ Map::findRandomFreeSector( void )
 
     // TODO: get rid of this
     return grid[0][0];
-    
+
 }
 
-bool 
+bool
 Map::selectedSector( int &x, int &y ) const
 {
     if( hasSelectedSector)
@@ -261,7 +261,7 @@ void Sector::setPlanet( Planet *newPlanet )
     planet = newPlanet;
 
     connect( planet, SIGNAL( update() ), this, SLOT( childPlanetUpdate() ) );
-    
+
     emit update();
 }
 
@@ -273,7 +273,7 @@ Planet *Sector::getPlanet()
 void Sector::removePlanet()
 {
     planet = NULL;
-        
+
     emit update();
 }
 
@@ -290,7 +290,7 @@ Sector::operator=( const Sector &other )
     y = other.y;
     planet = other.planet;
     parentMap = other.parentMap;
-    
+
     return *this;
 }
 
@@ -319,8 +319,8 @@ Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwne
                 int newProd, double newKillP, double newMorale )
        : QObject(0,0), name(planetName), owner(initialOwner), parentSector(newParentSector),
          homeFleet( this, newProd ), killPercentage(newKillP), morale( newMorale ), productionRate(newProd)
-         
-         
+
+
 {
     parentSector.setPlanet( this );
 }
@@ -333,7 +333,7 @@ Planet::createPlayerPlanet( Sector &parentSector, Player *initialOwner, QString 
     CoreLogic clogic;
 
     double morale = clogic.generateMorale();
-    
+
     return new Planet( planetName, parentSector, initialOwner,
                        10, 0.400, morale );
 }
@@ -347,7 +347,7 @@ Planet::createNeutralPlanet( Sector &parentSector, Player *initialOwner, QString
     double killP = clogic.generateKillPercentage();
 
     int productionRate = (int)clogic.generatePlanetProduction();
-    
+
     return new Planet( planetName, parentSector,
                        initialOwner, productionRate, killP, morale );
 }
@@ -620,7 +620,7 @@ DefenseFleet::spawnAttackFleet( Planet *dest, int count, double arrivalTurn )
     AttackFleet *newFleet = new AttackFleet( home, dest, count, arrivalTurn  );
 
     removeShips( count );
-    
+
     return newFleet;
 }
 
