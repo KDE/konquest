@@ -185,7 +185,7 @@ public:
     virtual ~Planet();
 
     static Planet *createPlayerPlanet( Sector &parentSector,
-                                       Player *initalOwner, QString planetName );
+                                       Player *initialOwner, QString planetName );
     static Planet *createNeutralPlanet( Sector &parentSector,
                                         Player *initialOwner, QString planetName );
 
