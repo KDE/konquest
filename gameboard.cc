@@ -8,9 +8,10 @@
 #include <qpushbutton.h>
 #include <qlineedit.h>
 #include <qvalidator.h>
+
 #include <kapp.h>
 #include <klocale.h>
-#include <qmessagebox.h>
+#include <kmessagebox.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 
@@ -278,19 +279,14 @@ GameBoard::turn( void )
             CoreLogic cl;
             double dist = cl.distance( sourcePlanet, destPlanet );
 
-            QString distString;
-            distString.setNum( dist, 'f', 2 );
-            QString travelTime;
-            travelTime.setNum( turnNumber + (int)dist );
-
             QString msg;
             msg = i18n("The distance from Planet %1 to Planet %2 is %3 light years.\n"
                        "A ship leaving this turn will arrive on turn %4")
                   .arg(sourcePlanet->getName())
 		  .arg(destPlanet->getName())
-                  .arg(distString)
-		  .arg(travelTime);
-	    QMessageBox::information( this, i18n("Distance"), msg, i18n("OK"));
+                  .arg(KGlobal::locale()->formatNumber( dist, 2 ))
+		  .arg(KGlobal::locale()->formatNumber( turnNumber + (int)dist, 0 ));
+	    KMessageBox::information( this, msg, i18n("Distance"));
 
             gameState = NONE;
             turn();
@@ -427,8 +423,8 @@ GameBoard::scanForSurvivors( void )
             QString msg;
             msg = i18n("The once mighty empire of %1 has fallen in ruins.")
                   .arg(plr->getName());
-            QMessageBox::information( this, i18n("An Empire has fallen..."),
-				      msg, i18n("OK"));
+            KMessageBox::information( this, msg,
+				      i18n("An Empire has fallen...") );
         }
     }
 
@@ -439,8 +435,8 @@ GameBoard::scanForSurvivors( void )
             QString msg;
             msg = i18n("The fallen empire of %1 has staggered back to life.")
 		  .arg(plr->getName());
-	    QMessageBox::information( this, i18n("Up from the ashes..."),
-				      msg, i18n("OK"));
+	    KMessageBox::information( this, msg,
+				      i18n("Up from the ashes...") );
         }
     }
 }
@@ -461,9 +457,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         QString msg;
         msg = i18n("Reinforcements have arrived for planet %1")
               .arg(arrivingFleet->destination->getName());
-        QMessageBox::information(this, i18n("Fleet Arrival"),
-				 msg, i18n("OK"));
-        
+        KMessageBox::information(this, msg, i18n("Fleet Arrival"));
     } else {
 
         // let's get ready to rumble...
@@ -507,8 +501,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             msg = i18n("Planet %1 has held against an attack from %2")
 		  .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
-            QMessageBox::information(this, i18n("Planet Holds"),
-				     msg, i18n("OK"));
+            KMessageBox::information(this, msg, i18n("Planet Holds"));
         } else {
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
@@ -518,13 +511,9 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             msg = i18n("Planet %1 has fallen to %2")
                   .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
-            QMessageBox::information(this, i18n("Planet Conquered"),
-				     msg, i18n("OK") );
-
+            KMessageBox::information(this, msg, i18n("Planet Conquered"));
         }
-
     }
-
 
     mapWidget->repaint(true);
 }
@@ -579,12 +568,13 @@ GameBoard::shutdownGame()
     if( !gameInProgress )
         return;
 
-    int choice = QMessageBox::information( this,
-			      i18n("End Game"),
-			      i18n("Do you wish to retire this game?"),
-                              i18n("Yes"), i18n("Cancel") );
+    int choice = KMessageBox::warningContinueCancel
+      ( this,
+	i18n("Do you wish to retire this game?"),
+	i18n("End Game"),
+        i18n("&OK") );
 
-    if( choice != 1 )
+    if( choice == KMessageBox::Cancel )
         return;
 
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"), &players );
@@ -759,9 +749,8 @@ GameBoard::sendAttackFleet( void )
                                                 shipCount, turnNumber );
 
     if( !ok ) {
-        QMessageBox::information( this, i18n("Error"), 
-				  i18n("Not enough ships to send."), 
-				  i18n("OK"));
+      KMessageBox::error( this,
+			  i18n("Not enough ships to send.") );
     }
 }
 
