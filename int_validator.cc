@@ -6,7 +6,11 @@
 IntValidator::IntValidator( QWidget *parent, const char *name ) :
     QValidator( parent, name )
 {
+#ifdef MININT
     v_bottom = MININT;
+#else
+    v_bottom = ~MAXINT;
+#endif
     v_top = MAXINT;
 }
 
