@@ -6,7 +6,7 @@
 #include <qobject.h>
 #include <qstring.h>
 #include <qcolor.h>
-#include <qlist.h>
+#include <qptrlist.h>
 
 // Board Size Constants
 #define BOARD_ROWS 16
