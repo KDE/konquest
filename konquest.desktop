@@ -2,7 +2,6 @@
 Encoding=UTF-8
 Icon=konquest
 Name=Konquest
-Name[af]=konquest
 Name[ar]=حرب المجرات
 Name[bg]=Завоевание
 Name[br]=KAloubadur
@@ -29,7 +28,7 @@ Name[zu]=I-Konquest
 Exec=konquest %i %m -caption %c
 Type=Application
 GenericName=Strategy Game
-GenericName[af]=strategie speletjie
+GenericName[af]=Strategie Speletjie
 GenericName[ar]=لعبة اسراتيجية
 GenericName[be]=Стратэгічная гульня
 GenericName[bg]=Стратегическа Игра
