@@ -31,6 +31,6 @@ messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(konquest_SOURCES) && mv messages.po ../po/konquest.pot
 
 KDE_ICON  = konquest
-appsdir   = $(kde_appsdir)/Programs/Games
+appsdir   = $(kde_appsdir)/Games
 apps_DATA = konquest.desktop
 
