@@ -70,4 +70,4 @@ Comment[xh]=Umdlalo onentlaninge yeenkwenwezi we conquest
 Comment[zh_CN.GB2312]=银河系征服游戏
 Terminal=0
 DocPath=konquest/index.html
-KDE-X-StartupNotify=true
+X-KDE-StartupNotify=true
