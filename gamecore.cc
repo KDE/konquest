@@ -330,7 +330,7 @@ Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwne
     parentSector.setPlanet( this );
 }
 
-Planet::~Planet() {};
+Planet::~Planet() {}
 
 Planet *
 Planet::createPlayerPlanet( Sector &parentSector, Player *initialOwner, QString planetName )

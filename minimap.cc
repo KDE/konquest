@@ -29,7 +29,7 @@ MiniMap::MiniMap(  Map *newMap, QWidget *parent )
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
 
     show();
-};
+}
 
 MiniMap::~MiniMap()
 {
