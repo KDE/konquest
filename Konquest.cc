@@ -11,6 +11,8 @@
 #include <klocale.h>
 #include <kmenubar.h>
 #include <kcmdlineargs.h>
+#include <kaboutdata.h>
+
 
 #include "version.h"
 #include "mainwin.h"
@@ -21,7 +23,11 @@ static const char *description = I18N_NOOP("KDE Game");
 int 
 main(int argc, char **argv)
 {
-    KCmdLineArgs::init(argc, argv, "konquest", description, KONQUEST_VERSION);
+    KAboutData aboutData( "konquest", I18N_NOOP("Konquest"), 
+        KONQUEST_VERSION, description, KAboutData::GPL, 
+        "(c) 1999-2000, DEVELOPERS");
+    aboutData.addAuthor("Russ Steffen",0, "rsteffen@ia.net");
+    KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
     
