@@ -13,16 +13,12 @@ METASOURCES = gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
     map_widget.moc minimap.moc newgamedlg.moc planet_info.moc scoredlg.moc \
 	gameenddlg.moc
 
-appsdir   = $(kde_appsdir)/Games/TacticStrategy
-apps_DATA = konquest.desktop
+xdg_apps_DATA = konquest.desktop
 
-EXTRA_DIST = $(apps_DATA)
+EXTRA_DIST = $(xdg_apps_DATA)
 
 rcdir = $(kde_datadir)/konquest
 rc_DATA = konquestui.rc
 
 messages: rc.cpp
 	$(XGETTEXT) rc.cpp *.cc -o $(podir)/konquest.pot
-
-install-data-local:
-	rm -rf $(DESTDIR)$(kde_appsdir)/Games/konquest.desktop
