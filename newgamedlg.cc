@@ -13,7 +13,6 @@
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
 
-#include <klocale.h>
 
 /*************************************************************************
  New Game Dialog Members

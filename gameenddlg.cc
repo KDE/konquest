@@ -6,7 +6,6 @@
 #include <qslider.h>
 
 #include "gameenddlg.h"
-#include <klocale.h>
 #include "gameenddlg.moc"
 
 GameEndDlg::GameEndDlg( QWidget *parent )

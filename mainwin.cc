@@ -13,7 +13,6 @@
 #include "mainwin.h"
 #include "mainwin.moc"
 #include "gameboard.h"
-#include <klocale.h>
 #include <kaction.h>
 #include <kstdaction.h>
 #include <kstdgameaction.h>
