@@ -780,7 +780,7 @@ GameBoard::measureDistance()
     default:
         break;
     }
-};
+}
 
 void
 GameBoard::showScores()

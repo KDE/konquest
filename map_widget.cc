@@ -41,7 +41,7 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     show();
 
 
-};
+}
 
 ConquestMap::~ConquestMap()
 {
