@@ -111,7 +111,7 @@
                                         <cstring>labelNewPlayer</cstring>
                                     </property>
                                     <property name="text">
-                                        <string>&amp;New player:</string>
+                                        <string>&amp;Human player:</string>
                                     </property>
                                     <property name="buddy" stdset="0">
                                         <cstring>newPlayer</cstring>
