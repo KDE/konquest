@@ -52,7 +52,7 @@ GameBoard::GameBoard( QWidget *parent )
     turnCounter->setPalette( palette );
     turnCounter->setText( "Turn" );
 
-    endTurn = new QPushButton( "End Turn", this );
+    endTurn = new QPushButton( i18n("End Turn"), this );
     endTurn->setFixedSize( endTurn->sizeHint() );
     endTurn->setPalette( palette );
 
@@ -200,7 +200,7 @@ GameBoard::turn( void )
             mapWidget->unselectPlanet();
 
             gameMessage->setText( currentPlayer->current()->getName() +
-                                    ": Select source planet..." );
+                                    i18n(": Select source planet...") );
             setFocus();
         }
 
@@ -218,7 +218,7 @@ GameBoard::turn( void )
             endTurn->setEnabled( false );
             sourcePlanet->select();
             gameMessage->setText( currentPlayer->current()->getName() +
-                                    ": Select destination planet..." );
+                                    i18n(": Select destination planet...") );
             setFocus();
         }
 
@@ -240,7 +240,7 @@ GameBoard::turn( void )
 
         } else {
             gameMessage->setText( currentPlayer->current()->getName() +
-                                    ": How many ships?" );
+                                    i18n(": How many ships?") );
 
             shipCountEdit->setText( "" );
             shipCountEdit->show();
@@ -264,7 +264,7 @@ GameBoard::turn( void )
             endTurn->setEnabled( true );
             mapWidget->unselectPlanet();
 
-            gameMessage->setText( "Ruler: Select starting planet." );
+            gameMessage->setText( i18n("Ruler: Select starting planet.") );
             setFocus();
         }
 
@@ -283,17 +283,17 @@ GameBoard::turn( void )
             QString travelTime;
             travelTime.setNum( turnNumber + (int)dist );
 
-            KMsgBox::message( this, "Distance", "The distance from Planet " +
-                              sourcePlanet->getName() + " to Planet " +
-                              destPlanet->getName() + " is " + distString +
-                              " light years.\n" +
-                              "A ship leaving this turn will arrive on turn " +
-                              travelTime, KMsgBox::INFORMATION );
+            QString msg;
+            msg.sprintf(i18n("The distance from Planet %s to Planet %s is %s light years.\n"
+                              "A ship leaving this turn will arrive on turn %s"),
+                              sourcePlanet->getName().data(), destPlanet->getName().data(),
+                              distString.data(), travelTime.data());
+            KMsgBox::message( this, i18n("Ship ArrivesFIXIT"), msg, KMsgBox::INFORMATION );
 
             gameState = NONE;
             turn();
         } else {
-            gameMessage->setText( "Ruler: Select ending planet." );
+            gameMessage->setText( i18n("Ruler: Select ending planet.") );
             shipCountEdit->hide();
             endTurn->setEnabled( false );
             sourcePlanet->select();
@@ -308,7 +308,7 @@ GameBoard::turn( void )
     }
 
     QString turnStr;
-    turnStr.sprintf( "Turn #: %2d of %2d", turnNumber, lastTurn );
+    turnStr.sprintf( i18n("Turn #: %2d of %2d"), turnNumber, lastTurn );
 
     turnCounter->setText( turnStr );
 
@@ -329,7 +329,7 @@ GameBoard::nextTurn( void )
 
     if( turnNumber == lastTurn ) {
         // Last call
-        //KMsgBox::message( this, "Last Turn", "This is the last turn.", KMsgBox::INFORMATION );
+        //KMsgBox::message( this, i18n("Last Turn"), i18n("This is the last turn."), KMsgBox::INFORMATION );
 
         GameEndDlg *dlg = new GameEndDlg( this );
 
@@ -422,9 +422,11 @@ GameBoard::scanForSurvivors( void )
     while( (plr = nextActivePlayer()) ) {
         if( !plr->isInPlay() ) {
             // Player has bitten the dust
-            KMsgBox::message( this, "An Empire has fallen...",
-                              "The once mighty empire of " + plr->getName() +
-                              " has fallen in ruins.", KMsgBox::INFORMATION );
+            QString msg;
+            msg.sprintf(i18n("The once mighty empire of %s has fallen in ruins."),
+                        plr->getName().data());
+            KMsgBox::message( this, i18n("An Empire has fallen..."),
+                              msg, KMsgBox::INFORMATION );
         }
     }
 
@@ -432,9 +434,11 @@ GameBoard::scanForSurvivors( void )
     while( (plr = nextInactivePlayer()) ) {
         if( plr->isInPlay() ) {
             // Player has bitten the dust
-            KMsgBox::message( this, "Up from the ashes...",
-                              "The fallen empire of  " + plr->getName() +
-                              " has staggered back to life.", KMsgBox::INFORMATION );
+            QString msg;
+            msg.sprintf(i18n("The fallen empire of %s has staggered back to life."),
+			plr->getName().data());
+            KMsgBox::message( this, i18n("Up from the ashes..."),
+                              msg, KMsgBox::INFORMATION );
         }
     }
 }
@@ -452,10 +456,11 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
     if( (*arrivingFleet->owner) == (*arrivingFleet->destination->getPlayer()) ) {
         arrivingFleet->destination->getFleet().absorb(arrivingFleet);
 
-        KMsgBox::message(this, "Fleet Arrival",
-                         "Reinforcements have arrived for planet "
-                         + arrivingFleet->destination->getName(),
-                         KMsgBox::INFORMATION );
+        QString msg;
+        msg.sprintf(i18n("Reinforcements have arrived for planet %s"),
+                    arrivingFleet->destination->getName().data());
+        KMsgBox::message(this, i18n("Fleet Arrival"),
+                         msg, KMsgBox::INFORMATION );
         
     } else {
 
@@ -496,18 +501,21 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
 
         if( planetHolds ) {
             prizePlanet.getPlayer()->statEnemyFleetsDestroyed(1);
-            KMsgBox::message(this, "Planet Holds",
-                             "Planet " + prizePlanet.getName() + " has held against an attack from "
-                             + attacker.owner->getName(), KMsgBox::INFORMATION );
+            QString msg;
+            msg.sprintf(i18n("Planet %s has held against an attack from %s"),
+                        prizePlanet.getName().data(), attacker.owner->getName().data());
+            KMsgBox::message(this, i18n("Planet Holds"),
+                             msg, KMsgBox::INFORMATION );
         } else {
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
             arrivingFleet->destination->conquer( arrivingFleet );
 
-            KMsgBox::message(this, "Planet Conquered",
-                             "Planet " + prizePlanet.getName() +
-                             " has fallen to " + attacker.owner->getName(),
-                             KMsgBox::INFORMATION );
+            QString msg;
+            msg.sprintf(i18n("Planet %s has fallen to %s"),
+                        prizePlanet.getName().data(), attacker.owner->getName().data());
+            KMsgBox::message(this, i18n("Planet Conquered"),
+                             msg, KMsgBox::INFORMATION );
 
         }
 
@@ -568,9 +576,9 @@ GameBoard::shutdownGame()
         return;
 
     int choice = KMsgBox::yesNo( this,
-                                 "End Game",
-                                 "Do you wish to retire this game?",
-                                 0, "Yes", "Cancel" );
+                                 i18n("End Game"),
+                                 i18n("Do you wish to retire this game?"),
+                                 0, i18n("Yes"), i18n("Cancel") );
 
     if( choice != 1 )
         return;
@@ -747,7 +755,7 @@ GameBoard::sendAttackFleet( void )
                                                 shipCount, turnNumber );
 
     if( !ok ) {
-        KMsgBox::message( this, "Error", "Not enough ships to send.", KMsgBox::EXCLAMATION  );
+        KMsgBox::message( this, i18n("Error"), i18n("Not enough ships to send."), KMsgBox::EXCLAMATION  );
     }
 }
 

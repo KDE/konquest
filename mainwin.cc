@@ -20,7 +20,7 @@
 MainWindow::MainWindow( const char *name = 0) : KTopLevelWidget( name )
 {
 
-    setCaption( "GNU-Lactic Conquest" );
+    setCaption( i18n("GNU-Lactic Conquest") );
 
     setupGameBoard();
     setupMenu();
@@ -39,19 +39,21 @@ void
 MainWindow::setupMenu()
 {
     QPopupMenu *game_menu = new QPopupMenu();
-    game_menu->insertItem( "&New Game", gameBoard, SLOT( startNewGame()  ) );
-    game_menu->insertItem( "&Quit", qApp, SLOT( quit() ) );
+    game_menu->insertItem( i18n("&New Game"), gameBoard, SLOT( startNewGame()  ) );
+    game_menu->insertItem( i18n("&Quit"), qApp, SLOT( quit() ) );
 
-    QString about = "Version " + QString( KONQUEST_VERSION ) + "\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
+    QString about;
+    about.sprintf(i18n("Version %d\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
         "KDE version by Russ Steffen <rsteffen@ia.net>\n"
-        "See http://www.ia.net/~rsteffen/konquest.html for more info";
+        "See http://www.ia.net/~rsteffen/konquest.html for more info"),
+	KONQUEST_VERSION);
     
     QPopupMenu *help_menu = KApplication::getKApplication()->getHelpMenu( true, about );
     
     menubar = new KMenuBar( this );
-    menubar->insertItem( "&Game", game_menu );
+    menubar->insertItem( i18n("&Game"), game_menu );
     menubar->insertSeparator( -1 );
-    menubar->insertItem( "&Help", help_menu );
+    menubar->insertItem( i18n("&Help"), help_menu );
 
     menubar->enableMoving( false );
     
@@ -72,21 +74,21 @@ MainWindow::setupToolBar()
 
     toolbar->insertButton( pixmap2, 1,
                            SIGNAL( clicked() ), gameBoard, SLOT( startNewGame() ),
-                           true, "New Game", -1 );
+                           true, i18n("New Game"), -1 );
 
     toolbar->insertButton( pixmap1, 2,
                            SIGNAL( clicked() ), gameBoard, SLOT( shutdownGame() ),
-                           true, "End Game", -1 );
+                           true, i18n("End Game"), -1 );
 
     toolbar->insertSeparator(-1);
 
     toolbar->insertButton( pixmap3, 3,
                            SIGNAL( clicked() ), gameBoard, SLOT( measureDistance() ),
-                           false, "Measure Distance", -1 );
+                           false, i18n("Measure Distance"), -1 );
 
     toolbar->insertButton( pixmap4, 4,
                            SIGNAL( clicked() ), gameBoard, SLOT( showScores() ),
-                           false, "Show Standings", -1 );
+                           false, i18n("Show Standings"), -1 );
 
     toolbar->setBarPos( KToolBar::Left );
     toolbar->enableMoving( false );

@@ -25,29 +25,29 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
 {
 
     // Create widgets
-    QLabel *mapLabel = new QLabel( "Preview Map", this );
+    QLabel *mapLabel = new QLabel( i18n("Preview Map"), this );
     miniMap = new MiniMap( map, this );
 
-    rejectMapBtn = new QPushButton( "&Reject Map", this );
+    rejectMapBtn = new QPushButton( i18n("&Reject Map"), this );
     rejectMapBtn->setFixedSize( rejectMapBtn->sizeHint() );
     
     playerList = new QListBox( this );
     playerList->setMinimumSize( 0, 150 );
     playerList->setMaximumSize( 32767, 150 );
     
-    QLabel *listLabel = new QLabel( playerList, "&Player List", this );
+    QLabel *listLabel = new QLabel( playerList, i18n("&Player List"), this );
     listLabel->setFixedSize( listLabel->size() );
 
     newPlayer = new QLineEdit( this );
     newPlayer->setMaxLength( 8 );
     
-    addPlayer = new QPushButton( "&Add", this );
+    addPlayer = new QPushButton( i18n("&Add"), this );
     addPlayer->setFixedSize( addPlayer->sizeHint() );
 
-    deletePlayer = new QPushButton( "&Delete", this );
+    deletePlayer = new QPushButton( i18n("&Delete"), this );
     deletePlayer->setFixedSize( addPlayer->sizeHint() );
     
-    clearList = new QPushButton( "&Clear", this );
+    clearList = new QPushButton( i18n("&Clear"), this );
     clearList->setFixedSize( clearList->sizeHint() );
 
     neutralPlanets = new KSlider( 1, 35, 1, 1, KSlider::Horizontal, this );
@@ -64,10 +64,10 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     turnCountLbl->setMaximumSize( 32767, 15 );
     turnCountLbl->setMinimumSize( 0, 15 );
     
-    okBtn = new QPushButton( "&Start Game", this );
+    okBtn = new QPushButton( i18n("&Start Game"), this );
     okBtn->setFixedSize( okBtn->sizeHint() );
 
-    cancelBtn = new QPushButton( "&Cancel", this );
+    cancelBtn = new QPushButton( i18n("&Cancel"), this );
     cancelBtn->setFixedSize( cancelBtn->sizeHint() );
 
 
@@ -163,7 +163,7 @@ NewGameDlg::changeNeutralPlanets( int newValue )
 {
     QString newText;
 
-    newText.sprintf( "Number of Neutral Planets: %2d", newValue );
+    newText.sprintf( i18n("Number of Neutral Planets: %2d"), newValue );
 
     neutralPlanetLbl->setText( newText );
 
@@ -175,7 +175,7 @@ NewGameDlg::changeTurnCount( int newTurnCount )
 {
     QString newText;
 
-    newText.sprintf( "Number of turns: %2d", newTurnCount );
+    newText.sprintf( i18n("Number of turns: %2d"), newTurnCount );
 
     turnCountLbl->setText( newText );
 }
