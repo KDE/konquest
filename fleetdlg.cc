@@ -15,7 +15,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     setCaption( kapp->makeStdCaption(i18n("Fleet Overview")) );
 
     fleetTable = new KListView( this, 0 );
-    fleetTable->addColumn(i18n("Fleet Nr"), 70 );
+    fleetTable->addColumn(i18n("Fleet No."), 70 );
     fleetTable->addColumn(i18n("Destination"), 80 );
     fleetTable->addColumn(i18n("Ships"), 60 );
     fleetTable->addColumn(i18n("Kill Percentage"), 100 );
