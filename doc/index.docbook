@@ -1,6 +1,5 @@
 <!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
-  <!ENTITY konquest "<application>Konquest</application>" -- replace kapp and Kapp here -->
-  <!ENTITY konquest "&kapp;" -- replace kapp here. This only *seems* redundant -->
+  <!ENTITY kappname "&konquest;" -- replace kapp here. This only *seems* redundant -->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" -- change language only here -->
   <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
@@ -46,7 +45,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>08/11/2000</date>
+<date>16/12/2000</date>
 <releaseinfo>0.99.02</releaseinfo>
 
 <abstract><para>&konquest; is a wonderfully complex game for universal domination,
@@ -69,63 +68,6 @@ empire across the galaxy and of course, crush your rivals in the process.</para>
 
 </chapter>
 
-<chapter id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-kapp">
-<title>How to obtain &konquest;</title>
-
-<para>&konquest; is part of the KDE project <ulink
-url="http://www.kde.org">http://www.kde.org</ulink>.  &konquest; can be found in the
-kdegames package on <ulink
-url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the main
-ftp site of the KDE project. </para>
-
-</sect1>
-
-<sect1 id="requirements">
-<title>Requirements</title>
-
-<para>In order to successfully use &konquest;, you need KDE 2.0. It is also
-reccomended that you have your X server set to over 8bpp, as the plants are
-scanned and require a rather high color depth. </para>
-
-<para>All required libraries as well as &konquest; itself can be found on <ulink
-url="http://www.ia.net/~rsteffen/konquest.html">The &konquest; home
-page</ulink>.</para>
-
-</sect1>
-
-<sect1 id="compilation">
-<title>Compilation and installation</title>
-
-<para>In order to compile and install &konquest; on your system, type the
-following in the base directory of the kdegames distribution:</para>
-<screen width="40">
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-
-<para>Since Kdegames uses <application>autoconf</application> and
-<application>automake</application> you should have not trouble compiling
-it. Should you run into problems please report them to the KDE mailing
-lists.</para> 
-
-</sect1>
-
-<sect1 id="configuration">
-<title>Configuration</title>
-
-<para>When you start &konquest;, you a window settings window pop up.  From here
-you need to enter player names, decide the number of planets, and how many turns
-are allowed.  (Don't worry, you can add more later) You can also reject the map,
-until a you find a galaxy layout you like.  After this, just <guibutton>Start
-Game</guibutton>!</para>
-
-</sect1>
-
-</chapter>
 
 <chapter id="using-kapp">
 <title>Using &konquest;</title>
@@ -261,6 +203,64 @@ for more information.</para>
 &underGPL;        	 <!-- GPL License -->
 
 </chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-kapp">
+<title>How to obtain &konquest;</title>
+
+<para>&konquest; is part of the KDE project <ulink
+url="http://www.kde.org">http://www.kde.org</ulink>.  &konquest; can be found in the
+kdegames package on <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the main
+ftp site of the KDE project. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>In order to successfully use &konquest;, you need KDE 2.0. It is also
+reccomended that you have your X server set to over 8bpp, as the plants are
+scanned and require a rather high color depth. </para>
+
+<para>All required libraries as well as &konquest; itself can be found on <ulink
+url="http://www.ia.net/~rsteffen/konquest.html">The &konquest; home
+page</ulink>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and installation</title>
+
+<para>In order to compile and install &konquest; on your system, type the
+following in the base directory of the kdegames distribution:</para>
+<screen width="40">
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+
+<para>Since Kdegames uses <application>autoconf</application> and
+<application>automake</application> you should have not trouble compiling
+it. Should you run into problems please report them to the KDE mailing
+lists.</para> 
+
+</sect1>
+
+<sect1 id="configuration">
+<title>Configuration</title>
+
+<para>When you start &konquest;, you a window settings window pop up.  From here
+you need to enter player names, decide the number of planets, and how many turns
+are allowed.  (Don't worry, you can add more later) You can also reject the map,
+until a you find a galaxy layout you like.  After this, just <guibutton>Start
+Game</guibutton>!</para>
+
+</sect1>
+
+</appendix>
 
 &kdedocindex;
 
