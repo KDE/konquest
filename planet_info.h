@@ -29,15 +29,15 @@ public:
     virtual ~PlanetInfo();
 
     void setPlanetList( PlanetList &newPlanets );
-    void rescanPlanets( void );
+    void rescanPlanets();
     QSize sizeHint() const;
     
 public slots:
     void showPlanet( Planet * );
 
 private:
-    void emptyPlanetInfoList( void );
-    void clearDisplay( void );
+    void emptyPlanetInfoList();
+    void clearDisplay();
     
     PlanetList *planets;
     PlanetInfoList planet_stats;

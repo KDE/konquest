@@ -26,21 +26,21 @@ CoreLogic::generatePlanetCoordinates( int &x, int &y )
 }
 
 double
-CoreLogic::generateKillPercentage( void )
+CoreLogic::generateKillPercentage()
 {
     // 0.30 - 0.90
     return 0.30 + random.getDouble()*0.60;
 }
 
 int
-CoreLogic::generatePlanetProduction( void )
+CoreLogic::generatePlanetProduction()
 {
     // 5 - 15
     return 5 + random.getLong(10);
 }
 
 double
-CoreLogic::generateMorale( void )
+CoreLogic::generateMorale()
 {
     // constant
     return 0.50;
@@ -56,7 +56,7 @@ CoreLogic::distance( Planet *p1, Planet *p2 )
 }
 
 double
-CoreLogic::roll( void )
+CoreLogic::roll()
 {
     // 0.00 - 1.00
     return random.getDouble();
@@ -122,7 +122,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
 }
 
 void
-Map::clearMap( void )
+Map::clearMap()
 {
     Freeze();
 
@@ -141,7 +141,7 @@ Map::clearMap( void )
 }
 
 Sector &
-Map::findRandomFreeSector( void )
+Map::findRandomFreeSector()
 {
     CoreLogic cl;
 
@@ -198,7 +198,7 @@ Map::setSelectedSector( const Planet &planet )
 }
 
 void
-Map::setSelectedSector( void )
+Map::setSelectedSector()
 {
     hasSelectedSector = false;
 
@@ -227,12 +227,12 @@ Sector &Map::getSector( int x, int y )
     return grid[x][y];
 }
 
-const int Map::getRows( void ) const
+const int Map::getRows() const
 {
     return rows;
 }
 
-const int Map::getColumns( void ) const
+const int Map::getColumns() const
 {
     return columns;
 }
@@ -358,7 +358,7 @@ Planet::createNeutralPlanet( Sector &parentSector, Player *initialOwner, QString
 }
 
 double
-Planet::getKillPercentage( void )
+Planet::getKillPercentage()
 {
     return killPercentage;
 }
@@ -372,7 +372,7 @@ Planet::setKillPercentage( double newValue )
 }
 
 double
-Planet::getMorale( void )
+Planet::getMorale()
 {
     return morale;
 }
@@ -384,7 +384,7 @@ Planet::setMorale( double newMorale )
 }
 
 int
-Planet::getProduction( void )
+Planet::getProduction()
 {
     return productionRate;
 }
@@ -396,32 +396,32 @@ Planet::setProduction( int newProduction )
 }
 
 void
-Planet::select( void )
+Planet::select()
 {
     parentSector.select();
 
     emit selected();
 }
 
-DefenseFleet &Planet::getFleet( void )
+DefenseFleet &Planet::getFleet()
 {
     return homeFleet;
 }
 
 Player *
-Planet::getPlayer( void ) const
+Planet::getPlayer() const
 {
     return owner;
 }
 
 const QString &
-Planet::getName( void ) const
+Planet::getName() const
 {
     return name;
 }
 
 Sector &
-Planet::getSector( void ) const
+Planet::getSector() const
 {
     return parentSector;
 }
@@ -441,7 +441,7 @@ Planet::coup( Player *luckyPlayer )
 }
 
 void
-Planet::turn( void )
+Planet::turn()
 {
     if( !(owner->isNeutral()) ) {
         homeFleet.addShips( productionRate );
@@ -474,13 +474,13 @@ Player::operator==( const Player &otherPlayer ) const
 }
 
 QString &
-Player::getName( void )
+Player::getName()
 {
     return name;
 }
 
 QString
-Player::getColoredName( void )
+Player::getColoredName()
 {
     return QString("<font color=\"%1\">%2</font>").arg(color.name(), name);
 }
@@ -490,18 +490,18 @@ Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool
     return new Player( newName, color, playerNum, isAi );
 }
 
-Player *Player::createNeutralPlayer( void )
+Player *Player::createNeutralPlayer()
 {
     return new Player( QString::null, gray, NEUTRAL_PLAYER_NUMBER, false );
 }
 
-QColor &Player::getColor( void )
+QColor &Player::getColor()
 {
     return color;
 }
 
 bool
-Player::isNeutral( void )
+Player::isNeutral()
 {
     if( playerNum == NEUTRAL_PLAYER_NUMBER ) {
         return true;
@@ -510,7 +510,7 @@ Player::isNeutral( void )
     }
 }
 
-bool Player::isInPlay( void )
+bool Player::isInPlay()
 {
     return inPlay;
 }
@@ -521,7 +521,7 @@ void Player::setInPlay( bool status )
 }
 
 AttackFleetList &
-Player::getAttackList( void )
+Player::getAttackList()
 {
     return attackList;
 }

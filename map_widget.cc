@@ -109,7 +109,7 @@ ConquestMap::contentsMouseMoveEvent( QMouseEvent *e )
 }
 
 void
-ConquestMap::unselectPlanet( void )
+ConquestMap::unselectPlanet()
 {
     map->setSelectedSector();
 }

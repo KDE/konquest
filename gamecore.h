@@ -36,13 +36,13 @@ public:
     CoreLogic();
 
     void generatePlanetCoordinates( int &x, int &y );
-    double generateKillPercentage( void );
-    int generatePlanetProduction( void );
-    double generateMorale( void );
+    double generateKillPercentage();
+    int generatePlanetProduction();
+    double generateMorale();
 
     double distance( Planet *p1, Planet *p2 );
 
-    double roll( void );
+    double roll();
 
 private:
     KRandomSequence random;
@@ -58,7 +58,6 @@ private:
 
 class Fleet : public QObject
 {
-    Q_OBJECT
         
 public:
 
@@ -74,7 +73,7 @@ protected:
 
 class AttackFleet : public Fleet
 {
-    Q_OBJECT
+
 public:
     AttackFleet( Planet *source, Planet *dest, int initialCount, double arrivalTurn  );
 
@@ -88,7 +87,6 @@ public:
 
 class DefenseFleet : public Fleet
 {
-    Q_OBJECT
         
 public:
     DefenseFleet( Planet *newHome, int initialCount  );
@@ -111,7 +109,6 @@ public:
 
 class Player : public QObject
 {
-    Q_OBJECT
 
 public:
     Player( QString newName, QColor color, int number, bool isAi );
@@ -120,21 +117,21 @@ public:
     enum { NEUTRAL_PLAYER_NUMBER = -1 };
     
 public:
-    QString &getName( void );
-    QString getColoredName( void );
-    QColor &getColor( void );
-    bool isNeutral( void );
-    QPtrList<AttackFleet> &getAttackList( void );
+    QString &getName();
+    QString getColoredName();
+    QColor &getColor();
+    bool isNeutral();
+    QPtrList<AttackFleet> &getAttackList();
 
     // factory functions
     static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
-    static Player *createNeutralPlayer( void );
+    static Player *createNeutralPlayer();
 
     bool NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int departureTurn );
 
     bool operator==( const Player &otherPlayer ) const;
 
-    bool isInPlay( void );
+    bool isInPlay();
     void setInPlay( bool );
     
 private:
@@ -160,11 +157,11 @@ public:
     void statEnemyFleetsDestroyed( int );
     void statEnemyShipsDestroyed( int );
 
-    int getShipsBuilt( void ) { return shipsBuilt; };
-    int getPlanetsConquered( void ) { return  planetsConquered; };
-    int getFleetsLaunched( void ) { return  fleetsLaunched; };
-    int getEnemyFleetsDestroyed( void ) { return  enemyFleetsDestroyed; };
-    int getEnemyShipsDestroyed( void ) { return  enemyShipsDestroyed; };
+    int getShipsBuilt() { return shipsBuilt; };
+    int getPlanetsConquered() { return  planetsConquered; };
+    int getFleetsLaunched() { return  fleetsLaunched; };
+    int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; };
+    int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; };
     bool isAiPlayer();
 
 };
@@ -192,22 +189,22 @@ public:
     static Planet *createNeutralPlanet( Sector &parentSector,
                                         Player *initialOwner, QString planetName );
 
-    Sector &getSector( void ) const;
-    Player *getPlayer( void ) const;
-    const QString &getName( void ) const;
-    DefenseFleet &getFleet( void );
+    Sector &getSector() const;
+    Player *getPlayer() const;
+    const QString &getName() const;
+    DefenseFleet &getFleet();
 
-    double getKillPercentage( void );
+    double getKillPercentage();
     void setKillPercentage( double newValue );
-    double getMorale( void );
+    double getMorale();
     void setMorale( double );
-    int getProduction( void );
+    int getProduction();
     void setProduction( int );
 
-    void select( void );
+    void select();
     void conquer(  AttackFleet *conqueringFleet );
     void coup( Player *luckyPlayer );
-    void turn( void );
+    void turn();
 
 signals:
     void update();
@@ -279,17 +276,17 @@ public:
     Map();
     virtual ~Map();
 
-    const int getRows( void ) const;
-    const int getColumns( void ) const;
+    const int getRows() const;
+    const int getColumns() const;
 
     void populateMap( QPtrList<Player> &players, Player *neutral,
                       int numNeutralPlanets, QPtrList<Planet> &thePlanets );
-    void clearMap( void );
+    void clearMap();
     
     bool selectedSector( int &x, int &y ) const;
     void setSelectedSector( int x, int y );
     void setSelectedSector( const Planet & );
-    void setSelectedSector( void );
+    void setSelectedSector();
 
     Sector &getSector( int x, int y );
 
@@ -305,7 +302,7 @@ protected:
     bool freezeUpdates;
 
 private:
-    Sector &findRandomFreeSector( void );
+    Sector &findRandomFreeSector();
     
 protected:
     Sector grid[BOARD_ROWS][BOARD_COLS];  // a map is a 2-D array of sectors;

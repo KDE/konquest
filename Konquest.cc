@@ -14,7 +14,7 @@ main(int argc, char **argv)
 {
     KAboutData aboutData( "konquest", I18N_NOOP("Konquest"),
         KONQUEST_VERSION, description, KAboutData::License_GPL,
-        "Copyright (c) 1999-2001, Developers");
+        I18N_NOOP("Copyright (c) 1999-2001, Developers"));
     aboutData.addAuthor("Russ Steffen",0, "rsteffen@bayarea.net");
     KCmdLineArgs::init( argc, argv, &aboutData );
 

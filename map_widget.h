@@ -24,7 +24,7 @@ public:
 
     // Interface
 public:
-    void unselectPlanet( void );
+    void unselectPlanet();
 
 protected:
     virtual void contentsMousePressEvent( QMouseEvent *e );

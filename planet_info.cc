@@ -76,7 +76,7 @@ void PlanetInfo::setPlanetList( PlanetList &newPlanets )
     rescanPlanets();
 }
 
-void PlanetInfo::rescanPlanets( void )
+void PlanetInfo::rescanPlanets()
 {
     PlanetInfoListIterator itr( planet_stats );
     planet_info_buffer *p;
@@ -88,7 +88,7 @@ void PlanetInfo::rescanPlanets( void )
     }
 }
 
-void PlanetInfo::clearDisplay( void )
+void PlanetInfo::clearDisplay()
 {
     QString temp;
 
@@ -108,7 +108,7 @@ void PlanetInfo::clearDisplay( void )
     kill_percent->setText( temp );
 }
 
-void PlanetInfo::emptyPlanetInfoList( void )
+void PlanetInfo::emptyPlanetInfoList()
 {
     planet_stats.first();
 

@@ -1,4 +1,3 @@
-#include <klistview.h>
 #include <qlayout.h>
 #include <kapplication.h>
 #include <klocale.h>
@@ -6,7 +5,27 @@
 #include <kstdguiitem.h>
 
 #include "scoredlg.h"
-#include "scoredlg.moc"
+
+ScoreDlgListViewItem::ScoreDlgListViewItem(QListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5, QString s6) : QListViewItem(parent, s1, s2, s3, s4, s5, s6)
+{
+}
+
+int ScoreDlgListViewItem::compare(QListViewItem *i, int col, bool) const
+{
+	if (col == 0)
+	{
+		if (text(col) > i -> text(col)) return 1;
+		else if (text(col) < i -> text(col)) return -1;
+		else return 0;
+	}
+	else
+	{
+		if (text(col).toInt() > i -> text(col).toInt()) return 1;
+		else if (text(col).toInt() < i -> text(col).toInt()) return -1;
+		else return compare(i, 0, true);
+	}
+}
+
 
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     : QDialog(parent, "ScoreDlg", true ), plrList(players)
@@ -22,7 +41,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     scoreTable->addColumn(i18n("Ships Destroyed"));
     scoreTable->setMinimumSize( scoreTable->sizeHint() );
 
-    QPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
+    KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 
@@ -44,13 +63,13 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 }
 
 void
-ScoreDlg::init( void )
+ScoreDlg::init()
 {
     Player *curPlayer;
     PlayerListIterator itr( *plrList );
 
     for( ;(curPlayer = itr()); )
-        (void) new QListViewItem(scoreTable,
+        new ScoreDlgListViewItem(scoreTable,
                                  curPlayer->getName(),
                                  QString("%1").arg(curPlayer->getShipsBuilt()),
                                  QString("%1").arg(curPlayer->getPlanetsConquered()),
