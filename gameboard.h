@@ -28,6 +28,8 @@ public:
     GameBoard( QWidget *parent );
     virtual ~GameBoard();
 
+    bool isGameInProgress(void) { return gameInProgress; };
+
 protected slots:
     void startNewGame();
     void shutdownGame();

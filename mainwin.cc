@@ -68,7 +68,7 @@ MainWindow::setupToolBar()
 
     KIconLoader *iconloader = KApplication::getKApplication()->getIconLoader();
 
-    QPixmap pixmap1 = iconloader->loadApplicationIcon( "exit.xpm" );
+    QPixmap pixmap1 = iconloader->loadApplicationIcon( "stop.xpm" );
     QPixmap pixmap2 = iconloader->loadApplicationIcon( "reload.xpm" );
     QPixmap pixmap3 = iconloader->loadApplicationIcon( "ruler.xpm" );
     QPixmap pixmap4 = iconloader->loadApplicationIcon( "help.xpm" );
@@ -79,7 +79,7 @@ MainWindow::setupToolBar()
 
     toolbar->insertButton( pixmap1, 2,
                            SIGNAL( clicked() ), gameBoard, SLOT( shutdownGame() ),
-                           true, i18n("End Game"), -1 );
+                           false, i18n("End Game"), -1 );
 
     toolbar->insertSeparator(-1);
 
@@ -109,7 +109,15 @@ MainWindow::setupGameBoard()
 void
 MainWindow::gameStateChange( GameState newState )
 {
+
+    if( gameBoard->isGameInProgress() ) {
+        toolbar->setItemEnabled( 2, true );
+    } else {
+	toolbar->setItemEnabled( 2, false );
+    }
+
     switch( newState ) {
+
     case SOURCE_PLANET:
         toolbar->setItemEnabled( 3, true );
         toolbar->setItemEnabled( 4, true );

@@ -617,7 +617,7 @@ GameBoard::cleanupGame( void )
 
     changeGameBoard( false );
     gameState = NONE;
-
+    emit newGameState(gameState);
 }
 
 
