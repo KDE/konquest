@@ -11,7 +11,7 @@ class ScoreDlg : public QDialog
 {
     Q_OBJECT
 public:
-    ScoreDlg( QWidget *parent, char *title, PlayerList *players );
+    ScoreDlg( QWidget *parent, const char *title, PlayerList *players );
     
 private:
     void init( void );

@@ -583,7 +583,7 @@ GameBoard::shutdownGame()
     if( choice != 1 )
         return;
 
-    ScoreDlg *scoreDlg = new ScoreDlg( this, "Final Standings", &players );
+    ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"), &players );
     scoreDlg->show();
 
     cleanupGame();
