@@ -38,7 +38,8 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
 
     setMouseTracking( true );
 
-    setMaximumSize( sizeHint() );
+    setMinimumSize( sizeHint() );
+    setMaximumHeight( sizeHint().height() );
 }
 
 PlanetInfo::~PlanetInfo()
