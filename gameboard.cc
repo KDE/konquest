@@ -432,7 +432,7 @@ GameBoard::scanForSurvivors( void )
             msg = i18n("The once mighty empire of %1 has fallen in ruins.")
                   .arg(plr->getName());
             KMessageBox::information( this, msg,
-				      i18n("An Empire has fallen...") );
+				      i18n("An Empire Has Fallen") );
         }
     }
 
@@ -444,7 +444,7 @@ GameBoard::scanForSurvivors( void )
             msg = i18n("The fallen empire of %1 has staggered back to life.")
 		  .arg(plr->getName());
 	    KMessageBox::information( this, msg,
-				      i18n("Up From the Ashes...") );
+				      i18n("Up From the Ashes") );
         }
     }
 }
