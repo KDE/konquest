@@ -30,8 +30,7 @@ METASOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(konquest_SOURCES) && mv messages.po ../po/konquest.pot
 
-KDE_ICON = konquest
-
-appsdir = $(kde_appsdir)/Games
+KDE_ICON  = konquest
+appsdir   = $(kde_appsdir)/Programs/Games
 apps_DATA = konquest.desktop
 
