@@ -26,7 +26,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
 {
     setCaption(kapp->makeStdCaption(""));
     // Create widgets
-    QLabel *mapLabel = new QLabel( i18n("Preview Map"), this );
+    QLabel *mapLabel = new QLabel( i18n("Preview map:"), this );
     mapLabel->setMinimumSize( mapLabel->sizeHint() );
     miniMap = new MiniMap( map, this );
 
@@ -36,7 +36,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     playerList = new QListBox( this );
     playerList->setMinimumSize( 0, 150 );
     
-    QLabel *listLabel = new QLabel( playerList, i18n("&Player List"), this );
+    QLabel *listLabel = new QLabel( playerList, i18n("&Player list:"), this );
     listLabel->setFixedSize( listLabel->size() );
 
     newPlayer = new QLineEdit( this );
