@@ -288,7 +288,7 @@ GameBoard::turn( void )
                               "A ship leaving this turn will arrive on turn %s"),
                               sourcePlanet->getName().data(), destPlanet->getName().data(),
                               distString.data(), travelTime.data());
-            KMsgBox::message( this, i18n("Ship ArrivesFIXIT"), msg, KMsgBox::INFORMATION );
+            KMsgBox::message( this, i18n("Distance"), msg, KMsgBox::INFORMATION );
 
             gameState = NONE;
             turn();
