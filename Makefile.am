@@ -45,9 +45,8 @@ BUILTSOURCES =	gameboard.moc gamecore.moc int_validator.moc mainwin.moc \
 # them while "make clean", use CLEANFILES
 DISTCLEANFILES = $(BUILTSOURCES)
 
-# make messages.po. Move this one to ../po/ and "make merge" in po
 messages:
-	$(XGETTEXT) -C -ktranslate $(konquest_SOURCES)
+	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(konquest_SOURCES) && mv messages.po ../po/konquest.pot
 
 # just install datas here. Use install-exec-data for scripts and etc.
 # the binary itself is already installed from automake
