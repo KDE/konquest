@@ -15,7 +15,7 @@
 # just set the variable
 APPSDIR = $(kde_appsdir)/Games
 # set the include path for X, qt and KDE
-INCLUDES= @all_includes@
+INCLUDES= $(all_includes)
 # claim, which subdirectories you want to install
 SUBDIRS = pics docs
 
