@@ -330,6 +330,11 @@ GameBoard::nextTurn( void )
 
     scanForSurvivors();
 
+    // advance to first living player
+    while( currentPlayer->current() && !currentPlayer->current()->isInPlay() ) {
+    	++(*currentPlayer);
+    };
+
     // advance turn counter
     turnNumber++;
 
@@ -586,7 +591,7 @@ GameBoard::shutdownGame()
         return;
 
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"), &players );
-    scoreDlg->show();
+    scoreDlg->exec();
 
     cleanupGame();
 }
@@ -727,7 +732,7 @@ GameBoard::changeGameBoard( bool inPlay  )
 void
 GameBoard::nextPlayer()
 {
-    // wnd turn and advance to next player
+    // end turn and advance to next player
     Player *plr;
 
     while( (plr = ++(*currentPlayer)) && !(plr->isInPlay()) ) {}
