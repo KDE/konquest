@@ -38,8 +38,6 @@ GameBoard::GameBoard( QWidget *parent )
     QColorGroup cg( white, black, green.light(), green.dark(), green, green.dark(75), green.dark() );
     QPalette palette( cg, cg, cg );
 
-    KIconLoader *iconloader = KGlobal::iconLoader();
-
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
 
@@ -68,7 +66,7 @@ GameBoard::GameBoard( QWidget *parent )
     shipCountEdit->setEchoMode( QLineEdit::Password );
 
     splashScreen = new QLabel( this );
-    splashScreen->setPixmap( iconloader->loadIcon( IMAGE_SPLASH ));
+    splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
     splashScreen->setGeometry( 0, 0, 600, 550 );
 
 

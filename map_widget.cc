@@ -168,46 +168,45 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
     rowYPos( sector.getColumn(), &y );
 
     if( sector.hasPlanet() ) {
-        KIconLoader *iconloader = KGlobal::iconLoader();
         QPixmap pm;
 
         // simple (pathetic) way to "randomize"
         // the planet graphic
         switch( ((sector.getRow()+sector.getColumn()) % 9) + 1  ) {
         case 1 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_1 );
+            pm = QPixmap( IMAGE_PLANET_1 );
             labelCorner = QPoint( 18, 14 );
             break;
         case 2 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_2 );
+            pm = QPixmap( IMAGE_PLANET_2 );
             labelCorner = QPoint( 2, 14 );
             break;
         case 3 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_3 );
+            pm = QPixmap( IMAGE_PLANET_3 );
             labelCorner = QPoint( 2, 26 );
             break;
         case 4 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_4 );
+            pm = QPixmap( IMAGE_PLANET_4 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 5 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_5 );
+            pm = QPixmap( IMAGE_PLANET_5 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 6 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_6 );
+            pm = QPixmap( IMAGE_PLANET_6 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 7 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_7 );
+            pm = QPixmap( IMAGE_PLANET_7 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 8 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_8 );
+            pm = QPixmap( IMAGE_PLANET_8 );
             labelCorner = QPoint( 18, 26 );
             break;
         case 9 :
-            pm = iconloader->loadIcon( IMAGE_PLANET_9 );
+            pm = QPixmap( IMAGE_PLANET_9 );
             labelCorner = QPoint( 18, 26 );
             break;
         }
