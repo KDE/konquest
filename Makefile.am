@@ -37,3 +37,5 @@ KDE_ICON  = konquest
 appsdir   = $(kde_appsdir)/Games/TacticStrategy
 apps_DATA = konquest.desktop
 
+install-data-local:
+	rm -rf $(kde_appsdir)/Games/konquest.desktop
