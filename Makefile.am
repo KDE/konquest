@@ -38,4 +38,4 @@ appsdir   = $(kde_appsdir)/Games/TacticStrategy
 apps_DATA = konquest.desktop
 
 install-data-local:
-	rm -rf $(kde_appsdir)/Games/konquest.desktop
+	rm -rf $(DESTDIR)$(kde_appsdir)/Games/konquest.desktop
