@@ -136,13 +136,13 @@ void PlanetInfo::showPlanet( Planet *planet )
             temp = i18n("Owner : ") + p->planet->getPlayer()->getName();
             owner->setText( temp );
 
-            temp.sprintf( i18n("Ships : %d"),  p->ships );
+            temp = i18n("Ships : %1").arg( p->ships );
             ships->setText( temp );
 
-            temp.sprintf( i18n("Production : %d"), p->production );
+            temp = i18n("Production : %1").arg( p->production );
             production->setText( temp );
 
-            temp.sprintf( i18n("Kill Percent : %.3f"), p->killRate );
+            temp = i18n("Kill Percent : %1").arg( p->killRate, 0, 'f', 3 );
             kill_percent->setText( temp );
         }
     }

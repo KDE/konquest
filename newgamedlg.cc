@@ -161,7 +161,7 @@ NewGameDlg::changeNeutralPlanets( int newValue )
 {
     QString newText;
 
-    newText.sprintf( i18n("Number of Neutral Planets: %2d"), newValue );
+    newText = i18n("Number of Neutral Planets: %1").arg( newValue );
 
     neutralPlanetLbl->setText( newText );
 
@@ -173,7 +173,7 @@ NewGameDlg::changeTurnCount( int newTurnCount )
 {
     QString newText;
 
-    newText.sprintf( i18n("Number of turns: %2d"), newTurnCount );
+    newText = i18n("Number of turns: %1").arg( newTurnCount );
 
     turnCountLbl->setText( newText );
 }
@@ -186,12 +186,12 @@ NewGameDlg::addNewPlayer()
         return;
 
     // Is the name empty
-    if( !strcmp(newPlayer->text(), "" ) )
+    if( newPlayer->text().isEmpty() )
         return;
 
     // Does the name already exist in the list
     for( unsigned int x = 0; x < playerList->count(); x++ ) {
-        if( !strcmp(newPlayer->text(), playerList->text(x) ) )
+        if( newPlayer->text() == playerList->text(x) )
             return;
     }
 

@@ -47,10 +47,10 @@ MainWindow::setupMenu()
     game_menu->insertItem( i18n("&Quit"), qApp, SLOT( quit() ) );
 
     QString about;
-    about.sprintf(i18n("Version %s\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
+    about = i18n("Version %1\nCopyright (c) 1998 by\nThe Gnu-Lactic Conquest Project\n\n"
         "KDE version by Russ Steffen <rsteffen@ia.net>\n"
-        "See http://www.ia.net/~rsteffen/konquest.html for more info"),
-	KONQUEST_VERSION);
+        "See http://www.ia.net/~rsteffen/konquest.html for more info")
+	.arg(KONQUEST_VERSION);
     
     QPopupMenu *help_menu = KApplication::getKApplication()->getHelpMenu( true, about );
     

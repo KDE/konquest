@@ -10,7 +10,7 @@
 #include <klocale.h>
 #include "scoredlg.moc"
 
-ScoreDlg::ScoreDlg( QWidget *parent, const char *title, PlayerList *players )
+ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     : QDialog(parent, "ScoreDlg", true ), plrList(players)
 {
     setCaption( title );
@@ -54,21 +54,19 @@ ScoreDlg::init( void )
     for( ;(curPlayer = itr()); ) {
         QString item;
 
-        char sep = scoreTable->separator();
+        QChar sep = scoreTable->separator();
         
-        item.sprintf( "%s%c%d%c%d%c%d%c%d%c%d",
-                      (const char *)curPlayer->getName(),
-                      sep,
-                      curPlayer->getShipsBuilt(),
-                      sep,
-                      curPlayer->getPlanetsConquered(),
-                      sep,
-                      curPlayer->getFleetsLaunched(),
-                      sep,
-                      curPlayer->getEnemyFleetsDestroyed(),
-                      sep,
-                      curPlayer->getEnemyShipsDestroyed()
-                    );
+        item  = curPlayer->getName();
+        item += sep;
+        item += curPlayer->getShipsBuilt();
+        item += sep;
+        item += curPlayer->getPlanetsConquered();
+        item += sep;
+        item += curPlayer->getFleetsLaunched();
+        item += sep;
+        item += curPlayer->getEnemyFleetsDestroyed();
+        item += sep;
+        item += curPlayer->getEnemyShipsDestroyed();
 
         scoreTable->insertItem( item );
     }

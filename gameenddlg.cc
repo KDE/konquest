@@ -63,7 +63,7 @@ GameEndDlg::turnCountChange( int newTurnCount )
     
     addTurns = newTurnCount;
 
-    newLbl.sprintf( i18n("Add %d turns"), addTurns );
+    newLbl = i18n("Add %1 turns").arg( addTurns );
 
     turnCountLbl->setText( newLbl);
 
