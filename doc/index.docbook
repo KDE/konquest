@@ -71,10 +71,10 @@ course, crush your rivals in the process.</para>
 
 </chapter>
 
-<chapter id="using-kapp">
+<chapter id="using-konquest">
 <title>Using &konquest;</title>
 
-<sect1 id="kapp-features">
+<sect1 id="konquest-features">
 <title>More &konquest; features</title>
 
 <para>A really entertaining game of universal domination.  The only
@@ -102,7 +102,7 @@ Game</guibutton>!</para>
 
 <para></para>
 
-<sect1 id="kapp-mainwindow">
+<sect1 id="konquest-mainwindow">
 <title>The main &konquest; window</title>
 
 <para>The Planet Status indicator (the big black box on the left) is
@@ -180,7 +180,7 @@ for more information.</para>
 <appendix id="installation">
 <title>Installation</title>
 
-<sect1 id="getting-kapp">
+<sect1 id="getting-konquest">
 <title>How to obtain &konquest;</title>
 
 &install.intro.documentation;
