@@ -59,8 +59,6 @@ MainWindow::setupMenu()
     menubar->insertSeparator( -1 );
     menubar->insertItem( i18n("&Help"), help_menu );
 
-    menubar->enableMoving( false );
-    
     setMenu( menubar );
 }
 
