@@ -13,7 +13,7 @@
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     : QDialog(parent, "ScoreDlg", true ), plrList(players)
 {
-    setCaption( title );
+    setCaption( kapp->makeStdCaption(title) );
 
     scoreTable = new KListView( this, 0 );
     scoreTable->addColumn(i18n("Player"), 70 );
@@ -23,7 +23,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     scoreTable->addColumn(i18n("Fleets Destroyed"), 100 );
     scoreTable->addColumn(i18n("Ships Destroyed"), 100 );
 
-    QPushButton *okButton = new QPushButton( i18n("OK"), this );
+    QPushButton *okButton = new QPushButton( i18n("&OK"), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 

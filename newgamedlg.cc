@@ -26,7 +26,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
       plrList(players), plnetList(planets), neutral(neutralPlayer),
       map(pmap)
 {
-
+    setCaption(kapp->makeStdCaption(""));
     // Create widgets
     QLabel *mapLabel = new QLabel( i18n("Preview Map"), this );
     mapLabel->setMinimumSize( mapLabel->sizeHint() );

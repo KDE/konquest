@@ -42,9 +42,9 @@ void
 MainWindow::setupMenu()
 {
     QPopupMenu *game_menu = new QPopupMenu();
-    game_menu->insertItem( i18n("&New Game"), gameBoard, SLOT( startNewGame()  ) );
+    game_menu->insertItem( SmallIcon("filenew"), i18n("&New Game"), gameBoard, SLOT( startNewGame()  ) );
     game_menu->insertSeparator();
-    game_menu->insertItem( i18n("&Quit"), qApp, SLOT( quit() ) );
+    game_menu->insertItem( SmallIcon("exit"), i18n("&Quit"), qApp, SLOT( quit() ) );
 
     QString about;
     about = i18n("Version %1\nCopyright (c) 2000 by\nThe Gnu-Lactic Conquest Project\n\n"
