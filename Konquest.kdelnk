@@ -10,6 +10,7 @@ Name[no]=Beseirer
 Exec=konquest -caption %c
 Type=Application
 Comment=A game of galactic conquest
+Comment[sv]=Ett spel där du ska erövra galaxen
 Commnet[cs]=Hra o dobývání galaxie
 Comment[es]=Un juego de conquista galáctica
 Comment[pl]=Podbój galaktyki
