@@ -566,7 +566,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         	arrivingFleet->destination->getFleet().absorb(arrivingFleet);
 
         	QString msg;
-        	msg = i18n("Reinforcements (%1 ships) have arrived for planet %2")
+        	msg = i18n("Reinforcements (%1 ships) have arrived for planet %2.")
         	      .arg(arrivingFleet->getShipCount())
         	      .arg(arrivingFleet->destination->getName());
         	KMessageBox::information(this, msg, i18n("Fleet Arrival"));
@@ -611,7 +611,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         if( planetHolds ) {
             prizePlanet.getPlayer()->statEnemyFleetsDestroyed(1);
             QString msg;
-            msg = i18n("Planet %1 has held against an attack from %2")
+            msg = i18n("Planet %1 has held against an attack from %2.")
 		  .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
             KMessageBox::information(this, msg, i18n("Planet Holds"));
@@ -621,7 +621,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             arrivingFleet->destination->conquer( arrivingFleet );
 
             QString msg;
-            msg = i18n("Planet %1 has fallen to %2")
+            msg = i18n("Planet %1 has fallen to %2.")
                   .arg(prizePlanet.getName())
 		  .arg(attacker.owner->getName());
             KMessageBox::information(this, msg, i18n("Planet Conquered"));
