@@ -37,11 +37,11 @@ apps_DATA = Konquest.kdelnk
 
 install-data-local: 
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) $(srcdir)/mini-konquest.xpm $(kde_minidir)/MMnquest.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-konquest.xpm $(kde_minidir)/konquest.xpm
 	$(mkinstalldirs) $(kde_icondir)/large
 	$(INSTALL_DATA) $(srcdir)/large-konquest.xpm $(kde_icondir)/large/konquest.xpm
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
-	-rm -f $(kde_minidir)/MMnquest.xpm
+	-rm -f $(kde_minidir)/konquest.xpm
 	-rm -f $(kde_icondir)/large/konquest.xpm
