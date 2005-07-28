@@ -4,9 +4,10 @@
 #include <krandomsequence.h>
 
 #include <qobject.h>
+#include <qpoint.h>
 #include <qstring.h>
 #include <qcolor.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 
 // Board Size Constants
 #define BOARD_ROWS 16
@@ -121,7 +122,7 @@ public:
     QString getColoredName();
     QColor &getColor();
     bool isNeutral();
-    QPtrList<AttackFleet> &getAttackList();
+    Q3PtrList<AttackFleet> &getAttackList();
 
     // factory functions
     static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
@@ -141,7 +142,7 @@ private:
     bool inPlay;
     bool aiPlayer;
 
-    QPtrList<AttackFleet> attackList;
+    Q3PtrList<AttackFleet> attackList;
 
     // statistics counters
     int shipsBuilt;
@@ -279,8 +280,8 @@ public:
     const int getRows() const;
     const int getColumns() const;
 
-    void populateMap( QPtrList<Player> &players, Player *neutral,
-                      int numNeutralPlanets, QPtrList<Planet> &thePlanets );
+    void populateMap( Q3PtrList<Player> &players, Player *neutral,
+                      int numNeutralPlanets, Q3PtrList<Planet> &thePlanets );
     void clearMap();
     
     bool selectedSector( int &x, int &y ) const;
@@ -319,12 +320,12 @@ protected:
 // Typedefs
 //---------------------------------------------------------------------------------
 typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
-typedef QPtrList<AttackFleet> AttackFleetList;
-typedef QPtrListIterator<AttackFleet> AttackFleetListIterator;
-typedef QPtrList<Player> PlayerList;
-typedef QPtrList<Planet> PlanetList;
-typedef QPtrListIterator<Player> PlayerListIterator;
-typedef QPtrListIterator<Planet> PlanetListIterator;
+typedef Q3PtrList<AttackFleet> AttackFleetList;
+typedef Q3PtrListIterator<AttackFleet> AttackFleetListIterator;
+typedef Q3PtrList<Player> PlayerList;
+typedef Q3PtrList<Planet> PlanetList;
+typedef Q3PtrListIterator<Player> PlayerListIterator;
+typedef Q3PtrListIterator<Planet> PlanetListIterator;
 
 #endif // _GAMECORE_H_
 

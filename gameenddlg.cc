@@ -1,7 +1,7 @@
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qslider.h>
-#include <qvbox.h>
+#include <q3vbox.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -16,11 +16,11 @@ GameEndDlg::GameEndDlg( QWidget *parent )
       KDialogBase::Yes|KDialogBase::No, KDialogBase::Yes, KDialogBase::No,
       parent, "end_game_dialog", true, true )
 {
-    QVBox *page = makeVBoxMainWidget();
+    Q3VBox *page = makeVBoxMainWidget();
 
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );
-    label1->setAlignment( AlignCenter );
+    label1->setAlignment( Qt::AlignCenter );
     
     turnCountLbl = new QLabel( page );
     turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, page );

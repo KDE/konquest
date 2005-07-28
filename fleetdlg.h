@@ -7,11 +7,11 @@
 
 #include "gamecore.h"
 
-class FleetDlgListViewItem : public QListViewItem
+class FleetDlgListViewItem : public Q3ListViewItem
 {
 	public:
-		FleetDlgListViewItem(QListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5);
-		int compare(QListViewItem *i, int col, bool) const;
+		FleetDlgListViewItem(Q3ListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5);
+		int compare(Q3ListViewItem *i, int col, bool) const;
 };
 
 class FleetDlg : public QDialog  {
@@ -23,7 +23,7 @@ private:
     void init();
 
     AttackFleetList *fleetList;
-    QListView *fleetTable;
+    Q3ListView *fleetTable;
 };
 
 #endif

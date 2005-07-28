@@ -2,6 +2,9 @@
 #define _GAMEBOARD_H_
 
 #include <qwidget.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QKeyEvent>
 
 #include "planet_info.h"
 #include "map_widget.h"
@@ -11,10 +14,10 @@
 //************************************************************************
 class QSlider;
 class QLabel;
-class QListBox;
+class Q3ListBox;
 class QPushButton;
 class QLineEdit;
-class QTextEdit;
+class Q3TextEdit;
 
 enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST, AI_PLAYER };
 
@@ -91,7 +94,7 @@ private:
     QPushButton *endTurn;
     QLineEdit *shipCountEdit;
     QLabel *splashScreen;
-    QTextEdit *msgWidget;
+    Q3TextEdit *msgWidget;
 
 
     //***************************************************************

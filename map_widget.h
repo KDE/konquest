@@ -3,17 +3,19 @@
 
 
 #include <qwidget.h>
-#include <qframe.h>
+#include <q3frame.h>
 #include <qpixmap.h>
 
-#include <qgridview.h>
+#include <q3gridview.h>
 
 #include <qtimer.h>
+//Added by qt3to4:
+#include <QMouseEvent>
 
 #include "gamecore.h"
 #include "images.h"
 
-class ConquestMap : public QGridView
+class ConquestMap : public Q3GridView
 {
     Q_OBJECT
 

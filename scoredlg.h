@@ -7,11 +7,11 @@
 
 #include "gamecore.h"
 
-class ScoreDlgListViewItem : public QListViewItem
+class ScoreDlgListViewItem : public Q3ListViewItem
 {
 	public:
-		ScoreDlgListViewItem(QListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5, QString s6);
-		int compare(QListViewItem *i, int col, bool) const;
+		ScoreDlgListViewItem(Q3ListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5, QString s6);
+		int compare(Q3ListViewItem *i, int col, bool) const;
 };
 
 class ScoreDlg : public QDialog
@@ -24,7 +24,7 @@ private:
     void init();
 
     PlayerList *plrList;
-    QListView *scoreTable;
+    Q3ListView *scoreTable;
 
 };
 

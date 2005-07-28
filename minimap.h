@@ -2,16 +2,16 @@
 #define _MINIMAP_H
 
 #include <qwidget.h>
-#include <qframe.h>
+#include <q3frame.h>
 #include <qpixmap.h>
-#include <qgridview.h>
+#include <q3gridview.h>
 #include <qtimer.h>
 
 #include "gamecore.h"
 #include "images.h"
 
 
-class MiniMap : public QGridView
+class MiniMap : public Q3GridView
 {
     Q_OBJECT
 

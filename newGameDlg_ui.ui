@@ -54,7 +54,7 @@
                                 <number>9</number>
                             </property>
                             <property name="orientation">
-                                <enum>Horizontal</enum>
+                                <enum>Qt::Horizontal</enum>
                             </property>
                         </widget>
                         <widget class="QLabel">
@@ -142,7 +142,7 @@
                                         <cstring>spacer2</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -167,7 +167,7 @@
                                         <cstring>spacer1</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -188,7 +188,7 @@
                         <cstring>spacer5</cstring>
                     </property>
                     <property name="orientation">
-                        <enum>Horizontal</enum>
+                        <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeType">
                         <enum>Fixed</enum>
@@ -233,7 +233,7 @@
                                 <number>1</number>
                             </property>
                             <property name="orientation">
-                                <enum>Horizontal</enum>
+                                <enum>Qt::Horizontal</enum>
                             </property>
                         </widget>
                         <widget class="QLabel">
@@ -257,7 +257,7 @@
                                         <cstring>spacer7</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -279,7 +279,7 @@
                                         <cstring>spacer7_2</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -298,7 +298,7 @@
                                 <cstring>spacer6</cstring>
                             </property>
                             <property name="orientation">
-                                <enum>Vertical</enum>
+                                <enum>Qt::Vertical</enum>
                             </property>
                             <property name="sizeType">
                                 <enum>Expanding</enum>
@@ -323,7 +323,7 @@
                                         <cstring>spacer3</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -348,7 +348,7 @@
                                         <cstring>spacer4</cstring>
                                     </property>
                                     <property name="orientation">
-                                        <enum>Horizontal</enum>
+                                        <enum>Qt::Horizontal</enum>
                                     </property>
                                     <property name="sizeType">
                                         <enum>Expanding</enum>
@@ -377,7 +377,7 @@
                 <enum>Sunken</enum>
             </property>
             <property name="orientation">
-                <enum>Horizontal</enum>
+                <enum>Qt::Horizontal</enum>
             </property>
         </widget>
         <widget class="QLabel">
@@ -405,7 +405,7 @@
                 <number>5</number>
             </property>
             <property name="orientation">
-                <enum>Horizontal</enum>
+                <enum>Qt::Horizontal</enum>
             </property>
         </widget>
     </vbox>

@@ -1,6 +1,8 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qcolor.h>
+//Added by qt3to4:
+#include <QMouseEvent>
 
 #include <kapplication.h>
 #include <kiconloader.h>
@@ -10,7 +12,7 @@
 #include "map_widget.moc"
 
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
-    : QGridView( parent ),
+    : Q3GridView( parent ),
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
@@ -21,7 +23,7 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     labelFont.setPointSize( 8 );
 
     setFrameStyle( NoFrame );
-    setPaletteBackgroundColor( black );
+    setPaletteBackgroundColor( Qt::black );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );
@@ -128,7 +130,7 @@ ConquestMap::squareBlink()
 
     int row, col;
     if( map->selectedSector( row, col ) ) {
-        QPainter p( this, true );
+        QPainter p( this );
 
         p.translate( col * cellWidth(), row * cellHeight() );
 
@@ -156,7 +158,7 @@ ConquestMap::mapUpdate()
 void
 ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool highlight )
 {
-    QColor labelColor( white );
+    QColor labelColor( Qt::white );
     QPoint labelCorner;
 
     if( sector.hasPlanet() ) {
@@ -221,7 +223,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
             QPen gridPen( sector.getPlanet()->getPlayer()->getColor() );
             p->setPen( gridPen );
         } else if( highlight ) {
-            QPen gridPen( white );
+            QPen gridPen( Qt::white );
             p->setPen( gridPen );
         } else {
             QPen gridPen( gridColor );

@@ -2,6 +2,9 @@
 #include <qlayout.h>
 #include <qpalette.h>
 #include <qcolor.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <Q3Frame>
 #include <kapplication.h>
 #include <klocale.h>
 
@@ -10,7 +13,7 @@
 #include "planet_info.moc"
 
 PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
-    : QFrame( parent  )
+    : Q3Frame( parent  )
 {
     setPalette( palette );
 

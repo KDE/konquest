@@ -1,4 +1,7 @@
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <kapplication.h>
 #include <klocale.h>
 #include <math.h>
@@ -8,11 +11,11 @@
 
 #include "fleetdlg.h"
 
-FleetDlgListViewItem::FleetDlgListViewItem(QListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5) : QListViewItem(parent, s1, s2, s3, s4, s5)
+FleetDlgListViewItem::FleetDlgListViewItem(Q3ListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5) : Q3ListViewItem(parent, s1, s2, s3, s4, s5)
 {
 }
 
-int FleetDlgListViewItem::compare(QListViewItem *i, int col, bool) const
+int FleetDlgListViewItem::compare(Q3ListViewItem *i, int col, bool) const
 {
 	if (col == 1)
 	{

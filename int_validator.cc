@@ -1,5 +1,6 @@
 #include <limits.h>
 
+#include <qwidget.h>
 #include "int_validator.h"
 #include "int_validator.moc"
 

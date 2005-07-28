@@ -1,4 +1,7 @@
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <kapplication.h>
 #include <klocale.h>
 #include <kpushbutton.h>
@@ -6,11 +9,11 @@
 
 #include "scoredlg.h"
 
-ScoreDlgListViewItem::ScoreDlgListViewItem(QListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5, QString s6) : QListViewItem(parent, s1, s2, s3, s4, s5, s6)
+ScoreDlgListViewItem::ScoreDlgListViewItem(Q3ListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5, QString s6) : Q3ListViewItem(parent, s1, s2, s3, s4, s5, s6)
 {
 }
 
-int ScoreDlgListViewItem::compare(QListViewItem *i, int col, bool) const
+int ScoreDlgListViewItem::compare(Q3ListViewItem *i, int col, bool) const
 {
 	if (col == 0)
 	{

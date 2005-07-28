@@ -492,7 +492,7 @@ Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool
 
 Player *Player::createNeutralPlayer()
 {
-    return new Player( QString::null, gray, NEUTRAL_PLAYER_NUMBER, false );
+    return new Player( QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER, false );
 }
 
 QColor &Player::getColor()

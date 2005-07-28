@@ -1,13 +1,15 @@
-#include <qheader.h>
+#include <q3header.h>
 #include <qlayout.h>
 #include <qcolor.h>
 #include <qlabel.h>
 #include <qslider.h>
 #include <qevent.h>
-#include <qkeycode.h>
-#include <qlistview.h>
+#include <qnamespace.h>
+#include <q3listview.h>
 #include <qpushbutton.h>
 #include <qlineedit.h>
+//Added by qt3to4:
+#include <QPixmap>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -37,7 +39,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
     w->listPlayers->header()->hide();
 //    w->listPlayers->setMinimumSize( 100, 150 );
     w->listPlayers->setSortColumn(-1);
-    w->listPlayers->setHScrollBarMode(QScrollView::AlwaysOff);
+    w->listPlayers->setHScrollBarMode(Q3ScrollView::AlwaysOff);
     w->sliderPlayers->setMinimumWidth(270);
     w->sliderPlanets->setMinimumWidth(270);
 
@@ -93,7 +95,7 @@ NewGameDlg::init()
     
     // Restore player names
     int plrNum = 0;
-    for( QListViewItem *item = w->listPlayers->firstChild(); 
+    for( Q3ListViewItem *item = w->listPlayers->firstChild(); 
          item; item = item->nextSibling(), plrNum++ )
     {
        QString key = QString("Player_%1").arg(plrNum);
@@ -124,7 +126,7 @@ NewGameDlg::slotAddPlayer()
     if (playerName.isEmpty())
        return;
        
-    QListViewItem *item;
+    Q3ListViewItem *item;
     do
     {
        item = w->listPlayers->firstChild();
@@ -160,14 +162,14 @@ NewGameDlg::slotAddPlayer()
 void
 NewGameDlg::setPlayerCount(int playerCount)
 {
-    QColor PlayerColors[MAX_PLAYERS] = { QColor( 130, 130, 255 ), yellow, red, green,
-    		white, cyan, magenta, QColor( 235, 153, 46 ),
+    QColor PlayerColors[MAX_PLAYERS] = { QColor( 130, 130, 255 ), Qt::yellow, Qt::red, Qt::green,
+    		Qt::white, Qt::cyan, Qt::magenta, QColor( 235, 153, 46 ),
 		QColor( 106, 157, 104 ),  QColor( 131, 153, 128) };
        
     int i = 0;
-    QListViewItem *lastItem = 0;
-    QListViewItem *item = 0;
-    QListViewItem *nextItem = w->listPlayers->firstChild();
+    Q3ListViewItem *lastItem = 0;
+    Q3ListViewItem *item = 0;
+    Q3ListViewItem *nextItem = w->listPlayers->firstChild();
     while( (item = nextItem) )
     {
        nextItem = item->nextSibling();
@@ -188,7 +190,7 @@ NewGameDlg::setPlayerCount(int playerCount)
        QPixmap pm(16,16);
        QColor color(PlayerColors[i]);
        pm.fill(color);
-       QListViewItem *item = new QListViewItem(w->listPlayers, lastItem, playerName, i18n("Computer Player"), "A", color.name());
+       Q3ListViewItem *item = new Q3ListViewItem(w->listPlayers, lastItem, playerName, i18n("Computer Player"), "A", color.name());
        item->setPixmap(0, pm);
        lastItem = item;
        i++;
@@ -238,7 +240,7 @@ void
 NewGameDlg::slotOk()
 {
     bool hasHumans = false;
-    for( QListViewItem *item = w->listPlayers->firstChild(); 
+    for( Q3ListViewItem *item = w->listPlayers->firstChild(); 
          item; item = item->nextSibling() )
     {
         bool ai = (item->text(2) == "A");
@@ -266,7 +268,7 @@ NewGameDlg::save()
     config->writeEntry("NrOfTurns", w->sliderTurns->value());
 
     int plrNum = 0;
-    for( QListViewItem *item = w->listPlayers->firstChild(); 
+    for( Q3ListViewItem *item = w->listPlayers->firstChild(); 
          item; item = item->nextSibling() )
     {
         QString key = QString("Player_%1").arg(plrNum);
@@ -307,7 +309,7 @@ NewGameDlg::updateMiniMap()
     // Make player list
     // Does the name already exist in the list
     int plrNum = 0;
-    for( QListViewItem *item = w->listPlayers->firstChild(); 
+    for( Q3ListViewItem *item = w->listPlayers->firstChild(); 
          item; item = item->nextSibling() )
     {
         QString playerName = item->text(0);

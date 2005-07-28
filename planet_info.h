@@ -1,10 +1,12 @@
 #ifndef _PLANET_INFO_H_
 #define _PLANET_INFO_H_
 
-#include <qframe.h>
+#include <q3frame.h>
 #include <qstring.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qpalette.h>
+//Added by qt3to4:
+#include <QLabel>
 
 #include "gamecore.h"
 
@@ -17,10 +19,10 @@ struct planet_info_buffer {
     float killRate;
 };
 
-typedef QPtrList<planet_info_buffer> PlanetInfoList;
-typedef QPtrListIterator<planet_info_buffer> PlanetInfoListIterator;
+typedef Q3PtrList<planet_info_buffer> PlanetInfoList;
+typedef Q3PtrListIterator<planet_info_buffer> PlanetInfoListIterator;
 
-class PlanetInfo : public QFrame
+class PlanetInfo : public Q3Frame
 {
     Q_OBJECT
         

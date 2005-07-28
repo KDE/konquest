@@ -8,14 +8,14 @@
 #include "minimap.moc"
 
 MiniMap::MiniMap(  QWidget *parent, const char *name )
-    : QGridView( parent, name ),
+    : Q3GridView( parent, name ),
     SECTOR_HEIGHT( 12 ), SECTOR_WIDTH( 12 ),
     BOARD_HEIGHT( 10 * SECTOR_HEIGHT ),
     BOARD_WIDTH( 10 * SECTOR_WIDTH ),
     map( 0 )
 {
     setFrameStyle( NoFrame );
-    setPaletteBackgroundColor( black );
+    setPaletteBackgroundColor( Qt::black );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );
@@ -65,8 +65,8 @@ MiniMap::drawSector( QPainter *p, Sector &sector )
 {
     QRect r( 0, 0, SECTOR_WIDTH, SECTOR_HEIGHT );
 
-    p->setPen( black );
-    p->setBrush( black );
+    p->setPen( Qt::black );
+    p->setBrush( Qt::black );
     p->drawRect( r );
 
     if( sector.hasPlanet() ) {

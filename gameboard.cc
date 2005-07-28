@@ -3,12 +3,17 @@
 #include <qlabel.h>
 #include <qslider.h>
 #include <qevent.h>
-#include <qkeycode.h>
-#include <qlistbox.h>
+#include <qnamespace.h>
+#include <q3listbox.h>
 #include <qpushbutton.h>
 #include <qlineedit.h>
 #include <qvalidator.h>
-#include <qtextedit.h>
+#include <q3textedit.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QKeyEvent>
 
 #include <kapplication.h>
 #include <klocale.h>
@@ -36,8 +41,9 @@
 GameBoard::GameBoard( QWidget *parent )
     : QWidget( parent ), gameInProgress( false ), gameState( NONE )
 {
-    QColorGroup cg( white, black, green.light(), green.dark(), green, green.dark(75), green.dark() );
-    QPalette palette( cg, cg, cg );
+	QColor col( Qt::green);
+	QColorGroup cg( Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark() );
+	QPalette palette( cg, cg, cg );
 
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
@@ -49,10 +55,10 @@ GameBoard::GameBoard( QWidget *parent )
     // Create the widgets in the main window
     //********************************************************************
     mapWidget = new ConquestMap( map, this );
-    msgWidget = new QTextEdit( this );
-    msgWidget->setTextFormat(LogText);
+    msgWidget = new Q3TextEdit( this );
+    msgWidget->setTextFormat(Qt::LogText);
     msgWidget->setMinimumHeight(100);
-    msgWidget->setHScrollBarMode(QScrollView::AlwaysOff);
+    msgWidget->setHScrollBarMode(Q3ScrollView::AlwaysOff);
     msgWidget->setPaper(QBrush(Qt::black));
     planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
@@ -82,7 +88,7 @@ GameBoard::GameBoard( QWidget *parent )
     setMinimumSize( 600, 600 );
 
     setMouseTracking( true );
-    setFocusPolicy( StrongFocus );
+    setFocusPolicy( Qt::StrongFocus );
     setFocus();
 
     //********************************************************************
@@ -102,7 +108,7 @@ GameBoard::GameBoard( QWidget *parent )
     layout3->addWidget( endTurn, 1 );
 
     layout2->addSpacing( 5 );
-    layout2->addWidget( mapWidget, 0, AlignTop );
+    layout2->addWidget( mapWidget, 0, Qt::AlignTop );
     layout2->addWidget( msgWidget );
     layout2->addStretch( 1 );
 
@@ -150,7 +156,7 @@ void
 GameBoard::keyPressEvent( QKeyEvent *e )
 {
     // Check for the escape key
-    if( e->key() == Key_Escape ) {
+    if( e->key() == Qt::Key_Escape ) {
         switch( gameState ) {
         case DEST_PLANET:
         case SHIP_COUNT:
@@ -901,7 +907,7 @@ GameBoard::changeGameBoard( bool inPlay  )
         endTurn->show();
         shipCountEdit->show();
         splashScreen->hide();
-        setBackgroundColor( black );
+        setBackgroundColor( Qt::black );
     } else {
         mapWidget->hide();
         planetInfo->hide();
@@ -909,7 +915,7 @@ GameBoard::changeGameBoard( bool inPlay  )
         endTurn->hide();
         shipCountEdit->hide();
         splashScreen->show();
-        setBackgroundColor( black );
+        setBackgroundColor( Qt::black );
     }
 
 }
