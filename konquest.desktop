@@ -45,6 +45,7 @@ GenericName[sr]=Галактичка стратешка игра
 GenericName[sr@Latn]=Galaktička strateška igra
 GenericName[sv]=Galaktiskt strategispel
 GenericName[ta]=கலாட்டிக் தந்திர விளையாட்டு
+GenericName[xx]=xxGalactic Strategy Gamexx
 Terminal=false
 DocPath=konquest/index.html
 X-KDE-StartupNotify=true
