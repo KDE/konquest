@@ -20,7 +20,7 @@ main(int argc, char **argv)
 
     KApplication a;
     QApplication::setGlobalMouseTracking( true );
-    KGlobal::locale()->insertCatalogue("libkdegames");
+    KGlobal::locale()->insertCatalog("libkdegames");
 
     if (a.isRestored())
         RESTORE(MainWindow)
