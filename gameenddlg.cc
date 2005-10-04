@@ -7,6 +7,7 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kstdguiitem.h>
+#include <kvbox.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"

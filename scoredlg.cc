@@ -35,7 +35,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 {
     setCaption( kapp->makeStdCaption(title) );
 
-    scoreTable = new KListView( this, 0 );
+    scoreTable = new KListView( this );
     scoreTable->addColumn(i18n("Player"));
     scoreTable->addColumn(i18n("Ships Built"));
     scoreTable->addColumn(i18n("Planets Conquered"));
