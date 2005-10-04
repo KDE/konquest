@@ -16,7 +16,7 @@ GameEndDlg::GameEndDlg( QWidget *parent )
       KDialogBase::Yes|KDialogBase::No, KDialogBase::Yes, KDialogBase::No,
       parent, "end_game_dialog", true, true )
 {
-    Q3VBox *page = makeVBoxMainWidget();
+    KVBox *page = makeVBoxMainWidget();
 
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );
