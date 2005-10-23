@@ -22,7 +22,7 @@ main(int argc, char **argv)
     QApplication::setGlobalMouseTracking( true );
     KGlobal::locale()->insertCatalog("libkdegames");
 
-    if (a.isRestored())
+    if (a.isSessionRestored())
         RESTORE(MainWindow)
     else {
         MainWindow *w = new MainWindow;
