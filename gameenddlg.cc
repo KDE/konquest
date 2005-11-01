@@ -8,6 +8,7 @@
 #include <klocale.h>
 #include <kstdguiitem.h>
 #include <kvbox.h>
+#include <kglobal.h>
 
 #include "gameenddlg.h"
 #include "gameenddlg.moc"
@@ -46,7 +47,7 @@ GameEndDlg::~GameEndDlg()
 void
 GameEndDlg::init()
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->setGroup("Game");
     int turns = config->readNumEntry("ExtraTurns", 10);
     turnCount->setValue(turns);
@@ -56,7 +57,7 @@ GameEndDlg::init()
 void
 GameEndDlg::slotYes()
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->setGroup("Game");
     config->writeEntry("ExtraTurns", extraTurns());
     config->sync();

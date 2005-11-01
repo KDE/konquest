@@ -17,6 +17,7 @@
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
+#include <kglobal.h>
 
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
@@ -76,7 +77,7 @@ NewGameDlg::slotDefault()
 void
 NewGameDlg::init()
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->setGroup("Game");
     int nrOfPlayers = config->readNumEntry("NrOfPlayers");
     if (nrOfPlayers < 2)
@@ -260,7 +261,7 @@ NewGameDlg::slotOk()
 void
 NewGameDlg::save()
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->setGroup("Game");
     
     config->writeEntry("NrOfPlayers", w->sliderPlayers->value());
