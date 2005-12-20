@@ -16,16 +16,17 @@
 <firstname>Nicholas</firstname>
 <surname>Robbins</surname>
 <affiliation>
-<address><email>logik9000@chartermi.net</email></address>
+<address>&Nicholas.Robbins.mail;</address>
 </affiliation>
 </author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <othercredit role="developer">
 <firstname>Russ</firstname>
 <surname>Steffen</surname>
 <affiliation>
-<address><email>rsteffen@bayarea.net</email></address></affiliation>
+<address>&Russ.Steffen.mail;</address></affiliation>
 <contrib>Developer</contrib>
 </othercredit>
 
@@ -33,12 +34,10 @@
 <firstname>Lauri</firstname>
 <surname>Watts</surname>
 <affiliation>
-<address><email>lauri@kde.org</email></address>
+<address>&Lauri.Watts.mail;</address>
 </affiliation>
 <contrib>Reviewer</contrib>
 </othercredit>
-
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 <copyright>
 <year>2000</year>
@@ -47,8 +46,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2000-12-16</date>
-<releaseinfo>0.99.02</releaseinfo>
+<date>2005-12-16</date>
+<releaseinfo>1.1</releaseinfo>
 
 <abstract><para>&konquest; is a wonderfully complex game for universal
 domination, or konquest, if you like.  :)</para></abstract>
@@ -65,7 +64,7 @@ domination, or konquest, if you like.  :)</para></abstract>
 <title>Introduction</title>
 
 <para>This the &kde; version of <application>Gnu-Lactic
-Konquest</application>, a multi-player strategy game. The goal of the
+&konquest;</application>, a multi-player strategy game. The goal of the
 game is to expand your interstellar empire across the galaxy and of
 course, crush your rivals in the process.</para>
 
@@ -85,12 +84,12 @@ course, crush your rivals in the process.</para>
 <sect1 id="configuration">
 <title>Configuration</title>
 
-<para>When you start &konquest;, you a window settings window pop up.
+<para>When you start a &konquest; game, a settings window pops up.
 From here you need to enter player names, decide the number of
 planets, and how many turns are allowed.  (Don't worry, you can add
 more later) You can also reject the map, until a you find a galaxy
-layout you like.  After this, just <guibutton>Start
-Game</guibutton>!</para>
+layout you like.  After this, just click <guibutton>OK</guibutton>
+to start the game.</para>
 
 </sect1>
 
@@ -99,24 +98,22 @@ Game</guibutton>!</para>
 <chapter id="commands">
 <title>Command Reference</title>
 
-<para></para>
-
 <sect1 id="konquest-mainwindow">
-<title>The main &konquest; window</title>
+<title>The Main &konquest; Window</title>
 
-<para>The Planet Status indicator (the big black box on the left) is
+<para>The Planet Status indicator on the right is
 your source for intelligence on the state of the Galaxy. Your spies
 will report on the status of your rivals, but not on the
 native-controlled planets. The information present in the display is:
-<guilabel>name</guilabel>, <guilabel>owner</guilabel>,
-<guilabel>production</guilabel> rate, fleet strength
-(<guilabel>ships</guilabel> and <guilabel>kill
-percent</guilabel>.</para>
+<guilabel>Planet name</guilabel>, <guilabel>Owner</guilabel>,
+<guilabel>Production</guilabel> rate, fleet strength
+(<guilabel>Ships</guilabel> and <guilabel>Kill
+percent</guilabel>).</para>
 
-<para>The <guilabel>production</guilabel> rate is the number of ships
+<para>The <guilabel>Production</guilabel> rate is the number of ships
 that planet will construct in one turn. The fleet strength is the
-number of <guilabel>ships</guilabel> currently in place at the
-planet. And, the <guilabel>kill percent</guilabel> is a measure of the
+number of <guilabel>Ships</guilabel> currently in place at the
+planet. And, the <guilabel>Kill percent</guilabel> is a measure of the
 effectiveness of the ships produced at that planet. Attack fleets take
 the kill percentage of their planet of departure, and defense fleets
 use the kill percentage of the planet they are defending.</para>
@@ -127,13 +124,57 @@ use the kill percentage of the planet they are defending.</para>
 <variablelist>
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>New</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Starts a new game.</action></para></listitem>
 </varlistentry>
+
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>End Game</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>End the current game, without closing</action> &konquest;</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>Measure Distance</guimenuitem>
+</menuchoice></term>
+<listitem><para>Click with the &LMB; on two planets to see their distance.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>Show Standings</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Opens</action> a window to display the detailed current 
+standings for all players</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>Fleet Overview</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Opens</action> a window to display detailed informations 
+for all fleets</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
@@ -141,6 +182,45 @@ use the kill percentage of the planet they are defending.</para>
 </varlistentry>
 </variablelist>
 </sect2>
+
+<sect2 id="settings-menu">
+<title>The <guimenu>Settings</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Toggle</action> the toolbar display on and off.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Opens</action> a standard &kde; shortcut configuration dialog to
+change the keyboard shortcuts used by &konquest;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Toolbars...</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Brings up the standard &kde; toolbar configuration dialog to customize the &konquest; toolbar icons.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
 
 <sect2>
 <title>The <guimenu>Help</guimenu> Menu</title>
@@ -158,15 +238,15 @@ use the kill percentage of the planet they are defending.</para>
 
 <para>&konquest;</para>
 
-<para>GNU-Lactic Conquest Project, &kde; version by Russ Steffen,
+<para>&GNU;-Lactic Conquest Project, &kde; version by &Russ.Steffen;,
 <email>rsteffen@ia.net</email>.  See <ulink
 url="http://www.ia.net/~rsteffen/konquest.html">http://www.ia.net/~rsteffen/konquest.html</ulink>
 for more information.</para>
 
-<para>Copyright &copy; 1998 by the GNU-Lactic Conquest Project </para>
+<para>Copyright &copy; 1998 by the &GNU;-Lactic Conquest Project </para>
 
 <para>Documentation copyright 2000 Nicholas Robbins
-<email>logik9000@chartermi.com</email></para>
+&Nicholas.Robbins.mail;</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
