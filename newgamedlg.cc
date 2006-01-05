@@ -101,7 +101,7 @@ NewGameDlg::init()
     {
        QString key = QString("Player_%1").arg(plrNum);
        
-       QString playerName = config->readEntry(key);
+       QString playerName = config->readEntry(key,QString());
        if (playerName.isEmpty())
           continue;
 
