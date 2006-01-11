@@ -61,7 +61,7 @@ GameEndDlg::slotYes()
     config->setGroup("Game");
     config->writeEntry("ExtraTurns", extraTurns());
     config->sync();
-    KDialogBase::slotYes();
+    KDialogBase::slotButtonClicked(KDialog::Yes);
 }
 
 int
