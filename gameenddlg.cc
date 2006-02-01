@@ -49,7 +49,7 @@ GameEndDlg::init()
 {
     KConfig *config = KGlobal::config();
     config->setGroup("Game");
-    int turns = config->readNumEntry("ExtraTurns", 10);
+    int turns = config->readEntry("ExtraTurns", 10);
     turnCount->setValue(turns);
     turnCountChange(turns);
 }

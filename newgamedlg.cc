@@ -79,14 +79,14 @@ NewGameDlg::init()
 {
     KConfig *config = KGlobal::config();
     config->setGroup("Game");
-    int nrOfPlayers = config->readNumEntry("NrOfPlayers");
+    int nrOfPlayers = config->readEntry("NrOfPlayers",0);
     if (nrOfPlayers < 2)
        nrOfPlayers = 2;
     if (nrOfPlayers > MAX_PLAYERS)
        nrOfPlayers = MAX_PLAYERS;
 
-    int nrOfPlanets = config->readNumEntry("NrOfPlanets", 3);
-    int nrOfTurns = config->readNumEntry("NrOfTurns", 15);
+    int nrOfPlanets = config->readEntry("NrOfPlanets", 3);
+    int nrOfTurns = config->readEntry("NrOfTurns", 15);
        
     w->sliderPlayers->setValue(nrOfPlayers);
     w->sliderPlanets->setValue(nrOfPlanets);
