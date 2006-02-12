@@ -47,10 +47,10 @@
                             <property name="name">
                                 <cstring>sliderPlayers</cstring>
                             </property>
-                            <property name="minValue">
+                            <property name="minimum">
                                 <number>2</number>
                             </property>
-                            <property name="maxValue">
+                            <property name="maximum">
                                 <number>9</number>
                             </property>
                             <property name="orientation">
@@ -223,10 +223,10 @@
                             <property name="name">
                                 <cstring>sliderPlanets</cstring>
                             </property>
-                            <property name="minValue">
+                            <property name="minimum">
                                 <number>1</number>
                             </property>
-                            <property name="maxValue">
+                            <property name="maximum">
                                 <number>35</number>
                             </property>
                             <property name="value">
@@ -395,10 +395,10 @@
             <property name="name">
                 <cstring>sliderTurns</cstring>
             </property>
-            <property name="minValue">
+            <property name="minimum">
                 <number>5</number>
             </property>
-            <property name="maxValue">
+            <property name="maximum">
                 <number>40</number>
             </property>
             <property name="pageStep">
