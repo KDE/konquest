@@ -6,6 +6,7 @@ Name[x-test]=xxKonquestxx
 Exec=konquest -caption %c
 Type=Application
 GenericName=Galactic Strategy Game
+GenericName[fr]=Jeu de stratégie galactique
 GenericName[x-test]=xxGalactic Strategy Gamexx
 Terminal=false
 DocPath=konquest/index.html
