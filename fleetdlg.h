@@ -1,7 +1,7 @@
 #ifndef FLEETDLG_H
 #define FLEETDLG_H
 
-#include <klistview.h>
+#include <k3listview.h>
 
 #include <qdialog.h>
 

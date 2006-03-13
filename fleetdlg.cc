@@ -43,7 +43,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
 {
     setCaption( kapp->makeStdCaption(i18n("Fleet Overview")) );
 
-    fleetTable = new KListView( this );
+    fleetTable = new K3ListView( this );
     fleetTable->addColumn(i18n("Fleet No."));
     fleetTable->addColumn(i18n("Destination"));
     fleetTable->addColumn(i18n("Ships"));

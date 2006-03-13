@@ -1,7 +1,7 @@
 #ifndef _SCOREDLG_H_
 #define _SCOREDLG_H_
 
-#include <klistview.h>
+#include <k3listview.h>
 
 #include <qdialog.h>
 
