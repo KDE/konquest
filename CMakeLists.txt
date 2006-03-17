@@ -1,4 +1,5 @@
 kde4_header()
+project(konquest)
 
 add_subdirectory( pics ) 
 
