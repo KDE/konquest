@@ -50,8 +50,8 @@ MainWindow::setupKAction()
     standingAction->setEnabled(false);
     fleetAction = new KAction( i18n("&Fleet Overview"), "launch", 0, gameBoard, SLOT( showFleets() ), actionCollection(), "game_fleets" );
     fleetAction->setEnabled(false);
-    toolBar()->setBarPos( KToolBar::Left );
-    toolBar()->setMovingEnabled( false );
+	addToolBar ( Qt::LeftToolBarArea, toolBar() );
+    toolBar()->setMovable(false);
 }
 
 void
