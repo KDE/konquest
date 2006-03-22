@@ -28,7 +28,7 @@ kde4_add_ui3_files(konquest_SRCS newGameDlg_ui.ui )
 
 kde4_add_executable(konquest ${konquest_SRCS})
 
-target_link_libraries(konquest  ${LIB_KDEUI} kdegames )
+target_link_libraries(konquest  ${KDE4_KDEUI_LIBRARIES} kdegames )
 
 install_targets(/bin konquest )
 
