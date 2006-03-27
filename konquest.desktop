@@ -22,6 +22,7 @@ Exec=konquest %i %m -caption %c
 Type=Application
 GenericName=Galactic Strategy Game
 GenericName[bg]=Галактическа игра
+GenericName[bn]=গ্যালাকটিক কৌশলের খেলা
 GenericName[ca]=Joc d'estratègia galàctica
 GenericName[cs]=Strategická galaktická hra
 GenericName[cy]=Gêm Strategaeth Galaethol
