@@ -187,7 +187,7 @@ NewGameDlg::setPlayerCount(int playerCount)
     
     while(w->listPlayers->childCount() < playerCount)
     {
-       QString playerName = i18n("Generated AI player name", "Comp%1").arg(i+1);
+       QString playerName = i18nc("Generated AI player name", "Comp%1", i+1);
        QPixmap pm(16,16);
        QColor color(PlayerColors[i]);
        pm.fill(color);
@@ -232,9 +232,9 @@ NewGameDlg::turns()
 void
 NewGameDlg::updateLabels()
 {
-    w->labelPlayers->setText(i18n("Number of &players: %1").arg(w->sliderPlayers->value()));
-    w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1").arg(w->sliderPlanets->value()));
-    w->labelTurns->setText(i18n("Number of &turns: %1").arg(w->sliderTurns->value()));
+    w->labelPlayers->setText(i18n("Number of &players: %1", w->sliderPlayers->value()));
+    w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1", w->sliderPlanets->value()));
+    w->labelTurns->setText(i18n("Number of &turns: %1", w->sliderTurns->value()));
 }
 
 void

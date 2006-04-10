@@ -320,11 +320,11 @@ GameBoard::turn()
 
             QString msg;
             msg = i18n("The distance from Planet %1 to Planet %2 is %3 light years.\n"
-                       "A ship leaving this turn will arrive on turn %4")
-                  .arg(sourcePlanet->getName())
-		  .arg(destPlanet->getName())
-                  .arg(KGlobal::locale()->formatNumber( dist, 2 ))
-		  .arg(KGlobal::locale()->formatNumber( turnNumber + (int)dist, 0 ));
+                       "A ship leaving this turn will arrive on turn %4",
+                   sourcePlanet->getName(),
+		   destPlanet->getName(),
+                   KGlobal::locale()->formatNumber( dist, 2 ),
+		   KGlobal::locale()->formatNumber( turnNumber + (int)dist, 0 ));
 	    KMessageBox::information( this, msg, i18n("Distance"));
 
             gameState = NONE;
@@ -437,7 +437,7 @@ GameBoard::turn()
     }
 
     QString turnStr;
-    turnStr = i18n("Turn #: %1 of %2").arg(turnNumber).arg(lastTurn);
+    turnStr = i18n("Turn #: %1 of %2", turnNumber, lastTurn);
 
     turnCounter->setText( turnStr );
 
@@ -478,7 +478,7 @@ GameBoard::nextTurn()
     {
         mapWidget->repaint(true);
         KMessageBox::information(this, 
-              i18n("The mighty %1 has conquered the galaxy!").arg(winner->getName()),
+              i18n("The mighty %1 has conquered the galaxy!", winner->getName()),
               i18n("Game Over"));
     }
 
@@ -559,20 +559,20 @@ GameBoard::findWinner()
 }
 
 void
-GameBoard::gameMsg(const QString &msg, Player *player, Planet *planet, Player *planetPlayer)
+GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, Player *planetPlayer)
 {
     bool isHumanInvolved = false;
        
     QString color = "white";
-    QString colorMsg = msg;
-    QString plainMsg = msg;
+    KLocalizedString colorMsg = msg;
+    KLocalizedString plainMsg = msg;
 
     if (player)
     {
        if (!player->isAiPlayer())
           isHumanInvolved = true;
-       colorMsg = colorMsg.arg(playerString(player));
-       plainMsg = plainMsg.arg(player->getName());
+       colorMsg = colorMsg.subs(playerString(player));
+       plainMsg = plainMsg.subs(player->getName());
     }
 
     if (planet)
@@ -583,16 +583,16 @@ GameBoard::gameMsg(const QString &msg, Player *player, Planet *planet, Player *p
           isHumanInvolved = true;
 
        QString color = planetPlayer->getColor().name();
-       colorMsg = colorMsg.arg(QString("<font color=\"%1\">%2</font>").arg(color, planet->getName()));
-       plainMsg = plainMsg.arg(planet->getName());
+       colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>").arg(color, planet->getName()));
+       plainMsg = plainMsg.subs(planet->getName());
     }
-    msgWidget->append(("<qt><font color=\"white\">Turn %1:</font> <font color=\""+color+"\">").arg(turnNumber)+colorMsg+"</font></qt>");
+    msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
     msgWidget->scrollToBottom();
     
     if (isHumanInvolved)
     {
        mapWidget->repaint(true);
-       KMessageBox::information(this, plainMsg);
+       KMessageBox::information(this, plainMsg.toString());
     }
 }
 
@@ -633,9 +633,7 @@ GameBoard::scanForSurvivors()
     while( (plr = nextActivePlayer()) ) {
         if( !plr->isInPlay() ) {
             // Player has bitten the dust
-            QString msg;
-            msg = i18n("The once mighty empire of %1 has fallen in ruins.");
-            gameMsg(msg, plr);
+            gameMsg(ki18n("The once mighty empire of %1 has fallen in ruins."), plr);
         }
     }
 
@@ -643,9 +641,7 @@ GameBoard::scanForSurvivors()
     while( (plr = nextInactivePlayer()) ) {
         if( plr->isInPlay() ) {
             // Player has bitten the dust
-            QString msg;
-            msg = i18n("The fallen empire of %1 has staggered back to life.");
-            gameMsg(msg, plr);
+            gameMsg(ki18n("The fallen empire of %1 has staggered back to life."), plr);
         }
     }
 }
@@ -664,10 +660,10 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         if (!arrivingFleet->owner->isAiPlayer()) {
         	arrivingFleet->destination->getFleet().absorb(arrivingFleet);
 
-        	QString msg;
-        	msg = i18n("Reinforcements (%1 ships) have arrived for planet %2.")
-        	      .arg(arrivingFleet->getShipCount());
-                gameMsg(msg, 0, arrivingFleet->destination);
+        	gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
+        	               "Reinforcements (%n ships) have arrived for planet %2.")
+        	              .subs(arrivingFleet->getShipCount()),
+                        0, arrivingFleet->destination);
         }
     } else {
 
@@ -708,18 +704,16 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
 
         if( planetHolds ) {
             prizePlanet.getPlayer()->statEnemyFleetsDestroyed(1);
-            QString msg;
-            msg = i18n("Planet %2 has held against an attack from %1.");
-            gameMsg(msg, attacker.owner, &prizePlanet);
+            gameMsg(ki18n("Planet %2 has held against an attack from %1."),
+                    attacker.owner, &prizePlanet);
         } else {
             Player *defender = prizePlanet.getPlayer();
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
             arrivingFleet->destination->conquer( arrivingFleet );
 
-            QString msg;
-            msg = i18n("Planet %2 has fallen to %1.");
-            gameMsg(msg, attacker.owner, &prizePlanet, defender);
+            gameMsg(ki18n("Planet %2 has fallen to %1."),
+                    attacker.owner, &prizePlanet, defender);
         }
     }
 

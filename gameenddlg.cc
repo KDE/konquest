@@ -73,6 +73,6 @@ GameEndDlg::extraTurns()
 void
 GameEndDlg::turnCountChange( int newTurnCount )
 {
-    QString newLbl = i18n("Extra turns: %1").arg( newTurnCount );
+    QString newLbl = i18n("Extra turns: %1", newTurnCount );
     turnCountLbl->setText( newLbl);
 }

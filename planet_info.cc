@@ -129,7 +129,7 @@ void PlanetInfo::showPlanet( Planet *planet )
 
         QString temp;
 
-        temp = "<qt>" + i18n("Planet name: %1").arg(planet->getName());
+        temp = "<qt>" + i18n("Planet name: %1", planet->getName());
         name->setText( temp );
         return;
     }
@@ -144,19 +144,19 @@ void PlanetInfo::showPlanet( Planet *planet )
 
             QString temp;
 
-            temp = "<qt>" + i18n("Planet name: %1").arg(p->planet->getName());
+            temp = "<qt>" + i18n("Planet name: %1", p->planet->getName());
             name->setText( temp );
 
-            temp = "<qt>" + i18n("Owner: %1").arg(p->planet->getPlayer()->getColoredName());
+            temp = "<qt>" + i18n("Owner: %1", p->planet->getPlayer()->getColoredName());
             owner->setText( temp );
 
-            temp = "<qt>" + i18n("Ships: %1").arg( KGlobal::locale()->formatNumber(p->ships, 0) );
+            temp = "<qt>" + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) );
             ships->setText( temp );
 
-            temp = "<qt>" + i18n("Production: %1").arg( KGlobal::locale()->formatNumber(p->production, 0) );
+            temp = "<qt>" + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) );
             production->setText( temp );
 
-            temp = "<qt>" + i18n("Kill percent: %1").arg( KGlobal::locale()->formatNumber(p->killRate, 3) );
+            temp = "<qt>" + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) );
             kill_percent->setText( temp );
         }
     }

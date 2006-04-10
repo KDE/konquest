@@ -19,6 +19,8 @@ class QPushButton;
 class QLineEdit;
 class Q3TextEdit;
 
+class KLocalizedString;
+
 enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST, AI_PLAYER };
 
 //************************************************************************
@@ -69,7 +71,7 @@ private:
     void doFleetArrival( AttackFleet *arrivingFleet );
     void scanForSurvivors();
 
-    void gameMsg(const QString &msg, Player *player = 0, Planet *planet = 0, Player *planetPlayer = 0);
+    void gameMsg(const KLocalizedString &msg, Player *player = 0, Planet *planet = 0, Player *planetPlayer = 0);
 
     void changeGameBoard( bool inPlay );
     void cleanupGame();
