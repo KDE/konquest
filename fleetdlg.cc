@@ -39,9 +39,11 @@ int FleetDlgListViewItem::compare(Q3ListViewItem *i, int col, bool) const
 
 
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
-    : QDialog(parent, "FleetDlg", true ), fleetList(fleets)
+    : QDialog(parent), fleetList(fleets)
 {
-    setCaption( kapp->makeStdCaption(i18n("Fleet Overview")) );
+    setObjectName( "FleetDlg" );
+    setModal( true );
+    setWindowTitle( kapp->makeStdCaption(i18n("Fleet Overview")) );
 
     fleetTable = new K3ListView( this );
     fleetTable->addColumn(i18n("Fleet No."));
@@ -78,7 +80,7 @@ FleetDlg::init()
     AttackFleet *curFleet;
     AttackFleetListIterator nextFleet( *fleetList );
     int fleetNumber = 0;
-    
+
     while( (curFleet = nextFleet())) {
         fleetNumber++;
         new FleetDlgListViewItem(fleetTable,

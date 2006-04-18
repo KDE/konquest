@@ -19,14 +19,12 @@ main(int argc, char **argv)
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
-    QApplication::setGlobalMouseTracking( true );
     KGlobal::locale()->insertCatalog("libkdegames");
 
     if (a.isSessionRestored())
         RESTORE(MainWindow)
     else {
         MainWindow *w = new MainWindow;
-        a.setMainWidget(w);
         w->show();
     }
     return a.exec();

@@ -38,11 +38,11 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
 
     QTimer *timer = new QTimer( this );
     connect( timer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
-    timer->start( 500, false );
+    timer->start( 500 );
 
     viewport()->setMouseTracking( true );
     setMouseTracking( true );
-	
+
     show();
 
 
@@ -52,7 +52,7 @@ ConquestMap::~ConquestMap()
 {
 }
 
-	
+
 void
 ConquestMap::contentsMousePressEvent( QMouseEvent *e )
 {
@@ -151,7 +151,7 @@ ConquestMap::squareBlink()
 void
 ConquestMap::mapUpdate()
 {
-    viewport()->repaint(false);
+    viewport()->repaint();
 }
 
 
@@ -216,7 +216,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
         p->setFont( labelFont );
         p->setPen( labelColor );
-	
+
         p->drawText( labelCorner, sector.getPlanet()->getName() );
 
         if( borderStrobe ) {

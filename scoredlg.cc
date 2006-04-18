@@ -31,9 +31,11 @@ int ScoreDlgListViewItem::compare(Q3ListViewItem *i, int col, bool) const
 
 
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
-    : QDialog(parent, "ScoreDlg", true ), plrList(players)
+    : QDialog(parent), plrList(players)
 {
-    setCaption( kapp->makeStdCaption(title) );
+    setObjectName( "ScoreDlg" );
+    setModal( true );
+    setWindowTitle( kapp->makeStdCaption(title) );
 
     scoreTable = new K3ListView( this );
     scoreTable->addColumn(i18n("Player"));

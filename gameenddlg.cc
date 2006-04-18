@@ -14,7 +14,7 @@
 #include "gameenddlg.moc"
 
 GameEndDlg::GameEndDlg( QWidget *parent )
-    : KDialogBase( i18n("Out of Turns"), 
+    : KDialogBase( i18n("Out of Turns"),
       KDialogBase::Yes|KDialogBase::No, KDialogBase::Yes, KDialogBase::No,
       parent, "end_game_dialog", true, true )
 {
@@ -23,15 +23,18 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );
     label1->setAlignment( Qt::AlignCenter );
-    
+
     turnCountLbl = new QLabel( page );
-    turnCount = new QSlider( 1, 40, 1, 5, Qt::Horizontal, page );
+    turnCount = new QSlider( Qt::Horizontal, page );
+    turnCount->setRange( 1, 40 );
+    turnCount->setPageStep( 1 );
+    turnCount->setValue( 5 );
 
     KGuiItem addTurns(i18n("&Add Turns"), QString::null, QString::null,
                       i18n("Add the specified number of turns to the game and continue playing."));
     KGuiItem gameOver(i18n("&Game Over"), QString::null, QString::null,
                       i18n("Terminate the current game."));
-    
+
     setButtonGuiItem(KDialogBase::Yes, addTurns);
     setButtonGuiItem(KDialogBase::No, gameOver);
 

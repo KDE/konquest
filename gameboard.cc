@@ -47,7 +47,7 @@ GameBoard::GameBoard( QWidget *parent )
 
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
-    
+
     planets.setAutoDelete(true);
     players.setAutoDelete(true);
 
@@ -210,7 +210,7 @@ GameBoard::turn()
     PlanetListIterator planetAi( planets );
     PlanetListIterator planetAttack( planets );
     Planet *target = 0;
-   
+
     switch( gameState ) {
     case NONE :
         // stuff for none
@@ -348,13 +348,13 @@ GameBoard::turn()
 
          int ships;
          planetAi.toFirst();
-         
+
          while ((home = planetAi())) {
             if (home->getPlayer() == currentPlayer->current()) {
 
                            bool hasAttack = false;
                            ships = (int)floor(home->getFleet().getShipCount() * 0.7 );
-                           
+
                            if (ships >= 20) {
 
 				Planet *attack;
@@ -362,7 +362,7 @@ GameBoard::turn()
 			        planetAttack.toFirst();
 				while ((attack = planetAttack())) {
                                         bool skip = false;
-                                        
+
 					CoreLogic cl;
 					double dist = cl.distance( home, attack );
 
@@ -383,7 +383,7 @@ GameBoard::turn()
 					 	minDistance = dist;
 					}
 				}
-                           
+
                                 if (hasAttack) {
 			    		sendAttackFleet( home, target, ships );
                                 }
@@ -392,13 +392,13 @@ GameBoard::turn()
                                     minDistance = 100;
                                     int shipsToSend = 0;
                                     bool hasDestination = false;
-                                    
+
                                     while ((attack = planetAttack())) {
                                         bool skip = false;
                                         CoreLogic cl;
                                         double dist = cl.distance( home, attack );
                                         int homeships = (int)floor(home->getFleet().getShipCount() * 0.5 );
-                                        
+
                                         if ((dist < minDistance) &&  (attack->getPlayer() == currentPlayer->current()) &&
                                                         (attack->getFleet().getShipCount() < homeships )) {
                                                 AttackFleetListIterator FleetsinFlight( currentPlayer->current()->getAttackList() );
@@ -412,7 +412,7 @@ GameBoard::turn()
                                                 if (skip) continue;
 
                                                 shipsToSend = (int)floor((home->getFleet().getShipCount() - attack->getFleet().getShipCount()) / 2) ;
-                                                
+
 					  	target = attack;
 					   	hasDestination = true;
                                                 minDistance = dist;
@@ -426,12 +426,12 @@ GameBoard::turn()
     			  }
 		}
         }
-         
+
          endTurn->setEnabled( true );
          nextPlayer();
-         
+
     	break;
-     
+
     default:
         break;
     }
@@ -476,15 +476,15 @@ GameBoard::nextTurn()
     Player *winner = findWinner();
     if (winner)
     {
-        mapWidget->repaint(true);
-        KMessageBox::information(this, 
+        mapWidget->repaint();
+        KMessageBox::information(this,
               i18n("The mighty %1 has conquered the galaxy!", winner->getName()),
               i18n("Game Over"));
     }
 
     if( (turnNumber == lastTurn) && !winner )
     {
-        mapWidget->repaint(true);
+        mapWidget->repaint();
         GameEndDlg *dlg = new GameEndDlg( this );
 
         if( dlg->exec() == KDialogBase::Yes ) {
@@ -498,7 +498,7 @@ GameBoard::nextTurn()
     {
         // Game over, man! Game over.
 
-        mapWidget->repaint(true);
+        mapWidget->repaint();
 
         gameOver();
     };
@@ -540,7 +540,7 @@ GameBoard::findWinner()
 
     PlayerListIterator nextPlayer( players );
     Player *plr;
-    
+
     while( (plr = nextPlayer()) ) {
         if (plr->isInPlay())
         {
@@ -562,7 +562,7 @@ void
 GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, Player *planetPlayer)
 {
     bool isHumanInvolved = false;
-       
+
     QString color = "white";
     KLocalizedString colorMsg = msg;
     KLocalizedString plainMsg = msg;
@@ -588,10 +588,10 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     }
     msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
     msgWidget->scrollToBottom();
-    
+
     if (isHumanInvolved)
     {
-       mapWidget->repaint(true);
+       mapWidget->repaint();
        KMessageBox::information(this, plainMsg.toString());
     }
 }
@@ -717,7 +717,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         }
     }
 
-    mapWidget->repaint(true);
+    mapWidget->repaint();
 }
 
 //************************************************************************
@@ -739,7 +739,7 @@ GameBoard::startNewGame()
         return;
     }
     newGame->save(); // Save settings for next time
-    
+
     msgWidget->clear();
 
     changeGameBoard( true );
@@ -937,9 +937,9 @@ GameBoard::nextPlayer()
          }
          else {
              gameState = SOURCE_PLANET;
-        
+
         }
-       turn();   
+       turn();
     }
 }
 

@@ -4,8 +4,8 @@
 #include "int_validator.h"
 #include "int_validator.moc"
 
-IntValidator::IntValidator( QWidget *parent, const char *name ) :
-    QValidator( parent, name )
+IntValidator::IntValidator( QWidget *parent )
+    : QValidator( parent )
 {
 #ifdef INT_MIN
     v_bottom = INT_MIN;
@@ -15,8 +15,8 @@ IntValidator::IntValidator( QWidget *parent, const char *name ) :
     v_top = INT_MIN;
 }
 
-IntValidator::IntValidator( int bottom, int top, QWidget *parent, const char *name ) :
-QValidator( parent, name )
+IntValidator::IntValidator( int bottom, int top, QWidget *parent )
+    : QValidator( parent )
 {
     v_bottom = bottom;
     v_top = top;

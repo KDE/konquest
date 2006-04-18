@@ -68,7 +68,7 @@ CoreLogic::roll()
 
 
 Map::Map()
-    : QObject( 0, 0 ),  freezeUpdates( false ),
+    : freezeUpdates( false ),
     rows( BOARD_ROWS ), columns( BOARD_COLS ),
     hasSelectedSector( false )
 {
@@ -242,16 +242,16 @@ const int Map::getColumns() const
 //---------------------------------------------------------------------------
 
 Sector::Sector()
-: QObject(0,0), planet( NULL ), parentMap(NULL ), x(0), y(0)
+: planet( NULL ), parentMap(NULL ), x(0), y(0)
 {}
 
 Sector::Sector( Map *newParentMap, int xPos, int yPos )
-: QObject(0,0), planet(NULL), parentMap( newParentMap ), x(xPos), y(yPos)
+: planet(NULL), parentMap( newParentMap ), x(xPos), y(yPos)
 {
 }
 
 Sector::Sector( const Sector & other )
-: QObject(0,0), planet(other.planet), parentMap(other.parentMap), x(other.x), y(other.y)
+: QObject( 0 ), planet(other.planet), parentMap(other.parentMap), x(other.x), y(other.y)
 {
 }
 
@@ -322,7 +322,7 @@ int Sector::getColumn()
 
 Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwner,
                 int newProd, double newKillP, double newMorale )
-       : QObject(0,0), name(planetName), owner(initialOwner), parentSector(newParentSector),
+       : name(planetName), owner(initialOwner), parentSector(newParentSector),
          homeFleet( this, newProd ), killPercentage(newKillP), morale( newMorale ), productionRate(newProd)
 
 

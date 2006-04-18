@@ -9,8 +9,8 @@ class IntValidator : public QValidator
     Q_OBJECT
 
 public:
-    IntValidator( QWidget *parent, const char *name = 0 );
-    IntValidator( int bottom, int top, QWidget *parent, const char *name = 0 );
+    IntValidator( QWidget *parent );
+    IntValidator( int bottom, int top, QWidget *parent );
 
     virtual ~IntValidator();
 
