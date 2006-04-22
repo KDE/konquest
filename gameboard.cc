@@ -41,7 +41,12 @@
 GameBoard::GameBoard( QWidget *parent )
     : QWidget( parent ), gameInProgress( false ), gameState( NONE )
 {
-	QColor col( Qt::green);
+    // NOTE: maybe use the same QPalette object below? (dimsuz)
+	QPalette mainPal;
+	mainPal.setColor( backgroundRole(), Qt::black );
+	setPalette( mainPal );
+
+	QColor col(Qt::green);
 	QColorGroup cg( Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark() );
 	QPalette palette( cg, cg, cg );
 
@@ -901,7 +906,6 @@ GameBoard::changeGameBoard( bool inPlay  )
         endTurn->show();
         shipCountEdit->show();
         splashScreen->hide();
-        setBackgroundColor( Qt::black );
     } else {
         mapWidget->hide();
         planetInfo->hide();
@@ -909,7 +913,6 @@ GameBoard::changeGameBoard( bool inPlay  )
         endTurn->hide();
         shipCountEdit->hide();
         splashScreen->show();
-        setBackgroundColor( Qt::black );
     }
 
 }
