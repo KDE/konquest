@@ -35,7 +35,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 {
     setObjectName( "ScoreDlg" );
     setModal( true );
-    setWindowTitle( kapp->makeStdCaption(title) );
+    setWindowTitle( KInstance::makeStdCaption(title) );
 
     scoreTable = new K3ListView( this );
     scoreTable->addColumn(i18n("Player"));

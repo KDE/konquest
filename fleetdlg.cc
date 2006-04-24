@@ -43,7 +43,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
 {
     setObjectName( "FleetDlg" );
     setModal( true );
-    setWindowTitle( kapp->makeStdCaption(i18n("Fleet Overview")) );
+    setWindowTitle( KInstance::makeStdCaption(i18n("Fleet Overview")) );
 
     fleetTable = new K3ListView( this );
     fleetTable->addColumn(i18n("Fleet No."));
