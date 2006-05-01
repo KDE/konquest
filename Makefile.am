@@ -19,5 +19,3 @@ xdg_apps_DATA = konquest.desktop
 rcdir = $(kde_datadir)/konquest
 rc_DATA = konquestui.rc
 
-messages: rc.cpp
-	$(XGETTEXT) rc.cpp *.cc -o $(podir)/konquest.pot
