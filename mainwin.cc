@@ -44,11 +44,14 @@ MainWindow::setupKAction()
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - KAction not :-(
-    measureAction = new KAction( i18n("&Measure Distance"), "ruler", 0, gameBoard, SLOT( measureDistance() ), actionCollection(), "game_measure" );
+    measureAction = new KAction(KIcon("ruler"),  i18n("&Measure Distance"), actionCollection(), "game_measure" );
+    connect(measureAction, SIGNAL(triggered(bool)), gameBoard, SLOT( measureDistance() ));
     measureAction->setEnabled(false);
-    standingAction = new KAction( i18n("&Show Standings"), "help", 0, gameBoard, SLOT( showScores() ), actionCollection(), "game_scores" );
+    standingAction = new KAction(KIcon("help"),  i18n("&Show Standings"), actionCollection(), "game_scores" );
+    connect(standingAction, SIGNAL(triggered(bool)), gameBoard, SLOT( showScores() ));
     standingAction->setEnabled(false);
-    fleetAction = new KAction( i18n("&Fleet Overview"), "launch", 0, gameBoard, SLOT( showFleets() ), actionCollection(), "game_fleets" );
+    fleetAction = new KAction(KIcon("launch"),  i18n("&Fleet Overview"), actionCollection(), "game_fleets" );
+    connect(fleetAction, SIGNAL(triggered(bool)), gameBoard, SLOT( showFleets() ));
     fleetAction->setEnabled(false);
 	addToolBar ( Qt::LeftToolBarArea, toolBar() );
     toolBar()->setMovable(false);
