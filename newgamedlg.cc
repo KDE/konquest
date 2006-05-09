@@ -1,13 +1,13 @@
 #include <q3header.h>
-#include <qlayout.h>
-#include <qcolor.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QColor>
+#include <QLabel>
 #include <qslider.h>
 #include <qevent.h>
 #include <qnamespace.h>
 #include <q3listview.h>
-#include <qpushbutton.h>
-#include <qlineedit.h>
+#include <QPushButton>
+#include <QLineEdit>
 //Added by qt3to4:
 #include <QPixmap>
 

@@ -1,6 +1,6 @@
 #include <config.h>
 
-#include <qpushbutton.h>
+#include <QPushButton>
 
 #include <kapplication.h>
 #include <klocale.h>

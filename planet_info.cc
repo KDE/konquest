@@ -1,7 +1,7 @@
-#include <qlabel.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QLayout>
 #include <qpalette.h>
-#include <qcolor.h>
+#include <QColor>
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <Q3Frame>

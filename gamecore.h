@@ -4,9 +4,9 @@
 #include <krandomsequence.h>
 
 #include <qobject.h>
-#include <qpoint.h>
-#include <qstring.h>
-#include <qcolor.h>
+#include <QPoint>
+#include <QString>
+#include <QColor>
 #include <q3ptrlist.h>
 
 // Board Size Constants

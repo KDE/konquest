@@ -2,7 +2,7 @@
 #define _MAP_WIDGET_H
 
 
-#include <qwidget.h>
+#include <QWidget>
 #include <q3frame.h>
 #include <qpixmap.h>
 

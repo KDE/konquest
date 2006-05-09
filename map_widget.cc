@@ -1,6 +1,6 @@
 #include <qpixmap.h>
 #include <qpainter.h>
-#include <qcolor.h>
+#include <QColor>
 //Added by qt3to4:
 #include <QMouseEvent>
 

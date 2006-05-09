@@ -2,7 +2,7 @@
 #define _PLANET_INFO_H_
 
 #include <q3frame.h>
-#include <qstring.h>
+#include <QString>
 #include <q3ptrlist.h>
 #include <qpalette.h>
 //Added by qt3to4:

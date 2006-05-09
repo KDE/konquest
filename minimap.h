@@ -1,7 +1,7 @@
 #ifndef _MINIMAP_H
 #define _MINIMAP_H
 
-#include <qwidget.h>
+#include <QWidget>
 #include <q3frame.h>
 #include <qpixmap.h>
 #include <q3gridview.h>
