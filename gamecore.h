@@ -3,7 +3,7 @@
 
 #include <krandomsequence.h>
 
-#include <qobject.h>
+#include <QObject>
 #include <QPoint>
 #include <QString>
 #include <QColor>

@@ -5,7 +5,7 @@
 #include <q3frame.h>
 #include <qpixmap.h>
 #include <q3gridview.h>
-#include <qtimer.h>
+#include <QTimer>
 
 #include "gamecore.h"
 #include "images.h"
