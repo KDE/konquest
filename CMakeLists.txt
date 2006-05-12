@@ -1,4 +1,3 @@
-kde4_header()
 project(konquest)
 
 add_subdirectory( pics ) 
@@ -40,7 +39,6 @@ install_files( ${DATA_INSTALL_DIR}/konquest FILES konquestui.rc )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 
