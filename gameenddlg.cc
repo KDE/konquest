@@ -14,11 +14,14 @@
 #include "gameenddlg.moc"
 
 GameEndDlg::GameEndDlg( QWidget *parent )
-    : KDialogBase( i18n("Out of Turns"),
-      KDialogBase::Yes|KDialogBase::No, KDialogBase::Yes, KDialogBase::No,
-      parent, "end_game_dialog", true, true )
+    : KDialog( parent)
 {
-    KVBox *page = makeVBoxMainWidget();
+    setCaption(i18n("Out of Turns"));
+	setButtons(KDialog::Yes|KDialog::No);
+	setDefaultButton(KDialog::Yes);
+	enableButtonSeparator(true);
+	KVBox *page = new KVBox(this);
+	setMainWidget(page);
 
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );
@@ -35,8 +38,8 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     KGuiItem gameOver(i18n("&Game Over"), QString::null, QString::null,
                       i18n("Terminate the current game."));
 
-    setButtonGuiItem(KDialogBase::Yes, addTurns);
-    setButtonGuiItem(KDialogBase::No, gameOver);
+    setButtonGuiItem(KDialog::Yes, addTurns);
+    setButtonGuiItem(KDialog::No, gameOver);
 
     init();
 
@@ -64,7 +67,7 @@ GameEndDlg::slotYes()
     config->setGroup("Game");
     config->writeEntry("ExtraTurns", extraTurns());
     config->sync();
-    KDialogBase::slotButtonClicked(KDialog::Yes);
+    KDialog::slotButtonClicked(KDialog::Yes);
 }
 
 int

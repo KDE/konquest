@@ -492,7 +492,7 @@ GameBoard::nextTurn()
         mapWidget->repaint();
         GameEndDlg *dlg = new GameEndDlg( this );
 
-        if( dlg->exec() == KDialogBase::Yes ) {
+        if( dlg->exec() == KDialog::Yes ) {
             lastTurn += dlg->extraTurns();
         }
 

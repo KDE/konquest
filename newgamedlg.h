@@ -1,7 +1,7 @@
 #ifndef _NEWGAMEDLG_H_
 #define _NEWGAMEDLG_H_
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 #include "gamecore.h"
 #include "minimap.h"
@@ -12,7 +12,7 @@ class NewGameDlgUI;
  New Game Dialog
  ************************************************************************/
 
-class NewGameDlg : public KDialogBase
+class NewGameDlg : public KDialog
 {
     Q_OBJECT
 
