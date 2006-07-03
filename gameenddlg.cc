@@ -17,11 +17,11 @@ GameEndDlg::GameEndDlg( QWidget *parent )
     : KDialog( parent)
 {
     setCaption(i18n("Out of Turns"));
-	setButtons(KDialog::Yes|KDialog::No);
-	setDefaultButton(KDialog::Yes);
-	enableButtonSeparator(true);
-	KVBox *page = new KVBox(this);
-	setMainWidget(page);
+    setButtons(KDialog::Yes|KDialog::No);
+    setDefaultButton(KDialog::Yes);
+    showButtonSeparator(true);
+    KVBox *page = new KVBox(this);
+    setMainWidget(page);
 
     // Create controls
     QLabel *label1 = new QLabel( i18n("This is the last turn.\nDo you wish to add extra turns?")+"\n\n", page );

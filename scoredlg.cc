@@ -6,6 +6,7 @@
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
+#include <kguiitem.h>
 
 #include "scoredlg.h"
 

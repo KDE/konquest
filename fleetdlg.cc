@@ -8,6 +8,7 @@
 #include <kglobal.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
+#include <kguiitem.h>
 
 #include "fleetdlg.h"
 

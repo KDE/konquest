@@ -34,10 +34,10 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
       plrList(players), plnetList(planets), neutral(neutralPlayer),
       map(pmap)
 {
-	setButtons(KDialog::Ok|KDialog::Default|KDialog::Cancel);
-	setDefaultButton(KDialog::NoDefault);
-	enableButtonSeparator(true);
-	setCaption(i18n("Start New Game"));
+    setButtons(KDialog::Ok|KDialog::Default|KDialog::Cancel);
+    setDefaultButton(KDialog::NoDefault);
+    showButtonSeparator(true);
+    setCaption(i18n("Start New Game"));
     w = new NewGameDlgUI(this);
     w->map->setMap(map);
     w->listPlayers->header()->hide();
