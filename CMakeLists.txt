@@ -34,8 +34,8 @@ install_targets(/bin konquest )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES konquest.desktop )
-install_files( ${DATA_INSTALL_DIR}/konquest FILES konquestui.rc )
+install( FILES konquest.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES konquestui.rc  DESTINATION  ${DATA_INSTALL_DIR}/konquest )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
