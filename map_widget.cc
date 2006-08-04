@@ -23,7 +23,9 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     labelFont.setPointSize( 8 );
 
     setFrameStyle( NoFrame );
-    setPaletteBackgroundColor( Qt::black );
+    QPalette pal = palette();
+    pal.setColor( backgroundRole(), Qt::black );
+    setPalette(pal);
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );

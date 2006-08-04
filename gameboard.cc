@@ -21,7 +21,6 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 
-#include <ctype.h>
 #include <math.h>
 
 #include "gamecore.h"
@@ -42,13 +41,15 @@ GameBoard::GameBoard( QWidget *parent )
     : QWidget( parent ), gameInProgress( false ), gameState( NONE )
 {
     // NOTE: maybe use the same QPalette object below? (dimsuz)
-	QPalette mainPal;
-	mainPal.setColor( backgroundRole(), Qt::black );
-	setPalette( mainPal );
+    QPalette mainPal;
+    mainPal.setColor( backgroundRole(), Qt::black );
+    setPalette( mainPal );
 
-	QColor col(Qt::green);
-	QColorGroup cg( Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark() );
-	QPalette palette( cg, cg, cg );
+    QColor col(Qt::green);
+    QPalette palette;
+    palette.setColorGroup( QPalette::Active, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
+    palette.setColorGroup( QPalette::Inactive, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
+    palette.setColorGroup( QPalette::Disabled, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
 
     neutralPlayer = Player::createNeutralPlayer();
     map = new Map;
@@ -178,7 +179,7 @@ GameBoard::keyPressEvent( QKeyEvent *e )
         return;
     }
 
-    if( !isgraph( e->ascii() ) ) {
+    if( e->text().at(0).isSpace() ) {
         e->ignore();
         return;
     }
@@ -186,7 +187,7 @@ GameBoard::keyPressEvent( QKeyEvent *e )
     PlanetListIterator planetSearch( planets );
     QString planetName;
 
-    planetName += toupper( e->ascii() );
+    planetName += e->text().toUpper();
 
     for(Planet *p = planetSearch.toFirst();
         p != NULL;

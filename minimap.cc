@@ -15,7 +15,9 @@ MiniMap::MiniMap(  QWidget *parent, const char *name )
     map( 0 )
 {
     setFrameStyle( NoFrame );
-    setPaletteBackgroundColor( Qt::black );
+    QPalette pal = palette();
+    pal.setColor( backgroundRole(), Qt::black );
+    setPalette( pal );
     setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
     setCellWidth( SECTOR_WIDTH );

@@ -11,6 +11,7 @@
 #include <kaction.h>
 #include <kstdaction.h>
 #include <kstdgameaction.h>
+#include <kicon.h>
 
 #include "version.h"
 #include "gamecore.h"
