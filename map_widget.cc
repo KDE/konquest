@@ -17,7 +17,7 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
-    hiLiteRow( -1 ), hiLiteCol( -1 )
+    hiLiteCoord( -1, -1 )
 {
     labelFont = KGlobalSettings::generalFont();
     labelFont.setPointSize( 8 );
@@ -58,13 +58,10 @@ ConquestMap::~ConquestMap()
 void
 ConquestMap::contentsMousePressEvent( QMouseEvent *e )
 {
-    int row, col;
+    Coordinate c( rowAt( e->y() ), columnAt( e->x() ));
 
-    row = rowAt( e->y() );
-    col = columnAt( e->x() );
-
-    if( map->getSector( row, col ).hasPlanet() ) {
-        emit planetSelected( map->getSector( row, col ).getPlanet() );
+    if( map->getSector( c ).hasPlanet() ) {
+        emit planetSelected( map->getSector( c ).getPlanet() );
     }
 
 }
@@ -73,41 +70,34 @@ void
 ConquestMap::contentsMouseMoveEvent( QMouseEvent *e )
 {
     // highlight the square under the mouse
-    int row, col;
-
-    row = rowAt( e->y() );
-    col = columnAt( e->x() );
+    Coordinate c( rowAt( e->y() ), columnAt( e->x() ));
 
     // Check to make sure the mouse is in a valid grid location
-    if( (row < 0 || col < 0) ||
-    	(row >= BOARD_ROWS || col >= BOARD_COLS) )  {
-	    return;
+    if( (c.y() < 0 || c.x() < 0) ||
+        (c.y() >= BOARD_ROWS || c.x() >= BOARD_COLS) ) {
+        return;
     }
 
 
-    if( (hiLiteRow != -1) && (hiLiteCol != -1)  ) {
+    if( (hiLiteCoord.x() != -1) && (hiLiteCoord.y() != -1) ) {
         QPainter p( viewport() );
 
-        p.translate( hiLiteCol * cellWidth(), hiLiteRow * cellHeight() );
+        p.translate( hiLiteCoord.y() * cellWidth(), hiLiteCoord.x() * cellHeight() );
 
-        drawSector( &p, map->getSector(hiLiteRow,hiLiteCol) );
+        drawSector( &p, map->getSector(hiLiteCoord) );
 
-        hiLiteRow = -1;
-        hiLiteCol = -1;
+        hiLiteCoord = Coordinate(-1,-1);
+    }
 
-     }
-
-    if( map->getSector( row, col ).hasPlanet() ) {
+    if( map->getSector( c ).hasPlanet() ) {
         QPainter p( viewport() );
 
-        p.translate( col * cellWidth(),row * cellHeight() );
+        p.translate( c.y() * cellWidth(),c.x() * cellHeight() );
 
-        drawSector( &p, map->getSector(row,col), false, true );
-        emit planetHighlighted(map->getSector( row, col ).getPlanet() );
+        drawSector( &p, map->getSector(c), false, true );
+        emit planetHighlighted(map->getSector(c).getPlanet() );
 
-        hiLiteRow = row;
-        hiLiteCol = col;
-
+        hiLiteCoord = c;
     }
 
 }
@@ -122,7 +112,7 @@ ConquestMap::unselectPlanet()
 void
 ConquestMap::paintCell( QPainter *p, int row, int col )
 {
-    drawSector( p, map->getSector( row, col ) );
+    drawSector( p, map->getSector( Coordinate(row, col) ) );
 }
 
 void
@@ -130,23 +120,15 @@ ConquestMap::squareBlink()
 {
     static bool blinkState = true;
 
-    int row, col;
-    if( map->selectedSector( row, col ) ) {
+    Coordinate c;
+    if( map->selectedSector( c ) ) {
         QPainter p( this );
 
-        p.translate( col * cellWidth(), row * cellHeight() );
-
-        if( blinkState ) {
-            drawSector( &p, map->getSector(row,col), true );
-        } else {
-            drawSector( &p, map->getSector(row,col), false );
-        }
+        p.translate( c.y() * cellWidth(), c.x() * cellHeight() );
+        drawSector( &p, map->getSector(c), blinkState );
     }
 
-    if( blinkState )
-        blinkState = false;
-    else
-        blinkState = true;
+    blinkState = !blinkState;
 }
 
 
@@ -168,9 +150,9 @@ ConquestMap::drawSector( QPainter *p, Sector &sector, bool borderStrobe, bool hi
 
         // simple (pathetic) way to "randomize"
         // the planet graphic
-	// and also a really dirty hack to make the planet
-	// name more visible (hard coded pixel offsets)
-        switch( ((sector.getRow()+sector.getColumn()) % 9) + 1  ) {
+        // and also a really dirty hack to make the planet
+        // name more visible (hard coded pixel offsets)
+        switch( ((sector.getCoord().x()+sector.getCoord().y()) % 9) + 1  ) {
         case 1 :
             pm = QPixmap( IMAGE_PLANET_1 );
             labelCorner = QPoint( 18, 14 );

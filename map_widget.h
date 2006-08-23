@@ -54,7 +54,7 @@ private:
     QColor gridColor;
     QFont labelFont;
 
-    int hiLiteRow, hiLiteCol;
+    Coordinate hiLiteCoord;
 };
 
 

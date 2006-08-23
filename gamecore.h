@@ -27,6 +27,12 @@ class Map;
 class Fleet;
 
 
+//---------------------------------------------------------------------------------
+// Typedefs
+//---------------------------------------------------------------------------------
+typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
+
+
 //**********************************************************
 // Core Logic routines
 //**********************************************************
@@ -36,7 +42,7 @@ class CoreLogic
 public:
     CoreLogic();
 
-    void generatePlanetCoordinates( int &x, int &y );
+    Coordinate generatePlanetCoordinates();
     double generateKillPercentage();
     int generatePlanetProduction();
     double generateMorale();
@@ -234,7 +240,7 @@ public:
 
     // constructors
     Sector();
-    Sector( Map *parentMap, int xpos, int ypos );
+    Sector( Map *parentMap, Coordinate c );
     Sector( const Sector & );
 
     // assignment operator (makes initialization easy)
@@ -246,9 +252,8 @@ public:
     void removePlanet();
 
     void select();
-    
-    int getRow();
-    int getColumn();
+
+    Coordinate getCoord();
 
 signals:
     void update();
@@ -261,7 +266,7 @@ protected slots:
 protected:
     Planet *planet;  // a sector has 0 or 1 planets
     Map *parentMap;
-    int x, y;
+    Coordinate c;
 
 };
  
@@ -284,12 +289,12 @@ public:
                       int numNeutralPlanets, Q3PtrList<Planet> &thePlanets );
     void clearMap();
     
-    bool selectedSector( int &x, int &y ) const;
-    void setSelectedSector( int x, int y );
+    bool selectedSector( Coordinate &c ) const;
+    void setSelectedSector( Coordinate c );
     void setSelectedSector( const Planet & );
     void setSelectedSector();
 
-    Sector &getSector( int x, int y );
+    Sector &getSector( Coordinate c );
 
 protected slots:
     void childSectorUpdate();
@@ -313,13 +318,12 @@ protected:
     // This is used to implement a selected sector,
     // one who's boarder flashes.
     bool hasSelectedSector;
-    int  sel_x, sel_y;
+    Coordinate  sel;
 };
 
 //---------------------------------------------------------------------------------
 // Typedefs
 //---------------------------------------------------------------------------------
-typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
 typedef Q3PtrList<AttackFleet> AttackFleetList;
 typedef Q3PtrListIterator<AttackFleet> AttackFleetListIterator;
 typedef Q3PtrList<Player> PlayerList;

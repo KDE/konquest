@@ -17,12 +17,11 @@ CoreLogic::CoreLogic()
     random.setSeed(0);
 }
 
-void
-CoreLogic::generatePlanetCoordinates( int &x, int &y )
+Coordinate
+CoreLogic::generatePlanetCoordinates()
 {
     // 0 - 15
-    x = random.getLong(16);
-    y = random.getLong(16);
+    return Coordinate(random.getLong(16), random.getLong(16));
 }
 
 double
@@ -49,10 +48,10 @@ CoreLogic::generateMorale()
 double
 CoreLogic::distance( Planet *p1, Planet *p2 )
 {
-    int k = (p1->getSector().getRow() - p2->getSector().getRow()) / 2;
-    int l = (p1->getSector().getColumn() - p2->getSector().getColumn()) / 2;
+    Coordinate diff = p1->getSector().getCoord() - p2->getSector().getCoord();
+    diff /= 2; // Why do this?
 
-    return sqrt(double((k*k) + (l*l)));
+    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())));
 }
 
 double
@@ -73,12 +72,12 @@ Map::Map()
     hasSelectedSector( false )
 {
    // initialize the grid of Sectors
-    for( int x = 0; x < rows; x++ )
+    for( int x = 0; x < columns; x++ )
     {
-        for( int y = 0; y < columns; y++ )
+        for( int y = 0; y < rows; y++ )
         {
-            grid[x][y] = Sector( this, x, y );
-            connect( &grid[x][y], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
+            grid[y][x] = Sector( this, Coordinate(y, x) );
+            connect( &grid[y][x], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
         }
     }
 }
@@ -131,9 +130,8 @@ Map::clearMap()
     for( x = 0; x < rows; x++ )
         for( y = 0; y < columns; y++ )
         {
-            grid[x][y].removePlanet();
+            grid[y][x].removePlanet();
         }
-
 
     Thaw();
 
@@ -144,45 +142,32 @@ Sector &
 Map::findRandomFreeSector()
 {
     CoreLogic cl;
+    Coordinate c;
 
-    bool found = false;
-
-    while( !found )
+    do
     {
-        int x,y;
+        c = cl.generatePlanetCoordinates();
+    } while( grid[c.y()][c.x()].hasPlanet() );
 
-        cl.generatePlanetCoordinates( x,y );
-
-        if( !grid[x][y].hasPlanet() )
-        {
-            return grid[x][y];
-        }
-    }
-
-    // TODO: get rid of this
-    return grid[0][0];
-
+    return grid[c.y()][c.x()];
 }
 
 bool
-Map::selectedSector( int &x, int &y ) const
+Map::selectedSector( Coordinate &c ) const
 {
     if( hasSelectedSector)
     {
-        x = sel_x;
-	y = sel_y;
+        c = sel;
     }
 
     return hasSelectedSector;
-
 }
 
 void
-Map::setSelectedSector( int x, int y )
+Map::setSelectedSector( Coordinate c )
 {
     hasSelectedSector = true;
-    sel_x = x;
-    sel_y = y;
+    sel = c;
 
     emit update();
 }
@@ -191,8 +176,7 @@ void
 Map::setSelectedSector( const Planet &planet )
 {
     hasSelectedSector = true;
-    sel_x = planet.getSector().getRow();
-    sel_y = planet.getSector().getColumn();
+    sel = planet.getSector().getCoord();
 
     emit update();
 }
@@ -204,7 +188,6 @@ Map::setSelectedSector()
 
     emit update();
 }
-
 
 void Map::childSectorUpdate()
 {
@@ -222,9 +205,9 @@ void Map::Thaw()
     freezeUpdates = false;
 }
 
-Sector &Map::getSector( int x, int y )
+Sector &Map::getSector( Coordinate c )
 {
-    return grid[x][y];
+    return grid[c.y()][c.x()];
 }
 
 const int Map::getRows() const
@@ -242,16 +225,16 @@ const int Map::getColumns() const
 //---------------------------------------------------------------------------
 
 Sector::Sector()
-: planet( NULL ), parentMap(NULL ), x(0), y(0)
+: planet( NULL ), parentMap(NULL ), c( 0,0 )
 {}
 
-Sector::Sector( Map *newParentMap, int xPos, int yPos )
-: planet(NULL), parentMap( newParentMap ), x(xPos), y(yPos)
+Sector::Sector( Map *newParentMap, Coordinate _c )
+: planet(NULL), parentMap( newParentMap ), c(_c)
 {
 }
 
 Sector::Sector( const Sector & other )
-: QObject( 0 ), planet(other.planet), parentMap(other.parentMap), x(other.x), y(other.y)
+: QObject( 0 ), planet(other.planet), parentMap(other.parentMap), c(other.c)
 {
 }
 
@@ -291,8 +274,7 @@ void Sector::childPlanetUpdate()
 Sector &
 Sector::operator=( const Sector &other )
 {
-    x = other.x;
-    y = other.y;
+    c = other.c;
     planet = other.planet;
     parentMap = other.parentMap;
 
@@ -302,19 +284,15 @@ Sector::operator=( const Sector &other )
 void
 Sector::select()
 {
-    parentMap->setSelectedSector( x, y );
+    parentMap->setSelectedSector( c );
     emit selected();
 }
 
-int Sector::getRow()
+Coordinate Sector::getCoord()
 {
-    return x;
+    return c;
 }
 
-int Sector::getColumn()
-{
-    return y;
-}
 
 //---------------------------------------------------------------------------
 // class Planet

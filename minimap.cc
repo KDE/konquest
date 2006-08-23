@@ -52,7 +52,7 @@ MiniMap::~MiniMap()
 void
 MiniMap::paintCell( QPainter *p, int row, int col )
 {
-    drawSector( p, map->getSector( row, col ) );
+    drawSector( p, map->getSector( Coordinate(row, col) ) );
 }
 
 void
