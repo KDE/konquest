@@ -1,3 +1,6 @@
+2006-08-20  Will Entriken  <kde.org@phor DOTT net>
+	* changed to QPoint storage of coordinates
+
 2005-02-18  Inge Wallin  <ingwa@dhcp-254-182.lkpg.cendio.se>
 
 	* version.h (KONQUEST_VERSION): Bumped version number to 1.1
