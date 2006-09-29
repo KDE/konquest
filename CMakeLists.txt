@@ -23,7 +23,7 @@ set(konquest_SRCS
 
 kde4_automoc(${konquest_SRCS})
 
-kde4_add_ui3_files(konquest_SRCS newGameDlg_ui.ui )
+kde4_add_ui_files(konquest_SRCS newGameDlg_ui.ui )
 
 kde4_add_executable(konquest ${konquest_SRCS})
 

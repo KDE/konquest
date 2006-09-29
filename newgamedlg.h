@@ -5,8 +5,16 @@
 
 #include "gamecore.h"
 #include "minimap.h"
+#include "ui_newGameDlg_ui.h"
 
-class NewGameDlgUI;
+class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
+{
+public:
+  NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
+    setupUi( this );
+  }
+};
+
 
 /*************************************************************************
  New Game Dialog

@@ -22,7 +22,6 @@
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
 
-#include "newGameDlg_ui.h"
 
 /*************************************************************************
  New Game Dialog Members
