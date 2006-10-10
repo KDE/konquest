@@ -1,7 +1,7 @@
 #ifndef _PLANET_INFO_H_
 #define _PLANET_INFO_H_
 
-#include <q3frame.h>
+#include <QFrame>
 #include <QString>
 #include <q3ptrlist.h>
 #include <qpalette.h>
@@ -22,7 +22,7 @@ struct planet_info_buffer {
 typedef Q3PtrList<planet_info_buffer> PlanetInfoList;
 typedef Q3PtrListIterator<planet_info_buffer> PlanetInfoListIterator;
 
-class PlanetInfo : public Q3Frame
+class PlanetInfo : public QFrame
 {
     Q_OBJECT
         
