@@ -21,7 +21,7 @@ set(konquest_SRCS
    scoredlg.cc 
    fleetdlg.cc )
 
-kde4_automoc(${konquest_SRCS})
+kde4_automoc(konquest ${konquest_SRCS})
 
 kde4_add_ui_files(konquest_SRCS newGameDlg_ui.ui )
 
