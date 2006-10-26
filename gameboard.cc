@@ -8,7 +8,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <qvalidator.h>
-#include <q3textedit.h>
+#include <QTextEdit>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QVBoxLayout>
@@ -40,10 +40,9 @@
 GameBoard::GameBoard( QWidget *parent )
     : QWidget( parent ), gameInProgress( false ), gameState( NONE )
 {
-    // NOTE: maybe use the same QPalette object below? (dimsuz)
-    QPalette mainPal;
-    mainPal.setColor( backgroundRole(), Qt::black );
-    setPalette( mainPal );
+    QPalette blackPal;
+    blackPal.setColor( backgroundRole(), Qt::black );
+    setPalette( blackPal );
     setAutoFillBackground( true );
 
     QColor col(Qt::green);
@@ -62,11 +61,17 @@ GameBoard::GameBoard( QWidget *parent )
     // Create the widgets in the main window
     //********************************************************************
     mapWidget = new ConquestMap( map, this );
-    msgWidget = new Q3TextEdit( this );
-    msgWidget->setTextFormat(Qt::LogText);
+    msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
-    msgWidget->setHScrollBarMode(Q3ScrollView::AlwaysOff);
-    msgWidget->setPaper(QBrush(Qt::black));
+    msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    // FIXME dimsuz: very strange behaviour here - allows to resize mapWidget
+    // less then minimumSize
+    // and prevents bottom row to be drawn!
+    /* 
+    msgWidget->setPalette( blackPal );
+    msgWidget->setAutoFillBackground( true );
+     */
+
     planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
@@ -101,33 +106,33 @@ GameBoard::GameBoard( QWidget *parent )
     //********************************************************************
     // Layout the main window
     //********************************************************************
-    QHBoxLayout *layout1 = new QHBoxLayout( this );
-    QVBoxLayout *layout2 = new QVBoxLayout;
-    QHBoxLayout *layout3 = new QHBoxLayout;
-    QVBoxLayout *layout4 = new QVBoxLayout;
+    QHBoxLayout *mainLayout = new QHBoxLayout( this );
+    QHBoxLayout *topLineLayout = new QHBoxLayout;
+    QVBoxLayout *leftLayout = new QVBoxLayout;
+    QVBoxLayout *rightLayout = new QVBoxLayout;
 
-    layout1->addLayout( layout2 );
-    layout2->addLayout( layout3 );
+    mainLayout->addLayout( leftLayout );
+    leftLayout->addLayout( topLineLayout );
 
-    layout3->addSpacing( 5 );
-    layout3->addWidget( gameMessage, 10 );
-    layout3->addWidget( shipCountEdit, 1 );
-    layout3->addWidget( endTurn, 1 );
+    topLineLayout->addSpacing( 5 );
+    topLineLayout->addWidget( gameMessage, 10 );
+    topLineLayout->addWidget( shipCountEdit, 1 );
+    topLineLayout->addWidget( endTurn, 1 );
 
-    layout2->addSpacing( 5 );
-    layout2->addWidget( mapWidget, 0, Qt::AlignTop );
-    layout2->addWidget( msgWidget );
-    layout2->addStretch( 1 );
+    leftLayout->addSpacing( 5 );
+    leftLayout->addWidget( mapWidget );//, 0, Qt::AlignTop );
+    leftLayout->addWidget( msgWidget );
+    leftLayout->addStretch( 1 );
 
-    layout1->addSpacing( 5 );
-    layout1->addLayout( layout4, 10 );
+    mainLayout->addSpacing( 5 );
+    mainLayout->addLayout( rightLayout, 10 );
 
-    layout4->addWidget( planetInfo, 1 );
-    layout4->addSpacing( 10 );
-    layout4->addWidget( turnCounter,  1 );
-    layout4->addStretch( 1 );
+    rightLayout->addWidget( planetInfo, 1 );
+    rightLayout->addSpacing( 10 );
+    rightLayout->addWidget( turnCounter,  1 );
+    rightLayout->addStretch( 1 );
 
-    layout1->addStretch( 1 );
+    mainLayout->addStretch( 1 );
 
     //**********************************************************************
     // Set up signal/slot connections
@@ -594,7 +599,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
        plainMsg = plainMsg.subs(planet->getName());
     }
     msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
-    msgWidget->scrollToBottom();
+    msgWidget->moveCursor( QTextCursor::End );
 
     if (isHumanInvolved)
     {
@@ -916,7 +921,6 @@ GameBoard::changeGameBoard( bool inPlay  )
         shipCountEdit->hide();
         splashScreen->show();
     }
-
 }
 
 //************************************************************************

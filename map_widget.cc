@@ -36,7 +36,6 @@ ConquestMap::~ConquestMap()
 {
 }
 
-
 void
 ConquestMap::mousePressEvent( QMouseEvent *e )
 {

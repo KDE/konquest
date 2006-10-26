@@ -2,10 +2,6 @@
 #define _GAMEBOARD_H_
 
 #include <QWidget>
-//Added by qt3to4:
-#include <QLabel>
-#include <QKeyEvent>
-
 #include "planet_info.h"
 #include "map_widget.h"
 
@@ -14,10 +10,9 @@
 //************************************************************************
 class QSlider;
 class QLabel;
-class Q3ListBox;
 class QPushButton;
 class QLineEdit;
-class Q3TextEdit;
+class QTextEdit;
 
 class KLocalizedString;
 
@@ -96,7 +91,7 @@ private:
     QPushButton *endTurn;
     QLineEdit *shipCountEdit;
     QLabel *splashScreen;
-    Q3TextEdit *msgWidget;
+    QTextEdit *msgWidget;
 
 
     //***************************************************************
