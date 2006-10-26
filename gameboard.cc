@@ -185,7 +185,7 @@ GameBoard::keyPressEvent( QKeyEvent *e )
         return;
     }
 
-    if( e->text().at(0).isSpace() ) {
+    if( e->text().isEmpty() || e->text().at(0).isSpace() ) {
         e->ignore();
         return;
     }
