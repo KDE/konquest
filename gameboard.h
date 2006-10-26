@@ -2,8 +2,7 @@
 #define _GAMEBOARD_H_
 
 #include <QWidget>
-#include "planet_info.h"
-#include "map_widget.h"
+#include "gamecore.h"
 
 //************************************************************************
 // forward declarations
@@ -13,6 +12,10 @@ class QLabel;
 class QPushButton;
 class QLineEdit;
 class QTextEdit;
+
+class Player;
+class ConquestMap;
+class PlanetInfo;
 
 class KLocalizedString;
 

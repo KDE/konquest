@@ -1,25 +1,13 @@
 #include <QLayout>
-#include <QColor>
 #include <QLabel>
-#include <qslider.h>
-#include <qevent.h>
-#include <qnamespace.h>
-#include <q3listbox.h>
+#include <QSlider>
 #include <QPushButton>
 #include <QLineEdit>
-#include <qvalidator.h>
 #include <QTextEdit>
-//Added by qt3to4:
 #include <QPixmap>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QKeyEvent>
 
-#include <kapplication.h>
-#include <klocale.h>
 #include <kmessagebox.h>
-#include <kglobal.h>
-#include <kiconloader.h>
 
 #include <math.h>
 
@@ -31,8 +19,10 @@
 #include "scoredlg.h"
 #include "fleetdlg.h"
 #include "gameboard.h"
-#include "gameboard.moc"
+#include "map_widget.h"
+#include "planet_info.h"
 
+#include "gameboard.moc"
 
 /*********************************************************************
  Game Board
