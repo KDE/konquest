@@ -2,20 +2,12 @@
 #define _MAP_WIDGET_H
 
 
-#include <QWidget>
-#include <q3frame.h>
-#include <qpixmap.h>
-
-#include <q3gridview.h>
-
-#include <QTimer>
-//Added by qt3to4:
-#include <QMouseEvent>
+#include <QFrame>
 
 #include "gamecore.h"
 #include "images.h"
 
-class ConquestMap : public Q3GridView
+class ConquestMap : public QFrame
 {
     Q_OBJECT
 
@@ -28,10 +20,9 @@ public:
 public:
     void unselectPlanet();
 
-protected:
-    virtual void contentsMousePressEvent( QMouseEvent *e );
-    virtual void contentsMouseMoveEvent( QMouseEvent *e );
-    virtual void paintCell( QPainter *p, int row, int col );
+private:
+    virtual void mousePressEvent( QMouseEvent *e );
+    virtual void mouseMoveEvent( QMouseEvent *e );
 
 private slots:
     void mapUpdate();
@@ -48,7 +39,8 @@ private:
     const int BOARD_HEIGHT;
     const int BOARD_WIDTH;
 
-    void drawSector( QPainter *, Sector &, bool borderStrobe = true, bool highlight = false );
+    void drawSector( QPainter *, Sector & );
+    void paintEvent( QPaintEvent* );
 
     Map *map;
     QColor gridColor;

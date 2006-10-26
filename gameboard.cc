@@ -44,6 +44,7 @@ GameBoard::GameBoard( QWidget *parent )
     QPalette mainPal;
     mainPal.setColor( backgroundRole(), Qt::black );
     setPalette( mainPal );
+    setAutoFillBackground( true );
 
     QColor col(Qt::green);
     QPalette palette;
