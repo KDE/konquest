@@ -64,13 +64,8 @@ GameBoard::GameBoard( QWidget *parent )
     msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
     msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    // FIXME dimsuz: very strange behaviour here - allows to resize mapWidget
-    // less then minimumSize
-    // and prevents bottom row to be drawn!
-    /* 
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
-     */
 
     planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
@@ -97,8 +92,6 @@ GameBoard::GameBoard( QWidget *parent )
     splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
     splashScreen->setGeometry( 0, 0, 600, 550 );
 
-    setMinimumSize( 600, 600 );
-
     setMouseTracking( true );
     setFocusPolicy( Qt::StrongFocus );
     setFocus();
@@ -120,7 +113,7 @@ GameBoard::GameBoard( QWidget *parent )
     topLineLayout->addWidget( endTurn, 1 );
 
     leftLayout->addSpacing( 5 );
-    leftLayout->addWidget( mapWidget );//, 0, Qt::AlignTop );
+    leftLayout->addWidget( mapWidget );
     leftLayout->addWidget( msgWidget );
     leftLayout->addStretch( 1 );
 
