@@ -1,43 +1,17 @@
-#include <QLayout>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <kapplication.h>
-#include <klocale.h>
-#include <math.h>
-#include <kglobal.h>
+#include <QTableWidget>
+#include <QHeaderView>
+
+#include <kinstance.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include <kguiitem.h>
+#include <klocale.h>
+
+#include <math.h> // for ceil
 
 #include "fleetdlg.h"
-
-FleetDlgListViewItem::FleetDlgListViewItem(Q3ListView *parent, QString s1, QString s2, QString s3, QString s4, QString s5) : Q3ListViewItem(parent, s1, s2, s3, s4, s5)
-{
-}
-
-int FleetDlgListViewItem::compare(Q3ListViewItem *i, int col, bool) const
-{
-	if (col == 1)
-	{
-		if (text(col) > i -> text(col)) return 1;
-		else if (text(col) < i -> text(col)) return -1;
-		else return compare(i, 0, true);
-	}
-	else if (col == 3)
-	{
-		if (text(col).toDouble() > i -> text(col).toDouble()) return 1;
-		else if (text(col).toDouble() < i -> text(col).toDouble()) return -1;
-		else return compare(i, 0, true);
-	}
-	else
-	{
-		if (text(col).toInt() > i -> text(col).toInt()) return 1;
-		else if (text(col).toInt() < i -> text(col).toInt()) return -1;
-		else return compare(i, 0, true);
-	}
-}
-
 
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     : QDialog(parent), fleetList(fleets)
@@ -46,13 +20,15 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     setModal( true );
     setWindowTitle( KInstance::makeStdCaption(i18n("Fleet Overview")) );
 
-    fleetTable = new K3ListView( this );
-    fleetTable->addColumn(i18n("Fleet No."));
-    fleetTable->addColumn(i18n("Destination"));
-    fleetTable->addColumn(i18n("Ships"));
-    fleetTable->addColumn(i18n("Kill Percentage"));
-    fleetTable->addColumn(i18n("Arrival Turn"));
+    fleetTable = new QTableWidget( this );
+    fleetTable->setColumnCount( 5 );
+    QStringList labels;
+    labels << i18n("Fleet No.") << i18n("Destination") << i18n("Ships");
+    labels << i18n("Kill Percentage") << i18n("Arrival Turn");
+    fleetTable->setHorizontalHeaderLabels( labels );
+    fleetTable->verticalHeader()->hide();
     fleetTable->setMinimumSize( fleetTable->sizeHint() );
+    fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
     KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
@@ -73,22 +49,24 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     init();
 
     resize( 580, 140  );
+
+    fleetTable->setSortingEnabled(true);
+    fleetTable->sortItems( 0, Qt::AscendingOrder );
 }
 
 void
 FleetDlg::init()
 {
-    AttackFleet *curFleet;
-    AttackFleetListIterator nextFleet( *fleetList );
-    int fleetNumber = 0;
+    AttackFleet *curFleet=0;
 
-    while( (curFleet = nextFleet())) {
-        fleetNumber++;
-        new FleetDlgListViewItem(fleetTable,
-                                 QString("%1").arg(fleetNumber),
-                                 curFleet->destination->getName(),
-                                 QString("%1").arg(curFleet->getShipCount()),
-                                 QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3)),
-                                 QString("%1").arg((int)ceil(curFleet->arrivalTurn)));
+    fleetTable->setRowCount( fleetList->count() );
+    for( unsigned f=0; f< fleetList->count(); ++f)
+    {
+        curFleet = fleetList->at(f);
+        fleetTable->setItem( f, 0, new QTableWidgetItem(QString("%1").arg(f+1)) );
+        fleetTable->setItem( f, 1, new QTableWidgetItem(curFleet->destination->getName()) );
+        fleetTable->setItem( f, 2, new QTableWidgetItem(QString("%1").arg(curFleet->getShipCount())) );
+        fleetTable->setItem( f, 3, new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3))) );
+        fleetTable->setItem( f, 4, new QTableWidgetItem(QString("%1").arg((int)ceil(curFleet->arrivalTurn))) );
     }
 }

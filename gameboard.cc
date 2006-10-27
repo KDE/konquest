@@ -54,6 +54,8 @@ GameBoard::GameBoard( QWidget *parent )
     msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
     msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    msgWidget->setReadOnly(true);
+    blackPal.setColor( QPalette::Base, Qt::black );
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
 
