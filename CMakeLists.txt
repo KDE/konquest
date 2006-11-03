@@ -11,7 +11,6 @@ set(konquest_SRCS
    Konquest.cc 
    gameboard.cc 
    gamecore.cc 
-   int_validator.cc 
    mainwin.cc 
    map_widget.cc 
    minimap.cc 

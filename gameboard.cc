@@ -13,7 +13,6 @@
 
 #include "gamecore.h"
 
-#include "int_validator.h"
 #include "newgamedlg.h"
 #include "gameenddlg.h"
 #include "scoredlg.h"
@@ -72,8 +71,7 @@ GameBoard::GameBoard( QWidget *parent )
     endTurn->setPalette( palette );
 
     shipCountEdit = new QLineEdit( this );
-    IntValidator *v = new IntValidator( 1, 32767, this );
-    shipCountEdit->setValidator( v );
+    shipCountEdit->setValidator( new QIntValidator(1, 32767, this ) );
     shipCountEdit->setMinimumSize( 40, 0 );
     shipCountEdit->setMaximumSize( 32767, 40 );
     shipCountEdit->setEnabled(false);
