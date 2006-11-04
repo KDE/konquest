@@ -3,9 +3,10 @@
 
 #include <kdialog.h>
 
-#include "gamecore.h"
+#include "planet.h"
 #include "minimap.h"
 #include "ui_newGameDlg_ui.h"
+#include "player.h"
 
 class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
 {

@@ -10,6 +10,9 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames  )
 set(konquest_SRCS 
    Konquest.cc 
    gameboard.cc 
+   planet.cc
+   fleet.cc
+   player.cc
    gamecore.cc 
    mainwin.cc 
    map_widget.cc 

@@ -6,6 +6,8 @@
 
 #include "minimap.h"
 #include "minimap.moc"
+#include "planet.h"
+#include "player.h"
 
 MiniMap::MiniMap(  QWidget *parent, const char *name )
     : Q3GridView( parent, name ),

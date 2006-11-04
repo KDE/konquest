@@ -8,9 +8,9 @@
 //Added by qt3to4:
 #include <QLabel>
 
-#include "gamecore.h"
+//#include "gamecore.h"
+#include "planet.h"
 
-class QLabel;
 
 struct planet_info_buffer {
     Planet *planet;
@@ -44,11 +44,7 @@ private:
     PlanetList *planets;
     PlanetInfoList planet_stats;
 
-    QLabel *name;
-    QLabel *owner;
-    QLabel *ships;
-    QLabel *production;
-    QLabel *kill_percent;
+    QLabel *infosLabel;
 };
 
 #endif  // _PLANET_INFO_H_

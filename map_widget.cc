@@ -9,6 +9,8 @@
 
 #include <kdebug.h>
 #include "map_widget.h"
+#include "planet.h"
+#include "player.h"
 
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     : QFrame( parent ),

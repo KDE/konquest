@@ -21,7 +21,7 @@
 
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
-
+#include "player.h"
 
 /*************************************************************************
  New Game Dialog Members

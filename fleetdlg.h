@@ -3,7 +3,8 @@
 
 #include <QDialog>
 
-#include "gamecore.h"
+#include "fleet.h"
+#include "planet.h"
 
 class QTableWidget;
 

@@ -22,9 +22,10 @@
 //**********************************************************
 class Player;
 class Planet;
-class Sector;
 class Map;
 class Fleet;
+class AttackFleet;
+class DefenseFleet;
 
 
 //---------------------------------------------------------------------------------
@@ -53,179 +54,6 @@ public:
 
 private:
     KRandomSequence random;
-    static bool class_init;
-};
-
-
-//**********************************************************
-// class Fleet
-// \--- class AttackFleet
-//  \--- class DefenseFleet
-//**********************************************************
-
-class Fleet : public QObject
-{
-        
-public:
-
-    Fleet( int initialShipCount );
-    virtual ~Fleet() {};
-
-    int getShipCount();
-    void removeShips( int lostShips );
-
-protected:
-    int shipCount;
-};
-
-class AttackFleet : public Fleet
-{
-
-public:
-    AttackFleet( Planet *source, Planet *dest, int initialCount, double arrivalTurn  );
-
-    Player *owner;
-    Planet *destination;
-    double arrivalTurn;
-    double killPercentage;
-
-};
-
-
-class DefenseFleet : public Fleet
-{
-        
-public:
-    DefenseFleet( Planet *newHome, int initialCount  );
-
-    void absorb( AttackFleet *fleet );
-    void become( AttackFleet *fleet );
-
-    void addShips( int newShips );
-    
-    AttackFleet *spawnAttackFleet( Planet *destination, int shipCount, double arrivalTurn );
-
-    Planet *home;
-
-};
-
-
-//**************************************************************
-// class Player
-//**************************************************************
-
-class Player : public QObject
-{
-
-public:
-    Player( QString newName, QColor color, int number, bool isAi );
-    virtual ~Player();
-
-    enum { NEUTRAL_PLAYER_NUMBER = -1 };
-    
-public:
-    QString &getName();
-    QString getColoredName();
-    QColor &getColor();
-    bool isNeutral();
-    Q3PtrList<AttackFleet> &getAttackList();
-
-    // factory functions
-    static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
-    static Player *createNeutralPlayer();
-
-    bool NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int departureTurn );
-
-    bool operator==( const Player &otherPlayer ) const;
-
-    bool isInPlay();
-    void setInPlay( bool );
-    
-private:
-    QString name;
-    QColor  color;
-    int playerNum;
-    bool inPlay;
-    bool aiPlayer;
-
-    Q3PtrList<AttackFleet> attackList;
-
-    // statistics counters
-    int shipsBuilt;
-    int planetsConquered;
-    int fleetsLaunched;
-    int enemyFleetsDestroyed;
-    int enemyShipsDestroyed;
-
-public:
-    void statShipsBuilt( int );
-    void statPlanetsConquered( int );
-    void statFleetsLaunched( int );
-    void statEnemyFleetsDestroyed( int );
-    void statEnemyShipsDestroyed( int );
-
-    int getShipsBuilt() { return shipsBuilt; };
-    int getPlanetsConquered() { return  planetsConquered; };
-    int getFleetsLaunched() { return  fleetsLaunched; };
-    int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; };
-    int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; };
-    bool isAiPlayer();
-
-};
-
-
-//**************************************************************
-// class Planet
-//**************************************************************
-
-class Planet : public QObject
-{
-    Q_OBJECT
-
-private:
-
-    Planet( QString planetName, Sector &newParentSector,
-            Player *initialOwner, int newProd,
-            double newKillP, double newMorale );
-
-public:
-    virtual ~Planet();
-
-    static Planet *createPlayerPlanet( Sector &parentSector,
-                                       Player *initialOwner, QString planetName );
-    static Planet *createNeutralPlanet( Sector &parentSector,
-                                        Player *initialOwner, QString planetName );
-
-    Sector &getSector() const;
-    Player *getPlayer() const;
-    const QString &getName() const;
-    DefenseFleet &getFleet();
-
-    double getKillPercentage();
-    void setKillPercentage( double newValue );
-    double getMorale();
-    void setMorale( double );
-    int getProduction();
-    void setProduction( int );
-
-    void select();
-    void conquer(  AttackFleet *conqueringFleet );
-    void coup( Player *luckyPlayer );
-    void turn();
-
-signals:
-    void update();
-    void selected();
-
-private:
-    QString name;
-    Player *owner;
-    Sector &parentSector;
-    DefenseFleet homeFleet;
-
-    double killPercentage;
-    double morale;
-    int productionRate;
 };
 
 //***************************************************************
@@ -320,16 +148,6 @@ protected:
     bool hasSelectedSector;
     Coordinate  sel;
 };
-
-//---------------------------------------------------------------------------------
-// Typedefs
-//---------------------------------------------------------------------------------
-typedef Q3PtrList<AttackFleet> AttackFleetList;
-typedef Q3PtrListIterator<AttackFleet> AttackFleetListIterator;
-typedef Q3PtrList<Player> PlayerList;
-typedef Q3PtrList<Planet> PlanetList;
-typedef Q3PtrListIterator<Player> PlayerListIterator;
-typedef Q3PtrListIterator<Planet> PlanetListIterator;
 
 #endif // _GAMECORE_H_
 

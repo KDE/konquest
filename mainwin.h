@@ -5,9 +5,6 @@
 
 #include "gameboard.h"
 
-class ConquestMap;
-class PlanetStatusTable;
-
 class MainWindow : public KMainWindow
 {
     Q_OBJECT

@@ -11,32 +11,21 @@
 #include "planet_info.h"
 #include <kglobal.h>
 #include "planet_info.moc"
+#include "player.h"
 
 PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
     : QFrame( parent  )
 {
     setPalette( palette );
 
-    name = new QLabel( this );
-    name->setMinimumWidth( 100 );
-    owner = new QLabel( this );
-    owner->setMinimumWidth( 100 );
-    ships = new QLabel( this );
-    ships->setMinimumWidth( 100 );
-    production = new QLabel( this );
-    production->setMinimumWidth( 100 );
-    kill_percent = new QLabel( this );
-    kill_percent->setMinimumWidth( 100 );
-
+    infosLabel = new QLabel( this );
+    infosLabel->setMinimumWidth( 100 );
+    
     clearDisplay();
 
     QVBoxLayout *layout1 = new QVBoxLayout( this );
 
-    layout1->addWidget( name );
-    layout1->addWidget( owner );
-    layout1->addWidget( ships );
-    layout1->addWidget( production );
-    layout1->addWidget( kill_percent );
+    layout1->addWidget( infosLabel );
     layout1->addStretch(1);
 
     setMouseTracking( true );
@@ -52,15 +41,7 @@ PlanetInfo::~PlanetInfo()
 
 QSize PlanetInfo::sizeHint() const
 {
-    int height;
-
-    height = name->sizeHint().height() +
-    		owner->sizeHint().height() +
-		ships->sizeHint().height() +
-		production->sizeHint().height()+
-		kill_percent->sizeHint().height();
-
-    return QSize( 100, height );
+    return infosLabel->sizeHint();
 }
 
 void PlanetInfo::setPlanetList( PlanetList &newPlanets )
@@ -94,21 +75,13 @@ void PlanetInfo::rescanPlanets()
 void PlanetInfo::clearDisplay()
 {
     QString temp;
-
-    temp = "<qt>" + i18n("Planet name: ");
-    name->setText( temp );
-
-    temp = "<qt>" + i18n("Owner: ");
-    owner->setText( temp );
-
-    temp = "<qt>" + i18n("Ships: ");
-    ships->setText( temp );
-
-    temp = "<qt>" + i18n("Production: ");
-    production->setText( temp );
-
-    temp = "<qt>" + i18n("Kill percent: ");
-    kill_percent->setText( temp );
+    
+    temp = i18n("Planet name: ") + "<br />";
+    temp = temp + i18n("Owner: ") + "<br />";
+    temp = temp  + i18n("Ships: ") + "<br />";
+    temp = temp  + i18n("Production: ") + "<br />";
+    temp = temp  + i18n("Kill percent: ") + "<br />";
+    infosLabel->setText( temp );
 }
 
 void PlanetInfo::emptyPlanetInfoList()
@@ -129,8 +102,8 @@ void PlanetInfo::showPlanet( Planet *planet )
 
         QString temp;
 
-        temp = "<qt>" + i18n("Planet name: %1", planet->getName());
-        name->setText( temp );
+        temp = i18n("Planet name: %1", planet->getName());
+        infosLabel->setText( temp );
         return;
     }
 
@@ -144,20 +117,12 @@ void PlanetInfo::showPlanet( Planet *planet )
 
             QString temp;
 
-            temp = "<qt>" + i18n("Planet name: %1", p->planet->getName());
-            name->setText( temp );
-
-            temp = "<qt>" + i18n("Owner: %1", p->planet->getPlayer()->getColoredName());
-            owner->setText( temp );
-
-            temp = "<qt>" + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) );
-            ships->setText( temp );
-
-            temp = "<qt>" + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) );
-            production->setText( temp );
-
-            temp = "<qt>" + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) );
-            kill_percent->setText( temp );
+            temp = i18n("Planet name: %1", p->planet->getName()) + "<br />";
+            temp = temp + i18n("Owner: %1", p->planet->getPlayer()->getColoredName()) + "<br />";
+            temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) ) + "<br />";
+            temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) ) + "<br />";
+            temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) ) + "<br />";
+            infosLabel->setText( temp );
         }
     }
 }

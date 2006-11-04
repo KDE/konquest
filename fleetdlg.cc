@@ -60,13 +60,30 @@ FleetDlg::init()
     AttackFleet *curFleet=0;
 
     fleetTable->setRowCount( fleetList->count() );
+    QTableWidgetItem *item;
+    
     for( unsigned f=0; f< fleetList->count(); ++f)
     {
         curFleet = fleetList->at(f);
-        fleetTable->setItem( f, 0, new QTableWidgetItem(QString("%1").arg(f+1)) );
-        fleetTable->setItem( f, 1, new QTableWidgetItem(curFleet->destination->getName()) );
-        fleetTable->setItem( f, 2, new QTableWidgetItem(QString("%1").arg(curFleet->getShipCount())) );
-        fleetTable->setItem( f, 3, new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3))) );
-        fleetTable->setItem( f, 4, new QTableWidgetItem(QString("%1").arg((int)ceil(curFleet->arrivalTurn))) );
+        
+        item = new QTableWidgetItem(QString::number(f+1));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        fleetTable->setItem( f, 0, item );
+        
+        item = new QTableWidgetItem(curFleet->destination->getName());
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        fleetTable->setItem( f, 1, item );
+        
+        item = new QTableWidgetItem(QString::number(curFleet->getShipCount()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        fleetTable->setItem( f, 2, item );
+        
+        item = new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3)));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        fleetTable->setItem( f, 3, item );
+        
+        item = new QTableWidgetItem(QString::number((int)ceil(curFleet->arrivalTurn)));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        fleetTable->setItem( f, 4, item );
     }
 }

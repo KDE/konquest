@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "gamecore.h"
+#include "planet.h"
+#include "player.h"
 
 //************************************************************************
 // forward declarations
