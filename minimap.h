@@ -2,40 +2,23 @@
 #define _MINIMAP_H
 
 #include <QWidget>
-#include <q3frame.h>
-#include <qpixmap.h>
-#include <q3gridview.h>
-#include <QTimer>
 
 #include "gamecore.h"
-#include "images.h"
 
-
-class MiniMap : public Q3GridView
+class MiniMap : public QWidget
 {
     Q_OBJECT
 
-    // Constructors
 public:
-    MiniMap( QWidget *parent = 0, const char* name = 0 );
-    virtual ~MiniMap();
+    MiniMap( QWidget *parent = 0 );
 
     void setMap( Map *newMap );
 
 protected:
-    void paintCell( QPainter *p, int row, int col );
-
-private slots:
-    void mapUpdate();
-
+    void paintEvent(QPaintEvent *event);
+    
 private:
-    int SECTOR_HEIGHT;
-    int SECTOR_WIDTH;
-
-    int BOARD_HEIGHT;
-    int BOARD_WIDTH;
-
-    void drawSector( QPainter *, Sector & );
+    int SECTOR_SIZE;
 
     Map *map;
 };

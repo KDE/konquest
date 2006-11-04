@@ -2,7 +2,6 @@
 #define _GAMEENDDLG_H_
 
 #include <kdialog.h>
-//Added by qt3to4:
 #include <QLabel>
 
 class QSlider;

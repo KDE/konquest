@@ -1,6 +1,5 @@
 #include <QLayout>
 #include <iostream>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <kapplication.h>
@@ -52,12 +51,10 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
 void
 ScoreDlg::init()
 {
-    Player *curPlayer;
-    PlayerListIterator itr( *plrList );
     scoreTable->setRowCount(plrList->count());
     int row = 0;
     
-    for( ;(curPlayer = itr()); ) {
+    foreach (Player *curPlayer, (*plrList)) {
         QTableWidgetItem *nameItem = new QTableWidgetItem(curPlayer->getName());
         nameItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 0, nameItem);

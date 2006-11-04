@@ -8,7 +8,6 @@
 #include <q3listview.h>
 #include <QPushButton>
 #include <QLineEdit>
-//Added by qt3to4:
 #include <QPixmap>
 
 #include <kapplication.h>
@@ -297,17 +296,11 @@ NewGameDlg::updateMiniMap()
     // Clear map,, player and planet lists
     map->clearMap();
 
-    Planet *planet;
-    planet = plnetList->first();
-    for( planet = plnetList->take(); planet != 0; planet = plnetList->take() ) {
-        delete planet;
-    }
+    while (!plnetList->isEmpty())
+        delete plnetList->takeFirst();
 
-    Player *player;
-    player = plrList->first();
-    for( player = plrList->take(); player != 0; player = plrList->take() ) {
-        delete player;
-    }
+    while (!plrList->isEmpty())
+        delete plrList->takeFirst();
 
     // Make player list
     // Does the name already exist in the list

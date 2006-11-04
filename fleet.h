@@ -2,7 +2,6 @@
 #define __FLEET_H__
 
 #include <QObject>
-#include <Q3PtrList>
 
 class Player;
 class Planet;
@@ -60,7 +59,6 @@ public:
 
 };
 
-typedef Q3PtrList<AttackFleet> AttackFleetList;
-typedef Q3PtrListIterator<AttackFleet> AttackFleetListIterator;
+typedef QList<AttackFleet *> AttackFleetList;
 
 #endif

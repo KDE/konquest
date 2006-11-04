@@ -3,9 +3,8 @@
 
 #include <QFrame>
 #include <QString>
-#include <q3ptrlist.h>
+#include <QList>
 #include <qpalette.h>
-//Added by qt3to4:
 #include <QLabel>
 
 //#include "gamecore.h"
@@ -19,8 +18,7 @@ struct planet_info_buffer {
     float killRate;
 };
 
-typedef Q3PtrList<planet_info_buffer> PlanetInfoList;
-typedef Q3PtrListIterator<planet_info_buffer> PlanetInfoListIterator;
+typedef QList<planet_info_buffer*> PlanetInfoList;
 
 class PlanetInfo : public QFrame
 {

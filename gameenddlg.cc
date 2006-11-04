@@ -1,7 +1,6 @@
 #include <QLabel>
 #include <QLayout>
 #include <qslider.h>
-#include <q3vbox.h>
 
 #include <kapplication.h>
 #include <kconfig.h>

@@ -84,7 +84,7 @@ private:
     //***************************************************************
     bool gameInProgress;
     GameState gameState;
-    PlayerListIterator *currentPlayer;
+    PlayerList::Iterator currentPlayer;
 
     //***************************************************************
     // Display Widgets

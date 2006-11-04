@@ -2,7 +2,7 @@
 #define __PLANET_H__
 
 #include <QObject>
-#include <Q3PtrList>
+#include <QList>
 #include "fleet.h"
 
 class Player;
@@ -63,7 +63,6 @@ private:
     int productionRate;
 };
 
-typedef Q3PtrList<Planet> PlanetList;
-typedef Q3PtrListIterator<Planet> PlanetListIterator;
+typedef QList<Planet *> PlanetList;
 
 #endif

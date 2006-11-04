@@ -10,9 +10,8 @@
 // class Player
 //**************************************************************
 
-class Player : public QObject
+class Player
 {
-    Q_OBJECT
 public:
     Player( QString newName, QColor color, int number, bool isAi );
     virtual ~Player();
@@ -20,11 +19,11 @@ public:
     enum { NEUTRAL_PLAYER_NUMBER = -1 };
     
 public:
-    QString &getName();
+    QString getName();
     QString getColoredName();
     QColor &getColor();
     bool isNeutral();
-    Q3PtrList<AttackFleet> &getAttackList();
+    AttackFleetList &getAttackList();
 
     // factory functions
     static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
@@ -44,7 +43,7 @@ private:
     bool inPlay;
     bool aiPlayer;
 
-    Q3PtrList<AttackFleet> attackList;
+    AttackFleetList attackList;
 
     // statistics counters
     int shipsBuilt;
@@ -69,7 +68,6 @@ public:
 
 };
 
-typedef Q3PtrList<Player> PlayerList;
-typedef Q3PtrListIterator<Player> PlayerListIterator;
+typedef QList<Player *> PlayerList;
 
 #endif

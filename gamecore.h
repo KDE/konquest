@@ -7,7 +7,6 @@
 #include <QPoint>
 #include <QString>
 #include <QColor>
-#include <q3ptrlist.h>
 
 // Board Size Constants
 #define BOARD_ROWS 16
@@ -16,6 +15,8 @@
 // Maximum Number of Players
 #define MAX_PLAYERS 10
 
+#include "player.h"
+#include "planet.h"
 
 //**********************************************************
 // Forward declarations for classes in this file
@@ -113,8 +114,8 @@ public:
     const int getRows() const;
     const int getColumns() const;
 
-    void populateMap( Q3PtrList<Player> &players, Player *neutral,
-                      int numNeutralPlanets, Q3PtrList<Planet> &thePlanets );
+    void populateMap( PlayerList &players, Player *neutral,
+                      int numNeutralPlanets, PlanetList &thePlanets );
     void clearMap();
     
     bool selectedSector( Coordinate &c ) const;

@@ -62,7 +62,7 @@ FleetDlg::init()
     fleetTable->setRowCount( fleetList->count() );
     QTableWidgetItem *item;
     
-    for( unsigned f=0; f< fleetList->count(); ++f)
+    for( int f=0; f< fleetList->count(); ++f)
     {
         curFleet = fleetList->at(f);
         

@@ -1,5 +1,4 @@
 #include "player.h"
-#include "player.moc"
 #include "planet.h"
 #include "gamecore.h"
 
@@ -25,7 +24,7 @@ Player::operator==( const Player &otherPlayer ) const
         return false;
 }
 
-QString &
+QString
 Player::getName()
 {
     return name;

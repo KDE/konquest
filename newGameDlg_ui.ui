@@ -229,62 +229,7 @@
                 </widget>
               </item>
               <item>
-                <layout class="QHBoxLayout" >
-                  <property name="margin" >
-                    <number>0</number>
-                  </property>
-                  <item>
-                    <spacer name="spacer7" >
-                      <property name="sizeHint" >
-                        <size>
-                          <width>0</width>
-                          <height>20</height>
-                        </size>
-                      </property>
-                      <property name="sizeType" >
-                        <enum>Expanding</enum>
-                      </property>
-                      <property name="orientation" >
-                        <enum>Qt::Horizontal</enum>
-                      </property>
-                    </spacer>
-                  </item>
-                  <item>
-                    <widget class="MiniMap" name="map" />
-                  </item>
-                  <item>
-                    <spacer name="spacer7_2" >
-                      <property name="sizeHint" >
-                        <size>
-                          <width>0</width>
-                          <height>20</height>
-                        </size>
-                      </property>
-                      <property name="sizeType" >
-                        <enum>Expanding</enum>
-                      </property>
-                      <property name="orientation" >
-                        <enum>Qt::Horizontal</enum>
-                      </property>
-                    </spacer>
-                  </item>
-                </layout>
-              </item>
-              <item>
-                <spacer name="spacer6" >
-                  <property name="sizeHint" >
-                    <size>
-                      <width>20</width>
-                      <height>16</height>
-                    </size>
-                  </property>
-                  <property name="sizeType" >
-                    <enum>Expanding</enum>
-                  </property>
-                  <property name="orientation" >
-                    <enum>Qt::Vertical</enum>
-                  </property>
-                </spacer>
+                <widget class="MiniMap" name="map" />
               </item>
               <item>
                 <layout class="QHBoxLayout" >

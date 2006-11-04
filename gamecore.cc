@@ -98,9 +98,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
     QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/?-+\\|" );
 
     // Create a planet for each player
-    Player *plr;
-    for( plr = players.first(); plr != 0; plr = players.next() )
-    {
+    foreach(Player *plr, players) {
         QString newName( names.mid( index++, 1 ) );
         Sector &sect = findRandomFreeSector();
         Planet *plrPlanet = Planet::createPlayerPlanet( sect, plr, newName );

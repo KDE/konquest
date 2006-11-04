@@ -1,83 +1,54 @@
-#include <qpixmap.h>
-#include <qpainter.h>
-
-#include <kapplication.h>
-#include <kiconloader.h>
-
 #include "minimap.h"
 #include "minimap.moc"
 #include "planet.h"
 #include "player.h"
+#include <QPainter>
 
-MiniMap::MiniMap(  QWidget *parent, const char *name )
-    : Q3GridView( parent, name ),
-    SECTOR_HEIGHT( 12 ), SECTOR_WIDTH( 12 ),
-    BOARD_HEIGHT( 10 * SECTOR_HEIGHT ),
-    BOARD_WIDTH( 10 * SECTOR_WIDTH ),
+MiniMap::MiniMap(  QWidget *parent)
+    : QWidget( parent ),
+    SECTOR_SIZE(12),
     map( 0 )
 {
-    setFrameStyle( NoFrame );
     QPalette pal = palette();
     pal.setColor( backgroundRole(), Qt::black );
     setPalette( pal );
-    setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
 
-    setCellWidth( SECTOR_WIDTH );
-    setCellHeight( SECTOR_HEIGHT );
-    setNumRows( 10 );
-    setNumCols( 10 );
-
-    setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
-    setMaximumSize( BOARD_HEIGHT, BOARD_WIDTH );
+    setMinimumSize( 100, 100 ); // FIX THIS ?
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 void
 MiniMap::setMap(Map *newMap)
 {
     map = newMap;
-    BOARD_HEIGHT = map->getRows() * SECTOR_HEIGHT;
-    BOARD_WIDTH  = map->getColumns() * SECTOR_WIDTH;
-    setNumRows( map->getRows() );
-    setNumCols( map->getColumns() );
-
-    setMinimumSize( BOARD_HEIGHT, BOARD_WIDTH );
-    setMaximumSize( BOARD_HEIGHT, BOARD_WIDTH );
-
-    connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
+    connect( map, SIGNAL( update() ), this, SLOT( update() ) );
 }
 
-MiniMap::~MiniMap()
-{
-}
-
-
-void
-MiniMap::paintCell( QPainter *p, int row, int col )
-{
-    drawSector( p, map->getSector( Coordinate(row, col) ) );
-}
-
-void
-MiniMap::mapUpdate()
-{
-    updateContents();
-}
-
-
-void
-MiniMap::drawSector( QPainter *p, Sector &sector )
-{
-    QRect r( 0, 0, SECTOR_WIDTH, SECTOR_HEIGHT );
-
-    p->setPen( Qt::black );
-    p->setBrush( Qt::black );
-    p->drawRect( r );
-
-    if( sector.hasPlanet() ) {
-        p->setPen( sector.getPlanet()->getPlayer()->getColor() );
-        p->setBrush( sector.getPlanet()->getPlayer()->getColor() );
-
-        p->drawPie( r, 0, (360 * 16)-1 );
+void MiniMap::paintEvent(QPaintEvent */*event*/) {
+    // Non square map aren't handled currently...
+    // Calculate the horizontal (width) offset, and the max usable size for the map...
+    int size;
+    int woffset = 0;
+    if (width() > height()) {
+        woffset = ((width() - height())/2);
+        size = height();
+    } else {
+        size = width();
+    }
+    SECTOR_SIZE = size/(map->getColumns());
+    
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setPen(Qt::black);
+    painter.setBrush(Qt::black);
+    painter.drawRect(woffset, 0, size, size);
+    
+    for (int c = 0 ; c < map->getColumns() ; c++) {
+        for (int r = 0 ; r < map->getRows() ; r++) {
+            if (map->getSector(QPoint(c,r)).getPlanet() != 0) {
+                painter.setBrush( map->getSector(QPoint(c,r)).getPlanet()->getPlayer()->getColor() );
+                painter.drawEllipse( woffset + c*SECTOR_SIZE, r*SECTOR_SIZE, SECTOR_SIZE, SECTOR_SIZE );
+            }
+        }
     }
 }
-

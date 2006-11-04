@@ -2,7 +2,6 @@
 #include <QLayout>
 #include <qpalette.h>
 #include <QColor>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QFrame>
 #include <kapplication.h>
@@ -48,10 +47,7 @@ void PlanetInfo::setPlanetList( PlanetList &newPlanets )
 {
     emptyPlanetInfoList();
 
-    PlanetListIterator itr( newPlanets );
-
-    Planet *p;
-    while( (p = itr()) ) {
+    foreach (Planet *p, newPlanets) {
         planet_info_buffer *stats = new planet_info_buffer;
         stats->planet = p;
         planet_stats.append( stats );
@@ -62,10 +58,7 @@ void PlanetInfo::setPlanetList( PlanetList &newPlanets )
 
 void PlanetInfo::rescanPlanets()
 {
-    PlanetInfoListIterator itr( planet_stats );
-    planet_info_buffer *p;
-
-    while( (p = itr()) ) {
+    foreach (planet_info_buffer *p, planet_stats) {
         p->production = p->planet->getProduction();
         p->ships = p->planet->getFleet().getShipCount();
         p->killRate = p->planet->getKillPercentage();
@@ -86,13 +79,8 @@ void PlanetInfo::clearDisplay()
 
 void PlanetInfo::emptyPlanetInfoList()
 {
-    planet_stats.first();
-
-    planet_info_buffer *p;
-    while( (p = planet_stats.take()) ) {
-        delete p;
-    }
-
+    while (!planet_stats.isEmpty())
+        delete planet_stats.takeFirst();
 }
 
 void PlanetInfo::showPlanet( Planet *planet )
@@ -109,10 +97,7 @@ void PlanetInfo::showPlanet( Planet *planet )
 
     QString nameToShow = planet->getName();
 
-    PlanetInfoListIterator itr( planet_stats );
-    planet_info_buffer *p;
-
-    while( (p = itr()) ) {
+    foreach (planet_info_buffer *p, planet_stats) {
         if( p->planet  == planet ) {
 
             QString temp;
