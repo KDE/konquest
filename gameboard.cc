@@ -6,6 +6,7 @@
 #include <QTextEdit>
 #include <QPixmap>
 #include <QKeyEvent>
+#include <QIntValidator>
 
 #include <kmessagebox.h>
 
