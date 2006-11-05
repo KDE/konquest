@@ -79,14 +79,10 @@ Map::populateMap( PlayerList &players, Player *neutral,
     emit update();
 }
 
-
 double Map::distance( Planet *p1, Planet *p2 )
 {
     Coordinate  diff = p1->sector().getCoord() - p2->sector().getCoord();
-    
-    diff /= 2; // Why do this?  
-
-    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())));
+    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())))/2;
 }
 
 
