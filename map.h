@@ -50,7 +50,7 @@ protected:
     void  Thaw();
 
 private:
-    Sector &findRandomFreeSector();
+    Sector *findRandomFreeSector();
     
 protected:
     // A map is a 2-D array of Sectors.

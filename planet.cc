@@ -10,39 +10,38 @@
 // class Planet
 //---------------------------------------------------------------------------
 
-Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwner,
+Planet::Planet( QString planetName, Sector *sector, Player *initialOwner,
                 int newProd, double newKillP )
   : m_name(planetName),
     m_owner(initialOwner),
-    m_parentSector(newParentSector),
+    m_sector(sector),
     m_homeFleet( this, newProd ),
     m_killPercentage(newKillP),
     m_productionRate(newProd)
 {
-    m_parentSector.setPlanet( this );
+    m_sector->setPlanet( this );
 }
 
 Planet::~Planet() {}
 
 
 Planet *
-Planet::createPlayerPlanet( Sector &parentSector, Player *initialOwner, 
+Planet::createPlayerPlanet( Sector *sector, Player *initialOwner, 
 			    QString planetName )
 {
-    return new Planet( planetName, parentSector, initialOwner,
-                       10, 0.400 );
+    return new Planet( planetName, sector, initialOwner, 10, 0.400 );
 }
 
 
 Planet *
-Planet::createNeutralPlanet( Sector &parentSector, Player *initialOwner, 
+Planet::createNeutralPlanet( Sector *sector, Player *initialOwner, 
 			     QString planetName )
 {
     CoreLogic  clogic;
     double     killP          = clogic.generateKillPercentage();
     int        productionRate = (int)clogic.generatePlanetProduction();
 
-    return new Planet( planetName, parentSector,
+    return new Planet( planetName, sector,
                        initialOwner, productionRate, killP );
 }
 
@@ -65,7 +64,7 @@ Planet::setProduction( int newProduction )
 void
 Planet::select()
 {
-    m_parentSector.select();
+    m_sector->select();
 
     emit selected();
 }

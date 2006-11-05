@@ -60,7 +60,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
     // Create a planet for each player
     foreach(Player *plr, players) {
         QString newName( names.mid( index++, 1 ) );
-        Sector &sect = findRandomFreeSector();
+        Sector *sect = findRandomFreeSector();
         Planet *plrPlanet = Planet::createPlayerPlanet( sect, plr, newName );
 
         thePlanets.append( plrPlanet );
@@ -69,7 +69,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
     for( int x = 0; x < numNeutralPlanets; x++ )
     {
         QString newName( names.mid( index++, 1 ) );
-        Sector &sect = findRandomFreeSector();
+        Sector *sect = findRandomFreeSector();
         Planet *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
 
         thePlanets.append( neutralPlanet );
@@ -82,12 +82,12 @@ Map::populateMap( PlayerList &players, Player *neutral,
 
 double Map::distance( Planet *p1, Planet *p2 )
 {
-    Coordinate  diff = p1->sector().coord() - p2->sector().coord();
+    Coordinate  diff = p1->sector()->coord() - p2->sector()->coord();
     return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())))/2;
 }
 
 
-Sector &
+Sector *
 Map::findRandomFreeSector()
 {
     CoreLogic cl;
@@ -98,7 +98,7 @@ Map::findRandomFreeSector()
         c = cl.generatePlanetCoordinates();
     } while( m_grid[c.y()][c.x()].hasPlanet() );
 
-    return m_grid[c.y()][c.x()];
+    return &m_grid[c.y()][c.x()];
 }
 
 bool
@@ -125,7 +125,7 @@ void
 Map::setSelectedSector( const Planet &planet )
 {
     m_hasSelectedSector = true;
-    m_selection = planet.sector().coord();
+    m_selection = planet.sector()->coord();
 
     emit update();
 }
