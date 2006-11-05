@@ -29,9 +29,10 @@ class AttackFleet;
 class DefenseFleet;
 
 
-//---------------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 // Typedefs
-//---------------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+
 typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
 
 
@@ -57,9 +58,10 @@ private:
     KRandomSequence random;
 };
 
-//***************************************************************
+
+// ***************************************************************
 // class Sector
-//***************************************************************
+// ***************************************************************
 
 class Sector : public QObject
 {
@@ -93,9 +95,9 @@ protected slots:
 
     
 protected:
-    Planet *planet;  // a sector has 0 or 1 planets
-    Map *parentMap;
-    Coordinate c;
+    Coordinate  c;
+    Planet     *planet;  // a sector has 0 or 1 planets
+    Map        *parentMap;
 
 };
  

@@ -179,7 +179,7 @@ GameBoard::keyPressEvent( QKeyEvent *e )
     planetName += e->text().toUpper();
     
     foreach (Planet *p, planets) {
-        if( p->getName() == planetName )
+        if( p->name() == planetName )
             planetSelected( p );
     }
 
@@ -310,8 +310,8 @@ GameBoard::turn()
             QString msg;
             msg = i18n("The distance from Planet %1 to Planet %2 is %3 light years.\n"
                        "A ship leaving this turn will arrive on turn %4",
-                   sourcePlanet->getName(),
-                   destPlanet->getName(),
+                   sourcePlanet->name(),
+                   destPlanet->name(),
                    KGlobal::locale()->formatNumber( dist, 2 ),
                    KGlobal::locale()->formatNumber( turnNumber + (int)dist, 0 ));
             KMessageBox::information( this, msg, i18n("Distance"));
@@ -335,7 +335,7 @@ GameBoard::turn()
 
          int ships;
          foreach (Planet *home, planets) {
-            if (home->getPlayer() == (*currentPlayer)) {
+            if (home->player() == (*currentPlayer)) {
                 bool hasAttack = false;
                 ships = (int)floor(home->getFleet().getShipCount() * 0.7 );
                 
@@ -349,7 +349,7 @@ GameBoard::turn()
                         CoreLogic cl;
                         double dist = cl.distance( home, attack );
                         
-                        if ((dist < minDistance) &&  (attack->getPlayer() != (*currentPlayer)) &&
+                        if ((dist < minDistance) &&  (attack->player() != (*currentPlayer)) &&
                                 (attack->getFleet().getShipCount() < ships )) {
                             foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                 if (curFleet->destination == attack) {
@@ -377,7 +377,7 @@ GameBoard::turn()
                             double dist = cl.distance( home, attack );
                             int homeships = (int)floor(home->getFleet().getShipCount() * 0.5 );
                             
-                            if ((dist < minDistance) &&  (attack->getPlayer() == (*currentPlayer)) &&
+                            if ((dist < minDistance) &&  (attack->player() == (*currentPlayer)) &&
                                       (attack->getFleet().getShipCount() < homeships )) {
                                 foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                     if (curFleet->destination == attack) {
@@ -536,13 +536,13 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     if (planet)
     {
        if (!planetPlayer)
-          planetPlayer = planet->getPlayer();
+          planetPlayer = planet->player();
        if (!planetPlayer->isAiPlayer() && !planetPlayer->isNeutral())
           isHumanInvolved = true;
 
        QString color = planetPlayer->color().name();
-       colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>").arg(color, planet->getName()));
-       plainMsg = plainMsg.subs(planet->getName());
+       colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>").arg(color, planet->name()));
+       plainMsg = plainMsg.subs(planet->name());
     }
     msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
     msgWidget->moveCursor( QTextCursor::End );
@@ -579,7 +579,7 @@ GameBoard::scanForSurvivors()
     // iterate through the list of planets and
     // mark their owners in play
     foreach (Planet *planet, planets) {
-        planet->getPlayer()->setInPlay( true );
+        planet->player()->setInPlay( true );
     }
 
     foreach (plr, activePlayers) {
@@ -607,7 +607,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
     // if the planet and fleet owner are the same, then merge the fleets
     // otherwise attack.
 
-    if( (*arrivingFleet->owner) == (*arrivingFleet->destination->getPlayer())) {
+    if( (*arrivingFleet->owner) == (*arrivingFleet->destination->player())) {
         if (!arrivingFleet->owner->isAiPlayer()) {
         	arrivingFleet->destination->getFleet().absorb(arrivingFleet);
 
@@ -654,11 +654,11 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         }
 
         if( planetHolds ) {
-            prizePlanet.getPlayer()->statEnemyFleetsDestroyed(1);
+            prizePlanet.player()->statEnemyFleetsDestroyed(1);
             gameMsg(ki18n("Planet %2 has held against an attack from %1."),
                     attacker.owner, &prizePlanet);
         } else {
-            Player *defender = prizePlanet.getPlayer();
+            Player *defender = prizePlanet.player();
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
             arrivingFleet->destination->conquer( arrivingFleet );
@@ -771,7 +771,7 @@ GameBoard::planetSelected( Planet *planet )
 {
     switch( gameState ) {
     case SOURCE_PLANET:
-        if( ((*planet).getPlayer()) == (*currentPlayer) ) {
+        if( ((*planet).player()) == (*currentPlayer) ) {
             // got a match
             haveSourcePlanet = true;
             sourcePlanet = planet;

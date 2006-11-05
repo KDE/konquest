@@ -10,12 +10,15 @@
 
 Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwner,
                 int newProd, double newKillP, double newMorale )
-       : name(planetName), owner(initialOwner), parentSector(newParentSector),
-         homeFleet( this, newProd ), killPercentage(newKillP), morale( newMorale ), productionRate(newProd)
-
-
+  : m_name(planetName),
+    m_owner(initialOwner),
+    m_parentSector(newParentSector),
+    m_homeFleet( this, newProd ),
+    m_killPercentage(newKillP),
+    m_morale( newMorale ),
+    m_productionRate(newProd)
 {
-    parentSector.setPlanet( this );
+    m_parentSector.setPlanet( this );
 }
 
 Planet::~Planet() {}
@@ -45,96 +48,57 @@ Planet::createNeutralPlanet( Sector &parentSector, Player *initialOwner, QString
                        initialOwner, productionRate, killP, morale );
 }
 
-double
-Planet::getKillPercentage()
-{
-    return killPercentage;
-}
-
 void
 Planet::setKillPercentage( double newValue )
 {
-    killPercentage = newValue;
+    m_killPercentage = newValue;
 
     emit update();
-}
-
-double
-Planet::getMorale()
-{
-    return morale;
 }
 
 void
 Planet::setMorale( double newMorale )
 {
-    morale = newMorale;
+    m_morale = newMorale;
 }
 
-int
-Planet::getProduction()
-{
-    return productionRate;
-}
 
 void
 Planet::setProduction( int newProduction )
 {
-    productionRate = newProduction;
+    m_productionRate = newProduction;
 }
 
 void
 Planet::select()
 {
-    parentSector.select();
+    m_parentSector.select();
 
     emit selected();
 }
 
-DefenseFleet &Planet::getFleet()
-{
-    return homeFleet;
-}
-
-Player *
-Planet::getPlayer() const
-{
-    return owner;
-}
-
-const QString &
-Planet::getName() const
-{
-    return name;
-}
-
-Sector &
-Planet::getSector() const
-{
-    return parentSector;
-}
 
 void
 Planet::conquer( AttackFleet *conqueringFleet )
 {
-    owner = conqueringFleet->owner;
-    owner->statPlanetsConquered(1);
-    homeFleet.become( conqueringFleet );
+    m_owner = conqueringFleet->owner;
+    m_owner->statPlanetsConquered(1);
+    m_homeFleet.become( conqueringFleet );
 }
 
 void
 Planet::coup( Player *luckyPlayer )
 {
-    owner = luckyPlayer;
+    m_owner = luckyPlayer;
 }
 
 void
 Planet::turn()
 {
-    if( !(owner->isNeutral()) ) {
-        homeFleet.addShips( productionRate );
-        owner->statShipsBuilt( productionRate );
+    if( !(m_owner->isNeutral()) ) {
+        m_homeFleet.addShips( m_productionRate );
+        m_owner->statShipsBuilt( m_productionRate );
     } else {
-        homeFleet.addShips( 1 );
+        m_homeFleet.addShips( 1 );
     }
 }

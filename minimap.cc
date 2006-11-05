@@ -46,7 +46,7 @@ void MiniMap::paintEvent(QPaintEvent */*event*/) {
     for (int c = 0 ; c < map->getColumns() ; c++) {
         for (int r = 0 ; r < map->getRows() ; r++) {
             if (map->getSector(QPoint(c,r)).getPlanet() != 0) {
-                painter.setBrush( map->getSector(QPoint(c,r)).getPlanet()->getPlayer()->color() );
+                painter.setBrush( map->getSector(QPoint(c,r)).getPlanet()->player()->color() );
                 painter.drawEllipse( woffset + c*SECTOR_SIZE, r*SECTOR_SIZE, SECTOR_SIZE, SECTOR_SIZE );
             }
         }

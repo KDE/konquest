@@ -49,7 +49,7 @@ CoreLogic::generateMorale()
 double
 CoreLogic::distance( Planet *p1, Planet *p2 )
 {
-    Coordinate diff = p1->getSector().getCoord() - p2->getSector().getCoord();
+    Coordinate diff = p1->sector().getCoord() - p2->sector().getCoord();
     
     diff /= 2; // Why do this?
 
@@ -176,7 +176,7 @@ void
 Map::setSelectedSector( const Planet &planet )
 {
     hasSelectedSector = true;
-    sel = planet.getSector().getCoord();
+    sel = planet.sector().getCoord();
 
     emit update();
 }

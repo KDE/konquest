@@ -185,13 +185,13 @@ ConquestMap::drawSector( QPainter *p, Sector &sector )
         p->setFont( labelFont );
         p->setPen( labelColor );
 
-        p->drawText( sectorTopLeft+labelCorner, sector.getPlanet()->getName() );
+        p->drawText( sectorTopLeft+labelCorner, sector.getPlanet()->name() );
 
         QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
         bool doHighlight = secRect.contains( mapFromGlobal( QCursor::pos() ) );
 
         if( !doHighlight ) {
-            QPen gridPen( sector.getPlanet()->getPlayer()->color() );
+            QPen gridPen( sector.getPlanet()->player()->color() );
             p->setPen( gridPen );
         } else {
             QPen gridPen( Qt::white );

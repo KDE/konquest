@@ -24,6 +24,7 @@ private:
             double newKillP, double newMorale );
 
 public:
+    // FIXME: Nobody inherits Planet.  Why virtual?  /iw
     virtual ~Planet();
 
     static Planet *createPlayerPlanet( Sector &parentSector,
@@ -31,17 +32,21 @@ public:
     static Planet *createNeutralPlanet( Sector &parentSector,
                                         Player *initialOwner, QString planetName );
 
-    Sector &getSector() const;
-    Player *getPlayer() const;
-    const QString &getName() const;
-    DefenseFleet &getFleet();
+    Sector        &sector()     const { return m_parentSector; }
+    Player        *player()     const { return m_owner; }
 
-    double getKillPercentage();
-    void setKillPercentage( double newValue );
-    double getMorale();
-    void setMorale( double );
-    int getProduction();
-    void setProduction( int );
+    const QString &name()       const { return m_name; }
+    DefenseFleet  &getFleet()         { return m_homeFleet; }
+
+
+
+    double         getKillPercentage() const { return m_killPercentage; }
+
+    void           setKillPercentage( double newValue );
+    double         morale()     const { return m_morale; }
+    void           setMorale( double );
+    int            production() const { return m_productionRate; }
+    void           setProduction( int );
 
     void select();
     void conquer(  AttackFleet *conqueringFleet );
@@ -53,14 +58,14 @@ signals:
     void selected();
 
 private:
-    QString name;
-    Player *owner;
-    Sector &parentSector;
-    DefenseFleet homeFleet;
+    QString       m_name;
+    Player       *m_owner;
+    Sector       &m_parentSector;
+    DefenseFleet  m_homeFleet;
 
-    double killPercentage;
-    double morale;
-    int productionRate;
+    double        m_killPercentage;
+    double        m_morale;
+    int           m_productionRate;
 };
 
 typedef QList<Planet *> PlanetList;

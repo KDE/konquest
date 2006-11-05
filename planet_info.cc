@@ -59,7 +59,7 @@ void PlanetInfo::setPlanetList( PlanetList &newPlanets )
 void PlanetInfo::rescanPlanets()
 {
     foreach (planet_info_buffer *p, planet_stats) {
-        p->production = p->planet->getProduction();
+        p->production = p->planet->production();
         p->ships = p->planet->getFleet().getShipCount();
         p->killRate = p->planet->getKillPercentage();
     }
@@ -85,25 +85,23 @@ void PlanetInfo::emptyPlanetInfoList()
 
 void PlanetInfo::showPlanet( Planet *planet )
 {
-    if( planet->getPlayer()->isNeutral() ) {
+    if( planet->player()->isNeutral() ) {
         clearDisplay();
 
         QString temp;
 
-        temp = i18n("Planet name: %1", planet->getName());
+        temp = i18n("Planet name: %1", planet->name());
         infosLabel->setText( temp );
         return;
     }
-
-    QString nameToShow = planet->getName();
 
     foreach (planet_info_buffer *p, planet_stats) {
         if( p->planet  == planet ) {
 
             QString temp;
 
-            temp = i18n("Planet name: %1", p->planet->getName()) + "<br />";
-            temp = temp + i18n("Owner: %1", p->planet->getPlayer()->coloredName()) + "<br />";
+            temp = i18n("Planet name: %1", p->planet->name()) + "<br />";
+            temp = temp + i18n("Owner: %1", p->planet->player()->coloredName()) + "<br />";
             temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) ) + "<br />";
             temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) ) + "<br />";
             temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) ) + "<br />";
