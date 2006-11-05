@@ -14,7 +14,7 @@
 #include "map.h"
 #include "sector.h"
 
-ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
+MapView::MapView(  Map *newMap, QWidget *parent )
     : QFrame( parent ),
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
     BOARD_HEIGHT( newMap->rows() * SECTOR_HEIGHT ),
@@ -36,12 +36,12 @@ ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     setMouseTracking( true );
 }
 
-ConquestMap::~ConquestMap()
+MapView::~MapView()
 {
 }
 
 void
-ConquestMap::mousePressEvent( QMouseEvent *e )
+MapView::mousePressEvent( QMouseEvent *e )
 {
     Coordinate c( e->y()/SECTOR_HEIGHT, e->x()/SECTOR_WIDTH );
 
@@ -51,7 +51,7 @@ ConquestMap::mousePressEvent( QMouseEvent *e )
 }
 
 void
-ConquestMap::mouseMoveEvent( QMouseEvent *e )
+MapView::mouseMoveEvent( QMouseEvent *e )
 {
     // highlight the square under the mouse
     Coordinate c( e->y()/SECTOR_HEIGHT, e->x()/SECTOR_WIDTH );
@@ -79,14 +79,14 @@ ConquestMap::mouseMoveEvent( QMouseEvent *e )
 }
 
 void
-ConquestMap::unselectPlanet()
+MapView::unselectPlanet()
 {
     map->setSelectedSector();
 }
 
 
 void
-ConquestMap::paintEvent( QPaintEvent *ev )
+MapView::paintEvent( QPaintEvent *ev )
 {
     QRect r = ev->rect();
     int startRow = r.y() / SECTOR_HEIGHT;
@@ -101,7 +101,7 @@ ConquestMap::paintEvent( QPaintEvent *ev )
 }
 
 void
-ConquestMap::squareBlink()
+MapView::squareBlink()
 {
     static bool blinkState = true;
 
@@ -115,14 +115,14 @@ ConquestMap::squareBlink()
 
 
 void
-ConquestMap::mapUpdate()
+MapView::mapUpdate()
 {
     update();
 }
 
 
 void
-ConquestMap::drawSector( QPainter *p, Sector &sector )
+MapView::drawSector( QPainter *p, Sector &sector )
 {
     QColor labelColor( Qt::white );
     QPoint labelCorner;

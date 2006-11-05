@@ -8,14 +8,14 @@
 #include "gamecore.h"
 #include "images.h"
 
-class ConquestMap : public QFrame
+class MapView : public QFrame
 {
     Q_OBJECT
 
     // Constructors
 public:
-    ConquestMap( Map *newMap, QWidget *parent = 0 );
-    virtual ~ConquestMap();
+    MapView( Map *newMap, QWidget *parent = 0 );
+    virtual ~MapView();
 
     // Interface
 public:

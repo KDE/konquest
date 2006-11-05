@@ -51,7 +51,7 @@ GameBoard::GameBoard( QWidget *parent )
     //********************************************************************
     // Create the widgets in the main window
     //********************************************************************
-    mapWidget = new ConquestMap( map, this );
+    mapWidget = new MapView( map, this );
     msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
     msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

@@ -16,7 +16,7 @@ class QLineEdit;
 class QTextEdit;
 
 class Player;
-class ConquestMap;
+class MapView;
 class PlanetInfo;
 
 class KLocalizedString;
@@ -89,7 +89,7 @@ private:
     //***************************************************************
     // Display Widgets
     //***************************************************************
-    ConquestMap *mapWidget;
+    MapView *mapWidget;
     PlanetInfo *planetInfo;
     QLabel *gameMessage;
     QLabel *turnCounter;
