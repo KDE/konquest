@@ -1,0 +1,36 @@
+		 Overview over the files in konquest
+		 ===================================
+
+Game classes
+------------
+gamecore.h	gamecore.cc	Some general code  FIXME: to be removed
+map.h		map.cc		The playing field - the universe
+sector.h	sector.cc	One square on the Map.
+player.h	player.cc	Generic player
+planet.h	planet.cc	Info about a Planet
+fleet.h		fleet.cc	Info about a Fleet.
+
+
+Widgets & Views
+---------------
+gameboard.h	gameboard.cc	FIXME: To be cleaned
+planet_info.h	planet_info.cc	FIXME: To be cleaned
+map_widget.h	map_widget.cc	FIXME: To be cleaned
+minimap.h	minimap.cc	FIXME: To be cleaned
+mainwin.h	mainwin.cc	FIXME: To be cleaned
+
+
+Dialogs
+-------
+fleetdlg.h	fleetdlg.cc	FIXME: To be cleaned
+gameenddlg.h	gameenddlg.cc	FIXME: To be cleaned
+newgamedlg.h	newgamedlg.cc	FIXME: To be cleaned
+scoredlg.h	scoredlg.cc	FIXME: To be cleaned
+
+
+Misc
+----
+version.h			FIXME: To be cleaned
+Konquest.cc			FIXME: To be cleaned
+images.h			FIXME: To be cleaned
+
