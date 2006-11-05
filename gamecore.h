@@ -45,17 +45,17 @@ class CoreLogic
 public:
     CoreLogic();
 
-    Coordinate generatePlanetCoordinates();
-    double generateKillPercentage();
-    int generatePlanetProduction();
-    double generateMorale();
+    Coordinate  generatePlanetCoordinates();
+    double      generateKillPercentage();
+    int         generatePlanetProduction();
+    double      generateMorale();
 
-    double distance( Planet *p1, Planet *p2 );
+    double      distance( Planet *p1, Planet *p2 );
 
-    double roll();
+    double      roll();
 
 private:
-    KRandomSequence random;
+    KRandomSequence  random;
 };
 
 
@@ -113,12 +113,13 @@ public:
     Map();
     virtual ~Map();
 
-    const int getRows() const;
-    const int getColumns() const;
+    const int rows()    const { return rows;    }
+    const int columns() const { return columns; }
 
+
+    void clearMap();
     void populateMap( PlayerList &players, Player *neutral,
                       int numNeutralPlanets, PlanetList &thePlanets );
-    void clearMap();
     
     bool selectedSector( Coordinate &c ) const;
     void setSelectedSector( Coordinate c );

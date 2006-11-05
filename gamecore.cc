@@ -88,6 +88,26 @@ Map::~Map()
 {
 }
 
+
+void
+Map::clearMap()
+{
+    Freeze();
+
+    int x,y;
+
+    for( x = 0; x < rows; x++ )
+        for( y = 0; y < columns; y++ )
+        {
+            grid[y][x].removePlanet();
+        }
+
+    Thaw();
+
+    emit update();
+}
+
+
 void
 Map::populateMap( PlayerList &players, Player *neutral,
                   int numNeutralPlanets, PlanetList &thePlanets )
@@ -120,23 +140,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
     emit update();
 }
 
-void
-Map::clearMap()
-{
-    Freeze();
 
-    int x,y;
-
-    for( x = 0; x < rows; x++ )
-        for( y = 0; y < columns; y++ )
-        {
-            grid[y][x].removePlanet();
-        }
-
-    Thaw();
-
-    emit update();
-}
 
 Sector &
 Map::findRandomFreeSector()
@@ -210,15 +214,6 @@ Sector &Map::getSector( Coordinate c )
     return grid[c.y()][c.x()];
 }
 
-const int Map::getRows() const
-{
-    return rows;
-}
-
-const int Map::getColumns() const
-{
-    return columns;
-}
 
 //---------------------------------------------------------------------------
 // class Sector
