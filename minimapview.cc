@@ -36,7 +36,7 @@ void MiniMapView::paintEvent(QPaintEvent */*event*/) {
     } else {
         size = width();
     }
-    SECTOR_SIZE = size/(map->getColumns());
+    SECTOR_SIZE = size/(map->columns());
     
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -44,8 +44,8 @@ void MiniMapView::paintEvent(QPaintEvent */*event*/) {
     painter.setBrush(Qt::black);
     painter.drawRect(woffset, 0, size, size);
     
-    for (int c = 0 ; c < map->getColumns() ; c++) {
-        for (int r = 0 ; r < map->getRows() ; r++) {
+    for (int c = 0 ; c < map->columns() ; c++) {
+        for (int r = 0 ; r < map->rows() ; r++) {
             if (map->getSector(QPoint(c,r)).getPlanet() != 0) {
                 painter.setBrush( map->getSector(QPoint(c,r)).getPlanet()->player()->color() );
                 painter.drawEllipse( woffset + r*SECTOR_SIZE, c*SECTOR_SIZE, SECTOR_SIZE, SECTOR_SIZE );

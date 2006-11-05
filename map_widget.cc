@@ -17,8 +17,8 @@
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     : QFrame( parent ),
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
-    BOARD_HEIGHT( newMap->getRows() * SECTOR_HEIGHT ),
-    BOARD_WIDTH( newMap->getColumns() * SECTOR_WIDTH ),
+    BOARD_HEIGHT( newMap->rows() * SECTOR_HEIGHT ),
+    BOARD_WIDTH( newMap->columns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
     hiLiteCoord( -1, -1 )
 {
