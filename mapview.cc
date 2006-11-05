@@ -8,7 +8,7 @@
 #include <kglobalsettings.h>
 
 #include <kdebug.h>
-#include "map_widget.h"
+#include "mapview.h"
 #include "planet.h"
 #include "player.h"
 #include "map.h"
@@ -210,4 +210,4 @@ MapView::drawSector( QPainter *p, Sector &sector )
 
 }
 
-#include "map_widget.moc"
+#include "mapview.moc"

@@ -5,7 +5,7 @@
 
 #include "version.h"
 #include "mainwin.h"
-#include "map_widget.h"
+#include "mapview.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 
