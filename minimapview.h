@@ -18,8 +18,6 @@ protected:
     void paintEvent(QPaintEvent *event);
     
 private:
-    int SECTOR_SIZE;
-
     Map *map;
 };
 

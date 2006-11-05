@@ -1,9 +1,7 @@
 #ifndef _PLANET_INFO_H_
 #define _PLANET_INFO_H_
 
-#include <QFrame>
-#include <QString>
-#include <qpalette.h>
+#include <QPalette>
 #include <QLabel>
 
 #include "planet.h"

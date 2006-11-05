@@ -1,6 +1,5 @@
 #include <QLabel>
-#include <qpalette.h>
-#include <QFrame>
+#include <QPalette>
 #include <klocale.h>
 
 #include "planet_info.h"
@@ -15,7 +14,6 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
 
     setText( i18n("Planet informations"));
     setMouseTracking( true );
-    setFrameShadow(QFrame::Sunken);
 }
 
 void PlanetInfo::showPlanet( Planet *planet )

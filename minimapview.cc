@@ -7,7 +7,6 @@
 
 MiniMapView::MiniMapView(  QWidget *parent)
     : QWidget( parent ),
-    SECTOR_SIZE(12),
     map( 0 )
 {
     QPalette pal = palette();
@@ -29,6 +28,7 @@ void MiniMapView::paintEvent(QPaintEvent */*event*/) {
     // Non square map aren't handled currently...
     // Calculate the horizontal (width) offset, and the max usable size for the map...
     int size;
+    int sectorSize;
     int woffset = 0;
     if (width() > height()) {
         woffset = ((width() - height())/2);
@@ -36,7 +36,7 @@ void MiniMapView::paintEvent(QPaintEvent */*event*/) {
     } else {
         size = width();
     }
-    SECTOR_SIZE = size/(map->columns());
+    sectorSize = size/(map->columns());
     
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
@@ -48,7 +48,7 @@ void MiniMapView::paintEvent(QPaintEvent */*event*/) {
         for (int r = 0 ; r < map->rows() ; r++) {
             if (map->getSector(QPoint(c,r)).planet() != 0) {
                 painter.setBrush( map->getSector(QPoint(c,r)).planet()->player()->color() );
-                painter.drawEllipse( woffset + r*SECTOR_SIZE, c*SECTOR_SIZE, SECTOR_SIZE, SECTOR_SIZE );
+                painter.drawEllipse( woffset + r*sectorSize, c*sectorSize, sectorSize, sectorSize);
             }
         }
     }
