@@ -1,12 +1,9 @@
 Galactic Konquest
 -----------------
 
-Contributers are:
+Contributors are:
 
-- Russell Steffen <rsteffen@bayarea.net>
-
-
-- Computer/AI Player
-Stephan Zehetner <s.zehetner@nevox.org>
-
-
+- Russell Steffen <rsteffen@bayarea.net>	Initial program
+- Stephan Zehetner <s.zehetner@nevox.org>	Computer/AI Player
+- Dimitry Suzalev				Rewrite to KDE4
+- Inge Wallin	<inge@lysator.liu.se>		Cleaning and bugfixing
