@@ -10,6 +10,7 @@
 // Typedefs
 // -------------------------------------------------------------------------
 
+// FIXME: Move to Sector?
 typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
 
 

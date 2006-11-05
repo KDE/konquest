@@ -22,14 +22,14 @@ public:
     // assignment operator (makes initialization easy)
     Sector &operator=( const Sector & );
 
-    bool hasPlanet() const;
-    void setPlanet( Planet *newPlanet );
-    Planet *getPlanet();
-    void removePlanet();
+    Coordinate  coord()     const { return m_coord; }
+    bool        hasPlanet() const { return m_planet != NULL; }
+    Planet     *planet()    const { return m_planet; }
+    void        setPlanet( Planet *planet );
+    void        removePlanet();
 
-    void select();
+    void        select();
 
-    Coordinate getCoord();
 
 signals:
     void update();
@@ -40,9 +40,9 @@ protected slots:
 
     
 protected:
-    Map        *parentMap;
-    Coordinate  c;
-    Planet     *planet;  // a sector has 0 or 1 planets
+    Map        *m_map;
+    Coordinate  m_coord;
+    Planet     *m_planet;  // a sector has 0 or 1 planets
 };
 
 

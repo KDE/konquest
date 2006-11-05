@@ -9,17 +9,18 @@
 
 
 Map::Map()
-    : freezeUpdates( false ),
-    m_rows( BOARD_ROWS ), m_columns( BOARD_COLS ),
+  : freezeUpdates( false ),
+    m_rows( BOARD_ROWS ),
+    m_columns( BOARD_COLS ),
     hasSelectedSector( false )
 {
    // initialize the grid of Sectors
-    for( int x = 0; x < columns(); x++ )
+    for( int col = 0; col < columns(); col++ )
     {
-        for( int y = 0; y < rows(); y++ )
+        for( int row = 0; row < rows(); row++ )
         {
-            grid[y][x] = Sector( this, Coordinate(y, x) );
-            connect( &grid[y][x], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
+            grid[row][col] = Sector( this, Coordinate(row, col) );
+            connect( &grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
         }
     }
 }
@@ -81,7 +82,7 @@ Map::populateMap( PlayerList &players, Player *neutral,
 
 double Map::distance( Planet *p1, Planet *p2 )
 {
-    Coordinate  diff = p1->sector().getCoord() - p2->sector().getCoord();
+    Coordinate  diff = p1->sector().coord() - p2->sector().coord();
     return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())))/2;
 }
 
@@ -124,7 +125,7 @@ void
 Map::setSelectedSector( const Planet &planet )
 {
     hasSelectedSector = true;
-    sel = planet.sector().getCoord();
+    sel = planet.sector().coord();
 
     emit update();
 }
