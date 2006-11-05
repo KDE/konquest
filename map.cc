@@ -1,5 +1,5 @@
 #include <math.h>
-
+#include "gamecore.h"
 #include "map.h"
 #include "map.moc"
 

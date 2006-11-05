@@ -4,6 +4,7 @@
 #include "fleet.h"
 #include "player.h"
 #include "map.h"
+#include "gamecore.h"
 
 //---------------------------------------------------------------------------
 // class Planet

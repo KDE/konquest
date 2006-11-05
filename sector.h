@@ -2,7 +2,14 @@
 #define __SECTOR_H__
 
 #include <QObject>
-#include "gamecore.h"
+#include <QPoint>
+#include "planet.h"
+
+// -------------------------------------------------------------------------
+// Typedefs
+// -------------------------------------------------------------------------
+
+typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
 
 // ***************************************************************
 // class Sector

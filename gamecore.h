@@ -3,16 +3,7 @@
 
 #include <krandomsequence.h>
 
-#include <QPoint>
-#include "planet.h"
-
-// -------------------------------------------------------------------------
-// Typedefs
-// -------------------------------------------------------------------------
-
-// FIXME: Move to Sector?
-typedef QPoint Coordinate;  // Gotta start using this instead of int x,y crap
-
+#include "sector.h"
 
 //**********************************************************
 // Core Logic routines
