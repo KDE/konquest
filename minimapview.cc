@@ -1,10 +1,10 @@
-#include "minimap.h"
-#include "minimap.moc"
+#include "minimapview.h"
+#include "minimapview.moc"
 #include "planet.h"
 #include "player.h"
 #include <QPainter>
 
-MiniMap::MiniMap(  QWidget *parent)
+MiniMapView::MiniMapView(  QWidget *parent)
     : QWidget( parent ),
     SECTOR_SIZE(12),
     map( 0 )
@@ -18,13 +18,13 @@ MiniMap::MiniMap(  QWidget *parent)
 }
 
 void
-MiniMap::setMap(Map *newMap)
+MiniMapView::setMap(Map *newMap)
 {
     map = newMap;
     connect( map, SIGNAL( update() ), this, SLOT( update() ) );
 }
 
-void MiniMap::paintEvent(QPaintEvent */*event*/) {
+void MiniMapView::paintEvent(QPaintEvent */*event*/) {
     // Non square map aren't handled currently...
     // Calculate the horizontal (width) offset, and the max usable size for the map...
     int size;

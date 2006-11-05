@@ -229,7 +229,7 @@
                 </widget>
               </item>
               <item>
-                <widget class="MiniMap" name="map" />
+                <widget class="MiniMapView" name="map" />
               </item>
               <item>
                 <layout class="QHBoxLayout" >
@@ -326,7 +326,7 @@
   <customwidgets>
     <customwidget>
       <class>MiniMap</class>
-      <header location="local" >minimap.h</header>
+      <header location="local" >minimapview.h</header>
       <sizehint>
         <width>250</width>
         <height>250</height>
@@ -345,6 +345,6 @@
     </image>
   </images>
   <includes>
-    <include location="local" >minimap.h</include>
+    <include location="local" >minimapview.h</include>
   </includes>
 </ui>

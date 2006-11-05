@@ -5,12 +5,12 @@
 
 #include "gamecore.h"
 
-class MiniMap : public QWidget
+class MiniMapView : public QWidget
 {
     Q_OBJECT
 
 public:
-    MiniMap( QWidget *parent = 0 );
+    MiniMapView( QWidget *parent = 0 );
 
     void setMap( Map *newMap );
 

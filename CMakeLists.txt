@@ -16,7 +16,7 @@ set(konquest_SRCS
    gamecore.cc 
    mainwin.cc 
    map_widget.cc 
-   minimap.cc 
+   minimapview.cc 
    newgamedlg.cc 
    planet_info.cc 
    gameenddlg.cc 

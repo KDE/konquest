@@ -4,7 +4,7 @@
 #include <kdialog.h>
 
 #include "planet.h"
-#include "minimap.h"
+#include "minimapview.h"
 #include "ui_newGameDlg_ui.h"
 #include "player.h"
 

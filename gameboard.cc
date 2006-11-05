@@ -501,21 +501,19 @@ Player *
 GameBoard::findWinner()
 {
     Player *winner = 0;
-    int activePlayers = 0;
 
     foreach (Player *plr, players) {
         if (plr->isInPlay())
         {
+            if (winner != 0)
+                return 0;
             winner = plr;
-            activePlayers++;
         }
         else if (plr->attackList().count() != 0)
-            activePlayers++;
+            // There is still a fleet attacking, so wait for its arrival...
+            return 0;
     }
-    if (activePlayers == 1)
-        return winner;
-
-    return 0;
+    return winner;
 }
 
 void
