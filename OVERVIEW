@@ -30,7 +30,7 @@ scoredlg.h	scoredlg.cc	FIXME: To be cleaned
 
 Misc
 ----
+Konquest.cc			The main program.
 version.h			FIXME: Use global KDE version?
-Konquest.cc			FIXME: To be cleaned
 images.h			Declaration of all the images.
 

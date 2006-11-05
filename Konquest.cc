@@ -7,7 +7,9 @@
 #include "version.h"
 #include "mainwin.h"
 
+
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
+
 
 int
 main(int argc, char **argv)
@@ -15,7 +17,8 @@ main(int argc, char **argv)
     KAboutData aboutData( "konquest", I18N_NOOP("Konquest"),
         KONQUEST_VERSION, description, KAboutData::License_GPL,
         I18N_NOOP("Copyright (c) 1999-2006, Developers"));
-    aboutData.addAuthor("Russ Steffen",0, "rsteffen@bayarea.net");
+
+    aboutData.addAuthor("Russ Steffen", 0, "rsteffen@bayarea.net");
     aboutData.addCredit("Stephan Zehetner", "Computer/AI Player", "s.zehetner@nevox.org");
     aboutData.addCredit("Dimitry Suzalev", "Port to KDE4");
     aboutData.addCredit("Inge Wallin", "Cleaning and bugfixing", "inge@lysator.liu.se");
@@ -34,4 +37,3 @@ main(int argc, char **argv)
     }
     return a.exec();
 }
-
