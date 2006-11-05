@@ -2,7 +2,6 @@
 #define _GAMECORE_H_
 
 #include <krandomsequence.h>
-
 #include "sector.h"
 
 //**********************************************************

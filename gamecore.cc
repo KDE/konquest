@@ -1,9 +1,4 @@
 #include "gamecore.h"
-
-#include <math.h>
-
-#include <config.h>
-#include "planet.h"
 #include "sector.h"
 
 //*******************************************************************

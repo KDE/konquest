@@ -11,12 +11,12 @@ class ScoreDlg : public QDialog
 {
 
 public:
-    ScoreDlg( QWidget *parent, const QString& title, PlayerList *players );
+    ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players );
 
 private:
     void init();
 
-    PlayerList *plrList;
+    QList<Player *> *plrList;
     QTableWidget *scoreTable;
 
 };

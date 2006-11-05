@@ -83,7 +83,7 @@ private:
     //***************************************************************
     bool gameInProgress;
     GameState gameState;
-    PlayerList::Iterator currentPlayer;
+    QList<Player *>::Iterator currentPlayer;
 
     //***************************************************************
     // Display Widgets
@@ -104,8 +104,8 @@ private:
     int turnNumber;
     int lastTurn;
 
-    PlayerList players;
-    PlanetList planets;
+    QList<Player *> players;
+    QList<Planet *> planets;
     Player *neutralPlayer;
     Map *map;
 

@@ -555,8 +555,8 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
 void
 GameBoard::scanForSurvivors()
 {
-    PlayerList activePlayers;
-    PlayerList inactivePlayers;
+    QList<Player *> activePlayers;
+    QList<Player *> inactivePlayers;
 
     // insert all of the active players into a special
     // list, the deactivate them

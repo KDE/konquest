@@ -49,8 +49,8 @@ Map::clearMap()
 }
 
 void
-Map::populateMap( PlayerList &players, Player *neutral,
-                  int numNeutralPlanets, PlanetList &thePlanets )
+Map::populateMap( QList<Player *> &players, Player *neutral,
+                  int numNeutralPlanets, QList<Planet *> &thePlanets )
 {
     Freeze();
 

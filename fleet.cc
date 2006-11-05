@@ -1,6 +1,7 @@
 #include "fleet.h"
 #include "fleet.moc"
 #include "planet.h"
+
 //---------------------------------------------------------------------------
 // class Fleet
 //   \---class AttackFleet

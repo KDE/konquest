@@ -1,7 +1,6 @@
 #include "map.h"
 #include "player.h"
 #include "planet.h"
-#include "gamecore.h"
 
 //---------------------------------------------------------------------------
 // class Player
@@ -51,7 +50,6 @@ bool
 Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 		   int shipCount, int turn )
 {
-    CoreLogic    cl;
     double       arrival = m_map->distance( sourcePlanet, destPlanet ) + turn;
     AttackFleet *fleet;
 

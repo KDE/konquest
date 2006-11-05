@@ -74,8 +74,4 @@ private:
     int  m_enemyShipsDestroyed;
 };
 
-
-typedef QList<Player *> PlayerList;
-
-
 #endif

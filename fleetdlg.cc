@@ -12,6 +12,7 @@
 #include <math.h> // for ceil
 
 #include "fleetdlg.h"
+#include "planet.h"
 
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     : QDialog(parent), fleetList(fleets)

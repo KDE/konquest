@@ -64,6 +64,4 @@ private:
     int           m_productionRate;
 };
 
-typedef QList<Planet *> PlanetList;
-
 #endif

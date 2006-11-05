@@ -1,5 +1,5 @@
 #include <QLayout>
-#include <iostream>
+#include <QHeaderView>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <kapplication.h>
@@ -11,7 +11,7 @@
 #include "scoredlg.h"
 
 
-ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
+ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players )
     : QDialog(parent), plrList(players)
 {
     setObjectName( "ScoreDlg" );
@@ -24,6 +24,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, PlayerList *players )
     headers << i18n("Player") << i18n("Ships Built") << i18n("Planets Conquered");
     headers << i18n("Fleets Launched") << i18n("Fleets Destroyed") << i18n("Ships Destroyed");
     scoreTable->setHorizontalHeaderLabels(headers);
+    scoreTable->verticalHeader()->hide();
     scoreTable->setMinimumSize( scoreTable->sizeHint() );
     scoreTable->setSortingEnabled(true);
 

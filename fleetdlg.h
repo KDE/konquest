@@ -4,14 +4,13 @@
 #include <QDialog>
 
 #include "fleet.h"
-#include "planet.h"
 
 class QTableWidget;
 
 class FleetDlg : public QDialog
 {
 public: 
-	FleetDlg( QWidget *parent, AttackFleetList *fleets );
+    FleetDlg( QWidget *parent, AttackFleetList *fleets );
 
 private:
     void init();

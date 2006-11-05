@@ -27,8 +27,8 @@ public:
     const int  columns() const { return m_columns; }
 
     void       clearMap();
-    void       populateMap( PlayerList &players, Player *neutral,
-			    int numNeutralPlanets, PlanetList &thePlanets );
+    void       populateMap( QList<Player *> &players, Player *neutral,
+			    int numNeutralPlanets, QList<Planet *> &thePlanets );
     
     double     distance( Planet *p1, Planet *p2 );
 

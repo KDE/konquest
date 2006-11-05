@@ -29,8 +29,8 @@ class NewGameDlg : public KDialog
     Q_OBJECT
 
 public:
-    NewGameDlg( QWidget *parent, Map *map, PlayerList *playerList,
-                Player *neutralPlayer, PlanetList *planetList );
+    NewGameDlg( QWidget *parent, Map *map, QList<Player *> *playerList,
+                Player *neutralPlayer, QList<Planet *> *planetList );
 
     int turns( void );
 
@@ -52,8 +52,8 @@ private:
     void setPlayerCount(int playerCount);
 
 private:
-    PlayerList *plrList;
-    PlanetList *plnetList;
+    QList<Player *> *plrList;
+    QList<Planet *> *plnetList;
     Player *neutral;
     Map *map;
 

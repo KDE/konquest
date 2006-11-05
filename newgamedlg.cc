@@ -27,8 +27,8 @@
  New Game Dialog Members
  ************************************************************************/
 
-NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, PlayerList *players,
-                        Player *neutralPlayer, PlanetList *planets )
+NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
+                        Player *neutralPlayer, QList<Planet *> *planets )
     : KDialog( parent),
       plrList(players), plnetList(planets), neutral(neutralPlayer),
       map(pmap)
