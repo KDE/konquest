@@ -3,8 +3,8 @@
 
 Game classes
 ------------
-gamecore.h	gamecore.cc	Some general code  FIXME: to be removed	FIXME: To be cleaned
-map.h		map.cc		The playing field - the universe	FIXME: To be cleaned
+gamecore.h	gamecore.cc	Some general code  FIXME: to be removed
+map.h		map.cc		The playing field - the universe
 sector.h	sector.cc	One square on the Map
 player.h	player.cc	Generic player
 planet.h	planet.cc	Info about a Planet

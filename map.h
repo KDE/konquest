@@ -9,9 +9,11 @@
 #define BOARD_ROWS 16
 #define BOARD_COLS 16
 
+
 //*****************************************************************
 // class Map
 //*****************************************************************
+
 
 class Map : public QObject
 {
@@ -44,22 +46,25 @@ signals:
     void update();
 
 protected:
-    void Freeze();
-    void Thaw();
-    bool freezeUpdates;
+    void  Freeze();
+    void  Thaw();
 
 private:
     Sector &findRandomFreeSector();
     
 protected:
-    Sector grid[BOARD_ROWS][BOARD_COLS];  // a map is a 2-D array of sectors;
-    const int m_rows; // size of grid in sectors
-    const int m_columns;
+    // A map is a 2-D array of Sectors.
+    Sector     m_grid[BOARD_ROWS][BOARD_COLS];
+    const int  m_rows; // size of grid in sectors
+    const int  m_columns;
+
+    // To inhibit updates on the view.
+    bool  m_freezeUpdates;
 
     // This is used to implement a selected sector,
     // one who's boarder flashes.
-    bool hasSelectedSector;
-    Coordinate  sel;
+    bool        m_hasSelectedSector;
+    Coordinate  m_selection;
 };
 
 #endif

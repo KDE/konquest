@@ -9,18 +9,18 @@
 
 
 Map::Map()
-  : freezeUpdates( false ),
+  : m_freezeUpdates( false ),
     m_rows( BOARD_ROWS ),
     m_columns( BOARD_COLS ),
-    hasSelectedSector( false )
+    m_hasSelectedSector( false )
 {
    // initialize the grid of Sectors
     for( int col = 0; col < columns(); col++ )
     {
         for( int row = 0; row < rows(); row++ )
         {
-            grid[row][col] = Sector( this, Coordinate(row, col) );
-            connect( &grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
+            m_grid[row][col] = Sector( this, Coordinate(row, col) );
+            connect( &m_grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
         }
     }
 }
@@ -40,7 +40,7 @@ Map::clearMap()
     for( x = 0; x < rows(); x++ )
         for( y = 0; y < columns(); y++ )
         {
-            grid[y][x].removePlanet();
+            m_grid[y][x].removePlanet();
         }
 
     Thaw();
@@ -96,27 +96,27 @@ Map::findRandomFreeSector()
     do
     {
         c = cl.generatePlanetCoordinates();
-    } while( grid[c.y()][c.x()].hasPlanet() );
+    } while( m_grid[c.y()][c.x()].hasPlanet() );
 
-    return grid[c.y()][c.x()];
+    return m_grid[c.y()][c.x()];
 }
 
 bool
 Map::selectedSector( Coordinate &c ) const
 {
-    if( hasSelectedSector)
+    if( m_hasSelectedSector)
     {
-        c = sel;
+        c = m_selection;
     }
 
-    return hasSelectedSector;
+    return m_hasSelectedSector;
 }
 
 void
 Map::setSelectedSector( Coordinate c )
 {
-    hasSelectedSector = true;
-    sel = c;
+    m_hasSelectedSector = true;
+    m_selection = c;
 
     emit update();
 }
@@ -124,8 +124,8 @@ Map::setSelectedSector( Coordinate c )
 void
 Map::setSelectedSector( const Planet &planet )
 {
-    hasSelectedSector = true;
-    sel = planet.sector().coord();
+    m_hasSelectedSector = true;
+    m_selection = planet.sector().coord();
 
     emit update();
 }
@@ -133,28 +133,28 @@ Map::setSelectedSector( const Planet &planet )
 void
 Map::setSelectedSector()
 {
-    hasSelectedSector = false;
+    m_hasSelectedSector = false;
 
     emit update();
 }
 
 void Map::childSectorUpdate()
 {
-    if( !freezeUpdates )
+    if( !m_freezeUpdates )
         emit update();
 }
 
 void Map::Freeze()
 {
-    freezeUpdates = true;
+    m_freezeUpdates = true;
 }
 
 void Map::Thaw()
 {
-    freezeUpdates = false;
+    m_freezeUpdates = false;
 }
 
 Sector &Map::getSector( Coordinate c )
 {
-    return grid[c.y()][c.x()];
+    return m_grid[c.y()][c.x()];
 }
