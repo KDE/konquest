@@ -45,7 +45,7 @@ GameBoard::GameBoard( QWidget *parent )
     palette.setColorGroup( QPalette::Inactive, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
     palette.setColorGroup( QPalette::Disabled, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
 
-    neutralPlayer = Player::createNeutralPlayer();
+    neutralPlayer = Player::createNeutralPlayer(map);
     map = new Map;
 
     //********************************************************************
@@ -306,7 +306,7 @@ GameBoard::turn()
 
             // Display the distance between the two planets
             CoreLogic cl;
-            double dist = cl.distance( sourcePlanet, destPlanet );
+            double dist = map->distance( sourcePlanet, destPlanet );
 
             QString msg;
             msg = i18n("The distance from Planet %1 to Planet %2 is %3 light years.\n"
@@ -348,7 +348,7 @@ GameBoard::turn()
                         bool skip = false;
                         
                         CoreLogic cl;
-                        double dist = cl.distance( home, attack );
+                        double dist = map->distance( home, attack );
                         
                         if ((dist < minDistance) &&  (attack->player() != (*currentPlayer)) &&
                                 (attack->fleet().shipCount() < ships )) {
@@ -375,7 +375,7 @@ GameBoard::turn()
                         foreach (attack, planets) {
                             bool skip = false;
                             CoreLogic cl;
-                            double dist = cl.distance( home, attack );
+                            double dist = map->distance( home, attack );
                             int homeships = (int)floor(home->fleet().shipCount() * 0.5 );
                             
                             if ((dist < minDistance) &&  (attack->player() == (*currentPlayer)) &&

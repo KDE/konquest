@@ -1,3 +1,4 @@
+#include "map.h"
 #include "player.h"
 #include "planet.h"
 #include "gamecore.h"
@@ -5,8 +6,11 @@
 //---------------------------------------------------------------------------
 // class Player
 //---------------------------------------------------------------------------
-Player::Player( QString newName, QColor newColor, int newPlrNum, bool isAi )
-  : m_name( newName ), m_color( newColor ),
+
+Player::Player( Map *map, QString newName, QColor newColor, int newPlrNum, 
+		bool isAi )
+  : m_map( map ),
+    m_name( newName ), m_color( newColor ),
     m_playerNum( newPlrNum ),
     m_inPlay( true ),
     m_aiPlayer( isAi ),
@@ -30,15 +34,16 @@ Player::coloredName() const
 }
 
 
-Player *Player::createPlayer( QString newName, QColor color, int playerNum, 
+Player *Player::createPlayer( Map *map, QString newName, QColor color, int playerNum, 
 			      bool isAi )
 {
-    return new Player( newName, color, playerNum, isAi );
+    return new Player( map, newName, color, playerNum, isAi );
 }
 
-Player *Player::createNeutralPlayer()
+Player *Player::createNeutralPlayer( Map *map )
 {
-    return new Player( QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER, false );
+    return new Player( map, QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER, 
+		       false );
 }
 
 
@@ -47,7 +52,7 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 		   int shipCount, int turn )
 {
     CoreLogic    cl;
-    double       arrival = cl.distance( sourcePlanet, destPlanet ) + turn;
+    double       arrival = m_map->distance( sourcePlanet, destPlanet ) + turn;
     AttackFleet *fleet;
 
     fleet = sourcePlanet->fleet().spawnAttackFleet( destPlanet, shipCount, 

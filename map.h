@@ -17,13 +17,15 @@ public:
     Map();
     virtual ~Map();
 
-    const int rows() const { return m_rows; }
-    const int columns() const { return m_columns; }
+    const int  rows()    const { return m_rows;    }
+    const int  columns() const { return m_columns; }
 
-    void populateMap( PlayerList &players, Player *neutral,
-                      int numNeutralPlanets, PlanetList &thePlanets );
-    void clearMap();
+    void       clearMap();
+    void       populateMap( PlayerList &players, Player *neutral,
+			    int numNeutralPlanets, PlanetList &thePlanets );
     
+    double     distance( Planet *p1, Planet *p2 );
+
     bool selectedSector( Coordinate &c ) const;
     void setSelectedSector( Coordinate c );
     void setSelectedSector( const Planet & );

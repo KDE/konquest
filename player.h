@@ -12,7 +12,7 @@
 class Player
 {
 public:
-    Player( QString newName, QColor color, int number, bool isAi );
+    Player( Map *map, QString newName, QColor color, int number, bool isAi );
     virtual ~Player();
 
     bool operator==( const Player &otherPlayer ) const
@@ -28,8 +28,9 @@ public:
     AttackFleetList &attackList() { return m_attackList; }
 
     // factory functions
-    static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
-    static Player *createNeutralPlayer();
+    static Player *createPlayer( Map *map, QString newName, QColor newColor, 
+				 int playerNum, bool isAi  );
+    static Player *createNeutralPlayer( Map *map );
 
     bool NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int departureTurn );
 
@@ -52,6 +53,9 @@ public:
     int  enemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
 
 private:
+    // Points to the Map we're playing on.
+    Map     *m_map;
+
     // Some fundamental properties.
     QString  m_name;
     QColor   m_color;

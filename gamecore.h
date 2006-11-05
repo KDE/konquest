@@ -34,8 +34,6 @@ public:
     double      generateKillPercentage();
     int         generatePlanetProduction();
 
-    double      distance( Planet *p1, Planet *p2 );
-
     double      roll();
 
 private:

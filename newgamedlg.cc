@@ -312,7 +312,7 @@ NewGameDlg::updateMiniMap()
         QString playerName = item->text(0);
         bool ai = (item->text(2) == "A");
         QColor color(item->text(3));
-        plrList->append( Player::createPlayer( playerName, color, plrNum, ai ));
+        plrList->append( Player::createPlayer( map, playerName, color, plrNum, ai ));
         plrNum++;
     }
 

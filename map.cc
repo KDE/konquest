@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "map.h"
 #include "map.moc"
 
@@ -24,6 +26,25 @@ Map::Map()
 
 Map::~Map()
 {
+}
+
+
+void
+Map::clearMap()
+{
+    Freeze();
+
+    int x,y;
+
+    for( x = 0; x < rows(); x++ )
+        for( y = 0; y < columns(); y++ )
+        {
+            grid[y][x].removePlanet();
+        }
+
+    Thaw();
+
+    emit update();
 }
 
 void
@@ -58,23 +79,16 @@ Map::populateMap( PlayerList &players, Player *neutral,
     emit update();
 }
 
-void
-Map::clearMap()
+
+double Map::distance( Planet *p1, Planet *p2 )
 {
-    Freeze();
+    Coordinate  diff = p1->sector().getCoord() - p2->sector().getCoord();
+    
+    diff /= 2; // Why do this?  
 
-    int x,y;
-
-    for( x = 0; x < rows(); x++ )
-        for( y = 0; y < columns(); y++ )
-        {
-            grid[y][x].removePlanet();
-        }
-
-    Thaw();
-
-    emit update();
+    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())));
 }
+
 
 Sector &
 Map::findRandomFreeSector()

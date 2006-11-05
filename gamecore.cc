@@ -36,15 +36,6 @@ CoreLogic::generatePlanetProduction()
     return 5 + random.getLong(10);
 }
 
-double
-CoreLogic::distance( Planet *p1, Planet *p2 )
-{
-    Coordinate diff = p1->sector().getCoord() - p2->sector().getCoord();
-    
-    diff /= 2; // Why do this?
-
-    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())));
-}
 
 double
 CoreLogic::roll()

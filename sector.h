@@ -43,7 +43,7 @@ protected:
     Map        *parentMap;
     Coordinate  c;
     Planet     *planet;  // a sector has 0 or 1 planets
-
 };
+
 
 #endif
