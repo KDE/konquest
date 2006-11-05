@@ -21,7 +21,7 @@ private:
 
     Planet( QString planetName, Sector &newParentSector,
             Player *initialOwner, int newProd,
-            double newKillP, double newMorale );
+            double newKillP );
 
 public:
     // FIXME: Nobody inherits Planet.  Why virtual?  /iw
@@ -42,8 +42,6 @@ public:
     double         killPercentage() const { return m_killPercentage; }
 
     void           setKillPercentage( double newValue );
-    double         morale()     const { return m_morale; }
-    void           setMorale( double );
     int            production() const { return m_productionRate; }
     void           setProduction( int );
 
@@ -63,7 +61,6 @@ private:
     DefenseFleet  m_homeFleet;
 
     double        m_killPercentage;
-    double        m_morale;
     int           m_productionRate;
 };
 

@@ -133,11 +133,12 @@ MapView::drawSector( QPainter *p, Sector &sector )
 
     if( sector.hasPlanet() ) {
         QPixmap pm;
-
+        
         // simple (pathetic) way to "randomize"
         // the planet graphic
         // and also a really dirty hack to make the planet
         // name more visible (hard coded pixel offsets)
+        
         switch( ((sector.getCoord().x()+sector.getCoord().y()) % 9) + 1  ) {
         case 1 :
             pm = QPixmap( IMAGE_PLANET_1 );

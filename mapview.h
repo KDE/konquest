@@ -1,5 +1,5 @@
-#ifndef _MAP_WIDGET_H
-#define _MAP_WIDGET_H
+#ifndef _MAPVIEW_H
+#define _MAPVIEW_H
 
 
 #include <QFrame>

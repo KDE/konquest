@@ -1,5 +1,5 @@
-#ifndef _MINIMAP_H
-#define _MINIMAP_H
+#ifndef _MINIMAPVIEW_H
+#define _MINIMAPVIEW_H
 
 #include <QWidget>
 

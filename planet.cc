@@ -10,13 +10,12 @@
 //---------------------------------------------------------------------------
 
 Planet::Planet( QString planetName, Sector &newParentSector, Player *initialOwner,
-                int newProd, double newKillP, double newMorale )
+                int newProd, double newKillP )
   : m_name(planetName),
     m_owner(initialOwner),
     m_parentSector(newParentSector),
     m_homeFleet( this, newProd ),
     m_killPercentage(newKillP),
-    m_morale( newMorale ),
     m_productionRate(newProd)
 {
     m_parentSector.setPlanet( this );
@@ -29,11 +28,8 @@ Planet *
 Planet::createPlayerPlanet( Sector &parentSector, Player *initialOwner, 
 			    QString planetName )
 {
-    CoreLogic  clogic;
-    double     morale = clogic.generateMorale();
-
     return new Planet( planetName, parentSector, initialOwner,
-                       10, 0.400, morale );
+                       10, 0.400 );
 }
 
 
@@ -42,12 +38,11 @@ Planet::createNeutralPlanet( Sector &parentSector, Player *initialOwner,
 			     QString planetName )
 {
     CoreLogic  clogic;
-    double     morale         = clogic.generateMorale();
     double     killP          = clogic.generateKillPercentage();
     int        productionRate = (int)clogic.generatePlanetProduction();
 
     return new Planet( planetName, parentSector,
-                       initialOwner, productionRate, killP, morale );
+                       initialOwner, productionRate, killP );
 }
 
 
@@ -57,12 +52,6 @@ Planet::setKillPercentage( double newValue )
     m_killPercentage = newValue;
 
     emit update();
-}
-
-void
-Planet::setMorale( double newMorale )
-{
-    m_morale = newMorale;
 }
 
 void

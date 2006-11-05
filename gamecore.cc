@@ -37,13 +37,6 @@ CoreLogic::generatePlanetProduction()
 }
 
 double
-CoreLogic::generateMorale()
-{
-    // constant
-    return 0.50;
-}
-
-double
 CoreLogic::distance( Planet *p1, Planet *p2 )
 {
     Coordinate diff = p1->sector().getCoord() - p2->sector().getCoord();

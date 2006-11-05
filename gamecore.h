@@ -33,7 +33,6 @@ public:
     Coordinate  generatePlanetCoordinates();
     double      generateKillPercentage();
     int         generatePlanetProduction();
-    double      generateMorale();
 
     double      distance( Planet *p1, Planet *p2 );
 
