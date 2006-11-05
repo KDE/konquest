@@ -45,22 +45,6 @@ Planet::createNeutralPlanet( Sector *sector, Player *initialOwner,
                        initialOwner, productionRate, killP );
 }
 
-
-void
-Planet::setKillPercentage( double newValue )
-{
-    m_killPercentage = newValue;
-
-    emit update();
-}
-
-void
-Planet::setProduction( int newProduction )
-{
-    m_productionRate = newProduction;
-}
-
-
 void
 Planet::select()
 {
@@ -76,12 +60,6 @@ Planet::conquer( AttackFleet *conqueringFleet )
     m_owner = conqueringFleet->owner;
     m_owner->statPlanetsConquered(1);
     m_homeFleet.become( conqueringFleet );
-}
-
-void
-Planet::coup( Player *luckyPlayer )
-{
-    m_owner = luckyPlayer;
 }
 
 void

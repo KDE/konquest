@@ -41,13 +41,10 @@ public:
 
     double         killPercentage() const { return m_killPercentage; }
 
-    void           setKillPercentage( double newValue );
     int            production() const { return m_productionRate; }
-    void           setProduction( int );
 
     void  select();
     void  conquer( AttackFleet *conqueringFleet );
-    void  coup( Player *luckyPlayer );
     void  turn();
 
 signals:
