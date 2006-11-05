@@ -2,7 +2,6 @@
 #define _GAMEBOARD_H_
 
 #include <QWidget>
-#include "gamecore.h"
 #include "planet.h"
 #include "player.h"
 

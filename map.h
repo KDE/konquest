@@ -5,6 +5,10 @@
 #include "sector.h"
 #include "player.h"
 
+// Board Size Constants
+#define BOARD_ROWS 16
+#define BOARD_COLS 16
+
 //*****************************************************************
 // class Map
 //*****************************************************************

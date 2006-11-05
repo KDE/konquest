@@ -305,7 +305,6 @@ GameBoard::turn()
             mapWidget->unselectPlanet();
 
             // Display the distance between the two planets
-            CoreLogic cl;
             double dist = map->distance( sourcePlanet, destPlanet );
 
             QString msg;
@@ -347,7 +346,6 @@ GameBoard::turn()
                     foreach (attack, planets) {
                         bool skip = false;
                         
-                        CoreLogic cl;
                         double dist = map->distance( home, attack );
                         
                         if ((dist < minDistance) &&  (attack->player() != (*currentPlayer)) &&
@@ -374,7 +372,6 @@ GameBoard::turn()
                         
                         foreach (attack, planets) {
                             bool skip = false;
-                            CoreLogic cl;
                             double dist = map->distance( home, attack );
                             int homeships = (int)floor(home->fleet().shipCount() * 0.5 );
                             

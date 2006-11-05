@@ -14,7 +14,6 @@
 #include <kicon.h>
 
 #include "version.h"
-#include "gamecore.h"
 #include "mainwin.h"
 #include "mainwin.moc"
 #include "gameboard.h"

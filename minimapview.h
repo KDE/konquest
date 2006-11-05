@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "gamecore.h"
+#include "map.h"
 
 class MiniMapView : public QWidget
 {

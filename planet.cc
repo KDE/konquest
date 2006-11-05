@@ -3,7 +3,7 @@
 #include "planet.moc"
 #include "fleet.h"
 #include "player.h"
-#include "gamecore.h"
+#include "map.h"
 
 //---------------------------------------------------------------------------
 // class Planet

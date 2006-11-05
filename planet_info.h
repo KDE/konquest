@@ -7,7 +7,6 @@
 #include <qpalette.h>
 #include <QLabel>
 
-//#include "gamecore.h"
 #include "planet.h"
 
 

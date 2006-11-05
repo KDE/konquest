@@ -6,10 +6,6 @@
 #include <QPoint>
 #include "planet.h"
 
-// Board Size Constants
-#define BOARD_ROWS 16
-#define BOARD_COLS 16
-
 // Maximum Number of Players
 #define MAX_PLAYERS 10
 

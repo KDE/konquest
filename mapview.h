@@ -5,7 +5,7 @@
 #include <QFrame>
 
 #include "map.h"
-#include "gamecore.h"
+#include "map.h"
 #include "images.h"
 
 class MapView : public QFrame
