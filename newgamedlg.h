@@ -8,6 +8,9 @@
 #include "ui_newGameDlg_ui.h"
 #include "player.h"
 
+// Maximum Number of Players
+#define MAX_PLAYERS 10
+
 class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
 {
 public:
