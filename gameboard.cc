@@ -439,9 +439,6 @@ GameBoard::nextTurn()
         planet->turn();
     }
 
-    // Tell the status widget to update itself
-    planetInfo->rescanPlanets();
-
     Player *winner = findWinner();
     if (winner)
     {
@@ -692,8 +689,6 @@ GameBoard::startNewGame()
     msgWidget->clear();
 
     changeGameBoard( true );
-
-    planetInfo->setPlanetList(planets);
 
     shipCountEdit->hide();
     endTurn->setEnabled( true );

@@ -35,34 +35,11 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
 
 PlanetInfo::~PlanetInfo()
 {
-    emptyPlanetInfoList();
 }
 
 QSize PlanetInfo::sizeHint() const
 {
     return infosLabel->sizeHint();
-}
-
-void PlanetInfo::setPlanetList( PlanetList &newPlanets )
-{
-    emptyPlanetInfoList();
-
-    foreach (Planet *p, newPlanets) {
-        planet_info_buffer *stats = new planet_info_buffer;
-        stats->planet = p;
-        planet_stats.append( stats );
-    }
-
-    rescanPlanets();
-}
-
-void PlanetInfo::rescanPlanets()
-{
-    foreach (planet_info_buffer *p, planet_stats) {
-        p->production = p->planet->production();
-        p->ships      = p->planet->fleet().shipCount();
-        p->killRate   = p->planet->killPercentage();
-    }
 }
 
 void PlanetInfo::clearDisplay()
@@ -77,36 +54,15 @@ void PlanetInfo::clearDisplay()
     infosLabel->setText( temp );
 }
 
-void PlanetInfo::emptyPlanetInfoList()
-{
-    while (!planet_stats.isEmpty())
-        delete planet_stats.takeFirst();
-}
-
 void PlanetInfo::showPlanet( Planet *planet )
 {
-    if( planet->player()->isNeutral() ) {
-        clearDisplay();
-
-        QString temp;
-
-        temp = i18n("Planet name: %1", planet->name());
-        infosLabel->setText( temp );
-        return;
+    QString temp = i18n("Planet name: %1", planet->name()) + "<br />";
+    if( !planet->player()->isNeutral() ) {
+        temp = temp + i18n("Owner: %1", planet->player()->coloredName()) + "<br />";
+        temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) ) + "<br />";
+        temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) ) + "<br />";
+        temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) ) + "<br />";
     }
-
-    foreach (planet_info_buffer *p, planet_stats) {
-        if( p->planet  == planet ) {
-
-            QString temp;
-
-            temp = i18n("Planet name: %1", p->planet->name()) + "<br />";
-            temp = temp + i18n("Owner: %1", p->planet->player()->coloredName()) + "<br />";
-            temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) ) + "<br />";
-            temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) ) + "<br />";
-            temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) ) + "<br />";
-            infosLabel->setText( temp );
-        }
-    }
+    infosLabel->setText( temp );
 }
 
