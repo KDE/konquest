@@ -113,7 +113,7 @@ GameBoard::GameBoard( QWidget *parent )
     mainLayout->addLayout( rightLayout, 10 );
 
     rightLayout->addWidget( planetInfo, 1 );
-    rightLayout->addSpacing( 10 );
+    //rightLayout->addSpacing( 10 );
     rightLayout->addWidget( turnCounter,  1 );
     rightLayout->addStretch( 1 );
 
