@@ -11,6 +11,8 @@
 #include "map_widget.h"
 #include "planet.h"
 #include "player.h"
+#include "map.h"
+#include "sector.h"
 
 ConquestMap::ConquestMap(  Map *newMap, QWidget *parent )
     : QFrame( parent ),

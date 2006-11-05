@@ -1,3 +1,4 @@
+#include "sector.h"
 #include "planet.h"
 #include "planet.moc"
 #include "fleet.h"

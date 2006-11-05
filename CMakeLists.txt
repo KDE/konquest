@@ -13,6 +13,8 @@ set(konquest_SRCS
    planet.cc
    fleet.cc
    player.cc
+   map.cc
+   sector.cc
    gamecore.cc 
    mainwin.cc 
    map_widget.cc 

@@ -3,10 +3,8 @@
 
 #include <krandomsequence.h>
 
-#include <QObject>
 #include <QPoint>
-#include <QString>
-#include <QColor>
+#include "planet.h"
 
 // Board Size Constants
 #define BOARD_ROWS 16
@@ -14,19 +12,6 @@
 
 // Maximum Number of Players
 #define MAX_PLAYERS 10
-
-#include "player.h"
-#include "planet.h"
-
-//**********************************************************
-// Forward declarations for classes in this file
-//**********************************************************
-class Player;
-class Planet;
-class Map;
-class Fleet;
-class AttackFleet;
-class DefenseFleet;
 
 
 // -------------------------------------------------------------------------
@@ -56,101 +41,6 @@ public:
 
 private:
     KRandomSequence  random;
-};
-
-
-// ***************************************************************
-// class Sector
-// ***************************************************************
-
-class Sector : public QObject
-{
-    Q_OBJECT
-
-public:
-
-    // constructors
-    Sector();
-    Sector( Map *parentMap, Coordinate c );
-    Sector( const Sector & );
-
-    // assignment operator (makes initialization easy)
-    Sector &operator=( const Sector & );
-
-    bool hasPlanet() const;
-    void setPlanet( Planet *newPlanet );
-    Planet *getPlanet();
-    void removePlanet();
-
-    void select();
-
-    Coordinate getCoord();
-
-signals:
-    void update();
-    void selected();
-
-protected slots:
-    void childPlanetUpdate( );
-
-    
-protected:
-    Coordinate  c;
-    Planet     *planet;  // a sector has 0 or 1 planets
-    Map        *parentMap;
-
-};
- 
-//*****************************************************************
-// class Map
-//*****************************************************************
-
-class Map : public QObject
-{
-    Q_OBJECT
-
-public:
-    Map();
-    virtual ~Map();
-
-    const int rows()    const { return rows;    }
-    const int columns() const { return columns; }
-
-
-    void clearMap();
-    void populateMap( PlayerList &players, Player *neutral,
-                      int numNeutralPlanets, PlanetList &thePlanets );
-    
-    bool selectedSector( Coordinate &c ) const;
-    void setSelectedSector( Coordinate c );
-    void setSelectedSector( const Planet & );
-    void setSelectedSector();
-
-    Sector &getSector( Coordinate c );
-
-protected slots:
-    void childSectorUpdate();
-
-signals:
-    void update();
-
-protected:
-    void Freeze();
-    void Thaw();
-    bool freezeUpdates;
-
-private:
-    Sector &findRandomFreeSector();
-    
-protected:
-    Sector grid[BOARD_ROWS][BOARD_COLS];  // a map is a 2-D array of sectors;
-    const int rows; // size of grid in sectors
-    const int columns;
-
-    // This is used to implement a selected sector,
-    // one who's boarder flashes.
-    bool hasSelectedSector;
-    Coordinate  sel;
 };
 
 #endif // _GAMECORE_H_

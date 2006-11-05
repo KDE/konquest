@@ -5,8 +5,8 @@
 #include <QList>
 #include "fleet.h"
 
-class Player;
 class Sector;
+class Player;
 class Map;
 
 //**************************************************************

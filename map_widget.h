@@ -4,6 +4,7 @@
 
 #include <QFrame>
 
+#include "map.h"
 #include "gamecore.h"
 #include "images.h"
 

@@ -22,6 +22,7 @@
 #include "map_widget.h"
 #include "planet_info.h"
 #include "player.h"
+#include "map.h"
 
 #include "gameboard.moc"
 
