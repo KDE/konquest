@@ -46,13 +46,12 @@ bool
 Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 		   int shipCount, int turn )
 {
-    CoreLogic cl;
+    CoreLogic    cl;
+    double       arrival = cl.distance( sourcePlanet, destPlanet ) + turn;
+    AttackFleet *fleet;
 
-    double arrival = cl.distance( sourcePlanet, destPlanet ) + turn;
-
-    AttackFleet *fleet = sourcePlanet->fleet().spawnAttackFleet( destPlanet, shipCount, arrival );
-
-
+    fleet = sourcePlanet->fleet().spawnAttackFleet( destPlanet, shipCount, 
+						    arrival );
     if( fleet ) {
         m_attackList.append(fleet);
 

@@ -39,11 +39,11 @@ public:
     
 
     // Statistics collection
-    void statShipsBuilt( int x )           { m_shipsBuilt += x;           }
-    void statPlanetsConquered( int x )     { m_planetsConquered += x;     }
-    void statFleetsLaunched( int x )       { m_fleetsLaunched += x;       }
+    void statShipsBuilt( int x )           { m_shipsBuilt           += x; }
+    void statPlanetsConquered( int x )     { m_planetsConquered     += x; }
+    void statFleetsLaunched( int x )       { m_fleetsLaunched       += x; }
     void statEnemyFleetsDestroyed( int x ) { m_enemyFleetsDestroyed += x; }
-    void statEnemyShipsDestroyed( int x )  { m_enemyShipsDestroyed += x;  }
+    void statEnemyShipsDestroyed( int x )  { m_enemyShipsDestroyed  += x; }
 
     int  shipsBuilt()           const { return m_shipsBuilt;           }
     int  planetsConquered()     const { return m_planetsConquered;     }
@@ -55,11 +55,11 @@ private:
     // Some fundamental properties.
     QString  m_name;
     QColor   m_color;
-    int      m_playerNum;	// Shouldn't be part of the class itself.
+    int      m_playerNum;
     bool     m_inPlay;
     bool     m_aiPlayer;
 
-    // Attack fleets sent by this player, and still active(?).
+    // Attack fleets sent by this player that are still moving
     AttackFleetList  m_attackList;
 
     // statistics counters
