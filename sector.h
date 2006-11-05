@@ -32,11 +32,11 @@ public:
 
 
 signals:
-    void update();
-    void selected();
+    void        update();
+    void        selected();
 
 protected slots:
-    void childPlanetUpdate( );
+    void        childPlanetUpdate( );
 
     
 protected:
