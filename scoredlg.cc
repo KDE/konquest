@@ -59,23 +59,23 @@ ScoreDlg::init()
         nameItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 0, nameItem);
         
-        QTableWidgetItem *shipsBuiltItem = new QTableWidgetItem(QString::number(curPlayer->getShipsBuilt()));
+        QTableWidgetItem *shipsBuiltItem = new QTableWidgetItem(QString::number(curPlayer->shipsBuilt()));
         shipsBuiltItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 1, shipsBuiltItem);
         
-        QTableWidgetItem *planetsConqueredItem = new QTableWidgetItem(QString::number(curPlayer->getPlanetsConquered()));
+        QTableWidgetItem *planetsConqueredItem = new QTableWidgetItem(QString::number(curPlayer->planetsConquered()));
         planetsConqueredItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 2, planetsConqueredItem);
         
-        QTableWidgetItem *fleetsLaunchedItem = new QTableWidgetItem(QString::number(curPlayer->getFleetsLaunched()));
+        QTableWidgetItem *fleetsLaunchedItem = new QTableWidgetItem(QString::number(curPlayer->fleetsLaunched()));
         fleetsLaunchedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 3, fleetsLaunchedItem);
         
-        QTableWidgetItem *enemyFleetsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->getEnemyFleetsDestroyed()));
+        QTableWidgetItem *enemyFleetsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->enemyFleetsDestroyed()));
         enemyFleetsDestroyedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 4, enemyFleetsDestroyedItem);
         
-        QTableWidgetItem *enemyShipsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->getEnemyShipsDestroyed()));
+        QTableWidgetItem *enemyShipsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->enemyShipsDestroyed()));
         enemyShipsDestroyedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 5, enemyShipsDestroyedItem);
         

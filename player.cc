@@ -22,14 +22,6 @@ Player::~Player()
 {
 }
 
-bool
-Player::operator==( const Player &otherPlayer ) const
-{
-    if( m_playerNum == otherPlayer.m_playerNum )
-        return true;
-    else
-        return false;
-}
 
 QString
 Player::coloredName() const
@@ -37,7 +29,9 @@ Player::coloredName() const
     return QString("<font color=\"%1\">%2</font>").arg(m_color.name(), m_name);
 }
 
-Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool isAi )
+
+Player *Player::createPlayer( QString newName, QColor color, int playerNum, 
+			      bool isAi )
 {
     return new Player( newName, color, playerNum, isAi );
 }
@@ -49,7 +43,8 @@ Player *Player::createNeutralPlayer()
 
 
 bool
-Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int turn )
+Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
+		   int shipCount, int turn )
 {
     CoreLogic cl;
 
@@ -68,5 +63,3 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int 
 
     return false;
 }
-
-
