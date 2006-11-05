@@ -191,7 +191,7 @@ ConquestMap::drawSector( QPainter *p, Sector &sector )
         bool doHighlight = secRect.contains( mapFromGlobal( QCursor::pos() ) );
 
         if( !doHighlight ) {
-            QPen gridPen( sector.getPlanet()->getPlayer()->getColor() );
+            QPen gridPen( sector.getPlanet()->getPlayer()->color() );
             p->setPen( gridPen );
         } else {
             QPen gridPen( Qt::white );

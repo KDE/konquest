@@ -189,8 +189,8 @@ QString
 GameBoard::playerString(Player *player)
 {
     if (!player)
-        return (*currentPlayer)->getColoredName();
-    return player->getColoredName();
+        return (*currentPlayer)->coloredName();
+    return player->coloredName();
 }
 
 //************************************************************************
@@ -268,7 +268,7 @@ GameBoard::turn()
             endTurn->setFocus();
 
         } else {
-            gameMessage->setText( (*currentPlayer)->getName() +
+            gameMessage->setText( (*currentPlayer)->name() +
                                     i18n(": How many ships?") );
 
             shipCountEdit->setText( "" );
@@ -427,7 +427,7 @@ GameBoard::nextTurn()
     scanForSurvivors();
 
     // advance to first living player
-    while( (*currentPlayer) && !(*currentPlayer)->isInPlay() ) {
+    while( (*currentPlayer) && !(*currentPlayer)->inPlay() ) {
     	++currentPlayer;
     };
 
@@ -447,7 +447,7 @@ GameBoard::nextTurn()
     {
         mapWidget->repaint();
         KMessageBox::information(this,
-              i18n("The mighty %1 has conquered the galaxy!", winner->getName()),
+              i18n("The mighty %1 has conquered the galaxy!", winner->name()),
               i18n("Game Over"));
     }
 
@@ -502,7 +502,7 @@ GameBoard::findWinner()
     int activePlayers = 0;
 
     foreach (Player *plr, players) {
-        if (plr->isInPlay())
+        if (plr->inPlay())
         {
             winner = plr;
             activePlayers++;
@@ -532,7 +532,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
        if (!player->isAiPlayer())
           isHumanInvolved = true;
        colorMsg = colorMsg.subs(playerString(player));
-       plainMsg = plainMsg.subs(player->getName());
+       plainMsg = plainMsg.subs(player->name());
     }
 
     if (planet)
@@ -542,7 +542,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
        if (!planetPlayer->isAiPlayer() && !planetPlayer->isNeutral())
           isHumanInvolved = true;
 
-       QString color = planetPlayer->getColor().name();
+       QString color = planetPlayer->color().name();
        colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>").arg(color, planet->getName()));
        plainMsg = plainMsg.subs(planet->getName());
     }
@@ -569,7 +569,7 @@ GameBoard::scanForSurvivors()
     // list, the deactivate them
     Player *plr;
     foreach (plr, players) {
-        if( plr->isInPlay() ) {
+        if( plr->inPlay() ) {
             activePlayers.append( plr );
             plr->setInPlay( false );
         } else {
@@ -585,14 +585,14 @@ GameBoard::scanForSurvivors()
     }
 
     foreach (plr, activePlayers) {
-        if( !plr->isInPlay() ) {
+        if( !plr->inPlay() ) {
             // Player has bitten the dust
             gameMsg(ki18n("The once mighty empire of %1 has fallen in ruins."), plr);
         }
     }
 
     foreach (plr, inactivePlayers) {
-        if( plr->isInPlay() ) {
+        if( plr->inPlay() ) {
             // Player has bitten the dust
             gameMsg(ki18n("The fallen empire of %1 has staggered back to life."), plr);
         }
@@ -869,7 +869,7 @@ GameBoard::nextPlayer()
     // end turn and advance to next player
     do {
         ++currentPlayer;
-    } while ((currentPlayer != players.end()) && (!(*currentPlayer)->isInPlay()));
+    } while ((currentPlayer != players.end()) && (!(*currentPlayer)->inPlay()));
 
     if( currentPlayer == players.end() ) {
         // end of player list, new turn

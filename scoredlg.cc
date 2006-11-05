@@ -55,7 +55,7 @@ ScoreDlg::init()
     int row = 0;
     
     foreach (Player *curPlayer, (*plrList)) {
-        QTableWidgetItem *nameItem = new QTableWidgetItem(curPlayer->getName());
+        QTableWidgetItem *nameItem = new QTableWidgetItem(curPlayer->name());
         nameItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         scoreTable->setItem(row, 0, nameItem);
         

@@ -19,10 +19,10 @@ public:
     enum { NEUTRAL_PLAYER_NUMBER = -1 };
     
 public:
-    QString getName();
-    QString getColoredName();
-    QColor &getColor();
-    bool isNeutral();
+    QString name()        const { return m_name; }
+    QString coloredName() const;
+    QColor& color()             { return m_color; }
+    bool    isNeutral()   const { return m_playerNum == NEUTRAL_PLAYER_NUMBER; }
     AttackFleetList &getAttackList();
 
     // factory functions
@@ -33,25 +33,9 @@ public:
 
     bool operator==( const Player &otherPlayer ) const;
 
-    bool isInPlay();
+    bool inPlay() const { return m_inPlay; }
     void setInPlay( bool );
     
-private:
-    QString name;
-    QColor  color;
-    int playerNum;
-    bool inPlay;
-    bool aiPlayer;
-
-    AttackFleetList attackList;
-
-    // statistics counters
-    int shipsBuilt;
-    int planetsConquered;
-    int fleetsLaunched;
-    int enemyFleetsDestroyed;
-    int enemyShipsDestroyed;
-
 public:
     void statShipsBuilt( int );
     void statPlanetsConquered( int );
@@ -65,6 +49,22 @@ public:
     int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; };
     int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; };
     bool isAiPlayer();
+
+private:
+    QString  m_name;
+    QColor   m_color;
+    int      m_playerNum;	// Shouldn't be part of the class itself.
+    bool     m_inPlay;
+    bool     m_aiPlayer;
+
+    AttackFleetList attackList;
+
+    // statistics counters
+    int shipsBuilt;
+    int planetsConquered;
+    int fleetsLaunched;
+    int enemyFleetsDestroyed;
+    int enemyShipsDestroyed;
 
 };
 

@@ -103,7 +103,7 @@ void PlanetInfo::showPlanet( Planet *planet )
             QString temp;
 
             temp = i18n("Planet name: %1", p->planet->getName()) + "<br />";
-            temp = temp + i18n("Owner: %1", p->planet->getPlayer()->getColoredName()) + "<br />";
+            temp = temp + i18n("Owner: %1", p->planet->getPlayer()->coloredName()) + "<br />";
             temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(p->ships, 0) ) + "<br />";
             temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(p->production, 0) ) + "<br />";
             temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(p->killRate, 3) ) + "<br />";

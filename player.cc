@@ -5,8 +5,12 @@
 //---------------------------------------------------------------------------
 // class Player
 //---------------------------------------------------------------------------
-Player::Player( QString newName, QColor newColor, int newPlrNum, bool isAi ) : name( newName ), color( newColor ),
-playerNum( newPlrNum ), inPlay( true ), aiPlayer( isAi ), shipsBuilt(0), planetsConquered(0), fleetsLaunched(0),
+Player::Player( QString newName, QColor newColor, int newPlrNum, bool isAi )
+  : m_name( newName ), m_color( newColor ),
+    m_playerNum( newPlrNum ),
+    m_inPlay( true ),
+    m_aiPlayer( isAi ),
+ shipsBuilt(0), planetsConquered(0), fleetsLaunched(0),
 enemyFleetsDestroyed(0), enemyShipsDestroyed(0)
 {
 }
@@ -18,22 +22,16 @@ Player::~Player()
 bool
 Player::operator==( const Player &otherPlayer ) const
 {
-    if( playerNum == otherPlayer.playerNum )
+    if( m_playerNum == otherPlayer.m_playerNum )
         return true;
     else
         return false;
 }
 
 QString
-Player::getName()
+Player::coloredName() const
 {
-    return name;
-}
-
-QString
-Player::getColoredName()
-{
-    return QString("<font color=\"%1\">%2</font>").arg(color.name(), name);
+    return QString("<font color=\"%1\">%2</font>").arg(m_color.name(), m_name);
 }
 
 Player *Player::createPlayer( QString newName, QColor color, int playerNum, bool isAi )
@@ -46,29 +44,9 @@ Player *Player::createNeutralPlayer()
     return new Player( QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER, false );
 }
 
-QColor &Player::getColor()
-{
-    return color;
-}
-
-bool
-Player::isNeutral()
-{
-    if( playerNum == NEUTRAL_PLAYER_NUMBER ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-bool Player::isInPlay()
-{
-    return inPlay;
-}
-
 void Player::setInPlay( bool status )
 {
-    inPlay = status;
+    m_inPlay = status;
 }
 
 AttackFleetList &
@@ -125,5 +103,5 @@ void Player::statEnemyShipsDestroyed( int x )
 }
 
 bool Player::isAiPlayer() {
-  return aiPlayer;
+  return m_aiPlayer;
 }
