@@ -37,7 +37,8 @@ public:
     void setSelectedSector( const Planet & );
     void setSelectedSector();
 
-    Sector &getSector( Coordinate c );
+    Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }
+
 
 protected slots:
     void childSectorUpdate();

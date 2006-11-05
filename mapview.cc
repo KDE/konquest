@@ -45,8 +45,8 @@ MapView::mousePressEvent( QMouseEvent *e )
 {
     Coordinate c( e->y()/SECTOR_HEIGHT, e->x()/SECTOR_WIDTH );
 
-    if( map->getSector( c ).hasPlanet() ) {
-        emit planetSelected( map->getSector( c ).planet() );
+    if( map->sector( c )->hasPlanet() ) {
+        emit planetSelected( map->sector( c )->planet() );
     }
 }
 
@@ -69,10 +69,10 @@ MapView::mouseMoveEvent( QMouseEvent *e )
         hiLiteCoord = Coordinate(-1,-1);
     }
 
-    if( map->getSector( c ).hasPlanet() ) {
+    if( map->sector( c )->hasPlanet() ) {
         update( c.y() * SECTOR_WIDTH, c.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
 
-        emit planetHighlighted(map->getSector(c).planet() );
+        emit planetHighlighted(map->sector(c)->planet() );
 
         hiLiteCoord = c;
     }
@@ -97,7 +97,7 @@ MapView::paintEvent( QPaintEvent *ev )
     QPainter p(this);
     for(int r=startRow; r<endRow; ++r)
         for(int c=startCol;c<endCol; ++c)
-            drawSector( &p, map->getSector( Coordinate(r,c) ) );
+            drawSector( &p, map->sector( Coordinate(r,c) ) );
 }
 
 void
@@ -122,17 +122,17 @@ MapView::mapUpdate()
 
 
 void
-MapView::drawSector( QPainter *p, Sector &sector )
+MapView::drawSector( QPainter *p, Sector *sector )
 {
     QColor labelColor( Qt::white );
     QPoint labelCorner;
 
-    QPoint sectorTopLeft(sector.coord().x() * SECTOR_WIDTH,
-			 sector.coord().y() * SECTOR_HEIGHT);
+    QPoint sectorTopLeft(sector->coord().x() * SECTOR_WIDTH,
+			 sector->coord().y() * SECTOR_HEIGHT);
 
     p->eraseRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH, SECTOR_HEIGHT );
 
-    if( sector.hasPlanet() ) {
+    if( sector->hasPlanet() ) {
         QPixmap pm;
         
         // simple (pathetic) way to "randomize"
@@ -140,7 +140,7 @@ MapView::drawSector( QPainter *p, Sector &sector )
         // and also a really dirty hack to make the planet
         // name more visible (hard coded pixel offsets)
         
-        switch( ((sector.coord().x()+sector.coord().y()) % 9) + 1  ) {
+        switch( ((sector->coord().x() + sector->coord().y()) % 9) + 1  ) {
         case 1 :
             pm = QPixmap( IMAGE_PLANET_1 );
             labelCorner = QPoint( 18, 14 );
@@ -189,13 +189,13 @@ MapView::drawSector( QPainter *p, Sector &sector )
         p->setFont( labelFont );
         p->setPen( labelColor );
 
-        p->drawText( sectorTopLeft+labelCorner, sector.planet()->name() );
+        p->drawText( sectorTopLeft+labelCorner, sector->planet()->name() );
 
         QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
         bool doHighlight = secRect.contains( mapFromGlobal( QCursor::pos() ) );
 
         if( !doHighlight ) {
-            QPen gridPen( sector.planet()->player()->color() );
+            QPen gridPen( sector->planet()->player()->color() );
             p->setPen( gridPen );
         } else {
             QPen gridPen( Qt::white );

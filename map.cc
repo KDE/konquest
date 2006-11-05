@@ -153,8 +153,3 @@ void Map::Thaw()
 {
     m_freezeUpdates = false;
 }
-
-Sector &Map::getSector( Coordinate c )
-{
-    return m_grid[c.y()][c.x()];
-}

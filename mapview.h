@@ -39,7 +39,7 @@ private:
     const int BOARD_HEIGHT;
     const int BOARD_WIDTH;
 
-    void drawSector( QPainter *, Sector & );
+    void drawSector( QPainter *, Sector * );
     void paintEvent( QPaintEvent* );
 
     Map *map;

@@ -13,11 +13,11 @@ fleet.h		fleet.cc	Info about a Fleet.
 
 Widgets & Views
 ---------------
+mainwin.h	mainwin.cc	FIXME: To be cleaned
 gameboard.h	gameboard.cc	FIXME: To be cleaned
 map_widget.h	map_widget.cc	FIXME: To be cleaned
 minimap.h	minimap.cc	FIXME: To be cleaned
 planet_info.h	planet_info.cc	FIXME: To be cleaned
-mainwin.h	mainwin.cc	FIXME: To be cleaned
 
 
 Dialogs
