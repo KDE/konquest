@@ -9,20 +9,14 @@
 
 
 Fleet::Fleet( int initialShipCount )
-: shipCount( initialShipCount )
+  : m_shipCount( initialShipCount )
 {
-}
-
-int
-Fleet::getShipCount()
-{
-    return shipCount;
 }
 
 void
 Fleet::removeShips( int lostShips )
 {
-    shipCount -= lostShips;
+    m_shipCount -= lostShips;
 }
 
 AttackFleet::AttackFleet( Planet *source, Planet *dest, int initialCount, double arrival )
@@ -38,20 +32,20 @@ DefenseFleet::DefenseFleet( Planet *newHome, int initialCount ) : Fleet( initial
 void
 DefenseFleet::absorb( AttackFleet *fleet )
 {
-    shipCount += fleet->getShipCount();
+    m_shipCount += fleet->shipCount();
 }
 
 void
 DefenseFleet::become( AttackFleet *fleet )
 {
-    shipCount = fleet->getShipCount();
+    m_shipCount = fleet->shipCount();
 }
 
 
 AttackFleet *
 DefenseFleet::spawnAttackFleet( Planet *dest, int count, double arrivalTurn )
 {
-    if( shipCount < count ) {
+    if( m_shipCount < count ) {
         return NULL;
     }
 
@@ -65,6 +59,6 @@ DefenseFleet::spawnAttackFleet( Planet *dest, int count, double arrivalTurn )
 void
 DefenseFleet::addShips( int newShips )
 {
-    shipCount += newShips;
+    m_shipCount += newShips;
 }
 

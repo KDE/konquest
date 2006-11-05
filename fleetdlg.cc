@@ -74,7 +74,7 @@ FleetDlg::init()
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         fleetTable->setItem( f, 1, item );
         
-        item = new QTableWidgetItem(QString::number(curFleet->getShipCount()));
+        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         fleetTable->setItem( f, 2, item );
         

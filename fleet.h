@@ -8,8 +8,8 @@ class Planet;
 
 //**********************************************************
 // class Fleet
-// \--- class AttackFleet
-//  \--- class DefenseFleet
+// +--- class AttackFleet
+// +--- class DefenseFleet
 //**********************************************************
 
 class Fleet : public QObject
@@ -21,12 +21,13 @@ public:
     Fleet( int initialShipCount );
     virtual ~Fleet() {};
 
-    int getShipCount();
-    void removeShips( int lostShips );
+    int   shipCount()   const { return m_shipCount; }
+    void  removeShips( int lostShips );
 
 protected:
-    int shipCount;
+    int m_shipCount;
 };
+
 
 class AttackFleet : public Fleet
 {
@@ -34,11 +35,10 @@ class AttackFleet : public Fleet
 public:
     AttackFleet( Planet *source, Planet *dest, int initialCount, double arrivalTurn  );
 
-    Player *owner;
-    Planet *destination;
-    double arrivalTurn;
-    double killPercentage;
-
+    Player  *owner;
+    Planet  *destination;
+    double   arrivalTurn;
+    double   killPercentage;
 };
 
 
