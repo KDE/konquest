@@ -60,8 +60,8 @@ void PlanetInfo::rescanPlanets()
 {
     foreach (planet_info_buffer *p, planet_stats) {
         p->production = p->planet->production();
-        p->ships = p->planet->getFleet().getShipCount();
-        p->killRate = p->planet->getKillPercentage();
+        p->ships      = p->planet->fleet().getShipCount();
+        p->killRate   = p->planet->killPercentage();
     }
 }
 

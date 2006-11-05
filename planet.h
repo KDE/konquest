@@ -34,13 +34,12 @@ public:
 
     Sector        &sector()     const { return m_parentSector; }
     Player        *player()     const { return m_owner; }
-
     const QString &name()       const { return m_name; }
-    DefenseFleet  &getFleet()         { return m_homeFleet; }
+    DefenseFleet  &fleet()            { return m_homeFleet; }
 
 
 
-    double         getKillPercentage() const { return m_killPercentage; }
+    double         killPercentage() const { return m_killPercentage; }
 
     void           setKillPercentage( double newValue );
     double         morale()     const { return m_morale; }
@@ -48,14 +47,14 @@ public:
     int            production() const { return m_productionRate; }
     void           setProduction( int );
 
-    void select();
-    void conquer(  AttackFleet *conqueringFleet );
-    void coup( Player *luckyPlayer );
-    void turn();
+    void  select();
+    void  conquer( AttackFleet *conqueringFleet );
+    void  coup( Player *luckyPlayer );
+    void  turn();
 
 signals:
-    void update();
-    void selected();
+    void  update();
+    void  selected();
 
 private:
     QString       m_name;

@@ -27,7 +27,7 @@ Fleet::removeShips( int lostShips )
 
 AttackFleet::AttackFleet( Planet *source, Planet *dest, int initialCount, double arrival )
 : Fleet( initialCount ), owner( source->player() ), destination( dest ), arrivalTurn( arrival ),
-killPercentage( source->getKillPercentage() )
+killPercentage( source->killPercentage() )
 {
 }
 

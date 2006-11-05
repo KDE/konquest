@@ -50,7 +50,7 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 
     double arrival = cl.distance( sourcePlanet, destPlanet ) + turn;
 
-    AttackFleet *fleet = sourcePlanet->getFleet().spawnAttackFleet( destPlanet, shipCount, arrival );
+    AttackFleet *fleet = sourcePlanet->fleet().spawnAttackFleet( destPlanet, shipCount, arrival );
 
 
     if( fleet ) {

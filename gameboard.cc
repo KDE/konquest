@@ -337,7 +337,7 @@ GameBoard::turn()
          foreach (Planet *home, planets) {
             if (home->player() == (*currentPlayer)) {
                 bool hasAttack = false;
-                ships = (int)floor(home->getFleet().getShipCount() * 0.7 );
+                ships = (int)floor(home->fleet().getShipCount() * 0.7 );
                 
                 if (ships >= 20) {
                     Planet *attack;
@@ -350,7 +350,7 @@ GameBoard::turn()
                         double dist = cl.distance( home, attack );
                         
                         if ((dist < minDistance) &&  (attack->player() != (*currentPlayer)) &&
-                                (attack->getFleet().getShipCount() < ships )) {
+                                (attack->fleet().getShipCount() < ships )) {
                             foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                 if (curFleet->destination == attack) {
                                     skip = true;
@@ -375,10 +375,10 @@ GameBoard::turn()
                             bool skip = false;
                             CoreLogic cl;
                             double dist = cl.distance( home, attack );
-                            int homeships = (int)floor(home->getFleet().getShipCount() * 0.5 );
+                            int homeships = (int)floor(home->fleet().getShipCount() * 0.5 );
                             
                             if ((dist < minDistance) &&  (attack->player() == (*currentPlayer)) &&
-                                      (attack->getFleet().getShipCount() < homeships )) {
+                                      (attack->fleet().getShipCount() < homeships )) {
                                 foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                     if (curFleet->destination == attack) {
                                         skip = true;
@@ -386,7 +386,7 @@ GameBoard::turn()
                                 }
                                 if (skip) continue;
                                 
-                                shipsToSend = (int)floor((home->getFleet().getShipCount() - attack->getFleet().getShipCount()) / 2) ;
+                                shipsToSend = (int)floor((home->fleet().getShipCount() - attack->fleet().getShipCount()) / 2) ;
                                 
                                 target = attack;
                                 hasDestination = true;
@@ -609,7 +609,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
 
     if( (*arrivingFleet->owner) == (*arrivingFleet->destination->player())) {
         if (!arrivingFleet->owner->isAiPlayer()) {
-        	arrivingFleet->destination->getFleet().absorb(arrivingFleet);
+        	arrivingFleet->destination->fleet().absorb(arrivingFleet);
 
         	gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
         	               "Reinforcements (%n ships) have arrived for planet %2.")
@@ -622,7 +622,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
 
         CoreLogic cl;
         AttackFleet &attacker = *arrivingFleet;
-        DefenseFleet &defender = arrivingFleet->destination->getFleet();
+        DefenseFleet &defender = arrivingFleet->destination->fleet();
         Planet &prizePlanet = *(arrivingFleet->destination);
 
         bool haveVictor = false;
@@ -632,7 +632,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
             double attackerRoll = cl.roll();
             double defenderRoll = cl.roll();
 
-            if( defenderRoll < prizePlanet.getKillPercentage() ) {
+            if( defenderRoll < prizePlanet.killPercentage() ) {
                 attacker.removeShips( 1 );
             }
 
