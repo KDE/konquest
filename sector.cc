@@ -7,23 +7,23 @@
 //---------------------------------------------------------------------------
 
 Sector::Sector()
-  : m_planet( NULL ), 
-    m_map(NULL ), 
-    m_coord( 0,0 )
+  : m_map(NULL ),
+    m_coord( 0,0 ),
+    m_planet( NULL )
 {}
 
 Sector::Sector( Map *map, Coordinate coord )
-  : m_planet(NULL),
-    m_map( map ),
-    m_coord( coord )
+  : m_map( map ),
+    m_coord( coord ),
+    m_planet(NULL)
 {
 }
 
 Sector::Sector( const Sector & other )
   : QObject( 0 ), 
-    m_planet(other.m_planet),
     m_map(other.m_map), 
-    m_coord(other.m_coord)
+    m_coord(other.m_coord),
+    m_planet(other.m_planet)
 {
 }
 

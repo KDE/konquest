@@ -9,9 +9,9 @@
 
 
 Map::Map()
-  : m_freezeUpdates( false ),
-    m_rows( BOARD_ROWS ),
+  : m_rows( BOARD_ROWS ),
     m_columns( BOARD_COLS ),
+    m_freezeUpdates( false ),
     m_hasSelectedSector( false )
 {
    // initialize the grid of Sectors
