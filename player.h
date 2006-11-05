@@ -1,7 +1,6 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
-#include <QObject>
 #include <QColor>
 #include "planet.h"
 #include "fleet.h"
@@ -23,7 +22,7 @@ public:
     QString coloredName() const;
     QColor& color()             { return m_color; }
     bool    isNeutral()   const { return m_playerNum == NEUTRAL_PLAYER_NUMBER; }
-    AttackFleetList &getAttackList();
+    AttackFleetList &attackList() { return m_attackList; }
 
     // factory functions
     static Player *createPlayer( QString newName, QColor newColor, int playerNum, bool isAi  );
@@ -33,41 +32,45 @@ public:
 
     bool operator==( const Player &otherPlayer ) const;
 
-    bool inPlay() const { return m_inPlay; }
-    void setInPlay( bool );
+    bool isInPlay() const { return m_inPlay; }
+    void setInPlay( bool status ) { m_inPlay = status; }
+;
     
 public:
-    void statShipsBuilt( int );
-    void statPlanetsConquered( int );
-    void statFleetsLaunched( int );
-    void statEnemyFleetsDestroyed( int );
-    void statEnemyShipsDestroyed( int );
+    // Player statistics collection
+    void statShipsBuilt( int x )           { m_shipsBuilt += x;           }
+    void statPlanetsConquered( int x )     { m_planetsConquered += x;     }
+    void statFleetsLaunched( int x )       { m_fleetsLaunched += x;       }
+    void statEnemyFleetsDestroyed( int x ) { m_enemyFleetsDestroyed += x; }
+    void statEnemyShipsDestroyed( int x )  { m_enemyShipsDestroyed += x;  }
 
-    int getShipsBuilt() { return shipsBuilt; };
-    int getPlanetsConquered() { return  planetsConquered; };
-    int getFleetsLaunched() { return  fleetsLaunched; };
-    int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; };
-    int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; };
-    bool isAiPlayer();
+    int  getShipsBuilt()           const { return m_shipsBuilt;           }
+    int  getPlanetsConquered()     const { return m_planetsConquered;     }
+    int  getFleetsLaunched()       const { return m_fleetsLaunched;       }
+    int  getEnemyFleetsDestroyed() const { return m_enemyFleetsDestroyed; }
+    int  getEnemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
+    bool isAiPlayer()              const { return m_aiPlayer;             }
 
 private:
+    // Some fundamental properties.
     QString  m_name;
     QColor   m_color;
     int      m_playerNum;	// Shouldn't be part of the class itself.
     bool     m_inPlay;
     bool     m_aiPlayer;
 
-    AttackFleetList attackList;
+    AttackFleetList m_attackList;
 
     // statistics counters
-    int shipsBuilt;
-    int planetsConquered;
-    int fleetsLaunched;
-    int enemyFleetsDestroyed;
-    int enemyShipsDestroyed;
-
+    int  m_shipsBuilt;
+    int  m_planetsConquered;
+    int  m_fleetsLaunched;
+    int  m_enemyFleetsDestroyed;
+    int  m_enemyShipsDestroyed;
 };
 
+
 typedef QList<Player *> PlayerList;
+
 
 #endif

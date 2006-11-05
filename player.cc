@@ -10,8 +10,11 @@ Player::Player( QString newName, QColor newColor, int newPlrNum, bool isAi )
     m_playerNum( newPlrNum ),
     m_inPlay( true ),
     m_aiPlayer( isAi ),
- shipsBuilt(0), planetsConquered(0), fleetsLaunched(0),
-enemyFleetsDestroyed(0), enemyShipsDestroyed(0)
+    m_shipsBuilt(0),
+    m_planetsConquered(0),
+    m_fleetsLaunched(0),
+    m_enemyFleetsDestroyed(0),
+    m_enemyShipsDestroyed(0)
 {
 }
 
@@ -44,16 +47,6 @@ Player *Player::createNeutralPlayer()
     return new Player( QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER, false );
 }
 
-void Player::setInPlay( bool status )
-{
-    m_inPlay = status;
-}
-
-AttackFleetList &
-Player::getAttackList()
-{
-    return attackList;
-}
 
 bool
 Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int turn )
@@ -66,7 +59,7 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int 
 
 
     if( fleet ) {
-        attackList.append(fleet);
+        m_attackList.append(fleet);
 
         statFleetsLaunched( 1 );
 
@@ -76,32 +69,4 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int 
     return false;
 }
 
-// Player Statistics collection
-void Player::statShipsBuilt( int x )
-{
-    shipsBuilt += x;
-}
 
-void Player::statPlanetsConquered( int x )
-{
-    planetsConquered += x;
-}
-
-void Player::statFleetsLaunched( int x )
-{
-    fleetsLaunched += x;
-}
-
-void Player::statEnemyFleetsDestroyed( int x )
-{
-    enemyFleetsDestroyed += x;
-}
-
-void Player::statEnemyShipsDestroyed( int x )
-{
-    enemyShipsDestroyed += x;
-}
-
-bool Player::isAiPlayer() {
-  return m_aiPlayer;
-}

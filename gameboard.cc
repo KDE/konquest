@@ -351,7 +351,7 @@ GameBoard::turn()
                         
                         if ((dist < minDistance) &&  (attack->getPlayer() != (*currentPlayer)) &&
                                 (attack->getFleet().getShipCount() < ships )) {
-                            foreach (AttackFleet *curFleet, (*currentPlayer)->getAttackList()) {
+                            foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                 if (curFleet->destination == attack) {
                                     skip = true;
                                 }
@@ -379,7 +379,7 @@ GameBoard::turn()
                             
                             if ((dist < minDistance) &&  (attack->getPlayer() == (*currentPlayer)) &&
                                       (attack->getFleet().getShipCount() < homeships )) {
-                                foreach (AttackFleet *curFleet, (*currentPlayer)->getAttackList()) {
+                                foreach (AttackFleet *curFleet, (*currentPlayer)->attackList()) {
                                     if (curFleet->destination == attack) {
                                         skip = true;
                                     }
@@ -427,7 +427,7 @@ GameBoard::nextTurn()
     scanForSurvivors();
 
     // advance to first living player
-    while( (*currentPlayer) && !(*currentPlayer)->inPlay() ) {
+    while( (*currentPlayer) && !(*currentPlayer)->isInPlay() ) {
     	++currentPlayer;
     };
 
@@ -482,12 +482,12 @@ GameBoard::resolveShipsInFlight()
     AttackFleetList arrivingShips;
     
     foreach (Player *plr, players) {
-        foreach (AttackFleet *fleet, plr->getAttackList()) {
+        foreach (AttackFleet *fleet, plr->attackList()) {
             double fleetArrivalTurn = floor(fleet->arrivalTurn);
 
             if( turnNumber == int (fleetArrivalTurn) ) {
                 doFleetArrival( fleet );
-                plr->getAttackList().remove( fleet );
+                plr->attackList().remove( fleet );
                 delete fleet;
             }
         }
@@ -502,15 +502,13 @@ GameBoard::findWinner()
     int activePlayers = 0;
 
     foreach (Player *plr, players) {
-        if (plr->inPlay())
+        if (plr->isInPlay())
         {
             winner = plr;
             activePlayers++;
         }
-        else if (plr->getAttackList().count() != 0)
-        {
+        else if (plr->attackList().count() != 0)
             activePlayers++;
-        }
     }
     if (activePlayers == 1)
         return winner;
@@ -569,7 +567,7 @@ GameBoard::scanForSurvivors()
     // list, the deactivate them
     Player *plr;
     foreach (plr, players) {
-        if( plr->inPlay() ) {
+        if( plr->isInPlay() ) {
             activePlayers.append( plr );
             plr->setInPlay( false );
         } else {
@@ -585,14 +583,14 @@ GameBoard::scanForSurvivors()
     }
 
     foreach (plr, activePlayers) {
-        if( !plr->inPlay() ) {
+        if( !plr->isInPlay() ) {
             // Player has bitten the dust
             gameMsg(ki18n("The once mighty empire of %1 has fallen in ruins."), plr);
         }
     }
 
     foreach (plr, inactivePlayers) {
-        if( plr->inPlay() ) {
+        if( plr->isInPlay() ) {
             // Player has bitten the dust
             gameMsg(ki18n("The fallen empire of %1 has staggered back to life."), plr);
         }
@@ -869,7 +867,7 @@ GameBoard::nextPlayer()
     // end turn and advance to next player
     do {
         ++currentPlayer;
-    } while ((currentPlayer != players.end()) && (!(*currentPlayer)->inPlay()));
+    } while ((currentPlayer != players.end()) && (!(*currentPlayer)->isInPlay()));
 
     if( currentPlayer == players.end() ) {
         // end of player list, new turn
@@ -932,6 +930,6 @@ GameBoard::showScores()
 void
 GameBoard::showFleets()
 {
-  FleetDlg *fleetDlg = new FleetDlg( this, &((*currentPlayer)->getAttackList()) );
+  FleetDlg *fleetDlg = new FleetDlg( this, &((*currentPlayer)->attackList()) );
   fleetDlg->show();
 }
