@@ -25,7 +25,9 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     headers << i18n("Fleets Launched") << i18n("Fleets Destroyed") << i18n("Ships Destroyed");
     scoreTable->setHorizontalHeaderLabels(headers);
     scoreTable->verticalHeader()->hide();
+    init();
     scoreTable->setMinimumSize( scoreTable->sizeHint() );
+    scoreTable->setSelectionMode( QAbstractItemView::NoSelection );
     scoreTable->setSortingEnabled(true);
 
     KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
@@ -44,8 +46,6 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
 
     connect( okButton, SIGNAL(clicked()), this, SLOT(accept()) );
 
-    init();
-
     resize( 580, 140  );
 }
 
@@ -55,30 +55,31 @@ ScoreDlg::init()
     scoreTable->setRowCount(plrList->count());
     int row = 0;
     
+    QTableWidgetItem *item;
     foreach (Player *curPlayer, (*plrList)) {
-        QTableWidgetItem *nameItem = new QTableWidgetItem(curPlayer->name());
-        nameItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 0, nameItem);
+        item = new QTableWidgetItem(curPlayer->name());
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 0, item);
         
-        QTableWidgetItem *shipsBuiltItem = new QTableWidgetItem(QString::number(curPlayer->shipsBuilt()));
-        shipsBuiltItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 1, shipsBuiltItem);
+        item = new QTableWidgetItem(QString::number(curPlayer->shipsBuilt()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 1, item);
         
-        QTableWidgetItem *planetsConqueredItem = new QTableWidgetItem(QString::number(curPlayer->planetsConquered()));
-        planetsConqueredItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 2, planetsConqueredItem);
+        item = new QTableWidgetItem(QString::number(curPlayer->planetsConquered()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 2, item);
         
-        QTableWidgetItem *fleetsLaunchedItem = new QTableWidgetItem(QString::number(curPlayer->fleetsLaunched()));
-        fleetsLaunchedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 3, fleetsLaunchedItem);
+        item = new QTableWidgetItem(QString::number(curPlayer->fleetsLaunched()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 3, item);
         
-        QTableWidgetItem *enemyFleetsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->enemyFleetsDestroyed()));
-        enemyFleetsDestroyedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 4, enemyFleetsDestroyedItem);
+        item = new QTableWidgetItem(QString::number(curPlayer->enemyFleetsDestroyed()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 4, item);
         
-        QTableWidgetItem *enemyShipsDestroyedItem = new QTableWidgetItem(QString::number(curPlayer->enemyShipsDestroyed()));
-        enemyShipsDestroyedItem->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        scoreTable->setItem(row, 5, enemyShipsDestroyedItem);
+        item = new QTableWidgetItem(QString::number(curPlayer->enemyShipsDestroyed()));
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        scoreTable->setItem(row, 5, item);
         
         row++;
     }
