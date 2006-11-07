@@ -24,7 +24,7 @@ MiniMapView::setMap(Map *newMap)
     connect( map, SIGNAL( update() ), this, SLOT( update() ) );
 }
 
-void MiniMapView::paintEvent(QPaintEvent */*event*/) {
+void MiniMapView::paintEvent(QPaintEvent * /*event*/) {
     // Non square map aren't handled currently...
     // Calculate the horizontal (width) offset, and the max usable size for the map...
     int size;

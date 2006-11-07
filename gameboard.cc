@@ -385,8 +385,8 @@ GameBoard::turn()
                                 if (skip) continue;
                                 
                                 shipsToSend = (int)floor(
-					(home->fleet().shipCount()
-					 - attack->fleet().shipCount()) / 2) ;
+					double(home->fleet().shipCount()
+					       - attack->fleet().shipCount()) / 2);
                                 
                                 target = attack;
                                 hasDestination = true;
