@@ -11,7 +11,6 @@
 Map::Map()
   : m_rows( BOARD_ROWS ),
     m_columns( BOARD_COLS ),
-    m_freezeUpdates( false ),
     m_hasSelectedSector( false )
 {
    // initialize the grid of Sectors
@@ -33,8 +32,6 @@ Map::~Map()
 void
 Map::clearMap()
 {
-    Freeze();
-
     int x,y;
 
     for( x = 0; x < rows(); x++ )
@@ -42,9 +39,6 @@ Map::clearMap()
         {
             m_grid[y][x].removePlanet();
         }
-
-    Thaw();
-
     emit update();
 }
 
@@ -52,8 +46,6 @@ void
 Map::populateMap( QList<Player *> &players, Player *neutral,
                   int numNeutralPlanets, QList<Planet *> &thePlanets )
 {
-    Freeze();
-
     int index = 0;
     QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/?-+\\|" );
 
@@ -74,9 +66,6 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
 
         thePlanets.append( neutralPlanet );
     }
-
-    Thaw();
-
     emit update();
 }
 
@@ -131,16 +120,6 @@ Map::setSelectedSector()
 
 void Map::childSectorUpdate()
 {
-    if( !m_freezeUpdates )
-        emit update();
+    emit update();
 }
 
-void Map::Freeze()
-{
-    m_freezeUpdates = true;
-}
-
-void Map::Thaw()
-{
-    m_freezeUpdates = false;
-}

@@ -45,10 +45,6 @@ protected slots:
 signals:
     void update();
 
-protected:
-    void  Freeze();
-    void  Thaw();
-
 private:
     Sector *findRandomFreeSector();
     
@@ -57,9 +53,6 @@ protected:
     Sector     m_grid[BOARD_ROWS][BOARD_COLS];
     const int  m_rows; // size of grid in sectors
     const int  m_columns;
-
-    // To inhibit updates on the view.
-    bool  m_freezeUpdates;
 
     // This is used to implement a selected sector,
     // one who's boarder flashes.
