@@ -442,7 +442,6 @@ GameBoard::nextTurn()
     Player *winner = findWinner();
     if (winner)
     {
-        mapWidget->repaint();
         KMessageBox::information(this,
               i18n("The mighty %1 has conquered the galaxy!", winner->name()),
               i18n("Game Over"));
@@ -450,7 +449,6 @@ GameBoard::nextTurn()
 
     if( (turnNumber == lastTurn) && !winner )
     {
-        mapWidget->repaint();
         GameEndDlg *dlg = new GameEndDlg( this );
 
         if( dlg->exec() == KDialog::Yes ) {
@@ -463,8 +461,6 @@ GameBoard::nextTurn()
     if( winner || (turnNumber >= lastTurn) )
     {
         // Game over, man! Game over.
-
-        mapWidget->repaint();
 
         gameOver();
     };
@@ -544,7 +540,6 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
 
     if (isHumanInvolved)
     {
-       mapWidget->repaint();
        KMessageBox::information(this, plainMsg.toString());
     }
 }
