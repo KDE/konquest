@@ -28,6 +28,8 @@ MainWindow::MainWindow()
     setupGameBoard();
     setupKAction();
     setupGUI();
+    
+    resize(600, 650);
 }
 
 MainWindow::~MainWindow()

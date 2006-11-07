@@ -658,7 +658,7 @@ GameBoard::doFleetArrival( AttackFleet *arrivingFleet )
         }
     }
 
-    mapWidget->repaint();
+    mapWidget->update();
 }
 
 //************************************************************************
