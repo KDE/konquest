@@ -3,7 +3,11 @@
 
 #include <QObject>
 #include <QPoint>
-#include "planet.h"
+
+//#include "planet.h"
+
+class Map;
+class Planet;
 
 // -------------------------------------------------------------------------
 // Typedefs
