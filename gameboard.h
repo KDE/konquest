@@ -8,6 +8,7 @@
 //************************************************************************
 // forward declarations
 //************************************************************************
+
 class QSlider;
 class QLabel;
 class QPushButton;
@@ -20,7 +21,15 @@ class PlanetInfo;
 
 class KLocalizedString;
 
-enum GameState { NONE, SOURCE_PLANET, DEST_PLANET, SHIP_COUNT, RULER_SOURCE, RULER_DEST, AI_PLAYER };
+enum GameState { 
+    NONE, 
+    SOURCE_PLANET, 
+    DEST_PLANET, 
+    SHIP_COUNT, 
+    RULER_SOURCE, 
+    RULER_DEST, 
+    AI_PLAYER
+};
 
 //************************************************************************
 // GameBoard Widget
@@ -38,85 +47,90 @@ public:
 //    virtual QSize sizeHint() const;
 
 protected slots:
-    void startNewGame();
-    void shutdownGame();
-    void planetSelected( Planet * );
-    void newShipCount();
-    void nextPlayer();
+    void  startNewGame();
+    void  shutdownGame();
+    void  planetSelected( Planet * );
+    void  newShipCount();
+    void  nextPlayer();
 
     //***************************************************************
     // Toolbar items
     //***************************************************************
-    void measureDistance();
-    void showScores();
-    void showFleets();
+    void  measureDistance();
+    void  showScores();
+    void  showFleets();
 
 signals:
-    void newGameState( GameState newState );
+    void  newGameState( GameState newState );
 
     //***************************************************************
     // Event Handlers
     //***************************************************************
 protected:
-    virtual void keyPressEvent( QKeyEvent * );
+    virtual void  keyPressEvent( QKeyEvent * );
 
 private:
-    void turn();
-    void nextTurn();
-    void gameOver();
+    void     turn();
+    void     nextTurn();
+    void     gameOver();
 
-    void resolveShipsInFlight();
-    void sendAttackFleet( Planet *source, Planet *dest, int ships );
-    void doFleetArrival( AttackFleet *arrivingFleet );
-    void scanForSurvivors();
+    void     resolveShipsInFlight();
+    void     sendAttackFleet( Planet *source, Planet *dest, int ships );
+    void     doFleetArrival( AttackFleet *arrivingFleet );
+    void     scanForSurvivors();
 
-    void gameMsg(const KLocalizedString &msg, Player *player = 0, Planet *planet = 0, Player *planetPlayer = 0);
+    void     gameMsg(const KLocalizedString &msg, Player *player = 0,
+		     Planet *planet = 0, Player *planetPlayer = 0);
 
-    void changeGameBoard( bool inPlay );
-    void cleanupGame();
-    Player *findWinner();
+    void     changeGameBoard( bool inPlay );
+    void     cleanupGame();
+    Player  *findWinner();
 
-    QString playerString(Player *player = 0);
+    QString  playerString(Player *player = 0);
     
     //***************************************************************
     // Game State information
     //***************************************************************
-    bool gameInProgress;
-    GameState gameState;
-    QList<Player *>::Iterator currentPlayer;
+
+    bool                       gameInProgress;
+    GameState                  gameState;
+    QList<Player *>::Iterator  currentPlayer;
+    int                        turnNumber;
+    int                        lastTurn;
+
 
     //***************************************************************
     // Display Widgets
     //***************************************************************
-    MapView *mapWidget;
-    PlanetInfo *planetInfo;
-    QLabel *gameMessage;
-    QLabel *turnCounter;
-    QPushButton *endTurn;
-    QLineEdit *shipCountEdit;
-    QLabel *splashScreen;
-    QTextEdit *msgWidget;
+
+    MapView      *mapWidget;
+    PlanetInfo   *planetInfo;
+    QLabel       *gameMessage;
+    QLabel       *turnCounter;
+    QPushButton  *endTurn;
+    QLineEdit    *shipCountEdit;
+    QLabel       *splashScreen;
+    QTextEdit    *msgWidget;
 
 
     //***************************************************************
     // Game objects
     //***************************************************************
-    int turnNumber;
-    int lastTurn;
 
-    QList<Player *> players;
-    QList<Planet *> planets;
-    Player *neutralPlayer;
-    Map *map;
+    QList<Player *>  players;
+    QList<Planet *>  planets;
+    Player          *neutralPlayer;
+    Map             *map;
 
-    bool haveSourcePlanet;
-    Planet *sourcePlanet;
+    // States in the user interaction
+    bool             haveSourcePlanet;
+    Planet          *sourcePlanet;
 
-    bool haveDestPlanet;
-    Planet *destPlanet;
+    bool             haveDestPlanet;
+    Planet          *destPlanet;
 
-    bool haveShipCount;
-    int shipCount;
+    bool             haveShipCount;
+    int              shipCount;
 
 };
 
