@@ -34,7 +34,6 @@ public:
 
     bool selectedSector( Coordinate &c ) const;
     void setSelectedSector( Coordinate c );
-    void setSelectedSector( const Planet & );
     void setSelectedSector();
 
     Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }

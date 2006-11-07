@@ -122,15 +122,6 @@ Map::setSelectedSector( Coordinate c )
 }
 
 void
-Map::setSelectedSector( const Planet &planet )
-{
-    m_hasSelectedSector = true;
-    m_selection = planet.sector()->coord();
-
-    emit update();
-}
-
-void
 Map::setSelectedSector()
 {
     m_hasSelectedSector = false;
