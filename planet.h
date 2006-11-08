@@ -19,7 +19,7 @@ class Planet : public QObject
 
 private:
 
-    Planet( QString planetName, Sector *sector,
+    Planet( const QString &planetName, Sector *sector,
             Player *initialOwner, int newProd,
             double newKillP );
 
@@ -28,9 +28,9 @@ public:
     virtual ~Planet();
 
     static Planet *createPlayerPlanet( Sector *sector,
-                                       Player *initialOwner, QString planetName );
+                                       Player *initialOwner, const QString &planetName );
     static Planet *createNeutralPlanet( Sector *sector,
-                                        Player *initialOwner, QString planetName );
+                                        Player *initialOwner, const QString &planetName );
 
     Sector        *sector()     const { return m_sector; }
     Player        *player()     const { return m_owner; }

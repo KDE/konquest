@@ -6,7 +6,7 @@
 // class Player
 //---------------------------------------------------------------------------
 
-Player::Player( Map *map, QString newName, QColor newColor, int newPlrNum, 
+Player::Player( Map *map, const QString &newName, QColor newColor, int newPlrNum, 
 		bool isAi )
   : m_map( map ),
     m_name( newName ), m_color( newColor ),
@@ -33,7 +33,7 @@ Player::coloredName() const
 }
 
 
-Player *Player::createPlayer( Map *map, QString newName, QColor color, int playerNum, 
+Player *Player::createPlayer( Map *map, const QString &newName, QColor color, int playerNum, 
 			      bool isAi )
 {
     return new Player( map, newName, color, playerNum, isAi );

@@ -10,7 +10,7 @@
 // class Planet
 //---------------------------------------------------------------------------
 
-Planet::Planet( QString planetName, Sector *sector, Player *initialOwner,
+Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
                 int newProd, double newKillP )
   : m_name(planetName),
     m_owner(initialOwner),
@@ -27,7 +27,7 @@ Planet::~Planet() {}
 
 Planet *
 Planet::createPlayerPlanet( Sector *sector, Player *initialOwner, 
-			    QString planetName )
+			    const QString &planetName )
 {
     return new Planet( planetName, sector, initialOwner, 10, 0.400 );
 }
@@ -35,7 +35,7 @@ Planet::createPlayerPlanet( Sector *sector, Player *initialOwner,
 
 Planet *
 Planet::createNeutralPlanet( Sector *sector, Player *initialOwner, 
-			     QString planetName )
+			     const QString &planetName )
 {
     CoreLogic  clogic;
     double     killP          = clogic.generateKillPercentage();

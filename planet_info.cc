@@ -12,7 +12,7 @@ PlanetInfo::PlanetInfo( QWidget *parent, QPalette palette )
 {
     setPalette( palette );
 
-    setText( i18n("Planet informations"));
+    setText( i18n("Planet information"));
     setMouseTracking( true );
 }
 
