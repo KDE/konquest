@@ -12,7 +12,7 @@ class GameEndDlg : public KDialog
     Q_OBJECT
 
 public:
-    GameEndDlg( QWidget *parent );
+    explicit GameEndDlg( QWidget *parent );
     virtual ~GameEndDlg();
     
     int extraTurns();

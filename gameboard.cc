@@ -195,14 +195,6 @@ GameBoard::keyPressEvent( QKeyEvent *e )
 
 }
 
-QString
-GameBoard::playerString(Player *player)
-{
-    if (!player)
-        return (*currentPlayer)->coloredName();
-    return player->coloredName();
-}
-
 
 //************************************************************************
 // Game engine/state machine
@@ -241,7 +233,7 @@ GameBoard::turn()
             shipCountEdit->hide();
             endTurn->setEnabled( true );
             mapWidget->unselectPlanet();
-            gameMessage->setText( "<qt>" + playerString() + ": " +
+            gameMessage->setText( "<qt>" + (*currentPlayer)->coloredName() + ": " +
                                     i18n("Select source planet...") + "</qt>" );
             setFocus();
         }
@@ -260,7 +252,7 @@ GameBoard::turn()
             shipCountEdit->hide();
             endTurn->setEnabled( false );
             sourcePlanet->select();
-            gameMessage->setText( "<qt>" + playerString() + ": " +
+            gameMessage->setText( "<qt>" + (*currentPlayer)->coloredName() + ": " +
 				  i18n("Select destination planet...") + "</qt>" );
             setFocus();
         }
@@ -538,7 +530,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     if (player) {
        if (!player->isAiPlayer())
           isHumanInvolved = true;
-       colorMsg = colorMsg.subs(playerString(player));
+       colorMsg = colorMsg.subs(player->coloredName());
        plainMsg = plainMsg.subs(player->name());
     }
 

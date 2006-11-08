@@ -14,7 +14,7 @@
 class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
 {
 public:
-  NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
+  explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
     setupUi( this );
   }
 };

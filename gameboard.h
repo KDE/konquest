@@ -39,7 +39,7 @@ class GameBoard : public QWidget
     Q_OBJECT
 
 public:
-    GameBoard( QWidget *parent );
+    explicit GameBoard( QWidget *parent );
     virtual ~GameBoard();
 
     bool isGameInProgress(void) const { return gameInProgress; };
@@ -85,8 +85,6 @@ private:
     void     changeGameBoard( bool inPlay );
     void     cleanupGame();
     Player  *findWinner();
-
-    QString  playerString(Player *player = 0);
     
     //***************************************************************
     // Game State information

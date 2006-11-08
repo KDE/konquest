@@ -18,7 +18,7 @@ class Fleet : public QObject
         
 public:
 
-    Fleet( int initialShipCount );
+    explicit Fleet( int initialShipCount );
     virtual ~Fleet() {};
 
     int   shipCount()   const { return m_shipCount; }

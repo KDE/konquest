@@ -13,7 +13,7 @@ class MapView : public QFrame
 
     // Constructors
 public:
-    MapView( Map *newMap, QWidget *parent = 0 );
+    explicit MapView( Map *newMap, QWidget *parent = 0 );
     virtual ~MapView();
 
     // Interface
