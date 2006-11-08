@@ -45,6 +45,8 @@ private:
     Map *map;
     QColor gridColor;
     QFont labelFont;
+    QList<QPixmap> planetPixmaps;
+    QList<QPoint> planetLabels;
 
     Coordinate hiLiteCoord;
 };

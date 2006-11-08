@@ -5,6 +5,7 @@
 #include "player.h"
 #include "map.h"
 #include "gamecore.h"
+#include <krandomsequence.h>
 
 //---------------------------------------------------------------------------
 // class Planet
@@ -19,6 +20,8 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_killPercentage(newKillP),
     m_productionRate(newProd)
 {
+    KRandomSequence r;
+    m_planetLook = r.getLong(9);
     m_sector->setPlanet( this );
 }
 

@@ -42,6 +42,7 @@ public:
     double         killPercentage() const { return m_killPercentage; }
 
     int            production() const { return m_productionRate; }
+    int            planetLook() const { return m_planetLook; }
 
     void  select();
     void  conquer( AttackFleet *conqueringFleet );
@@ -59,6 +60,7 @@ private:
 
     double        m_killPercentage;
     int           m_productionRate;
+    int           m_planetLook;
 };
 
 #endif

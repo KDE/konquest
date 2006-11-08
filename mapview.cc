@@ -26,7 +26,7 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     labelFont.setPointSize( 8 );
 
     setFixedSize( BOARD_WIDTH, BOARD_HEIGHT );
-
+    
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
 
     QTimer *timer = new QTimer( this );
@@ -34,6 +34,26 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     timer->start( 500 );
 
     setMouseTracking( true );
+    
+    // Read the planets...
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_1));
+    planetLabels.append(QPoint(18,24));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_2));
+    planetLabels.append(QPoint(2,14));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_3));
+    planetLabels.append(QPoint(2,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_4));
+    planetLabels.append(QPoint(18,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_5));
+    planetLabels.append(QPoint(18,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_6));
+    planetLabels.append(QPoint(18,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_7));
+    planetLabels.append(QPoint(18,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_8));
+    planetLabels.append(QPoint(18,26));
+    planetPixmaps.append(QPixmap(IMAGE_PLANET_9));
+    planetLabels.append(QPoint(18,26));
 }
 
 MapView::~MapView()
@@ -134,50 +154,10 @@ MapView::drawSector( QPainter *p, Sector *sector )
 
     if( sector->hasPlanet() ) {
         QPixmap pm;
-        
-        // simple (pathetic) way to "randomize"
-        // the planet graphic
-        // and also a really dirty hack to make the planet
-        // name more visible (hard coded pixel offsets)
-        
-        switch( ((sector->coord().x() + sector->coord().y()) % 9) + 1  ) {
-        case 1 :
-            pm = QPixmap( IMAGE_PLANET_1 );
-            labelCorner = QPoint( 18, 14 );
-            break;
-        case 2 :
-            pm = QPixmap( IMAGE_PLANET_2 );
-            labelCorner = QPoint( 2, 14 );
-            break;
-        case 3 :
-            pm = QPixmap( IMAGE_PLANET_3 );
-            labelCorner = QPoint( 2, 26 );
-            break;
-        case 4 :
-            pm = QPixmap( IMAGE_PLANET_4 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        case 5 :
-            pm = QPixmap( IMAGE_PLANET_5 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        case 6 :
-            pm = QPixmap( IMAGE_PLANET_6 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        case 7 :
-            pm = QPixmap( IMAGE_PLANET_7 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        case 8 :
-            pm = QPixmap( IMAGE_PLANET_8 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        case 9 :
-            pm = QPixmap( IMAGE_PLANET_9 );
-            labelCorner = QPoint( 18, 26 );
-            break;
-        }
+        if (planetPixmaps.count() > sector->planet()->planetLook())
+            pm = planetPixmaps.at(sector->planet()->planetLook());
+        if (planetLabels.count() > sector->planet()->planetLook())
+            labelCorner = planetLabels.at(sector->planet()->planetLook());
 
         QPoint pos;
 
@@ -209,7 +189,6 @@ MapView::drawSector( QPainter *p, Sector *sector )
     }
 
     p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
-
 }
 
 #include "mapview.moc"
