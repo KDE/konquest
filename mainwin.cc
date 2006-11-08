@@ -1,6 +1,7 @@
 #include <config.h>
 
 #include <QPushButton>
+#include <QLabel>
 
 #include <kapplication.h>
 #include <klocale.h>
@@ -12,6 +13,7 @@
 #include <kstdaction.h>
 #include <kstdgameaction.h>
 #include <kicon.h>
+#include <kstatusbar.h>
 
 #include "version.h"
 #include "mainwin.h"
@@ -28,6 +30,8 @@ MainWindow::MainWindow()
     setupGameBoard();
     setupKAction();
     setupGUI();
+    statusBarText = new QLabel(i18n("Galactic Conquest"));
+    statusBar()->addWidget(statusBarText);
     
     resize(600, 650);
 }
@@ -76,7 +80,5 @@ MainWindow::gameStateChange( GameState newState )
     measureAction->setEnabled( newState==SOURCE_PLANET );
     standingAction->setEnabled( newState==SOURCE_PLANET );
     fleetAction->setEnabled( newState==SOURCE_PLANET );
+    statusBarText->setText(i18n("Turn #: %1 of %2", gameBoard->turnNumber(), gameBoard->lastTurn()));
 }
-
-
-

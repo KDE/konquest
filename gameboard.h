@@ -44,6 +44,8 @@ public:
 
     bool isGameInProgress(void) const { return gameInProgress; };
 
+    int turnNumber() const { return m_turnNumber; };
+    int lastTurn() const { return m_lastTurn; };
 //    virtual QSize sizeHint() const;
 
 protected slots:
@@ -93,8 +95,8 @@ private:
     bool                       gameInProgress;
     GameState                  gameState;
     QList<Player *>::Iterator  currentPlayer;
-    int                        turnNumber;
-    int                        lastTurn;
+    int                        m_turnNumber;
+    int                        m_lastTurn;
 
 
     //***************************************************************
@@ -104,7 +106,6 @@ private:
     MapView      *mapWidget;
     PlanetInfo   *planetInfo;
     QLabel       *gameMessage;
-    QLabel       *turnCounter;
     QPushButton  *endTurn;
     QLineEdit    *shipCountEdit;
     QLabel       *splashScreen;

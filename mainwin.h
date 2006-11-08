@@ -19,6 +19,7 @@ protected:
 
 private:
     GameBoard *gameBoard;
+    QLabel *statusBarText;
     KAction *endAction, *measureAction, *standingAction, *fleetAction;
 
 private slots:

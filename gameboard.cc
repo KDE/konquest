@@ -46,6 +46,8 @@ GameBoard::GameBoard( QWidget *parent )
     palette.setColorGroup( QPalette::Active, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
     palette.setColorGroup( QPalette::Inactive, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
     palette.setColorGroup( QPalette::Disabled, Qt::white, Qt::black, col.light(), col.dark(), col, col.dark(75), col.dark(75), col.dark(), Qt::black );
+    
+    blackPal.setColor( QPalette::Base, Qt::black );
 
     neutralPlayer = Player::createNeutralPlayer(map);
     map = new Map;
@@ -54,21 +56,17 @@ GameBoard::GameBoard( QWidget *parent )
     // Create the widgets in the main window
     //********************************************************************
     mapWidget = new MapView( map, this );
+    
     msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
     msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     msgWidget->setReadOnly(true);
-    blackPal.setColor( QPalette::Base, Qt::black );
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
 
     planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
-    turnCounter = new QLabel( this );
-    turnCounter->setPalette( palette );
-    turnCounter->setText( "Turn" );
-    turnCounter->setMaximumHeight( turnCounter->sizeHint().height() );
 
     endTurn = new QPushButton( i18n("End Turn"), this );
     endTurn->setFixedSize( endTurn->sizeHint() );
@@ -93,33 +91,18 @@ GameBoard::GameBoard( QWidget *parent )
     //********************************************************************
     // Layout the main window
     //********************************************************************
-    QHBoxLayout  *mainLayout    = new QHBoxLayout( this );
+    QGridLayout  *mainLayout    = new QGridLayout( this );
     QHBoxLayout  *topLineLayout = new QHBoxLayout;
-    QVBoxLayout  *leftLayout    = new QVBoxLayout;
-    QVBoxLayout  *rightLayout   = new QVBoxLayout;
-
-    mainLayout->addLayout( leftLayout );
-    leftLayout->addLayout( topLineLayout );
 
     topLineLayout->addSpacing( 5 );
     topLineLayout->addWidget( gameMessage, 10 );
     topLineLayout->addWidget( shipCountEdit, 1 );
     topLineLayout->addWidget( endTurn, 1 );
-
-    leftLayout->addSpacing( 5 );
-    leftLayout->addWidget( mapWidget );
-    leftLayout->addWidget( msgWidget );
-    leftLayout->addStretch( 1 );
-
-    mainLayout->addSpacing( 5 );
-    mainLayout->addLayout( rightLayout, 10 );
-
-    rightLayout->addWidget( planetInfo, 1 );
-    //rightLayout->addSpacing( 10 );
-    rightLayout->addWidget( turnCounter,  1 );
-    rightLayout->addStretch( 1 );
-
-    mainLayout->addStretch( 1 );
+    
+    mainLayout->addLayout(topLineLayout, 0, 0, 1, 1);
+    mainLayout->addWidget(mapWidget, 1, 0, 1, 1);
+    mainLayout->addWidget(msgWidget, 2, 0, 1, 1);
+    mainLayout->addWidget(planetInfo, 0, 1, 3, 1);
 
     //**********************************************************************
     // Set up signal/slot connections
@@ -319,7 +302,7 @@ GameBoard::turn()
                    sourcePlanet->name(),
                    destPlanet->name(),
                    KGlobal::locale()->formatNumber( dist, 2 ),
-                   KGlobal::locale()->formatNumber( turnNumber + (int)dist, 0 ));
+                   KGlobal::locale()->formatNumber( m_turnNumber + (int)dist, 0 ));
             KMessageBox::information( this, msg, i18n("Distance"));
 
             gameState = NONE;
@@ -419,8 +402,6 @@ GameBoard::turn()
         break;
     }
 
-    turnCounter->setText( i18n("Turn #: %1 of %2", turnNumber, lastTurn) );
-
     emit newGameState( gameState );
 }
 
@@ -443,8 +424,8 @@ GameBoard::nextTurn()
     };
 
     // advance turn counter
-    turnNumber++;
-
+    m_turnNumber++;
+    
     // update the planets
     foreach (Planet *planet, planets) {
         planet->turn();
@@ -457,17 +438,17 @@ GameBoard::nextTurn()
               i18n("Game Over"));
     }
 
-    if ( turnNumber == lastTurn && !winner ) {
+    if ( m_turnNumber == m_lastTurn && !winner ) {
         GameEndDlg *dlg = new GameEndDlg( this );
 
         if ( dlg->exec() == KDialog::Yes ) {
-            lastTurn += dlg->extraTurns();
+            m_lastTurn += dlg->extraTurns();
         }
 
         delete dlg;
     }
 
-    if( winner || (turnNumber >= lastTurn) ) {
+    if( winner || (m_turnNumber >= m_lastTurn) ) {
         // Game over, man! Game over.
 
         gameOver();
@@ -489,7 +470,7 @@ GameBoard::resolveShipsInFlight()
         foreach (AttackFleet *fleet, plr->attackList()) {
             double  fleetArrivalTurn = floor(fleet->arrivalTurn);
 
-            if( turnNumber == int (fleetArrivalTurn) ) {
+            if( m_turnNumber == int (fleetArrivalTurn) ) {
                 doFleetArrival( fleet );
                 plr->attackList().remove( fleet );
                 delete fleet;
@@ -545,7 +526,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
        plainMsg = plainMsg.subs(planet->name());
     }
 
-    msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
+    msgWidget->append("<qt><font color=\"white\">"+i18n("Turn %1:", m_turnNumber)+"</font> <font color=\""+color+"\">"+colorMsg.toString()+"</font></qt>");
     msgWidget->moveCursor( QTextCursor::End );
 
     if (isHumanInvolved) {
@@ -710,9 +691,9 @@ GameBoard::startNewGame()
     endTurn->show();
     gameMessage->show();
 
-    lastTurn = newGame->turns();
+    m_lastTurn = newGame->turns();
 
-    turnNumber = 1;
+    m_turnNumber = 1;
     turn();
 
     delete newGame;
@@ -918,7 +899,7 @@ GameBoard::sendAttackFleet( Planet *source, Planet *dest, int ship )
     bool ok;
 
     ok = (*currentPlayer)->NewAttack( source, dest,
-                                                ship, turnNumber );
+                                                ship, m_turnNumber );
 
     if( !ok ) {
       KMessageBox::error( this, i18n("Not enough ships to send.") );
