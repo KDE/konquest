@@ -21,6 +21,12 @@ class PlanetInfo;
 
 class KLocalizedString;
 
+struct GameMessage {
+    QString text;
+    Player *sender;
+    Player *receiver;
+};
+
 enum GameState { 
     NONE, 
     SOURCE_PLANET, 
@@ -120,7 +126,7 @@ private:
     Player          *neutralPlayer;
     Map             *map;
     bool             queueMessages;
-    QStringList      messageQueue;
+    QList<GameMessage> messageQueue;
 
     // States in the user interaction
     bool             haveSourcePlanet;

@@ -460,9 +460,10 @@ void
 GameBoard::resolveShipsInFlight()
 {
     AttackFleetList  arrivingShips;
-    
+
+    queueMessages = true;
+
     foreach (Player *plr, players) {
-        queueMessages = true;
         foreach (AttackFleet *fleet, plr->attackList()) {
             double  fleetArrivalTurn = floor(fleet->arrivalTurn);
 
@@ -472,12 +473,26 @@ GameBoard::resolveShipsInFlight()
                 delete fleet;
             }
         }
-        if (messageQueue.size() > 0) {
-            KMessageBox::information(this, messageQueue.join("\n"));
-            messageQueue.clear();
-        }
-        queueMessages = false;
     }
+    
+    if (messageQueue.size() > 0) {
+        foreach (Player *plr, players) {
+            if (plr->isAiPlayer())
+                continue;
+            QString text;
+            foreach (GameMessage msg, messageQueue) {
+                if (plr == msg.sender || plr == msg.receiver)
+                    text = text + "\n" + msg.text;
+            }
+            if (text.size() > 0) {
+                text = i18n("Messages for %1", plr->name()) + text;
+                KMessageBox::information(this, text);
+            }
+        }
+        messageQueue.clear();
+    }
+    
+    queueMessages = false;
 }
 
 
@@ -531,10 +546,15 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     msgWidget->moveCursor( QTextCursor::End );
 
     if (isHumanInvolved) {
-        if (queueMessages)
-            messageQueue.append(plainMsg.toString());
-        else
+        if (queueMessages) {
+            GameMessage msg;
+            msg.text = plainMsg.toString();
+            msg.sender = player;
+            msg.receiver = planetPlayer;
+            messageQueue.append(msg);
+        } else {
             KMessageBox::information(this, plainMsg.toString());
+        }
     }
 }
 
