@@ -80,5 +80,5 @@ MainWindow::gameStateChange( GameState newState )
     measureAction->setEnabled( newState==SOURCE_PLANET );
     standingAction->setEnabled( newState==SOURCE_PLANET );
     fleetAction->setEnabled( newState==SOURCE_PLANET );
-    statusBarText->setText(i18n("Turn #: %1 of %2", gameBoard->turnNumber(), gameBoard->lastTurn()));
+    statusBarText->setText(i18n("Turn # %1", gameBoard->turnNumber()));
 }

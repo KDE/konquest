@@ -51,7 +51,6 @@ public:
     bool isGameInProgress(void) const { return gameInProgress; };
 
     int turnNumber() const { return m_turnNumber; };
-    int lastTurn() const { return m_lastTurn; };
 //    virtual QSize sizeHint() const;
 
 protected slots:
@@ -102,7 +101,6 @@ private:
     GameState                  gameState;
     QList<Player *>::Iterator  currentPlayer;
     int                        m_turnNumber;
-    int                        m_lastTurn;
 
 
     //***************************************************************

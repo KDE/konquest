@@ -15,7 +15,6 @@
 #include "gamecore.h"
 
 #include "newgamedlg.h"
-#include "gameenddlg.h"
 #include "scoredlg.h"
 #include "fleetdlg.h"
 #include "gameboard.h"
@@ -433,17 +432,7 @@ GameBoard::nextTurn()
               i18n("Game Over"));
     }
 
-    if ( m_turnNumber == m_lastTurn && !winner ) {
-        GameEndDlg *dlg = new GameEndDlg( this );
-
-        if ( dlg->exec() == KDialog::Yes ) {
-            m_lastTurn += dlg->extraTurns();
-        }
-
-        delete dlg;
-    }
-
-    if( winner || (m_turnNumber >= m_lastTurn) ) {
+    if( winner ) {
         // Game over, man! Game over.
 
         gameOver();
@@ -714,8 +703,6 @@ GameBoard::startNewGame()
 
     endTurn->show();
     gameMessage->show();
-
-    m_lastTurn = newGame->turns();
 
     m_turnNumber = 1;
     turn();
