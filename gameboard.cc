@@ -463,7 +463,6 @@ GameBoard::resolveShipsInFlight()
     
     foreach (Player *plr, players) {
         queueMessages = true;
-        qDebug() << "HOP HOP HOP" << plr;
         foreach (AttackFleet *fleet, plr->attackList()) {
             double  fleetArrivalTurn = floor(fleet->arrivalTurn);
 
@@ -473,7 +472,6 @@ GameBoard::resolveShipsInFlight()
                 delete fleet;
             }
         }
-        qDebug() << "HOP HOP HOP" << plr;
         if (messageQueue.size() > 0) {
             KMessageBox::information(this, messageQueue.join("\n"));
             messageQueue.clear();
