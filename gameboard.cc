@@ -64,7 +64,6 @@ GameBoard::GameBoard( QWidget *parent )
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
 
-    planetInfo = new PlanetInfo( this, palette );
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
 
@@ -91,7 +90,7 @@ GameBoard::GameBoard( QWidget *parent )
     //********************************************************************
     // Layout the main window
     //********************************************************************
-    QGridLayout  *mainLayout    = new QGridLayout( this );
+    QVBoxLayout  *mainLayout    = new QVBoxLayout( this );
     QHBoxLayout  *topLineLayout = new QHBoxLayout;
 
     topLineLayout->addSpacing( 5 );
@@ -99,10 +98,9 @@ GameBoard::GameBoard( QWidget *parent )
     topLineLayout->addWidget( shipCountEdit, 1 );
     topLineLayout->addWidget( endTurn, 1 );
     
-    mainLayout->addLayout(topLineLayout, 0, 0, 1, 1);
-    mainLayout->addWidget(mapWidget, 1, 0, 1, 1);
-    mainLayout->addWidget(msgWidget, 2, 0, 1, 1);
-    mainLayout->addWidget(planetInfo, 0, 1, 3, 1);
+    mainLayout->addLayout(topLineLayout);
+    mainLayout->addWidget(mapWidget);
+    mainLayout->addWidget(msgWidget);
 
     //**********************************************************************
     // Set up signal/slot connections
@@ -113,8 +111,6 @@ GameBoard::GameBoard( QWidget *parent )
 	     this,          SLOT(newShipCount()) );
     connect( endTurn,       SIGNAL( clicked() ),
 	     this,          SLOT( nextPlayer() ) );
-    connect( mapWidget,     SIGNAL( planetHighlighted(Planet *)),
-	     planetInfo,    SLOT(showPlanet(Planet *)) );
 
     changeGameBoard( false );
 }
@@ -838,14 +834,12 @@ GameBoard::changeGameBoard( bool inPlay  )
 
     if( gameInProgress ) {
         mapWidget->show();
-        planetInfo->show();
         gameMessage->show();
         endTurn->show();
         shipCountEdit->show();
         splashScreen->hide();
     } else {
         mapWidget->hide();
-        planetInfo->hide();
         gameMessage->hide();
         endTurn->hide();
         shipCountEdit->hide();

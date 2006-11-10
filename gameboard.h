@@ -104,7 +104,6 @@ private:
     //***************************************************************
 
     MapView      *mapWidget;
-    PlanetInfo   *planetInfo;
     QLabel       *gameMessage;
     QPushButton  *endTurn;
     QLineEdit    *shipCountEdit;

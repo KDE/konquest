@@ -2,10 +2,12 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QTimer>
+#include <QtDebug>
 
 #include <kapplication.h>
 #include <kiconloader.h>
 #include <kglobalsettings.h>
+#include <klocale.h>
 
 #include <kdebug.h>
 #include "mapview.h"
@@ -25,8 +27,8 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     labelFont = KGlobalSettings::generalFont();
     labelFont.setPointSize( 8 );
 
-    setFixedSize( BOARD_WIDTH, BOARD_HEIGHT );
-    
+    setMinimumSize( BOARD_WIDTH, BOARD_HEIGHT );
+    setFrameStyle(QFrame::Box);
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
 
     QTimer *timer = new QTimer( this );
@@ -85,15 +87,22 @@ MapView::mouseMoveEvent( QMouseEvent *e )
 
     if( (hiLiteCoord.x() != -1) && (hiLiteCoord.y() != -1) ) {
         update( hiLiteCoord.y() * SECTOR_WIDTH, hiLiteCoord.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
-
         hiLiteCoord = Coordinate(-1,-1);
+        setToolTip("");
     }
 
     if( map->sector( c )->hasPlanet() ) {
         update( c.y() * SECTOR_WIDTH, c.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
-
-        emit planetHighlighted(map->sector(c)->planet() );
-
+        Planet *planet = map->sector(c)->planet(); // That's only making code easier to read...
+        QString temp = i18n("Planet name: %1", planet->name()) + "<br />";
+        if( !planet->player()->isNeutral() ) {
+            temp = temp + i18n("Owner: %1", planet->player()->coloredName()) + "<br />";
+            temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) ) + "<br />";
+            temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) ) + "<br />";
+            temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) ) + "<br />";
+        }
+        setToolTip(temp);
+        emit planetHighlighted(planet );
         hiLiteCoord = c;
     }
 }
@@ -110,9 +119,9 @@ MapView::paintEvent( QPaintEvent *ev )
 {
     QRect r = ev->rect();
     int startRow = r.y() / SECTOR_HEIGHT;
-    int endRow   = (r.y() + r.height()) / SECTOR_HEIGHT;
+    int endRow   = qMin((r.y() + r.height()) / SECTOR_HEIGHT, BOARD_ROWS);
     int startCol = r.x() / SECTOR_WIDTH;
-    int endCol = (r.x() + r.width()) / SECTOR_WIDTH;
+    int endCol = qMin((r.x() + r.width()) / SECTOR_WIDTH, BOARD_COLS);
 
     QPainter p(this);
     for(int r=startRow; r<endRow; ++r)
@@ -154,10 +163,13 @@ MapView::drawSector( QPainter *p, Sector *sector )
 
     if( sector->hasPlanet() ) {
         QPixmap pm;
-        if (planetPixmaps.count() > sector->planet()->planetLook())
-            pm = planetPixmaps.at(sector->planet()->planetLook());
-        if (planetLabels.count() > sector->planet()->planetLook())
-            labelCorner = planetLabels.at(sector->planet()->planetLook());
+        int planetLook = sector->planet()->planetLook();
+        if ((planetLook > planetPixmaps.count()) or (planetLook < 0))
+            planetLook = planetPixmaps.count() - 1;
+        if (planetPixmaps.count() > planetLook)
+            pm = planetPixmaps.at(planetLook);
+        if (planetLabels.count() > planetLook)
+            labelCorner = planetLabels.at(planetLook);
 
         QPoint pos;
 
