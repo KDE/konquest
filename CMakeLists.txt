@@ -20,7 +20,6 @@ set(konquest_SRCS
    mapview.cc 
    minimapview.cc 
    newgamedlg.cc 
-   planet_info.cc 
    gameenddlg.cc 
    scoredlg.cc 
    fleetdlg.cc )

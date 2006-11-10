@@ -20,7 +20,6 @@
 #include "fleetdlg.h"
 #include "gameboard.h"
 #include "mapview.h"
-#include "planet_info.h"
 #include "player.h"
 #include "map.h"
 
