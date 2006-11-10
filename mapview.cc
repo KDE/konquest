@@ -94,12 +94,12 @@ MapView::mouseMoveEvent( QMouseEvent *e )
     if( map->sector( c )->hasPlanet() ) {
         update( c.y() * SECTOR_WIDTH, c.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
         Planet *planet = map->sector(c)->planet(); // That's only making code easier to read...
-        QString temp = i18n("Planet name: %1", planet->name()) + "<br />";
+        QString temp = i18n("Planet name: %1", planet->name());
         if( !planet->player()->isNeutral() ) {
-            temp = temp + i18n("Owner: %1", planet->player()->coloredName()) + "<br />";
-            temp = temp + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) ) + "<br />";
-            temp = temp + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) ) + "<br />";
-            temp = temp + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) ) + "<br />";
+            temp = temp + "<br />" + i18n("Owner: %1", planet->player()->coloredName());
+            temp = temp + "<br />" + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) );
+            temp = temp + "<br />" + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) );
+            temp = temp + "<br />" + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) );
         }
         setToolTip(temp);
         emit planetHighlighted(planet );
