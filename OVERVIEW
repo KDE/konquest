@@ -18,13 +18,11 @@ mainwin.h	mainwin.cc	The main window			FIXME: To be cleaned
 gameboard.h	gameboard.cc	The main game object		FIXME: Separate
 mapview.h	mapview.cc	FIXME: To be cleaned
 minimapview.h	minimapview.cc	FIXME: To be cleaned
-planet_info.h	planet_info.cc	Textual info about a planet	FIXME: To be cleaned
 
 
 Dialogs
 -------
 fleetdlg.h	fleetdlg.cc	FIXME: To be cleaned
-gameenddlg.h	gameenddlg.cc	FIXME: To be cleaned
 newgamedlg.h	newgamedlg.cc	FIXME: To be cleaned
 scoredlg.h	scoredlg.cc	FIXME: To be cleaned
 
