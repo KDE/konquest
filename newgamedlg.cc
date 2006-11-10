@@ -50,7 +50,6 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
 
     connect(w->sliderPlayers, SIGNAL(valueChanged(int)), this, SLOT(slotPlayerCount(int)));
     connect(w->sliderPlanets, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
-    connect(w->sliderTurns, SIGNAL(valueChanged(int)), this, SLOT(slotTurns()));
     connect(w->rejectMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
     connect(w->newPlayer, SIGNAL(textChanged(const QString &)), this, SLOT(slotNewPlayer()));
     connect(w->newPlayer, SIGNAL(returnPressed()), this, SLOT(slotAddPlayer()));
@@ -66,7 +65,6 @@ NewGameDlg::slotDefault()
 {
     w->sliderPlayers->setValue(2);
     w->sliderPlanets->setValue(3);
-    w->sliderTurns->setValue(15);
 
     w->listPlayers->clear();
 
@@ -88,11 +86,9 @@ NewGameDlg::init()
        nrOfPlayers = MAX_PLAYERS;
 
     int nrOfPlanets = config->readEntry("NrOfPlanets", 3);
-    int nrOfTurns = config->readEntry("NrOfTurns", 15);
        
     w->sliderPlayers->setValue(nrOfPlayers);
     w->sliderPlanets->setValue(nrOfPlanets);
-    w->sliderTurns->setValue(nrOfTurns);
     setPlayerCount(nrOfPlayers);
     slotNewPlayer();
     
@@ -228,7 +224,7 @@ NewGameDlg::slotNewMap()
 int
 NewGameDlg::turns()
 {
-    return w->sliderTurns->value();
+    return 42;
 }
 
 void
@@ -236,7 +232,6 @@ NewGameDlg::updateLabels()
 {
     w->labelPlayers->setText(i18n("Number of &players: %1", w->sliderPlayers->value()));
     w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1", w->sliderPlanets->value()));
-    w->labelTurns->setText(i18n("Number of &turns: %1", w->sliderTurns->value()));
 }
 
 void
@@ -268,7 +263,6 @@ NewGameDlg::save()
     
     config->writeEntry("NrOfPlayers", w->sliderPlayers->value());
     config->writeEntry("NrOfPlanets", w->sliderPlanets->value());
-    config->writeEntry("NrOfTurns", w->sliderTurns->value());
 
     int plrNum = 0;
     for( Q3ListViewItem *item = w->listPlayers->firstChild(); 

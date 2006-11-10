@@ -281,45 +281,6 @@
           </item>
         </layout>
       </item>
-      <item>
-        <widget class="Line" name="line1" >
-          <property name="frameShape" >
-            <enum>QFrame::HLine</enum>
-          </property>
-          <property name="frameShadow" >
-            <enum>QFrame::Sunken</enum>
-          </property>
-        </widget>
-      </item>
-      <item>
-        <widget class="QLabel" name="labelTurns" >
-          <property name="text" >
-            <string/>
-          </property>
-          <property name="buddy" stdset="0" >
-            <cstring>sliderTurns</cstring>
-          </property>
-          <property name="wordWrap" >
-            <bool>false</bool>
-          </property>
-        </widget>
-      </item>
-      <item>
-        <widget class="QSlider" name="sliderTurns" >
-          <property name="minimum" >
-            <number>5</number>
-          </property>
-          <property name="maximum" >
-            <number>40</number>
-          </property>
-          <property name="pageStep" >
-            <number>5</number>
-          </property>
-          <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-          </property>
-        </widget>
-      </item>
     </layout>
   </widget>
   <layoutdefault spacing="6" margin="11" />
