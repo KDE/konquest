@@ -119,6 +119,8 @@ private:
     QList<Planet *>  planets;
     Player          *neutralPlayer;
     Map             *map;
+    bool             queueMessages;
+    QStringList      messageQueue;
 
     // States in the user interaction
     bool             haveSourcePlanet;

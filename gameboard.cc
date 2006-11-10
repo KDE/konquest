@@ -33,7 +33,7 @@
 *********************************************************************/
 
 GameBoard::GameBoard( QWidget *parent )
-    : QWidget( parent ), gameInProgress( false ), gameState( NONE )
+    : QWidget( parent ), gameInProgress( false ), gameState( NONE ), queueMessages(false), messageQueue()
 {
     QPalette blackPal;
     blackPal.setColor( backgroundRole(), Qt::black );
@@ -462,6 +462,8 @@ GameBoard::resolveShipsInFlight()
     AttackFleetList  arrivingShips;
     
     foreach (Player *plr, players) {
+        queueMessages = true;
+        qDebug() << "HOP HOP HOP" << plr;
         foreach (AttackFleet *fleet, plr->attackList()) {
             double  fleetArrivalTurn = floor(fleet->arrivalTurn);
 
@@ -471,6 +473,12 @@ GameBoard::resolveShipsInFlight()
                 delete fleet;
             }
         }
+        qDebug() << "HOP HOP HOP" << plr;
+        if (messageQueue.size() > 0) {
+            KMessageBox::information(this, messageQueue.join("\n"));
+            messageQueue.clear();
+        }
+        queueMessages = false;
     }
 }
 
@@ -525,7 +533,10 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     msgWidget->moveCursor( QTextCursor::End );
 
     if (isHumanInvolved) {
-       KMessageBox::information(this, plainMsg.toString());
+        if (queueMessages)
+            messageQueue.append(plainMsg.toString());
+        else
+            KMessageBox::information(this, plainMsg.toString());
     }
 }
 
