@@ -14,15 +14,9 @@ class Player;
 
 class KLocalizedString;
 
-struct GameMessage {
-    QString text;
-    Player *sender;
-    Player *receiver;
-};
-
 
 //************************************************************************
-// GameLogic Widget
+// GameLogic Object
 //************************************************************************
 class GameLogic : public QObject
 {
@@ -32,10 +26,17 @@ public:
     explicit GameLogic( QObject *parent );
     virtual ~GameLogic();
 
-    bool isGameInProgress(void) const { return gameInProgress; };
+    bool isGameInProgress(void) const { return gameInProgress; }
 
-    int turnNumber() const { return m_turnNumber; };
-    int lastTurn() const { return m_lastTurn; };
+    int   turnNumber() const { return m_turnNumber; }
+    int   lastTurn()   const { return m_lastTurn; }
+    Map  *map()        const { return m_map; }
+    QList<Player *>  *players() { return &m_players; }
+    QList<Planet *>  *planets() { return &m_planets; }
+
+    Player  *findWinner();
+    void     resolveShipsInFlight();
+    void     scanForSurvivors();
 
 protected slots:
     void  startNewGame();
@@ -52,13 +53,21 @@ private:
     void     nextTurn();
     void     gameOver();
 
-    void     resolveShipsInFlight();
     void     doFleetArrival( AttackFleet *arrivingFleet );
-    void     scanForSurvivors();
 
     void     cleanupGame();
-    Player  *findWinner();
     
+private:
+
+    //***************************************************************
+    // Game objects
+    //***************************************************************
+
+    QList<Player *>  m_players;
+    QList<Planet *>  m_planets;
+    Player          *neutralPlayer;
+    Map             *m_map;
+
     //***************************************************************
     // Game State information
     //***************************************************************
@@ -67,18 +76,6 @@ private:
     QList<Player *>::Iterator  currentPlayer;
     int                        m_turnNumber;
     int                        m_lastTurn;
-
-
-    //***************************************************************
-    // Game objects
-    //***************************************************************
-
-    QList<Player *>  players;
-    QList<Planet *>  planets;
-    Player          *neutralPlayer;
-    Map             *map;
-    bool             queueMessages;
-    QList<GameMessage> messageQueue;
 };
 
 

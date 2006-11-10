@@ -17,12 +17,12 @@
 *********************************************************************/
 
 GameLogic::GameLogic( QObject *parent )
-    : QObject( parent ), gameInProgress( false ), queueMessages(false), messageQueue()
+    : QObject( parent ), gameInProgress( false )
 {
     QPalette blackPal;
 
-    neutralPlayer = Player::createNeutralPlayer(map);
-    map = new Map;
+    m_map = new Map;
+    neutralPlayer = Player::createNeutralPlayer(m_map);
 }
 
 
@@ -53,7 +53,7 @@ GameLogic::nextTurn()
     m_turnNumber++;
     
     // update the planets
-    foreach (Planet *planet, planets) {
+    foreach (Planet *planet, m_planets) {
         planet->turn();
     }
 
@@ -80,7 +80,7 @@ GameLogic::resolveShipsInFlight()
 {
     AttackFleetList  arrivingShips;
 
-    foreach (Player *player, players) {
+    foreach (Player *player, m_players) {
         foreach (AttackFleet *fleet, player->attackList()) {
             double  fleetArrivalTurn = floor(fleet->arrivalTurn);
 
@@ -99,7 +99,7 @@ GameLogic::findWinner()
 {
     Player *winner = 0;
 
-    foreach (Player *player, players) {
+    foreach (Player *player, m_players) {
         if (player->isInPlay()) {
 	    // If there are more than one player alive, then there is
 	    // no winner.
@@ -132,7 +132,7 @@ GameLogic::scanForSurvivors()
     // Insert all of the active players into a special list,
     // then deactivate them
     Player *player;
-    foreach (player, players) {
+    foreach (player, m_players) {
         if( player->isInPlay() ) {
             activePlayers.append( player );
             player->setInPlay( false );
@@ -144,7 +144,7 @@ GameLogic::scanForSurvivors()
 
     // iterate through the list of planets and
     // mark their owners in play
-    foreach (Planet *planet, planets) {
+    foreach (Planet *planet, m_planets) {
         planet->player()->setInPlay( true );
     }
 
@@ -252,7 +252,7 @@ GameLogic::startNewGame()
     if( gameInProgress )
         return;
 
-    currentPlayer = players.begin();
+    currentPlayer = m_players.begin();
 
     m_turnNumber = 1;
 }
@@ -280,10 +280,10 @@ GameLogic::gameOver()
 void
 GameLogic::cleanupGame()
 {
-    map->clearMap();
+    m_map->clearMap();
 
-    planets.clear();
-    players.clear();
+    m_planets.clear();
+    m_players.clear();
 }
 
 
@@ -298,12 +298,12 @@ GameLogic::nextPlayer()
     // end turn and advance to next player
     do {
         ++currentPlayer;
-    } while (currentPlayer != players.end()
+    } while (currentPlayer != m_players.end()
 	     && !(*currentPlayer)->isInPlay());
 
-    if( currentPlayer == players.end() ) {
+    if( currentPlayer == m_players.end() ) {
         // end of player list, new turn
-        currentPlayer = players.begin();
+        currentPlayer = m_players.begin();
         nextTurn();
     }
 }
