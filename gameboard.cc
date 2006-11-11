@@ -450,7 +450,7 @@ void
 GameBoard::resolveShipsInFlight()
 {
     AttackFleetList  arrivingShips;
-
+    qDebug() << "resolveShipsInFlight called...";
     queueMessages = true;
 
     foreach (Player *plr, players) {

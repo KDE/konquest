@@ -68,8 +68,10 @@ protected slots:
     void  showFleets();
 
 public slots:
-    void     gameMsg(const KLocalizedString &msg, Player *player = 0,
+    void    gameMsg(const KLocalizedString &msg, Player *player = 0,
 		     Planet *planet = 0, Player *planetPlayer = 0);
+    void    beginTurn();
+    void    endTurn();
 
 signals:
     void  newGameState( GameState newState );
@@ -82,10 +84,8 @@ protected:
 
 private:
     void     turn();
-    void     nextTurn();
     void     gameOver();
 
-    void     resolveShipsInFlight();
     void     sendAttackFleet( Planet *source, Planet *dest, int ships );
 
     void     changeGameView( bool inPlay );
@@ -98,7 +98,7 @@ private:
 
     MapView      *mapWidget;
     QLabel       *gameMessage;
-    QPushButton  *endTurn;
+    QPushButton  *endTurnBtn;
     QLineEdit    *shipCountEdit;
     QLabel       *splashScreen;
     QTextEdit    *msgWidget;

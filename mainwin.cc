@@ -97,7 +97,8 @@ MainWindow::setupGameView()
 	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
-
+    connect (m_gameLogic, SIGNAL( beginTurn()), m_gameView, SLOT(beginTurn()));
+    connect (m_gameLogic, SIGNAL( endTurn()), m_gameView, SLOT(endTurn()));
     connect( m_gameView, SIGNAL( newGameState( GameState )),
 	     this,       SLOT( gameStateChange( GameState ) ) );
 }

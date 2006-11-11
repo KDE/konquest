@@ -9,7 +9,6 @@
 // forward declarations
 //************************************************************************
 
-
 class Player;
 
 class KLocalizedString;
@@ -44,6 +43,8 @@ signals:
     void     gameOver(Player *winner);
     void     gameMsg(const KLocalizedString &msg, Player *player = 0,
 		     Planet *planet = 0, Player *planetPlayer = 0);
+    void    endTurn ();
+    void    beginTurn ();
 private:
 
     void     doFleetArrival( AttackFleet *arrivingFleet );

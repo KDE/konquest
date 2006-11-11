@@ -280,6 +280,8 @@ GameLogic::nextPlayer()
     if( m_currentPlayer == m_players.end() ) {
         // end of player list, new turn
         m_currentPlayer = m_players.begin();
+        emit endTurn();
         nextTurn();
+        emit beginTurn();
     }
 }
