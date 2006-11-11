@@ -13,17 +13,24 @@ public:
     MainWindow();
     ~MainWindow();
 
-protected:
-    void setupKAction();
-    void setupGameBoard();
-
 private:
-    GameBoard *gameBoard;
-    QLabel *statusBarText;
-    KAction *endAction, *measureAction, *standingAction, *fleetAction;
+    void setupActions();
+    void setupGameBoard();
 
 private slots:
     void gameStateChange( GameState );
+
+private:
+    // Widgets
+    GameBoard  *m_gameBoard;
+    QLabel     *m_statusBarText;
+
+    // Actions
+    KAction  *m_endAction;
+    KAction  *m_measureAction;
+    KAction  *m_standingAction;
+    KAction  *m_fleetAction;
+
 
 };
 

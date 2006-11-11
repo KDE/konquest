@@ -28,10 +28,12 @@ MainWindow::MainWindow()
     setCaption( i18n("Galactic Conquest") );
 
     setupGameBoard();
-    setupKAction();
+    setupActions();
     setupGUI();
-    statusBarText = new QLabel(i18n("Galactic Conquest"));
-    statusBar()->addWidget(statusBarText);
+
+    // The status bar.
+    m_statusBarText = new QLabel(i18n("Galactic Conquest"));
+    statusBar()->addWidget(m_statusBarText);
     
     resize(600, 650);
 }
@@ -40,45 +42,64 @@ MainWindow::~MainWindow()
 {
 }
 
+
 void
-MainWindow::setupKAction()
+MainWindow::setupActions()
 {
-    KStdGameAction::gameNew( gameBoard, SLOT( startNewGame() ), actionCollection() );
+    KStdGameAction::gameNew( m_gameBoard, SLOT( startNewGame() ),
+			     actionCollection() );
     KStdGameAction::quit( this, SLOT( close() ), actionCollection() );
-    endAction = KStdGameAction::end( gameBoard, SLOT( shutdownGame() ), actionCollection() );
-    endAction->setEnabled(false);
+
+    m_endAction = KStdGameAction::end( m_gameBoard, SLOT( shutdownGame() ), 
+				       actionCollection() );
+    m_endAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - KAction not :-(
-    measureAction = new KAction(KIcon("ruler"),  i18n("&Measure Distance"), actionCollection(), "game_measure" );
-    connect(measureAction, SIGNAL(triggered(bool)), gameBoard, SLOT( measureDistance() ));
-    measureAction->setEnabled(false);
-    standingAction = new KAction(KIcon("help"),  i18n("&Show Standings"), actionCollection(), "game_scores" );
-    connect(standingAction, SIGNAL(triggered(bool)), gameBoard, SLOT( showScores() ));
-    standingAction->setEnabled(false);
-    fleetAction = new KAction(KIcon("launch"),  i18n("&Fleet Overview"), actionCollection(), "game_fleets" );
-    connect(fleetAction, SIGNAL(triggered(bool)), gameBoard, SLOT( showFleets() ));
-    fleetAction->setEnabled(false);
-	addToolBar ( Qt::LeftToolBarArea, toolBar() );
+    m_measureAction = new KAction(KIcon("ruler"),  i18n("&Measure Distance"), 
+				  actionCollection(), "game_measure" );
+    connect(m_measureAction, SIGNAL(triggered(bool)),
+	    m_gameBoard,     SLOT( measureDistance() ));
+    m_measureAction->setEnabled(false);
+
+    // Show standings
+    m_standingAction = new KAction(KIcon("help"), i18n("&Show Standings"),
+				   actionCollection(), "game_scores" );
+    connect(m_standingAction, SIGNAL(triggered(bool)),
+	    m_gameBoard,      SLOT( showScores() ));
+    m_standingAction->setEnabled(false);
+
+    // Show fleet overview
+    m_fleetAction = new KAction(KIcon("launch"),  i18n("&Fleet Overview"), 
+				actionCollection(), "game_fleets" );
+    connect(m_fleetAction, SIGNAL(triggered(bool)),
+	    m_gameBoard,   SLOT( showFleets() ));
+    m_fleetAction->setEnabled(false);
+
+    // Toolbar
+    addToolBar ( Qt::LeftToolBarArea, toolBar() );
     toolBar()->setMovable(false);
 }
+
 
 void
 MainWindow::setupGameBoard()
 {
-    gameBoard = new GameBoard( this );
-    setCentralWidget(gameBoard);
+    m_gameBoard = new GameBoard( this );
+    setCentralWidget(m_gameBoard);
 
-    connect( gameBoard, SIGNAL( newGameState( GameState )), this, SLOT( gameStateChange( GameState ) ) );
+    connect( m_gameBoard, SIGNAL( newGameState( GameState )),
+	     this,        SLOT( gameStateChange( GameState ) ) );
 }
 
 
 void
 MainWindow::gameStateChange( GameState newState )
 {
-    endAction->setEnabled( gameBoard->isGameInProgress() );
-    measureAction->setEnabled( newState==SOURCE_PLANET );
-    standingAction->setEnabled( newState==SOURCE_PLANET );
-    fleetAction->setEnabled( newState==SOURCE_PLANET );
-    statusBarText->setText(i18n("Turn # %1", gameBoard->turnNumber()));
+    m_endAction     ->setEnabled( m_gameBoard->isGameInProgress() );
+    m_measureAction ->setEnabled( newState==SOURCE_PLANET );
+    m_standingAction->setEnabled( newState==SOURCE_PLANET );
+    m_fleetAction   ->setEnabled( newState==SOURCE_PLANET );
+
+    m_statusBarText->setText(i18n("Turn # %1", m_gameBoard->turnNumber()));
 }

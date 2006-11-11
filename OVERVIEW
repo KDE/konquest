@@ -14,7 +14,8 @@ fleet.h		fleet.cc	Info about a Fleet.
 
 Widgets & Views
 ---------------
-mainwin.h	mainwin.cc	The main window			FIXME: To be cleaned
+mainwin.h	mainwin.cc	The main window
+gameview.h	gameview.cc	The main view of the game
 gameboard.h	gameboard.cc	The main game object		FIXME: Separate
 mapview.h	mapview.cc	FIXME: To be cleaned
 minimapview.h	minimapview.cc	FIXME: To be cleaned
