@@ -5,11 +5,11 @@ Short term stuff
 Game play and usability
 -----------------------
 
-* Improve color coding of the SVG view
+* Improve color coding of the SVG view					Pinaraf
 
 Structure
 ---------
-* Complete the separation between the model and the view of the game.
+* Complete the separation between the model and the view of the game.	ingwa
   This is done by separating GameBoard --> GameLogic, GameView.
 
 
