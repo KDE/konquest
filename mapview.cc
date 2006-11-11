@@ -21,8 +21,8 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     SECTOR_HEIGHT( 28 ), SECTOR_WIDTH( 28 ),
     BOARD_HEIGHT( newMap->rows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->columns() * SECTOR_WIDTH ),
-    map( newMap ), gridColor( 50, 80, 50 ),
-    hiLiteCoord( -1, -1 ), planetRenderer(IMAGES_SVG), blinkState(true)
+    blinkState(true), map( newMap ), gridColor( 50, 80, 50 ),
+    hiLiteCoord( -1, -1 ), planetRenderer(IMAGES_SVG)
 {
     labelFont = KGlobalSettings::generalFont();
     labelFont.setPointSize( 8 );
@@ -191,7 +191,13 @@ MapView::drawSector( QPainter *p, Sector *sector )
         p->setFont( labelFont );
         p->setPen( Qt::white );
 
-        p->drawText( sectorTopLeft + QPoint(0, 12), sector->planet()->name() );
+        p->drawText( sectorTopLeft + QPoint(2, 12), sector->planet()->name() );
+        if (!sector->planet()->player()->isNeutral()) {
+            QString shipCount = QString::number(sector->planet()->fleet().shipCount());
+            QFontMetrics m = p->fontMetrics();
+            
+            p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH - m.width(shipCount) - 1, SECTOR_HEIGHT - 1), shipCount );
+        }
 
     } else {
         QPen gridPen( gridColor );
