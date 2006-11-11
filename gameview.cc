@@ -61,6 +61,7 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     msgWidget->setReadOnly(true);
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
+    msgWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
