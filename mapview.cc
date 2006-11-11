@@ -114,9 +114,11 @@ MapView::mouseMoveEvent( QMouseEvent *e )
 void
 MapView::unselectPlanet()
 {
-    map->setSelectedSector();
     blinkTimer->stop ();
-    squareBlink();
+    blinkState = false;
+    Coordinate c = map->selectedSector();
+    update( c.x() * SECTOR_WIDTH, c.y() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
+    map->setSelectedSector();
 }
 
 
@@ -198,7 +200,7 @@ MapView::drawSector( QPainter *p, Sector *sector )
             QString shipCount = QString::number(sector->planet()->fleet().shipCount());
             QFontMetrics m = p->fontMetrics();
             
-            p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH - m.width(shipCount) - 1, SECTOR_HEIGHT - 1), shipCount );
+            p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH - m.width(shipCount), SECTOR_HEIGHT), shipCount );
         }
 
     } else {
