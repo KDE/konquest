@@ -90,17 +90,6 @@ Map::findRandomFreeSector()
     return &m_grid[c.y()][c.x()];
 }
 
-bool
-Map::selectedSector( Coordinate &c ) const
-{
-    if( m_hasSelectedSector)
-    {
-        c = m_selection;
-    }
-
-    return m_hasSelectedSector;
-}
-
 void
 Map::setSelectedSector( Coordinate c )
 {

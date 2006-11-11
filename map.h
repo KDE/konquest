@@ -32,7 +32,8 @@ public:
     
     double     distance( Planet *p1, Planet *p2 );
 
-    bool selectedSector( Coordinate &c ) const;
+    bool hasSelectedSector() const { return m_hasSelectedSector; }
+    Coordinate selectedSector() const { return m_selection; }
     void setSelectedSector( Coordinate c );
     void setSelectedSector();
 

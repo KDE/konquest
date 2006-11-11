@@ -22,7 +22,7 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     BOARD_HEIGHT( newMap->rows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->columns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
-    hiLiteCoord( -1, -1 ), planetRenderer(IMAGES_SVG)
+    hiLiteCoord( -1, -1 ), planetRenderer(IMAGES_SVG), blinkState(true)
 {
     labelFont = KGlobalSettings::generalFont();
     labelFont.setPointSize( 8 );
@@ -31,9 +31,8 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     setFrameStyle(QFrame::Box);
     connect( map, SIGNAL( update() ), this, SLOT( mapUpdate() ) );
 
-    QTimer *timer = new QTimer( this );
-    connect( timer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
-    timer->start( 500 );
+    blinkTimer = new QTimer( this );
+    connect( blinkTimer, SIGNAL(timeout()), this, SLOT(squareBlink()) );
 
     setMouseTracking( true );
     
@@ -114,6 +113,8 @@ void
 MapView::unselectPlanet()
 {
     map->setSelectedSector();
+    blinkTimer->stop ();
+    squareBlink();
 }
 
 
@@ -130,16 +131,17 @@ MapView::paintEvent( QPaintEvent *ev )
     for(int r=startRow; r<endRow; ++r)
         for(int c=startCol;c<endCol; ++c)
             drawSector( &p, map->sector( Coordinate(r,c) ) );
+    if (map->hasSelectedSector()) {
+        drawSector(&p, map->sector(map->selectedSector()));
+    }
 }
 
 void
 MapView::squareBlink()
 {
-    static bool blinkState = true;
-
-    Coordinate c;
-    if( map->selectedSector( c ) ) {
-        update( c.y() * SECTOR_WIDTH, c.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
+    if( map->hasSelectedSector( ) ) {
+        Coordinate c = map->selectedSector();
+        update( c.x() * SECTOR_WIDTH, c.y() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
     }
 
     blinkState = !blinkState;
@@ -149,6 +151,8 @@ MapView::squareBlink()
 void
 MapView::mapUpdate()
 {
+    if (map->hasSelectedSector() && !blinkTimer->isActive())
+        blinkTimer->start(500);
     update();
 }
 
@@ -157,7 +161,6 @@ void
 MapView::drawSector( QPainter *p, Sector *sector )
 {
     QColor labelColor( Qt::white );
-
     QPoint sectorTopLeft(sector->coord().x() * SECTOR_WIDTH,
 			 sector->coord().y() * SECTOR_HEIGHT);
 
@@ -166,10 +169,10 @@ MapView::drawSector( QPainter *p, Sector *sector )
     if( sector->hasPlanet() ) {
         QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
         QPen gridPen;
-        if( !secRect.contains( mapFromGlobal( QCursor::pos() ) ) ) {
-            gridPen = QPen( sector->planet()->player()->color() );
-        } else {
+        if( secRect.contains( mapFromGlobal( QCursor::pos() ) ) || (blinkState && (map->selectedSector() == sector->coord())) ) {
             gridPen = QPen( Qt::white );
+        } else {
+            gridPen = QPen( sector->planet()->player()->color() );
         }
         p->setPen(gridPen);
         

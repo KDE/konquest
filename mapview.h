@@ -43,8 +43,11 @@ private:
     void drawSector( QPainter *, Sector * );
     void paintEvent( QPaintEvent* );
     void resizeEvent ( QResizeEvent * );
+    
+    bool blinkState;
 
     Map *map;
+    QTimer *blinkTimer;
     QColor gridColor;
     QFont labelFont;
     Coordinate hiLiteCoord;
