@@ -5,7 +5,14 @@ Short term stuff
 Game play and usability
 -----------------------
 
-* Use QGraphicsScene/QGraphicsView instead of MapView
+* Create a small widget for summary of orders. Should be of the size
+  of the previous planetinfo widget and at the same place to the
+  right.
+
+* Let the user create orders by dragging the mouse from one planet	Pinaraf
+  to another
+
+
 
 Structure and other code issues
 -------------------------------
@@ -22,6 +29,8 @@ Structure and other code issues
 
 * Complete the separation between the model and the view of the game.	ingwa
   This is done by separating GameBoard --> GameLogic, GameView.
+
+* Use QGraphicsScene/QGraphicsView instead of MapView
 
 
 
