@@ -49,7 +49,6 @@ public:
     explicit GameView( QWidget *parent, GameLogic *gameLogic );
     virtual ~GameView();
 
-    int turnNumber() const { return m_turnNumber; };
 //    virtual QSize sizeHint() const;
 
 protected slots:
@@ -126,9 +125,8 @@ private:
     // Game State information
     //***************************************************************
 
+    bool                       gameInProgress;
     GameState                  gameState;
-    QList<Player *>::Iterator  currentPlayer;
-    int                        m_turnNumber;
 };
 
 #endif

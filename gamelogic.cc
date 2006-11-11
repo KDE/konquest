@@ -17,12 +17,14 @@
 *********************************************************************/
 
 GameLogic::GameLogic( QObject *parent )
-    : QObject( parent ), gameInProgress( false )
+    : QObject( parent )
 {
     QPalette blackPal;
 
     m_map = new Map;
     neutralPlayer = Player::createNeutralPlayer(m_map);
+
+    cleanupGame();
 }
 
 
@@ -37,30 +39,29 @@ GameLogic::~GameLogic()
 //************************************************************************
 
 
+// FIXME: Rename into resolveTurn(), and create a new newTurn() method.
+
 void
 GameLogic::nextTurn()
 {
+    // Resolve things from last turn.
     resolveShipsInFlight();
 
+    // See if any players are left.
     scanForSurvivors();
 
     // advance to first living player
-    while( (*currentPlayer) && !(*currentPlayer)->isInPlay() ) {
-    	++currentPlayer;
+    while( (*m_currentPlayer) && !(*m_currentPlayer)->isInPlay() ) {
+    	++m_currentPlayer;
     };
 
     // advance turn counter
+    // FIXME: Emit a newTurn() signal.
     m_turnNumber++;
     
     // update the planets
     foreach (Planet *planet, m_planets) {
         planet->turn();
-    }
-
-    Player *winner = findWinner();
-    if (winner) {
-        gameOver();
-	emit gameOver(winner);
     }
 }
 
@@ -242,35 +243,18 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
 void
 GameLogic::startNewGame()
 {
-    shutdownGame();
+    // Clear everything
+    cleanupGame();
 
-    if( gameInProgress )
-        return;
-
-    currentPlayer = m_players.begin();
-
-    m_turnNumber = 1;
+    // Setup for a new game to start playing.
+    m_currentPlayer = m_players.begin();
+    m_turnNumber  = 1;
 }
 
 
 //************************************************************************
 // Shut down the current game
 //************************************************************************
-
-void
-GameLogic::shutdownGame()
-{
-    if( !gameInProgress )
-        return;
-
-    gameOver();
-}
-
-void
-GameLogic::gameOver()
-{
-    cleanupGame();
-}
 
 void
 GameLogic::cleanupGame()
@@ -292,13 +276,13 @@ GameLogic::nextPlayer()
 {
     // end turn and advance to next player
     do {
-        ++currentPlayer;
-    } while (currentPlayer != m_players.end()
-	     && !(*currentPlayer)->isInPlay());
+        ++m_currentPlayer;
+    } while (m_currentPlayer != m_players.end()
+	     && !(*m_currentPlayer)->isInPlay());
 
-    if( currentPlayer == m_players.end() ) {
+    if( m_currentPlayer == m_players.end() ) {
         // end of player list, new turn
-        currentPlayer = m_players.begin();
+        m_currentPlayer = m_players.begin();
         nextTurn();
     }
 }
