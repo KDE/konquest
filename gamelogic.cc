@@ -243,9 +243,6 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
 void
 GameLogic::startNewGame()
 {
-    // Clear everything
-    cleanupGame();
-
     // Setup for a new game to start playing.
     m_currentPlayer = m_players.begin();
     m_turnNumber  = 1;

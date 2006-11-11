@@ -27,7 +27,7 @@ Structure and other code issues
 
 * Remove gamecore.h
 
-* Complete the separation between the model and the view of the game.	ingwa
+* Complete the separation between the model and the view of the game.	DONE
   This is done by separating GameBoard --> GameLogic, GameView.
 
 * Use QGraphicsScene/QGraphicsView instead of MapView

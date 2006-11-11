@@ -3,7 +3,12 @@
 
 #include <kmainwindow.h>
 
+#if 0
 #include "gameboard.h"
+#else
+#include "gamelogic.h"
+#include "gameview.h"
+#endif
 
 class MainWindow : public KMainWindow
 {
@@ -22,7 +27,12 @@ private slots:
 
 private:
     // Widgets
+#if 0
     GameBoard  *m_gameBoard;
+#else
+    GameLogic  *m_gameLogic;
+    GameView   *m_gameView;
+#endif
     QLabel     *m_statusBarText;
 
     // Actions

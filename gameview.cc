@@ -540,11 +540,13 @@ GameView::startNewGame()
     }
     newGame->save(); // Save settings for next time
 
-    // Let the game begin for real.
-    m_gameLogic->startNewGame();
-
     // Fix all the widgets to run a new game.
     changeGameView( true );
+
+    // Clear all the structures in the game.
+    // FIXME: It is very confusing that this has to come after the
+    //        call to newGame->exec().  Change that.
+    m_gameLogic->startNewGame();
 
     msgWidget->clear();
     shipCountEdit->hide();

@@ -18,7 +18,9 @@
 #include "version.h"
 #include "mainwin.h"
 #include "mainwin.moc"
-#include "gameboard.h"
+#include "gamelogic.h"
+#include "gameview.h"
+
 
 // KonquestMainWindow
 
@@ -46,11 +48,11 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupActions()
 {
-    KStdGameAction::gameNew( m_gameBoard, SLOT( startNewGame() ),
+    KStdGameAction::gameNew( m_gameView, SLOT( startNewGame() ), 
 			     actionCollection() );
     KStdGameAction::quit( this, SLOT( close() ), actionCollection() );
 
-    m_endAction = KStdGameAction::end( m_gameBoard, SLOT( shutdownGame() ), 
+    m_endAction = KStdGameAction::end( m_gameView, SLOT( shutdownGame() ), 
 				       actionCollection() );
     m_endAction->setEnabled(false);
 
@@ -59,21 +61,21 @@ MainWindow::setupActions()
     m_measureAction = new KAction(KIcon("ruler"),  i18n("&Measure Distance"), 
 				  actionCollection(), "game_measure" );
     connect(m_measureAction, SIGNAL(triggered(bool)),
-	    m_gameBoard,     SLOT( measureDistance() ));
+	    m_gameView,      SLOT( measureDistance() ));
     m_measureAction->setEnabled(false);
 
     // Show standings
     m_standingAction = new KAction(KIcon("help"), i18n("&Show Standings"),
 				   actionCollection(), "game_scores" );
     connect(m_standingAction, SIGNAL(triggered(bool)),
-	    m_gameBoard,      SLOT( showScores() ));
+	    m_gameView,       SLOT( showScores() ));
     m_standingAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = new KAction(KIcon("launch"),  i18n("&Fleet Overview"), 
 				actionCollection(), "game_fleets" );
     connect(m_fleetAction, SIGNAL(triggered(bool)),
-	    m_gameBoard,   SLOT( showFleets() ));
+	    m_gameView,    SLOT( showFleets() ));
     m_fleetAction->setEnabled(false);
 
     // Toolbar
@@ -85,21 +87,34 @@ MainWindow::setupActions()
 void
 MainWindow::setupGameBoard()
 {
+#if 0
     m_gameBoard = new GameBoard( this );
     setCentralWidget(m_gameBoard);
+#else
+    m_gameLogic = new GameLogic( this );
+    m_gameView  = new GameView( this, m_gameLogic );
+    setCentralWidget( m_gameView );
 
-    connect( m_gameBoard, SIGNAL( newGameState( GameState )),
-	     this,        SLOT( gameStateChange( GameState ) ) );
+    connect ( m_gameLogic, SIGNAL( gameMsg(KLocalizedString &,
+					   Player *, Planet *,
+					   Player * ) ),
+	      m_gameView,  SLOT( gameMsg(KLocalizedString &msg,
+					 Player *, Planet *,
+					 Player * ) ) );
+#endif
+
+    connect( m_gameView, SIGNAL( newGameState( GameState )),
+	     this,       SLOT( gameStateChange( GameState ) ) );
 }
 
 
 void
 MainWindow::gameStateChange( GameState newState )
 {
-    m_endAction     ->setEnabled( m_gameBoard->isGameInProgress() );
-    m_measureAction ->setEnabled( newState==SOURCE_PLANET );
-    m_standingAction->setEnabled( newState==SOURCE_PLANET );
-    m_fleetAction   ->setEnabled( newState==SOURCE_PLANET );
+    m_endAction     ->setEnabled( m_gameView->isGameInProgress() );
+    m_measureAction ->setEnabled( newState == SOURCE_PLANET );
+    m_standingAction->setEnabled( newState == SOURCE_PLANET );
+    m_fleetAction   ->setEnabled( newState == SOURCE_PLANET );
 
-    m_statusBarText->setText(i18n("Turn # %1", m_gameBoard->turnNumber()));
+    m_statusBarText->setText(i18n("Turn # %1", m_gameLogic->turnNumber()));
 }

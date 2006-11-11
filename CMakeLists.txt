@@ -9,7 +9,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames  )
 
 set(konquest_SRCS 
    Konquest.cc 
-   gameboard.cc 
    gamelogic.cc
    planet.cc
    fleet.cc

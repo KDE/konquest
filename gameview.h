@@ -51,6 +51,8 @@ public:
 
 //    virtual QSize sizeHint() const;
 
+    bool  isGameInProgress() const { return gameInProgress; }
+
 protected slots:
     void  startNewGame();
     void  shutdownGame();
@@ -64,6 +66,10 @@ protected slots:
     void  measureDistance();
     void  showScores();
     void  showFleets();
+
+public slots:
+    void     gameMsg(const KLocalizedString &msg, Player *player = 0,
+		     Planet *planet = 0, Player *planetPlayer = 0);
 
 signals:
     void  newGameState( GameState newState );
@@ -81,9 +87,6 @@ private:
 
     void     resolveShipsInFlight();
     void     sendAttackFleet( Planet *source, Planet *dest, int ships );
-
-    void     gameMsg(const KLocalizedString &msg, Player *player = 0,
-		     Planet *planet = 0, Player *planetPlayer = 0);
 
     void     changeGameView( bool inPlay );
     void     cleanupGame();
