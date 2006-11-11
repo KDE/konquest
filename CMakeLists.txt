@@ -18,6 +18,7 @@ set(konquest_SRCS
    sector.cc
    gamecore.cc 
    mainwin.cc 
+   gameview.cc
    mapview.cc 
    minimapview.cc 
    newgamedlg.cc 
