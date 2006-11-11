@@ -7,8 +7,19 @@ Game play and usability
 
 * Improve color coding of the SVG view					Pinaraf
 
-Structure
----------
+Structure and other code issues
+-------------------------------
+
+* Cleanup the old code							ingwa
+   - gameview
+   - mapview
+   - minimapview
+   - fleetdlg
+   - newgamedlg
+   - scoredlg
+
+* Remove gamecore.h
+
 * Complete the separation between the model and the view of the game.	ingwa
   This is done by separating GameBoard --> GameLogic, GameView.
 
