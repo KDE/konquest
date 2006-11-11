@@ -22,7 +22,7 @@ MapView::MapView(  Map *newMap, QWidget *parent )
     BOARD_HEIGHT( newMap->rows() * SECTOR_HEIGHT ),
     BOARD_WIDTH( newMap->columns() * SECTOR_WIDTH ),
     map( newMap ), gridColor( 50, 80, 50 ),
-    hiLiteCoord( -1, -1 )
+    hiLiteCoord( -1, -1 ), planetRenderer(IMAGES_SVG)
 {
     labelFont = KGlobalSettings::generalFont();
     labelFont.setPointSize( 8 );
@@ -37,25 +37,17 @@ MapView::MapView(  Map *newMap, QWidget *parent )
 
     setMouseTracking( true );
     
-    // Read the planets...
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_1));
-    planetLabels.append(QPoint(18,24));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_2));
-    planetLabels.append(QPoint(2,14));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_3));
-    planetLabels.append(QPoint(2,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_4));
-    planetLabels.append(QPoint(18,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_5));
-    planetLabels.append(QPoint(18,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_6));
-    planetLabels.append(QPoint(18,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_7));
-    planetLabels.append(QPoint(18,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_8));
-    planetLabels.append(QPoint(18,26));
-    planetPixmaps.append(QPixmap(IMAGE_PLANET_9));
-    planetLabels.append(QPoint(18,26));
+    /*int i = 0;
+    while (true) {
+        if (planetRenderer.elementExists(QString("planet_%1").arg(i + 1))) {
+            qDebug() << i << "does exist";
+            i++;
+        } else {
+            qDebug() << QString("planet_%1").arg(i + 1) << "doesn't";
+            break;
+        }
+    }
+    qDebug() << i << "planets available...";*/
 }
 
 MapView::~MapView()
@@ -88,7 +80,6 @@ MapView::mouseMoveEvent( QMouseEvent *e )
     if( (hiLiteCoord.x() != -1) && (hiLiteCoord.y() != -1) ) {
         update( hiLiteCoord.y() * SECTOR_WIDTH, hiLiteCoord.x() * SECTOR_HEIGHT, SECTOR_WIDTH, SECTOR_HEIGHT );
         hiLiteCoord = Coordinate(-1,-1);
-        setToolTip("");
     }
 
     if( map->sector( c )->hasPlanet() ) {
@@ -162,26 +153,13 @@ MapView::drawSector( QPainter *p, Sector *sector )
     p->eraseRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH, SECTOR_HEIGHT );
 
     if( sector->hasPlanet() ) {
-        QPixmap pm;
         int planetLook = sector->planet()->planetLook();
-        if ((planetLook > planetPixmaps.count()) or (planetLook < 0))
-            planetLook = planetPixmaps.count() - 1;
-        if (planetPixmaps.count() > planetLook)
-            pm = planetPixmaps.at(planetLook);
-        if (planetLabels.count() > planetLook)
-            labelCorner = planetLabels.at(planetLook);
-
-        QPoint pos;
-
-        pos.setX( ( SECTOR_HEIGHT / 2 ) - ( pm.height() / 2 ) );
-        pos.setY( ( SECTOR_WIDTH / 2 ) - ( pm.width() / 2 ) );
-
-        p->drawPixmap( sectorTopLeft+pos, pm, QRect(0, 0, pm.width(), pm.height() ) );
-
+        
+        planetRenderer.render(p, QString("planet_%1").arg(planetLook + 1), QRect(sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH, SECTOR_HEIGHT ));
         p->setFont( labelFont );
         p->setPen( labelColor );
 
-        p->drawText( sectorTopLeft+labelCorner, sector->planet()->name() );
+        p->drawText( sectorTopLeft + QPoint(0, 12), sector->planet()->name() );
 
         QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
         bool doHighlight = secRect.contains( mapFromGlobal( QCursor::pos() ) );

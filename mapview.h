@@ -3,6 +3,7 @@
 
 
 #include <QFrame>
+#include <KSvgRenderer>
 
 #include "map.h"
 #include "images.h"
@@ -45,10 +46,8 @@ private:
     Map *map;
     QColor gridColor;
     QFont labelFont;
-    QList<QPixmap> planetPixmaps;
-    QList<QPoint> planetLabels;
-
     Coordinate hiLiteCoord;
+    KSvgRenderer planetRenderer;
 };
 
 
