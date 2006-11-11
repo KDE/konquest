@@ -29,7 +29,6 @@ public:
     bool isGameInProgress(void) const { return gameInProgress; }
 
     int   turnNumber() const { return m_turnNumber; }
-    int   lastTurn()   const { return m_lastTurn; }
     Map  *map()        const { return m_map; }
     QList<Player *>  *players() { return &m_players; }
     QList<Planet *>  *planets() { return &m_planets; }
@@ -75,7 +74,6 @@ private:
     bool                       gameInProgress;
     QList<Player *>::Iterator  currentPlayer;
     int                        m_turnNumber;
-    int                        m_lastTurn;
 };
 
 

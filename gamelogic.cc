@@ -62,11 +62,6 @@ GameLogic::nextTurn()
         gameOver();
 	emit gameOver(winner);
     }
-
-    if( winner || (m_turnNumber >= m_lastTurn) ) {
-        // Game over, man! Game over.
-
-    }
 }
 
 
