@@ -15,10 +15,10 @@ fleet.h		fleet.cc	Info about a Fleet.
 Widgets & Views
 ---------------
 mainwin.h	mainwin.cc	The main window
-gameview.h	gameview.cc	The main view of the game
+gameview.h	gameview.cc	The main view of the game	FIXME: cleanup
 gameboard.h	gameboard.cc	The main game object		FIXME: Separate
-mapview.h	mapview.cc	FIXME: To be cleaned
-minimapview.h	minimapview.cc	FIXME: To be cleaned
+mapview.h	mapview.cc	The main view of the universe	FIXME: cleanup
+minimapview.h	minimapview.cc	A smaller view for setting up new games	FIXME: cleanup
 
 
 Dialogs
