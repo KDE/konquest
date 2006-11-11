@@ -1,3 +1,22 @@
-Multiplayer via the internet
+Short term stuff
+================
+
+
+Game play and usability
+-----------------------
+
+* Improve color coding of the SVG view
+
+Structure
+---------
+* Complete the separation between the model and the view of the game.
+  This is done by separating GameBoard --> GameLogic, GameView.
+
+
+
+Long term stuff
+===============
+
+* Multiplayer via the internet
 
 
