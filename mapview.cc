@@ -56,6 +56,8 @@ MapView::~MapView()
 void
 MapView::mousePressEvent( QMouseEvent *e )
 {
+    if ((e->x() > BOARD_WIDTH) || (e->y() > BOARD_HEIGHT))
+        return;
     Coordinate c( e->y()/SECTOR_HEIGHT, e->x()/SECTOR_WIDTH );
 
     if( map->sector( c )->hasPlanet() ) {
