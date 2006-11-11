@@ -1,14 +1,12 @@
 #ifndef _MAIN_WIN_H
 #define _MAIN_WIN_H
 
+
 #include <kmainwindow.h>
 
-#if 0
-#include "gameboard.h"
-#else
 #include "gamelogic.h"
 #include "gameview.h"
-#endif
+
 
 class MainWindow : public KMainWindow
 {
@@ -20,19 +18,15 @@ public:
 
 private:
     void setupActions();
-    void setupGameBoard();
+    void setupGameView();
 
 private slots:
     void gameStateChange( GameState );
 
 private:
     // Widgets
-#if 0
-    GameBoard  *m_gameBoard;
-#else
     GameLogic  *m_gameLogic;
     GameView   *m_gameView;
-#endif
     QLabel     *m_statusBarText;
 
     // Actions

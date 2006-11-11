@@ -29,7 +29,7 @@ MainWindow::MainWindow()
 {
     setCaption( i18n("Galactic Conquest") );
 
-    setupGameBoard();
+    setupGameView();
     setupActions();
     setupGUI();
 
@@ -85,12 +85,8 @@ MainWindow::setupActions()
 
 
 void
-MainWindow::setupGameBoard()
+MainWindow::setupGameView()
 {
-#if 0
-    m_gameBoard = new GameBoard( this );
-    setCentralWidget(m_gameBoard);
-#else
     m_gameLogic = new GameLogic( this );
     m_gameView  = new GameView( this, m_gameLogic );
     setCentralWidget( m_gameView );
@@ -101,7 +97,6 @@ MainWindow::setupGameBoard()
 	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
-#endif
 
     connect( m_gameView, SIGNAL( newGameState( GameState )),
 	     this,       SLOT( gameStateChange( GameState ) ) );
