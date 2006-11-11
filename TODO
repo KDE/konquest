@@ -5,7 +5,7 @@ Short term stuff
 Game play and usability
 -----------------------
 
-* Improve color coding of the SVG view					Pinaraf
+* Use QGraphicsScene/QGraphicsView instead of MapView
 
 Structure and other code issues
 -------------------------------
