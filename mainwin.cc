@@ -95,10 +95,10 @@ MainWindow::setupGameBoard()
     m_gameView  = new GameView( this, m_gameLogic );
     setCentralWidget( m_gameView );
 
-    connect ( m_gameLogic, SIGNAL( gameMsg(KLocalizedString &,
+    connect ( m_gameLogic, SIGNAL( gameMsg(const KLocalizedString &,
 					   Player *, Planet *,
 					   Player * ) ),
-	      m_gameView,  SLOT( gameMsg(KLocalizedString &msg,
+	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
 #endif
