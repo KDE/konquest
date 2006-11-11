@@ -61,6 +61,7 @@ GameBoard::GameBoard( QWidget *parent )
     msgWidget->setReadOnly(true);
     msgWidget->setPalette( blackPal );
     msgWidget->setAutoFillBackground( true );
+    msgWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     gameMessage = new QLabel( this );
     gameMessage->setPalette( palette );
@@ -471,10 +472,10 @@ GameBoard::resolveShipsInFlight()
             QString text;
             foreach (GameMessage msg, messageQueue) {
                 if (plr == msg.sender || plr == msg.receiver)
-                    text = text + "\n" + msg.text;
+                    text = text + "<br />" + msg.text;
             }
             if (text.size() > 0) {
-                text = i18n("Messages for %1", plr->name()) + text;
+                text = "<html>" + i18n("Messages for %1", plr->coloredName()) + "<br />" + text + "</html>";
                 KMessageBox::information(this, text);
             }
         }
@@ -537,7 +538,7 @@ GameBoard::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
     if (isHumanInvolved) {
         if (queueMessages) {
             GameMessage msg;
-            msg.text = plainMsg.toString();
+            msg.text = colorMsg.toString();
             msg.sender = player;
             msg.receiver = planetPlayer;
             messageQueue.append(msg);

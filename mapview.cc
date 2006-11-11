@@ -65,6 +65,18 @@ MapView::mousePressEvent( QMouseEvent *e )
 }
 
 void
+MapView::resizeEvent (QResizeEvent *e)
+{
+    int new_board_size = qMin(e->size().width(), e->size().height());
+    BOARD_HEIGHT = new_board_size;
+    BOARD_WIDTH = new_board_size;
+    SECTOR_HEIGHT = new_board_size/16;
+    SECTOR_WIDTH = new_board_size/16;
+    update(0, 0, new_board_size, new_board_size);
+    //qDebug() << e->size() << "=>" << new_board_size;
+}
+
+void
 MapView::mouseMoveEvent( QMouseEvent *e )
 {
     // highlight the square under the mouse

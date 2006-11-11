@@ -34,14 +34,15 @@ signals:
     void planetHighlighted( Planet * );
 
 private:
-    const int SECTOR_HEIGHT;
-    const int SECTOR_WIDTH;
+    int SECTOR_HEIGHT;
+    int SECTOR_WIDTH;
 
-    const int BOARD_HEIGHT;
-    const int BOARD_WIDTH;
+    int BOARD_HEIGHT;
+    int BOARD_WIDTH;
 
     void drawSector( QPainter *, Sector * );
     void paintEvent( QPaintEvent* );
+    void resizeEvent ( QResizeEvent * );
 
     Map *map;
     QColor gridColor;
