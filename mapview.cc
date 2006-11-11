@@ -157,40 +157,46 @@ void
 MapView::drawSector( QPainter *p, Sector *sector )
 {
     QColor labelColor( Qt::white );
-    QPoint labelCorner;
 
     QPoint sectorTopLeft(sector->coord().x() * SECTOR_WIDTH,
 			 sector->coord().y() * SECTOR_HEIGHT);
 
     p->eraseRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH, SECTOR_HEIGHT );
-
+    
     if( sector->hasPlanet() ) {
+        QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
+        QPen gridPen;
+        if( !secRect.contains( mapFromGlobal( QCursor::pos() ) ) ) {
+            gridPen = QPen( sector->planet()->player()->color() );
+        } else {
+            gridPen = QPen( Qt::white );
+        }
+        p->setPen(gridPen);
+        
+        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
+        if (!sector->planet()->player()->isNeutral()) {
+            QBrush backBrush = p->brush();
+            backBrush.setColor(gridPen.color());
+            backBrush.setStyle(Qt::SolidPattern);
+            p->setOpacity(0.5);
+            p->fillRect(sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1, backBrush );
+            p->setOpacity(1);
+        }
         int planetLook = sector->planet()->planetLook();
         
         planetRenderer.render(p, QString("planet_%1").arg(planetLook + 1), QRect(sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH, SECTOR_HEIGHT ));
         p->setFont( labelFont );
-        p->setPen( labelColor );
+        p->setPen( Qt::white );
 
         p->drawText( sectorTopLeft + QPoint(0, 12), sector->planet()->name() );
 
-        QRect secRect = QRect(sectorTopLeft, QSize(SECTOR_WIDTH, SECTOR_HEIGHT ));
-        bool doHighlight = secRect.contains( mapFromGlobal( QCursor::pos() ) );
-
-        if( !doHighlight ) {
-            QPen gridPen( sector->planet()->player()->color() );
-            p->setPen( gridPen );
-        } else {
-            QPen gridPen( Qt::white );
-            p->setPen( gridPen );
-        }
-
     } else {
         QPen gridPen( gridColor );
-
         p->setPen( gridPen );
+        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
     }
 
-    p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
+
 }
 
 #include "mapview.moc"
