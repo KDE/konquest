@@ -14,22 +14,23 @@
 #include "fleetdlg.h"
 #include "planet.h"
 
+
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
-    : QDialog(parent), fleetList(fleets)
+    : QDialog(parent), m_fleetList(fleets)
 {
     setObjectName( "FleetDlg" );
     setModal( true );
     setWindowTitle( KInstance::makeStdCaption(i18n("Fleet Overview")) );
 
-    fleetTable = new QTableWidget( this );
-    fleetTable->setColumnCount( 5 );
+    m_fleetTable = new QTableWidget( this );
+    m_fleetTable->setColumnCount( 5 );
     QStringList labels;
-    labels << i18n("Fleet No.") << i18n("Destination") << i18n("Ships");
-    labels << i18n("Kill Percentage") << i18n("Arrival Turn");
-    fleetTable->setHorizontalHeaderLabels( labels );
-    fleetTable->verticalHeader()->hide();
-    fleetTable->setMinimumSize( fleetTable->sizeHint() );
-    fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
+    labels << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
+	   << i18n("Kill Percentage") << i18n("Arrival Turn");
+    m_fleetTable->setHorizontalHeaderLabels( labels );
+    m_fleetTable->verticalHeader()->hide();
+    m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
+    m_fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
     KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
@@ -38,7 +39,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     QVBoxLayout *layout1 = new QVBoxLayout( this );
     QHBoxLayout *layout2 = new QHBoxLayout;
 
-    layout1->addWidget( fleetTable, 1 );
+    layout1->addWidget( m_fleetTable, 1 );
     layout1->addLayout( layout2 );
 
     layout2->addStretch( 2 );
@@ -51,40 +52,39 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
 
     resize( 580, 140  );
 
-    fleetTable->setSortingEnabled(true);
-    fleetTable->sortItems( 0, Qt::AscendingOrder );
+    m_fleetTable->setSortingEnabled(true);
+    m_fleetTable->sortItems( 0, Qt::AscendingOrder );
 }
 
 void
 FleetDlg::init()
 {
-    AttackFleet *curFleet=0;
+    AttackFleet  *curFleet=0;
 
-    fleetTable->setRowCount( fleetList->count() );
+    m_fleetTable->setRowCount( m_fleetList->count() );
     QTableWidgetItem *item;
     
-    for( int f=0; f< fleetList->count(); ++f)
-    {
-        curFleet = fleetList->at(f);
+    for( int f = 0; f < m_fleetList->count(); ++f) {
+        curFleet = m_fleetList->at(f);
         
-        item = new QTableWidgetItem(QString::number(f+1));
+        item = new QTableWidgetItem(QString::number(f + 1));
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        fleetTable->setItem( f, 0, item );
+        m_fleetTable->setItem( f, 0, item );
         
         item = new QTableWidgetItem(curFleet->destination->name());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        fleetTable->setItem( f, 1, item );
+        m_fleetTable->setItem( f, 1, item );
         
         item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        fleetTable->setItem( f, 2, item );
+        m_fleetTable->setItem( f, 2, item );
         
-        item = new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3)));
+        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3)));
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        fleetTable->setItem( f, 3, item );
+        m_fleetTable->setItem( f, 3, item );
         
         item = new QTableWidgetItem(QString::number((int)ceil(curFleet->arrivalTurn)));
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        fleetTable->setItem( f, 4, item );
+        m_fleetTable->setItem( f, 4, item );
     }
 }

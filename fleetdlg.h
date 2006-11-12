@@ -15,8 +15,9 @@ public:
 private:
     void init();
 
-    AttackFleetList *fleetList;
-    QTableWidget *fleetTable;
+    AttackFleetList  *m_fleetList;
+    QTableWidget     *m_fleetTable;
 };
+
 
 #endif
