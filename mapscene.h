@@ -6,6 +6,7 @@
 
 class Planet;
 class PlanetItem;
+class PlanetInfoItem;
 class Map;
 
 class MapScene: public QGraphicsScene {
@@ -15,6 +16,7 @@ class MapScene: public QGraphicsScene {
         KSvgRenderer *renderer() { return m_renderer; }
         Map *map() { return m_map; }
         void unselectPlanet();
+        void displayPlanetInfo (Planet *planet, QPoint pos);
         
     signals:
         void  planetSelected( Planet * );
@@ -23,6 +25,7 @@ class MapScene: public QGraphicsScene {
         Map *m_map;
         KSvgRenderer *m_renderer;
         PlanetItem *m_selectedPlanetItem;
+        PlanetInfoItem *m_planetInfoItem;
         
     private slots:
         void mapUpdate();

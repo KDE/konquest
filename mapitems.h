@@ -2,8 +2,10 @@
 #define _MAPITEMS_H_
 
 #include <QGraphicsItem>
+#include <QTextDocument>
 #include <QObject>
 #include "sector.h"
+
 
 class MapScene;
 
@@ -32,6 +34,21 @@ class PlanetItem : public QObject, public QGraphicsItem {
         bool blinkState;
         QTimer *blinkTimer;
 };
+
+class PlanetInfoItem : public QGraphicsItem {
+    public:
+        PlanetInfoItem ();
+        QRectF boundingRect() const;
+        void setPlanet (Planet *planet);
+        Planet *planet () { return m_planet; }
+        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+                    QWidget *widget);
+    private:
+        QTextDocument m_textDoc;
+        Planet *m_planet;
+    
+};
+
 
 class BackgroundItem : public QGraphicsItem {
     public:

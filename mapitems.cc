@@ -5,6 +5,7 @@
 #include <QPen>
 #include <QtDebug>
 #include <QTimer>
+#include <QTextDocument>
 
 #include <kapplication.h>
 #include <kiconloader.h>
@@ -38,14 +39,6 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
 void PlanetItem::updatePlanet() {
     Planet  *planet = m_sector->planet();
     if (planet != NULL) {
-        QString temp = i18n("Planet name: %1", planet->name());
-        if( !planet->player()->isNeutral() ) {
-            temp += "<br />" + i18n("Owner: %1", planet->player()->coloredName());
-            temp += "<br />" + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) );
-            temp += "<br />" + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) );
-            temp += "<br />" + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) );
-        }
-        setToolTip(temp);
         update();
     }
 }
@@ -91,11 +84,14 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWid
 
 void PlanetItem::hoverEnterEvent ( QGraphicsSceneHoverEvent *event ) {
     hovered = true;
+    Planet  *planet = m_sector->planet();
+    m_scene->displayPlanetInfo(planet, QPoint(m_sector->coord().x() * m_scene->width()/BOARD_COLS, m_sector->coord().y() * m_scene->height()/BOARD_ROWS));
     update();
 }
 
 void PlanetItem::hoverLeaveEvent ( QGraphicsSceneHoverEvent *event ) {
     hovered = false;
+    m_scene->displayPlanetInfo(NULL, QPoint());
     update();
 }
 
@@ -117,6 +113,44 @@ void PlanetItem::unselect() {
 void PlanetItem::blinkPlanet() {
     blinkState = !blinkState;
     update();
+}
+
+/********************************
+    PlanetInfoItem
+ *******************************/
+
+PlanetInfoItem::PlanetInfoItem ()
+    : QGraphicsItem(),
+    m_textDoc(),
+    m_planet(NULL)
+{
+}
+
+void PlanetInfoItem::setPlanet (Planet *planet) {
+    m_planet = planet;
+    QString text = i18n("Planet name: %1", planet->name());
+    if( !planet->player()->isNeutral() ) {
+        text += "<br />" + i18n("Owner: %1", planet->player()->coloredName());
+        text += "<br />" + i18n("Ships: %1", KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) );
+        text += "<br />" + i18n("Production: %1", KGlobal::locale()->formatNumber(planet->production(), 0) );
+        text += "<br />" + i18n("Kill percent: %1", KGlobal::locale()->formatNumber(planet->killPercentage(), 3) );
+    }
+    m_textDoc.setHtml(text);
+}
+
+QRectF PlanetInfoItem::boundingRect() const {
+    return QRectF(0, 0, m_textDoc.idealWidth(), m_textDoc.size().height());
+}
+
+void PlanetInfoItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    QPen pen = p->pen();
+    QBrush brush = p->brush();
+    p->setOpacity(0.5);
+    brush.setColor(Qt::black);
+    brush.setStyle(Qt::SolidPattern);
+    p->fillRect(QRectF(0, 0, m_textDoc.idealWidth() + 1, m_textDoc.size().height() + 1), brush);
+    p->setOpacity(1.0);
+    m_textDoc.drawContents(p);
 }
 
 /********************************
