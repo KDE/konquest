@@ -22,9 +22,9 @@ minimapview.h	minimapview.cc	A smaller view for setting up new games
 
 Dialogs
 -------
-fleetdlg.h	fleetdlg.cc	FIXME: To be cleaned
-newgamedlg.h	newgamedlg.cc	FIXME: To be cleaned
-scoredlg.h	scoredlg.cc	FIXME: To be cleaned
+fleetdlg.h	fleetdlg.cc					FIXME: cleanup
+newgamedlg.h	newgamedlg.cc					FIXME: cleanup
+scoredlg.h	scoredlg.cc	The summary dialog at the end of the game.
 
 
 Misc
