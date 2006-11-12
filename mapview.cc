@@ -16,11 +16,6 @@ MapView::MapView( MapScene* scene, QWidget *parent )
     resize( sizeHint() );
 }
 
-void MapView::unselectPlanet()
-{
-    // NIL
-}
-
 void MapView::resizeEvent( QResizeEvent* ev )
 {
     m_scene->setSceneRect(QRectF(0, 0, ev->size().width(), ev->size().height()));

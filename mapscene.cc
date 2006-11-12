@@ -8,7 +8,8 @@
 
 MapScene::MapScene (Map *map)
     : QGraphicsScene(),
-    m_map(map)
+    m_map(map),
+    m_selectedPlanetItem(NULL)
 {
     m_renderer = new KSvgRenderer(IMAGES_SVG);
     connect( m_map, SIGNAL( mapPopulated() ), this, SLOT( mapUpdate() ) );
@@ -32,13 +33,23 @@ void MapScene::mapUpdate() {
                 c++;
                 qDebug() << "Creating planet " << c;
                 PlanetItem *item = new PlanetItem(this, sector);
-                connect(item, SIGNAL(planetSelected (Planet *)), this, SLOT(planetItemSelected (Planet *)));
+                connect(item, SIGNAL(planetItemSelected (PlanetItem *)), this, SLOT(planetItemSelected (PlanetItem *)));
                 addItem(item);
             }
         }
     }
 }
 
-void MapScene::planetItemSelected (Planet *planet) {
-    emit planetSelected(planet);
+void MapScene::unselectPlanet() {
+    // Do nothing for now.
+    if (m_selectedPlanetItem) {
+        m_selectedPlanetItem->unselect();
+    }
+}
+
+void MapScene::planetItemSelected (PlanetItem *item) {
+    if (m_selectedPlanetItem)
+        unselectPlanet();
+    m_selectedPlanetItem = item;
+    emit planetSelected(item->sector()->planet());
 }

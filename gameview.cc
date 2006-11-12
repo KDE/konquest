@@ -195,7 +195,7 @@ GameView::turn()
         haveDestPlanet   = false;
         haveShipCount    = false;
         shipCount        = 0;
-        mapWidget->unselectPlanet();
+        mapScene->unselectPlanet();
 
         turn();
         setFocus();
@@ -212,7 +212,7 @@ GameView::turn()
         } else {
             shipCountEdit->hide();
             endTurnBtn->setEnabled( true );
-            mapWidget->unselectPlanet();
+            mapScene->unselectPlanet();
             gameMessage->setText( "<qt>" 
 				  + m_gameLogic->currentPlayer()->coloredName()
 				  + ": "
@@ -226,7 +226,7 @@ GameView::turn()
 	// The user has chosen a destination planet and should now
 	// specify a number of ships.
         if( haveDestPlanet ) {
-            mapWidget->unselectPlanet();
+            mapScene->unselectPlanet();
             gameState = SHIP_COUNT;
             turn();
 
@@ -269,7 +269,7 @@ GameView::turn()
 
             endTurnBtn->setEnabled( false );
 
-            mapWidget->unselectPlanet();
+            mapScene->unselectPlanet();
         }
 
         break;
@@ -283,7 +283,7 @@ GameView::turn()
         } else {
             shipCountEdit->hide();
             endTurnBtn->setEnabled( true );
-            mapWidget->unselectPlanet();
+            mapScene->unselectPlanet();
 
             gameMessage->setText( i18n("Ruler: Select starting planet.") );
             setFocus();
@@ -293,7 +293,7 @@ GameView::turn()
 
     case RULER_DEST:
         if( haveDestPlanet ) {
-            mapWidget->unselectPlanet();
+            mapScene->unselectPlanet();
 
             // Display the distance between the two planets
             double dist = m_gameLogic->map()->distance( sourcePlanet,

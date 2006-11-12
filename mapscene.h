@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 
 class Planet;
+class PlanetItem;
 class Map;
 
 class MapScene: public QGraphicsScene {
@@ -13,6 +14,7 @@ class MapScene: public QGraphicsScene {
         MapScene(Map *map);
         KSvgRenderer *renderer() { return m_renderer; }
         Map *map() { return m_map; }
+        void unselectPlanet();
         
     signals:
         void  planetSelected( Planet * );
@@ -20,10 +22,11 @@ class MapScene: public QGraphicsScene {
     private:
         Map *m_map;
         KSvgRenderer *m_renderer;
+        PlanetItem *m_selectedPlanetItem;
         
     private slots:
         void mapUpdate();
-        void planetItemSelected (Planet *);
+        void planetItemSelected (PlanetItem *);
 };
 
 #endif

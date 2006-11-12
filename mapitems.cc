@@ -4,6 +4,7 @@
 #include <QBrush>
 #include <QPen>
 #include <QtDebug>
+#include <QTimer>
 
 #include <kapplication.h>
 #include <kiconloader.h>
@@ -20,14 +21,18 @@
  *******************************/
 
 PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
-    : QObject(),
+    : QObject(scene),
       QGraphicsItem(),
       m_scene(scene),
       m_sector(sector),
-      hovered(false)
+      hovered(false),
+      selected(false),
+      blinkState(false)
 {
     setAcceptsHoverEvents(true);
     connect(m_sector, SIGNAL(update()), this, SLOT(updatePlanet()));
+    blinkTimer = new QTimer(this);
+    connect(blinkTimer, SIGNAL(timeout()), this, SLOT(blinkPlanet()));
 }
 
 void PlanetItem::updatePlanet() {
@@ -63,7 +68,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWid
     int planetLook = m_sector->planet()->planetLook();
     m_scene->renderer()->render(p, QString("planet_%1").arg(planetLook + 1), boundingRect());
     
-    if (hovered) {
+    if (hovered || (selected && blinkState)) {
         QBrush backBrush = p->brush();
         backBrush.setColor(Qt::white);
         backBrush.setStyle(Qt::SolidPattern);
@@ -95,7 +100,23 @@ void PlanetItem::hoverLeaveEvent ( QGraphicsSceneHoverEvent *event ) {
 }
 
 void PlanetItem::mousePressEvent ( QGraphicsSceneMouseEvent * event ) {
-    emit planetSelected(m_sector->planet());
+    selected = true;
+    blinkTimer->start(500);
+    update();
+    emit planetItemSelected(this);
+}
+
+void PlanetItem::unselect() {
+    // Unselect...
+    blinkTimer->stop();
+    blinkState = false;
+    selected = false;
+    update();
+}
+
+void PlanetItem::blinkPlanet() {
+    blinkState = !blinkState;
+    update();
 }
 
 /********************************
