@@ -1,13 +1,17 @@
 #ifndef _GAMEVIEW_H_
 #define _GAMEVIEW_H_
 
+
 #include <QWidget>
+
 #include "planet.h"
 #include "player.h"
+
 
 //************************************************************************
 // forward declarations
 //************************************************************************
+
 
 class QSlider;
 class QLabel;
@@ -15,19 +19,21 @@ class QPushButton;
 class QLineEdit;
 class QTextEdit;
 
+class KLocalizedString;
+
 class Player;
 class MapView;
 class MapScene;
 class PlanetInfo;
 class GameLogic;
 
-class KLocalizedString;
 
 struct GameMessage {
-    QString text;
-    Player *sender;
-    Player *receiver;
+    QString  text;
+    Player  *sender;
+    Player  *receiver;
 };
+
 
 enum GameState { 
     NONE, 
@@ -39,20 +45,23 @@ enum GameState {
     AI_PLAYER
 };
 
+
 //************************************************************************
 // GameView Widget
 //************************************************************************
+
+
 class GameView : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit GameView( QWidget *parent, GameLogic *gameLogic );
-    virtual ~GameView();
+    explicit  GameView( QWidget *parent, GameLogic *gameLogic );
+    virtual  ~GameView();
 
 //    virtual QSize sizeHint() const;
 
-    bool  isGameInProgress() const { return gameInProgress; }
+    bool  isGameInProgress() const { return m_gameInProgress; }
 
 protected slots:
     void  startNewGame();
@@ -69,10 +78,10 @@ protected slots:
     void  showFleets();
 
 public slots:
-    void    gameMsg(const KLocalizedString &msg, Player *player = 0,
-		     Planet *planet = 0, Player *planetPlayer = 0);
-    void    beginTurn();
-    void    endTurn();
+    void  gameMsg(const KLocalizedString &msg, Player *player = 0,
+		  Planet *planet = 0, Player *planetPlayer = 0);
+    void  beginTurn();
+    void  endTurn();
 
 signals:
     void  newGameState( GameState newState );
@@ -84,54 +93,55 @@ protected:
     virtual void  keyPressEvent( QKeyEvent * );
 
 private:
-    void     turn();
-    void     gameOver();
+    void  turn();
+    void  gameOver();
 
-    void     sendAttackFleet( Planet *source, Planet *dest, int ships );
+    void  sendAttackFleet( Planet *source, Planet *dest, int ships );
 
-    void     changeGameView( bool inPlay );
-    void     cleanupGame();
+    void  changeGameView( bool inPlay );
+    void  cleanupGame();
     
 
     //***************************************************************
     // Display Widgets
     //***************************************************************
 
-    MapView      *mapWidget;
-    MapScene     *mapScene;
-    QLabel       *gameMessage;
-    QPushButton  *endTurnBtn;
-    QLineEdit    *shipCountEdit;
-    QLabel       *splashScreen;
-    QTextEdit    *msgWidget;
-
+    MapView      *m_mapWidget;
+    MapScene     *m_mapScene;
+    QLabel       *m_gameMessage;
+    QPushButton  *m_endTurnBtn;
+    QLineEdit    *m_shipCountEdit;
+    QLabel       *m_splashScreen;
+    QTextEdit    *m_msgWidget;
 
     //***************************************************************
     // Game objects
     //***************************************************************
 
-    GameLogic       *m_gameLogic;
+    GameLogic          *m_gameLogic;
 
-    Player          *neutralPlayer;  // FIXME: Have here or in gamelogic?
-    bool             queueMessages;
-    QList<GameMessage> messageQueue;
+    Player             *m_neutralPlayer;  // FIXME: Have here or in gamelogic?
+    bool                m_queueMessages;
+    QList<GameMessage>  m_messageQueue;
 
     // States in the user interaction
-    bool             haveSourcePlanet;
-    Planet          *sourcePlanet;
+    // FIXME: Break out into another file?
+    bool                haveSourcePlanet;
+    Planet             *sourcePlanet;
 
-    bool             haveDestPlanet;
-    Planet          *destPlanet;
+    bool                haveDestPlanet;
+    Planet             *destPlanet;
 
-    bool             haveShipCount;
-    int              shipCount;
+    bool                haveShipCount;
+    int                 shipCount;
 
     //***************************************************************
     // Game State information
     //***************************************************************
 
-    bool                       gameInProgress;
-    GameState                  gameState;
+    bool                m_gameInProgress;
+    GameState           m_gameState;
 };
+
 
 #endif
