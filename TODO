@@ -32,6 +32,10 @@ Structure and other code issues
 
 * Use QGraphicsScene/QGraphicsView instead of MapView
 
+* Refactor the GameView
+   - Remove AI players from it
+   - More signals/slots from gamelogic
+
 
 
 Long term stuff
