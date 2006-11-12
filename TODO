@@ -18,6 +18,7 @@ Structure and other code issues
 -------------------------------
 
 * Cleanup the old code							ingwa
+   - gamelogic
    - gameview								done
    - mapview								done
    - minimapview							done

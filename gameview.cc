@@ -45,17 +45,17 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     QColor col(Qt::green);
     QPalette palette;
     palette.setColorGroup( QPalette::Active,   Qt::white,    Qt::black, 
-			   col.light(),        col.dark(),   col,
-			   col.dark(75),       col.dark(75), col.dark(),
-			   Qt::black );
+                           col.light(),        col.dark(),   col,
+                           col.dark(75),       col.dark(75), col.dark(),
+                           Qt::black );
     palette.setColorGroup( QPalette::Inactive, Qt::white,    Qt::black,
-			   col.light(),        col.dark(),   col,
-			   col.dark(75),       col.dark(75), col.dark(), 
-			   Qt::black );
+                           col.light(),        col.dark(),   col,
+                           col.dark(75),       col.dark(75), col.dark(), 
+                           Qt::black );
     palette.setColorGroup( QPalette::Disabled, Qt::white,    Qt::black,
-			   col.light(),        col.dark(),   col, 
-			   col.dark(75),       col.dark(75), col.dark(),
-			   Qt::black );
+                           col.light(),        col.dark(),   col, 
+                           col.dark(75),       col.dark(75), col.dark(),
+                           Qt::black );
     
     blackPal.setColor( QPalette::Base, Qt::black );
 
@@ -117,11 +117,11 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     // Set up signal/slot connections
     //**********************************************************************
     connect( m_mapScene,      SIGNAL( planetSelected(Planet *) ),
-	     this,            SLOT(planetSelected(Planet *)) );
+             this,            SLOT(planetSelected(Planet *)) );
     connect( m_shipCountEdit, SIGNAL(returnPressed()),
-	     this,            SLOT(newShipCount()) );
+             this,            SLOT(newShipCount()) );
     connect( m_endTurnBtn,    SIGNAL( clicked() ),
-	     this,            SLOT( nextPlayer() ) );
+             this,            SLOT( nextPlayer() ) );
 
     changeGameView( false );
 }
@@ -159,7 +159,7 @@ GameView::keyPressEvent( QKeyEvent *e )
         case SHIP_COUNT:
         case RULER_SOURCE:
         case RULER_DEST:
-	    m_gameState = SOURCE_PLANET;
+            m_gameState = SOURCE_PLANET;
             haveSourcePlanet = false;
             haveDestPlanet   = false;
             turn();
@@ -200,7 +200,7 @@ GameView::turn()
     switch( m_gameState ) {
     case NONE :
         // The standby state, waiting for clicking on a planet or starting
-	// to measure a distance..
+        // to measure a distance..
         m_gameState      = SOURCE_PLANET;
         haveSourcePlanet = false;
         haveDestPlanet   = false;
@@ -213,7 +213,7 @@ GameView::turn()
         break;
 
     case SOURCE_PLANET :
-	// The user has clicked on a source planet for moving some fleets.
+        // The user has clicked on a source planet for moving some fleets.
         if( haveSourcePlanet ) {
             m_gameState = DEST_PLANET;
 
@@ -225,17 +225,17 @@ GameView::turn()
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
             m_gameMessage->setText( "<qt>" 
-				  + m_gameLogic->currentPlayer()->coloredName()
-				  + ": "
-				  +i18n("Select source planet...") + "</qt>" );
+                                  + m_gameLogic->currentPlayer()->coloredName()
+                                  + ": "
+                                  +i18n("Select source planet...") + "</qt>" );
             setFocus();
         }
 
         break;
 
     case DEST_PLANET :
-	// The user has chosen a destination planet and should now
-	// specify a number of ships.
+        // The user has chosen a destination planet and should now
+        // specify a number of ships.
         if( haveDestPlanet ) {
             m_mapScene->unselectPlanet();
             m_gameState = SHIP_COUNT;
@@ -245,17 +245,17 @@ GameView::turn()
             m_endTurnBtn->setEnabled( false );
             sourcePlanet->select();
             m_gameMessage->setText( "<qt>"
-				  + m_gameLogic->currentPlayer()->coloredName()
-				  + ": "
-				  + i18n("Select destination planet...")
-				  + "</qt>" );
+                                  + m_gameLogic->currentPlayer()->coloredName()
+                                  + ": "
+                                  + i18n("Select destination planet...")
+                                  + "</qt>" );
             setFocus();
         }
 
         break;
 
     case SHIP_COUNT:
-	// The user has selected, source, distance, ship count.
+        // The user has selected, source, distance, ship count.
         if( haveShipCount ) {
             // We now have a complete fleet to send, so send it
             sendAttackFleet( sourcePlanet, destPlanet, shipCount);
@@ -285,7 +285,7 @@ GameView::turn()
         break;
 
     case RULER_SOURCE:
-	// The user has selected to measure a distance with the ruler.
+        // The user has selected to measure a distance with the ruler.
         if( haveSourcePlanet ) {
             m_gameState = RULER_DEST;
             sourcePlanet->select();
@@ -306,7 +306,7 @@ GameView::turn()
 
             // Display the distance between the two planets
             double dist = m_gameLogic->map()->distance( sourcePlanet,
-							destPlanet );
+                                                        destPlanet );
 
             QString msg;
             msg = i18n("The distance from Planet %1 to Planet %2 is %3 light years.\n"
@@ -314,8 +314,8 @@ GameView::turn()
                    sourcePlanet->name(),
                    destPlanet->name(),
                    KGlobal::locale()->formatNumber( dist, 2 ),
-	           KGlobal::locale()->formatNumber( m_gameLogic->turnNumber() 
-						    + (int)dist, 0 ));
+                   KGlobal::locale()->formatNumber( m_gameLogic->turnNumber() 
+                                                    + (int)dist, 0 ));
             KMessageBox::information( this, msg, i18n("Distance"));
 
             m_gameState = NONE;
@@ -337,75 +337,75 @@ GameView::turn()
 
          int ships;
          foreach (Planet *home, *m_gameLogic->planets()) {
-	     if (home->player() == m_gameLogic->currentPlayer()) {
-		 bool  hasAttack = false;
-		 ships = (int)floor(home->fleet().shipCount() * 0.7 );
+             if (home->player() == m_gameLogic->currentPlayer()) {
+                 bool  hasAttack = false;
+                 ships = (int)floor(home->fleet().shipCount() * 0.7 );
                 
-		 if (ships >= 20) {
-		     Planet  *attack;
-		     double  minDistance = 100;
+                 if (ships >= 20) {
+                     Planet  *attack;
+                     double  minDistance = 100;
                     
-		     foreach (attack, *m_gameLogic->planets()) {
-			 bool    skip = false;
-			 double  dist = m_gameLogic->map()->distance( home, attack );
+                     foreach (attack, *m_gameLogic->planets()) {
+                         bool    skip = false;
+                         double  dist = m_gameLogic->map()->distance( home, attack );
                         
-			 if (dist < minDistance
-			     &&  attack->player() != m_gameLogic->currentPlayer()
-			     && attack->fleet().shipCount() < ships ) {
-			     foreach (AttackFleet *curFleet, m_gameLogic->currentPlayer()->attackList()) {
-				 if (curFleet->destination == attack) {
-				     skip = true;
-				 }
-			     }
-			     if (skip) 
-				 continue;
+                         if (dist < minDistance
+                             &&  attack->player() != m_gameLogic->currentPlayer()
+                             && attack->fleet().shipCount() < ships ) {
+                             foreach (AttackFleet *curFleet, m_gameLogic->currentPlayer()->attackList()) {
+                                 if (curFleet->destination == attack) {
+                                     skip = true;
+                                 }
+                             }
+                             if (skip) 
+                                 continue;
                             
-			     target      = attack;
-			     hasAttack   = true;
-			     minDistance = dist;
-			 }
-		     }
+                             target      = attack;
+                             hasAttack   = true;
+                             minDistance = dist;
+                         }
+                     }
                     
-		     if (hasAttack) {
-			 sendAttackFleet( home, target, ships );
-		     } else {
-			 minDistance = 100;
-			 int shipsToSend = 0;
-			 bool hasDestination = false;
+                     if (hasAttack) {
+                         sendAttackFleet( home, target, ships );
+                     } else {
+                         minDistance = 100;
+                         int shipsToSend = 0;
+                         bool hasDestination = false;
                         
-			 foreach (attack, *m_gameLogic->planets()) {
-			     bool    skip = false;
-			     double  dist = m_gameLogic->map()->distance( home, attack );
-			     int     homeships = (int)floor(home->fleet().shipCount() * 0.5 );
+                         foreach (attack, *m_gameLogic->planets()) {
+                             bool    skip = false;
+                             double  dist = m_gameLogic->map()->distance( home, attack );
+                             int     homeships = (int)floor(home->fleet().shipCount() * 0.5 );
                             
-			     if (dist < minDistance
-				 && attack->player() == m_gameLogic->currentPlayer()
-				 && attack->fleet().shipCount() < homeships ) {
-				 foreach (AttackFleet *curFleet,
-					  m_gameLogic->currentPlayer()->attackList()) {
-				     if (curFleet->destination == attack) {
-					 skip = true;
-				     }
-				 }
-				 if (skip)
-				     continue;
+                             if (dist < minDistance
+                                 && attack->player() == m_gameLogic->currentPlayer()
+                                 && attack->fleet().shipCount() < homeships ) {
+                                 foreach (AttackFleet *curFleet,
+                                          m_gameLogic->currentPlayer()->attackList()) {
+                                     if (curFleet->destination == attack) {
+                                         skip = true;
+                                     }
+                                 }
+                                 if (skip)
+                                     continue;
                                 
-				 shipsToSend = (int)floor( double(home->fleet().shipCount()
-								  - attack->fleet().shipCount()) / 2);
+                                 shipsToSend = (int)floor( double(home->fleet().shipCount()
+                                                                  - attack->fleet().shipCount()) / 2);
                                 
-				 target         = attack;
-				 hasDestination = true;
-				 minDistance    = dist;
-			     }
-			 }
-			 if (hasDestination) {
-			     sendAttackFleet( home, target, shipsToSend );
-			 }
-		     }
-		 }
-	     }
+                                 target         = attack;
+                                 hasDestination = true;
+                                 minDistance    = dist;
+                             }
+                         }
+                         if (hasDestination) {
+                             sendAttackFleet( home, target, shipsToSend );
+                         }
+                     }
+                 }
+             }
         }
-	m_endTurnBtn->setEnabled( true );
+        m_endTurnBtn->setEnabled( true );
         nextPlayer();
         
         break;
@@ -427,7 +427,7 @@ void
 GameView::beginTurn()
 {
     if (m_messageQueue.size() > 0) {
-	foreach (Player *plr, *(m_gameLogic->players())) {
+        foreach (Player *plr, *(m_gameLogic->players())) {
             if (plr->isAiPlayer())
                 continue;
             QString text;
@@ -437,8 +437,8 @@ GameView::beginTurn()
             }
             if (text.size() > 0) {
                 text = "<html>"
-		    + i18n("Messages for %1", plr->coloredName())
-		    + "<br />" + text + "</html>";
+                    + i18n("Messages for %1", plr->coloredName())
+                    + "<br />" + text + "</html>";
                 KMessageBox::information(this, text);
             }
         }
@@ -493,14 +493,14 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, P
 
        QString  color = planetPlayer->color().name();
        colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>")
-				.arg(color, planet->name()));
+                                .arg(color, planet->name()));
        plainMsg = plainMsg.subs(planet->name());
     }
 
     m_msgWidget->append("<qt><font color=\"white\">"
-			+ i18n("Turn %1:", m_gameLogic->turnNumber())
-			+ "</font> <font color=\"" + color + "\">"
-			+ colorMsg.toString()+"</font></qt>");
+                        + i18n("Turn %1:", m_gameLogic->turnNumber())
+                        + "</font> <font color=\"" + color + "\">"
+                        + colorMsg.toString()+"</font></qt>");
     m_msgWidget->moveCursor( QTextCursor::End );
 
     if (isHumanInvolved) {
@@ -532,9 +532,9 @@ GameView::startNewGame()
         return;
 
     NewGameDlg *newGame = new NewGameDlg( this, m_gameLogic->map(),
-					  m_gameLogic->players(),
-					  m_neutralPlayer, 
-					  m_gameLogic->planets() );
+                                          m_gameLogic->players(),
+                                          m_neutralPlayer, 
+                                          m_gameLogic->planets() );
 
     if( !newGame->exec() ) {
         delete newGame;
@@ -575,8 +575,8 @@ GameView::shutdownGame()
 
     int choice = KMessageBox::warningContinueCancel
       ( this,
-	i18n("Do you wish to retire this game?"),
-	i18n("End Game"),
+        i18n("Do you wish to retire this game?"),
+        i18n("End Game"),
         KStdGuiItem::ok() );
 
     if( choice == KMessageBox::Cancel )
@@ -589,7 +589,7 @@ void
 GameView::gameOver()
 {
     ScoreDlg  *scoreDlg = new ScoreDlg( this, i18n("Final Standings"), 
-					m_gameLogic->players() );
+                                        m_gameLogic->players() );
     scoreDlg->exec();
 
     cleanupGame();
@@ -679,7 +679,7 @@ GameView::newShipCount()
 
         turn();
 
-	// FIXME: Insert m_gameLogic->doMove() here.
+        // FIXME: Insert m_gameLogic->doMove() here.
 
         break;
 
@@ -728,14 +728,14 @@ GameView::nextPlayer()
     m_gameLogic->nextPlayer();
 
     if( m_gameInProgress ) {
-	if (m_gameLogic->currentPlayer()->isAiPlayer()) {
-	    m_gameState = AI_PLAYER;
-	}
-	else {
-	    m_gameState = SOURCE_PLANET;
+        if (m_gameLogic->currentPlayer()->isAiPlayer()) {
+            m_gameState = AI_PLAYER;
+        }
+        else {
+            m_gameState = SOURCE_PLANET;
         }
 
-	turn();
+        turn();
     }
 }
 
@@ -754,10 +754,10 @@ GameView::sendAttackFleet( Planet *source, Planet *dest, int ship )
     bool ok;
 
     ok = m_gameLogic->currentPlayer()->NewAttack( source, dest, ship, 
-						  m_gameLogic->turnNumber() );
+                                                  m_gameLogic->turnNumber() );
 
     if( !ok ) {
-	KMessageBox::error( this, i18n("Not enough ships to send.") );
+        KMessageBox::error( this, i18n("Not enough ships to send.") );
     }
 }
 
@@ -784,7 +784,7 @@ void
 GameView::showScores()
 {
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Current Standings"),
-				       m_gameLogic->players() );
+                                       m_gameLogic->players() );
     scoreDlg->show();
 }
 
