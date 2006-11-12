@@ -34,6 +34,7 @@ void MapScene::mapUpdate() {
                 qDebug() << "Creating planet " << c;
                 PlanetItem *item = new PlanetItem(this, sector);
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)), this, SLOT(planetItemSelected (PlanetItem *)));
+                item->setZValue(1.0);
                 addItem(item);
             }
         }
