@@ -200,11 +200,18 @@ MapView::drawSector( QPainter *p, Sector *sector )
             backBrush.setColor(gridPen.color());
             backBrush.setStyle(Qt::SolidPattern);
             p->setOpacity(0.5);
+#if 1
+	    // Show the owner of the planet by painting the background
+	    // of the planet with the appropriate color.
             p->fillRect(sectorTopLeft.x(), sectorTopLeft.y(), 
 			SECTOR_WIDTH-1, SECTOR_HEIGHT-1, backBrush );
+#else
+	    // Add a colored circle around the planet to show the owner.
             QPainterPath path;
-            path.addEllipse(sectorTopLeft.x()-1, sectorTopLeft.y()-1, SECTOR_WIDTH+1, SECTOR_HEIGHT+1);
+            path.addEllipse(sectorTopLeft.x()-1, sectorTopLeft.y()-1,
+			    SECTOR_WIDTH+1, SECTOR_HEIGHT+1);
             p->fillPath(path, backBrush);
+#endif
             p->setOpacity(1);
         }
         int planetLook = sector->planet()->planetLook();
@@ -215,19 +222,27 @@ MapView::drawSector( QPainter *p, Sector *sector )
         p->setFont( m_labelFont );
         p->setPen( Qt::white );
 
+	// Show the name of the planet.
         p->drawText( sectorTopLeft + QPoint(2, 12), sector->planet()->name() );
+
+	// Show the number of ships on the planet.
         if (!sector->planet()->player()->isNeutral()) {
-            QString shipCount = QString::number(sector->planet()->fleet().shipCount());
+            QString shipCount = QString::number(sector->planet()
+						->fleet().shipCount());
             QFontMetrics m = p->fontMetrics();
             
-            p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH - m.width(shipCount), SECTOR_HEIGHT), shipCount );
+            p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH
+						- m.width(shipCount), 
+						SECTOR_HEIGHT), shipCount );
         }
 
     }
     else {
+	// Draw a grid around each sector to make a better overview.
         QPen gridPen( m_gridColor );
         p->setPen( gridPen );
-        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
+        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(),
+		     SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
     }
 
 
