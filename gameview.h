@@ -17,6 +17,7 @@ class QTextEdit;
 
 class Player;
 class MapView;
+class MapScene;
 class PlanetInfo;
 class GameLogic;
 
@@ -97,6 +98,7 @@ private:
     //***************************************************************
 
     MapView      *mapWidget;
+    MapScene     *mapScene;
     QLabel       *gameMessage;
     QPushButton  *endTurnBtn;
     QLineEdit    *shipCountEdit;

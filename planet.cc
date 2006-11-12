@@ -74,4 +74,5 @@ Planet::turn()
     } else {
         m_homeFleet.addShips( 1 );
     }
+    emit update();
 }

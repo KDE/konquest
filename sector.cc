@@ -1,6 +1,7 @@
 #include "sector.h"
 #include "sector.moc"
 #include "map.h"
+#include <QtDebug>
 
 //---------------------------------------------------------------------------
 // class Sector

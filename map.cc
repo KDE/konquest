@@ -67,6 +67,7 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
         thePlanets.append( neutralPlanet );
     }
     emit update();
+    emit mapPopulated();
 }
 
 double Map::distance( Planet *p1, Planet *p2 )

@@ -45,6 +45,7 @@ protected slots:
 
 signals:
     void update();
+    void mapPopulated();
 
 private:
     Sector *findRandomFreeSector();

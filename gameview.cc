@@ -16,11 +16,12 @@
 #include "player.h"
 #include "map.h"
 #include "gamelogic.h"
-
+#include "images.h"
 #include "newgamedlg.h"
 #include "scoredlg.h"
 #include "fleetdlg.h"
 #include "mapview.h"
+#include "mapscene.h"
 #include "gameview.h"
 
 #include "gameview.moc"
@@ -53,7 +54,8 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     //********************************************************************
     // Create the widgets in the main window
     //********************************************************************
-    mapWidget = new MapView( m_gameLogic->map(), this );
+    mapScene = new MapScene(m_gameLogic->map());
+    mapWidget = new MapView( mapScene );
     
     msgWidget = new QTextEdit( this );
     msgWidget->setMinimumHeight(100);
@@ -104,7 +106,7 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     //**********************************************************************
     // Set up signal/slot connections
     //**********************************************************************
-    connect( mapWidget,     SIGNAL( planetSelected(Planet *) ),
+    connect( mapScene,      SIGNAL( planetSelected(Planet *) ),
 	     this,          SLOT(planetSelected(Planet *)) );
     connect( shipCountEdit, SIGNAL(returnPressed()),
 	     this,          SLOT(newShipCount()) );

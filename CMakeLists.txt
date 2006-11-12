@@ -19,6 +19,8 @@ set(konquest_SRCS
    mainwin.cc 
    gameview.cc
    mapview.cc 
+   mapscene.cc
+   mapitems.cc
    minimapview.cc 
    newgamedlg.cc 
    scoredlg.cc 
