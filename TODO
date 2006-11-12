@@ -19,8 +19,8 @@ Structure and other code issues
 
 * Cleanup the old code							ingwa
    - gameview
-   - mapview
-   - minimapview
+   - mapview								done
+   - minimapview							done
    - fleetdlg
    - newgamedlg
    - scoredlg
