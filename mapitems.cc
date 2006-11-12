@@ -47,7 +47,7 @@ QRectF PlanetItem::boundingRect() const {
     return QRectF(m_sector->coord().x() * m_scene->width()/BOARD_COLS, m_sector->coord().y() * m_scene->height()/BOARD_ROWS, m_scene->width()/BOARD_COLS, m_scene->height()/BOARD_ROWS);
 }
 
-void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/, QWidget */*widget*/) {
     // Display a frame around the planet
     if (!m_sector->planet()->player()->isNeutral()) {
         QBrush backBrush = p->brush();
@@ -82,20 +82,20 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWid
     }
 }
 
-void PlanetItem::hoverEnterEvent ( QGraphicsSceneHoverEvent *event ) {
+void PlanetItem::hoverEnterEvent ( QGraphicsSceneHoverEvent */*event*/ ) {
     hovered = true;
     Planet  *planet = m_sector->planet();
     m_scene->displayPlanetInfo(planet, QPoint(m_sector->coord().x() * m_scene->width()/BOARD_COLS, m_sector->coord().y() * m_scene->height()/BOARD_ROWS));
     update();
 }
 
-void PlanetItem::hoverLeaveEvent ( QGraphicsSceneHoverEvent *event ) {
+void PlanetItem::hoverLeaveEvent ( QGraphicsSceneHoverEvent */*event*/ ) {
     hovered = false;
     m_scene->displayPlanetInfo(NULL, QPoint());
     update();
 }
 
-void PlanetItem::mousePressEvent ( QGraphicsSceneMouseEvent * event ) {
+void PlanetItem::mousePressEvent ( QGraphicsSceneMouseEvent * /*event*/ ) {
     selected = true;
     blinkTimer->start(500);
     update();
@@ -142,11 +142,11 @@ QRectF PlanetInfoItem::boundingRect() const {
     return QRectF(0, 0, m_textDoc.idealWidth(), m_textDoc.size().height());
 }
 
-void PlanetInfoItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void PlanetInfoItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/, QWidget */*widget*/) {
     QPen pen = p->pen();
     QBrush brush = p->brush();
-    p->setOpacity(0.5);
-    brush.setColor(Qt::black);
+    p->setOpacity(0.7);
+    brush.setColor(Qt::white);
     brush.setStyle(Qt::SolidPattern);
     p->fillRect(QRectF(0, 0, m_textDoc.idealWidth() + 1, m_textDoc.size().height() + 1), brush);
     p->setOpacity(1.0);
