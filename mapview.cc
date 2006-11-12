@@ -18,11 +18,13 @@ MapView::MapView( MapScene* scene, QWidget *parent )
 
 void MapView::resizeEvent( QResizeEvent* ev )
 {
-    m_scene->setSceneRect(QRectF(0, 0, ev->size().width(), ev->size().height()));
+    int min = qMin(ev->size().width(), ev->size().height());
+    m_scene->setSceneRect(QRectF(0, 0, min, min));
     QGraphicsView::resizeEvent(ev);
 }
 
 QSize MapView::sizeHint() const
 {
-    return QSize( (int)m_scene->width(), (int)m_scene->height() );
+    int min = qMin((int)m_scene->width(), (int)m_scene->height());
+    return QSize( min, min );
 }
