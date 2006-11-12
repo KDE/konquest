@@ -168,7 +168,7 @@ QRectF BackgroundItem::boundingRect() const {
     return QRectF(0, 0, m_scene->width(), m_scene->height());
 }
 
-void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem */*option*/, QWidget */*widget*/) {
     qreal s_w = m_scene->width()/BOARD_COLS;
     qreal s_h = m_scene->height()/BOARD_ROWS;
     m_scene->renderer()->render(painter, "background", QRectF(0, 0, 16*s_w, 16*s_h));
