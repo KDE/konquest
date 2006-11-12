@@ -18,7 +18,8 @@ mainwin.h	mainwin.cc	The main window
 gameview.h	gameview.cc	The main view of the game	FIXME: cleanup
 mapview.h	mapview.cc	The main view of the universe
 minimapview.h	minimapview.cc	A smaller view for setting up new games
-
+mapscene.h	mapscene.cc					FIXME: cleanup
+mapitems.h	mapitems.cc					FIXME: cleanup
 
 Dialogs
 -------

@@ -24,13 +24,15 @@ Structure and other code issues
    - fleetdlg								done
    - newgamedlg								done
    - scoredlg								done
+   - mapscene
+   - mapitem
 
 * Remove gamecore.h
 
 * Complete the separation between the model and the view of the game.	DONE
   This is done by separating GameBoard --> GameLogic, GameView.
 
-* Use QGraphicsScene/QGraphicsView instead of MapView
+* Use QGraphicsScene/QGraphicsView instead of MapView			DONE
 
 * Refactor the GameView
    - Remove AI players from it
