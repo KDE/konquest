@@ -11,5 +11,5 @@ GenericName[x-test]=xxGalactic Strategy Gamexx
 Terminal=false
 DocPath=konquest/index.html
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;StrategyGame;
