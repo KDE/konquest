@@ -199,7 +199,7 @@ MapView::drawSector( QPainter *p, Sector *sector )
             QBrush backBrush = p->brush();
             backBrush.setColor(gridPen.color());
             backBrush.setStyle(Qt::SolidPattern);
-            p->setOpacity(0.5);
+            //p->setOpacity(0.5);
 #if 1
 	    // Show the owner of the planet by painting the background
 	    // of the planet with the appropriate color.
@@ -237,6 +237,7 @@ MapView::drawSector( QPainter *p, Sector *sector )
         }
 
     }
+#if 1
     else {
 	// Draw a grid around each sector to make a better overview.
         QPen gridPen( m_gridColor );
@@ -244,8 +245,7 @@ MapView::drawSector( QPainter *p, Sector *sector )
         p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(),
 		     SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
     }
-
-
+#endif
 }
 
 #include "mapview.moc"
