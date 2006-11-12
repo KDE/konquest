@@ -1,4 +1,5 @@
 #include <QPainter>
+#include <QPainterPath>
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QTimer>
@@ -132,6 +133,7 @@ MapView::paintEvent( QPaintEvent *ev )
     int endCol = qMin((r.x() + r.width()) / SECTOR_WIDTH, BOARD_COLS);
 
     QPainter p(this);
+    p.setRenderHint(QPainter::Antialiasing);
     for(int r=startRow; r<endRow; ++r)
         for(int c=startCol;c<endCol; ++c)
             drawSector( &p, map->sector( Coordinate(r,c) ) );
@@ -180,13 +182,16 @@ MapView::drawSector( QPainter *p, Sector *sector )
         }
         p->setPen(gridPen);
         
-        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
+//        p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
         if (!sector->planet()->player()->isNeutral()) {
             QBrush backBrush = p->brush();
             backBrush.setColor(gridPen.color());
             backBrush.setStyle(Qt::SolidPattern);
             p->setOpacity(0.5);
-            p->fillRect(sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1, backBrush );
+            //p->fillRect(sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1, backBrush );
+            QPainterPath path;
+            path.addEllipse(sectorTopLeft.x()-1, sectorTopLeft.y()-1, SECTOR_WIDTH+1, SECTOR_HEIGHT+1);
+            p->fillPath(path, backBrush);
             p->setOpacity(1);
         }
         int planetLook = sector->planet()->planetLook();
@@ -203,11 +208,11 @@ MapView::drawSector( QPainter *p, Sector *sector )
             p->drawText( sectorTopLeft + QPoint(SECTOR_WIDTH - m.width(shipCount), SECTOR_HEIGHT), shipCount );
         }
 
-    } else {
+    }/* else {
         QPen gridPen( gridColor );
         p->setPen( gridPen );
         p->drawRect( sectorTopLeft.x(), sectorTopLeft.y(), SECTOR_WIDTH-1, SECTOR_HEIGHT-1 );
-    }
+    }*/
 
 
 }
