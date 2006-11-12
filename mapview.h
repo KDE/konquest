@@ -14,44 +14,46 @@ class MapView : public QFrame
 
     // Constructors
 public:
-    explicit MapView( Map *newMap, QWidget *parent = 0 );
-    virtual ~MapView();
+    explicit  MapView( Map *newMap, QWidget *parent = 0 );
+    virtual  ~MapView();
 
     // Interface
 public:
     void unselectPlanet();
 
 private:
-    virtual void mousePressEvent( QMouseEvent *e );
-    virtual void mouseMoveEvent( QMouseEvent *e );
+    virtual void  mousePressEvent( QMouseEvent *e );
+    virtual void  mouseMoveEvent( QMouseEvent *e );
 
 private slots:
-    void mapUpdate();
-    void squareBlink();
+    void  mapUpdate();
+    void  squareBlink();
 
 signals:
-    void planetSelected( Planet * );
-    void planetHighlighted( Planet * );
+    void  planetSelected( Planet * );
+    void  planetHighlighted( Planet * );
 
 private:
-    int SECTOR_HEIGHT;
-    int SECTOR_WIDTH;
-
-    int BOARD_HEIGHT;
-    int BOARD_WIDTH;
-
     void drawSector( QPainter *, Sector * );
     void paintEvent( QPaintEvent* );
     void resizeEvent ( QResizeEvent * );
     
-    bool blinkState;
+private:
+    int  SECTOR_HEIGHT;
+    int  SECTOR_WIDTH;
 
-    Map *map;
-    QTimer *blinkTimer;
-    QColor gridColor;
-    QFont labelFont;
-    Coordinate hiLiteCoord;
-    KSvgRenderer planetRenderer;
+    int  BOARD_HEIGHT;
+    int  BOARD_WIDTH;
+
+    // The map we are showing. We are not the owner of this one.
+    Map          *m_map;
+
+    bool          m_blinkState;
+    QTimer       *m_blinkTimer;
+    QColor        m_gridColor;
+    QFont         m_labelFont;
+    Coordinate    m_hiLiteCoord;
+    KSvgRenderer  m_planetRenderer;
 };
 
 
