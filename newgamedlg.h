@@ -1,6 +1,7 @@
 #ifndef _NEWGAMEDLG_H_
 #define _NEWGAMEDLG_H_
 
+
 #include <kdialog.h>
 
 #include "planet.h"
@@ -8,21 +9,25 @@
 #include "ui_newGameDlg_ui.h"
 #include "player.h"
 
+
 // Maximum Number of Players
 #define MAX_PLAYERS 10
+
 
 class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
 {
 public:
-  explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
-    setupUi( this );
-  }
+    explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
+	setupUi( this );
+    }
+	~NewGameDlgUI() {}
 };
 
 
 /*************************************************************************
  New Game Dialog
  ************************************************************************/
+
 
 class NewGameDlg : public KDialog
 {
@@ -31,33 +36,32 @@ class NewGameDlg : public KDialog
 public:
     NewGameDlg( QWidget *parent, Map *map, QList<Player *> *playerList,
                 Player *neutralPlayer, QList<Planet *> *planetList );
+    ~NewGameDlg() {}
 
-    int turns( void );
-
-    void save();
+    void  save();
 
 protected slots:
-    void slotPlayerCount(int playerCount);
-    void slotNewMap();
-    void slotTurns();
-    void slotNewPlayer();
-    void slotAddPlayer();
-    void slotDefault();
-    void slotOk();
+    void  slotPlayerCount(int playerCount);
+    void  slotNewMap();
+    void  slotTurns();
+    void  slotNewPlayer();
+    void  slotAddPlayer();
+    void  slotDefault();
+    void  slotOk();
 
 private:
-    void init();
-    void updateMiniMap();
-    void updateLabels();
-    void setPlayerCount(int playerCount);
+    void  init();
+    void  updateMiniMap();
+    void  updateLabels();
+    void  setPlayerCount(int playerCount);
 
 private:
-    QList<Player *> *plrList;
-    QList<Planet *> *plnetList;
-    Player *neutral;
-    Map *map;
+    Map              *m_map;
+    QList<Player *>  *m_players;
+    QList<Planet *>  *m_planets;
+    Player           *m_neutral;
 
-    NewGameDlgUI *w;
+    NewGameDlgUI     *m_w;
 };
 
 #endif

@@ -23,7 +23,7 @@ minimapview.h	minimapview.cc	A smaller view for setting up new games
 Dialogs
 -------
 fleetdlg.h	fleetdlg.cc	The summary dialog of the fleets
-newgamedlg.h	newgamedlg.cc					FIXME: cleanup
+newgamedlg.h	newgamedlg.cc	The dialog for creating new games
 scoredlg.h	scoredlg.cc	The summary dialog at the end of the game.
 
 

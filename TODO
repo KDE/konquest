@@ -22,7 +22,7 @@ Structure and other code issues
    - mapview								done
    - minimapview							done
    - fleetdlg								done
-   - newgamedlg
+   - newgamedlg								done
    - scoredlg								done
 
 * Remove gamecore.h
