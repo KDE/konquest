@@ -96,6 +96,13 @@ void MapScene::displayPlanetInfo (Planet *planet, QPoint pos)
     m_planetInfoItem->setPlanet(planet);
     m_planetInfoItem->setZValue(1.5);
     m_planetInfoItem->moveBy( pos.x()-m_planetInfoItem->x(),
-			      pos.y()-m_planetInfoItem->y() );
+                              pos.y()-m_planetInfoItem->y() );
+    // Move to stay in the game field.
+    if (pos.x() > width()/2) {
+        m_planetInfoItem->moveBy(-m_planetInfoItem->boundingRect().width(), 0);
+    }
+    if (pos.y() > height()/2) {
+        m_planetInfoItem->moveBy(0, -m_planetInfoItem->boundingRect().height());
+    }
     update();
 }
