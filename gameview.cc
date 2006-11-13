@@ -66,9 +66,10 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     //********************************************************************
     m_mapScene  = new MapScene(m_gameLogic->map());
     m_mapWidget = new MapView( m_mapScene );
+    m_mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     
     m_msgWidget = new QTextEdit( this );
-    m_msgWidget->setMinimumHeight(100);
+    m_msgWidget->setMaximumHeight(75);
     m_msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_msgWidget->setReadOnly(true);
     m_msgWidget->setPalette( blackPal );
