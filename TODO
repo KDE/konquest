@@ -17,28 +17,21 @@ Game play and usability
 Structure and other code issues
 -------------------------------
 
-* Cleanup the old code							DONE
-   - gamelogic								done
-   - gameview								done
-   - mapview								done
-   - minimapview							done
-   - fleetdlg								done
-   - newgamedlg								done
-   - scoredlg								done
-   - mapscene								done
-   - mapitems								done
-
 * Remove gamecore.h
-
-* Complete the separation between the model and the view of the game.	DONE
-  This is done by separating GameBoard --> GameLogic, GameView.
-
-* Use QGraphicsScene/QGraphicsView instead of MapView			DONE
 
 * Refactor the GameView
    - Remove AI players from it
    - More signals/slots from gamelogic
 
+Features
+--------
+
+* A widget that shows the orders that the user has given this turn.
+
+* Drag move orders from one planet to another.
+
+* Make it possible to play with only the keyboard
+   - Let the ?A combination give info about planet A
 
 
 Long term stuff
