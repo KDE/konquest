@@ -152,36 +152,3 @@ void PlanetInfoItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option
     p->setOpacity(1.0);
     m_textDoc.drawContents(p);
 }
-
-/********************************
-    BackgroundItem
- *******************************/
-
-BackgroundItem::BackgroundItem (MapScene *scene)
-    : QGraphicsItem(),
-      m_scene(scene)
-{
-    
-}
-
-QRectF BackgroundItem::boundingRect() const {
-    return QRectF(0, 0, m_scene->width(), m_scene->height());
-}
-
-void BackgroundItem::paint(QPainter *painter, const QStyleOptionGraphicsItem */*option*/, QWidget */*widget*/) {
-    qreal s_w = m_scene->width()/BOARD_COLS;
-    qreal s_h = m_scene->height()/BOARD_ROWS;
-    m_scene->renderer()->render(painter, "background", QRectF(0, 0, 16*s_w, 16*s_h));
-    QPen pen = painter->pen();
-    pen.setColor(Qt::black);
-    pen.setWidth(1);
-    pen.setStyle(Qt::SolidLine);
-    painter->setPen(pen);
-    painter->setOpacity(0.5);
-    for (int i = 0 ; i <= BOARD_COLS ; i++) {
-        painter->drawLine(i*s_w, 0, i*s_w, 16*s_h);
-    }
-    for (int j = 0 ; j <= BOARD_ROWS ; j++) {
-        painter->drawLine(0, j*s_h, 16*s_w, j*s_h);
-    }
-}

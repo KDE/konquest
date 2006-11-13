@@ -49,15 +49,4 @@ class PlanetInfoItem : public QGraphicsItem {
     
 };
 
-
-class BackgroundItem : public QGraphicsItem {
-    public:
-        BackgroundItem(MapScene *scene);
-        QRectF boundingRect() const;
-        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                    QWidget *widget);
-    private:
-        MapScene *m_scene;
-};
-
 #endif

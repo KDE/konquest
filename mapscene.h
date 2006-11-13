@@ -25,6 +25,8 @@ class MapScene: public QGraphicsScene {
         void           unselectPlanet();
         void           displayPlanetInfo(Planet *planet, QPoint pos);
         
+        void           drawBackground( QPainter * painter, const QRectF & rect );
+        
     signals:
         void  planetSelected( Planet * );
         

@@ -6,6 +6,7 @@
 #include "images.h"
 #include "mapscene.moc"
 #include "mapitems.h"
+#include <QPainter>
 
 
 MapScene::MapScene (Map *map)
@@ -29,15 +30,13 @@ void MapScene::mapUpdate()
         removeItem(item);
         delete item;
     }
-
-    addItem(new BackgroundItem(this));
     for (int i = 0 ; i < BOARD_ROWS ; i++) {
         for (int j = 0 ; j < BOARD_COLS ; j++) {
             sector = m_map->sector(Coordinate(i, j));
             if (sector->hasPlanet()) {
                 PlanetItem *item = new PlanetItem(this, sector);
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)), 
-			this, SLOT(planetItemSelected (PlanetItem *)));
+                        this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
                 addItem(item);
             }
@@ -61,6 +60,24 @@ void MapScene::planetItemSelected (PlanetItem *item)
     m_selectedPlanetItem = item;
 
     emit planetSelected(item->sector()->planet());
+}
+
+void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
+    qreal s_w = width()/BOARD_COLS;
+    qreal s_h = height()/BOARD_ROWS;
+    m_renderer->render(painter, "background", QRectF(0, 0, 16*s_w, 16*s_h));
+    QPen pen = painter->pen();
+    pen.setColor(Qt::black);
+    pen.setWidth(1);
+    pen.setStyle(Qt::SolidLine);
+    painter->setPen(pen);
+    painter->setOpacity(0.5);
+    for (int i = 0 ; i <= BOARD_COLS ; i++) {
+        painter->drawLine(i*s_w, 0, i*s_w, 16*s_h);
+    }
+    for (int j = 0 ; j <= BOARD_ROWS ; j++) {
+        painter->drawLine(0, j*s_h, 16*s_w, j*s_h);
+    }
 }
 
 void MapScene::displayPlanetInfo (Planet *planet, QPoint pos)
