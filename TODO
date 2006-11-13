@@ -17,8 +17,8 @@ Game play and usability
 Structure and other code issues
 -------------------------------
 
-* Cleanup the old code							ingwa
-   - gamelogic
+* Cleanup the old code							DONE
+   - gamelogic								done
    - gameview								done
    - mapview								done
    - minimapview							done

@@ -21,8 +21,8 @@ GameLogic::GameLogic( QObject *parent )
 {
     QPalette blackPal;
 
-    m_map = new Map;
-    neutralPlayer = Player::createNeutralPlayer(m_map);
+    m_map           = new Map;
+    m_neutralPlayer = Player::createNeutralPlayer(m_map);
 
     cleanupGame();
 }
@@ -109,6 +109,7 @@ GameLogic::findWinner()
             // There is still a fleet attacking, so wait for its arrival...
             return 0;
     }
+
     return winner;
 }
 
@@ -172,8 +173,8 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
     // if the planet and fleet owner are the same, then merge the fleets
     // otherwise attack.
 
-    if( (*arrivingFleet->owner) == (*arrivingFleet->destination->player())) {
-        if (!arrivingFleet->owner->isAiPlayer()) {
+    if( *arrivingFleet->owner == *arrivingFleet->destination->player() ) {
+        if ( !arrivingFleet->owner->isAiPlayer() ) {
         	arrivingFleet->destination->fleet().absorb(arrivingFleet);
 
         	emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
@@ -185,17 +186,17 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
 
         // let's get ready to rumble...
 
-        CoreLogic cl;
-        AttackFleet &attacker = *arrivingFleet;
-        DefenseFleet &defender = arrivingFleet->destination->fleet();
-        Planet &prizePlanet = *(arrivingFleet->destination);
+        CoreLogic      cl;
+        AttackFleet   &attacker    = *arrivingFleet;
+        DefenseFleet  &defender    = arrivingFleet->destination->fleet();
+        Planet        &prizePlanet = *(arrivingFleet->destination);
 
-        bool haveVictor = false;
-        bool planetHolds = true;
+        bool  haveVictor  = false;
+        bool  planetHolds = true;
 
         while( !haveVictor ) {
-            double attackerRoll = cl.roll();
-            double defenderRoll = cl.roll();
+            double  attackerRoll = cl.roll();
+            double  defenderRoll = cl.roll();
 
             if( defenderRoll < prizePlanet.killPercentage() ) {
                 attacker.removeShips( 1 );
@@ -223,7 +224,7 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
             emit gameMsg(ki18n("Planet %2 has held against an attack from %1."),
 			 attacker.owner, &prizePlanet);
         } else {
-            Player *defender = prizePlanet.player();
+            Player  *defender = prizePlanet.player();
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
             arrivingFleet->destination->conquer( arrivingFleet );
@@ -245,7 +246,7 @@ GameLogic::startNewGame()
 {
     // Setup for a new game to start playing.
     m_currentPlayer = m_players.begin();
-    m_turnNumber  = 1;
+    m_turnNumber    = 1;
 }
 
 
@@ -281,6 +282,7 @@ GameLogic::nextPlayer()
         // end of player list, new turn
         m_currentPlayer = m_players.begin();
         emit endTurn();
+
         nextTurn();
         emit beginTurn();
     }

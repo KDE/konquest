@@ -4,7 +4,7 @@
 Game classes
 ------------
 gamecore.h	gamecore.cc	Some general code  		FIXME: remove
-gamelogic.h	gamelogic.cc	The game itself. No gui.	FIXME: cleanup
+gamelogic.h	gamelogic.cc	The game itself. No gui.
 map.h		map.cc		The playing field - the universe
 sector.h	sector.cc	One square on the Map
 player.h	player.cc	Generic player
