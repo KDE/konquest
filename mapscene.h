@@ -13,8 +13,10 @@ class PlanetInfoItem;
 class Map;
 
 
-class MapScene: public QGraphicsScene {
+class MapScene: public QGraphicsScene
+{
     Q_OBJECT
+
     public:
         MapScene(Map *map);
 	~MapScene() {}

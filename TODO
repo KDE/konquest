@@ -26,7 +26,7 @@ Structure and other code issues
    - newgamedlg								done
    - scoredlg								done
    - mapscene								done
-   - mapitem
+   - mapitems								done
 
 * Remove gamecore.h
 
