@@ -25,7 +25,7 @@ Structure and other code issues
    - fleetdlg								done
    - newgamedlg								done
    - scoredlg								done
-   - mapscene
+   - mapscene								done
    - mapitem
 
 * Remove gamecore.h
