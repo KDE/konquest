@@ -32,7 +32,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
       m_blinkState(false)
 {
     setAcceptsHoverEvents(true);
-
+    
     m_blinkTimer = new QTimer(this);
     connect(m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkPlanet()));
     connect(m_sector,     SIGNAL(update()),  this, SLOT(updatePlanet()));

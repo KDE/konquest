@@ -168,6 +168,7 @@ GameView::keyPressEvent( QKeyEvent *e )
         default:
             break;
         }
+        m_mapScene->unselectPlanet();
         return;
     }
 
@@ -181,8 +182,10 @@ GameView::keyPressEvent( QKeyEvent *e )
     planetName += e->text().toUpper();
     
     foreach (Planet *p, *m_gameLogic->planets()) {
-        if( p->name() == planetName )
+        if( p->name() == planetName ) {
             planetSelected( p );
+            break;
+        }
     }
 
 }
@@ -621,39 +624,36 @@ void
 GameView::planetSelected( Planet *planet )
 {
     switch( m_gameState ) {
-    case SOURCE_PLANET:
-        if( ((*planet).player()) == m_gameLogic->currentPlayer() ) {
-            // got a match
+        case SOURCE_PLANET:
+            if( ((*planet).player()) == m_gameLogic->currentPlayer() ) {
+                // got a match
+                haveSourcePlanet = true;
+                sourcePlanet = planet;
+    
+                turn();
+                return;
+            }
+            break;
+
+        case RULER_SOURCE:
             haveSourcePlanet = true;
-            sourcePlanet = planet;
-
+            sourcePlanet     = planet;
             turn();
-        }
-
-        break;
-
-    case RULER_SOURCE:
-        haveSourcePlanet = true;
-        sourcePlanet     = planet;
-        turn();
-        break;
-
-    case DEST_PLANET:
-    case RULER_DEST:
-        if( planet != sourcePlanet ) {
-            // got a match
-            haveDestPlanet = true;
-            destPlanet     = planet;
-
-            turn();
-        }
-
-        break;
-
-    default:
-    case NONE :
-        break;
+            return;
+        case DEST_PLANET:
+        case RULER_DEST:
+            if( planet != sourcePlanet ) {
+                // got a match
+                haveDestPlanet = true;
+                destPlanet     = planet;
+    
+                turn();
+            }
+            return;
+        default:
+            break;
     }
+    m_mapScene->unselectPlanet();
 
 }
 

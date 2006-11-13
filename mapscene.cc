@@ -1,4 +1,5 @@
 #include <QGraphicsItem>
+#include <QPainter>
 #include <QtDebug>
 
 #include "map.h"
@@ -6,7 +7,6 @@
 #include "images.h"
 #include "mapscene.moc"
 #include "mapitems.h"
-#include <QPainter>
 
 
 MapScene::MapScene (Map *map)
