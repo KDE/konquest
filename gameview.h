@@ -123,6 +123,7 @@ private:
     Player             *m_neutralPlayer;  // FIXME: Have here or in gamelogic?
     bool                m_queueMessages;
     QList<GameMessage>  m_messageQueue;
+    bool                m_showInformations;
 
     // States in the user interaction
     // FIXME: Break out into another file?

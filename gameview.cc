@@ -35,7 +35,7 @@
 
 GameView::GameView( QWidget *parent, GameLogic *gameLogic )
   : QWidget( parent ), m_gameLogic( gameLogic ), m_queueMessages(false), m_messageQueue(), 
-    m_gameState( NONE )
+    m_showInformations(false), m_gameState( NONE )
 {
     QPalette blackPal;
     blackPal.setColor( backgroundRole(), Qt::black );
@@ -168,12 +168,19 @@ GameView::keyPressEvent( QKeyEvent *e )
         default:
             break;
         }
+        m_mapScene->displayPlanetInfo( NULL );
         m_mapScene->unselectPlanet();
         return;
     }
 
     if( e->text().isEmpty() || e->text().at(0).isSpace() ) {
         e->ignore();
+        return;
+    }
+    
+    if ( e->text() == "?" ) {
+        // Switch the information key info...
+        m_showInformations = !m_showInformations;
         return;
     }
 
@@ -183,7 +190,13 @@ GameView::keyPressEvent( QKeyEvent *e )
     
     foreach (Planet *p, *m_gameLogic->planets()) {
         if( p->name() == planetName ) {
-            planetSelected( p );
+            if ( m_showInformations ) {
+                m_mapScene->displayPlanetInfo( p );
+                m_showInformations = false;
+            } else {
+                m_mapScene->displayPlanetInfo( NULL );
+                planetSelected( p );
+            }
             break;
         }
     }

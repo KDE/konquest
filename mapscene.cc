@@ -80,6 +80,19 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     }
 }
 
+void MapScene::displayPlanetInfo (Planet *planet)
+{
+    if (!planet && m_planetInfoItem) {
+        m_planetInfoItem->hide();
+        return;
+    }
+    
+    if (planet) {
+        QPoint pos(planet->sector()->coord().x() * width()/BOARD_COLS,
+                   planet->sector()->coord().y() * height()/BOARD_ROWS);
+        displayPlanetInfo(planet, pos);
+    }
+}
 void MapScene::displayPlanetInfo (Planet *planet, QPoint pos)
 {
     if (!planet && m_planetInfoItem) {
