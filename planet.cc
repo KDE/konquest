@@ -22,11 +22,11 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
 {
     KRandomSequence r;
     m_planetLook = r.getLong(9);
+    connect(&m_homeFleet, SIGNAL(update()), this, SIGNAL(update()));
     m_sector->setPlanet( this );
 }
 
 Planet::~Planet() {}
-
 
 Planet *
 Planet::createPlayerPlanet( Sector *sector, Player *initialOwner, 

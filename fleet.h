@@ -31,7 +31,7 @@ protected:
 
 class AttackFleet : public Fleet
 {
-
+    Q_OBJECT
 public:
     AttackFleet( Planet *source, Planet *dest, int initialCount, double arrivalTurn  );
 
@@ -44,6 +44,7 @@ public:
 
 class DefenseFleet : public Fleet
 {
+    Q_OBJECT
         
 public:
     DefenseFleet( Planet *newHome, int initialCount  );
@@ -56,7 +57,8 @@ public:
     AttackFleet *spawnAttackFleet( Planet *destination, int shipCount, double arrivalTurn );
 
     Planet *home;
-
+signals:
+    void update();
 };
 
 typedef QList<AttackFleet *> AttackFleetList;
