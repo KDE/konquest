@@ -95,8 +95,9 @@ void MapScene::displayPlanetInfo (Planet *planet)
 }
 void MapScene::displayPlanetInfo (Planet *planet, QPoint pos)
 {
-    if (!planet && m_planetInfoItem) {
-        m_planetInfoItem->hide();
+    if (!planet) {
+        if (m_planetInfoItem) 
+            m_planetInfoItem->hide();
         return;
     }
 
