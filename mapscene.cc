@@ -73,10 +73,10 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     painter->setPen(pen);
     painter->setOpacity(0.5);
     for (int i = 0 ; i <= BOARD_COLS ; i++) {
-        painter->drawLine(i*s_w, 0, i*s_w, 16*s_h);
+        painter->drawLine(QPointF(i*s_w, 0), QPointF(i*s_w, 16*s_h));
     }
     for (int j = 0 ; j <= BOARD_ROWS ; j++) {
-        painter->drawLine(0, j*s_h, 16*s_w, j*s_h);
+        painter->drawLine(QPointF(0, j*s_h), QPointF(16*s_w, j*s_h));
     }
 }
 
@@ -88,12 +88,12 @@ void MapScene::displayPlanetInfo (Planet *planet)
     }
     
     if (planet) {
-        QPoint pos(planet->sector()->coord().x() * width()/BOARD_COLS,
+        QPointF pos(planet->sector()->coord().x() * width()/BOARD_COLS,
                    planet->sector()->coord().y() * height()/BOARD_ROWS);
         displayPlanetInfo(planet, pos);
     }
 }
-void MapScene::displayPlanetInfo (Planet *planet, QPoint pos)
+void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
 {
     if (!planet) {
         if (m_planetInfoItem) 

@@ -25,7 +25,7 @@ class MapScene: public QGraphicsScene
         Map           *map()      const  { return m_map; }
 
         void           unselectPlanet();
-        void           displayPlanetInfo(Planet *planet, QPoint pos);
+        void           displayPlanetInfo(Planet *planet, const QPointF & pos);
         void           displayPlanetInfo(Planet *planet);
         
         void           drawBackground( QPainter * painter, const QRectF & rect );

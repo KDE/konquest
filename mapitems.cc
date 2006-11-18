@@ -88,7 +88,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/,
     }
     
     // Show the name of the planet.
-    QPoint  sectorTopLeft(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
+    QPointF  sectorTopLeft(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
                           m_sector->coord().y() * m_scene->height()/BOARD_ROWS);
     p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
 
@@ -99,7 +99,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/,
         QFontMetrics  m = p->fontMetrics();
 
         p->drawText( sectorTopLeft
-                     + QPoint(m_scene->width()/BOARD_COLS - m.width(shipCount),
+                     + QPointF(m_scene->width()/BOARD_COLS - m.width(shipCount),
                               m_scene->height()/BOARD_ROWS), shipCount );
     }
 }
@@ -111,7 +111,7 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent */*event*/ )
 
     Planet  *planet = m_sector->planet();
     m_scene->displayPlanetInfo(planet,
-                               QPoint(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
+                               QPointF(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
                                       m_sector->coord().y() * m_scene->height()/BOARD_ROWS));
 
     update();
