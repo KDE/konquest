@@ -51,14 +51,16 @@ private:
 private:
 
     //***************************************************************
-    // Game objects
+    // Game state
     //***************************************************************
 
-    int                        m_turnNumber;
+    Map                       *m_map;
     QList<Player *>            m_players;
     QList<Planet *>            m_planets;
     Player                    *m_neutralPlayer;
-    Map                       *m_map;
+
+    // Loop variables for the game play.
+    int                        m_turnNumber;
     QList<Player *>::Iterator  m_currentPlayer;
 };
 

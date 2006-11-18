@@ -35,7 +35,7 @@ struct GameMessage {
 };
 
 
-enum GameState { 
+enum GUIState { 
     NONE, 
     SOURCE_PLANET, 
     DEST_PLANET, 
@@ -84,7 +84,7 @@ public slots:
     void  endTurn();
 
 signals:
-    void  newGameState( GameState newState );
+    void  newGUIState( GUIState newState );
 
     //***************************************************************
     // Event Handlers
@@ -141,7 +141,7 @@ private:
     //***************************************************************
 
     bool                m_gameInProgress;
-    GameState           m_gameState;
+    GUIState            m_guiState;
 };
 
 

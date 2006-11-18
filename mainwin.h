@@ -21,7 +21,7 @@ private:
     void setupGameView();
 
 private slots:
-    void gameStateChange( GameState );
+    void guiStateChange( GUIState );
 
 private:
     // Widgets

@@ -99,13 +99,13 @@ MainWindow::setupGameView()
 					 Player * ) ) );
     connect (m_gameLogic, SIGNAL( beginTurn()), m_gameView, SLOT(beginTurn()));
     connect (m_gameLogic, SIGNAL( endTurn()), m_gameView, SLOT(endTurn()));
-    connect( m_gameView, SIGNAL( newGameState( GameState )),
-	     this,       SLOT( gameStateChange( GameState ) ) );
+    connect( m_gameView, SIGNAL( newGUIState( GameState )),
+	     this,       SLOT( guiStateChange( GameState ) ) );
 }
 
 
 void
-MainWindow::gameStateChange( GameState newState )
+MainWindow::guiStateChange( GUIState newState )
 {
     m_endAction     ->setEnabled( m_gameView->isGameInProgress() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );

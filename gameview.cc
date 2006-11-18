@@ -34,8 +34,12 @@
 *********************************************************************/
 
 GameView::GameView( QWidget *parent, GameLogic *gameLogic )
-  : QWidget( parent ), m_gameLogic( gameLogic ), m_queueMessages(false), m_messageQueue(), 
-    m_showInformations(false), m_gameState( NONE )
+  : QWidget( parent ),
+    m_gameLogic( gameLogic ),
+    m_queueMessages(false),
+    m_messageQueue(), 
+    m_showInformations(false),
+    m_guiState( NONE )
 {
     QPalette blackPal;
     blackPal.setColor( backgroundRole(), Qt::black );
@@ -155,12 +159,12 @@ GameView::keyPressEvent( QKeyEvent *e )
 {
     // Check for the escape key
     if( e->key() == Qt::Key_Escape ) {
-        switch( m_gameState ) {
+        switch( m_guiState ) {
         case DEST_PLANET:
         case SHIP_COUNT:
         case RULER_SOURCE:
         case RULER_DEST:
-            m_gameState = SOURCE_PLANET;
+            m_guiState = SOURCE_PLANET;
             haveSourcePlanet = false;
             haveDestPlanet   = false;
             turn();
@@ -214,11 +218,11 @@ GameView::turn()
 {
     Planet *target = 0;
 
-    switch( m_gameState ) {
+    switch( m_guiState ) {
     case NONE :
         // The standby state, waiting for clicking on a planet or starting
         // to measure a distance..
-        m_gameState      = SOURCE_PLANET;
+        m_guiState      = SOURCE_PLANET;
         haveSourcePlanet = false;
         haveDestPlanet   = false;
         haveShipCount    = false;
@@ -232,7 +236,7 @@ GameView::turn()
     case SOURCE_PLANET :
         // The user has clicked on a source planet for moving some fleets.
         if( haveSourcePlanet ) {
-            m_gameState = DEST_PLANET;
+            m_guiState = DEST_PLANET;
 
             sourcePlanet->select();
             turn();
@@ -255,7 +259,7 @@ GameView::turn()
         // specify a number of ships.
         if( haveDestPlanet ) {
             m_mapScene->unselectPlanet();
-            m_gameState = SHIP_COUNT;
+            m_guiState = SHIP_COUNT;
             turn();
         } else {
             m_shipCountEdit->hide();
@@ -280,7 +284,7 @@ GameView::turn()
             m_shipCountEdit->hide();
             m_endTurnBtn->setEnabled( true );
 
-            m_gameState = NONE;
+            m_guiState = NONE;
             turn();
 
             m_endTurnBtn->setFocus();
@@ -304,7 +308,7 @@ GameView::turn()
     case RULER_SOURCE:
         // The user has selected to measure a distance with the ruler.
         if( haveSourcePlanet ) {
-            m_gameState = RULER_DEST;
+            m_guiState = RULER_DEST;
             sourcePlanet->select();
             turn();
         } else {
@@ -335,7 +339,7 @@ GameView::turn()
                                                     + (int)dist, 0 ));
             KMessageBox::information( this, msg, i18n("Distance"));
 
-            m_gameState = NONE;
+            m_guiState = NONE;
             turn();
         } else {
             m_gameMessage->setText( i18n("Ruler: Select ending planet.") );
@@ -431,7 +435,7 @@ GameView::turn()
         break;
     }
 
-    emit newGameState( m_gameState );
+    emit newGUIState( m_guiState );
 }
 
 
@@ -622,9 +626,9 @@ GameView::cleanupGame()
     m_endTurnBtn->hide();
 
     changeGameView( false );
-    m_gameState = NONE;
+    m_guiState = NONE;
 
-    emit newGameState(m_gameState);
+    emit newGUIState(m_guiState);
 }
 
 
@@ -636,7 +640,7 @@ GameView::cleanupGame()
 void
 GameView::planetSelected( Planet *planet )
 {
-    switch( m_gameState ) {
+    switch( m_guiState ) {
         case SOURCE_PLANET:
             if( ((*planet).player()) == m_gameLogic->currentPlayer() ) {
                 // got a match
@@ -682,7 +686,7 @@ GameView::newShipCount()
     QString  temp( m_shipCountEdit->text() );
     bool ok;
 
-    switch( m_gameState ) {
+    switch( m_guiState ) {
     case SHIP_COUNT:
         shipCount = temp.toInt(&ok);
 
@@ -743,10 +747,10 @@ GameView::nextPlayer()
 
     if( m_gameInProgress ) {
         if (m_gameLogic->currentPlayer()->isAiPlayer()) {
-            m_gameState = AI_PLAYER;
+            m_guiState = AI_PLAYER;
         }
         else {
-            m_gameState = SOURCE_PLANET;
+            m_guiState = SOURCE_PLANET;
         }
 
         turn();
@@ -784,9 +788,9 @@ GameView::sendAttackFleet( Planet *source, Planet *dest, int ship )
 void
 GameView::measureDistance()
 {
-    switch( m_gameState ) {
+    switch( m_guiState ) {
     case SOURCE_PLANET:
-        m_gameState = RULER_SOURCE;
+        m_guiState = RULER_SOURCE;
         turn();
     default:
         break;
