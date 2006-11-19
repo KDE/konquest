@@ -491,7 +491,8 @@ GameView::endTurn()
 
 
 void
-GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, Player *planetPlayer)
+GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
+		  Player *planetPlayer)
 {
     bool isHumanInvolved = false;
 
@@ -552,6 +553,7 @@ GameView::startNewGame()
     if( m_gameInProgress )
         return;
 
+    // FIXME: Make newGameDlg take a a GameLogic* instead.
     NewGameDlg *newGame = new NewGameDlg( this, m_gameLogic->map(),
                                           m_gameLogic->players(),
                                           m_neutralPlayer, 
@@ -571,6 +573,7 @@ GameView::startNewGame()
     //        call to newGame->exec().  Change that.
     m_gameLogic->startNewGame();
 
+    // Set up the GUI for a new game.
     m_msgWidget->clear();
     m_shipCountEdit->hide();
     m_endTurnBtn->setEnabled( true );
@@ -605,6 +608,7 @@ GameView::shutdownGame()
 
     gameOver();
 }
+
 
 void
 GameView::gameOver()
@@ -810,6 +814,8 @@ GameView::showScores()
 void
 GameView::showFleets()
 {
-  FleetDlg  *fleetDlg = new FleetDlg( this, &(m_gameLogic->currentPlayer()->attackList()) );
-  fleetDlg->show();
+    FleetDlg  *fleetDlg = new FleetDlg( this, &(m_gameLogic->currentPlayer()
+						->attackList()) );
+    fleetDlg->exec();
+    delete fleetDlg;
 }

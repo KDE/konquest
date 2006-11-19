@@ -23,6 +23,7 @@ public:
     explicit  GameLogic( QObject *parent );
     virtual  ~GameLogic();
 
+    // Getters about the game state
     int               turnNumber()    const { return m_turnNumber; }
     Map              *map()           const { return m_map; }
     QList<Player *>  *players()             { return &m_players; }
@@ -38,13 +39,15 @@ public:
     void              nextPlayer();
 
 signals:
+    void              beginTurn ();
+    void              endTurn ();
     void              gameOver(Player *winner);
     void              gameMsg( const KLocalizedString &msg, Player *player = 0,
 			       Planet *planet = 0, Player *planetPlayer = 0 );
-    void              beginTurn ();
-    void              endTurn ();
+
 private:
 
+    // helper functions
     void              doFleetArrival( AttackFleet *arrivingFleet );
     void              cleanupGame();
     
