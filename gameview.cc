@@ -174,6 +174,7 @@ GameView::keyPressEvent( QKeyEvent *e )
         }
         m_mapScene->displayPlanetInfo( NULL );
         m_mapScene->unselectPlanet();
+        m_showInformations = false;
         return;
     }
 
