@@ -47,7 +47,7 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
                   int numNeutralPlanets, QList<Planet *> &thePlanets )
 {
     int index = 0;
-    QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/?-+\\|" );
+    QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/-+\\|" );
 
     // Create a planet for each player
     foreach(Player *plr, players) {
