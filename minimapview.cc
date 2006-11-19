@@ -32,7 +32,7 @@ MiniMapView::setMap(Map *map)
 }
 
 
-void MiniMapView::paintEvent(QPaintEvent */*event*/)
+void MiniMapView::paintEvent(QPaintEvent * /*event*/)
 {
     // Non square map aren't handled currently...
 

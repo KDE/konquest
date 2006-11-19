@@ -56,8 +56,8 @@ QRectF PlanetItem::boundingRect() const
                   m_scene->height() / BOARD_ROWS);
 }
 
-void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/,
-                       QWidget */*widget*/)
+void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
+                       QWidget * /*widget*/)
 {
     // Display a frame around the planet
     if (!m_sector->planet()->player()->isNeutral()) {
@@ -105,7 +105,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem */*option*/,
 }
 
 
-void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent */*event*/ )
+void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
 {
     m_hovered = true;
 
@@ -117,7 +117,7 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent */*event*/ )
     update();
 }
 
-void PlanetItem::hoverLeaveEvent( QGraphicsSceneHoverEvent */*event*/ )
+void PlanetItem::hoverLeaveEvent( QGraphicsSceneHoverEvent * /*event*/ )
 {
     m_hovered = false;
     m_scene->displayPlanetInfo(NULL, QPoint());
