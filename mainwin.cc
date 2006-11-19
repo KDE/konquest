@@ -99,8 +99,8 @@ MainWindow::setupGameView()
 					 Player * ) ) );
     connect (m_gameLogic, SIGNAL( beginTurn()), m_gameView, SLOT(beginTurn()));
     connect (m_gameLogic, SIGNAL( endTurn()), m_gameView, SLOT(endTurn()));
-    connect( m_gameView, SIGNAL( newGUIState( GameState )),
-	     this,       SLOT( guiStateChange( GameState ) ) );
+    connect( m_gameView, SIGNAL( newGUIState( GUIState )),
+	     this,       SLOT( guiStateChange( GUIState ) ) );
 }
 
 
