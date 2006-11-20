@@ -1,9 +1,14 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
+
 #include <QColor>
+
 #include "planet.h"
 #include "fleet.h"
+
+class GameLogic;
+
 
 //**************************************************************
 // class Player
@@ -12,7 +17,7 @@
 class Player
 {
 public:
-    Player( Map *map, const QString &newName, QColor color, int number, bool isAi );
+    Player( Map *map, const QString &newName, QColor color, int number );
     virtual ~Player();
 
     bool operator==( const Player &otherPlayer ) const
@@ -28,7 +33,8 @@ public:
     AttackFleetList &attackList() { return m_attackList; }
 
     // factory functions
-    static Player *createPlayer( Map *map, const QString &newName, QColor newColor, 
+    static Player *createPlayer( Map *map, const QString &name, 
+				 QColor color, 
 				 int playerNum, bool isAi  );
     static Player *createNeutralPlayer( Map *map );
 
@@ -36,7 +42,7 @@ public:
 
     bool isInPlay()               const { return m_inPlay; }
     void setInPlay( bool status )       { m_inPlay = status; }
-    bool isAiPlayer()             const { return m_aiPlayer; }
+    virtual bool  isAiPlayer()    const { return false; }
     
 
     // Statistics collection
@@ -61,7 +67,6 @@ private:
     QColor   m_color;
     int      m_playerNum;
     bool     m_inPlay;
-    bool     m_aiPlayer;
 
     // Attack fleets sent by this player that are still moving
     AttackFleetList  m_attackList;
@@ -73,5 +78,18 @@ private:
     int  m_enemyFleetsDestroyed;
     int  m_enemyShipsDestroyed;
 };
+
+
+class AIPlayer : public Player
+{
+public:
+    AIPlayer( Map *map, const QString &name, QColor color, int number );
+    virtual ~AIPlayer();
+
+    virtual bool  isAiPlayer() const { return true; }
+
+    void  doMove( GameLogic *gameLogic);
+};
+
 
 #endif

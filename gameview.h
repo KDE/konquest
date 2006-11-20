@@ -41,8 +41,7 @@ enum GUIState {
     DEST_PLANET, 
     SHIP_COUNT, 
     RULER_SOURCE, 
-    RULER_DEST, 
-    AI_PLAYER
+    RULER_DEST
 };
 
 

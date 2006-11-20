@@ -264,10 +264,9 @@ GameLogic::cleanupGame()
 }
 
 
-//************************************************************************
-// Player clicked the 'End Turn' button
-//************************************************************************
-
+// The current player has done its orders, and it's the next players
+// turn.
+//
 
 void
 GameLogic::nextPlayer()
@@ -275,13 +274,14 @@ GameLogic::nextPlayer()
     // end turn and advance to next player
     do {
         ++m_currentPlayer;
-    } while (m_currentPlayer != m_players.end()
-	     && !(*m_currentPlayer)->isInPlay());
+    } while ( m_currentPlayer != m_players.end()
+	      && !(*m_currentPlayer)->isInPlay() );
 
     if( m_currentPlayer == m_players.end() ) {
+        emit endTurn();
+
         // end of player list, new turn
         m_currentPlayer = m_players.begin();
-        emit endTurn();
 
         nextTurn();
         emit beginTurn();

@@ -1,5 +1,3 @@
-#include <math.h>
-
 #include <QLayout>
 #include <QLabel>
 #include <QSlider>
@@ -217,8 +215,6 @@ GameView::keyPressEvent( QKeyEvent *e )
 void
 GameView::turn()
 {
-    Planet *target = 0;
-
     switch( m_guiState ) {
     case NONE :
         // The standby state, waiting for clicking on a planet or starting
@@ -350,86 +346,6 @@ GameView::turn()
 
             setFocus();
         }
-
-        break;
-
-     case AI_PLAYER:
-         m_endTurnBtn->setEnabled( false );
-         m_gameMessage->setText( i18n("Computer Player thinking...") );
-
-         int ships;
-         foreach (Planet *home, *m_gameLogic->planets()) {
-             if (home->player() == m_gameLogic->currentPlayer()) {
-                 bool  hasAttack = false;
-                 ships = (int)floor(home->fleet().shipCount() * 0.7 );
-                
-                 if (ships >= 20) {
-                     Planet  *attack;
-                     double  minDistance = 100;
-                    
-                     foreach (attack, *m_gameLogic->planets()) {
-                         bool    skip = false;
-                         double  dist = m_gameLogic->map()->distance( home, attack );
-                        
-                         if (dist < minDistance
-                             &&  attack->player() != m_gameLogic->currentPlayer()
-                             && attack->fleet().shipCount() < ships ) {
-                             foreach (AttackFleet *curFleet, m_gameLogic->currentPlayer()->attackList()) {
-                                 if (curFleet->destination == attack) {
-                                     skip = true;
-                                 }
-                             }
-                             if (skip) 
-                                 continue;
-                            
-                             target      = attack;
-                             hasAttack   = true;
-                             minDistance = dist;
-                         }
-                     }
-                    
-                     if (hasAttack) {
-                         sendAttackFleet( home, target, ships );
-                     } else {
-                         minDistance = 100;
-                         int shipsToSend = 0;
-                         bool hasDestination = false;
-                        
-                         foreach (attack, *m_gameLogic->planets()) {
-                             bool    skip = false;
-                             double  dist = m_gameLogic->map()->distance( home, attack );
-                             int     homeships = (int)floor(home->fleet().shipCount() * 0.5 );
-                            
-                             if (dist < minDistance
-                                 && attack->player() == m_gameLogic->currentPlayer()
-                                 && attack->fleet().shipCount() < homeships ) {
-                                 foreach (AttackFleet *curFleet,
-                                          m_gameLogic->currentPlayer()->attackList()) {
-                                     if (curFleet->destination == attack) {
-                                         skip = true;
-                                     }
-                                 }
-                                 if (skip)
-                                     continue;
-                                
-                                 shipsToSend = (int)floor( double(home->fleet().shipCount()
-                                                                  - attack->fleet().shipCount()) / 2);
-                                
-                                 target         = attack;
-                                 hasDestination = true;
-                                 minDistance    = dist;
-                             }
-                         }
-                         if (hasDestination) {
-                             sendAttackFleet( home, target, shipsToSend );
-                         }
-                     }
-                 }
-             }
-        }
-        m_endTurnBtn->setEnabled( true );
-        nextPlayer();
-        
         break;
 
     default:
@@ -448,6 +364,8 @@ GameView::turn()
 void
 GameView::beginTurn()
 {
+    // If the message queue is not empty, show all the collected
+    // messages to the user.
     if (m_messageQueue.size() > 0) {
         foreach (Player *plr, *(m_gameLogic->players())) {
             if (plr->isAiPlayer())
@@ -467,10 +385,11 @@ GameView::beginTurn()
         m_messageQueue.clear();
     }
     
+    // Don't queue any messages during the players turn.
     m_queueMessages = false;
     
     // Check for game over.
-    Player *winner = m_gameLogic->findWinner();
+    Player  *winner = m_gameLogic->findWinner();
     if (winner) {
         KMessageBox::information(this,
               i18n("The mighty %1 has conquered the galaxy!", winner->name()),
@@ -676,7 +595,6 @@ GameView::planetSelected( Planet *planet )
             break;
     }
     m_mapScene->unselectPlanet();
-
 }
 
 
@@ -750,15 +668,18 @@ GameView::nextPlayer()
 {
     m_gameLogic->nextPlayer();
 
-    if( m_gameInProgress ) {
-        if (m_gameLogic->currentPlayer()->isAiPlayer()) {
-            m_guiState = AI_PLAYER;
-        }
-        else {
-            m_guiState = SOURCE_PLANET;
-        }
+    // Let the AI players do their stuff
+    while (m_gameInProgress 
+	   && m_gameLogic->currentPlayer()->isAiPlayer()) {
+	dynamic_cast<AIPlayer *>(m_gameLogic->currentPlayer())
+	    ->doMove(m_gameLogic);
+	m_gameLogic->nextPlayer();
+    }
 
-        turn();
+    // Now it's the human players' turn.
+    if ( m_gameInProgress ) {
+	m_guiState = SOURCE_PLANET;
+	turn();
     }
 }
 
@@ -772,11 +693,11 @@ GameView::nextPlayer()
 // FIXME: This should be in gameLogic, I think.
 
 void
-GameView::sendAttackFleet( Planet *source, Planet *dest, int ship )
+GameView::sendAttackFleet( Planet *source, Planet *dest, int ships )
 {
     bool ok;
 
-    ok = m_gameLogic->currentPlayer()->NewAttack( source, dest, ship, 
+    ok = m_gameLogic->currentPlayer()->NewAttack( source, dest, ships, 
                                                   m_gameLogic->turnNumber() );
 
     if( !ok ) {
