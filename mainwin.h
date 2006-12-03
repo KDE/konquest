@@ -7,6 +7,7 @@
 #include "gamelogic.h"
 #include "gameview.h"
 
+class KAction;
 
 class MainWindow : public KMainWindow
 {
