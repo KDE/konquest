@@ -2,8 +2,8 @@
 #include <QHeaderView>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <kapplication.h>
 #include <klocale.h>
+#include <kinstance.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include <kguiitem.h>
@@ -16,7 +16,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
 {
     setObjectName( "ScoreDlg" );
     setModal( true );
-    setWindowTitle( KInstance::makeStdCaption(title) );
+    setWindowTitle( KInstance::makeStandardCaption(title, this) );
 
     // Create the table.
     m_scoreTable = new QTableWidget( this );
