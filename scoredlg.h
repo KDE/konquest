@@ -3,14 +3,12 @@
 
 
 #include <QTableWidget>
-#include <QDialog>
+#include <KDialog>
 
 #include "player.h"
 
 
-// FIXME: Use KDialog instead?
-
-class ScoreDlg : public QDialog
+class ScoreDlg : public KDialog
 {
 
 public:

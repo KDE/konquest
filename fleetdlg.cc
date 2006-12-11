@@ -16,11 +16,11 @@
 
 
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
-    : QDialog(parent), m_fleetList(fleets)
+    : KDialog(parent), m_fleetList(fleets)
 {
     setObjectName( "FleetDlg" );
     setModal( true );
-    setWindowTitle( KInstance::makeStandardCaption(i18n("Fleet Overview"), this) );
+    setCaption( i18n("Fleet Overview") );
 
     m_fleetTable = new QTableWidget( this );
     m_fleetTable->setColumnCount( 5 );

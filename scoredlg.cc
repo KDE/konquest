@@ -12,11 +12,11 @@
 
 
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players )
-    : QDialog(parent), m_players(players)
+    : KDialog(parent), m_players(players)
 {
     setObjectName( "ScoreDlg" );
     setModal( true );
-    setWindowTitle( KInstance::makeStandardCaption(title, this) );
+    setCaption(title);
 
     // Create the table.
     m_scoreTable = new QTableWidget( this );

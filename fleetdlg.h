@@ -1,13 +1,13 @@
 #ifndef FLEETDLG_H
 #define FLEETDLG_H
 
-#include <QDialog>
+#include <KDialog>
 
 #include "fleet.h"
 
 class QTableWidget;
 
-class FleetDlg : public QDialog
+class FleetDlg : public KDialog
 {
 public: 
     FleetDlg( QWidget *parent, AttackFleetList *fleets );
