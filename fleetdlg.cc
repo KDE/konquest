@@ -4,6 +4,7 @@
 #include <QHeaderView>
 
 #include <kinstance.h>
+#include <kglobal.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 #include <kguiitem.h>
