@@ -10,7 +10,7 @@
 #include <ktoolbar.h>
 #include <kiconloader.h>
 #include <kaction.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kstdgameaction.h>
 #include <kicon.h>
 #include <kstatusbar.h>
