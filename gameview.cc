@@ -521,7 +521,7 @@ GameView::shutdownGame()
       ( this,
         i18n("Do you wish to retire this game?"),
         i18n("End Game"),
-        KStdGuiItem::ok() );
+        KStandardGuiItem::ok() );
 
     if( choice == KMessageBox::Cancel )
         return;

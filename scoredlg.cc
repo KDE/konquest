@@ -5,7 +5,7 @@
 #include <klocale.h>
 #include <kinstance.h>
 #include <kpushbutton.h>
-#include <kstdguiitem.h>
+#include <KStandardGuiItem>
 #include <kguiitem.h>
 
 #include "scoredlg.h"
@@ -33,7 +33,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     m_scoreTable->setSelectionMode( QAbstractItemView::NoSelection );
     m_scoreTable->setSortingEnabled(true);
 
-    KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
+    KPushButton *okButton = new KPushButton( KStandardGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 

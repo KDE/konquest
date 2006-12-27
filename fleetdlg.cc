@@ -6,7 +6,7 @@
 #include <kinstance.h>
 #include <kglobal.h>
 #include <kpushbutton.h>
-#include <kstdguiitem.h>
+#include <KStandardGuiItem>
 #include <kguiitem.h>
 #include <klocale.h>
 
@@ -33,7 +33,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
     m_fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
-    KPushButton *okButton = new KPushButton( KStdGuiItem::ok(), this );
+    KPushButton *okButton = new KPushButton( KStandardGuiItem::ok(), this );
     okButton->setMinimumSize( okButton->sizeHint() );
     okButton->setDefault(true);
 
