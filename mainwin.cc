@@ -11,7 +11,7 @@
 #include <kiconloader.h>
 #include <kaction.h>
 #include <kstandardaction.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <kicon.h>
 #include <kstatusbar.h>
 
@@ -48,11 +48,11 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupActions()
 {
-    KStdGameAction::gameNew( m_gameView, SLOT( startNewGame() ), 
+    KStandardGameAction::gameNew( m_gameView, SLOT( startNewGame() ), 
 			     actionCollection() );
-    KStdGameAction::quit( this, SLOT( close() ), actionCollection() );
+    KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
-    m_endAction = KStdGameAction::end( m_gameView, SLOT( shutdownGame() ), 
+    m_endAction = KStandardGameAction::end( m_gameView, SLOT( shutdownGame() ), 
 				       actionCollection() );
     m_endAction->setEnabled(false);
 
