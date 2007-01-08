@@ -7,7 +7,7 @@
 #include "gamelogic.h"
 #include "gameview.h"
 
-class KAction;
+class QAction;
 
 class MainWindow : public KMainWindow
 {
@@ -31,10 +31,10 @@ private:
     QLabel     *m_statusBarText;
 
     // Actions
-    KAction  *m_endAction;
-    KAction  *m_measureAction;
-    KAction  *m_standingAction;
-    KAction  *m_fleetAction;
+    QAction  *m_endAction;
+    QAction  *m_measureAction;
+    QAction  *m_standingAction;
+    QAction  *m_fleetAction;
 
 
 };
