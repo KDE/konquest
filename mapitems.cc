@@ -7,7 +7,6 @@
 #include <QTimer>
 #include <QTextDocument>
 
-#include <kapplication.h>
 #include <kiconloader.h>
 #include <kglobalsettings.h>
 #include <klocale.h>

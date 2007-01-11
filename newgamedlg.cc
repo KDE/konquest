@@ -10,7 +10,6 @@
 #include <QLineEdit>
 #include <QPixmap>
 
-#include <kapplication.h>
 #include <kconfig.h>
 #include <klocale.h>
 #include <kmessagebox.h>

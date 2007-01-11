@@ -3,7 +3,6 @@
 #include <QPushButton>
 #include <QLabel>
 
-#include <kapplication.h>
 #include <klocale.h>
 #include <kglobal.h>
 #include <kmenubar.h>
