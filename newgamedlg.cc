@@ -64,7 +64,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
 	    this,               SLOT(slotAddPlayer()));
     connect(m_w->addPlayer,     SIGNAL(clicked()),
 	    this,               SLOT(slotAddPlayer()));
-
+    connect(this,SIGNAL(defaultClicked()),this,SLOT(slotDefault()));
     init();
 
     setMainWidget(m_w);
