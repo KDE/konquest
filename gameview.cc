@@ -371,7 +371,7 @@ GameView::beginTurn()
             if (plr->isAiPlayer())
                 continue;
             QString text;
-            foreach (GameMessage msg, m_messageQueue) {
+            foreach (const GameMessage &msg, m_messageQueue) {
                 if (plr == msg.sender || plr == msg.receiver)
                     text = text + "<br />" + msg.text;
             }
