@@ -6,6 +6,7 @@ Name[x-test]=xxKonquestxx
 Exec=konquest -caption %c
 Type=Application
 GenericName=Galactic Strategy Game
+GenericName[el]=Γαλαξιακό παιχνίδι στρατηγικής
 GenericName[fr]=Jeu de stratégie galactique
 GenericName[ja]=宇宙戦略ゲーム
 GenericName[x-test]=xxGalactic Strategy Gamexx
