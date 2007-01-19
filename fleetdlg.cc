@@ -1,5 +1,3 @@
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QTableWidget>
 #include <QHeaderView>
 
@@ -22,6 +20,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     setObjectName( "FleetDlg" );
     setModal( true );
     setCaption( i18n("Fleet Overview") );
+    setButtons( KDialog::Ok );
 
     m_fleetTable = new QTableWidget( this );
     m_fleetTable->setColumnCount( 5 );
@@ -33,21 +32,8 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
     m_fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
-    KPushButton *okButton = new KPushButton( KStandardGuiItem::ok(), this );
-    okButton->setMinimumSize( okButton->sizeHint() );
-    okButton->setDefault(true);
-
-    QVBoxLayout *layout1 = new QVBoxLayout( this );
-    QHBoxLayout *layout2 = new QHBoxLayout;
-
-    layout1->addWidget( m_fleetTable, 1 );
-    layout1->addLayout( layout2 );
-
-    layout2->addStretch( 2 );
-    layout2->addWidget( okButton );
-    layout2->addStretch( 2 );
-
-    connect( okButton, SIGNAL(clicked()), this, SLOT(accept()) );
+    setMainWidget( m_fleetTable );
+    connect( this, SIGNAL(okclicked()), this, SLOT(accept()) );
 
     init();
 

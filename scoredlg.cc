@@ -1,10 +1,6 @@
-#include <QLayout>
 #include <QHeaderView>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <klocale.h>
 #include <kinstance.h>
-#include <kpushbutton.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
 
@@ -17,6 +13,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     setObjectName( "ScoreDlg" );
     setModal( true );
     setCaption(title);
+    setButtons( KDialog::Ok );
 
     // Create the table.
     m_scoreTable = new QTableWidget( this );
@@ -32,22 +29,9 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     m_scoreTable->setMinimumSize( m_scoreTable->sizeHint() );
     m_scoreTable->setSelectionMode( QAbstractItemView::NoSelection );
     m_scoreTable->setSortingEnabled(true);
-
-    KPushButton *okButton = new KPushButton( KStandardGuiItem::ok(), this );
-    okButton->setMinimumSize( okButton->sizeHint() );
-    okButton->setDefault(true);
-
-    QVBoxLayout *layout1 = new QVBoxLayout( this );
-    QHBoxLayout *layout2 = new QHBoxLayout;
-
-    layout1->addWidget( m_scoreTable, 1 );
-    layout1->addLayout( layout2 );
-
-    layout2->addStretch( 2 );
-    layout2->addWidget( okButton );
-    layout2->addStretch( 2 );
-
-    connect( okButton, SIGNAL(clicked()), this, SLOT(accept()) );
+    
+    setMainWidget( m_scoreTable );
+    connect( this, SIGNAL(okclicked()), this, SLOT(accept()) );
 
     resize( 580, 140  );
 }
