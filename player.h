@@ -82,13 +82,17 @@ private:
 
 class AIPlayer : public Player
 {
-public:
-    AIPlayer( Map *map, const QString &name, QColor color, int number );
-    virtual ~AIPlayer();
-
-    virtual bool  isAiPlayer() const { return true; }
-
-    void  doMove( GameLogic *gameLogic);
+    public:
+        AIPlayer( Map *map, const QString &name, QColor color, int number );
+        virtual ~AIPlayer();
+    
+        virtual bool  isAiPlayer() const { return true; }
+    
+        void  doMove( GameLogic *gameLogic);
+        
+        int getAiLevel() { return m_AiLevel; }
+    private:
+        int m_AiLevel;
 };
 
 

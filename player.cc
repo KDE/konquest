@@ -90,24 +90,37 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 AIPlayer::AIPlayer( Map *map, const QString &name, QColor color, int number )
     : Player( map, name, color, number )
 {
+    m_AiLevel = 0; // Default
 }
 
 AIPlayer::~AIPlayer()
 {
 }
 
-
 void AIPlayer::doMove(GameLogic *gameLogic)
 {
-    int      ships;
+    int      ships, minimumShips, shipCountFactor;
     Planet  *target = 0;
-
+    switch (getAiLevel())
+    {
+        case 1: // Offensive
+            minimumShips = 10;
+            shipCountFactor = 2;
+            break;
+        case 2: // Defensive
+            minimumShips = 30;
+            shipCountFactor = 3;
+            break;
+        default: // 0... default
+            minimumShips = 20;
+            shipCountFactor = 2;
+    }
     foreach (Planet *home, *gameLogic->planets()) {
 	if (home->player() == gameLogic->currentPlayer()) {
 	    bool  hasAttack = false;
 	    ships = (int)floor(home->fleet().shipCount() * 0.7 );
                 
-	    if (ships >= 20) {
+	    if (ships >= minimumShips) {
 		Planet  *attack;
 		double  minDistance = 100;
                     
@@ -131,7 +144,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 			minDistance = dist;
 		    }
 		}
-                    
+
 		if (hasAttack) {
 		    //sendAttackFleet( home, target, ships );
 		    gameLogic->currentPlayer()
@@ -160,7 +173,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 				continue;
                                 
 			    shipsToSend = (int)floor( double(home->fleet().shipCount()
-							     - attack->fleet().shipCount()) / 2);
+							     - attack->fleet().shipCount()) / shipCountFactor);
                                 
 			    target         = attack;
 			    hasDestination = true;
