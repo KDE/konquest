@@ -30,6 +30,8 @@ void MapScene::mapUpdate()
         removeItem(item);
         delete item;
     }
+    m_planetInfoItem = NULL;
+    
     for (int i = 0 ; i < BOARD_ROWS ; i++) {
         for (int j = 0 ; j < BOARD_COLS ; j++) {
             sector = m_map->sector(Coordinate(i, j));

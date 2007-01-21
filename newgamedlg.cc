@@ -121,7 +121,7 @@ NewGameDlg::init()
        item->setText(0, playerName);
     }
 
-    updateMiniMap();
+//     updateMiniMap();
     updateLabels();
 }
 
