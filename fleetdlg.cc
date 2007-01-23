@@ -33,7 +33,7 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     m_fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
     setMainWidget( m_fleetTable );
-    connect( this, SIGNAL(okclicked()), this, SLOT(accept()) );
+    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
 
     init();
 

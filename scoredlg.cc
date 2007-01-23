@@ -31,7 +31,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     m_scoreTable->setSortingEnabled(true);
     
     setMainWidget( m_scoreTable );
-    connect( this, SIGNAL(okclicked()), this, SLOT(accept()) );
+    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
 
     resize( 580, 140  );
 }
