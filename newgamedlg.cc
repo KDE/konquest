@@ -89,7 +89,7 @@ NewGameDlg::slotDefault()
 void
 NewGameDlg::init()
 {
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup("Game");
 
     int nrOfPlayers = config->readEntry("NrOfPlayers",0);
@@ -278,7 +278,7 @@ NewGameDlg::slotOk()
 void
 NewGameDlg::save()
 {
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup("Game");
     
     config->writeEntry("NrOfPlayers", m_w->sliderPlayers->value());

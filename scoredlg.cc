@@ -1,6 +1,6 @@
 #include <QHeaderView>
 #include <klocale.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
 
