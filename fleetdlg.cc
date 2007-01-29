@@ -1,7 +1,7 @@
 #include <QTableWidget>
 #include <QHeaderView>
 
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <kglobal.h>
 #include <kpushbutton.h>
 #include <KStandardGuiItem>
