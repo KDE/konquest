@@ -18,7 +18,7 @@ class MapScene: public QGraphicsScene
     Q_OBJECT
 
     public:
-        MapScene(Map *map);
+        explicit MapScene(Map *map);
 	~MapScene() {}
 
         KSvgRenderer  *renderer() const  { return m_renderer; }

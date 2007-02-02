@@ -9,7 +9,7 @@ class MapView : public QGraphicsView
 {
     Q_OBJECT
 public:
-    MapView( MapScene* scene, QWidget *parent = 0 );
+    explicit MapView( MapScene* scene, QWidget *parent = 0 );
     
 private:
     virtual void resizeEvent( QResizeEvent* );

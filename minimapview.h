@@ -12,7 +12,7 @@ class MiniMapView : public QWidget
     Q_OBJECT
 
 public:
-    MiniMapView( QWidget *parent = 0 );
+    explicit MiniMapView( QWidget *parent = 0 );
     ~MiniMapView();
 
     void setMap( Map *newMap );
