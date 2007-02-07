@@ -48,7 +48,7 @@ Player *Player::createPlayer( Map *map, const QString &name, QColor color,
 	pl = new Player( map, name, color, playerNum );
 
     if ( pl->isAiPlayer() != isAi )
-	qDebug("Player %s: wanted %d, got %d", name.latin1(), isAi, !isAi );
+	qDebug("Player %s: wanted %d, got %d", qPrintable( name ), isAi, !isAi );
 
     return pl;
 }

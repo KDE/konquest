@@ -82,7 +82,7 @@ GameLogic::resolveShipsInFlight()
 
             if( m_turnNumber == int (fleetArrivalTurn) ) {
                 doFleetArrival( fleet );
-                player->attackList().remove( fleet );
+                player->attackList().removeAll( fleet );
                 delete fleet;
             }
         }
