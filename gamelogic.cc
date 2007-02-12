@@ -178,7 +178,7 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
         	arrivingFleet->destination->fleet().absorb(arrivingFleet);
 
         	emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
-				    "Reinforcements (%n ships) have arrived for planet %2.")
+				    "Reinforcements (%1 ships) have arrived for planet %2.")
 			     .subs(arrivingFleet->shipCount()),
 			     0, arrivingFleet->destination);
         }
