@@ -23,8 +23,8 @@ public:
     Map();
     virtual ~Map();
 
-    const int  rows()    const { return m_rows;    }
-    const int  columns() const { return m_columns; }
+    int  rows()    const { return m_rows;    }
+    int  columns() const { return m_columns; }
 
     void       clearMap();
     void       populateMap( QList<Player *> &players, Player *neutral,
