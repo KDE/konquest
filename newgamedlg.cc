@@ -1,14 +1,3 @@
-#include <q3header.h>
-#include <QLayout>
-#include <QColor>
-#include <QLabel>
-#include <qslider.h>
-#include <qevent.h>
-#include <qnamespace.h>
-#include <q3listview.h>
-#include <QPushButton>
-#include <QLineEdit>
-#include <QPixmap>
 
 #include <kconfig.h>
 #include <klocale.h>
@@ -16,6 +5,10 @@
 #include <kpushbutton.h>
 #include <KStandardGuiItem>
 #include <kglobal.h>
+
+#include <qcombobox.h>
+#include <qheaderview.h>
+#include <qitemdelegate.h>
 
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
@@ -27,6 +20,188 @@
  New Game Dialog Members
  ************************************************************************/
 
+static const QColor PlayerColors[MAX_PLAYERS] = { 
+    QColor( 130, 130, 255 ),
+    Qt::yellow,
+    Qt::red,
+    Qt::green,
+    Qt::white,
+    Qt::cyan,
+    Qt::magenta,
+    QColor( 235, 153, 46 ),
+    QColor( 106, 157, 104 ),
+    QColor( 131, 153, 128) 
+    };
+
+// TODO This is ugly, improve
+static int nextAddedPlayer = 1;
+
+class playersListModel : public QAbstractTableModel
+{
+    public:
+        playersListModel(QObject *parent) : QAbstractTableModel(parent)
+        {
+        }
+
+        int rowCount(const QModelIndex &index = QModelIndex()) const
+        {
+            Q_UNUSED(index);
+            return m_players.count();
+        }
+
+        int columnCount(const QModelIndex&) const
+        {
+            return 2;
+        }
+
+        QVariant data(const QModelIndex &index, int role) const
+        {
+            if (index.isValid())
+            {
+                int row = index.row();
+                int column = index.column();
+                if (role == Qt::DecorationRole && column == 0)
+                {
+                    return PlayerColors[row];
+                }
+                else if (role == Qt::DisplayRole)
+                {
+                    if (column == 0)
+                    {
+                        return m_players.at(row).first;
+                    }
+                    else if (column == 1)
+                    {
+                        switch (m_players.at(row).second)
+                        {
+                            case Human: return i18n("Human"); break;
+                            case ComputerWeak: return i18n("Computer Weak"); break;
+                            case ComputerNormal: return i18n("Computer Normal"); break;
+                            case ComputerHard: return i18n("Computer Hard"); break;
+                        }
+                    }
+                }
+            }
+            return QVariant();
+        }
+
+        QVariant headerData(int section, Qt::Orientation orientation, int role) const
+        {
+            if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
+            {
+                if (section == 0) return i18n("Name");
+                else if (section == 1) return i18n("Type");
+            }
+            return QVariant();
+        }
+
+        bool setData(const QModelIndex &index, const QVariant &value, int role)
+        {
+            bool result = false;
+            if (index.isValid())
+            {
+                int row = index.row();
+                int column = index.column();
+
+                if (column == 0)
+                {
+                    m_players[row].first = value.toString();
+                    result = true;
+                }
+                else if (column == 1)
+                {
+                	QString text = value.toString();
+                	if (text == i18n("Human")) m_players[row].second = Human;
+                	else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
+                	else if (text == i18n("Computer Normal")) m_players[row].second = ComputerNormal;
+                	else if (text == i18n("Computer Hard")) m_players[row].second = ComputerHard;
+				}
+            }
+
+            if (result) emit dataChanged(index, index);
+
+            return result;
+        }
+
+        void addPlayer()
+        {
+            int players = m_players.count();
+            if (players < MAX_PLAYERS)
+            {
+                QString name( i18n("Player %1", nextAddedPlayer) );
+                beginInsertRows(QModelIndex(), players, players + 1);
+                m_players << QPair<QString, Player>( name, ComputerWeak );
+                endInsertRows();
+                nextAddedPlayer++;
+            }
+        }
+
+        Qt::ItemFlags flags(const QModelIndex &) const
+        {
+            return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
+        }
+
+        void removePlayer(int row)
+        {
+            if (row >= 0 && row < m_players.count())
+            {
+                beginRemoveRows(QModelIndex(), row, row);
+                m_players.removeAt(row);
+                endRemoveRows();
+            }
+        }
+
+        bool hasHumans() const
+        {
+            bool humans = false;
+            for (int i = 0; !humans && i < m_players.count(); ++i)
+            {
+                humans = m_players.at(i).second == Human;
+            }
+            return humans;
+        }
+
+    private:
+        // TODO Move where it belongs
+        enum Player { Human, ComputerWeak, ComputerNormal, ComputerHard };
+
+        QList< QPair<QString, Player> > m_players;
+};
+
+class playersListDelegate : public QItemDelegate
+{
+	public:
+		playersListDelegate(QObject *parent) : QItemDelegate(parent)
+		{
+		}
+		
+		QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+		{
+			if (index.column() == 0) return QItemDelegate::createEditor(parent, option, index);
+			else
+			{
+				return new QComboBox(parent);
+			}
+		}
+		
+		void setEditorData(QWidget *editor, const QModelIndex &index) const
+		{
+			QComboBox *cbox = static_cast<QComboBox*>(editor);
+			cbox->addItem(i18n("Human"));
+			cbox->addItem(i18n("Computer Weak"));
+			cbox->addItem(i18n("Computer Normal"));
+			cbox->addItem(i18n("Computer Hard"));
+			
+			cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
+		}
+		
+		void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+		{
+			QComboBox *cbox = static_cast<QComboBox*>(editor);
+			
+			model->setData(index, cbox->currentText(), Qt::EditRole);
+		}
+};
 
 NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
                         Player *neutralPlayer, QList<Planet *> *planets )
@@ -37,52 +212,26 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
       m_neutral(neutralPlayer)
 {
     setCaption(i18n("Start New Game"));
-    setButtons(KDialog::Ok|KDialog::Default|KDialog::Cancel);
+    setButtons(KDialog::Ok|KDialog::Cancel);
     setDefaultButton(KDialog::NoDefault);
     showButtonSeparator(true);
 
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap( m_map );
-    m_w->listPlayers->header()->hide();
-//    w->listPlayers->setMinimumSize( 100, 150 );
-    m_w->listPlayers->setSortColumn(-1);
-    m_w->listPlayers->setHScrollBarMode(Q3ScrollView::AlwaysOff);
-    m_w->sliderPlayers->setMinimumWidth(270);
-    m_w->sliderPlanets->setMinimumWidth(270);
 
-    m_w->newPlayer->setMaxLength( 8 );
+    m_w->playerList->setModel(new playersListModel(this));
+    m_w->playerList->setItemDelegate(new playersListDelegate(this));
+    m_w->playerList->header()->setResizeMode(QHeaderView::Stretch);
 
-    connect(m_w->sliderPlayers, SIGNAL(valueChanged(int)),
-	    this,               SLOT(slotPlayerCount(int)));
-    connect(m_w->sliderPlanets, SIGNAL(valueChanged(int)), 
-	    this,               SLOT(slotNewMap()));
-    connect(m_w->rejectMap,     SIGNAL(clicked()),
-	    this,               SLOT(slotNewMap()));
-    connect(m_w->newPlayer,     SIGNAL(textChanged(const QString &)),
-	    this,               SLOT(slotNewPlayer()));
-    connect(m_w->newPlayer,     SIGNAL(returnPressed()), 
-	    this,               SLOT(slotAddPlayer()));
-    connect(m_w->addPlayer,     SIGNAL(clicked()),
-	    this,               SLOT(slotAddPlayer()));
-    connect(this,SIGNAL(defaultClicked()),this,SLOT(slotDefault()));
+    connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+    connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+    connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+    connect(m_w->rejectMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
+    connect(m_w->addPlayerButton, SIGNAL(clicked()), this, SLOT(slotAddPlayer()));
+    connect(m_w->removePlayerButton, SIGNAL(clicked()), this, SLOT(slotRemovePlayer()));
     init();
 
     setMainWidget(m_w);
-}
-
-
-void
-NewGameDlg::slotDefault()
-{
-    m_w->sliderPlayers->setValue(2);
-    m_w->sliderPlanets->setValue(3);
-
-    m_w->listPlayers->clear();
-
-    setPlayerCount(2);
-    
-    updateMiniMap();
-    updateLabels();
 }
 
 
@@ -100,175 +249,49 @@ NewGameDlg::init()
 
     int nrOfPlanets = config->readEntry("NrOfPlanets", 3);
        
-    m_w->sliderPlayers->setValue(nrOfPlayers);
-    m_w->sliderPlanets->setValue(nrOfPlanets);
-    setPlayerCount(nrOfPlayers);
-    slotNewPlayer();
+    m_w->neutralPlanetsSB->setValue(nrOfPlanets);
     
     // Restore player names
-    int plrNum = 0;
-    for( Q3ListViewItem *item = m_w->listPlayers->firstChild(); 
-         item; item = item->nextSibling(), plrNum++ )
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    for(int i = 0; i < nrOfPlayers; ++i)
     {
-       QString key = QString("Player_%1").arg(plrNum);
+       QString key = QString("Player_%1").arg(i);
        
        QString playerName = config->readEntry(key,QString());
-       if (playerName.isEmpty())
-          continue;
-
-       item->setText(2, "H"); // Human
-       item->setText(1, i18n("Human Player"));
-       item->setText(0, playerName);
+       
+       model->addPlayer();
+       
+       if (!playerName.isEmpty()) model->setData(model->index(i, 0), playerName, Qt::EditRole);
     }
-
-//     updateMiniMap();
-    updateLabels();
-}
-
-void
-NewGameDlg::slotNewPlayer()
-{
-    m_w->addPlayer->setEnabled(!m_w->newPlayer->text().isEmpty());
 }
 
 void
 NewGameDlg::slotAddPlayer()
 {
-    QString playerName = m_w->newPlayer->text();
-    if (playerName.isEmpty())
-       return;
-       
-    Q3ListViewItem *item;
-    do {
-       item = m_w->listPlayers->firstChild();
-       while( item ) {
-          if (item->text(2) == "A")
-             break;
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    model->addPlayer();
 
-          item = item->nextSibling();
-       }
-       if (!item) {
-          int nrPlayers = m_w->listPlayers->childCount();
-          if (nrPlayers >= MAX_PLAYERS)
-             return; // Too bad
-
-          nrPlayers++;
-          m_w->sliderPlayers->setValue(nrPlayers);
-          setPlayerCount(nrPlayers);
-       }
-    } while(!item);
-    
-    item->setText(2, "H"); // Human
-    item->setText(1, i18n("Human Player"));
-    item->setText(0, playerName);
-    
-    m_w->newPlayer->setText(QString::null);
-    
-    updateMiniMap();
-    updateLabels();
-}
-
-
-void
-NewGameDlg::setPlayerCount(int playerCount)
-{
-    QColor PlayerColors[MAX_PLAYERS] = { 
-	QColor( 130, 130, 255 ),
-	Qt::yellow,
-	Qt::red,
-	Qt::green,
-	Qt::white,
-	Qt::cyan,
-	Qt::magenta,
-	QColor( 235, 153, 46 ),
-	QColor( 106, 157, 104 ),
-	QColor( 131, 153, 128) 
-    };
-       
-    int              i = 0;
-    Q3ListViewItem  *lastItem = 0;
-    Q3ListViewItem  *item = 0;
-    Q3ListViewItem  *nextItem = m_w->listPlayers->firstChild();
-    while( (item = nextItem) ) {
-       nextItem = item->nextSibling();
-       if (i >= playerCount) {
-          delete item;
-       }
-       else {
-          lastItem = item;
-       }
-       i++;
-    }
-    
-    while (m_w->listPlayers->childCount() < playerCount) {
-       QString  playerName = i18nc("Generated AI player name", "Comp%1", i+1);
-       QPixmap  pm(16,16);
-       QColor   color(PlayerColors[i]);
-
-       pm.fill(color);
-       Q3ListViewItem *item = new Q3ListViewItem(m_w->listPlayers,
-						 lastItem, playerName,
-						 i18n("Computer Player"),
-						 "A", color.name());
-       item->setPixmap(0, pm);
-       lastItem = item;
-       i++;
-    }
+    slotNewMap();
 }
 
 void
-NewGameDlg::slotPlayerCount(int playerCount)
+NewGameDlg::slotRemovePlayer()
 {
-    if (m_w->listPlayers->childCount() == playerCount)
-       return;
-       
-    setPlayerCount(playerCount);
-       
-    updateMiniMap();
-    updateLabels();
-}
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    model->removePlayer(m_w->playerList->currentIndex().row());
 
-
-void
-NewGameDlg::slotTurns()
-{
-    updateLabels();
-}
-
-void
-NewGameDlg::slotNewMap()
-{
-    updateMiniMap();
-    updateLabels();
-}
-
-
-void
-NewGameDlg::updateLabels()
-{
-    m_w->labelPlayers->setText(i18n("Number of &players: %1", 
-				    m_w->sliderPlayers->value()));
-    m_w->labelPlanets->setText(i18n("Number of neutral p&lanets: %1",
-				    m_w->sliderPlanets->value()));
+    slotNewMap();
 }
 
 void
 NewGameDlg::slotOk()
 {
-    bool hasHumans = false;
-
-    for( Q3ListViewItem *item = m_w->listPlayers->firstChild(); 
-         item; item = item->nextSibling() )
-    {
-        bool ai = (item->text(2) == "A");
-        if (!ai)
-           hasHumans = true;
-    }
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    bool hasHumans = model->hasHumans();
 
     if (!hasHumans) {
         KMessageBox::information(this,
               i18n("The game is much more fun when you add a human player!"));
-        m_w->newPlayer->setFocus();
         return;
     }
 
@@ -281,17 +304,16 @@ NewGameDlg::save()
     KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup("Game");
     
-    config->writeEntry("NrOfPlayers", m_w->sliderPlayers->value());
-    config->writeEntry("NrOfPlanets", m_w->sliderPlanets->value());
+    config->writeEntry("NrOfPlanets", m_w->neutralPlanetsSB->value());
 
-    int plrNum = 0;
-    for( Q3ListViewItem *item = m_w->listPlayers->firstChild(); 
-         item; item = item->nextSibling() )
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    for (int i = 0; i < model->rowCount(); ++i)
     {
-        QString  key        = QString("Player_%1").arg(plrNum);
-        QString  playerName = item->text(0);
+        QString  key        = QString("Player_%1").arg(i);
+        QString  playerName = model->data(model->index(i, 0), Qt::DisplayRole).toString();
 
-        bool ai = (item->text(2) == "A");
+        // TODO this is a bit ugly, maybe a isAI in model will be better
+        bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
         if (ai) {
            if (config->hasKey(key))
               config->deleteEntry(key);
@@ -299,14 +321,12 @@ NewGameDlg::save()
         else {
            config->writeEntry(key, playerName);
         }
-
-        plrNum++;
     }
     config->sync();
 }
 
 void
-NewGameDlg::updateMiniMap()
+NewGameDlg::slotNewMap()
 {
     // Clear map,, player and planet lists
     m_map->clearMap();
@@ -319,22 +339,22 @@ NewGameDlg::updateMiniMap()
 
     // Make player list
     // Does the name already exist in the list
-    int plrNum = 0;
-    for( Q3ListViewItem *item = m_w->listPlayers->firstChild(); 
-         item; item = item->nextSibling() )
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    for (int i = 0; i < model->rowCount(); ++i)
     {
-        QString  playerName = item->text(0);
-        bool     ai         = (item->text(2) == "A");
-        QColor   color(item->text(3));
-
-        m_players->append( Player::createPlayer( m_map, playerName, color, 
-						 plrNum, ai ));
-        plrNum++;
+        QString  playerName = model->data(model->index(i, 0), Qt::DisplayRole).toString();
+        QColor  color = model->data(model->index(i, 0), Qt::DecorationRole).value<QColor>();
+        // TODO this is a bit ugly, maybe a isAI in model will be better
+        bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
+        
+        // TODO This is not going to work as changing names/player type in the table
+        // needs to change name in m_players without changing the map
+        m_players->append( Player::createPlayer( m_map, playerName, color, i, ai ));
     }
-
+    
     // make the planets
     m_map->populateMap( *m_players, m_neutral,
-			m_w->sliderPlanets->value(),
-			*m_planets );
+            m_w->neutralPlanetsSB->value(),
+            *m_planets );
 }
 

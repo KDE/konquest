@@ -6,7 +6,7 @@
 
 #include "planet.h"
 #include "minimapview.h"
-#include "ui_newGameDlg_ui.h"
+#include "ui_newGameDialog.h"
 #include "player.h"
 
 
@@ -14,7 +14,7 @@
 #define MAX_PLAYERS 10
 
 
-class NewGameDlgUI : public QWidget, public Ui::NewGameDlgUI
+class NewGameDlgUI : public QWidget, public Ui::newGameDialog
 {
 public:
     explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
@@ -41,19 +41,13 @@ public:
     void  save();
 
 protected slots:
-    void  slotPlayerCount(int playerCount);
     void  slotNewMap();
-    void  slotTurns();
-    void  slotNewPlayer();
     void  slotAddPlayer();
-    void  slotDefault();
+    void  slotRemovePlayer();
     void  slotOk();
 
 private:
     void  init();
-    void  updateMiniMap();
-    void  updateLabels();
-    void  setPlayerCount(int playerCount);
 
 private:
     Map              *m_map;
