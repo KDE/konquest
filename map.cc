@@ -46,12 +46,12 @@ void
 Map::populateMap( QList<Player *> &players, Player *neutral,
                   int numNeutralPlanets, QList<Planet *> &thePlanets )
 {
-    int index = 0;
-    QString names( "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*(),.<>;:[]{}/-+\\|" );
+    // Store the planet name in a simple char... Nothing more needed.
+    char index = 64;
 
     // Create a planet for each player
     foreach(Player *plr, players) {
-        QString newName( names.mid( index++, 1 ) );
+        QString newName( index++ );
         Sector *sect = findRandomFreeSector();
         Planet *plrPlanet = Planet::createPlayerPlanet( sect, plr, newName );
 
@@ -60,7 +60,7 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
 
     for( int x = 0; x < numNeutralPlanets; x++ )
     {
-        QString newName( names.mid( index++, 1 ) );
+        QString newName( index++ );
         Sector *sect = findRandomFreeSector();
         Planet *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
 
