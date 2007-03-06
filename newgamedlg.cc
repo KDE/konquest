@@ -6,9 +6,10 @@
 #include <KStandardGuiItem>
 #include <kglobal.h>
 
-#include <qcombobox.h>
-#include <qheaderview.h>
-#include <qitemdelegate.h>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QHeaderView>
+#include <QItemDelegate>
 
 #include "newgamedlg.h"
 #include "newgamedlg.moc"
@@ -32,9 +33,6 @@ static const QColor PlayerColors[MAX_PLAYERS] = {
     QColor( 106, 157, 104 ),
     QColor( 131, 153, 128) 
     };
-
-// TODO This is ugly, improve
-static int nextAddedPlayer = 1;
 
 class playersListModel : public QAbstractTableModel
 {
@@ -128,11 +126,21 @@ class playersListModel : public QAbstractTableModel
             int players = m_players.count();
             if (players < MAX_PLAYERS)
             {
-                QString name( i18n("Player %1", nextAddedPlayer) );
+                bool invalidName = true;
+                int i = 1;
+                QString name;
+                while (invalidName) {
+                    name = QString( i18n("Player %1", i) );
+                    invalidName = false;
+                    for (int j = 0 ; !invalidName && j < m_players.count(); j++)
+                    {
+                        invalidName = (m_players.at(j).first == name);
+                    }
+                    i++;
+                }
                 beginInsertRows(QModelIndex(), players, players + 1);
                 m_players << QPair<QString, Player>( name, ComputerWeak );
                 endInsertRows();
-                nextAddedPlayer++;
             }
         }
 
@@ -154,9 +162,9 @@ class playersListModel : public QAbstractTableModel
         bool hasHumans() const
         {
             bool humans = false;
-            for (int i = 0; !humans && i < m_players.count(); ++i)
+            for (int i = 0 ; !humans && i < m_players.count() ; ++i)
             {
-                humans = m_players.at(i).second == Human;
+                humans = (m_players.at(i).second == Human);
             }
             return humans;
         }
@@ -177,29 +185,39 @@ class playersListDelegate : public QItemDelegate
 		
 		QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 		{
-			if (index.column() == 0) return QItemDelegate::createEditor(parent, option, index);
+			if (index.column() == 0)
+				return new QLineEdit(parent);
 			else
-			{
 				return new QComboBox(parent);
-			}
 		}
 		
 		void setEditorData(QWidget *editor, const QModelIndex &index) const
 		{
-			QComboBox *cbox = static_cast<QComboBox*>(editor);
-			cbox->addItem(i18n("Human"));
-			cbox->addItem(i18n("Computer Weak"));
-			cbox->addItem(i18n("Computer Normal"));
-			cbox->addItem(i18n("Computer Hard"));
-			
-			cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
+			if (index.column() != 0) {
+				QComboBox *cbox = static_cast<QComboBox*>(editor);
+				cbox->addItem(i18n("Human"));
+				cbox->addItem(i18n("Computer Weak"));
+				cbox->addItem(i18n("Computer Normal"));
+				cbox->addItem(i18n("Computer Hard"));
+				
+				cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
+			} else {
+				QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
+				lineEdit->setText(index.data(Qt::DisplayRole).toString());
+			}
 		}
 		
 		void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 		{
-			QComboBox *cbox = static_cast<QComboBox*>(editor);
+			if (index.column() != 0) {
+				QComboBox *cbox = static_cast<QComboBox*>(editor);
 			
-			model->setData(index, cbox->currentText(), Qt::EditRole);
+				model->setData(index, cbox->currentText(), Qt::EditRole);
+			} else {
+				QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
+				
+				model->setData(index, lineEdit->text(), Qt::EditRole);
+			}
 		}
 };
 
