@@ -256,16 +256,15 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
 void
 NewGameDlg::init()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup("Game");
+    KConfigGroup config = KGlobal::config()->group("Game");
 
-    int nrOfPlayers = config->readEntry("NrOfPlayers",0);
+    int nrOfPlayers = config.readEntry("NrOfPlayers",0);
     if (nrOfPlayers < 2)
        nrOfPlayers = 2;
     if (nrOfPlayers > MAX_PLAYERS)
        nrOfPlayers = MAX_PLAYERS;
 
-    int nrOfPlanets = config->readEntry("NrOfPlanets", 3);
+    int nrOfPlanets = config.readEntry("NrOfPlanets", 3);
        
     m_w->neutralPlanetsSB->setValue(nrOfPlanets);
     
@@ -275,7 +274,7 @@ NewGameDlg::init()
     {
        QString key = QString("Player_%1").arg(i);
        
-       QString playerName = config->readEntry(key,QString());
+       QString playerName = config.readEntry(key,QString());
        
        model->addPlayer();
        
@@ -319,10 +318,9 @@ NewGameDlg::slotOk()
 void
 NewGameDlg::save()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup("Game");
+    KConfigGroup config = KGlobal::config()->group("Game");
     
-    config->writeEntry("NrOfPlanets", m_w->neutralPlanetsSB->value());
+    config.writeEntry("NrOfPlanets", m_w->neutralPlanetsSB->value());
 
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
     for (int i = 0; i < model->rowCount(); ++i)
@@ -333,14 +331,14 @@ NewGameDlg::save()
         // TODO this is a bit ugly, maybe a isAI in model will be better
         bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
         if (ai) {
-           if (config->hasKey(key))
-              config->deleteEntry(key);
+           if (config.hasKey(key))
+              config.deleteEntry(key);
         }
         else {
-           config->writeEntry(key, playerName);
+           config.writeEntry(key, playerName);
         }
     }
-    config->sync();
+    config.sync();
 }
 
 void
