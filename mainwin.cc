@@ -68,7 +68,7 @@ MainWindow::setupActions()
 
     // Show standings
     m_standingAction = actionCollection()->addAction( "game_scores" );
-    m_standingAction->setIcon( KIcon("help") );
+    m_standingAction->setIcon( KIcon("help-contents") );
     m_standingAction->setText( i18n("&Show Standings") );
     connect(m_standingAction, SIGNAL(triggered(bool)),
 	    m_gameView,       SLOT( showScores() ));
