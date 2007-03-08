@@ -21,7 +21,7 @@ GameLogic::GameLogic( QObject *parent )
 {
     QPalette blackPal;
 
-    m_map           = new Map;
+    m_map           = new Map(16, 16);
     m_neutralPlayer = Player::createNeutralPlayer(m_map);
 
     cleanupGame();

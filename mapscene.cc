@@ -32,8 +32,8 @@ void MapScene::mapUpdate()
     }
     m_planetInfoItem = NULL;
     
-    for (int i = 0 ; i < BOARD_ROWS ; i++) {
-        for (int j = 0 ; j < BOARD_COLS ; j++) {
+    for (int i = 0 ; i < m_map->rows() ; i++) {
+        for (int j = 0 ; j < m_map->columns() ; j++) {
             sector = m_map->sector(Coordinate(i, j));
             if (sector->hasPlanet()) {
                 PlanetItem *item = new PlanetItem(this, sector);
@@ -65,8 +65,8 @@ void MapScene::planetItemSelected (PlanetItem *item)
 }
 
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
-    qreal s_w = width()/BOARD_COLS;
-    qreal s_h = height()/BOARD_ROWS;
+    qreal s_w = width()/m_map->columns();
+    qreal s_h = height()/m_map->rows();
     m_renderer->render(painter, "background", QRectF(0, 0, 16*s_w, 16*s_h));
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
@@ -74,10 +74,10 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     pen.setStyle(Qt::SolidLine);
     painter->setPen(pen);
     painter->setOpacity(0.5);
-    for (int i = 0 ; i <= BOARD_COLS ; i++) {
+    for (int i = 0 ; i <= m_map->columns() ; i++) {
         painter->drawLine(QPointF(i*s_w, 0), QPointF(i*s_w, 16*s_h));
     }
-    for (int j = 0 ; j <= BOARD_ROWS ; j++) {
+    for (int j = 0 ; j <= m_map->rows() ; j++) {
         painter->drawLine(QPointF(0, j*s_h), QPointF(16*s_w, j*s_h));
     }
 }
@@ -90,8 +90,8 @@ void MapScene::displayPlanetInfo (Planet *planet)
     }
     
     if (planet) {
-        QPointF pos(planet->sector()->coord().x() * width()/BOARD_COLS,
-                   planet->sector()->coord().y() * height()/BOARD_ROWS);
+        QPointF pos(planet->sector()->coord().x() * width()/m_map->columns(),
+                   planet->sector()->coord().y() * height()/m_map->rows());
         displayPlanetInfo(planet, pos);
     }
 }

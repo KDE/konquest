@@ -2,12 +2,13 @@
 #define __MAP_H__
 
 #include <QObject>
+#include <QList>
 #include "sector.h"
 #include "player.h"
 
 // Board Size Constants
-#define BOARD_ROWS 16
-#define BOARD_COLS 16
+//#define BOARD_ROWS 16
+//#define BOARD_COLS 16
 
 
 //*****************************************************************
@@ -20,7 +21,7 @@ class Map : public QObject
     Q_OBJECT
 
 public:
-    Map();
+    Map(int rows, int cols);
     virtual ~Map();
 
     int  rows()    const { return m_rows;    }
@@ -52,7 +53,7 @@ private:
     
 protected:
     // A map is a 2-D array of Sectors.
-    Sector     m_grid[BOARD_ROWS][BOARD_COLS];
+    QList<QList<Sector> > m_grid;
     const int  m_rows; // size of grid in sectors
     const int  m_columns;
 

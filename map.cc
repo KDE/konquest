@@ -2,23 +2,27 @@
 #include "gamecore.h"
 #include "map.h"
 #include "map.moc"
+#include <QtDebug>
 
 //---------------------------------------------------------------------------
 // class Map
 //---------------------------------------------------------------------------
 
 
-Map::Map()
-  : m_rows( BOARD_ROWS ),
-    m_columns( BOARD_COLS ),
+Map::Map(int rowsCount, int colsCount)
+  : m_rows( rowsCount ),
+    m_columns( colsCount ),
     m_hasSelectedSector( false )
 {
+    qDebug() << rows() << "x" << columns();
+    //m_grid = new QList<QList<Sector> >();
    // initialize the grid of Sectors
-    for( int col = 0; col < columns(); col++ )
+    for( int row = 0; row < rows(); row++ )
     {
-        for( int row = 0; row < rows(); row++ )
+        m_grid << QList<Sector>();
+        for( int col = 0; col < columns(); col++ )
         {
-            m_grid[row][col] = Sector( this, Coordinate(row, col) );
+            m_grid[row] << Sector( this, Coordinate(row, col) );
             connect( &m_grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
         }
     }

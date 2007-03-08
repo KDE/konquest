@@ -49,10 +49,10 @@ void PlanetItem::updatePlanet()
 
 QRectF PlanetItem::boundingRect() const
 {
-    return QRectF(m_sector->coord().x() * m_scene->width()  / BOARD_COLS,
-                  m_sector->coord().y() * m_scene->height() / BOARD_ROWS,
-                  m_scene->width()  / BOARD_COLS,
-                  m_scene->height() / BOARD_ROWS);
+    return QRectF(m_sector->coord().x() * m_scene->width()  / m_scene->map()->columns(),
+                  m_sector->coord().y() * m_scene->height() / m_scene->map()->rows(),
+                  m_scene->width()  / m_scene->map()->columns(),
+                  m_scene->height() / m_scene->map()->rows());
 }
 
 void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
@@ -87,8 +87,8 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     }
     
     // Show the name of the planet.
-    QPointF  sectorTopLeft(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
-                          m_sector->coord().y() * m_scene->height()/BOARD_ROWS);
+    QPointF  sectorTopLeft(m_sector->coord().x() * m_scene->width()/m_scene->map()->columns(),
+                          m_sector->coord().y() * m_scene->height()/m_scene->map()->rows());
     p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
 
     // Show the number of ships on the planet.
@@ -98,8 +98,8 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
         QFontMetrics  m = p->fontMetrics();
 
         p->drawText( sectorTopLeft
-                     + QPointF(m_scene->width()/BOARD_COLS - m.width(shipCount),
-                              m_scene->height()/BOARD_ROWS), shipCount );
+                     + QPointF(m_scene->width()/m_scene->map()->columns() - m.width(shipCount),
+                              m_scene->height()/m_scene->map()->rows()), shipCount );
     }
 }
 
@@ -110,8 +110,8 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
 
     Planet  *planet = m_sector->planet();
     m_scene->displayPlanetInfo(planet,
-                               QPointF(m_sector->coord().x() * m_scene->width()/BOARD_COLS,
-                                      m_sector->coord().y() * m_scene->height()/BOARD_ROWS));
+                               QPointF(m_sector->coord().x() * m_scene->width()/m_scene->map()->columns(),
+                                      m_sector->coord().y() * m_scene->height()/m_scene->map()->rows()));
 
     update();
 }
