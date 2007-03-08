@@ -11,9 +11,9 @@ CoreLogic::CoreLogic()
 }
 
 Coordinate
-CoreLogic::generatePlanetCoordinates(int rows, int cols)
+CoreLogic::generatePlanetCoordinates(int x, int y)
 {
-    return Coordinate(random.getLong(rows), random.getLong(cols));
+    return Coordinate(random.getLong(x), random.getLong(y));
 }
 
 double

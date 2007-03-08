@@ -14,12 +14,20 @@ Map::Map(int rowsCount, int colsCount)
     m_columns( colsCount ),
     m_hasSelectedSector( false )
 {
+    resizeMap(rowsCount, colsCount);
+}
+
+void Map::resizeMap (int rowsCount, int columnsCount) {
+    m_rows = rowsCount;
+    m_columns = columnsCount;
+    m_grid.clear();
+    m_grid = QList<QList<Sector> >();
     qDebug() << rows() << "x" << columns();
     // initialize the grid of Sectors
-    for( int row = 0; row < rows(); row++ )
+    for( int row = 0; row < rowsCount; row++ )
     {
         m_grid << QList<Sector>();
-        for( int col = 0; col < columns(); col++ )
+        for( int col = 0; col < columnsCount; col++ )
         {
             m_grid[row] << Sector( this, Coordinate(row, col) );
             connect( &m_grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
@@ -40,7 +48,7 @@ Map::clearMap()
     for( x = 0; x < rows(); x++ )
         for( y = 0; y < columns(); y++ )
         {
-            m_grid[y][x].removePlanet();
+            m_grid[x][y].removePlanet();
         }
     emit update();
 }
@@ -79,19 +87,18 @@ double Map::distance( Planet *p1, Planet *p2 )
     return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())))/2;
 }
 
-
 Sector *
 Map::findRandomFreeSector()
 {
     CoreLogic cl;
     Coordinate c;
-
+    
     do
     {
         c = cl.generatePlanetCoordinates(rows(), columns());
-    } while( m_grid[c.y()][c.x()].hasPlanet() );
+    } while( m_grid[c.x()][c.y()].hasPlanet() );
 
-    return &m_grid[c.y()][c.x()];
+    return &m_grid[c.x()][c.y()];
 }
 
 void

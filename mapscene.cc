@@ -34,7 +34,7 @@ void MapScene::mapUpdate()
     
     for (int i = 0 ; i < m_map->rows() ; i++) {
         for (int j = 0 ; j < m_map->columns() ; j++) {
-            sector = m_map->sector(Coordinate(i, j));
+            sector = m_map->sector(Coordinate(j, i));
             if (sector->hasPlanet()) {
                 PlanetItem *item = new PlanetItem(this, sector);
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)), 

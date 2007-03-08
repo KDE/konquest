@@ -19,10 +19,11 @@ public:
     Map(int rows, int cols);
     virtual ~Map();
 
-    int  rows()    const { return m_rows;    }
-    int  columns() const { return m_columns; }
+    int  rows()     { return m_rows;    }
+    int  columns()  { return m_columns; }
 
     void       clearMap();
+    void       resizeMap(int rows, int cols);
     void       populateMap( QList<Player *> &players, Player *neutral,
 			    int numNeutralPlanets, QList<Planet *> &thePlanets );
     
@@ -49,8 +50,8 @@ private:
 protected:
     // A map is a 2-D array of Sectors.
     QList<QList<Sector> > m_grid;
-    const int  m_rows; // size of grid in sectors
-    const int  m_columns;
+    int  m_rows; // size of grid in sectors
+    int  m_columns;
 
     // This is used to implement a selected sector,
     // one who's boarder flashes.

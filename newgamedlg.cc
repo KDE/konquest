@@ -344,7 +344,7 @@ NewGameDlg::save()
 void
 NewGameDlg::slotNewMap()
 {
-    // Clear map,, player and planet lists
+    // Clear map, player and planet lists
     m_map->clearMap();
 
     while (!m_planets->isEmpty())
@@ -353,6 +353,7 @@ NewGameDlg::slotNewMap()
     while (!m_players->isEmpty())
         delete m_players->takeFirst();
 
+    m_map->resizeMap(m_w->widthSB->value(), m_w->heightSB->value());
     // Make player list
     // Does the name already exist in the list
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
