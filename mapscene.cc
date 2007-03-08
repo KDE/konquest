@@ -67,7 +67,7 @@ void MapScene::planetItemSelected (PlanetItem *item)
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     qreal s_w = width()/m_map->columns();
     qreal s_h = height()/m_map->rows();
-    m_renderer->render(painter, "background", QRectF(0, 0, 16*s_w, 16*s_h));
+    m_renderer->render(painter, "background", QRectF(0, 0, m_map->columns()*s_w, m_map->rows()*s_h));
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
     pen.setWidth(1);
@@ -75,10 +75,10 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     painter->setPen(pen);
     painter->setOpacity(0.5);
     for (int i = 0 ; i <= m_map->columns() ; i++) {
-        painter->drawLine(QPointF(i*s_w, 0), QPointF(i*s_w, 16*s_h));
+        painter->drawLine(QPointF(i*s_w, 0), QPointF(i*s_w, m_map->rows()*s_h));
     }
     for (int j = 0 ; j <= m_map->rows() ; j++) {
-        painter->drawLine(QPointF(0, j*s_h), QPointF(16*s_w, j*s_h));
+        painter->drawLine(QPointF(0, j*s_h), QPointF(m_map->columns()*s_w, j*s_h));
     }
 }
 

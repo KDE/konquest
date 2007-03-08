@@ -15,8 +15,7 @@ Map::Map(int rowsCount, int colsCount)
     m_hasSelectedSector( false )
 {
     qDebug() << rows() << "x" << columns();
-    //m_grid = new QList<QList<Sector> >();
-   // initialize the grid of Sectors
+    // initialize the grid of Sectors
     for( int row = 0; row < rows(); row++ )
     {
         m_grid << QList<Sector>();
@@ -89,7 +88,7 @@ Map::findRandomFreeSector()
 
     do
     {
-        c = cl.generatePlanetCoordinates();
+        c = cl.generatePlanetCoordinates(rows(), columns());
     } while( m_grid[c.y()][c.x()].hasPlanet() );
 
     return &m_grid[c.y()][c.x()];

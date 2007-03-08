@@ -13,7 +13,7 @@ class CoreLogic
 public:
     CoreLogic();
 
-    Coordinate  generatePlanetCoordinates();
+    Coordinate  generatePlanetCoordinates (int rows, int cols);
     double      generateKillPercentage();
     int         generatePlanetProduction();
 
