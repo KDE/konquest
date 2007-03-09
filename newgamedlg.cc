@@ -250,6 +250,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
     init();
 
     setMainWidget(m_w);
+    slotNewMap();
 }
 
 
