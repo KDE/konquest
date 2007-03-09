@@ -1,4 +1,5 @@
 #include <QPainter>
+#include <QtDebug>
 
 #include "minimapview.h"
 #include "minimapview.moc"
@@ -34,37 +35,35 @@ MiniMapView::setMap(Map *map)
 
 void MiniMapView::paintEvent(QPaintEvent * /*event*/)
 {
-    // Non square map aren't handled currently...
+    //TODO : OFFSETS AREN'T HANDLED CURRENTLY !
 
-    // Calculate the horizontal (width) offset, and the max usable
-    // size for the map.
-    int  size;
-    int  sectorSize;
-    int  woffset = 0;
-    if (width() > height()) {
-        woffset = ((width() - height())/2);
-        size = height();
-    } else {
-        size = width();
-    }
-    sectorSize = size/(m_map->columns());
-    
     QPainter painter(this);
+    int sectorSize = height()/m_map->columns();
+    if (width()/m_map->rows() < sectorSize)
+        sectorSize = width()/m_map->rows() < sectorSize;
+    int woffset = 0, hoffset = 0;
+    /*woffset = (width() - m_map->rows()*sectorSize)/2;
+    hoffset = (height() - m_map->columns()*sectorSize)/2;
+    qDebug() << "OFFSETS :" << woffset << "x" << hoffset;
+    qDebug() << "Widget size :" << width() << "x" << height();
+    qDebug() << "Drawn  size :" << m_map->rows()*sectorSize << "x" << m_map->columns()*sectorSize;*/
+    
+    // Draw the black background
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::black);
     painter.setBrush(Qt::black);
-    painter.drawRect(woffset, 0, size, size);
-    
+    painter.drawRect(hoffset, woffset, m_map->rows()*sectorSize, m_map->columns()*sectorSize);
+
+    // Now draw the planets...
     for (int col = 0 ; col < m_map->columns() ; col++) {
         for (int row = 0 ; row < m_map->rows() ; row++) {
             if (m_map->sector(QPoint(col, row))->planet() != 0) {
                 painter.setBrush( m_map->sector(QPoint(col, row))
-				  ->planet()->player()->color() );
+                        ->planet()->player()->color() );
 
-		// Draw a circle in the planets color to show the planet.
-                painter.drawEllipse( woffset + row * sectorSize,
-				     col * sectorSize,
-				     sectorSize, sectorSize);
+                // Draw a circle in the planets color to show the planet.
+                painter.drawEllipse( hoffset + row * sectorSize, woffset + col * sectorSize,
+                        sectorSize, sectorSize);
             }
         }
     }
