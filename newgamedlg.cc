@@ -354,7 +354,7 @@ NewGameDlg::slotNewMap()
     while (!m_players->isEmpty())
         delete m_players->takeFirst();
 
-    m_map->resizeMap(m_w->widthSB->value(), m_w->heightSB->value());
+    m_map->resizeMap(m_w->heightSB->value(), m_w->widthSB->value());
     // Make player list
     // Does the name already exist in the list
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
