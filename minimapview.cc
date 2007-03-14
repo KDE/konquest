@@ -44,9 +44,6 @@ void MiniMapView::paintEvent(QPaintEvent * /*event*/)
 
     // Draw the black background
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.setPen(Qt::blue);
-    painter.setBrush(Qt::blue);
-    painter.drawRect(0, 0, width(), height());
     painter.setPen(Qt::black);
     painter.setBrush(Qt::black);
     painter.drawRect(QRectF(woffset, hoffset, m_map->columns()*sectorSize, m_map->rows()*sectorSize));
