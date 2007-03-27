@@ -19,7 +19,7 @@ class Fleet : public QObject
 public:
 
     explicit Fleet( int initialShipCount );
-    virtual ~Fleet() {};
+    virtual ~Fleet() {}
 
     int   shipCount()   const { return m_shipCount; }
     void  removeShips( int lostShips );

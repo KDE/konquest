@@ -16,7 +16,7 @@ class PlanetItem : public QObject, public QGraphicsItem
 
 public:
     PlanetItem(MapScene *scene, Sector *sector);
-    ~PlanetItem() {};
+    ~PlanetItem() {}
 
     QRectF   boundingRect() const;
     void     paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
@@ -50,7 +50,7 @@ class PlanetInfoItem : public QGraphicsItem
 {
 public:
     PlanetInfoItem();
-    ~PlanetInfoItem() {};
+    ~PlanetInfoItem() {}
 
     QRectF   boundingRect() const;
     void     setPlanet (Planet *planet);
