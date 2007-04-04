@@ -29,7 +29,7 @@ public:
     GameBoard( QWidget *parent );
     virtual ~GameBoard();
 
-    bool isGameInProgress(void) const { return gameInProgress; };
+    bool isGameInProgress(void) const { return gameInProgress; }
 
 //    virtual QSize sizeHint() const;
 

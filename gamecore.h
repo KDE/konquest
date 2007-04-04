@@ -62,7 +62,7 @@ class Fleet : public QObject
 public:
 
     Fleet( int initialShipCount );
-    virtual ~Fleet() {};
+    virtual ~Fleet() {}
 
     int getShipCount();
     void removeShips( int lostShips );
@@ -157,11 +157,11 @@ public:
     void statEnemyFleetsDestroyed( int );
     void statEnemyShipsDestroyed( int );
 
-    int getShipsBuilt() { return shipsBuilt; };
-    int getPlanetsConquered() { return  planetsConquered; };
-    int getFleetsLaunched() { return  fleetsLaunched; };
-    int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; };
-    int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; };
+    int getShipsBuilt() { return shipsBuilt; }
+    int getPlanetsConquered() { return  planetsConquered; }
+    int getFleetsLaunched() { return  fleetsLaunched; }
+    int getEnemyFleetsDestroyed() { return  enemyFleetsDestroyed; }
+    int getEnemyShipsDestroyed() { return  enemyShipsDestroyed; }
     bool isAiPlayer();
 
 };
