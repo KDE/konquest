@@ -67,7 +67,6 @@ void MapScene::planetItemSelected (PlanetItem *item)
 qreal MapScene::getSectorSize () {
     qreal s_w = width()/m_map->columns();
     qreal s_h = height()/m_map->rows();
-    qDebug() << "s_w :" << s_w << "; s_h :" << s_h;
     return qMin(s_w, s_h);
 }
 

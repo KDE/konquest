@@ -22,7 +22,6 @@ void Map::resizeMap (int rowsCount, int columnsCount) {
     m_columns = columnsCount;
     m_grid.clear();
     m_grid = QList<QList<Sector> >();
-    qDebug() << rows() << "x" << columns();
     // initialize the grid of Sectors
     for( int row = 0; row < rowsCount; row++ )
     {
