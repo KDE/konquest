@@ -49,10 +49,11 @@ void PlanetItem::updatePlanet()
 
 QRectF PlanetItem::boundingRect() const
 {
-    return QRectF(m_sector->coord().x() * m_scene->width()  / m_scene->map()->columns(),
-                  m_sector->coord().y() * m_scene->height() / m_scene->map()->rows(),
-                  m_scene->width()  / m_scene->map()->columns(),
-                  m_scene->height() / m_scene->map()->rows());
+	qreal size = m_scene->getSectorSize();
+    return QRectF(m_sector->coord().x() * size,
+                  m_sector->coord().y() * size,
+                  size,
+                  size);
 }
 
 void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
@@ -87,8 +88,8 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     }
     
     // Show the name of the planet.
-    QPointF  sectorTopLeft(m_sector->coord().x() * m_scene->width()/m_scene->map()->columns(),
-                          m_sector->coord().y() * m_scene->height()/m_scene->map()->rows());
+	QPointF  sectorTopLeft(m_sector->coord().x() * m_scene->getSectorSize(),
+						   m_sector->coord().y() * m_scene->getSectorSize());
     p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
 
     // Show the number of ships on the planet.
@@ -97,9 +98,8 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
                                                   .shipCount());
         QFontMetrics  m = p->fontMetrics();
 
-        p->drawText( sectorTopLeft
-                     + QPointF(m_scene->width()/m_scene->map()->columns() - m.width(shipCount),
-                              m_scene->height()/m_scene->map()->rows()), shipCount );
+        p->drawText( sectorTopLeft + QPointF(m_scene->getSectorSize() - m.width(shipCount), m_scene->getSectorSize()),
+                     shipCount );
     }
 }
 
@@ -110,8 +110,8 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
 
     Planet  *planet = m_sector->planet();
     m_scene->displayPlanetInfo(planet,
-                               QPointF(m_sector->coord().x() * m_scene->width()/m_scene->map()->columns(),
-                                      m_sector->coord().y() * m_scene->height()/m_scene->map()->rows()));
+                               QPointF(m_sector->coord().x() * m_scene->getSectorSize(),
+                                       m_sector->coord().y() * m_scene->getSectorSize()));
 
     update();
 }
@@ -195,7 +195,6 @@ void PlanetInfoItem::paint(QPainter *p,
                            const QStyleOptionGraphicsItem */*option*/, 
                            QWidget */*widget*/)
 {
-    QPen    pen   = p->pen();
     QBrush  brush = p->brush();
 
     brush.setColor(Qt::white);

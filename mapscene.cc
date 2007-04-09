@@ -64,10 +64,15 @@ void MapScene::planetItemSelected (PlanetItem *item)
     emit planetSelected(item->sector()->planet());
 }
 
-void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
+qreal MapScene::getSectorSize () {
     qreal s_w = width()/m_map->columns();
     qreal s_h = height()/m_map->rows();
-    m_renderer->render(painter, "background", QRectF(0, 0, m_map->columns()*s_w, m_map->rows()*s_h));
+    qDebug() << "s_w :" << s_w << "; s_h :" << s_h;
+    return qMin(s_w, s_h);
+}
+
+void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
+    m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
     pen.setWidth(1);
@@ -75,10 +80,10 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     painter->setPen(pen);
     painter->setOpacity(0.5);
     for (int i = 0 ; i <= m_map->columns() ; i++) {
-        painter->drawLine(QPointF(i*s_w, 0), QPointF(i*s_w, m_map->rows()*s_h));
+        painter->drawLine(QPointF(i*getSectorSize(), 0), QPointF(i*getSectorSize(), m_map->rows()*getSectorSize()));
     }
     for (int j = 0 ; j <= m_map->rows() ; j++) {
-        painter->drawLine(QPointF(0, j*s_h), QPointF(m_map->columns()*s_w, j*s_h));
+        painter->drawLine(QPointF(0, j*getSectorSize()), QPointF(m_map->columns()*getSectorSize(), j*getSectorSize()));
     }
 }
 
@@ -90,11 +95,12 @@ void MapScene::displayPlanetInfo (Planet *planet)
     }
     
     if (planet) {
-        QPointF pos(planet->sector()->coord().x() * width()/m_map->columns(),
-                   planet->sector()->coord().y() * height()/m_map->rows());
+	QPointF pos(planet->sector()->coord().x() * getSectorSize(),
+                    planet->sector()->coord().y() * getSectorSize());
         displayPlanetInfo(planet, pos);
     }
 }
+
 void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
 {
     if (!planet) {

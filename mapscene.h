@@ -19,7 +19,7 @@ class MapScene: public QGraphicsScene
 
     public:
         explicit MapScene(Map *map);
-	~MapScene() {}
+        ~MapScene() {}
 
         KSvgRenderer  *renderer() const  { return m_renderer; }
         Map           *map()      const  { return m_map; }
@@ -30,6 +30,7 @@ class MapScene: public QGraphicsScene
         
         void           drawBackground( QPainter * painter, const QRectF & rect );
         
+        qreal          getSectorSize();
     signals:
         void  planetSelected( Planet * );
         
