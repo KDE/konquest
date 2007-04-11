@@ -139,7 +139,7 @@ class playersListModel : public QAbstractTableModel
                     i++;
                 }
                 beginInsertRows(QModelIndex(), players, players + 1);
-                m_players << QPair<QString, Player>( name, ComputerWeak );
+                m_players << QPair<QString, Player>( name, Human );
                 endInsertRows();
             }
         }

@@ -13,7 +13,6 @@
 #include <kicon.h>
 #include <kstatusbar.h>
 
-#include "version.h"
 #include "mainwin.h"
 #include "mainwin.moc"
 #include "gamelogic.h"
