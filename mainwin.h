@@ -2,14 +2,14 @@
 #define _MAIN_WIN_H
 
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 #include "gamelogic.h"
 #include "gameview.h"
 
 class QAction;
 
-class MainWindow : public KMainWindow
+class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 
