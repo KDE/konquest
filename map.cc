@@ -45,8 +45,7 @@ Map::clearMap()
     int x,y;
 
     for( x = 0; x < rows(); x++ )
-        for( y = 0; y < columns(); y++ )
-        {
+        for( y = 0; y < columns(); y++ ) {
             m_grid[x][y].removePlanet();
         }
     emit update();
@@ -68,8 +67,7 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
         thePlanets.append( plrPlanet );
     }
 
-    for( int x = 0; x < numNeutralPlanets; x++ )
-    {
+    for( int x = 0; x < numNeutralPlanets; x++ ) {
         QString newName( planetName++ );
         Sector *sect = findRandomFreeSector();
         Planet *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
@@ -92,8 +90,7 @@ Map::findRandomFreeSector()
     CoreLogic cl;
     Coordinate c;
     
-    do
-    {
+    do {
         c = cl.generatePlanetCoordinates(rows(), columns());
     } while( m_grid[c.x()][c.y()].hasPlanet() );
 
