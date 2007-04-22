@@ -17,19 +17,20 @@ Map::Map(int rowsCount, int colsCount)
     resizeMap(rowsCount, colsCount);
 }
 
-void Map::resizeMap (int rowsCount, int columnsCount) {
+void Map::resizeMap (int rowsCount, int columnsCount)
+{
     m_rows = rowsCount;
     m_columns = columnsCount;
     m_grid.clear();
     m_grid = QList<QList<Sector> >();
-    // initialize the grid of Sectors
-    for( int row = 0; row < rowsCount; row++ )
-    {
+
+    // Initialize the grid of Sectors.
+    for( int row = 0; row < rowsCount; row++ ) {
         m_grid << QList<Sector>();
-        for( int col = 0; col < columnsCount; col++ )
-        {
-            m_grid[row] << Sector( this, Coordinate(row, col) );
-            connect( &m_grid[row][col], SIGNAL( update() ), this, SLOT( childSectorUpdate() ));
+        for( int col = 0; col < columnsCount; col++ ) {
+            m_grid[row] << Sector( this, Coordinate( row, col ) );
+            connect( &m_grid[row][col], SIGNAL( update() ), 
+                     this,              SLOT( childSectorUpdate() ) );
         }
     }
 }
@@ -58,22 +59,23 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
     // Store the planet name in a simple char... Nothing more needed.
     char planetName = 'A';
 
-    // Create a planet for each player
+    // Create a planet for each player.
     foreach(Player *plr, players) {
-        QString newName( planetName++ );
-        Sector *sect = findRandomFreeSector();
-        Planet *plrPlanet = Planet::createPlayerPlanet( sect, plr, newName );
+        QString  newName( planetName++ );
+        Sector  *sect      = findRandomFreeSector();
+        Planet  *plrPlanet = Planet::createPlayerPlanet( sect, plr, newName );
 
         thePlanets.append( plrPlanet );
     }
 
     for( int x = 0; x < numNeutralPlanets; x++ ) {
-        QString newName( planetName++ );
-        Sector *sect = findRandomFreeSector();
-        Planet *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
+        QString  newName( planetName++ );
+        Sector  *sect = findRandomFreeSector();
+        Planet  *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
 
         thePlanets.append( neutralPlanet );
     }
+
     emit update();
     emit mapPopulated();
 }
@@ -81,24 +83,24 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
 double Map::distance( Planet *p1, Planet *p2 )
 {
     Coordinate  diff = p1->sector()->coord() - p2->sector()->coord();
-    return sqrt(double((diff.x()*diff.x()) + (diff.y()*diff.y())))/2;
+
+    return sqrt( double( ( diff.x() * diff.x() ) 
+                         + ( diff.y() * diff.y() ) ) ) / 2;
 }
 
-Sector *
-Map::findRandomFreeSector()
+Sector *Map::findRandomFreeSector()
 {
-    CoreLogic cl;
-    Coordinate c;
+    CoreLogic   cl;
+    Coordinate  c;
     
     do {
-        c = cl.generatePlanetCoordinates(rows(), columns());
+        c = cl.generatePlanetCoordinates( rows(), columns() );
     } while( m_grid[c.x()][c.y()].hasPlanet() );
 
     return &m_grid[c.x()][c.y()];
 }
 
-void
-Map::setSelectedSector( Coordinate c )
+void Map::setSelectedSector( Coordinate c )
 {
     m_hasSelectedSector = true;
     m_selection = c;
@@ -106,8 +108,7 @@ Map::setSelectedSector( Coordinate c )
     emit update();
 }
 
-void
-Map::setSelectedSector()
+void Map::setSelectedSector()
 {
     m_hasSelectedSector = false;
 
@@ -118,4 +119,3 @@ void Map::childSectorUpdate()
 {
     emit update();
 }
-
