@@ -40,12 +40,16 @@ void MapScene::mapUpdate()
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)), 
                         this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
+                item->translate((width()-m_map->columns() * getSectorSize())/2, 0);
                 addItem(item);
             }
         }
     }
 }
 
+int MapScene::itemsHorizontalOffset() {
+    return (int)((width()-m_map->columns() * getSectorSize())/2);
+}
 
 void MapScene::unselectPlanet()
 {
@@ -79,10 +83,10 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     painter->setPen(pen);
     painter->setOpacity(0.5);
     for (int i = 0 ; i <= m_map->columns() ; i++) {
-        painter->drawLine(QPointF(i*getSectorSize(), 0), QPointF(i*getSectorSize(), m_map->rows()*getSectorSize()));
+        painter->drawLine(QPointF(i*getSectorSize() + itemsHorizontalOffset(), 0), QPointF(i*getSectorSize() + itemsHorizontalOffset(), m_map->rows()*getSectorSize()));
     }
     for (int j = 0 ; j <= m_map->rows() ; j++) {
-        painter->drawLine(QPointF(0, j*getSectorSize()), QPointF(m_map->columns()*getSectorSize(), j*getSectorSize()));
+        painter->drawLine(QPointF(itemsHorizontalOffset(), j*getSectorSize()), QPointF(m_map->columns()*getSectorSize() + itemsHorizontalOffset(), j*getSectorSize()));
     }
 }
 
@@ -94,7 +98,7 @@ void MapScene::displayPlanetInfo (Planet *planet)
     }
     
     if (planet) {
-	QPointF pos(planet->sector()->coord().x() * getSectorSize(),
+        QPointF pos(planet->sector()->coord().x() * getSectorSize() + itemsHorizontalOffset(),
                     planet->sector()->coord().y() * getSectorSize());
         displayPlanetInfo(planet, pos);
     }

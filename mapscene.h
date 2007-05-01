@@ -30,6 +30,8 @@ class MapScene: public QGraphicsScene
         
         void           drawBackground( QPainter * painter, const QRectF & rect );
         
+        int            itemsHorizontalOffset();
+        
         qreal          getSectorSize();
     signals:
         void  planetSelected( Planet * );

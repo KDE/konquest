@@ -50,7 +50,7 @@ void PlanetItem::updatePlanet()
 QRectF PlanetItem::boundingRect() const
 {
 	qreal size = m_scene->getSectorSize();
-    return QRectF(m_sector->coord().y() * size,
+        return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
                   m_sector->coord().x() * size,
                   size,
                   size);
@@ -88,7 +88,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     }
     
     // Show the name of the planet.
-	QPointF  sectorTopLeft(m_sector->coord().y() * m_scene->getSectorSize(),
+    QPointF  sectorTopLeft(m_sector->coord().y() * m_scene->getSectorSize() + m_scene->itemsHorizontalOffset(),
 						   m_sector->coord().x() * m_scene->getSectorSize());
     p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
 
