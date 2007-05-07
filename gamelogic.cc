@@ -1,9 +1,10 @@
+#include "gamelogic.h"
+
 #include <math.h>
 
 #include <klocale.h>
 
 #include "gamecore.h"
-#include "gamelogic.h"
 #include "player.h"
 #include "map.h"
 

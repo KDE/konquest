@@ -1,3 +1,5 @@
+#include "fleetdlg.h"
+
 #include <QTableWidget>
 #include <QHeaderView>
 
@@ -10,7 +12,6 @@
 
 #include <math.h> // for ceil
 
-#include "fleetdlg.h"
 #include "planet.h"
 
 

@@ -1,3 +1,6 @@
+#include "mapitems.h"
+#include "mapitems.moc"
+
 #include <QGraphicsScene>
 #include <QPainter>
 #include <QColor>
@@ -14,7 +17,6 @@
 
 #include "mapscene.h"
 #include "map.h"
-#include "mapitems.moc"
 
 
 /********************************

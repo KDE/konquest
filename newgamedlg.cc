@@ -1,3 +1,5 @@
+#include "newgamedlg.h"
+#include "newgamedlg.moc"
 
 #include <kconfig.h>
 #include <klocale.h>
@@ -11,8 +13,6 @@
 #include <QHeaderView>
 #include <QItemDelegate>
 
-#include "newgamedlg.h"
-#include "newgamedlg.moc"
 #include "player.h"
 #include "map.h"
 

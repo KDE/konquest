@@ -1,3 +1,5 @@
+#include "gameview.h"
+
 #include <QLayout>
 #include <QLabel>
 #include <QSlider>
@@ -20,7 +22,6 @@
 #include "fleetdlg.h"
 #include "mapview.h"
 #include "mapscene.h"
-#include "gameview.h"
 
 #include "gameview.moc"
 

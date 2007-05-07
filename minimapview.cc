@@ -1,7 +1,8 @@
-#include <QPainter>
-
 #include "minimapview.h"
 #include "minimapview.moc"
+
+#include <QPainter>
+
 #include "map.h"
 #include "planet.h"
 #include "player.h"

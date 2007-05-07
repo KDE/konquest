@@ -1,9 +1,10 @@
+#include "player.h"
+
 #include <math.h>
 
 #include <qdebug.h>
 
 #include "map.h"
-#include "player.h"
 #include "planet.h"
 #include "gamelogic.h"
 

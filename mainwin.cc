@@ -1,3 +1,5 @@
+#include "mainwin.h"
+
 #include <QPushButton>
 #include <QLabel>
 
@@ -13,7 +15,6 @@
 #include <kicon.h>
 #include <kstatusbar.h>
 
-#include "mainwin.h"
 #include "mainwin.moc"
 #include "gamelogic.h"
 #include "gameview.h"
