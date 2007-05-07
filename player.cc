@@ -56,7 +56,7 @@ Player *Player::createPlayer( Map *map, const QString &name, QColor color,
 
 Player *Player::createNeutralPlayer( Map *map )
 {
-    return new Player( map, QString::null, Qt::gray, NEUTRAL_PLAYER_NUMBER );
+    return new Player( map, QString(), Qt::gray, NEUTRAL_PLAYER_NUMBER );
 }
 
 
