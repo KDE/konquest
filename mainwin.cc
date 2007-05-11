@@ -46,15 +46,10 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupActions()
 {
-    QAction *action;
+    KStandardGameAction::gameNew( m_gameView, SLOT( startNewGame() ), actionCollection() );
+    KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
-    action = KStandardGameAction::gameNew( m_gameView, SLOT( startNewGame() ), this );
-    actionCollection()->addAction( action->objectName(), action );
-    action = KStandardGameAction::quit( this, SLOT( close() ), this );
-    actionCollection()->addAction( action->objectName(), action );
-
-    m_endAction = KStandardGameAction::end( m_gameView, SLOT( shutdownGame() ), this );
-    actionCollection()->addAction( m_endAction->objectName(), m_endAction );
+    m_endAction = KStandardGameAction::end( m_gameView, SLOT( shutdownGame() ), actionCollection() );
     m_endAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
