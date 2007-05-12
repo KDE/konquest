@@ -34,7 +34,7 @@
 // class Player
 //---------------------------------------------------------------------------
 
-Player::Player( Map *map, const QString &newName, QColor color, int newPlrNum )
+Player::Player( Map *map, const QString &newName, const QColor &color, int newPlrNum )
   : m_map( map ),
     m_name( newName ), m_color( color ),
     m_playerNum( newPlrNum ),
@@ -59,7 +59,7 @@ Player::coloredName() const
 }
 
 
-Player *Player::createPlayer( Map *map, const QString &name, QColor color,
+Player *Player::createPlayer( Map *map, const QString &name, const QColor &color,
 			      int playerNum, bool isAi )
 {
     Player *pl;
@@ -109,7 +109,7 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 
 
 
-AIPlayer::AIPlayer( Map *map, const QString &name, QColor color, int number )
+AIPlayer::AIPlayer( Map *map, const QString &name, const QColor &color, int number )
     : Player( map, name, color, number )
 {
     m_AiLevel = 0; // Default

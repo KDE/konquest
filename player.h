@@ -38,7 +38,7 @@ class GameLogic;
 class Player
 {
 public:
-    Player( Map *map, const QString &newName, QColor color, int number );
+    Player( Map *map, const QString &newName, const QColor &color, int number );
     virtual ~Player();
 
     bool operator==( const Player &otherPlayer ) const
@@ -55,7 +55,7 @@ public:
 
     // factory functions
     static Player *createPlayer( Map *map, const QString &name, 
-				 QColor color, 
+				 const QColor &color, 
 				 int playerNum, bool isAi  );
     static Player *createNeutralPlayer( Map *map );
 
@@ -104,7 +104,7 @@ private:
 class AIPlayer : public Player
 {
     public:
-        AIPlayer( Map *map, const QString &name, QColor color, int number );
+        AIPlayer( Map *map, const QString &name, const QColor &color, int number );
         virtual ~AIPlayer();
     
         virtual bool  isAiPlayer() const { return true; }
