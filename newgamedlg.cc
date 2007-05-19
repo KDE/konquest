@@ -379,15 +379,16 @@ NewGameDlg::slotNewMap()
     // Make player list
     // Does the name already exist in the list
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
-    for (int i = 0; i < model->rowCount(); ++i)
-    {
+    for (int i = 0; i < model->rowCount(); ++i) {
         QString  playerName = model->data(model->index(i, 0), Qt::DisplayRole).toString();
         QColor  color = model->data(model->index(i, 0), Qt::DecorationRole).value<QColor>();
-        // TODO this is a bit ugly, maybe a isAI in model will be better
-        bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
+
+        // TODO: This is a bit ugly, maybe a isAI in model will be better.
+        bool ai = model->data( model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
         
-        // TODO This is not going to work as changing names/player type in the table
-        // needs to change name in m_players without changing the map
+        // TODO: This is not going to work as changing names/player
+        //       type in the table needs to change name in m_players 
+        //       without changing the map.
         m_players->append( Player::createPlayer( m_map, playerName, color, i, ai ));
     }
     

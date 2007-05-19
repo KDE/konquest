@@ -293,7 +293,7 @@ GameLogic::cleanupGame()
 void
 GameLogic::nextPlayer()
 {
-    // end turn and advance to next player
+    // End turn and advance to next player.
     do {
         ++m_currentPlayer;
     } while ( m_currentPlayer != m_players.end()

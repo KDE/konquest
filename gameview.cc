@@ -692,7 +692,8 @@ GameView::nextPlayer()
 
     // Let the AI players do their stuff
     while (m_gameInProgress 
-	   && m_gameLogic->currentPlayer()->isAiPlayer()) {
+	   && m_gameLogic->currentPlayer()->isAiPlayer())
+    {
 	dynamic_cast<AIPlayer *>(m_gameLogic->currentPlayer())
 	    ->doMove(m_gameLogic);
 	m_gameLogic->nextPlayer();
