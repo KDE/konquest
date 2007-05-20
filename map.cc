@@ -107,7 +107,7 @@ double Map::distance( Planet *p1, Planet *p2 )
     Coordinate  diff = p1->sector()->coord() - p2->sector()->coord();
 
     return sqrt( double( ( diff.x() * diff.x() ) 
-                         + ( diff.y() * diff.y() ) ) );
+                         + ( diff.y() * diff.y() ) ) )/2;	// Yes, we're dividing by two. It's not a bug, it's a feature.
 }
 
 Sector *Map::findRandomFreeSector()
