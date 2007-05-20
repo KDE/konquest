@@ -107,7 +107,7 @@ double Map::distance( Planet *p1, Planet *p2 )
     Coordinate  diff = p1->sector()->coord() - p2->sector()->coord();
 
     return sqrt( double( ( diff.x() * diff.x() ) 
-                         + ( diff.y() * diff.y() ) ) ) / 2;
+                         + ( diff.y() * diff.y() ) ) );
 }
 
 Sector *Map::findRandomFreeSector()
