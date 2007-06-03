@@ -34,7 +34,6 @@
 //************************************************************************
 
 
-class QSlider;
 class QLabel;
 class QPushButton;
 class QLineEdit;
@@ -45,7 +44,6 @@ class KLocalizedString;
 class Player;
 class MapView;
 class MapScene;
-class PlanetInfo;
 class GameLogic;
 
 
