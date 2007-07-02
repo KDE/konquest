@@ -35,15 +35,15 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
-    KAboutData aboutData( "konquest", I18N_NOOP("Konquest"),
-        KONQUEST_VERSION, description, KAboutData::License_GPL,
-        I18N_NOOP("Copyright (c) 1999-2006, Developers"));
+    KAboutData aboutData( "konquest", 0, ki18n("Konquest"),
+        KONQUEST_VERSION, ki18n(description), KAboutData::License_GPL,
+        ki18n("Copyright (c) 1999-2006, Developers"));
 
-    aboutData.addAuthor("Russ Steffen", 0, "rsteffen@bayarea.net");
-    aboutData.addCredit("Stephan Zehetner", "Computer/AI Player", "s.zehetner@nevox.org");
-    aboutData.addCredit("Dimitry Suzalev", "Port to KDE4");
-    aboutData.addCredit("Inge Wallin", "Cleaning and bugfixing", "inge@lysator.liu.se");
-    aboutData.addCredit("Pierre Ducroquet", "Cleaning and bugfixing", "pinaraf@gmail.com");
+    aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
+    aboutData.addCredit(ki18n("Stephan Zehetner"), ki18n("Computer/AI Player"), "s.zehetner@nevox.org");
+    aboutData.addCredit(ki18n("Dimitry Suzalev"), ki18n("Port to KDE4"));
+    aboutData.addCredit(ki18n("Inge Wallin"), ki18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
+    aboutData.addCredit(ki18n("Pierre Ducroquet"), ki18n("Cleaning and bugfixing"), "pinaraf@gmail.com");
     
     KCmdLineArgs::init( argc, argv, &aboutData );
 
