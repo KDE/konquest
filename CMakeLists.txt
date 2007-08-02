@@ -2,8 +2,6 @@ project(konquest)
 
 add_subdirectory( pics ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames  )
-
 ########### next target ###############
 
 set(konquest_SRCS 
