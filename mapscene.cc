@@ -42,10 +42,7 @@ MapScene::MapScene (Map *map)
 
 void MapScene::selectPlanet(Planet *planet)
 {
-    //Planet *planet
-    qDebug() << "Selecting the planet!";
     foreach (PlanetItem *item, m_planetItems) {
-        qDebug() << "Loop here !";
         if (item->sector() == planet->sector()) {
             item->select();
             break;
