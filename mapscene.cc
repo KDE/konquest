@@ -40,6 +40,18 @@ MapScene::MapScene (Map *map)
     connect( m_map, SIGNAL( mapPopulated() ), this, SLOT( mapUpdate() ) );
 }
 
+void MapScene::selectPlanet(Planet *planet)
+{
+    //Planet *planet
+    qDebug() << "Selecting the planet!";
+    foreach (PlanetItem *item, m_planetItems) {
+        qDebug() << "Loop here !";
+        if (item->sector() == planet->sector()) {
+            item->select();
+            break;
+        }
+    }
+}
 
 void MapScene::mapUpdate()
 {
@@ -49,6 +61,7 @@ void MapScene::mapUpdate()
     while (items().count() > 0) {
         item = items()[0];
         removeItem(item);
+        m_planetItems.clear();
         delete item;
     }
     m_planetInfoItem = NULL;
@@ -63,6 +76,7 @@ void MapScene::mapUpdate()
                 item->setZValue(1.0);
                 item->translate((width()-m_map->columns() * getSectorSize())/2, 0);
                 addItem(item);
+                m_planetItems.append(item);
             }
         }
     }

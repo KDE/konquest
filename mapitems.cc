@@ -155,6 +155,12 @@ void PlanetItem::mousePressEvent( QGraphicsSceneMouseEvent * /*event*/ )
     emit planetItemSelected(this);
 }
 
+void PlanetItem::select(  )
+{
+    m_selected = true;
+    m_blinkTimer->start(500);
+    update();
+}
 
 void PlanetItem::unselect() {
     // Unselect...

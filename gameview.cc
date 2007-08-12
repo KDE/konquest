@@ -216,10 +216,12 @@ GameView::keyPressEvent( QKeyEvent *e )
     foreach (Planet *p, *m_gameLogic->planets()) {
         if( p->name() == planetName ) {
             if ( m_showInformations ) {
+                m_mapScene->selectPlanet(p);
                 m_mapScene->displayPlanetInfo( p );
                 m_showInformations = false;
             } else {
                 m_mapScene->displayPlanetInfo( NULL );
+                m_mapScene->selectPlanet(p);
                 planetSelected( p );
             }
             break;

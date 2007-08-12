@@ -25,8 +25,6 @@
 #include <QObject>
 #include <QPoint>
 
-//#include "planet.h"
-
 class Map;
 class Planet;
 

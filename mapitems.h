@@ -47,6 +47,7 @@ public:
     void     hoverLeaveEvent ( QGraphicsSceneHoverEvent *event );
     void     mousePressEvent ( QGraphicsSceneMouseEvent *event );
     void     unselect ();
+    void     select ();
     Sector  *sector () { return m_sector; }
 
 signals:
