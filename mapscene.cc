@@ -119,8 +119,8 @@ void MapScene::displayPlanetInfo (Planet *planet)
     }
     
     if (planet) {
-        QPointF pos(planet->sector()->coord().x() * getSectorSize() + itemsHorizontalOffset(),
-                    planet->sector()->coord().y() * getSectorSize());
+        QPointF pos(planet->sector()->coord().y() * getSectorSize() + itemsHorizontalOffset(),
+                    planet->sector()->coord().x() * getSectorSize());
         displayPlanetInfo(planet, pos);
     }
 }
@@ -128,7 +128,7 @@ void MapScene::displayPlanetInfo (Planet *planet)
 void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
 {
     if (!planet) {
-        if (m_planetInfoItem) 
+        if (m_planetInfoItem)
             m_planetInfoItem->hide();
         return;
     }

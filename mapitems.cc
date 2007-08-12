@@ -132,9 +132,7 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
     m_hovered = true;
 
     Planet  *planet = m_sector->planet();
-    m_scene->displayPlanetInfo(planet,
-                               QPointF(m_sector->coord().y() * m_scene->getSectorSize(),
-                                       m_sector->coord().x() * m_scene->getSectorSize()));
+    m_scene->displayPlanetInfo(planet);
 
     update();
 }
