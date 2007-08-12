@@ -95,6 +95,7 @@ Map::populateMap( QList<Player *> &players, Player *neutral,
 
     for( int x = 0; (x < numNeutralPlanets) && (planetNames[idx] != '\0'); x++ ) {
         QString  newName( planetNames[idx] );
+        idx++;
         Sector  *sect = findRandomFreeSector();
         Planet  *neutralPlanet = Planet::createNeutralPlanet( sect, neutral, newName );
 
