@@ -107,7 +107,7 @@ qreal MapScene::getSectorSize () {
 }
 
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
-    m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
+    m_renderer->render(painter, "screen", QRectF(0, 0, width(), height()));
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
     pen.setWidth(1);
