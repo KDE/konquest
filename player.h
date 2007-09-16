@@ -29,7 +29,7 @@
 #include "fleet.h"
 
 class GameLogic;
-
+class Map;
 
 //**************************************************************
 // class Player

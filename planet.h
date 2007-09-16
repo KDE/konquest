@@ -28,7 +28,6 @@
 
 class Sector;
 class Player;
-class Map;
 
 //**************************************************************
 // class Planet
