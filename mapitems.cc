@@ -163,7 +163,6 @@ void PlanetItem::select(  )
 }
 
 void PlanetItem::unselect() {
-    // Unselect...
     m_blinkTimer->stop();
     m_blinkState = false;
     m_selected   = false;

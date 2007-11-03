@@ -45,6 +45,7 @@ void MapScene::selectPlanet(Planet *planet)
     foreach (PlanetItem *item, m_planetItems) {
         if (item->sector() == planet->sector()) {
             item->select();
+            m_selectedPlanetItem = item;
             break;
         }
     }

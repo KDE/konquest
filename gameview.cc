@@ -618,6 +618,7 @@ GameView::planetSelected( Planet *planet )
         default:
             break;
     }
+    // The selected planet just cannot be selected, cancel it.
     m_mapScene->unselectPlanet();
 }
 
