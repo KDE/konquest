@@ -1,1 +1,1 @@
-install( FILES default_theme.svgz konquest-splash.png planet1.xpm planet2.xpm planet3.xpm planet4.xpm  	planet5.xpm planet6.xpm planet7.xpm planet8.xpm planet9.xpm ruler.xpm  DESTINATION  ${DATA_INSTALL_DIR}/konquest/pics )
+install( FILES default_theme.svgz konquest-splash.png DESTINATION  ${DATA_INSTALL_DIR}/konquest/pics )
