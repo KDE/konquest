@@ -117,7 +117,7 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
 
     m_splashScreen = new QLabel( this );
     m_splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
-    m_splashScreen->setGeometry( 0, 0, 600, 550 );
+    m_splashScreen->setScaledContents(true);
 
     setMouseTracking( true );
     setFocusPolicy( Qt::StrongFocus );
@@ -151,7 +151,6 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     changeGameView( false );
 }
 
-
 //**********************************************************************
 // Destructor
 //**********************************************************************
@@ -169,10 +168,15 @@ QSize GameView::sizeHint() const
 }
 #endif
 
+//************************************************************************
+// Event handlers
+//************************************************************************
 
-//************************************************************************
-// Keyboard Event handlers
-//************************************************************************
+
+void
+GameView::resizeEvent ( QResizeEvent * event ) {
+    m_splashScreen->setGeometry( 0, 0, width(), height() );
+}
 
 void
 GameView::keyPressEvent( QKeyEvent *e )
@@ -666,6 +670,7 @@ GameView::changeGameView( bool inPlay  )
     m_gameInProgress = inPlay;
 
     if( m_gameInProgress ) {
+        m_msgWidget->show();
         m_mapWidget->show();
         m_gameMessage->show();
         m_endTurnBtn->show();
@@ -673,6 +678,7 @@ GameView::changeGameView( bool inPlay  )
         m_splashScreen->hide();
     } else {
         m_mapWidget->hide();
+        m_msgWidget->hide();
         m_gameMessage->hide();
         m_endTurnBtn->hide();
         m_shipCountEdit->hide();

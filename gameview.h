@@ -109,6 +109,7 @@ signals:
     //***************************************************************
 protected:
     virtual void  keyPressEvent( QKeyEvent * );
+    virtual void  resizeEvent ( QResizeEvent * event );
 
 private:
     void  turn();
