@@ -21,7 +21,7 @@
  */
 #include <QGraphicsItem>
 #include <QPainter>
-#include <QtDebug>
+#include <kdebug.h>
 
 #include "map.h"
 #include "sector.h"
@@ -63,7 +63,6 @@ void MapScene::mapUpdate()
         delete item;
     }
     m_planetInfoItem = NULL;
-    
     for (int i = 0 ; i < m_map->rows() ; i++) {
         for (int j = 0 ; j < m_map->columns() ; j++) {
             sector = m_map->sector(Coordinate(j, i));
@@ -72,7 +71,6 @@ void MapScene::mapUpdate()
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)), 
                         this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
-                item->translate((width()-m_map->columns() * getSectorSize())/2, 0);
                 addItem(item);
                 m_planetItems.append(item);
             }
