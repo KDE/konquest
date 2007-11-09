@@ -174,7 +174,7 @@ QSize GameView::sizeHint() const
 
 
 void
-GameView::resizeEvent ( QResizeEvent * event ) {
+GameView::resizeEvent ( QResizeEvent * /*event*/ ) {
     m_splashScreen->setGeometry( 0, 0, width(), height() );
 }
 
