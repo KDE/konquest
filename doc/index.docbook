@@ -54,12 +54,12 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2005-12-16</date>
-<releaseinfo>1.1</releaseinfo>
+<date>2007-11-13</date>
+<releaseinfo>2.0</releaseinfo>
 
 <abstract>
 <para>
-&kappname; is a game of galactic conquest for &kde;
+&konquest; is a game of galactic conquest for &kde;
 </para>
 </abstract>
 
@@ -79,9 +79,9 @@ Number of players: Multiplayer
 </para>
 
 <para>
-&kappname; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
+&konquest; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
 ships to them. The goal is to build an interstellar empire and ultimately conqueror all 
-other player's planets. &kappname; can be played against other people or a computer.
+other player's planets. &konquest; can be played against other people or a computer.
 </para>
 
 </chapter>
@@ -90,10 +90,10 @@ other player's planets. &kappname; can be played against other people or a compu
 <title>How to Play</title>
 
 <para>
-When you start &konquest;, press <guibutton>New Game</guibutton> to start a new game
+When you start &konquest;, press <guibutton>New</guibutton> to start a new game
 you will see a dialog in which you need to enter player names, decide the number of
 planets, and how many turns are allowed. You can also use the reject button to get a
-new map. When you're done, click<guibutton>OK</guibutton> to start the game.
+new map. When you're done, click <guibutton>OK</guibutton> to start the game.
 </para>
 
 <para>
@@ -142,10 +142,10 @@ players owns the entire galaxy.
 <sect1 id="rules">
 <title>Rules</title>
 <itemizedlist>
-<listitem><para>Ships can not be stopped once they leave a planet.</para></listitem>
-<listitem><para>Ships can not attack other ships in mid-air.</para></listitem>
+<listitem><para>Ships cannot be stopped once they leave a planet.</para></listitem>
+<listitem><para>Ships cannot attack other ships in mid-air.</para></listitem>
 <listitem><para>Ships can be stored at planets for later use.</para></listitem>
-<listitem><para>A planet can not be given away.</para></listitem>
+<listitem><para>A planet cannot be given away.</para></listitem>
 <listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without lauching any
 ships.</para></listitem>
 </itemizedlist>
@@ -168,7 +168,7 @@ ships.</para></listitem>
 <title>Menus</title>
 
 <sect1 id="game-menu">
-<title><guimenu>Game</guimenu> Menu</title>
+<title>The <guimenu>Game</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -233,7 +233,7 @@ for all fleets</para></listitem>
 </sect1>
 
 <sect1 id="settings-menu">
-<title><guimenu>Settings</guimenu> Menu</title>
+<title>The <guimenu>Settings</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -243,6 +243,18 @@ for all fleets</para></listitem>
 </menuchoice></term>
 <listitem>
 <para><action>Toggle</action> the toolbar display on and off.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Statusbar</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>
+Toggles on and off the display of the statusbar.
+</para>
 </listitem>
 </varlistentry>
 
@@ -291,7 +303,8 @@ How do I start a new game?
 </question>
 <answer>
 <para>
-Press the New button, select New from the Game menu or press 
+Press the New button, select <menuchoice><guimenu>Game</guimenu>
+<guimenuitem>New</guimenuitem></menuchoice> from the menubar or press 
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </para>
 </answer>
@@ -300,12 +313,12 @@ Press the New button, select New from the Game menu or press
 <qandaentry>
 <question>
 <para>
-Can I redirect ships once they've left a planet?
+Can I redirect ships once they have left a planet?
 </para>
 </question>
 <answer>
 <para>
-No, once ships leave a planet, they can not be stopped or redirected.
+No, once ships leave a planet, they cannot be stopped or redirected.
 </para>
 </answer>
 </qandaentry>
@@ -339,12 +352,12 @@ Click <guibutton>Show Standings</guibutton>. It will give you information about 
 <qandaentry>
 <question>
 <para>
-I've lost all my planets, but I'm still in the game, why?
+I have lost all my planets, but I am still in the game, why?
 </para>
 </question>
 <answer>
 <para>
-You haven't lost the game until you have lost all your ships.
+You have not lost the game until you have lost all your ships.
 </para>
 </answer>
 </qandaentry>
@@ -352,12 +365,12 @@ You haven't lost the game until you have lost all your ships.
 <qandaentry>
 <question>
 <para>
-I'm running out of turns, what can I do?
+I am running out of turns, what can I do?
 </para>
 </question>
 <answer>
 <para>
-You can continue playing. When you're at the last turn, you will be promted to add more.
+You can continue playing. When you are at the last turn, you will be prompted to add more.
 </para>
 </answer>
 </qandaentry>
@@ -436,15 +449,6 @@ No, that is not possible at the moment.
 <title>How to obtain &konquest;</title>
 
 &install.intro.documentation;
-
-</sect1>
-
-<sect1 id="requirements">
-<title>Requirements</title>
-
-<para>In order to successfully use &konquest;, you need &kde; 3.0. It
-is also reccomended that you have your X server set to over 8bpp, as
-the plants are scanned and require a rather high color depth. </para>
 
 </sect1>
 
