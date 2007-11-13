@@ -1,7 +1,9 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&konquest;">
-  <!ENTITY package "kdegames">	
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" 
+[
+  <!ENTITY kgoldrunner "<application>KGoldrunner</application>">
+  <!ENTITY kappname "&kgoldrunner;">
+  <!ENTITY package "kdegames">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
@@ -9,15 +11,16 @@
 <book lang="&language;">
 
 <bookinfo>
-<title>The &konquest; Handbook</title>
-
+<title>The &kgoldrunner; Handbook</title>
 <authorgroup>
 <author>
-<firstname>Nicholas</firstname>
-<surname>Robbins</surname>
-<affiliation>
-<address>&Nicholas.Robbins.mail;</address>
-</affiliation>
+<firstname>Ian</firstname>
+<surname>Wadham</surname>
+<affiliation><address><email>ianw@netspace.net.au</email></address></affiliation>
+</author>
+<author>
+<firstname>Marco</firstname>
+<surname>Krüger</surname>
 </author>
 <author>
 <firstname>Anton</firstname>
@@ -29,240 +32,1118 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<othercredit role="developer">
-<firstname>Russ</firstname>
-<surname>Steffen</surname>
-<affiliation>
-<address>&Russ.Steffen.mail;</address></affiliation>
-<contrib>Developer</contrib>
-</othercredit>
-
-<othercredit role="reviewer">
-<firstname>Lauri</firstname>
-<surname>Watts</surname>
-<affiliation>
-<address>&Lauri.Watts.mail;</address>
-</affiliation>
-<contrib>Reviewer</contrib>
-</othercredit>
-
 <copyright>
-<year>2000</year>
-<holder>Nicholas Robbins</holder>
+<year>2003</year>
+<holder>Ian Wadham</holder><holder>Marco Krüger</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2005-12-16</date>
-<releaseinfo>1.1</releaseinfo>
+<date>2007-08-19</date>
+<releaseinfo>3.0</releaseinfo>
 
 <abstract>
 <para>
-&kappname; is a game of galactic conquest for &kde;
-</para>
+&kgoldrunner;, a game of action and puzzle solving.  Run through
+the maze, dodge your enemies, collect all the gold and climb up to the
+next level.</para>
 </abstract>
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>Konquest</keyword>
-<keyword>kdegames</keyword>
+<keyword>KGoldrunner</keyword>
 </keywordset>
-
 </bookinfo>
 
-<chapter id="introduction">
+<chapter id="intro">
 <title>Introduction</title>
 <para>
 Game type: Strategy, Board
-Number of players: Multiplayer
+Number of players: One
 </para>
 
 <para>
-&kappname; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
-ships to them. The goal is to build an interstellar empire and ultimately conqueror all 
-other player's planets. &kappname; can be played against other people or a computer.
+&kgoldrunner; is an action game where the hero
+runs through a maze and dodges enemies.
+The player is supposed to run trough the maze and collect
+all the gold nuggets, then climb up into the next level.
+In addition, there are enemies who also are after the
+gold and they will kill the hero if they run into him/her.
 </para>
 
-</chapter>
-
-<chapter id="playing">
-<title>How to Play</title>
-
+<chapter id="howtoplay">
 <para>
-When you start &konquest;, press <guibutton>New Game</guibutton> to start a new game
-you will see a dialog in which you need to enter player names, decide the number of
-planets, and how many turns are allowed. You can also use the reject button to get a
-new map. When you're done, click<guibutton>OK</guibutton> to start the game.
+The objective in &kgoldrunner; is to collect the gold nuggets
+which are scattered around the game board without running
+into any enemies.
 </para>
 
 <para>
-Once the game starts, you will be presented with the game board. Blank squares
-are empty space. At first, each player owns one planet. The planet's background
-is the player colour. If you move your mouse over a planet, you can see additional
-information. On planets which have not yet been conquered by anyone, you will only
-see the planet's name. The information includes:
-</para>
-
-<itemizedlist>
-<listitem><para>Planet name</para></listitem>
-<listitem><para>Owner</para></listitem>
-<listitem><para>Ships</para></listitem>
-<listitem><para>Production</para></listitem>
-<listitem><para>Kill percent</para></listitem>
-</itemizedlist>
-
-<para>
-The planet name is how the planet is referred to in the game. Planets are named
-alphabetically with uppercase letters. Owner is who owns the planet. If the planet
-is conquered by another player, this will change. Ships is the current number of
-ships on the planet. Production is the number of ships the planet will produce each turn.
-The production varies from planet to planet, but always remains the same. Kill percent
-is a measure of the effectiveness of the ships produced at that planet. Attack fleets take
-the kill percentage of their planet of departure, and defense fleets use the kill
-percentage of the planet they are defending.
-You can get easily see the planet name, the owner and the current number of ships
-on a planet in the square in which the planet lies. The owner is represented by the
-background color of the planet, the name is in the upper left corner and the number of
-ships is in the lower right corner.
+When you start &kgoldrunner;, you are presented with a dialog
+where you can pick a levelset to play.
+If you have never played before, try the <quote>Tutorial</quote>
+game, which teaches you the rules and basic skills.  Then try the
+<quote>Initiation</quote> game.  Experts might enjoy the
+<quote>Challenge</quote> or <quote>Vengeance of Peter W</quote> games,
+but the <quote>Initiation</quote> game has 100 levels and some are
+very difficult. It's a good game for achieving a High Score. When you're
+done, click <guibutton>OK</guibutton> and begin playing.
 </para>
 
 <para>
-To send ships from a planet to another, select the planet you want to send ships from, enter
-the number of ships in the green box in the upper right corner and press enter. Repeat
-this procedure until you have sent out all the ships you want. When you're done, press 
-<guibutton>End Turn</guibutton>. When all players have played one turn, dialog boxes
-will appear and give you the latest news. The game will proceed like this until one of the
-players owns the entire galaxy.
+Move your mouse in the direction you want the hero to run. Always make
+sure you're not running into a trap or into the arms of your enemies.
+If you do, they will kill you and you loose a life. The problem is you
+have no weapon to kill <emphasis>them</emphasis>. All you can do is run
+away, dig holes in the floor to trap them or lure them into some area
+where they cannot hurt you. To dig a hole, click &RMB;. If you fall into
+a hole, you will fall trough the floor. An enemy will get stuck, but after
+a short time they will climb out of it, unless it closes before that. In
+that case the enemy will die and reappear somewhere else. If you fall
+into a hole at the lowest level, you will get trapped and die.
 </para>
-</chapter>
 
-<chapter id="rulestips">
-<title>Game Rules, Strategies and Tips</title>
-<sect1 id="rules">
-<title>Rules</title>
-<itemizedlist>
-<listitem><para>Ships can not be stopped once they leave a planet.</para></listitem>
-<listitem><para>Ships can not attack other ships in mid-air.</para></listitem>
-<listitem><para>Ships can be stored at planets for later use.</para></listitem>
-<listitem><para>A planet can not be given away.</para></listitem>
-<listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without lauching any
-ships.</para></listitem>
-</itemizedlist>
+<para>
+When you have collected all the gold nuggets on the board, move to the
+top level and climb out of the game board. You will automatically proceed 
+to the next level.
+</para>
+
+<para>All those games use Traditional rules, which are similar to
+those used on early home-computers, such as the Apple II or Commodore
+64.  The <quote>&kgoldrunner;</quote> and <quote>State of Terror</quote>
+games use &kgoldrunner; rules, in which the enemies run faster and have
+a more aggressive search strategy than in Traditional rules.  See
+<link linkend="choice-of-rules">Choice of Rules</link> for details.</para>
+
+<para>As you move to more advanced levels, you will find that
+&kgoldrunner; combines action, strategy, tactics and puzzle
+solving &mdash; all in one game.  Good luck!</para>
+
 </sect1>
 
-<sect1 id="strattips">
-<title>Strategies and Tips</title>
+<sect1 id="typical-game">
+<title>A Typical Game</title>
+
+<para>Below is a typical game in progress.  The hero is at
+level 4 in the Advanced Tutorial game.  The window's status bar shows
+how many lives he has left and how many points he has scored.  It also
+shows that there is a hint available for this level (as there always
+is  in tutorial games) and that the action is stopped (while taking
+this snapshot), but can be continued by pressing <keycap>P</keycap> or
+<keycap>Esc</keycap>.</para>
+
+<para>The hero started at the top left, dug a hole and dropped into a
+line of false bricks and gold where you can now see him falling.  The
+enemy above him will fall into the hole, then climb out and be trapped
+up there till the end of the level.  He could cause the hero some
+problems then, because that is where the hidden ladders appear when
+all the gold is gone.  The hero has to use them to get to the next
+level.</para>
+
+<screenshot>
+<screeninfo>&kgoldrunner; typical game</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="tute008.png" format="PNG"/></imageobject>
+<textobject><phrase>&kgoldrunner; typical game</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>The enemy on the right is falling and carrying some gold.
+The third enemy is about to come down a ladder to
+chase the hero, who will have to dodge both enemies when he reaches
+the floor.  This level also shows diggable bricks and undiggable
+concrete and has lots of traps (false bricks), which look just like
+ordinary bricks.</para>
+
+</sect1>
+
+<sect1 id="how-to-play">
+<title>How To Play</title>
+
+<sect2>
+<title>Starting the Game</title>
+
+<para>The first popup dialog box shows you the names, number and preview
+of the last game and level you loaded or, if you have not played before,
+the same information for Tutorial level 1.</para>
+
+<para>Click on the <guibutton>PLAY</guibutton> button to begin playing
+immediately. Otherwise you can click on the <guibutton>Quit</guibutton> button,
+the <guibutton>New Game</guibutton> button or the
+<guibutton>Use Menu</guibutton> button. The first will abort KGoldrunner, if
+you do not wish to play, the second will show you a
+<link linkend="level-selection-dialog">Level Selection</link> dialog,
+where you can choose a different game and level and the last will terminate
+the dialog, leaving you free to use the &kgoldrunner; menus.</para>
+
+<para>If you have chosen to play a game and level, it will then appear
+and the mouse pointer will be over the hero. In a tutorial game, there
+will be an explanatory message before each level begins. You start play
+by moving the mouse, clicking the mouse or pressing any key that can
+control the hero (&eg; <keycap>Space</keycap>), but avoid using
+<keycap>Q</keycap>, <keycap>S</keycap>, <keycap>P</keycap> or &Esc; at
+this stage. You start each level in the same way.</para>
+
+<para>You have five lives at the start and gain a bonus life for each
+level completed.</para>
+
+</sect2>
+
+<sect2 id="mouse-control">
+<title>Moving Around</title>
+
+<para>By default you control the hero with the mouse, but you
+can also control him with the keyboard (<link
+linkend="keyboard-control">see below</link>). He moves towards
+wherever you place the mouse pointer. He cannot move as fast as you
+can move the mouse pointer, but he will try hard to catch up. If the mouse
+pointer is above or below his level, he will always go up or down when
+there is a ladder available or a place to fall into. Otherwise he will
+move horizontally until he is below the mouse pointer, above it or right
+at it. You can make him follow simple paths (like &mdash; | L or U), but
+be careful not to get too many twists and turns ahead of him.</para>
+
+<para>You can move left or right over bricks, concrete, ladders or
+bars and up or down over ladders. If you are on an empty square or a
+gold nugget and there is no brick, concrete, ladder or bar to hold you
+up, gravity takes over and you fall. You can also fall by moving down
+from a bar or the bottom of a ladder, so keep the mouse pointer up
+there if you want to hold on.</para>
+
+</sect2>
+
+<sect2 id="keyboard-control">
+<title>Keyboard Control</title>
+
+<para>If you prefer, you can use the keyboard to control the hero. The
+default keys are the arrow keys and <keycap>I</keycap>,
+<keycap>J</keycap>, <keycap>K</keycap> and <keycap>L</keycap> (in
+honor of the original Apple II game), with the keys
+<keycap>Z</keycap> and <keycap>C</keycap> or <keycap>U</keycap> and
+<keycap>O</keycap> for digging. You can play one-handed by using
+<keycap>U</keycap>, <keycap>I</keycap>, <keycap>O</keycap>,
+<keycap>J</keycap>, <keycap>K</keycap>, <keycap>L</keycap> and
+<keycap>Space</keycap> (on a <quote>QWERTY</quote> keyboard) or
+two-handed by using the arrow keys, <keycap>Space</keycap>,
+<keycap>Z</keycap> and <keycap>C</keycap>. You can also choose other
+keys, on the <guimenu>Settings</guimenu> menu, using the
+<guimenuitem>Configure Shortcuts</guimenuitem> item.</para>
+
+<para>You enter keyboard mode by pressing one of the keys that can
+control the hero or by selecting <guimenuitem>Keyboard
+Controls Hero</guimenuitem> on the <guimenu>Settings</guimenu>
+menu.</para>
+
+<para>The movement keys (<keycap>I</keycap>, <keycap>J</keycap>,
+<keycap>K</keycap>, <keycap>L</keycap> or arrows) start the hero
+moving up, down, left or right. He continues moving in that direction,
+if he can, until you press another movement key or
+<keycap>Space</keycap> to stop. In mouse mode, he stops automatically
+when he gets to the mouse pointer.</para>
+
+<para>A word of warning: using the keyboard is much harder, in the
+long run, than using the mouse. Think of the mouse as a
+joystick.</para>
+
+</sect2>
+
+<sect2 id="pausing">
+<title>Taking a Break</title>
+
+<para>You can stop the game at any time by pressing a Pause key
+(the default is either <keycap>P</keycap> or &Esc;). You can resume
+by pressing the Pause key again. There is also a
+<guimenuitem>Pause</guimenuitem> option in the <guimenu>Game</guimenu>
+menu, but the problem is to get the mouse pointer up there without moving
+the hero and getting into trouble.</para>
+
+<tip><para>When you want to use the &kgoldrunner; menu or do
+some work in another window, always press a Pause key and stop the
+game. Otherwise the hero will go on following the mouse pointer and
+might get into trouble.</para></tip>
+
+</sect2>
+
+<sect2 id="winning">
+<title>Winning a Level</title>
+
+<para>The object of the game is to collect all the gold, by moving or
+falling onto it. When there is none left, you must move to the top of
+the playing area to get to the next level. Often, as you collect the
+last piece of gold, hidden ladders will appear and you can use them to
+climb to the top. </para>
+
+</sect2>
+
+<sect2 id="false-bricks">
+<title>Beware of False Bricks</title>
+
+<para>False bricks, otherwise known as fall-through bricks or traps,
+are the other hidden feature of the game. They look just like ordinary
+bricks, but if you run over one you fall. This can be bad if there is
+an enemy or a pit down there, or good if there is some gold.</para>
+
+</sect2>
+
+<sect2 id="enemies">
+<title>Enemies</title>
+
+<para>Enemies move in very much the same way as the hero. The main
+difference is when they fall into a hole the hero has dug (see <link
+linkend="rules-of-digging">Rules of Digging</link> below). They will
+pick up gold either always or at random, depending on the game
+settings, and will drop gold at random on brick, concrete or the top
+of a ladder. If an enemy is carrying the last piece of gold, you must
+get it away from him before you can finish the level.</para>
+
+<para>If an enemy touches you, you die and must start the level again,
+provided you have some lives left. However, it is possible to walk or
+stand on an enemy's head and you can ride an enemy down when he is
+falling. Some advanced levels require such a move.</para>
+
+</sect2>
+
+<sect2 id="losing-a-level">
+<title>Losing a Level</title>
+
+<para>As explained above, you can lose a level and a life by touching
+an enemy. You can also lose by getting caught in a dug brick when it
+closes. Otherwise you can commit suicide by pressing key
+<keycap>Q</keycap> or using the menu item
+<menuchoice><guimenu>Game</guimenu><guimenuitem>Kill
+Hero</guimenuitem></menuchoice>. Why would you want to do that? Well,
+sometimes you can get trapped in a place from which you cannot
+escape. You will stay imprisoned for ever unless you commit
+suicide!</para>
+
+</sect2>
+
+<sect2 id="importance-of-digging">
+<title>The Importance of Digging</title>
+
+<para>Digging is one of the most powerful tactics you have. To dig a
+hole in a brick to the left or right, just click the
+<mousebutton>Left</mousebutton> or <mousebutton>Right</mousebutton>
+mouse button, or use one of the digging keys (defaults
+<keycap>Z</keycap>, <keycap>C</keycap>, <keycap>U</keycap>,
+<keycap>O</keycap>.)</para>
+
+<para>You can dodge an oncoming enemy by digging a hole, waiting for
+him to fall in and then running quickly over his head. At the same
+time you can collect any gold he was carrying. Usually you can dig two
+holes to capture and run over two enemies who are close together, but
+this rarely works if the enemies are separated or there are more than
+two of them.</para>
+
+<para>You can kill enemies by digging enough holes in their path. It
+usually takes two or more holes to kill one enemy and up to eight or
+more holes to kill four or five. When enemies die, they reappear
+immediately, either where they started the level or near the top of
+the playing area, depending on whether the game follows
+<quote>&kgoldrunner;</quote> or <quote>Traditional</quote> rules and
+settings (see <link linkend="choice-of-rules">Choice of Rules</link>).</para>
+
+<para>Finally, in many levels the gold is not immediately accessible and
+you must dig to get to it. Some of these digging puzzles are quite complex
+and you must work out a digging sequence then perform it in limited time
+before you can complete the level.</para>
+
+</sect2>
+
+<sect2 id="rules-of-digging">
+<title>The Rules of Digging</title>
+
+<para>You click the <mousebutton>Left</mousebutton> or
+<mousebutton>Right</mousebutton> mouse button, to dig a hole to the
+left or right, or use the <keycap>Z</keycap>, <keycap>C</keycap>,
+<keycap>U</keycap> or <keycap>O</keycap> keys. Only bricks can be dug,
+not anything else. The hole will appear in the floor on one side or
+the other (&ie; below and to the left or right of the hero). You can
+be running, standing or falling when you dig. There must be an empty
+space or hole above the brick (&ie; no digging under a ladder, bar,
+gold, brick, concrete, false brick or enemy).</para>
+
+<para>The hero can move in any direction through dug holes, including
+falling right through a hole to escape an enemy. After a short time,
+dug holes close up, so you must use them quickly. Plan your digging in
+advance. There is no time to stop and think while you dig.</para>
+
+<para>Enemies are always captured if they fall into a dug hole and
+will always climb UP to get out of it. Their time in the hole is less
+than the time the hole stays open, so to kill enemies you usually have
+to dig several holes in quick succession. Enemies always give up gold
+as they fall into a hole, so you can quickly run onto the enemy's head
+and grab the gold before he climbs out.</para>
+
+<para>Enemies will never fall down through a hole from above, but
+depending on the game rules and <guimenu>Settings</guimenu>
+(see <link linkend="choice-of-rules">Choice of Rules</link>), they can
+run horizontally into a dug hole and not be captured and can fall from
+there or run into another hole or run out of the hole. Several levels
+that follow <quote>Traditional</quote> rules depend on an enemy being
+able to run through a hole. Some levels that follow
+<quote>&kgoldrunner;</quote> rules depend on an enemy NOT being
+able to run through a hole.</para>
+
+</sect2>
+
+<sect2 id="winning-and-losing-the-game">
+<title>Winning and Losing the Game</title>
+
+<para>You win by completing the last level in the game. You lose when
+your last life is gone. Either way, if you have achieved one of the
+ten highest scores for that game, you can record your achievement in
+the <quote>&kgoldrunner; Hall of Fame</quote>.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="scoring">
+<title>Scoring</title>
+
 <itemizedlist>
-<listitem><para>Don't attack a planet with less than 10 ships.</para></listitem>
-<listitem><para>Attack neutral planets before other players' planets.</para></listitem>
-<listitem><para>Split your ship storages across several planets.</para></listitem>
-<listitem><para>Plan your attacks in advance.</para></listitem>
-<listitem><para>Use the ruler to find out the distance between planets.</para></listitem>
-<listitem><para>Use the information window to get information on planets before an attack.</para></listitem>
+<listitem>
+<para>Start with 5 lives.</para>
+</listitem>
+<listitem>
+<para>Lose a life and repeat a level when the hero dies</para>
+</listitem>
+<listitem>
+<para>Gain a life when you complete a level</para>
+</listitem>
+<listitem>
+<para>75 points for trapping an enemy</para>
+</listitem>
+<listitem>
+<para>75 points for killing an enemy</para>
+</listitem>
+<listitem>
+<para>250 points for collecting gold</para>
+</listitem>
+<listitem>
+<para>1500 points for completing a level</para>
+</listitem>
 </itemizedlist>
+
+</sect1>
+
+<sect1 id="choice-of-rules">
+<title>Choice of Rules</title>
+
+<para>Most of the rules of &kgoldrunner; are covered in the section
+<link linkend="how-to-play">How to Play</link>, however there are two
+major rule settings that affect the style of play: known as
+<quote>Traditional</quote> and <quote>&kgoldrunner;</quote>. It is
+important to know which settings are in force when you are playing a
+game. Many <quote>Traditional</quote> levels are impossible with
+<quote>&kgoldrunner;</quote> settings. Most
+<quote>&kgoldrunner;</quote> levels are easier with
+<quote>Traditional</quote> settings, but the
+<quote>Traditional</quote> games are no pushover. To make life easier,
+&kgoldrunner; automatically chooses the correct settings for a game
+when you go into it, but you can can change them if you wish. </para>
+
+<para>The main difference between <quote>Traditional</quote> and
+<quote>&kgoldrunner;</quote> settings is the method by which the
+enemies choose a path to the hero.</para>
+
+<itemizedlist>
+<listitem>
+<para>In the <quote>Traditional</quote> search method, enemies look
+for vertical paths (ladders and falls) and they try to stay above the
+hero or at the same height. They go below him only as a last
+resort. The enemies make no attempt to chase the hero in the
+horizontal direction until they are at the same height and can find a
+horizontal path. This leads to situations where you can
+<quote>control</quote> enemies who are far away from you and make them
+work for you or at least keep out of your hair.</para>
+</listitem>
+<listitem>
+<para>The <quote>&kgoldrunner;</quote> method searches alternately for
+horizontal and vertical paths, which tends to keep the enemies over
+your side of the playing area and at about the same height (&ie; they
+are more aggressive and not so easy to manipulate). That leads to a
+more action-packed game, but with less opportunity for strategy and
+puzzle-solving. The <quote>State of Terror</quote> game, added in 2007,
+uses <quote>&kgoldrunner;</quote> rules and has plenty of puzzles to
+solve while you are on the run. That is why it is such a difficult game.</para>
+</listitem>
+</itemizedlist>
+
+<para>The other differences are listed below:</para>
+
+<itemizedlist>
+<listitem>
+<para>In <quote>&kgoldrunner;</quote> play the hero and enemies move
+at fixed speeds in every level and bricks always take the same time to
+close. In <quote>Traditional</quote> play the game speed depends on
+the number of enemies in a level. The more enemies, the slower they
+run. The hero also becomes slower, but not so noticeably.</para>
+</listitem>
+<listitem>
+<para>In <quote>Traditional</quote> play, enemies  always collect gold
+nuggets when they run into them. In <quote>&kgoldrunner;</quote> play
+it is a random choice. The enemies drop nuggets after a random time in
+both types of play.</para>
+</listitem>
+<listitem>
+<para>Enemies can run horizontally through holes in
+<quote>Traditional</quote> play but not in
+<quote>&kgoldrunner;</quote> play. The trick in several
+<quote>Traditional</quote> levels depends on releasing an enemy from
+behind a brick wall. When you dig away the bricks, he runs out through
+the hole. In some <quote>&kgoldrunner;</quote> levels, on the other
+hand, you must hide inside or behind a dug brick to escape an enemy.</para>
+</listitem>
+<listitem>
+<para>When enemies die in <quote>&kgoldrunner;</quote> play, they go
+back to where they started the level. In <quote>Traditional</quote>
+play, they reappear at a random place near the top of the playing
+area. This makes a big difference, especially in levels where you have
+to get enemies to fetch nuggets down for you, but also because the
+enemies keep falling down onto you as fast as you can kill
+them.</para>
+</listitem>
+</itemizedlist>
+
 </sect1>
 </chapter>
 
-<chapter id="menus">
-<title>Menus</title>
+<chapter id="level-selection-dialog">
+<title>The Level Selection Dialog</title>
+
+<sect1 id="level-selection-dialog-box">
+<title>Using the Level Selection Dialog Box</title>
+
+<screenshot>
+<screeninfo>The Level Selection dialog</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="select.png" format="PNG" />
+</imageobject>
+<textobject>
+<phrase>The Level Selection dialog</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para>This box appears when you select the <guimenuitem>New Game</guimenuitem>
+action and also when you select items from the <guimenu>Editor</guimenu>
+menu. You use it to choose a game and a level to play, edit, save,
+move, re-number or delete. The main button at the bottom is the
+<guibutton>OK</guibutton> button. Its label changes according to what
+you are doing: in this case choosing a game and level to play.</para>
+
+<sect2 id="selecting-a-game">
+<title>Selecting a Game</title>
+
+<para>There are several <quote>System</quote> games that come with the
+&kgoldrunner; release and you can add your own games by using the editor.
+All these games appear in the list at the top of the dialog box, grouped by
+level of difficulty. The tutorial games appear last in the list and the
+games of normal skill appear first. To select one of the games, just
+click on its name.</para>
+
+<para>The list shows what rule settings apply to each game (see
+<link linkend="choice-of-rules">Choice of Rules</link>) and how many levels
+there are. When you select a game, a box lower down the screen shows
+you further information about that game.</para>
+
+</sect2>
+
+<sect2 id="selecting-a-level">
+<title>Selecting a Level</title>
+
+<para>You can choose to start a game at any level, but it is best to start
+at level 1 and work up, especially if you are going for a high score. In
+general, the higher numbered levels are more difficult.</para>
+
+<para>When you start the level selection dialog, the default level will
+be something reasonable, such as the last level you played or edited.
+You can select another level by using the spinbox arrows, by typing the
+level number into the spinbox or by moving the slider. The arrows at
+the ends of the slider increase or decrease the number by one. Also
+you can drag the slider with the left mouse button held down and change
+the level number rapidly. Or you can change the level number in steps of 10
+by clicking in the space above or below the slider handle.</para>
+
+<para>As the level number changes, a preview of the level appears in the
+small preview window and the level's name (if it has one) also appears.</para>
+
+</sect2>
+
+<sect2 id="completing-selection">
+<title>Completing your Selection</title>
+
+<para>When you have chosen a game and level, just click the main
+button at the bottom and proceed with your edit or play.</para>
+
+<para>Until you do that, nothing changes, so you can always click
+<guibutton>Cancel</guibutton> and go back to what you were doing
+earlier. Note that the game action is frozen while the dialog box
+is active, so you can continue playing where you left off if you
+choose <guibutton>Cancel</guibutton>.</para>
+
+</sect2>
+
+<sect2 id="saving-changes">
+<title>Saving Changes</title>
+
+<para>If you select an action on the <guimenu>Game</guimenu> or
+<guimenu>Editor</guimenu> menu and you were previously editing and had
+not saved your changes, you will get a message asking you to save,
+abandon or continue your work. Neither the new action nor its dialog will
+begin until you have made a decision about your previous work.</para>
+
+</sect2>
+
+<sect2 id="any-level">
+<title>Playing or Editing <quote>Any</quote> Level</title>
+
+<para>Note that the menus and dialog allow you to select and play or edit
+<quote>any</quote> level. If you start a game after level 1, that is
+OK, you will just not get such a high score. Dedicated players often
+prefer to play high-numbered levels for fun, rather than go for a high
+score, or they might like to <quote>train</quote> on higher levels
+before attempting a high score.</para>
+
+<para>If you select a System level for editing, that is OK too, but
+you must save it in one of your own games: not back in the System
+game. For example you might want to modify a very difficult level so that
+you do not go back to the start of the level every time you die.</para>
+
+<para>To see what this means, try the <quote>Challenge</quote> game,
+level 16, <quote>The Three Musketeers</quote>. That level has about
+ten difficult puzzles in it. When you have solved puzzle 1, you do not
+want to keep repeating it while you work on puzzle 2. The secret is to
+make an editable copy, then keep updating it and changing the hero's
+starting point, until you have solved all the puzzles. Then you can
+go back and attempt the real thing, from start to finish.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="menu-reference">
+<title>The Menu Reference</title>
+
+<sect1 id="menu-overview">
+<title>Overview of Menus</title>
+
+<variablelist>
+<varlistentry>
+<term><link linkend="game-menu"><guimenu>Game</guimenu></link></term>
+<listitem>
+<para>This menu contains options affecting game play, such as starting
+and finishing games, saving games, loading saved games and showing high
+scores (if available). The <guimenu>Game</guimenu> Menu also contains the
+<guimenuitem>Quit</guimenuitem> option, or you can quit by clicking the
+<guiicon>X</guiicon> at the top right of the &kgoldrunner; window.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><link linkend="move-menu"><guimenu>Move</guimenu></link></term>
+<listitem>
+<para>This menu contains an option to get a hint (if there is one).
+Championship and Tutorial games have hints on every level. Other games
+rarely have hints.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><link
+linkend="editor-menu"><guimenu>Editor</guimenu></link></term>
+<listitem>
+<para>This menu has everything you need to create your own games and
+levels and maintain them, including features to help you re-order levels
+or move them between games or to delete them when no longer needed. When
+you reorganize your levels, the level numbers in your game remain
+consecutive (no gaps) and the levels are automatically
+renumbered.</para>
+<para>When you are using the Game Editor a graphical toolbar with tool
+tip text appears under the menu bar. See the <link
+linkend="game-editor">Game Editor</link> for more details of how to
+create and edit &kgoldrunner; levels.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><link
+linkend="themes-menu"><guimenu>Themes</guimenu></link></term>
+<listitem>
+<para>This menu offers you a choice of background themes or
+<quote>worlds</quote> in which to play. You can change the theme at
+any time, even as the game is playing. For those who are artistically
+inclined, it is possible to compose new themes, including graphics
+or sound or both and add them to &kgoldrunner;. Just contact the author
+for details.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><link
+linkend="settings-menu"><guimenu>Settings</guimenu></link></term>
+<listitem>
+<para>This menu has three groups of &kgoldrunner; settings: the choice of mouse
+or keyboard control, the choices of game-speed and the choice of
+<quote>&kgoldrunner;</quote> or <quote>Traditional</quote> playing rules
+(see <link linkend="choice-of-rules">Choice of Rules</link>).
+The current selections are checked. The settings are automatically
+selected when you start playing, but you can use this menu to vary them
+if you wish.</para>
+<para>On the &kde; desktop version of &kgoldrunner;, there is also an
+option to re-assign keyboard shortcuts and hero-control keys. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><link linkend="help-menu"><guimenu>Help</guimenu></link></term>
+<listitem>
+<para>The <guimenu>Help</guimenu> menu contains access to the
+&kgoldrunner; Handbook (this document), <guimenuitem>About
+&kgoldrunner;</guimenuitem> and <guimenuitem>About &kde;</guimenuitem>.</para>
+<para>There is also an option to report a Bug or Wishlist item.</para>
+<para>If you would like to make a suggestion or you have some new levels
+to contribute, the current author's email address is in the
+<guimenuitem>About &kgoldrunner;</guimenuitem> menu item.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
 
 <sect1 id="game-menu">
-<title><guimenu>Game</guimenu> Menu</title>
+<title>The <guimenu>Game</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>New</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Starts a new game.</action></para></listitem>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut>
+<guimenu>Game</guimenu><guimenuitem>New Game...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the level selection dialog box (see
+<link linkend="level-selection-dialog-box">
+Using the Level Selection Dialog Box</link>), where you choose a game
+and a level within that game. At first it is easiest to start at level 1,
+because the levels are arranged approximately in order of difficulty.
+Also it is best to start there if you are going for a high score.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>End Game</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>End the current game, without closing</action> &konquest;</para></listitem>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Load Saved Game...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Brings up a table of previously saved games, sorted with the
+latest first. Each line lists the game, level, number of lives, score,
+day of week, date and time. If you select a line and click the
+<guibutton>OK</guibutton> button, that game starts at the beginning of
+that level, with the lives and score you saved.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><shortcut><keycap>S</keycap></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Save Game...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Saves the current game, level, lives and
+score.  The option will only save the position and score as at the start
+of the current level.  You can save when you are mid-way through a
+level, but &kgoldrunner; will still save the position (and score) as it
+was at the start of the level.  You will receive a warning message about
+that.  Before using this option, you should press a Pause key
+(<keycap>P</keycap> or &Esc;), to freeze the game as you move the mouse,
+but it is much easier to use the <keycap>S</keycap> key as a
+short-cut.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Save Edits...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>This option is enabled only if you have been using
+the Game Editor.  It brings up the level selection dialog box and lets
+you choose a level number and game in which to save your work.  Its
+action is exactly the same as the <guimenuitem>Save Edits</guimenuitem>
+option on the <guimenu>Editor</guimenu> menu and
+the <guiicon>disk</guiicon> icon on the Editor toolbar.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Measure Distance</guimenuitem>
-</menuchoice></term>
-<listitem><para>Click with the &LMB; on two planets to see their distance.</para></listitem>
+<shortcut><keycap>P or &Esc;</keycap></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Stops or restarts the game action.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Show Standings</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Opens</action> a window to display the detailed current 
-standings for all players</para></listitem>
+<term><menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Show Highscores</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows a table of up to ten high scores for the currently selected
+game.  Each line shows the player's rank and name, the level reached,
+the score achieved, the day of the week and the date.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Fleet Overview</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Opens</action> a window to display detailed informations 
-for all fleets</para></listitem>
+<term><menuchoice><shortcut><keycap>Q</keycap></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Kill Hero</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Kills the hero when he is in a position from which he cannot
+escape.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>Quit</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Quits the game.</action></para></listitem>
+<term><menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
+<guimenu>Game</guimenu><guimenuitem>Quit</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Terminates &kgoldrunner; immediately.  If a game is in
+progress, it disappears forever (unless you have just saved it) and
+there is no check for a high score.  If you were editing a level, you
+are given an opportunity to save your work.</para>
+</listitem>
 </varlistentry>
+
 </variablelist>
+
+</sect1>
+
+<sect1 id="move-menu">
+<title>The <guimenu>Move</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Move</guimenu><guimenuitem>Hint</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows a popup hint, if there is one for the level being played.
+By convention, Championship and Tutorial games have hints on every level.
+Other games rarely have hints. The status bar shows whether a hint is
+available or not.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="editor-menu">
+<title>The <guimenu>Editor</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Create Level</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the Editor toolbar and a blank playing area
+on which you can draw a new level.  When done, use
+<guimenuitem>Save Edits</guimenuitem> to assign the new level to a game
+and level number.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Edit Any Level...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the level selection dialog box, where
+you choose a game and level to edit.  You can choose a System game and
+level, but you get a warning that you can only save the edited level
+in one of your own games.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></shortcut>
+<guimenu>Editor</guimenu><guimenuitem>Save Edits...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the level selection dialog box with
+appropriate default settings for saving a new or edited level.  You can
+change the game and level number and achieve a <quote>Save As...</quote>
+effect. This dialog box has a special button, <guibutton>Edit Level Name and
+Hint</guibutton>, which shows a dialog box where you can add an optional
+name and hint to your level.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Move Level...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>This is a two-part operation.  Before using <guimenuitem>Move
+Level</guimenuitem>, you must load a level to be moved by selecting it
+for play or edit.  The <guimenuitem>Move Level</guimenuitem> option
+then shows the level selection dialog box, where you choose a new place
+for the loaded level.  You can change both the game and the level
+number, to move a level to another game, or you can just change the level
+number to re-order levels within a game.  You cannot move a System
+level.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Delete Level...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the level selection dialog box, where you choose a level
+to delete.  You cannot delete a System level.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Create Game...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>You need to use this option before you start
+creating your own &kgoldrunner; levels.  It shows a dialog box where you
+can enter the name of a new game, a 1-5 character prefix for
+level-file names, the default rules for your game
+(<quote>&kgoldrunner;</quote> or <quote>Traditional</quote>) and an
+optional description or comment about the game.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Editor</guimenu><guimenuitem>Edit Game Info...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Shows the level selection dialog box, where
+you choose a game to be edited, then shows the game information in a
+dialog box where you can edit the name, rules and description, but
+not the file name prefix, in case you have saved some levels.  That
+is because the prefix is used in level-file names internally.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="themes-menu">
+<title>The <guimenu>Themes</guimenu> Menu</title>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>&kgoldrunner; Default</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Gives you the default &kgoldrunner; theme, with
+red bricks and gray concrete.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>Black on White</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>This theme is stripped down to its barest graphical units and
+painted in black and white only.  It is intended to help players who
+may be visually impaired.  The author would appreciate email responses on
+how effective it is and what improvements in visibility could be made.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>Nostalgia</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Recalls the days of the original Apple II and Commodore 64 game, as it
+was when you plugged your machine into your TV set &mdash; otherwise you had
+a monochrome monitor. For those who do not remember such heroic days, this
+is not an exact reproduction, but it gives you a general idea. For example
+the hero was all white back then, but today he is blue.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>Nostalgia Blues</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Recalls the Apple II game, where the bricks and concrete were a
+nice blue color, the hero was white, the enemies had white pants and
+orange (flesh-tint) tops and the gold was white boxes with orange
+panels.  The whole effect was fuzzier (a sort of hardware
+anti-aliasing), which made the bricks look almost
+three-dimensional &mdash; difficult to recreate on today's
+pin-sharp monitors.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>The Treasure of Egypt</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Matt Goldrunner finds himself in an Ancient Egyptian temple, being
+pursued by mummies who are determined to protect their ancestral jewels
+at all costs.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Themes</guimenu><guimenuitem>Geek City</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Our hero is trapped inside a computer. Will he escape
+when he finally reaches the last level?</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
 </sect1>
 
 <sect1 id="settings-menu">
-<title><guimenu>Settings</guimenu> Menu</title>
+<title>The <guimenu>Settings</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
+<guimenu>Settings</guimenu><guimenuitem>Mouse Controls Hero</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Toggle</action> the toolbar display on and off.</para>
+<para>Sets mouse control of the hero
+(see <link linkend="mouse-control">Moving Around</link>).</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
+<guimenu>Settings</guimenu><guimenuitem>Keyboard Controls Hero</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Opens</action> a standard &kde; shortcut configuration dialog to
-change the keyboard shortcuts used by &konquest;.</para>
+<para>Sets keyboard control of the hero
+(see <link linkend="keyboard-control">Keyboard Control</link>).</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
+<guimenu>Settings</guimenu><guimenuitem>Normal Speed</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para>Brings up the standard &kde; toolbar configuration dialog to customize the &konquest; toolbar icons.</para>
+<para>Sets normal game speed (12 units).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Beginner Speed</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Sets beginner game speed (6 units, half of normal speed).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Champion Speed</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Sets champion game speed (18 units, 1.5 times normal speed).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><shortcut><keycap>+</keycap></shortcut>
+<guimenu>Settings</guimenu><guimenuitem>Increase Speed	</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Increases the game speed by one unit, up to a maximum of 24
+units (twice normal speed).  You can use the <keycap>+</keycap> key
+as a shortcut.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycap>-</keycap></shortcut>
+<guimenu>Settings</guimenu><guimenuitem>Decrease Speed</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Decreases the game speed by one unit, down to a minimum of 3
+units (a quarter of normal speed).  You can use the <keycap>-</keycap> key
+as a shortcut.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Traditional Rules</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Sets Traditional playing rules
+(see <link linkend="choice-of-rules">Choice of Rules</link>).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>&kgoldrunner; Rules</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>Sets &kgoldrunner; playing rules
+(see <link linkend="choice-of-rules">Choice of Rules</link>).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>In the &kde; desktop this item allows you to change the keyboard
+assignments (&eg; for keyboard control of the hero) or to assign your own
+shortcut keys for menu items.</para>
 </listitem>
 </varlistentry>
 
@@ -272,191 +1153,538 @@ change the keyboard shortcuts used by &konquest;.</para>
 <sect1 id="help-menu">
 <title>The <guimenu>Help</guimenu> Menu</title>
 
+<para>Contains the following standard &kde; Help Menu items:</para>
+
 &help.menu.documentation;
 
+</sect1>
+
+</chapter>
+
+<chapter id="game-editor">
+<title>The Game Editor</title>
+
+<sect1 id="editor-start">
+<title>Getting Started with the Editor</title>
+
+<sect2 id="creating-a-game">
+<title>Creating a Game</title>
+
+<para>Before you create or edit a &kgoldrunner; level, you must create
+a game in which to save it. Use <guimenuitem>Create Game</guimenuitem> 
+on the <guimenu>Editor</guimenu> menu. If you
+forget, you will be reminded. </para>
+
+<para>The most important decisions to make when creating a game are to
+choose the rules you are going to follow (<quote>Traditional</quote>
+or <quote>&kgoldrunner;</quote>, see <link
+linkend="choice-of-rules">Choice of Rules</link>) and to choose a
+unique 1-5 character file name prefix for your game and levels. You
+also need a name and description for your game, but those can easily
+be changed later.</para>
+
+<para>The prefix is used internally by &kgoldrunner; to identify level
+files, high score files and saved games. You can use your initials as
+a prefix provided they are not the same as a &kgoldrunner; prefix. So
+far, the prefixes <quote>level</quote>, <quote>plws</quote>,
+<quote>wad</quote>, <quote>plwv</quote>, <quote>sot</quote>,
+<quote>tute</quote> and <quote>tutea</quote> have been used.</para>
+
+<para>The four-letter <quote>tute</quote> prefix is reserved for
+tutorial games, which show the hint on each level as you play it.
+If you compose your own Tutorial game you could use the
+prefix <quote>tutex</quote>, to make it run as a tutorial but not get
+its files confused with those of the basic Tutorial or Advanced Tutorial
+(prefixes <quote>tute</quote> and <quote>tutea</quote>). </para>
+
+</sect2>
+
+<sect2 id="creating-a-level">
+<title>Creating a Level</title>
+
+<para>When you have a game set up, use <guimenuitem>Create
+Level</guimenuitem> on the <guimenu>Editor</guimenu> menu to start
+creating a level. It provides you with a blank playing area of 28x20
+squares, with the hero at the top left. You can put the hero somewhere
+else if you prefer and you do not have to use the whole 28x20
+area. Lots of interesting levels use smaller areas. </para>
+
+<para>The minimum requirement for a level to be playable is to have a
+hero, a gold nugget he can get to and a visible or hidden ladder
+leading to the top of the playing area. You do not have to have
+enemies, bars or even bricks. There are many challenging levels that
+have no enemies or no bricks.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="editing-and-testing">
+<title>Editing and Testing</title>
+
+<sect2 id="editing-a-level">
+<title>Editing a Level</title>
+
+<para>Use <guimenuitem>Edit Any Level</guimenuitem> on the
+<guimenu>Editor</guimenu> menu to start editing an existing level or use
+<guimenuitem>Create Level</guimenuitem> to start editing a new level.</para>
+
+<para>If you choose
+a System level, you are warned that you will have to save it in one of
+your own games. Otherwise, the default is to save the level back where
+it came from, but you can vary that.</para>
+
+</sect2>
+
+<sect2 id="painting-objects">
+<title>Painting Objects in a Level</title>
+
+<para>The picture below shows the menubar and the edit toolbar, which
+appears when you first choose <guimenuitem>Create Level</guimenuitem>
+or <guimenuitem>Edit Any Level</guimenuitem> from the
+<guimenu>Editor</guimenu> menu and so change from Play to Edit
+mode. It disappears when you go back to Play mode. Note also that, in
+Edit mode, false bricks and hidden ladders are made visible in the
+playing area.</para>
+
+<para>The three icons on the left of the edit toolbar have the same
+actions as the menu options <guimenuitem>Create Level</guimenuitem>,
+<guimenuitem>Edit Any Level</guimenuitem> and <guimenuitem>Save
+Edits</guimenuitem>. The other eleven icons are for editing and
+painting objects in your level. </para>
+
+
+<para>From left to right the other eleven icons are <guiicon>Edit Name/Hint
+</guiicon> (light bulb), <guiicon>Empty space</guiicon> (background), 
+<guiicon>Hero</guiicon>,
+<guiicon>Enemy</guiicon>, <guiicon>Brick</guiicon> (can dig),
+<guiicon>Concrete</guiicon> (cannot dig), <guiicon>False brick</guiicon> 
+(also known as a trap or fall-through brick), <guiicon>Ladder</guiicon>,
+<guiicon>Hidden ladder</guiicon>, <guiicon>Pole</guiicon> (or bar) and
+<guiicon>Gold nugget</guiicon>. The graphics for these icons, except for the
+light bulb, are copied from whatever theme you are using.</para>
+
+<screenshot>
+<screeninfo>Editing a level</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="editbar.png" format="PNG" />
+</imageobject>
+<textobject><phrase>Editing a level</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>The <guiicon>Edit Name/Hint</guiicon> icon pops up a dialog in which
+you can create or edit your level's name and hint. Both are optional,
+but they are essential for tutorial levels and it is usual to provide
+them with very difficult levels, such as in Championship games (see the
+<quote>Vengeance of Peter W</quote> game).</para>
+
+<para>When you click on one of the other 10 icons, the mouse becomes a
+<quote>brush</quote> that paints that icon. Initially the brush is set
+to <quote>brick</quote>.</para>
+
+<para>You paint either by pointing and clicking the &LMB;, to place a
+single object in a square, or by holding the &LMB; down and dragging
+the mouse, to fill a line or area, such as a long ladder, a large
+block of bricks or a concrete floor. Painting stops wherever you
+release the mouse button. If you make a mistake, you can use a &RMB; click to
+erase it, or you can select the <guiicon>Empty space</guiicon> icon and draw
+with that.</para>
+
+<para>The hero icon works differently, because there can be only one
+hero. When you paint the hero, he moves from his previous position to
+wherever you release the mouse button.</para>
+
+</sect2>
+
+<sect2 id="saving-your-work">
+<title>Saving Your Work</title>
+
+<para>When you have finished painting, save your work using the
+<guiicon>disk</guiicon> icon or <guimenuitem>Save Edits</guimenuitem>
+in the <guimenu>Editor</guimenu> menu or <guimenuitem>Save Edits</guimenuitem>
+in the <guimenu>Game</guimenu> menu. You must
+always save into your own games, never into the System games.</para>
+
+<para>If you are creating a level, you use the Level Selection Dialog
+to assign it to a game and level number. You use the same dialog if
+you have been editing a level, but the default is to save it where it
+came from. You can change the game and level, to get a <quote>Save as...</quote>
+effect. If you have been editing a System level you must
+save it as a copy in one of your own games.</para>
+
+</sect2>
+
+<sect2 id="adding-name-and-hint">
+<title>Adding a Level Name and Hint</title>
+
+<para>On the Save version of the Level Selection Dialog box is a
+button marked <guibutton>Edit Level Name &amp; Hint</guibutton>. You can use
+this to put the finishing touches on your level by adding a name and
+hint. Both are optional, but they are essential for tutorial levels
+and it is usual to provide them with very difficult levels, such as in
+Championship games (see the
+<quote>Vengeance of Peter W</quote> game). Of course you can also use
+the <guiicon>Edit Name/Hint</guiicon> icon, at any time, to add or edit a
+name and hint. </para>
+
+</sect2>
+
+<sect2 id="testing-a-level">
+<title>Testing a Level</title>
+
+<para>After saving an edited level, you can test it by using
+<guimenuitem>New Game</guimenuitem> in the <guimenu>Game</guimenu> menu
+or the equivalent keyboard shortcut. By default the game and level number are
+remembered and you can get straight into the level with just a few
+clicks. If you then want to edit some more, the same is true when you
+use <guimenuitem>Edit Any Level</guimenuitem> again. It is essential to test
+every level you compose, to make sure that it is possible to complete it
+and that it is not too easy.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="reorganizing-games">
+<title>Reorganizing Games and Levels</title>
+
+<sect2 id="moving-a-level">
+<title>Moving a Level</title>
+
+<para>You can use <guimenuitem>Move Level</guimenuitem> on the
+<guimenu>Editor</guimenu> menu to re-order or re-number the levels in
+a game or to move a level from one game to another. <guimenuitem>Move
+Level</guimenuitem> is a two-part operation. You must first load a
+level by selecting it for editing or play, then when you use
+<guimenuitem>Move Level</guimenuitem>, the Level Selection Dialog box
+appears and you can select the new level number and game (as
+required).</para>
+
+<para>Moves leave no gaps in the sequence of level numbers in a
+game. For example, if you move level 10 of game A to level 3 of game B,
+levels 11 and above in game A are re-numbered down by one (to close
+the gap) and levels 3 and above in game B are re-numbered up by one
+(to make room for the newcomer).</para>
+
+</sect2>
+
+<sect2 id="deleting-a-level">
+<title>Deleting a Level</title>
+
+<para>You can use <guimenuitem>Delete Level</guimenuitem> on the
+<guimenu>Editor</guimenu> menu to remove an unwanted level. The other
+levels are re-numbered so as to close the gap in the sequence. </para>
+
+</sect2>
+</sect1>
+
+</chapter>
+
+<chapter id="tips-tricks-and-hints">
+<title>Tips, Tricks and Hints</title>
+
+<sect1 id="tips-overview">
+<title>Overview</title>
+
+<para>This chapter presents some general tips and hints for playing
+&kgoldrunner;, as opposed to the specific hints you will find on the levels
+in tutorial and championship games (see <link linkend="move-menu"><menuchoice>
+<guimenu>Move</guimenu><guimenuitem>Hint</guimenuitem></menuchoice></link>).
+The hints are grouped as follows:</para>
+
+<itemizedlist>
+
+<listitem>
+<para><link linkend="hints-dealing-with-enemies">
+Dealing with Enemies</link></para>
+</listitem>
+
+<listitem>
+<para><link linkend="hints-digging-puzzles">
+Digging Puzzles</link></para>
+</listitem>
+
+<listitem>
+<para><link linkend="hints-tricks-with-gold">
+Tricks with Gold</link></para>
+</listitem>
+
+<listitem>
+<para><link linkend="hints-solving-difficult-levels">
+Solving Difficult Levels</link></para>
+</listitem>
+
+</itemizedlist>
+</sect1>
+
+<sect1 id="hints-dealing-with-enemies">
+<title>Dealing with Enemies</title>
+
+<itemizedlist>
+<listitem>
+<para>You can always trap a single oncoming enemy in one hole, get his
+gold and run on over him without killing him. It is often a good idea
+to dig behind you and delay him further, but that might kill him. In
+some levels it is not a good idea to kill enemies.</para>
+</listitem>
+<listitem>
+<para>You can usually trap two oncoming enemies in two holes, get
+their gold and run on over them, but this is dangerous if the enemies
+are separated by two or three spaces. Sometimes two holes kill one of
+the enemies and the other escapes and sometimes both escape. In
+&kgoldrunner; rules it is easier to trap two enemies and run over them,
+because they stay in the holes for longer.</para>
+</listitem>
+<listitem>
+<para>It is nearly always impossible to trap three oncoming enemies
+and run on over them. You will have to kill them, dig and drop through
+the floor or simply run away.</para>
+</listitem>
+<listitem>
+<para>Try to get all the enemies running together in one group. That
+way you will not get surrounded and you can do such fun things as
+collect gold while they run along behind you.</para>
+</listitem>
+<listitem>
+<para>Sometimes you can kill an enemy with two holes, but it often
+takes three to nine holes to kill one to five enemies.</para>
+</listitem>
+<listitem>
+<para>It is possible to kill an enemy with one hole if he is far
+enough away when you dig it.</para>
+</listitem>
+<listitem>
+<para>In the <quote>Traditional</quote> game, you can trap an enemy
+permanently in a pit of brick or concrete. Stand near the edge of the
+pit on the opposite side to the enemy. As he approaches the pit, move
+down one square (to the level of the floor of the pit) and the enemy
+will usually run into the pit.</para>
+</listitem>
+<listitem>
+<para>In some levels in the <quote>Traditional</quote> game, you can
+force an enemy to climb a ladder ahead of you if you stand somewhere
+above the bottom of the ladder.</para>
+</listitem>
+<listitem>
+<para>In the <quote>&kgoldrunner;</quote> game, you can trap an enemy
+in a pit by getting him to fall from above you, then running sideways and
+digging out before he reaches you.</para>
+</listitem>
+<listitem>
+<para>In the <quote>&kgoldrunner;</quote> game, enemies cannot run through
+dug bricks, so you can sometimes use them as a barrier or hiding place.</para>
+</listitem>
+</itemizedlist>
 
 </sect1>
-</chapter>
 
-<chapter id="faq">
-<title>Frequently Asked Questions</title>
-<qandaset>
+<sect1 id="hints-digging-puzzles">
+<title>Digging Puzzles</title>
 
-<qandaentry>
-<question>
-<para>
-How do I start a new game?
-</para>
-</question>
-<answer>
-<para>
-Press the New button, select New from the Game menu or press 
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
-</para>
-</answer>
-</qandaentry>
+<itemizedlist>
+<listitem>
+<para>To dig through more than one layer of bricks, start by digging
+as many bricks as there are layers, jump in, dig one brick less and so
+on.</para>
+</listitem>
+<listitem>
+<para>If you dig next to a ladder or a succession of bars, you can dig
+down through any number of layers and up to five or six bricks
+horizontally. Just return to the ladder or bars after digging each
+layer, then move down one square, run out and dig the next
+layer.</para>
+</listitem>
+<listitem>
+<para>If a digging puzzle looks impossible, consider that there might
+be some false bricks in it. Maybe the bottom layer is false or maybe
+you can stand in a false brick and dig next to it.</para>
+</listitem>
+<listitem>
+<para>Think about the order in which you will collect the gold. If you
+pick the right order, the digging might be easier.</para>
+</listitem>
+<listitem>
+<para>Some levels require you to dig away a brick wall, run in,
+collect some gold and run out again before the bricks close up and
+trap you.</para>
+</listitem>
+<listitem>
+<para>It is possible to dig while falling through empty space, if you can
+get the timing right. You do not need to have an enemy to ride upon. This
+is a bug which has become a <quote>feature</quote> and is used extensively
+in the <quote>State of Terror</quote> game.</para>
+</listitem>
+</itemizedlist>
 
-<qandaentry>
-<question>
-<para>
-Can I redirect ships once they've left a planet?
-</para>
-</question>
-<answer>
-<para>
-No, once ships leave a planet, they can not be stopped or redirected.
-</para>
-</answer>
-</qandaentry>
+</sect1>
 
-<qandaentry>
-<question>
-<para>
-Do the different colors and shapes of planets mean anything?
-</para>
-</question>
-<answer>
-<para>
-No, they are random.
-</para>
-</answer>
-</qandaentry>
+<sect1 id="hints-tricks-with-gold">
+<title>Tricks with Gold</title>
 
-<qandaentry>
-<question>
-<para>
-How can I know where my ships are?
-</para>
-</question>
-<answer>
-<para>
-Click <guibutton>Show Standings</guibutton>. It will give you information about fleets currently in flight.
-</para>
-</answer>
-</qandaentry>
+<itemizedlist>
+<listitem>
+<para>If you cannot get to a piece of gold, think about getting an
+enemy to go there and get it. Even think about using an enemy's head
+as a bridge to get across a pit or precipice.</para>
+</listitem>
+<listitem>
+<para>In some levels there is a nugget that must be collected last of
+all, because you will need the hidden ladders to get away from that
+position.</para>
+</listitem>
+<listitem>
+<para>In some situations an enemy can be killed without giving up the
+gold he is carrying. The gold becomes a <quote>lost nugget</quote>.
+You score no points for making an enemy lose a nugget,
+but at least you can finish the level.</para>
+</listitem>
+<listitem>
+<para>If there is nowhere to dig, keep the enemies running over
+concrete and the tops of ladders and so make them release their gold
+at random.</para>
+</listitem>
+</itemizedlist>
 
-<qandaentry>
-<question>
-<para>
-I've lost all my planets, but I'm still in the game, why?
-</para>
-</question>
-<answer>
-<para>
-You haven't lost the game until you have lost all your ships.
-</para>
-</answer>
-</qandaentry>
+</sect1>
 
-<qandaentry>
-<question>
-<para>
-I'm running out of turns, what can I do?
-</para>
-</question>
-<answer>
-<para>
-You can continue playing. When you're at the last turn, you will be promted to add more.
-</para>
-</answer>
-</qandaentry>
+<sect1 id="hints-solving-difficult-levels">
+<title>Solving Difficult Levels</title>
 
-<qandaentry>
-<question>
-<para>
-Can I store ships on a planet for later use?
-</para>
-</question>
-<answer>
-<para>
-Yes, you should however store them on multiple planets to be able to send them to nearby planets.
-</para>
-</answer>
-</qandaentry>
+<itemizedlist>
+<listitem>
+<para>Try changing the speed settings to Beginner or even lower.</para>
+</listitem>
+<listitem>
+<para>Use the Editor feature to <quote>peek</quote> at where the false
+bricks and hidden ladders are.</para>
+</listitem>
+<listitem>
+<para>Use the Editor feature to save the level in one of your own
+games, then you can edit it so that you do not always have to start at
+the beginning when you die. This allows you to develop the solution in
+easier stages.</para>
+</listitem>
+<listitem>
+<para>In digging puzzles, look for false bricks you can fall into and
+thus have one less brick to dig. Or consider using an enemy to go
+ahead of you, so that you can stand on his head and dig.</para>
+</listitem>
+<listitem>
+<para>Look for a theme or trick in the level, such as riding down on
+an enemy's head, trapping all the enemies in a pit, luring the enemies
+to a corner where they will stay and not chase you, luring the enemies
+into pits you must cross to get to some gold, getting the enemies to
+fetch gold for you or finding spots where you can stand and make an
+enemy move to where you want him.</para>
+</listitem>
+</itemizedlist>
+</sect1>
 
-<qandaentry>
-<question>
-<para>
-I have sent out all the ships on a planet, but when I move my mouse over the planet, it shows the ships still in place, why?
-</para>
-</question>
-<answer>
-<para>
-The number of ships on a planet is updated when a turn is ended.
-</para>
-</answer>
-</qandaentry>
+<!-- This is the place for a FAQ section, if required.
+<sect1 id="hints-faq">
+<title>FAQ</title>
+
+<qandaset id="faq">
 
 <qandaentry>
 <question>
-<para>
-Is it possible to change the theme?
-</para>
+<para>Question 1</para>
 </question>
 <answer>
-<para>
-No, that is not possible at the moment.
-</para>
+<para>The answer</para>
 </answer>
 </qandaentry>
-
 
 </qandaset>
+</sect1>
+-->
+
 </chapter>
 
+<chapter id="credits-and-licenses">
+<title>Credits and Licenses</title>
 
-<chapter id="credits">
+<para>&kgoldrunner; copyright 2003 Ian Wadham and Marco Krüger.</para>
 
+<para>&kgoldrunner; is inspired by an early computer game called
+<trademark>Lode Runner</trademark> which was written in the USA
+by <trademark class="copyright">Doug Smith</trademark> and first released
+in 1983 by <trademark class="copyright">Broderbund Software</trademark>.  It
+appeared originally on the Apple II and Commodore 64 computers, which was
+where the Wadham family and Marco Krüger became hooked.  It was a major
+best-seller in its day and is one of the all-time great computer games.</para>
 
-<title>Credits and License</title>
+<para>You can find out more about <trademark>Lode Runner</trademark> and
+the various versions that have come out since 1983, on the
+website <ulink url="http://entropymine.com/jason/lr">Jason's Lode Runner
+Archive</ulink> (http://entropymine.com/jason/lr/).
+That site also has the story of the game's original development, in the file
+<ulink url="http://entropymine.com/jason/lr/misc/ldhist.html">
+misc/ldhist.html</ulink>. Wikipedia also has a very good article on
+<trademark>Lode Runner</trademark>, with interesting links to other
+sites.</para>
 
-<para>&konquest;</para>
+<para>&kgoldrunner; is an attempt to preserve the spirit of the original
+classic game on a platform that will be portable and will last more than
+a few years.  It is available as free software in source code form.  Copies
+of the original game are unobtainable now and the machines it ran on are
+going into museums.</para>
 
-<para>&GNU;-Lactic Conquest Project, &kde; version by &Russ.Steffen;,
-&Russ.Steffen.mail;.</para>
+<para>Marco Krüger developed &kgoldrunner; as far as v0.3, out of
+nostalgia for the original Commodore 64 game.  Ian Wadham added
+several features and levels and created the current version.  Ian's
+elder son Peter composed the 100 levels in the "Initiation" game and
+the 20 tricky levels in "Vengeance of Peter W".  The other levels
+were composed by Ian, Peter, Marco Krüger and friends and Ian's other
+children, Simon and Genevieve. Stuart Popejoy of New York contributed
+the "State of Terror" game, in 2007, the first Championship game
+to use &kgoldrunner; rules and one of the most difficult games ever.</para>
 
-<para>Copyright &copy; 1998 by the &GNU;-Lactic Conquest Project </para>
-
-<para>Documentation copyright 2000 Nicholas Robbins
-&Nicholas.Robbins.mail;</para>
+<para>Special thanks are due to Mauricio Piacentini and Dmitry Suzdalev, who
+converted &kgoldrunner; to Qt 4 and KDE 4, and to the many graphics artists
+who contributed to the new SVG graphics and themes in the KDE 4 version:
+especially Mauricio Piacentini for the Default theme and the new runners,
+Johann Ollivier Lapeyre for the ladders and bars, Eugene Trounev for the
+Geek City and Treasure of Egypt themes and, last but not least, Luciano
+Montanaro for the two Nostalgia themes, the Black on White accessibility theme,
+improvements to the runners, multiple
+backgrounds and several other ideas.</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
-&underFDL;               <!-- FDL: do not remove -->
-
-&underGPL;        	 <!-- GPL License -->
+&underFDL;
+&underGPL;
 
 </chapter>
 
 <appendix id="installation">
 <title>Installation</title>
 
-<sect1 id="getting-konquest">
-<title>How to obtain &konquest;</title>
-
+<sect1 id="how-to-obtain-kgoldrunner">
+<title>How to Obtain &kgoldrunner;</title>
 &install.intro.documentation;
-
 </sect1>
 
-<sect1 id="requirements">
-<title>Requirements</title>
-
-<para>In order to successfully use &konquest;, you need &kde; 3.0. It
-is also reccomended that you have your X server set to over 8bpp, as
-the plants are scanned and require a rather high color depth. </para>
-
-</sect1>
-
-<sect1 id="compilation">
+<sect1 id="compilation-and-installation">
 <title>Compilation and Installation</title>
-
 &install.compile.documentation;
-
 </sect1>
 
 </appendix>
 
-&documentation.index;
+<appendix id="porting-kgoldrunner">
+<title>Porting &kgoldrunner; to Other Platforms</title>
+
+<para>&kgoldrunner; is written in C++, using &Linux; and the free-software
+version of the portable &Qt; object and &GUI; library.  The current version
+can be compiled and run with &kde; 4 and &Qt; 4.</para>
+
+<para>&kgoldrunner; depends on the &kde; libraries (kdelibs and kdegames),
+which have been ported to other platforms, and it is possible to obtain
+Open Source editions of &Qt; 4 for other platforms, so in principle it
+should be possible to compile, build and run &kgoldrunner; on platforms
+other than &Linux;.</para>
+
+</appendix>
 
 </book>
 
@@ -465,5 +1693,6 @@ Local Variables:
 mode: sgml
 sgml-omittag: nil
 sgml-shorttag: t
+sgml-general-insert-case: lower
 End:
 -->
