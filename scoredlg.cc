@@ -39,7 +39,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *play
     m_scoreTable = new QTableWidget( this );
     m_scoreTable->setColumnCount(6);
     QStringList headers;
-    headers << i18n("Player") << i18n("Ships\nBuilt") 
+    headers << i18nc("The player name", "Player") << i18n("Ships\nBuilt") 
 	    << i18n("Planets\nConquered") << i18n("Fleets\nLaunched")
 	    << i18n("Fleets\nDestroyed") << i18n("Ships\nDestroyed");
     m_scoreTable->setHorizontalHeaderLabels(headers);

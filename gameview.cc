@@ -359,9 +359,8 @@ GameView::turn()
                        "A ship leaving this turn will arrive on turn %4",
                    sourcePlanet->name(),
                    destPlanet->name(),
-                   KGlobal::locale()->formatNumber( dist, 2 ),
-                   KGlobal::locale()->formatNumber( m_gameLogic->turnNumber() 
-                                                    + (int)dist, 0 ));
+                   dist,
+                   m_gameLogic->turnNumber() + (int)dist);
             KMessageBox::information( this, msg, i18n("Distance"));
 
             m_guiState = NONE;

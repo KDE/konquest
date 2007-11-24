@@ -198,14 +198,11 @@ void PlanetInfoItem::setPlanet (Planet *planet)
     if( !planet->player()->isNeutral() ) {
         text += "<br />" + i18n("Owner: %1", planet->player()->coloredName())
           + "<br />"
-          + i18n("Ships: %1", 
-                 KGlobal::locale()->formatNumber(planet->fleet().shipCount(), 0) )
+          + i18n("Ships: %1", planet->fleet().shipCount() )
           + "<br />"
-          + i18n("Production: %1", 
-                 KGlobal::locale()->formatNumber(planet->production(), 0) )
+          + i18n("Production: %1", planet->production() )
           + "<br />"
-          + i18n("Kill percent: %1", 
-                 KGlobal::locale()->formatNumber(planet->killPercentage(), 3) );
+          + i18n("Kill percent: %1", planet->killPercentage() );
     }
     m_textDoc.setHtml(text);
 }

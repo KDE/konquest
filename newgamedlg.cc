@@ -93,7 +93,7 @@ class playersListModel : public QAbstractTableModel
                     {
                         switch (m_players.at(row).second)
                         {
-                            case Human: return i18n("Human"); break;
+                            case Human: return i18nc("A human player", "Human"); break;
                             case ComputerWeak: return i18n("Computer Weak"); break;
                             case ComputerNormal: return i18n("Computer Normal"); break;
                             case ComputerHard: return i18n("Computer Hard"); break;
@@ -108,7 +108,7 @@ class playersListModel : public QAbstractTableModel
         {
             if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
             {
-                if (section == 0) return i18n("Name");
+                if (section == 0) return i18nc("The player name", "Name");
                 else if (section == 1) return i18n("Type");
             }
             return QVariant();
@@ -130,7 +130,7 @@ class playersListModel : public QAbstractTableModel
                 else if (column == 1)
                 {
                 	QString text = value.toString();
-                	if (text == i18n("Human")) m_players[row].second = Human;
+                	if (text == i18nc("A human player", "Human")) m_players[row].second = Human;
                 	else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
                 	else if (text == i18n("Computer Normal")) m_players[row].second = ComputerNormal;
                 	else if (text == i18n("Computer Hard")) m_players[row].second = ComputerHard;
@@ -151,7 +151,7 @@ class playersListModel : public QAbstractTableModel
                 int i = 1;
                 QString name;
                 while (invalidName) {
-                    name = QString( i18n("Player %1", i) );
+                    name = QString( i18nc("Default player name is \"player \" + player number", "Player %1", i) );
                     invalidName = false;
                     for (int j = 0 ; !invalidName && j < m_players.count(); j++)
                     {
@@ -216,7 +216,7 @@ class playersListDelegate : public QItemDelegate
 		{
 			if (index.column() != 0) {
 				QComboBox *cbox = static_cast<QComboBox*>(editor);
-				cbox->addItem(i18n("Human"));
+				cbox->addItem(i18nc("A human player", "Human"));
 				cbox->addItem(i18n("Computer Weak"));
 				cbox->addItem(i18n("Computer Normal"));
 				cbox->addItem(i18n("Computer Hard"));
@@ -351,7 +351,7 @@ NewGameDlg::save()
         QString  playerName = model->data(model->index(i, 0), Qt::DisplayRole).toString();
 
         // TODO this is a bit ugly, maybe a isAI in model will be better
-        bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
+        bool ai = model->data(model->index(i, 1), Qt::DisplayRole).toString() != i18nc("A human player", "Human");
         if (ai) {
            if (config.hasKey(key))
               config.deleteEntry(key);
@@ -384,7 +384,7 @@ NewGameDlg::slotNewMap()
         QColor  color = model->data(model->index(i, 0), Qt::DecorationRole).value<QColor>();
 
         // TODO: This is a bit ugly, maybe a isAI in model will be better.
-        bool ai = model->data( model->index(i, 1), Qt::DisplayRole).toString() != i18n("Human");
+        bool ai = model->data( model->index(i, 1), Qt::DisplayRole).toString() != i18nc("A human player", "Human");
         
         // TODO: This is not going to work as changing names/player
         //       type in the table needs to change name in m_players 
