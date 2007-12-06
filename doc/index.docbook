@@ -303,7 +303,7 @@ How do I start a new game?
 </question>
 <answer>
 <para>
-Press the New button, select <menuchoice><guimenu>Game</guimenu>
+Press the <guibutton>New</guibutton> button, select <menuchoice><guimenu>Game</guimenu>
 <guimenuitem>New</guimenuitem></menuchoice> from the menubar or press 
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </para>
