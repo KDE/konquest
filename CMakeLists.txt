@@ -26,11 +26,11 @@ set(konquest_SRCS
 kde4_add_ui_files(konquest_SRCS newGameDialog.ui )
 
 set(konquest_icons
-	hi16-app-konquest.png
-	hi32-app-konquest.png
-	hi48-app-konquest.png
-	hi64-app-konquest.png
-	hi128-app-konquest.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi16-app-konquest.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi32-app-konquest.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi48-app-konquest.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi64-app-konquest.png
+	${CMAKE_CURRENT_SOURCE_DIR}/hi128-app-konquest.png
 )
 kde4_add_win32_app_icon(konquest_SRCS ${konquest_icons})
 kde4_add_executable(konquest ${konquest_SRCS})
