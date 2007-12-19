@@ -31,8 +31,7 @@
 
 #include "gamelogic.moc"
 
-#include <QtDebug>
-
+#include <QPalette>
 
 /*********************************************************************
  Game Logic

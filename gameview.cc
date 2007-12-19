@@ -21,9 +21,7 @@
  */
 #include "gameview.h"
 
-#include <QLayout>
 #include <QLabel>
-#include <QSlider>
 #include <QPushButton>
 #include <QLineEdit>
 #include <QTextEdit>
@@ -46,7 +44,6 @@
 
 #include "gameview.moc"
 
-#include <QtDebug>
 
 
 /*********************************************************************

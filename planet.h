@@ -23,7 +23,6 @@
 #define __PLANET_H__
 
 #include <QObject>
-#include <QList>
 #include "fleet.h"
 
 class Sector;

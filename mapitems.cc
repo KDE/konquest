@@ -24,12 +24,8 @@
 
 #include <QGraphicsScene>
 #include <QPainter>
-#include <QColor>
 #include <QBrush>
-#include <QPen>
-#include <QtDebug>
 #include <QTimer>
-#include <QTextDocument>
 
 #include <kiconloader.h>
 #include <kglobalsettings.h>

@@ -21,11 +21,12 @@
  */
 #include "scoredlg.h"
 
-#include <QHeaderView>
 #include <klocale.h>
 #include <kcomponentdata.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
+
+#include <QHeaderView>
 
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players )
     : KDialog(parent), m_players(players)

@@ -22,7 +22,6 @@
 #ifndef _GAMELOGIC_H_
 #define _GAMELOGIC_H_
 
-#include <QWidget>
 #include "planet.h"
 #include "player.h"
 

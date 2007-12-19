@@ -24,7 +24,6 @@
 #include <math.h>
 #include "gamecore.h"
 #include "map.moc"
-#include <QtDebug>
 
 //---------------------------------------------------------------------------
 // class Map
