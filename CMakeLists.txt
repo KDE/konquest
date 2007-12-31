@@ -25,14 +25,7 @@ set(konquest_SRCS
 
 kde4_add_ui_files(konquest_SRCS newGameDialog.ui )
 
-set(konquest_icons
-	${CMAKE_CURRENT_SOURCE_DIR}/hi16-app-konquest.png
-	${CMAKE_CURRENT_SOURCE_DIR}/hi32-app-konquest.png
-	${CMAKE_CURRENT_SOURCE_DIR}/hi48-app-konquest.png
-	${CMAKE_CURRENT_SOURCE_DIR}/hi64-app-konquest.png
-	${CMAKE_CURRENT_SOURCE_DIR}/hi128-app-konquest.png
-)
-kde4_add_win32_app_icon(konquest_SRCS ${konquest_icons})
+kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-konquest.png")
 kde4_add_executable(konquest ${konquest_SRCS})
 
 target_link_libraries(konquest  ${KDE4_KDEUI_LIBS} kdegames )
@@ -46,4 +39,5 @@ install( FILES konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES konquestui.rc  DESTINATION  ${DATA_INSTALL_DIR}/konquest )
 
 kde4_install_icons( ${ICON_INSTALL_DIR} )
+
 
