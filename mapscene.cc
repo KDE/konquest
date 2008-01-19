@@ -106,13 +106,14 @@ qreal MapScene::getSectorSize () {
 }
 
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
-    m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
-    m_renderer->render(painter, "screen", QRectF(itemsHorizontalOffset(), 0, m_map->columns()*getSectorSize(), m_map->rows()*getSectorSize()));
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
     pen.setWidth(1);
     pen.setStyle(Qt::SolidLine);
     painter->setPen(pen);
+    painter->fillRect(0, 0, width(), height(), Qt::black);
+    m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
+    m_renderer->render(painter, "screen", QRectF(itemsHorizontalOffset(), 0, m_map->columns()*getSectorSize(), m_map->rows()*getSectorSize()));
     painter->setOpacity(0.5);
     for (int i = 0 ; i <= m_map->columns() ; i++) {
         painter->drawLine(QPointF(i*getSectorSize() + itemsHorizontalOffset(), 0), QPointF(i*getSectorSize() + itemsHorizontalOffset(), m_map->rows()*getSectorSize()));
