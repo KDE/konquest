@@ -76,7 +76,7 @@ MainWindow::setupActions()
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - KAction not :-(
     m_measureAction = actionCollection()->addAction( "game_measure" );
-    m_measureAction->setIcon( KIcon("ruler") );
+    m_measureAction->setIcon( KIcon("go-jump") );
     m_measureAction->setText( i18n("&Measure Distance") );
     connect(m_measureAction, SIGNAL(triggered(bool)),
 	    m_gameView,      SLOT( measureDistance() ));
@@ -92,7 +92,7 @@ MainWindow::setupActions()
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( "game_fleets" );
-    m_fleetAction->setIcon( KIcon("launch") );
+    m_fleetAction->setIcon( KIcon("fork") );
     m_fleetAction->setText( i18n("&Fleet Overview") );
     connect(m_fleetAction, SIGNAL(triggered(bool)),
 	    m_gameView,    SLOT( showFleets() ));
