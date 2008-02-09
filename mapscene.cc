@@ -96,16 +96,11 @@ void MapScene::planetItemSelected (PlanetItem *item)
 }
 
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
-    qreal s_w = width();
-    s_w = s_w/m_map->columns();
-    qreal s_h = height();
-    s_h = s_h/m_map->rows();
-    m_sectorSize = qMin(s_w, s_h);
+    qreal m_sectorSize = getSectorSize();
+    qreal m_horizontalOffset = itemsHorizontalOffset();
 
     qreal mapWidth = m_map->columns()*m_sectorSize;
     qreal mapHeight = m_map->rows()*m_sectorSize;
-
-    m_horizontalOffset = ((width()-mapWidth)/2);
 
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
@@ -165,4 +160,16 @@ void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
         m_planetInfoItem->moveBy(0, -m_planetInfoItem->boundingRect().height());
     }
     update();
+}
+
+qreal MapScene::getSectorSize() {
+    qreal s_w = width();
+    s_w = s_w/m_map->columns();
+    qreal s_h = height();
+    s_h = s_h/m_map->rows();
+    return qMin(s_w, s_h);
+}
+
+qreal MapScene::itemsHorizontalOffset() {
+    return ((width() - m_map->columns()*getSectorSize())/2);
 }
