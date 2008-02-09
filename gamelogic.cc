@@ -31,8 +31,6 @@
 
 #include "gamelogic.moc"
 
-#include <QPalette>
-
 /*********************************************************************
  Game Logic
 *********************************************************************/
@@ -40,8 +38,6 @@
 GameLogic::GameLogic( QObject *parent )
     : QObject( parent )
 {
-    QPalette blackPal;
-
     m_map           = new Map(16, 16);
     m_neutralPlayer = Player::createNeutralPlayer(m_map);
 
