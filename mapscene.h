@@ -52,9 +52,8 @@ class MapScene: public QGraphicsScene
         
         void           drawBackground( QPainter * painter, const QRectF & rect );
         
-        int            itemsHorizontalOffset();
-        
-        qreal          getSectorSize();
+        qreal          itemsHorizontalOffset() const { return m_horizontalOffset; }
+        qreal          getSectorSize() const { return m_sectorSize; }
     signals:
         void  planetSelected( Planet * );
         
@@ -68,6 +67,8 @@ class MapScene: public QGraphicsScene
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;
         QVector<PlanetItem*> m_planetItems;
+        qreal           m_sectorSize;
+        qreal           m_horizontalOffset;
 };
 
 #endif

@@ -68,8 +68,8 @@ void PlanetItem::updatePlanet()
 
 QRectF PlanetItem::boundingRect() const
 {
-	qreal size = m_scene->getSectorSize();
-        return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
+    qreal size = m_scene->getSectorSize();
+    return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
                   m_sector->coord().x() * size,
                   size,
                   size);
