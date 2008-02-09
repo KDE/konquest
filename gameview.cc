@@ -313,7 +313,7 @@ GameView::turn()
             m_endTurnBtn->setFocus();
 
         } else {
-            m_gameMessage->setText( m_gameLogic->currentPlayer()->name() +
+            m_gameMessage->setText( m_gameLogic->currentPlayer()->coloredName() +
                                     i18n(": How many ships?") );
 
             m_shipCountEdit->setText( "" );
