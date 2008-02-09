@@ -78,6 +78,10 @@ void MapScene::mapUpdate()
     }
 }
 
+int MapScene::itemsHorizontalOffset() {
+    return (int)((width()-m_map->columns() * getSectorSize())/2);
+}
+
 void MapScene::unselectPlanet()
 {
     if (m_selectedPlanetItem) {
@@ -95,18 +99,13 @@ void MapScene::planetItemSelected (PlanetItem *item)
     emit planetSelected(item->sector()->planet());
 }
 
+qreal MapScene::getSectorSize () {
+    qreal s_w = width()/m_map->columns();
+    qreal s_h = height()/m_map->rows();
+    return qMin(s_w, s_h);
+}
+
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
-    qreal s_w = width();
-    s_w = s_w/m_map->columns();
-    qreal s_h = height();
-    s_h = s_h/m_map->rows();
-    m_sectorSize = qMin(s_w, s_h);
-
-    qreal mapWidth = m_map->columns()*m_sectorSize;
-    qreal mapHeight = m_map->rows()*m_sectorSize;
-
-    m_horizontalOffset = ((width()-mapWidth)/2);
-
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
     pen.setWidth(1);
@@ -114,14 +113,13 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     painter->setPen(pen);
     painter->fillRect(0, 0, width(), height(), Qt::black);
     m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
-    m_renderer->render(painter, "screen", QRectF(m_horizontalOffset, -5, mapWidth, mapHeight + 5));
+    m_renderer->render(painter, "screen", QRectF(itemsHorizontalOffset(), 0, m_map->columns()*getSectorSize(), m_map->rows()*getSectorSize()));
     painter->setOpacity(0.5);
-    qreal lastLine = mapWidth + m_horizontalOffset;
-    for (qreal i = m_horizontalOffset ; i <= lastLine ; i += m_sectorSize) {
-        painter->drawLine(QPointF(i, 0), QPointF(i, mapHeight));
+    for (int i = 0 ; i <= m_map->columns() ; i++) {
+        painter->drawLine(QPointF(i*getSectorSize() + itemsHorizontalOffset(), 0), QPointF(i*getSectorSize() + itemsHorizontalOffset(), m_map->rows()*getSectorSize()));
     }
-    for (qreal j = 0 ; j <= mapHeight ; j += m_sectorSize) {
-        painter->drawLine(QPointF(m_horizontalOffset, j), QPointF(mapWidth + m_horizontalOffset, j));
+    for (int j = 0 ; j <= m_map->rows() ; j++) {
+        painter->drawLine(QPointF(itemsHorizontalOffset(), j*getSectorSize()), QPointF(m_map->columns()*getSectorSize() + itemsHorizontalOffset(), j*getSectorSize()));
     }
 }
 

@@ -74,8 +74,8 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
                            col.dark(75),       col.dark(75), col.dark(), 
                            Qt::black );
     palette.setColorGroup( QPalette::Disabled, Qt::white,    Qt::black,
-                           col.light(),        col.dark(),   col, 
-                           col.dark(75),       col.dark(75), col.dark(),
+                           col.light(),        col.dark(),   col,
+                           col.dark(75),       col.dark(75), Qt::black,
                            Qt::black );
     
     blackPal.setColor( QPalette::Base, Qt::black );
@@ -265,7 +265,7 @@ GameView::turn()
             turn();
 
         } else {
-            m_shipCountEdit->hide();
+            m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
             m_gameMessage->setText( "<qt>" 
@@ -285,7 +285,7 @@ GameView::turn()
             m_guiState = SHIP_COUNT;
             turn();
         } else {
-            m_shipCountEdit->hide();
+            m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( false );
             sourcePlanet->select();
             m_gameMessage->setText( "<qt>"
@@ -304,7 +304,7 @@ GameView::turn()
             // We now have a complete fleet to send, so send it
             sendAttackFleet( sourcePlanet, destPlanet, shipCount);
 
-            m_shipCountEdit->hide();
+            m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( true );
 
             m_guiState = NONE;
@@ -317,7 +317,6 @@ GameView::turn()
                                     i18n(": How many ships?") );
 
             m_shipCountEdit->setText( "" );
-            m_shipCountEdit->show();
             m_shipCountEdit->setEnabled(true);
             m_shipCountEdit->setFocus();
 
@@ -335,7 +334,7 @@ GameView::turn()
             sourcePlanet->select();
             turn();
         } else {
-            m_shipCountEdit->hide();
+            m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
 
@@ -365,7 +364,7 @@ GameView::turn()
             turn();
         } else {
             m_gameMessage->setText( i18n("Ruler: Select ending planet.") );
-            m_shipCountEdit->hide();
+            m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( false );
             sourcePlanet->select();
 
@@ -520,7 +519,8 @@ GameView::startNewGame()
 
     // Set up the base GUI for a new game.
     m_msgWidget->clear();
-    m_shipCountEdit->hide();
+    m_shipCountEdit->show();
+    m_shipCountEdit->setEnabled(true);
     
     // If the first player is a computer, don't set the GUI...
     while (m_gameInProgress && m_gameLogic->currentPlayer()->isAiPlayer())
