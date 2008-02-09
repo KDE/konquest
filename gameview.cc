@@ -518,13 +518,21 @@ GameView::startNewGame()
     //        call to newGame->exec().  Change that.
     m_gameLogic->startNewGame();
 
-    // Set up the GUI for a new game.
+    // Set up the base GUI for a new game.
     m_msgWidget->clear();
     m_shipCountEdit->hide();
+    
+    // If the first player is a computer, don't set the GUI...
+    while (m_gameInProgress && m_gameLogic->currentPlayer()->isAiPlayer())
+    {
+        dynamic_cast<AIPlayer *>(m_gameLogic->currentPlayer())
+            ->doMove(m_gameLogic);
+        m_gameLogic->nextPlayer();
+    }
+    // Now it's a human playing...
     m_endTurnBtn->setEnabled( true );
     m_endTurnBtn->show();
     m_gameMessage->show();
-
     turn();
 
     delete newGame;
@@ -687,9 +695,6 @@ GameView::changeGameView( bool inPlay  )
 //************************************************************************
 // Player clicked the 'End Turn' button
 //************************************************************************
-
-
-// FIXME: the handling of AI players should NOT be in gameview.
 
 void
 GameView::nextPlayer()

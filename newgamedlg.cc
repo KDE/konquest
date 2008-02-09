@@ -129,12 +129,13 @@ class playersListModel : public QAbstractTableModel
                 }
                 else if (column == 1)
                 {
-                	QString text = value.toString();
-                	if (text == i18nc("A human player", "Human")) m_players[row].second = Human;
-                	else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
-                	else if (text == i18n("Computer Normal")) m_players[row].second = ComputerNormal;
-                	else if (text == i18n("Computer Hard")) m_players[row].second = ComputerHard;
-				}
+                    QString text = value.toString();
+                    if (text == i18nc("A human player", "Human")) m_players[row].second = Human;
+                    else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
+                    else if (text == i18n("Computer Normal")) m_players[row].second = ComputerNormal;
+                    else if (text == i18n("Computer Hard")) m_players[row].second = ComputerHard;
+                    result = true;
+                }
             }
 
             if (result) emit dataChanged(index, index);
@@ -258,10 +259,13 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap( m_map );
 
-    m_w->playerList->setModel(new playersListModel(this));
+    playersListModel *model = new playersListModel(this);
+
+    m_w->playerList->setModel(model);
     m_w->playerList->setItemDelegate(new playersListDelegate(this));
     m_w->playerList->header()->setResizeMode(QHeaderView::Stretch);
 
+    connect(model, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(slotNewMap()));
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
@@ -372,10 +376,11 @@ NewGameDlg::slotNewMap()
     while (!m_planets->isEmpty())
         delete m_planets->takeFirst();
 
+    m_map->resizeMap(m_w->heightSB->value(), m_w->widthSB->value());
+
     while (!m_players->isEmpty())
         delete m_players->takeFirst();
 
-    m_map->resizeMap(m_w->heightSB->value(), m_w->widthSB->value());
     // Make player list
     // Does the name already exist in the list
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
@@ -391,10 +396,8 @@ NewGameDlg::slotNewMap()
         //       without changing the map.
         m_players->append( Player::createPlayer( m_map, playerName, color, i, ai ));
     }
-    
     // make the planets
     m_map->populateMap( *m_players, m_neutral,
             m_w->neutralPlanetsSB->value(),
             *m_planets );
 }
-
