@@ -265,7 +265,6 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
     m_w->playerList->setItemDelegate(new playersListDelegate(this));
     m_w->playerList->header()->setResizeMode(QHeaderView::Stretch);
 
-    connect(model, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(slotNewMap()));
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
