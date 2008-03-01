@@ -73,10 +73,8 @@
 
 <chapter id="introduction">
 <title>Introduction</title>
-<para>
-Game type: Strategy, Board
-Number of players: Multiplayer
-</para>
+<note><title>Game type:</title><para>Strategy, Board</para></note>
+<note><title>Number of players:</title><para>Multiplayer</para></note>
 
 <para>
 &konquest; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
