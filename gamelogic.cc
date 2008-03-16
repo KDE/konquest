@@ -288,6 +288,11 @@ GameLogic::cleanupGame()
 void
 GameLogic::nextPlayer()
 {
+    foreach (Planet *planet, m_planets) {
+        if(planet->player() == *m_currentPlayer) {
+            planet->showOldShips();
+        }
+    }
     // End turn and advance to next player.
     do {
         ++m_currentPlayer;

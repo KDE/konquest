@@ -68,8 +68,8 @@ void PlanetItem::updatePlanet()
 
 QRectF PlanetItem::boundingRect() const
 {
-	qreal size = m_scene->getSectorSize();
-        return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
+    qreal size = m_scene->getSectorSize();
+    return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
                   m_sector->coord().x() * size,
                   size,
                   size);
@@ -113,8 +113,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
 
     // Show the number of ships on the planet.
     if (!m_sector->planet()->player()->isNeutral()) {
-        QString       shipCount = QString::number(m_sector->planet()->fleet()
-                                                  .shipCount());
+        QString       shipCount = QString::number(m_sector->planet()->ships());
         QFontMetrics  m = p->fontMetrics();
 
         p->drawText( sectorTopLeft + QPointF(m_scene->getSectorSize() - m.width(shipCount), m_scene->getSectorSize()),
@@ -194,7 +193,7 @@ void PlanetInfoItem::setPlanet (Planet *planet)
     if( !planet->player()->isNeutral() ) {
         text += "<br />" + i18n("Owner: %1", planet->player()->coloredName())
           + "<br />"
-          + i18n("Ships: %1", planet->fleet().shipCount() )
+          + i18n("Ships: %1", planet->ships() )
           + "<br />"
           + i18n("Production: %1", planet->production() )
           + "<br />"
