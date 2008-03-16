@@ -62,7 +62,9 @@ public:
 
     int            production() const { return m_productionRate; }
     int            planetLook() const { return m_planetLook; }
+    int            ships()      const { return m_showCurShips ? m_homeFleet.shipCount() : m_oldShips; }
 
+    void  showOldShips() { m_showCurShips=false; }
     void  select();
     void  conquer( AttackFleet *conqueringFleet );
     void  turn();
@@ -80,6 +82,8 @@ private:
     double        m_killPercentage;
     int           m_productionRate;
     int           m_planetLook;
+    int           m_oldShips;
+    bool          m_showCurShips;
 };
 
 #endif

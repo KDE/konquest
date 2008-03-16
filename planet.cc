@@ -40,6 +40,8 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_sector(sector),
     m_homeFleet( this, newProd ),
     m_killPercentage(newKillP),
+    m_oldShips(newProd),
+    m_showCurShips(true),
     m_productionRate(newProd)
 {
     KRandomSequence r;
@@ -96,5 +98,7 @@ Planet::turn()
     } else {
         m_homeFleet.addShips( 1 );
     }
+    m_oldShips = m_homeFleet.shipCount();
+    m_showCurShips = true;
     emit update();
 }

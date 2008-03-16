@@ -700,6 +700,7 @@ void
 GameView::nextPlayer()
 {
     m_gameLogic->nextPlayer();
+    m_mapScene->update();
 
     // Let the AI players do their stuff
     while (m_gameInProgress 
