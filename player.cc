@@ -140,7 +140,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
     foreach (Planet *home, *gameLogic->planets()) {
 	if (home->player() == gameLogic->currentPlayer()) {
 	    bool  hasAttack = false;
-	    ships = (int)floor(home->fleet().shipCount() * 0.7 );
+	    ships = (int)floor(home->ships() * 0.7 );
                 
 	    if (ships >= minimumShips) {
 		Planet  *attack;
@@ -152,7 +152,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
                         
 		    if (dist < minDistance
 			&&  attack->player() != gameLogic->currentPlayer()
-			&& attack->fleet().shipCount() < ships ) {
+			&& attack->ships() < ships ) {
 			foreach (AttackFleet *curFleet, gameLogic->currentPlayer()->attackList()) {
 			    if (curFleet->destination == attack) {
 				skip = true;
@@ -180,11 +180,11 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 		    foreach (attack, *gameLogic->planets()) {
 			bool    skip = false;
 			double  dist = gameLogic->map()->distance( home, attack );
-			int     homeships = (int)floor(home->fleet().shipCount() * 0.5 );
+			int     homeships = (int)floor(home->ships() * 0.5 );
                             
 			if (dist < minDistance
 			    && attack->player() == gameLogic->currentPlayer()
-			    && attack->fleet().shipCount() < homeships ) {
+			    && attack->ships() < homeships ) {
 			    foreach (AttackFleet *curFleet,
 				     gameLogic->currentPlayer()->attackList()) {
 				if (curFleet->destination == attack) {
@@ -194,8 +194,8 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 			    if (skip)
 				continue;
                                 
-			    shipsToSend = (int)floor( double(home->fleet().shipCount()
-							     - attack->fleet().shipCount()) / shipCountFactor);
+			    shipsToSend = (int)floor( double(home->ships()
+							     - attack->ships()) / shipCountFactor);
                                 
 			    target         = attack;
 			    hasDestination = true;
