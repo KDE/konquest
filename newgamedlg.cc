@@ -129,7 +129,7 @@ class playersListModel : public QAbstractTableModel
                 }
                 else if (column == 1)
                 {
-qDebug() << "Setting the player type.";
+// qDebug() << "Setting the player type.";
                     QString text = value.toString();
                     if (text == i18nc("A human player", "Human")) m_players[row].second = Human;
                     else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
