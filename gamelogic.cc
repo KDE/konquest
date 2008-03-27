@@ -191,14 +191,12 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
     // otherwise attack.
 
     if( *arrivingFleet->owner == *arrivingFleet->destination->player() ) {
-        if ( !arrivingFleet->owner->isAiPlayer() ) {
-        	arrivingFleet->destination->fleet().absorb(arrivingFleet);
+        arrivingFleet->destination->fleet().absorb(arrivingFleet);
 
-        	emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
-				    "Reinforcements (%1 ships) have arrived for planet %2.")
-			     .subs(arrivingFleet->shipCount()),
-			     0, arrivingFleet->destination);
-        }
+        emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
+                            "Reinforcements (%1 ships) have arrived for planet %2.")
+                .subs(arrivingFleet->shipCount()),
+                0, arrivingFleet->destination);
     } else {
 
         // let's get ready to rumble...
