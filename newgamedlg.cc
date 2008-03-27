@@ -129,6 +129,7 @@ class playersListModel : public QAbstractTableModel
                 }
                 else if (column == 1)
                 {
+qDebug() << "Setting the player type.";
                     QString text = value.toString();
                     if (text == i18nc("A human player", "Human")) m_players[row].second = Human;
                     else if (text == i18n("Computer Weak")) m_players[row].second = ComputerWeak;
@@ -271,6 +272,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Map *pmap, QList<Player *> *players,
     connect(m_w->rejectMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
     connect(m_w->addPlayerButton, SIGNAL(clicked()), this, SLOT(slotAddPlayer()));
     connect(m_w->removePlayerButton, SIGNAL(clicked()), this, SLOT(slotRemovePlayer()));
+    connect(model, SIGNAL(dataChanged (const QModelIndex &, const QModelIndex &)), this, SLOT(slotNewMap()));
     init();
 
     setMainWidget(m_w);
