@@ -33,7 +33,7 @@
 #include <QComboBox>
 #include <QHeaderView>
 #include <QItemDelegate>
-
+#include <QDebug>
 #include "player.h"
 #include "map.h"
 
