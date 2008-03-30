@@ -30,7 +30,7 @@
 #include <kglobal.h>
 
 #include <QLineEdit>
-#include <QComboBox>
+#include <KComboBox>
 #include <QHeaderView>
 #include <QItemDelegate>
 #include <QDebug>
@@ -211,13 +211,13 @@ class playersListDelegate : public QItemDelegate
 			if (index.column() == 0)
 				return new QLineEdit(parent);
 			else
-				return new QComboBox(parent);
+				return new KComboBox(parent);
 		}
 		
 		void setEditorData(QWidget *editor, const QModelIndex &index) const
 		{
 			if (index.column() != 0) {
-				QComboBox *cbox = static_cast<QComboBox*>(editor);
+				KComboBox *cbox = static_cast<KComboBox*>(editor);
 				cbox->addItem(i18nc("A human player", "Human"));
 				cbox->addItem(i18n("Computer Weak"));
 				cbox->addItem(i18n("Computer Normal"));
@@ -233,7 +233,7 @@ class playersListDelegate : public QItemDelegate
 		void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 		{
 			if (index.column() != 0) {
-				QComboBox *cbox = static_cast<QComboBox*>(editor);
+				KComboBox *cbox = static_cast<KComboBox*>(editor);
 			
 				model->setData(index, cbox->currentText(), Qt::EditRole);
 			} else {
