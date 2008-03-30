@@ -19,6 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+#include <cmath>
+
 #include "gameview.h"
 
 #include <QLabel>
@@ -357,7 +359,7 @@ GameView::turn()
                    sourcePlanet->name(),
                    destPlanet->name(),
                    dist,
-                   m_gameLogic->turnNumber() + (int)dist);
+                   m_gameLogic->turnNumber() + (int)std::ceil(dist));
             KMessageBox::information( this, msg, i18n("Distance"));
 
             m_guiState = NONE;
@@ -772,7 +774,19 @@ void
 GameView::showFleets()
 {
     FleetDlg  *fleetDlg = new FleetDlg( this, &(m_gameLogic->currentPlayer()
-						->attackList()) );
-    fleetDlg->exec();
+                                                ->attackList()),
+                                              &(m_gameLogic->currentPlayer()
+                                                ->newAttacks()) );
+    if(fleetDlg->exec()) {
+        AttackFleetList &newAttacks = m_gameLogic->currentPlayer()->newAttacks();
+        AttackFleetList *deleteAttacks = fleetDlg->uncheckedFleets();
+        foreach(AttackFleet *curFleet, *deleteAttacks) {
+            curFleet->source->fleet().absorb(curFleet);
+            newAttacks.removeAll(curFleet);
+        }
+        delete deleteAttacks;
+        m_mapScene->update();
+    }
+
     delete fleetDlg;
 }

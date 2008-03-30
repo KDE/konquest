@@ -21,7 +21,7 @@
  */
 #include "player.h"
 
-#include <math.h>
+#include <cmath>
 
 #include <qdebug.h>
 
@@ -86,15 +86,16 @@ bool
 Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
 		   int shipCount, int turn )
 {
-    double       arrival = m_map->distance( sourcePlanet, destPlanet ) + turn;
+    int          arrival = int(std::ceil(
+                           m_map->distance( sourcePlanet, destPlanet )
+                           )) + turn;
     AttackFleet *fleet;
 
     fleet = sourcePlanet->fleet().spawnAttackFleet( destPlanet, shipCount, 
 						    arrival );
-    if( fleet ) {
-        m_attackList.append(fleet);
 
-        statFleetsLaunched( 1 );
+    if( fleet ) {
+        m_newAttacks.append(fleet);
 
         return true;
     }

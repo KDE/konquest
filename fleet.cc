@@ -42,9 +42,8 @@ Fleet::removeShips( int lostShips )
     m_shipCount -= lostShips;
 }
 
-AttackFleet::AttackFleet( Planet *source, Planet *dest, int initialCount, double arrival )
-: Fleet( initialCount ), owner( source->player() ), destination( dest ), arrivalTurn( arrival ),
-killPercentage( source->killPercentage() )
+AttackFleet::AttackFleet( Planet *src, Planet *dest, int initialCount, int arrival )
+: Fleet( initialCount ), owner( src->player() ), source( src ), destination( dest ), arrivalTurn( arrival )
 {
 }
 
@@ -66,7 +65,7 @@ DefenseFleet::become( AttackFleet *fleet )
 
 
 AttackFleet *
-DefenseFleet::spawnAttackFleet( Planet *dest, int count, double arrivalTurn )
+DefenseFleet::spawnAttackFleet( Planet *dest, int count, int arrivalTurn )
 {
     if( m_shipCount < count ) {
         return NULL;

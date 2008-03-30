@@ -54,12 +54,12 @@ class AttackFleet : public Fleet
 {
     Q_OBJECT
 public:
-    AttackFleet( Planet *source, Planet *dest, int initialCount, double arrivalTurn  );
+    AttackFleet( Planet *src, Planet *dest, int initialCount, int arrivalTurn );
 
     Player  *owner;
+    Planet  *source;
     Planet  *destination;
-    double   arrivalTurn;
-    double   killPercentage;
+    int      arrivalTurn;
 };
 
 
@@ -75,7 +75,7 @@ public:
 
     void addShips( int newShips );
     
-    AttackFleet *spawnAttackFleet( Planet *destination, int shipCount, double arrivalTurn );
+    AttackFleet *spawnAttackFleet( Planet *destination, int shipCount, int arrivalTurn );
 
     Planet *home;
 signals:

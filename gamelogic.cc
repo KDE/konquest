@@ -21,8 +21,6 @@
  */
 #include "gamelogic.h"
 
-#include <math.h>
-
 #include <klocale.h>
 
 #include "gamecore.h"
@@ -94,10 +92,11 @@ GameLogic::resolveShipsInFlight()
     AttackFleetList  arrivingShips;
 
     foreach (Player *player, m_players) {
+        player->attackList() += player->newAttacks();
+        player->statFleetsLaunched( player->newAttacks().size() );
+        player->newAttacks().clear();
         foreach (AttackFleet *fleet, player->attackList()) {
-            double  fleetArrivalTurn = floor(fleet->arrivalTurn);
-
-            if( m_turnNumber == int (fleetArrivalTurn) ) {
+            if( m_turnNumber == fleet->arrivalTurn ) {
                 doFleetArrival( fleet );
                 player->attackList().removeAll( fleet );
                 delete fleet;
@@ -192,8 +191,8 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
 
     if( *arrivingFleet->owner == *arrivingFleet->destination->player() ) {
         arrivingFleet->destination->fleet().absorb(arrivingFleet);
-
-        emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
+	if ( !arrivingFleet->owner->isAiPlayer() )
+	    emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
                             "Reinforcements (%1 ships) have arrived for planet %2.")
                 .subs(arrivingFleet->shipCount()),
                 0, arrivingFleet->destination);
@@ -202,9 +201,10 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
         // let's get ready to rumble...
 
         CoreLogic      cl;
-        AttackFleet   &attacker    = *arrivingFleet;
-        DefenseFleet  &defender    = arrivingFleet->destination->fleet();
-        Planet        &prizePlanet = *(arrivingFleet->destination);
+        AttackFleet   &attacker       = *arrivingFleet;
+        Planet        &attackerPlanet = *(attacker.source);
+        Planet        &defenderPlanet = *(attacker.destination);
+        DefenseFleet  &defender       = defenderPlanet.fleet();
 
         bool  haveVictor  = false;
         bool  planetHolds = true;
@@ -213,8 +213,9 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
             double  attackerRoll = cl.roll();
             double  defenderRoll = cl.roll();
 
-            if( defenderRoll < prizePlanet.killPercentage() ) {
+            if( defenderRoll < defenderPlanet.killPercentage() ) {
                 attacker.removeShips( 1 );
+                defenderPlanet.player()->statEnemyShipsDestroyed( 1 );
             }
 
             if( attacker.shipCount() <= 0 ) {
@@ -223,7 +224,7 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
                 continue;
             }
 
-            if( attackerRoll < attacker.killPercentage ) {
+            if( attackerRoll < attackerPlanet.killPercentage() ) {
                 defender.removeShips( 1 );
                 attacker.owner->statEnemyShipsDestroyed( 1 );
             }
@@ -235,17 +236,17 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
         }
 
         if( planetHolds ) {
-            prizePlanet.player()->statEnemyFleetsDestroyed(1);
+            defenderPlanet.player()->statEnemyFleetsDestroyed(1);
             emit gameMsg(ki18n("Planet %2 has held against an attack from %1."),
-			 attacker.owner, &prizePlanet);
+			 attacker.owner, &defenderPlanet);
         } else {
-            Player  *defender = prizePlanet.player();
+            Player  *defender = defenderPlanet.player();
             attacker.owner->statEnemyFleetsDestroyed( 1 );
 
-            arrivingFleet->destination->conquer( arrivingFleet );
+            defenderPlanet.conquer( &attacker );
 
             emit gameMsg(ki18n("Planet %2 has fallen to %1."),
-			 attacker.owner, &prizePlanet, defender);
+			 attacker.owner, &defenderPlanet, defender);
         }
     }
 }

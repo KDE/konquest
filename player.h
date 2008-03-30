@@ -52,6 +52,7 @@ public:
     QColor& color()             { return m_color; }
     bool    isNeutral()   const { return m_playerNum == NEUTRAL_PLAYER_NUMBER; }
     AttackFleetList &attackList() { return m_attackList; }
+    AttackFleetList &newAttacks() { return m_newAttacks; }
 
     // factory functions
     static Player *createPlayer( Map *map, const QString &name, 
@@ -91,6 +92,8 @@ private:
 
     // Attack fleets sent by this player that are still moving
     AttackFleetList  m_attackList;
+    // Fleets to send at the end of this turn
+    AttackFleetList  m_newAttacks;
 
     // statistics counters
     int  m_shipsBuilt;

@@ -36,8 +36,8 @@
 #include "planet.h"
 
 
-FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
-    : KDialog(parent), m_fleetList(fleets)
+FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets, AttackFleetList *newFleets )
+    : KDialog(parent), m_newFleetList(newFleets), m_fleetList(fleets)
 {
     setObjectName( "FleetDlg" );
     setModal( true );
@@ -45,9 +45,9 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     setButtons( KDialog::Ok );
 
     m_fleetTable = new QTableWidget( this );
-    m_fleetTable->setColumnCount( 5 );
+    m_fleetTable->setColumnCount( 6 );
     QStringList labels;
-    labels << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
+    labels << "" << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
 	   << i18n("Kill Percentage") << i18n("Arrival Turn");
     m_fleetTable->setHorizontalHeaderLabels( labels );
     m_fleetTable->verticalHeader()->hide();
@@ -62,38 +62,69 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets )
     resize( 580, 140  );
 
     m_fleetTable->setSortingEnabled(true);
-    m_fleetTable->sortItems( 0, Qt::AscendingOrder );
+    m_fleetTable->sortItems( 1, Qt::AscendingOrder );
 }
 
 void
 FleetDlg::init()
 {
     AttackFleet  *curFleet=0;
+    AttackFleetList fleets = *m_newFleetList + *m_fleetList;
+    int newFleets = m_newFleetList->count();
 
-    m_fleetTable->setRowCount( m_fleetList->count() );
+    m_fleetTable->setRowCount( fleets.count() );
     QTableWidgetItem *item;
     
-    for( int f = 0; f < m_fleetList->count(); ++f) {
-        curFleet = m_fleetList->at(f);
+    for( int f = 0; f < fleets.count(); ++f) {
+        curFleet = fleets.at(f);
         
-        item = new QTableWidgetItem(QString::number(f + 1));
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item = new QTableWidgetItem();
+        if( f < newFleets) {
+          item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
+          item->setCheckState(Qt::Checked);
+        } else {
+          item->setFlags(Qt::ItemIsEnabled);
+        }
         m_fleetTable->setItem( f, 0, item );
-        
-        item = new QTableWidgetItem(curFleet->destination->name());
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+
+        item = new QTableWidgetItem(QString::number(f + 1));
+        item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 1, item );
         
-        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item = new QTableWidgetItem(curFleet->destination->name());
+        item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 2, item );
         
-        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->killPercentage, 3)));
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
+        item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 3, item );
         
-        item = new QTableWidgetItem(QString::number((int)ceil(curFleet->arrivalTurn)));
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
+        item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 4, item );
+        
+        item = new QTableWidgetItem(QString::number(curFleet->arrivalTurn));
+        item->setFlags(Qt::ItemIsEnabled);
+        m_fleetTable->setItem( f, 5, item );
     }
+}
+
+
+AttackFleetList *FleetDlg::uncheckedFleets() {
+
+    AttackFleetList *fleets = new AttackFleetList();
+    QTableWidgetItem *item;
+    int count = m_fleetTable->rowCount();
+    
+    for( int f = 0; f < count; ++f) {
+        item = m_fleetTable->item(f,0);
+        if( (item->flags() & Qt::ItemIsUserCheckable) &&
+            (item->checkState() == Qt::Unchecked) ) {
+
+            int pos = m_fleetTable->item(f,1)->text().toInt();
+            if(pos>0) fleets->append( m_newFleetList->at(pos-1) );
+        }
+    }
+
+    return fleets;
 }
