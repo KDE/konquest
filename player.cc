@@ -22,6 +22,7 @@
 #include "player.h"
 
 #include <cmath>
+using std::floor;
 
 #include <qdebug.h>
 
