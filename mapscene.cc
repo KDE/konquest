@@ -82,6 +82,7 @@ void MapScene::unselectPlanet()
 {
     if (m_selectedPlanetItem) {
         m_selectedPlanetItem->unselect();
+        m_selectedPlanetItem = NULL;
     }
 }
 
