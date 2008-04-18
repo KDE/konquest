@@ -37,7 +37,7 @@ main(int argc, char **argv)
 {
     KAboutData aboutData( "konquest", 0, ki18n("Konquest"),
         KONQUEST_VERSION, ki18n(description), KAboutData::License_GPL,
-        ki18n("Copyright (c) 1999-2006, Developers"));
+        ki18n("Copyright (c) 1999-2006, Developers"), KLocalizedString(), "http://games.kde.org/konquest" );
 
     aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
     aboutData.addCredit(ki18n("Stephan Zehetner"), ki18n("Computer/AI Player"), "s.zehetner@nevox.org");
