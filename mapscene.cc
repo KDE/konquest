@@ -63,6 +63,7 @@ void MapScene::mapUpdate()
         delete item;
     }
     m_planetInfoItem = NULL;
+    m_selectedPlanetItem = NULL;
     for (int i = 0 ; i < m_map->rows() ; i++) {
         for (int j = 0 ; j < m_map->columns() ; j++) {
             sector = m_map->sector(Coordinate(j, i));
