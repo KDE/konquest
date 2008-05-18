@@ -110,7 +110,7 @@
         <item row="1" column="1" >
          <widget class="QSpinBox" name="widthSB" >
           <property name="maximum" >
-           <number>25</number>
+           <number>30</number>
           </property>
           <property name="minimum" >
            <number>10</number>
@@ -123,7 +123,7 @@
         <item row="2" column="1" >
          <widget class="QSpinBox" name="heightSB" >
           <property name="maximum" >
-           <number>25</number>
+           <number>30</number>
           </property>
           <property name="minimum" >
            <number>10</number>
