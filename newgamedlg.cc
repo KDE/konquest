@@ -29,7 +29,7 @@
 #include <KStandardGuiItem>
 #include <kglobal.h>
 
-#include <QLineEdit>
+#include <KLineEdit>
 #include <KComboBox>
 #include <QHeaderView>
 #include <QItemDelegate>
@@ -209,7 +209,7 @@ class playersListDelegate : public QItemDelegate
 		QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 		{
 			if (index.column() == 0)
-				return new QLineEdit(parent);
+				return new KLineEdit(parent);
 			else
 				return new KComboBox(parent);
 		}
@@ -225,7 +225,7 @@ class playersListDelegate : public QItemDelegate
 				
 				cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
 			} else {
-				QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
+				KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
 				lineEdit->setText(index.data(Qt::DisplayRole).toString());
 			}
 		}
@@ -237,7 +237,7 @@ class playersListDelegate : public QItemDelegate
 			
 				model->setData(index, cbox->currentText(), Qt::EditRole);
 			} else {
-				QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
+				KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
 				
 				model->setData(index, lineEdit->text(), Qt::EditRole);
 			}
