@@ -37,7 +37,13 @@ MapScene::MapScene (Map *map)
     m_planetInfoItem(NULL)
 {
     m_renderer = new KSvgRenderer(IMAGES_SVG);
+    m_pixmapCache = new KPixmapCache("konquest-pixmaps");
     connect( m_map, SIGNAL( mapPopulated() ), this, SLOT( mapUpdate() ) );
+}
+
+MapScene::~MapScene ()
+{
+    delete m_pixmapCache;
 }
 
 void MapScene::selectPlanet(Planet *planet)

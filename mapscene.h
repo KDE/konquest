@@ -24,7 +24,7 @@
 
 
 #include <KSvgRenderer>
-
+#include <KPixmapCache>
 #include <QGraphicsScene>
 #include "mapitems.h"
 
@@ -40,9 +40,10 @@ class MapScene: public QGraphicsScene
 
     public:
         explicit MapScene(Map *map);
-        ~MapScene() {}
+        ~MapScene();
 
         KSvgRenderer  *renderer() const  { return m_renderer; }
+        KPixmapCache  *pixmapCache() const  { return m_pixmapCache; }
         Map           *map()      const  { return m_map; }
 
         void           selectPlanet(Planet *planet);
@@ -64,6 +65,7 @@ class MapScene: public QGraphicsScene
     private:
         Map             *m_map;
         KSvgRenderer    *m_renderer;
+        KPixmapCache    *m_pixmapCache;
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;
         QVector<PlanetItem*> m_planetItems;

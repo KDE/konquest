@@ -49,6 +49,9 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
       m_selected(false),
       m_blinkState(false)
 {
+    if (m_sector->planet() != NULL) {
+        m_lookName = QString("planet_%1").arg(m_sector->planet()->planetLook() + 1);
+    }
     setAcceptsHoverEvents(true);
     
     m_blinkTimer = new QTimer(this);
@@ -61,6 +64,7 @@ void PlanetItem::updatePlanet()
 {
     Planet  *planet = m_sector->planet();
     if (planet != NULL) {
+        m_lookName = QString("planet_%1").arg(planet->planetLook() + 1);
         update();
     }
 }
@@ -91,9 +95,23 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     }
 
     // Display the planet
-    int  planetLook = m_sector->planet()->planetLook();
-    m_scene->renderer()->render(p, QString("planet_%1").arg(planetLook + 1),
-                                boundingRect());
+    qreal size = m_scene->getSectorSize();
+    QRectF pixSize(0, 0, size, size);
+    QPixmap pix(size, size);
+    if (!m_scene->pixmapCache()->find(m_lookName, pix)) {
+        QPixmap alpha(size, size);
+        QPainter *alphaPainter = new QPainter(&alpha);
+        alphaPainter->fillRect(pixSize, Qt::black);
+        delete alphaPainter;
+        pix.setAlphaChannel(alpha);
+        
+        QPainter *pixPainter = new QPainter(&pix);
+        
+        m_scene->renderer()->render(pixPainter, m_lookName, pixSize);
+        delete pixPainter;
+        m_scene->pixmapCache()->insert(m_lookName, pix);
+    }
+    p->drawPixmap(QPointF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(), m_sector->coord().x() * size), pix);
     
     if ( m_hovered || (m_selected && m_blinkState) ) {
         QBrush  backBrush = p->brush();

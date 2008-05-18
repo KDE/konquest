@@ -65,6 +65,7 @@ private:
         bool       m_selected;
         bool       m_blinkState;
         QTimer    *m_blinkTimer;
+        QString    m_lookName;
 };
 
 
