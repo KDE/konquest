@@ -30,7 +30,7 @@ kde4_add_executable(konquest ${konquest_SRCS})
 
 target_link_libraries(konquest  ${KDE4_KDEUI_LIBS} kdegames )
 
-install(TARGETS konquest  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
