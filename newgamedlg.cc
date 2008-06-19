@@ -161,7 +161,7 @@ qDebug() << "Setting the player type.";
                     }
                     i++;
                 }
-                beginInsertRows(QModelIndex(), players, players + 1);
+                beginInsertRows(QModelIndex(), players, players);
                 m_players << QPair<QString, Player>( name, Human );
                 endInsertRows();
             }
