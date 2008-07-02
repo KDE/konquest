@@ -1,2 +1,2 @@
 #! /bin/sh
-$XGETTEXT rc.cpp *.cc -o $podir/konquest.pot
+$XGETTEXT *.cc -o $podir/konquest.pot
