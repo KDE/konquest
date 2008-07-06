@@ -98,18 +98,16 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     qreal size = m_scene->getSectorSize();
     QRectF pixSize(0, 0, size, size);
     QPixmap pix(size, size);
-    if (!m_scene->pixmapCache()->find(m_lookName, pix)) {
+    QString sizedLookName = m_lookName + size;
+    if (!m_scene->pixmapCache()->find(sizedLookName, pix)) {
         QPixmap alpha(size, size);
-        QPainter *alphaPainter = new QPainter(&alpha);
-        alphaPainter->fillRect(pixSize, Qt::black);
-        delete alphaPainter;
+        QPainter alphaPainter(&alpha);
+        alphaPainter.fillRect(pixSize, Qt::black);
         pix.setAlphaChannel(alpha);
         
-        QPainter *pixPainter = new QPainter(&pix);
-        
-        m_scene->renderer()->render(pixPainter, m_lookName, pixSize);
-        delete pixPainter;
-        m_scene->pixmapCache()->insert(m_lookName, pix);
+        QPainter pixPainter(&pix);
+        m_scene->renderer()->render(&pixPainter, m_lookName, pixSize);
+        m_scene->pixmapCache()->insert(sizedLookName, pix);
     }
     p->drawPixmap(QPointF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(), m_sector->coord().x() * size), pix);
     

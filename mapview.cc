@@ -40,7 +40,6 @@ MapView::MapView( MapScene* scene, QWidget *parent )
 void MapView::resizeEvent( QResizeEvent* ev )
 {
     m_scene->setSceneRect(QRectF(0, 0, ev->size().width(), ev->size().height()));
-    m_scene->pixmapCache()->discard();
     QGraphicsView::resizeEvent(ev);
 }
 

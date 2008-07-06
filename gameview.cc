@@ -80,6 +80,11 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
                            Qt::black );
     
     blackPal.setColor( QPalette::Base, Qt::black );
+    blackPal.setColor( QPalette::Window, Qt::black );
+    blackPal.setColor( QPalette::Button, QColor(Qt::darkGray).darker() );
+    blackPal.setColor( QPalette::Text, Qt::white );
+    blackPal.setColor( QPalette::ButtonText, Qt::white );
+    blackPal.setColor( QPalette::WindowText, Qt::white );
 
     m_neutralPlayer = Player::createNeutralPlayer( m_gameLogic->map() );
 
