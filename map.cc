@@ -24,7 +24,6 @@
 #include <math.h>
 #include "gamecore.h"
 #include "map.moc"
-
 //---------------------------------------------------------------------------
 // class Map
 //---------------------------------------------------------------------------
@@ -59,6 +58,7 @@ void Map::resizeMap (int rowsCount, int columnsCount)
 Map::~Map()
 {
 }
+
 
 
 void

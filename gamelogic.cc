@@ -45,7 +45,7 @@ GameLogic::GameLogic( QObject *parent )
 
 GameLogic::~GameLogic()
 {
-    // Nothing much to do yet
+    delete m_map;
 }
 
 

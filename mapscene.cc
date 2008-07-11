@@ -44,6 +44,7 @@ MapScene::MapScene (Map *map)
 MapScene::~MapScene ()
 {
     delete m_pixmapCache;
+    delete m_renderer;
 }
 
 void MapScene::selectPlanet(Planet *planet)
