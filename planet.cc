@@ -40,9 +40,9 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_sector(sector),
     m_homeFleet( this, newProd ),
     m_killPercentage(newKillP),
+    m_productionRate(newProd),
     m_oldShips(newProd),
-    m_showCurShips(true),
-    m_productionRate(newProd)
+    m_showCurShips(true)
 {
     KRandomSequence r;
     m_planetLook = r.getLong(9);
