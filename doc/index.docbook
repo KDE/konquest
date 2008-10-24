@@ -88,10 +88,10 @@ other player's planets. &konquest; can be played against other people or a compu
 <title>How to Play</title>
 
 <para>
-When you start &konquest;, press <guibutton>New</guibutton> to start a new game
-you will see a dialog in which you need to enter player names, decide the number of
+When you start &konquest;, press <guibutton>New</guibutton> to start a new game.
+You will see a dialog in which you need to enter player names, decide the number of
 planets, and how many turns are allowed. You can also use the reject button to get a
-new map. When you're done, click <guibutton>OK</guibutton> to start the game.
+new map. When you are done, click <guibutton>OK</guibutton> to start the game.
 </para>
 
 <para>
