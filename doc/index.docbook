@@ -213,7 +213,7 @@ standings for all players</para></listitem>
 <guimenu>Game</guimenu>
 <guimenuitem>Fleet Overview</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Opens</action> a window to display detailed informations 
+<listitem><para><action>Opens</action> a window to display detailed information 
 for all fleets</para></listitem>
 </varlistentry>
 
