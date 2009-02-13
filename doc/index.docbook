@@ -296,21 +296,6 @@ change the keyboard shortcuts used by &konquest;.</para>
 <qandaentry>
 <question>
 <para>
-How do I start a new game?
-</para>
-</question>
-<answer>
-<para>
-Press the <guibutton>New</guibutton> button, select <menuchoice><guimenu>Game</guimenu>
-<guimenuitem>New</guimenuitem></menuchoice> from the menubar or press 
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
-</para>
-</answer>
-</qandaentry>
-
-<qandaentry>
-<question>
-<para>
 Can I redirect ships once they have left a planet?
 </para>
 </question>
@@ -411,7 +396,6 @@ No, that is not possible at the moment.
 </para>
 </answer>
 </qandaentry>
-
 
 </qandaset>
 </chapter>
