@@ -213,7 +213,7 @@ standings for all players</para></listitem>
 <guimenu>Game</guimenu>
 <guimenuitem>Fleet Overview</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Opens</action> a window to display detailed informations 
+<listitem><para><action>Opens</action> a window to display detailed information 
 for all fleets</para></listitem>
 </varlistentry>
 
@@ -292,21 +292,6 @@ change the keyboard shortcuts used by &konquest;.</para>
 <chapter id="faq">
 <title>Frequently Asked Questions</title>
 <qandaset>
-
-<qandaentry>
-<question>
-<para>
-How do I start a new game?
-</para>
-</question>
-<answer>
-<para>
-Press the <guibutton>New</guibutton> button, select <menuchoice><guimenu>Game</guimenu>
-<guimenuitem>New</guimenuitem></menuchoice> from the menubar or press 
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
-</para>
-</answer>
-</qandaentry>
 
 <qandaentry>
 <question>
@@ -411,7 +396,6 @@ No, that is not possible at the moment.
 </para>
 </answer>
 </qandaentry>
-
 
 </qandaset>
 </chapter>
