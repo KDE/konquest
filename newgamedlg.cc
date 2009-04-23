@@ -322,6 +322,7 @@ NewGameDlg::slotAddPlayer()
     model->addPlayer();
 
     slotNewMap();
+    enableButtonOk(model->rowCount() > 0);
 }
 
 void
@@ -331,6 +332,7 @@ NewGameDlg::slotRemovePlayer()
     model->removePlayer(m_w->playerList->currentIndex().row());
 
     slotNewMap();
+    enableButtonOk(model->rowCount() > 0);
 }
 
 void
