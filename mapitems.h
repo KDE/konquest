@@ -34,7 +34,7 @@ class MapScene;
 class PlanetItem : public QObject, public QGraphicsItem
 {
     Q_OBJECT
-
+    Q_INTERFACES(QGraphicsItem)
 public:
     PlanetItem(MapScene *scene, Sector *sector);
     ~PlanetItem() {}
