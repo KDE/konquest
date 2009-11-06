@@ -53,7 +53,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
         m_lookName = QString("planet_%1").arg(m_sector->planet()->planetLook() + 1);
     }
     setAcceptsHoverEvents(true);
-    
+
     m_blinkTimer = new QTimer(this);
     connect(m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkPlanet()));
     connect(m_sector,     SIGNAL(update()),  this, SLOT(updatePlanet()));
@@ -104,13 +104,13 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
         QPainter alphaPainter(&alpha);
         alphaPainter.fillRect(pixSize, Qt::black);
         pix.setAlphaChannel(alpha);
-        
+
         QPainter pixPainter(&pix);
         m_scene->renderer()->render(&pixPainter, m_lookName, pixSize);
         m_scene->pixmapCache()->insert(sizedLookName, pix);
     }
     p->drawPixmap(QPointF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(), m_sector->coord().x() * size), pix);
-    
+
     if ( m_hovered || (m_selected && m_blinkState) ) {
         QBrush  backBrush = p->brush();
 
@@ -121,10 +121,10 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
         p->fillRect(boundingRect(), backBrush );
         p->setOpacity(1);
     }
-    
+
     // Show the name of the planet.
     QPointF  sectorTopLeft(m_sector->coord().y() * m_scene->getSectorSize() + m_scene->itemsHorizontalOffset(),
-						   m_sector->coord().x() * m_scene->getSectorSize());
+                           m_sector->coord().x() * m_scene->getSectorSize());
     p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
 
     // Show the number of ships on the planet.
@@ -224,9 +224,9 @@ QRectF PlanetInfoItem::boundingRect() const
     return QRectF(0, 0, m_textDoc.idealWidth(), m_textDoc.size().height());
 }
 
-void PlanetInfoItem::paint(QPainter *p, 
-                           const QStyleOptionGraphicsItem */*option*/, 
-                           QWidget */*widget*/)
+void PlanetInfoItem::paint(QPainter *p,
+                           const QStyleOptionGraphicsItem * /*option*/,
+                           QWidget * /*widget*/)
 {
     QBrush  brush = p->brush();
 
@@ -234,9 +234,9 @@ void PlanetInfoItem::paint(QPainter *p,
     brush.setStyle(Qt::SolidPattern);
 
     p->setOpacity(0.7);
-    p->fillRect(QRectF(0, 0, 
+    p->fillRect(QRectF(0, 0,
                        m_textDoc.idealWidth() + 1,
-                       m_textDoc.size().height() + 1), 
+                       m_textDoc.size().height() + 1),
                 brush);
     p->setOpacity(1.0);
 
