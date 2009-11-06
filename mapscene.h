@@ -50,18 +50,20 @@ class MapScene: public QGraphicsScene
         void           unselectPlanet();
         void           displayPlanetInfo(Planet *planet, const QPointF & pos);
         void           displayPlanetInfo(Planet *planet);
-        
+
         void           drawBackground( QPainter * painter, const QRectF & rect );
-        
+
         qreal          itemsHorizontalOffset();
         qreal          getSectorSize();
+
+        void           resizeScene(const QRectF& rect);
     signals:
         void  planetSelected( Planet * );
-        
+
     private slots:
         void  mapUpdate();
         void  planetItemSelected (PlanetItem *);
-        
+
     private:
         Map             *m_map;
         KSvgRenderer    *m_renderer;
@@ -69,6 +71,9 @@ class MapScene: public QGraphicsScene
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;
         QVector<PlanetItem*> m_planetItems;
+
+        qreal m_width;
+        qreal m_height;
 };
 
 #endif

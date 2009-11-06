@@ -34,7 +34,9 @@ MapScene::MapScene (Map *map)
   : QGraphicsScene(),
     m_map(map),
     m_selectedPlanetItem(NULL),
-    m_planetInfoItem(NULL)
+    m_planetInfoItem(NULL),
+    m_width(width()),
+    m_height(height())
 {
     m_renderer = new KSvgRenderer(IMAGES_SVG);
     m_pixmapCache = new KPixmapCache("konquest-pixmaps");
@@ -45,6 +47,14 @@ MapScene::~MapScene ()
 {
     delete m_pixmapCache;
     delete m_renderer;
+}
+
+void MapScene::resizeScene(const QRectF& rect)
+{
+    m_width = rect.width();
+    m_height = rect.height();
+
+    setSceneRect(rect);
 }
 
 void MapScene::selectPlanet(Planet *planet)
@@ -62,7 +72,7 @@ void MapScene::mapUpdate()
 {
     QGraphicsItem  *item;
     Sector         *sector;
-    
+
     while (items().count() > 0) {
         item = items()[0];
         removeItem(item);
@@ -76,7 +86,7 @@ void MapScene::mapUpdate()
             sector = m_map->sector(Coordinate(j, i));
             if (sector->hasPlanet()) {
                 PlanetItem *item = new PlanetItem(this, sector);
-                connect(item, SIGNAL(planetItemSelected (PlanetItem *)), 
+                connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
                         this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
                 addItem(item);
@@ -105,6 +115,9 @@ void MapScene::planetItemSelected (PlanetItem *item)
 }
 
 void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
+    // NOTE: without this line, background is black when using Qt 4.6! Qt bug?
+    painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
+
     qreal m_sectorSize = getSectorSize();
     qreal m_horizontalOffset = itemsHorizontalOffset();
 
@@ -116,8 +129,8 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     pen.setWidth(1);
     pen.setStyle(Qt::SolidLine);
     painter->setPen(pen);
-    painter->fillRect(0, 0, width(), height(), Qt::black);
-    m_renderer->render(painter, "background", QRectF(0, 0, width(), height()));
+    painter->fillRect(0, 0, m_width, m_height, Qt::black);
+    m_renderer->render(painter, "background", QRectF(0, 0, m_width, m_height));
     m_renderer->render(painter, "screen", QRectF(m_horizontalOffset, -5, mapWidth, mapHeight + 5));
     painter->setOpacity(0.5);
     qreal lastLine = mapWidth + m_horizontalOffset;
@@ -135,7 +148,7 @@ void MapScene::displayPlanetInfo (Planet *planet)
         m_planetInfoItem->hide();
         return;
     }
-    
+
     if (planet) {
         QPointF pos(planet->sector()->coord().y() * getSectorSize() + itemsHorizontalOffset(),
                     planet->sector()->coord().x() * getSectorSize());
@@ -162,23 +175,23 @@ void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
     m_planetInfoItem->moveBy( pos.x()-m_planetInfoItem->x(),
                               pos.y()-m_planetInfoItem->y() );
     // Move to stay in the game field.
-    if (pos.x() > width()/2) {
+    if (pos.x() > m_width/2) {
         m_planetInfoItem->moveBy(-m_planetInfoItem->boundingRect().width(), 0);
     }
-    if (pos.y() > height()/2) {
+    if (pos.y() > m_height/2) {
         m_planetInfoItem->moveBy(0, -m_planetInfoItem->boundingRect().height());
     }
     update();
 }
 
 qreal MapScene::getSectorSize() {
-    qreal s_w = width();
+    qreal s_w = m_width;
     s_w = s_w/m_map->columns();
-    qreal s_h = height();
+    qreal s_h = m_height;
     s_h = s_h/m_map->rows();
     return qMin(s_w, s_h);
 }
 
 qreal MapScene::itemsHorizontalOffset() {
-    return ((width() - m_map->columns()*getSectorSize())/2);
+    return ((m_width - m_map->columns()*getSectorSize())/2);
 }
