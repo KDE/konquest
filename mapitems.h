@@ -36,7 +36,7 @@ class PlanetItem : public QObject, public QGraphicsItem
     Q_OBJECT
 #if QT_VERSION >= 0x040600
     Q_INTERFACES(QGraphicsItem)
-#endif    
+#endif
 public:
     PlanetItem(MapScene *scene, Sector *sector);
     ~PlanetItem() {}
@@ -58,6 +58,9 @@ signals:
 private slots:
     void     updatePlanet ();
     void     blinkPlanet ();
+
+private:
+    QPixmap renderPixmap( const QString& svgId, int width, int height ) const;
 
 private:
         MapScene  *m_scene;

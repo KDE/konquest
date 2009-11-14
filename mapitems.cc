@@ -1,7 +1,7 @@
 /*
     Copyright Russell Steffen <rsteffen@bayarea.net>
     Copyright Stephan Zehetner <s.zehetner@nevox.org>
-    Copyright Dmitry Suzdalev <dimsuz@gmail.com>
+    Copyright 2008-2009 Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright Inge Wallin <inge@lysator.liu.se>
     Copyright Pierre Ducroquet <pinaraf@gmail.com>
 
@@ -95,21 +95,12 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     }
 
     // Display the planet
-    qreal size = m_scene->getSectorSize();
-    QRectF pixSize(0, 0, size, size);
-    QPixmap pix(size, size);
-    QString sizedLookName = m_lookName + size;
-    if (!m_scene->pixmapCache()->find(sizedLookName, pix)) {
-        QPixmap alpha(size, size);
-        QPainter alphaPainter(&alpha);
-        alphaPainter.fillRect(pixSize, Qt::black);
-        pix.setAlphaChannel(alpha);
+    qreal sectorSize = m_scene->getSectorSize();
+    QPointF sectorTopLeft(m_sector->coord().y() * sectorSize + m_scene->itemsHorizontalOffset(),
+                          m_sector->coord().x() * sectorSize);
 
-        QPainter pixPainter(&pix);
-        m_scene->renderer()->render(&pixPainter, m_lookName, pixSize);
-        m_scene->pixmapCache()->insert(sizedLookName, pix);
-    }
-    p->drawPixmap(QPointF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(), m_sector->coord().x() * size), pix);
+    QPixmap planetPix = renderPixmap(m_lookName, sectorSize, sectorSize);
+    p->drawPixmap(sectorTopLeft, planetPix);
 
     if ( m_hovered || (m_selected && m_blinkState) ) {
         QBrush  backBrush = p->brush();
@@ -122,19 +113,48 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
         p->setOpacity(1);
     }
 
-    // Show the name of the planet.
-    QPointF  sectorTopLeft(m_sector->coord().y() * m_scene->getSectorSize() + m_scene->itemsHorizontalOffset(),
-                           m_sector->coord().x() * m_scene->getSectorSize());
-    p->drawText( sectorTopLeft + QPoint(2, 12), m_sector->planet()->name() );
+    QFontMetrics  m = p->fontMetrics();
+
+    // Show the name of the planet (on top of bkgnd)
+    int w = m.width(m_sector->planet()->name());
+    int h = m.height();
+    QRectF topLeftTextRect(sectorTopLeft.x() + 2,
+                           sectorTopLeft.y(),
+                           w, h);
+
+    QPixmap nameBackgroundPix = renderPixmap("planet_name_background", w, h);
+    p->drawPixmap(topLeftTextRect.topLeft(), nameBackgroundPix);
+    p->drawText(topLeftTextRect, m_sector->planet()->name());
 
     // Show the number of ships on the planet.
     if (!m_sector->planet()->player()->isNeutral()) {
-        QString       shipCount = QString::number(m_sector->planet()->ships());
-        QFontMetrics  m = p->fontMetrics();
+        QString shipCount = QString::number(m_sector->planet()->ships());
 
-        p->drawText( sectorTopLeft + QPointF(m_scene->getSectorSize() - m.width(shipCount), m_scene->getSectorSize()),
-                     shipCount );
+        w = m.width(shipCount);
+
+        QRectF botRightTextRect(sectorTopLeft.x() + sectorSize - w - 2,
+                                sectorTopLeft.y() + sectorSize - h,
+                                w, h);
+
+        QPixmap shipsBackgroundPix = renderPixmap("planet_ship_count_background", w, h);
+        p->drawPixmap(botRightTextRect.topLeft(), shipsBackgroundPix);
+        p->drawText(botRightTextRect, shipCount);
     }
+}
+
+QPixmap PlanetItem::renderPixmap( const QString& svgId, int width, int height ) const
+{
+    QPixmap pix;
+    QString cacheKey = QString("%1%2x%3").arg(svgId).arg(width).arg(height);
+    if (!m_scene->pixmapCache()->find(cacheKey, pix)) {
+        pix = QPixmap(width, height);
+        pix.fill(Qt::transparent);
+        QPainter pixPainter(&pix);
+        m_scene->renderer()->render(&pixPainter, svgId, QRect(0, 0, width, height));
+        m_scene->pixmapCache()->insert(cacheKey, pix);
+    }
+
+    return pix;
 }
 
 
