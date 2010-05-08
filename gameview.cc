@@ -91,7 +91,7 @@ GameView::GameView( QWidget *parent, GameLogic *gameLogic )
     //********************************************************************
     // Create the widgets in the main window
     //********************************************************************
-    m_mapScene  = new MapScene(m_gameLogic->map());
+    m_mapScene  = new MapScene(m_gameLogic);
     m_mapWidget = new MapView( m_mapScene );
     m_mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mapWidget->setFrameShape(QFrame::NoFrame);
@@ -221,7 +221,7 @@ GameView::keyPressEvent( QKeyEvent *e )
 
     planetName += e->text().toUpper();
     
-    foreach (Planet *p, *m_gameLogic->planets()) {
+    foreach (Planet *p, m_gameLogic->planets()) {
         if( p->name() == planetName ) {
             if ( m_showInformations ) {
                 m_mapScene->selectPlanet(p);
@@ -506,10 +506,14 @@ GameView::startNewGame()
     // FIXME: Make newGameDlg take a a GameLogic* instead.
     NewGameDlg *newGame = new NewGameDlg( this, m_gameLogic->map(),
                                           m_gameLogic->players(),
-                                          m_neutralPlayer, 
-                                          m_gameLogic->planets() );
+                                          m_neutralPlayer,
+                                          m_gameLogic->options());
 
     if( !newGame->exec() ) {
+        foreach(Player *player, *m_gameLogic->players())
+            delete player;
+        m_gameLogic->players()->clear();
+
         delete newGame;
         return;
     }
@@ -523,6 +527,9 @@ GameView::startNewGame()
     //        call to newGame->exec().  Change that.
     m_gameLogic->startNewGame();
 
+    // setup the map scene
+    m_mapScene->mapUpdate();
+
     // Set up the base GUI for a new game.
     m_msgWidget->clear();
     m_shipCountEdit->show();
@@ -531,8 +538,7 @@ GameView::startNewGame()
     // If the first player is a computer, don't set the GUI...
     while (m_gameInProgress && m_gameLogic->currentPlayer()->isAiPlayer())
     {
-        dynamic_cast<AIPlayer *>(m_gameLogic->currentPlayer())
-            ->doMove(m_gameLogic);
+        m_gameLogic->currentPlayer()->doAiMove(m_gameLogic);
         m_gameLogic->nextPlayer();
     }
     // Now it's a human playing...
@@ -590,6 +596,8 @@ GameView::cleanupGame()
 
     changeGameView( false );
     m_guiState = NONE;
+
+    m_gameLogic->cleanupGame();
 
     emit newGUIState(m_guiState);
 }
@@ -660,8 +668,6 @@ GameView::newShipCount()
 
         turn();
 
-        // FIXME: Insert m_gameLogic->doMove() here.
-
         break;
 
     default:
@@ -705,6 +711,14 @@ GameView::changeGameView( bool inPlay  )
 void
 GameView::nextPlayer()
 {
+    if(m_gameLogic->options().BlindMap && m_gameLogic->humanPlayerCount() > 1) {
+        QString name = m_gameLogic->currentPlayer()->name();
+        m_gameLogic->setBlindBreak(true);
+        m_mapScene->update();
+        KMessageBox::information(this, "Blind Map " + name + " Turn done");
+        m_gameLogic->setBlindBreak(false);
+    }
+
     m_gameLogic->nextPlayer();
     m_mapScene->update();
 
@@ -712,8 +726,7 @@ GameView::nextPlayer()
     while (m_gameInProgress 
 	   && m_gameLogic->currentPlayer()->isAiPlayer())
     {
-	dynamic_cast<AIPlayer *>(m_gameLogic->currentPlayer())
-	    ->doMove(m_gameLogic);
+        m_gameLogic->currentPlayer()->doAiMove(m_gameLogic);
 	m_gameLogic->nextPlayer();
     }
 

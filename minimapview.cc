@@ -4,6 +4,7 @@
     Copyright Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright Inge Wallin <inge@lysator.liu.se>
     Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright Sean D'Epagnier <geckosenator@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include "minimapview.h"
 #include "minimapview.moc"
 
+#include <QMouseEvent>
 #include <QPainter>
 
 #include "map.h"
@@ -53,22 +55,49 @@ MiniMapView::setMap(Map *map)
     connect( m_map, SIGNAL( update() ), this, SLOT( update() ) );
 }
 
+void MiniMapView::CalculateOffsets (float &sectorSize, float &woffset, float &hoffset)
+{
+    sectorSize = ((float)width())/m_map->columns();
+    if (height()/m_map->rows() < sectorSize)
+        sectorSize = ((float)height())/m_map->rows();
+
+    woffset = ((float)width() - m_map->columns()*sectorSize)/2;
+    hoffset = ((float)height() - m_map->rows()*sectorSize)/2;
+}
+
+void MiniMapView::mousePressEvent ( QMouseEvent * event )
+{
+    float sectorSize, woffset, hoffset;
+    CalculateOffsets(sectorSize, woffset, hoffset);
+
+    m_map->setSelectedSector(Coordinate((event->x() - woffset) / sectorSize,
+                                        (event->y() - hoffset) / sectorSize));
+}
 
 void MiniMapView::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
-    float sectorSize = ((float)width())/m_map->columns();
-    if (height()/m_map->rows() < sectorSize)
-        sectorSize = ((float)height())/m_map->rows();
-    float woffset = 0.0, hoffset = 0.0;
-    woffset = ((float)width() - m_map->columns()*sectorSize)/2;
-    hoffset = ((float)height() - m_map->rows()*sectorSize)/2;
+
+    float sectorSize, woffset, hoffset;
+    CalculateOffsets(sectorSize, woffset, hoffset);
 
     // Draw the black background
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::black);
     painter.setBrush(Qt::black);
     painter.drawRect(QRectF(woffset, hoffset, m_map->columns()*sectorSize, m_map->rows()*sectorSize));
+
+    // Draw selection
+    if(m_map->hasSelectedSector()) {
+        Coordinate s = m_map->selectedSector();
+        if(s.x() >= 0 && s.x() < m_map->columns() &&
+            s.y() >= 0 && s.y() < m_map->rows()) {
+            painter.setBrush(Qt::cyan);
+            painter.drawRect(QRectF(woffset + s.x() * sectorSize,
+                                    hoffset + s.y() * sectorSize,
+                                  sectorSize, sectorSize));
+        }
+    }
 
     // Now draw the planets...
     for (int col = 0 ; col < m_map->columns() ; col++) {

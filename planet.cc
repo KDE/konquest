@@ -19,7 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "planet.h"
+#include "gamelogic.h"
 #include "planet.moc"
 
 #include "sector.h"
@@ -38,11 +38,12 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
   : m_name(planetName),
     m_owner(initialOwner),
     m_sector(sector),
-    m_homeFleet( this, newProd ),
+    m_homeFleet( this, 0 ),
     m_killPercentage(newKillP),
-    m_productionRate(newProd),
+    m_productionRate(newProd), m_originalProductionRate(newProd),
     m_oldShips(newProd),
-    m_showCurShips(true)
+    m_showCurShips(true),
+    m_justconquered(false)
 {
     KRandomSequence r;
     m_planetLook = r.getLong(9);
@@ -50,7 +51,8 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_sector->setPlanet( this );
 }
 
-Planet::~Planet() {}
+Planet::~Planet() {  m_sector->removePlanet(); }
+
 
 Planet *
 Planet::createPlayerPlanet( Sector *sector, Player *initialOwner, 
@@ -87,18 +89,27 @@ Planet::conquer( AttackFleet *conqueringFleet )
     m_owner = conqueringFleet->owner;
     m_owner->statPlanetsConquered(1);
     m_homeFleet.become( conqueringFleet );
+    m_productionRate = m_originalProductionRate;
+    m_justconquered = true;
 }
 
 void
-Planet::turn()
+Planet::turn(GameOptions *options)
 {
-    if( !(m_owner->isNeutral()) ) {
-        m_homeFleet.addShips( m_productionRate );
-        m_owner->statShipsBuilt( m_productionRate );
-    } else {
-        m_homeFleet.addShips( 1 );
+    if(options->ProductionAfterConquere || !m_justconquered) {
+        if( m_owner->isNeutral() )
+            m_homeFleet.addShips( options->NeutralsProduction );
+        else {
+            m_homeFleet.addShips( m_productionRate );
+            m_owner->statShipsBuilt( m_productionRate );
+        }
+      
+        if(options->CumulativeProduction)
+            m_productionRate++;
     }
+
     m_oldShips = m_homeFleet.shipCount();
     m_showCurShips = true;
+    m_justconquered = false;
     emit update();
 }

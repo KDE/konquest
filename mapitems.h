@@ -38,7 +38,7 @@ class PlanetItem : public QObject, public QGraphicsItem
     Q_INTERFACES(QGraphicsItem)
 #endif
 public:
-    PlanetItem(MapScene *scene, Sector *sector);
+    PlanetItem(MapScene *scene, Sector *sector, GameLogic *gamelogic);
     ~PlanetItem() {}
 
     QRectF   boundingRect() const;
@@ -62,9 +62,10 @@ private slots:
 private:
     QPixmap renderPixmap( const QString& svgId, int width, int height ) const;
 
-private:
         MapScene  *m_scene;
         Sector    *m_sector;
+
+        GameLogic *m_gamelogic;
 
         bool       m_hovered;
         bool       m_selected;
@@ -77,7 +78,7 @@ private:
 class PlanetInfoItem : public QGraphicsItem
 {
 public:
-    PlanetInfoItem();
+    PlanetInfoItem(GameLogic*);
     ~PlanetInfoItem() {}
 
     QRectF   boundingRect() const;
@@ -87,6 +88,7 @@ public:
                    QWidget *widget);
 
 private:
+    GameLogic     *m_gamelogic;
     QTextDocument  m_textDoc;
     Planet        *m_planet;
 };

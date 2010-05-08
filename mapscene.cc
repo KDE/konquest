@@ -26,13 +26,14 @@
 #include "map.h"
 #include "sector.h"
 #include "images.h"
+#include "gamelogic.h"
 #include "mapscene.moc"
 #include "mapitems.h"
 
 
-MapScene::MapScene (Map *map)
+MapScene::MapScene (GameLogic *gamelogic)
   : QGraphicsScene(),
-    m_map(map),
+    m_gamelogic(gamelogic),
     m_selectedPlanetItem(NULL),
     m_planetInfoItem(NULL),
     m_width(width()),
@@ -40,7 +41,6 @@ MapScene::MapScene (Map *map)
 {
     m_renderer = new KSvgRenderer(IMAGES_SVG);
     m_pixmapCache = new KPixmapCache("konquest-pixmaps");
-    connect( m_map, SIGNAL( mapPopulated() ), this, SLOT( mapUpdate() ) );
 }
 
 MapScene::~MapScene ()
@@ -81,11 +81,11 @@ void MapScene::mapUpdate()
     }
     m_planetInfoItem = NULL;
     m_selectedPlanetItem = NULL;
-    for (int i = 0 ; i < m_map->rows() ; i++) {
-        for (int j = 0 ; j < m_map->columns() ; j++) {
-            sector = m_map->sector(Coordinate(j, i));
+    for (int i = 0 ; i < map()->rows() ; i++) {
+        for (int j = 0 ; j < map()->columns() ; j++) {
+            sector = map()->sector(Coordinate(j, i));
             if (sector->hasPlanet()) {
-                PlanetItem *item = new PlanetItem(this, sector);
+                PlanetItem *item = new PlanetItem(this, sector, m_gamelogic);
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
                         this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
@@ -121,8 +121,8 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     qreal m_sectorSize = getSectorSize();
     qreal m_horizontalOffset = itemsHorizontalOffset();
 
-    qreal mapWidth = m_map->columns()*m_sectorSize;
-    qreal mapHeight = m_map->rows()*m_sectorSize;
+    qreal mapWidth = map()->columns()*m_sectorSize;
+    qreal mapHeight = map()->rows()*m_sectorSize;
 
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
@@ -165,7 +165,7 @@ void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
     }
 
     if (!m_planetInfoItem) {
-        m_planetInfoItem = new PlanetInfoItem();
+        m_planetInfoItem = new PlanetInfoItem(m_gamelogic);
         addItem(m_planetInfoItem);
     }
 
@@ -186,12 +186,12 @@ void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
 
 qreal MapScene::getSectorSize() {
     qreal s_w = m_width;
-    s_w = s_w/m_map->columns();
+    s_w = s_w/map()->columns();
     qreal s_h = m_height;
-    s_h = s_h/m_map->rows();
+    s_h = s_h/map()->rows();
     return qMin(s_w, s_h);
 }
 
 qreal MapScene::itemsHorizontalOffset() {
-    return ((m_width - m_map->columns()*getSectorSize())/2);
+    return ((m_width - map()->columns()*getSectorSize())/2);
 }

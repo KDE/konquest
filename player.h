@@ -38,7 +38,10 @@ class Map;
 class Player
 {
 public:
-    Player( Map *map, const QString &newName, const QColor &color, int number );
+    enum AiLevel { Human, ComputerWeak, ComputerNormal, ComputerHard };
+
+    Player( Map *map, const QString &newName, const QColor &color, int number,
+            enum AiLevel level);
     virtual ~Player();
 
     bool operator==( const Player &otherPlayer ) const
@@ -46,26 +49,26 @@ public:
 
     enum { NEUTRAL_PLAYER_NUMBER = -1 };
     
-    // Getters for some fundamental properties.
+    // Getters and Setters for some fundamental properties.
     QString name()        const { return m_name; }
+    void setName(QString name) {  m_name = name; }
+
     QString coloredName() const;
     QColor& color()             { return m_color; }
     bool    isNeutral()   const { return m_playerNum == NEUTRAL_PLAYER_NUMBER; }
     AttackFleetList &attackList() { return m_attackList; }
     AttackFleetList &newAttacks() { return m_newAttacks; }
 
-    // factory functions
-    static Player *createPlayer( Map *map, const QString &name, 
-				 const QColor &color, 
-				 int playerNum, bool isAi  );
     static Player *createNeutralPlayer( Map *map );
 
     bool NewAttack( Planet *sourcePlanet, Planet *destPlanet, int shipCount, int departureTurn );
 
     bool isInPlay()               const { return m_inPlay; }
     void setInPlay( bool status )       { m_inPlay = status; }
-    virtual bool  isAiPlayer()    const { return false; }
-    
+    bool  isAiPlayer()    const { return m_AiLevel; }
+    enum AiLevel  getAiLevel() { return m_AiLevel; }
+    void  setAiLevel(enum AiLevel level) { m_AiLevel = level; }
+    void  doAiMove( GameLogic *gameLogic);
 
     // Statistics collection
     void statShipsBuilt( int x )           { m_shipsBuilt           += x; }
@@ -101,23 +104,8 @@ private:
     int  m_fleetsLaunched;
     int  m_enemyFleetsDestroyed;
     int  m_enemyShipsDestroyed;
+
+    enum AiLevel  m_AiLevel;
 };
-
-
-class AIPlayer : public Player
-{
-    public:
-        AIPlayer( Map *map, const QString &name, const QColor &color, int number );
-        virtual ~AIPlayer();
-    
-        virtual bool  isAiPlayer() const { return true; }
-    
-        void  doMove( GameLogic *gameLogic);
-        
-        int getAiLevel() { return m_AiLevel; }
-    private:
-        int m_AiLevel;
-};
-
 
 #endif

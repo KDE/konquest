@@ -4,6 +4,7 @@
     Copyright Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright <inge@lysator.liu.se>
     Copyright <pinaraf@gmail.com>
+    Copyright Sean D'Epagnier <geckosenator@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -38,10 +39,17 @@ public:
 
     void setMap( Map *newMap );
 
+signals:
+    void SelectionChanged(int player, int production, float killratio);
+
 protected:
+    void mousePressEvent( QMouseEvent * event );
     void paintEvent(QPaintEvent *event);
     
 private:
+
+    void CalculateOffsets (float &, float &, float &);
+
     Map  *m_map;
 };
 

@@ -38,6 +38,7 @@ GameLogic::GameLogic( QObject *parent )
 {
     m_map           = new Map(16, 16);
     m_neutralPlayer = Player::createNeutralPlayer(m_map);
+    m_blindbreak    = false;
 
     cleanupGame();
 }
@@ -66,18 +67,16 @@ GameLogic::nextTurn()
     scanForSurvivors();
 
     // advance to first living player
-    while( (*m_currentPlayer) && !(*m_currentPlayer)->isInPlay() ) {
+    while( (*m_currentPlayer) && !(*m_currentPlayer)->isInPlay() )
     	++m_currentPlayer;
-    };
 
     // advance turn counter
     // FIXME: Emit a newTurn() signal.
     m_turnNumber++;
     
     // update the planets
-    foreach (Planet *planet, m_planets) {
-        planet->turn();
-    }
+    foreach (Planet *planet, m_map->planets())
+        planet->turn(&m_options);
 }
 
 
@@ -105,6 +104,20 @@ GameLogic::resolveShipsInFlight()
     }
 }
 
+QList<Planet *>
+GameLogic::planets()
+{
+    return m_map->planets();
+}
+
+int
+GameLogic::humanPlayerCount()
+{
+    int count = 0;
+    foreach(Player *player, m_players)
+        count += !player->isAiPlayer();
+    return count;
+}
 
 Player *
 GameLogic::findWinner()
@@ -157,7 +170,7 @@ GameLogic::scanForSurvivors()
 
     // iterate through the list of planets and
     // mark their owners in play
-    foreach (Planet *planet, m_planets) {
+    foreach (Planet *planet, m_map->planets()) {
         planet->player()->setInPlay( true );
     }
 
@@ -213,21 +226,26 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
             double  attackerRoll = cl.roll();
             double  defenderRoll = cl.roll();
 
-            if( defenderRoll < defenderPlanet.killPercentage() ) {
-                attacker.removeShips( 1 );
-                defenderPlanet.player()->statEnemyShipsDestroyed( 1 );
+            /* special case if both have 0 kill percentages */
+            if( defenderPlanet.killPercentage() == 0 &&
+                attackerPlanet.killPercentage() == 0) {
+                if(attackerRoll <  defenderRoll )
+                    MakeKill(defender, *attackerPlanet.player());
+                else
+                    MakeKill(attacker, *defenderPlanet.player());
             }
-
+ 
+            if( defenderRoll < defenderPlanet.killPercentage() )
+                MakeKill(attacker, *defenderPlanet.player());
+ 
             if( attacker.shipCount() <= 0 ) {
                 haveVictor  = true;
                 planetHolds = true;
                 continue;
             }
 
-            if( attackerRoll < attackerPlanet.killPercentage() ) {
-                defender.removeShips( 1 );
-                attacker.owner->statEnemyShipsDestroyed( 1 );
-            }
+            if( attackerRoll < attackerPlanet.killPercentage() )
+                MakeKill(defender, *attackerPlanet.player());
 
             if( defender.shipCount() <= 0 ) {
                 haveVictor  = true;
@@ -251,6 +269,12 @@ GameLogic::doFleetArrival( AttackFleet *arrivingFleet )
     }
 }
 
+void
+GameLogic::MakeKill(Fleet &fleet, Player &player)
+{
+    fleet.removeShips( 1 );
+    player.statEnemyShipsDestroyed( 1 );
+}
 
 //************************************************************************
 // Set up the game board for a new game
@@ -262,7 +286,11 @@ GameLogic::startNewGame()
 {
     // Setup for a new game to start playing.
     m_currentPlayer = m_players.begin();
-    m_turnNumber    = 1;
+
+    m_turnNumber    = 0;
+
+    nextTurn();
+    emit beginTurn();
 }
 
 
@@ -275,7 +303,6 @@ GameLogic::cleanupGame()
 {
     m_map->clearMap();
 
-    m_planets.clear();
     m_players.clear();
 }
 
@@ -287,7 +314,7 @@ GameLogic::cleanupGame()
 void
 GameLogic::nextPlayer()
 {
-    foreach (Planet *planet, m_planets) {
+    foreach (Planet *planet, m_map->planets()) {
         if(planet->player() == *m_currentPlayer) {
             planet->showOldShips();
         }

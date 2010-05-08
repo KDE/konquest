@@ -27,6 +27,7 @@
 
 class Sector;
 class Player;
+class GameOptions;
 
 //**************************************************************
 // class Planet
@@ -36,13 +37,11 @@ class Planet : public QObject
 {
     Q_OBJECT
 
-private:
-
+public:
     Planet( const QString &planetName, Sector *sector,
             Player *initialOwner, int newProd,
             double newKillP );
 
-public:
     // FIXME: Nobody inherits Planet.  Why virtual?  /iw
     virtual ~Planet();
 
@@ -56,18 +55,22 @@ public:
     const QString &name()       const { return m_name; }
     DefenseFleet  &fleet()            { return m_homeFleet; }
 
-
-
     double         killPercentage() const { return m_killPercentage; }
+    void           setKillPercentage(double value) { m_killPercentage = value; }
 
     int            production() const { return m_productionRate; }
+    void           setProduction(int value)
+    {
+       m_originalProductionRate = m_productionRate = value;
+    }
+
     int            planetLook() const { return m_planetLook; }
     int            ships()      const { return m_showCurShips ? m_homeFleet.shipCount() : m_oldShips; }
 
     void  showOldShips() { m_showCurShips=false; }
     void  select();
     void  conquer( AttackFleet *conqueringFleet );
-    void  turn();
+    void  turn(GameOptions *);
 
 signals:
     void  update();
@@ -80,10 +83,11 @@ private:
     DefenseFleet  m_homeFleet;
 
     double        m_killPercentage;
-    int           m_productionRate;
+    int           m_productionRate, m_originalProductionRate;
     int           m_planetLook;
     int           m_oldShips;
     bool          m_showCurShips;
+    bool          m_justconquered;
 };
 
 #endif

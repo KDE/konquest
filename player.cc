@@ -19,6 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
+#include "gamelogic.h"
 #include "player.h"
 
 #include <cmath>
@@ -27,15 +29,13 @@ using std::floor;
 #include <qdebug.h>
 
 #include "map.h"
-#include "planet.h"
-#include "gamelogic.h"
 
 
 //---------------------------------------------------------------------------
 // class Player
 //---------------------------------------------------------------------------
 
-Player::Player( Map *map, const QString &newName, const QColor &color, int newPlrNum )
+Player::Player( Map *map, const QString &newName, const QColor &color, int newPlrNum, enum AiLevel level )
   : m_map( map ),
     m_name( newName ), m_color( color ),
     m_playerNum( newPlrNum ),
@@ -44,7 +44,8 @@ Player::Player( Map *map, const QString &newName, const QColor &color, int newPl
     m_planetsConquered(0),
     m_fleetsLaunched(0),
     m_enemyFleetsDestroyed(0),
-    m_enemyShipsDestroyed(0)
+    m_enemyShipsDestroyed(0),
+    m_AiLevel(level)
 {
 }
 
@@ -60,26 +61,9 @@ Player::coloredName() const
 }
 
 
-Player *Player::createPlayer( Map *map, const QString &name, const QColor &color,
-			      int playerNum, bool isAi )
-{
-    Player *pl;
-
-    if ( isAi )
-	pl = new AIPlayer( map, name, color, playerNum );
-    else
-	pl = new Player( map, name, color, playerNum );
-
-    if ( pl->isAiPlayer() != isAi )
-	qDebug("Player %s: wanted %d, got %d", qPrintable( name ), isAi, !isAi );
-
-    return pl;
-}
-
-
 Player *Player::createNeutralPlayer( Map *map )
 {
-    return new Player( map, QString(), Qt::gray, NEUTRAL_PLAYER_NUMBER );
+    return new Player( map, "neutral", Qt::gray, NEUTRAL_PLAYER_NUMBER, Human );
 }
 
 
@@ -104,42 +88,30 @@ Player::NewAttack( Planet *sourcePlanet, Planet *destPlanet,
     return false;
 }
 
-
-// ================================================================
-//                      class AIPlayer
-// ================================================================
-
-
-
-AIPlayer::AIPlayer( Map *map, const QString &name, const QColor &color, int number )
-    : Player( map, name, color, number )
-{
-    m_AiLevel = 0; // Default
-}
-
-AIPlayer::~AIPlayer()
-{
-}
-
-void AIPlayer::doMove(GameLogic *gameLogic)
+void Player::doAiMove(GameLogic *gameLogic)
 {
     int      ships, minimumShips, shipCountFactor;
     Planet  *target = 0;
     switch (getAiLevel())
     {
-        case 1: // Offensive
-            minimumShips = 10;
-            shipCountFactor = 2;
-            break;
-        case 2: // Defensive
-            minimumShips = 30;
-            shipCountFactor = 3;
-            break;
-        default: // 0... default
-            minimumShips = 20;
-            shipCountFactor = 2;
+    case Human:
+       // Error, we should not be called for human
+       break;
+    case ComputerWeak:
+       minimumShips = 20;
+       shipCountFactor = 2;
+       break;
+    case ComputerNormal: // Offensive
+       minimumShips = 10;
+       shipCountFactor = 2;
+       break;
+    case ComputerHard: // Defensive
+       minimumShips = 30;
+       shipCountFactor = 3;
+       break;
     }
-    foreach (Planet *home, *gameLogic->planets()) {
+
+    foreach (Planet *home, gameLogic->planets()) {
 	if (home->player() == gameLogic->currentPlayer()) {
 	    bool  hasAttack = false;
 	    ships = (int)floor(home->ships() * 0.7 );
@@ -148,7 +120,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 		Planet  *attack;
 		double  minDistance = 100;
                     
-		foreach (attack, *gameLogic->planets()) {
+		foreach (attack, gameLogic->planets()) {
 		    bool    skip = false;
 		    double  dist = gameLogic->map()->distance( home, attack );
                         
@@ -179,7 +151,7 @@ void AIPlayer::doMove(GameLogic *gameLogic)
 		    int shipsToSend = 0;
 		    bool hasDestination = false;
                         
-		    foreach (attack, *gameLogic->planets()) {
+		    foreach (attack, gameLogic->planets()) {
 			bool    skip = false;
 			double  dist = gameLogic->map()->distance( home, attack );
 			int     homeships = (int)floor(home->ships() * 0.5 );

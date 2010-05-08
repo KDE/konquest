@@ -19,6 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
+#include "gamelogic.h"
 #include "mapitems.h"
 #include "mapitems.moc"
 
@@ -40,11 +42,12 @@
     PlanetItem
  *******************************/
 
-PlanetItem::PlanetItem (MapScene *scene, Sector *sector)
+PlanetItem::PlanetItem (MapScene *scene, Sector *sector, GameLogic *gamelogic)
     : QObject(scene),
       QGraphicsItem(),
       m_scene(scene),
       m_sector(sector),
+      m_gamelogic(gamelogic),
       m_hovered(false),
       m_selected(false),
       m_blinkState(false)
@@ -113,32 +116,27 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
         p->setOpacity(1);
     }
 
-    QFontMetrics  m = p->fontMetrics();
-
     // Show the name of the planet (on top of bkgnd)
-    int w = m.width(m_sector->planet()->name());
-    int h = m.height();
-    QRectF topLeftTextRect(sectorTopLeft.x() + 2,
-                           sectorTopLeft.y(),
-                           w, h);
 
-    QPixmap nameBackgroundPix = renderPixmap("planet_name_background", w, h);
-    p->drawPixmap(topLeftTextRect.topLeft(), nameBackgroundPix);
-    p->drawText(topLeftTextRect, m_sector->planet()->name());
+    QRectF TextRect(sectorTopLeft.x(), sectorTopLeft.y(), sectorSize, sectorSize);
+
+    QPixmap nameBackgroundPix = renderPixmap("planet_name_background", sectorSize, sectorSize);
+    p->drawPixmap(TextRect.topLeft(), nameBackgroundPix);
+    p->setFont(QFont("Times", 16));
+    p->drawText(TextRect, m_sector->planet()->name());
 
     // Show the number of ships on the planet.
-    if (!m_sector->planet()->player()->isNeutral()) {
+    if((m_gamelogic->options().NeutralsShowShips || !m_sector->planet()->player()->isNeutral())
+       && ((!m_gamelogic->options().BlindMap || m_gamelogic->currentPlayer() == m_sector->planet()->player())
+           || (m_gamelogic->options().NeutralsShowShips && m_sector->planet()->player()->isNeutral())))
+    {
         QString shipCount = QString::number(m_sector->planet()->ships());
 
-        w = m.width(shipCount);
-
-        QRectF botRightTextRect(sectorTopLeft.x() + sectorSize - w - 2,
-                                sectorTopLeft.y() + sectorSize - h,
-                                w, h);
-
-        QPixmap shipsBackgroundPix = renderPixmap("planet_ship_count_background", w, h);
-        p->drawPixmap(botRightTextRect.topLeft(), shipsBackgroundPix);
-        p->drawText(botRightTextRect, shipCount);
+        QPixmap shipsBackgroundPix = renderPixmap("planet_ship_count_background",
+                                                  sectorSize, sectorSize);
+        p->drawPixmap(TextRect.topLeft(), shipsBackgroundPix);
+        p->setFont(QFont("Times", 16));
+        p->drawText(TextRect, Qt::AlignRight | Qt::AlignBottom, shipCount);
     }
 }
 
@@ -214,8 +212,9 @@ void PlanetItem::blinkPlanet()
  *******************************/
 
 
-PlanetInfoItem::PlanetInfoItem ()
+PlanetInfoItem::PlanetInfoItem (GameLogic *gamelogic)
   : QGraphicsItem(),
+    m_gamelogic(gamelogic),
     m_textDoc(),
     m_planet(NULL)
 {
@@ -226,10 +225,15 @@ void PlanetInfoItem::setPlanet (Planet *planet)
     m_planet = planet;
 
     QString  text = i18n("Planet name: %1", planet->name());
-    if( !planet->player()->isNeutral() ) {
+    if((m_gamelogic->options().NeutralsShowStats || !planet->player()->isNeutral())
+       && ((!m_gamelogic->options().BlindMap || m_gamelogic->currentPlayer() == planet->player())
+           || (m_gamelogic->options().NeutralsShowStats && planet->player()->isNeutral())))
+    {
         text += "<br />" + i18n("Owner: %1", planet->player()->coloredName())
-          + "<br />"
-          + i18n("Ships: %1", planet->ships() )
+          + (m_gamelogic->options().NeutralsShowShips || !planet->player()->isNeutral() ?
+             "<br />"
+             + i18n("Ships: %1", planet->ships() ) :
+             "")
           + "<br />"
           + i18n("Production: %1", planet->production() )
           + "<br />"

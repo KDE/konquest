@@ -39,12 +39,12 @@ class MapScene: public QGraphicsScene
     Q_OBJECT
 
     public:
-        explicit MapScene(Map *map);
+        explicit MapScene(GameLogic *gamelogic);
         ~MapScene();
 
         KSvgRenderer  *renderer() const  { return m_renderer; }
         KPixmapCache  *pixmapCache() const  { return m_pixmapCache; }
-        Map           *map()      const  { return m_map; }
+        Map           *map()      const  { return m_gamelogic->map(); }
 
         void           selectPlanet(Planet *planet);
         void           unselectPlanet();
@@ -57,15 +57,18 @@ class MapScene: public QGraphicsScene
         qreal          getSectorSize();
 
         void           resizeScene(const QRectF& rect);
+
+        void           mapUpdate();
+
     signals:
         void  planetSelected( Planet * );
 
     private slots:
-        void  mapUpdate();
         void  planetItemSelected (PlanetItem *);
 
     private:
-        Map             *m_map;
+        GameLogic       *m_gamelogic;
+
         KSvgRenderer    *m_renderer;
         KPixmapCache    *m_pixmapCache;
         PlanetItem      *m_selectedPlanetItem;

@@ -43,10 +43,18 @@ public:
     int  rows()     { return m_rows;    }
     int  columns()  { return m_columns; }
 
+    void  addPlanet(Sector *sector, Player *player, int production, double killpercentage);
+    Planet*  addPlayerPlanetSomewhere(Player *player);
+    Planet*  addNeutralPlanetSomewhere(Player *neutral);
+    bool  removePlayerPlanet(Player *player);
+    void  removePlayerPlanets(Player *player);
+    int        playerPlanetCount(Player *player);
+
     void       clearMap();
     void       resizeMap(int rows, int cols);
+
     void       populateMap( QList<Player *> &players, Player *neutral,
-			    int numNeutralPlanets, QList<Planet *> &thePlanets );
+			    int numNeutralPlanets);
     
     double     distance( Planet *p1, Planet *p2 );
 
@@ -57,16 +65,18 @@ public:
 
     Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }
 
+    QList<Planet*> planets();
 
 protected slots:
     void childSectorUpdate();
 
 signals:
     void update();
-    void mapPopulated();
+    void selectionChanged(Sector*);
 
 private:
     Sector *findRandomFreeSector();
+    QString    UniquePlanetName(void);
     
 protected:
     // A map is a 2-D array of Sectors.

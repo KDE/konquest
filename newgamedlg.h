@@ -56,27 +56,35 @@ class NewGameDlg : public KDialog
 
 public:
     NewGameDlg( QWidget *parent, Map *map, QList<Player *> *playerList,
-                Player *neutralPlayer, QList<Planet *> *planetList );
+                Player *neutralPlayer, GameOptions &options);
     ~NewGameDlg() {}
 
     void  save();
 
 protected slots:
     void  slotNewMap();
+    void  slotUpdateNeutrals(int);
     void  slotAddPlayer();
     void  slotRemovePlayer();
     void  slotOk();
 
+    void  slotUpdateSelection(Sector*);
+    void  slotNewOwner(int);
+    void  slotNewKillPercentage(double);
+    void  slotNewProduction(int);
+
 private:
+    void  updateOwnerCB();
     void  init();
 
 private:
     Map              *m_map;
     QList<Player *>  *m_players;
-    QList<Planet *>  *m_planets;
     Player           *m_neutral;
 
     NewGameDlgUI     *m_w;
+
+    GameOptions      &m_options;
 };
 
 #endif

@@ -22,6 +22,14 @@
 #ifndef _GAMELOGIC_H_
 #define _GAMELOGIC_H_
 
+struct GameOptions
+{
+   bool BlindMap, CumulativeProduction, ProductionAfterConquere;
+   bool NeutralsShowShips, NeutralsShowStats;
+   int  NeutralsProduction;
+};
+
+
 #include "planet.h"
 #include "player.h"
 
@@ -46,9 +54,19 @@ public:
     // Getters about the game state
     int               turnNumber()    const { return m_turnNumber; }
     Map              *map()           const { return m_map; }
+    GameOptions      &options()             { return m_options; }
     QList<Player *>  *players()             { return &m_players; }
-    QList<Planet *>  *planets()             { return &m_planets; }
-    Player           *currentPlayer() const { return *m_currentPlayer; }
+    Player           *currentPlayer() const
+    {
+        if(m_blindbreak)
+            return NULL;
+        return *m_currentPlayer;
+    }
+    void              setBlindBreak(bool value) { m_blindbreak = value; }
+
+    QList<Planet *>  planets();
+
+    int               humanPlayerCount();
 
     Player           *findWinner();
     void              resolveShipsInFlight();
@@ -57,6 +75,8 @@ public:
     void              startNewGame();
     void              nextTurn();
     void              nextPlayer();
+
+    void              cleanupGame();
 
 signals:
     void              beginTurn ();
@@ -69,7 +89,7 @@ private:
 
     // helper functions
     void              doFleetArrival( AttackFleet *arrivingFleet );
-    void              cleanupGame();
+    void              MakeKill(Fleet &, Player &);
     
 private:
 
@@ -78,9 +98,10 @@ private:
     //***************************************************************
 
     Map                       *m_map;
+    GameOptions                m_options;
     QList<Player *>            m_players;
-    QList<Planet *>            m_planets;
     Player                    *m_neutralPlayer;
+    bool                       m_blindbreak;
 
     // Loop variables for the game play.
     int                        m_turnNumber;

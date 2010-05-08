@@ -22,7 +22,7 @@
 
 #include "fleet.h"
 #include "fleet.moc"
-#include "planet.h"
+#include "gamelogic.h"
 
 //---------------------------------------------------------------------------
 // class Fleet
@@ -84,5 +84,8 @@ void
 DefenseFleet::addShips( int newShips )
 {
     m_shipCount += newShips;
+
+    if(m_shipCount < 0) /* to allow for negative production planets */
+        m_shipCount = 0;
 }
 
