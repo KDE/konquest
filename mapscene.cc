@@ -59,6 +59,7 @@ void MapScene::resizeScene(const QRectF& rect)
 
 void MapScene::selectPlanet(Planet *planet)
 {
+	unselectPlanet();
     foreach (PlanetItem *item, m_planetItems) {
         if (item->sector() == planet->sector()) {
             item->select();
