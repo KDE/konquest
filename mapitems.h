@@ -23,7 +23,7 @@
 #define _MAPITEMS_H_
 
 
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include <QTextDocument>
 #include <QObject>
 #include "sector.h"
@@ -31,12 +31,10 @@
 
 class MapScene;
 
-class PlanetItem : public QObject, public QGraphicsItem
+class PlanetItem : public QGraphicsObject
 {
     Q_OBJECT
-#if QT_VERSION >= 0x040600
-    Q_INTERFACES(QGraphicsItem)
-#endif
+
 public:
     PlanetItem(MapScene *scene, Sector *sector, GameLogic *gamelogic);
     ~PlanetItem() {}

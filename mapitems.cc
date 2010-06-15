@@ -43,8 +43,7 @@
  *******************************/
 
 PlanetItem::PlanetItem (MapScene *scene, Sector *sector, GameLogic *gamelogic)
-    : QObject(scene),
-      QGraphicsItem(),
+    : QGraphicsObject(),
       m_scene(scene),
       m_sector(sector),
       m_gamelogic(gamelogic),
