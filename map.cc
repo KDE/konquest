@@ -167,8 +167,8 @@ double Map::distance( Planet *p1, Planet *p2 )
 Sector *Map::findRandomFreeSector()
 {
 
-    foreach(QList<Sector> i, m_grid)
-        foreach(Sector j, i)
+    foreach(const QList<Sector> &i, m_grid)
+        foreach(const Sector &j, i)
             if(!j.hasPlanet())
                 goto freesectorexists;
     return NULL;
@@ -214,8 +214,8 @@ void Map::childSectorUpdate()
 QList <Planet*> Map::planets()
 {
     QList <Planet*>planets;
-    foreach(QList<Sector> i, m_grid)
-        foreach(Sector j, i)
+    foreach(const QList<Sector> &i, m_grid)
+        foreach(const Sector &j, i)
         if(j.hasPlanet())
             planets += j.planet();
     return planets;

@@ -117,10 +117,9 @@ void Player::doAiMove(GameLogic *gameLogic)
 	    ships = (int)floor(home->ships() * 0.7 );
                 
 	    if (ships >= minimumShips) {
-		Planet  *attack;
 		double  minDistance = 100;
                     
-		foreach (attack, gameLogic->planets()) {
+		foreach (Planet *attack, gameLogic->planets()) {
 		    bool    skip = false;
 		    double  dist = gameLogic->map()->distance( home, attack );
                         
@@ -151,7 +150,7 @@ void Player::doAiMove(GameLogic *gameLogic)
 		    int shipsToSend = 0;
 		    bool hasDestination = false;
                         
-		    foreach (attack, gameLogic->planets()) {
+		    foreach (Planet *attack, gameLogic->planets()) {
 			bool    skip = false;
 			double  dist = gameLogic->map()->distance( home, attack );
 			int     homeships = (int)floor(home->ships() * 0.5 );
