@@ -23,7 +23,7 @@
 #define KONQUEST_MAPSCENE_H
 
 
-#include <KSvgRenderer>
+#include <QSvgRenderer>
 #include <KPixmapCache>
 #include <QGraphicsScene>
 #include "mapitems.h"
@@ -42,7 +42,7 @@ class MapScene: public QGraphicsScene
         explicit MapScene(GameLogic *gamelogic);
         ~MapScene();
 
-        KSvgRenderer  *renderer() const  { return m_renderer; }
+        QSvgRenderer  *renderer() const  { return m_renderer; }
         KPixmapCache  *pixmapCache() const  { return m_pixmapCache; }
         Map           *map()      const  { return m_gamelogic->map(); }
 
@@ -69,7 +69,7 @@ class MapScene: public QGraphicsScene
     private:
         GameLogic       *m_gamelogic;
 
-        KSvgRenderer    *m_renderer;
+        QSvgRenderer    *m_renderer;
         KPixmapCache    *m_pixmapCache;
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;

@@ -39,7 +39,7 @@ MapScene::MapScene (GameLogic *gamelogic)
     m_width(width()),
     m_height(height())
 {
-    m_renderer = new KSvgRenderer(IMAGES_SVG);
+    m_renderer = new QSvgRenderer(IMAGES_SVG);
     m_pixmapCache = new KPixmapCache("konquest-pixmaps");
 }
 
