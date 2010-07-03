@@ -510,8 +510,7 @@ GameView::startNewGame()
                                           m_gameLogic->options());
 
     if( !newGame->exec() ) {
-        foreach(Player *player, *m_gameLogic->players())
-            delete player;
+        qDeleteAll(*m_gameLogic->players());
         m_gameLogic->players()->clear();
 
         delete newGame;
