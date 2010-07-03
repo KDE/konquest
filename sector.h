@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef __SECTOR_H__
-#define __SECTOR_H__
+#ifndef KONQUEST_SECTOR_H
+#define KONQUEST_SECTOR_H
 
 #include <QObject>
 #include <QPoint>
@@ -76,4 +76,4 @@ protected:
 };
 
 
-#endif
+#endif // KONQUEST_SECTOR_H

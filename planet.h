@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef __PLANET_H__
-#define __PLANET_H__
+#ifndef KONQUEST_PLANET_H
+#define KONQUEST_PLANET_H
 
 #include <QObject>
 #include "fleet.h"
@@ -90,4 +90,4 @@ private:
     bool          m_justconquered;
 };
 
-#endif
+#endif // KONQUEST_PLANET_H

@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _NEWGAMEDLG_H_
-#define _NEWGAMEDLG_H_
+#ifndef KONQUEST_NEWGAMEDLG_H
+#define KONQUEST_NEWGAMEDLG_H
 
 
 #include <kdialog.h>
@@ -87,4 +87,4 @@ private:
     GameOptions      &m_options;
 };
 
-#endif
+#endif // KONQUEST_NEWGAMEDLG_H

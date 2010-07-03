@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef FLEETDLG_H
-#define FLEETDLG_H
+#ifndef KONQUEST_FLEETDLG_H
+#define KONQUEST_FLEETDLG_H
 
 #include <KDialog>
 
@@ -43,4 +43,4 @@ private:
 };
 
 
-#endif
+#endif // KONQUEST_FLEETDLG_H

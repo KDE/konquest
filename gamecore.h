@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _GAMECORE_H_
-#define _GAMECORE_H_
+#ifndef KONQUEST_GAMECORE_H
+#define KONQUEST_GAMECORE_H
 
 #include <krandomsequence.h>
 #include "sector.h"
@@ -44,6 +44,4 @@ private:
     KRandomSequence  random;
 };
 
-#endif // _GAMECORE_H_
-
-
+#endif // KONQUEST_GAMECORE_H

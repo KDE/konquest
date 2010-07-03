@@ -20,8 +20,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _MINIMAPVIEW_H
-#define _MINIMAPVIEW_H
+#ifndef KONQUEST_MINIMAPVIEW_H
+#define KONQUEST_MINIMAPVIEW_H
 
 
 #include <QWidget>
@@ -54,4 +54,4 @@ private:
 };
 
 
-#endif // _MINIMAP_H_
+#endif // KONQUEST_MINIMAPVIEW_H

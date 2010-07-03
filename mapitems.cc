@@ -20,9 +20,9 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "gamelogic.h"
 #include "mapitems.h"
 #include "mapitems.moc"
+#include "gamelogic.h"
 
 #include <QGraphicsScene>
 #include <QPainter>

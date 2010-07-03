@@ -19,13 +19,12 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _IMAGES_H
-#define _IMAGES_H
+#ifndef KONQUEST_IMAGES_H
+#define KONQUEST_IMAGES_H
 
 #include <kstandarddirs.h>
 
 #define IMAGE_SPLASH    KStandardDirs::locate("appdata", "pics/konquest-splash.png")
 #define IMAGES_SVG      KStandardDirs::locate("appdata", "pics/default_theme.svgz")
 
-#endif // _IMAGES_H
-
+#endif // KONQUEST_IMAGES_H

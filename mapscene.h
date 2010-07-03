@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _MAPSCENE_H
-#define _MAPSCENE_H
+#ifndef KONQUEST_MAPSCENE_H
+#define KONQUEST_MAPSCENE_H
 
 
 #include <KSvgRenderer>
@@ -79,4 +79,4 @@ class MapScene: public QGraphicsScene
         qreal m_height;
 };
 
-#endif
+#endif // KONQUEST_MAPSCENE_H

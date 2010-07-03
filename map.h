@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef __MAP_H__
-#define __MAP_H__
+#ifndef KONQUEST_MAP_H
+#define KONQUEST_MAP_H
 
 #include <QObject>
 #include <QList>
@@ -90,4 +90,4 @@ protected:
     Coordinate  m_selection;
 };
 
-#endif
+#endif // KONQUEST_MAP_H

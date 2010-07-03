@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _MAIN_WIN_H
-#define _MAIN_WIN_H
+#ifndef KONQUEST_MAINWIN_H
+#define KONQUEST_MAINWIN_H
 
 
 #include <kxmlguiwindow.h>
@@ -60,5 +60,4 @@ private:
 
 };
 
-#endif
-
+#endif // KONQUEST_MAINWIN_H

@@ -19,8 +19,8 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef _MAPITEMS_H_
-#define _MAPITEMS_H_
+#ifndef KONQUEST_MAPITEMS_H
+#define KONQUEST_MAPITEMS_H
 
 
 #include <QGraphicsObject>
@@ -28,7 +28,7 @@
 #include <QObject>
 #include "sector.h"
 
-
+class GameLogic;
 class MapScene;
 
 class PlanetItem : public QGraphicsObject
@@ -91,5 +91,4 @@ private:
     Planet        *m_planet;
 };
 
-
-#endif
+#endif // KONQUEST_MAPITEMS_H

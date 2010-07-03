@@ -25,12 +25,10 @@
 #include <kaboutdata.h>
 #include <kstandarddirs.h>
 
-#include "version.h"
 #include "mainwin.h"
 
-
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
-
+#define KONQUEST_VERSION "2.0"
 
 int
 main(int argc, char **argv)
