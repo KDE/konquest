@@ -39,7 +39,7 @@ main(int argc, char **argv)
 
     aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
     aboutData.addCredit(ki18n("Stephan Zehetner"), ki18n("Computer/AI Player"), "s.zehetner@nevox.org");
-    aboutData.addCredit(ki18n("Dimitry Suzalev"), ki18n("Port to KDE4"));
+    aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to KDE4"), "dimsuz@gmail.com");
     aboutData.addCredit(ki18n("Inge Wallin"), ki18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
     aboutData.addCredit(ki18n("Pierre Ducroquet"), ki18n("Cleaning and bugfixing"), "pinaraf@gmail.com");
     aboutData.addCredit(ki18n("Sean D'Epagnier"), ki18n("Gameplay Enhancements"), "geckosenator@gmail.com");
