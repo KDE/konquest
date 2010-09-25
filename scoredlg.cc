@@ -31,7 +31,7 @@
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players )
     : KDialog(parent), m_players(players)
 {
-    setObjectName( "ScoreDlg" );
+    setObjectName( QLatin1String( "ScoreDlg" ) );
     setModal( true );
     setCaption(title);
     setButtons( KDialog::Ok );

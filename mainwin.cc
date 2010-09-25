@@ -75,24 +75,24 @@ MainWindow::setupActions()
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - KAction not :-(
-    m_measureAction = actionCollection()->addAction( "game_measure" );
-    m_measureAction->setIcon( KIcon("go-jump") );
+    m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
+    m_measureAction->setIcon( KIcon( QLatin1String( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );
     connect(m_measureAction, SIGNAL(triggered(bool)),
 	    m_gameView,      SLOT( measureDistance() ));
     m_measureAction->setEnabled(false);
 
     // Show standings
-    m_standingAction = actionCollection()->addAction( "game_scores" );
-    m_standingAction->setIcon( KIcon("help-contents") );
+    m_standingAction = actionCollection()->addAction( QLatin1String(  "game_scores" ) );
+    m_standingAction->setIcon( KIcon( QLatin1String( "help-contents" )) );
     m_standingAction->setText( i18n("&Show Standings") );
     connect(m_standingAction, SIGNAL(triggered(bool)),
 	    m_gameView,       SLOT( showScores() ));
     m_standingAction->setEnabled(false);
 
     // Show fleet overview
-    m_fleetAction = actionCollection()->addAction( "game_fleets" );
-    m_fleetAction->setIcon( KIcon("fork") );
+    m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
+    m_fleetAction->setIcon( KIcon( QLatin1String( "fork" )) );
     m_fleetAction->setText( i18n("&Fleet Overview") );
     connect(m_fleetAction, SIGNAL(triggered(bool)),
 	    m_gameView,    SLOT( showFleets() ));

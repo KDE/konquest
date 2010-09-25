@@ -39,7 +39,7 @@
 FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets, AttackFleetList *newFleets )
     : KDialog(parent), m_newFleetList(newFleets), m_fleetList(fleets)
 {
-    setObjectName( "FleetDlg" );
+    setObjectName( QLatin1String( "FleetDlg" ) );
     setModal( true );
     setCaption( i18n("Fleet Overview") );
     setButtons( KDialog::Ok );
