@@ -435,7 +435,7 @@ NewGameDlg::slotNewOwner(int index)
     if(selected->hasPlanet())
         delete selected->planet();
 
-    if(index)
+    if(index > 0)
         m_map->addPlanet(selected,
                          index - 1 < m_players->length()
                          ? (*m_players)[index-1]
