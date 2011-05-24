@@ -228,15 +228,15 @@ void PlanetInfoItem::setPlanet (Planet *planet)
        && ((!m_gamelogic->options().BlindMap || m_gamelogic->currentPlayer() == planet->player())
            || (m_gamelogic->options().NeutralsShowStats && planet->player()->isNeutral())))
     {
-        text += "<br />" + i18n("Owner: %1", planet->player()->coloredName())
+        text += QString("<br />" + i18n("Owner: %1", planet->player()->coloredName())
           + (m_gamelogic->options().NeutralsShowShips || !planet->player()->isNeutral() ?
-             "<br />"
-             + i18n("Ships: %1", planet->ships() ) :
+             QString("<br />"
+             + i18n("Ships: %1", planet->ships() )) :
              "")
           + "<br />"
           + i18n("Production: %1", planet->production() )
           + "<br />"
-          + i18n("Kill percent: %1", planet->killPercentage() );
+          + i18n("Kill percent: %1", planet->killPercentage() ));
     }
     m_textDoc.setHtml(text);
 }
