@@ -21,7 +21,6 @@
  */
 
 #include "mapitems.h"
-#include "mapitems.moc"
 #include "gamelogic.h"
 
 #include <QGraphicsScene>
@@ -33,6 +32,7 @@
 #include <kglobalsettings.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <kcolorscheme.h>
 
 #include "mapscene.h"
 #include "map.h"
@@ -107,7 +107,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     if ( m_hovered || (m_selected && m_blinkState) ) {
         QBrush  backBrush = p->brush();
 
-        backBrush.setColor(Qt::white);
+        backBrush.setColor(KColorScheme(QPalette::Active).background().color());
         backBrush.setStyle(Qt::SolidPattern);
 
         p->setOpacity(0.3);
@@ -253,7 +253,7 @@ void PlanetInfoItem::paint(QPainter *p,
 {
     QBrush  brush = p->brush();
 
-    brush.setColor(Qt::white);
+    brush.setColor(KColorScheme(QPalette::Active).background().color());
     brush.setStyle(Qt::SolidPattern);
 
     p->setOpacity(0.7);
