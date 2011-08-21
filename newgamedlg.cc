@@ -366,7 +366,7 @@ NewGameDlg::slotAddPlayer()
     if(player)
         m_map->addPlayerPlanetSomewhere(player);
 
-    enableButtonOk(model->rowCount() > 0);
+    enableButtonOk(model->rowCount() > 1);
 
     updateOwnerCB();
 }
@@ -382,7 +382,7 @@ NewGameDlg::slotRemovePlayer()
         delete player;
     }
 
-    enableButtonOk(model->rowCount() > 0);
+    enableButtonOk(model->rowCount() > 1);
 
     updateOwnerCB();
 }

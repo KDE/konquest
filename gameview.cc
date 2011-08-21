@@ -516,6 +516,17 @@ GameView::startNewGame()
         delete newGame;
         return;
     }
+
+    // Silently forbid games with one player.
+    // I guess schizophrenic people should use two players instead of one.
+    if (m_gameLogic->players()->count() < 2) {
+        qDeleteAll(*m_gameLogic->players());
+        m_gameLogic->players()->clear();
+
+        delete newGame;
+        return;
+    }
+
     newGame->save(); // Save settings for next time
 
     // Fix all the widgets to run a new game.
