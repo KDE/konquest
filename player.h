@@ -52,6 +52,7 @@ public:
     // Getters and Setters for some fundamental properties.
     QString name()        const { return m_name; }
     void setName(QString name) {  m_name = name; }
+    int playerNum() const { return m_playerNum; }
 
     QString coloredName() const;
     QColor& color()             { return m_color; }
@@ -82,6 +83,9 @@ public:
     int  fleetsLaunched()       const { return m_fleetsLaunched;       }
     int  enemyFleetsDestroyed() const { return m_enemyFleetsDestroyed; }
     int  enemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
+
+    // sorting predicates
+    static bool sortPointerByPlayerNum(const Player* a, const Player* b) { return a->m_playerNum < b->m_playerNum; }
 
 private:
     // Points to the Map we're playing on.

@@ -33,6 +33,7 @@
 #include <KComboBox>
 #include <QHeaderView>
 #include <QItemDelegate>
+#include <QtAlgorithms>
 #include <QDebug>
 
 #include "gamelogic.h"
@@ -150,29 +151,39 @@ class playersListModel : public QAbstractTableModel
             return result;
         }
 
+        QString uniquePlayerName(int i) const
+        {
+            QString name;
+            for(; name.isEmpty(); ++i)
+            {
+                name = QString( i18nc("Default player name is \"player \" + player number", "Player %1", i) );
+
+                for (int j = 0 ; j < m_players->count(); j++)
+                {
+                    if(m_players->at(j)->name() == name)
+                    {
+                        name.clear();
+                        break;
+                    }
+                }
+            }
+            return name;
+        }
+
         Player *addPlayer(Map *map)
         {
             Player *player = NULL;
             int players = m_players->count();
             if (players < MAX_PLAYERS)
             {
-                bool invalidName = true;
+                qSort(m_players->begin(), m_players->end(), Player::sortPointerByPlayerNum);
                 int i = 1;
-                QString name;
-                while (invalidName) {
-                    name = QString( i18nc("Default player name is \"player \" + player number", "Player %1", i) );
-                    invalidName = false;
-                    for (int j = 0 ; !invalidName && j < m_players->count(); j++)
-                    {
-                        invalidName = (m_players->at(j)->name() == name);
-                    }
-                    i++;
-                }
+                for(QList<Player*>::iterator a = m_players->begin(); a != m_players->end() && (*a)->playerNum() <= i; ++a, ++i);
                 beginInsertRows(QModelIndex(), players, players);
 
-                player = new Player( map, name, PlayerColors[i-2], i-1, Player::Human);
+                player = new Player( map, uniquePlayerName(i), PlayerColors[i-1], i, Player::Human);
                 m_players->append(player);
-        
+
                 endInsertRows();
             }
             return player;
