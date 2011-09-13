@@ -21,19 +21,18 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 #include "minimapview.h"
-#include "minimapview.moc"
 
 #include <QMouseEvent>
 #include <QPainter>
+#include <QDebug>
 
-#include "map.h"
 #include "planet.h"
-#include "player.h"
+#include "players/player.h"
 
 
 MiniMapView::MiniMapView( QWidget *parent )
   : QWidget( parent ),
-    m_map( 0 )
+    m_map( 0 ), m_selection(-1, -1)
 {
     QPalette  pal = palette();
     pal.setColor( backgroundRole(), Qt::black );
@@ -70,8 +69,13 @@ void MiniMapView::mousePressEvent ( QMouseEvent * event )
     float sectorSize, woffset, hoffset;
     CalculateOffsets(sectorSize, woffset, hoffset);
 
-    m_map->setSelectedSector(Coordinate((event->x() - woffset) / sectorSize,
-                                        (event->y() - hoffset) / sectorSize));
+    m_selection = Coordinate((event->x() - woffset) / sectorSize,
+                             (event->y() - hoffset) / sectorSize);
+
+    if (!m_map->sector(m_selection)->hasPlanet())
+        m_selection = Coordinate(-1, -1);
+
+    emit sectorSelected(m_selection);
 }
 
 void MiniMapView::paintEvent(QPaintEvent * /*event*/)
@@ -88,13 +92,12 @@ void MiniMapView::paintEvent(QPaintEvent * /*event*/)
     painter.drawRect(QRectF(woffset, hoffset, m_map->columns()*sectorSize, m_map->rows()*sectorSize));
 
     // Draw selection
-    if(m_map->hasSelectedSector()) {
-        Coordinate s = m_map->selectedSector();
-        if(s.x() >= 0 && s.x() < m_map->columns() &&
-            s.y() >= 0 && s.y() < m_map->rows()) {
+    if (hasSelection()) {
+        if(m_selection.x() >= 0 && m_selection.x() < m_map->columns() &&
+            m_selection.y() >= 0 && m_selection.y() < m_map->rows()) {
             painter.setBrush(Qt::cyan);
-            painter.drawRect(QRectF(woffset + s.x() * sectorSize,
-                                    hoffset + s.y() * sectorSize,
+            painter.drawRect(QRectF(woffset + m_selection.x() * sectorSize,
+                                    hoffset + m_selection.y() * sectorSize,
                                   sectorSize, sectorSize));
         }
     }
@@ -102,13 +105,20 @@ void MiniMapView::paintEvent(QPaintEvent * /*event*/)
     // Now draw the planets...
     for (int col = 0 ; col < m_map->columns() ; col++) {
         for (int row = 0 ; row < m_map->rows() ; row++) {
-            if (m_map->sector(QPoint(col, row))->planet() != 0) {
-                painter.setBrush( m_map->sector(QPoint(col, row))
-                        ->planet()->player()->color() );
+            QPoint pt(col, row);
+            Planet *planet = m_map->sector(pt)->planet();
+            if (planet) {
+                Player *player = planet->player();
+                if (player) {
+                    painter.setBrush(player->color());
 
-                // Draw a circle in the planets color to show the planet.
-                painter.drawEllipse( QRectF(woffset + col * sectorSize, hoffset + row * sectorSize,
-                        sectorSize, sectorSize));
+                    // Draw a circle in the planets color to show the planet.
+                    painter.drawEllipse(
+                                QRectF(woffset + col * sectorSize,
+                                       hoffset + row * sectorSize,
+                                       sectorSize,
+                                       sectorSize));
+                }
             }
         }
     }

@@ -19,20 +19,18 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "map.h"
 
-#include <math.h>
-#include "gamecore.h"
-#include "map.moc"
+#include "map.h"
+#include "../game.h"
+#include "../planet.h"
+#include <cmath>
+
 //---------------------------------------------------------------------------
 // class Map
 //---------------------------------------------------------------------------
-
-
 Map::Map(int rowsCount, int colsCount)
   : m_rows( rowsCount ),
-    m_columns( colsCount ),
-    m_hasSelectedSector( false )
+    m_columns( colsCount )
 {
     resizeMap(rowsCount, colsCount);
 }
@@ -43,9 +41,6 @@ void Map::resizeMap (int rowsCount, int columnsCount)
     m_columns = columnsCount;
     m_grid.clear();
     m_grid = QList<QList<Sector> >();
-
-    // Get rid of any selection.
-    setSelectedSector();
 
     // Initialize the grid of Sectors.
     for( int row = 0; row < rowsCount; row++ ) {
@@ -131,16 +126,17 @@ Map::UniquePlanetName(void)
 {
     char c = 'A';
 again:
-    foreach(Planet *planet, planets())
-        if(planet->name().at(0).toAscii() == c) {
+    foreach(Planet *planet, planets()) {
+        if (planet->name().at(0).toAscii() == c) {
             c++;
             goto again;
         }
+    }
     return QChar(c);
 }
 
 void
-Map::populateMap( QList<Player *> &players, Player *neutral,
+Map::populateMap( const QList<Player *> &players, Player *neutral,
                   int numNeutralPlanets)
 {    
     // Create a planet for each player.
@@ -175,35 +171,13 @@ Sector *Map::findRandomFreeSector()
 
 freesectorexists:
 
-    CoreLogic   cl;
     Coordinate  c;
     
     do {
-        c = cl.generatePlanetCoordinates( rows(), columns() );
+        c = Game::generatePlanetCoordinates( rows(), columns() );
     } while( m_grid[c.x()][c.y()].hasPlanet() );
 
     return &m_grid[c.x()][c.y()];
-}
-
-void Map::setSelectedSector( Coordinate c )
-{
-    if(c.x() < 0 || c.y() < 0
-       || c.x() >= m_columns || c.y() >= m_rows)
-        m_hasSelectedSector = false;
-    else {
-        m_hasSelectedSector = true;
-        m_selection = c;
-
-        emit selectionChanged(sector(c));
-        emit update();
-    }
-}
-
-void Map::setSelectedSector()
-{
-    m_hasSelectedSector = false;
-
-    emit update();
 }
 
 void Map::childSectorUpdate()

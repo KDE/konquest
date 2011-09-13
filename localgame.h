@@ -1,9 +1,5 @@
 /*
-    Copyright Russell Steffen <rsteffen@bayarea.net>
-    Copyright Stephan Zehetner <s.zehetner@nevox.org>
-    Copyright Dmitry Suzdalev <dimsuz@gmail.com>
-    Copyright <inge@lysator.liu.se>
-    Copyright <pinaraf@gmail.com>
+    Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,28 +15,28 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef KONQUEST_FLEETDLG_H
-#define KONQUEST_FLEETDLG_H
 
-#include <KDialog>
+#ifndef LOCALGAME_H
+#define LOCALGAME_H
 
-#include "fleet.h"
+#include "game.h"
+#include "players/player.h"
 
-class QTableWidget;
-
-class FleetDlg : public KDialog
+class LocalGame : public Game
 {
-public: 
-    FleetDlg( QWidget *parent, AttackFleetList *fleets, AttackFleetList *newFleets );
-    AttackFleetList *uncheckedFleets();
+    Q_OBJECT
+public:
+    explicit LocalGame(QObject *parent = 0);
 
-private:
-    void init();
+    virtual void start();
+signals:
 
-    AttackFleetList  *m_newFleetList;
-    AttackFleetList  *m_fleetList;
-    QTableWidget     *m_fleetTable;
+public slots:
+    void addPlayer(Player *player);
+
+    void playerIsDone();
+protected:
+    virtual void buildMachine();
 };
 
-
-#endif // KONQUEST_FLEETDLG_H
+#endif // LOCALGAME_H

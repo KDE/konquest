@@ -31,12 +31,12 @@
 #include <kguiitem.h>
 #include <klocale.h>
 
-#include <math.h> // for ceil
-
 #include "planet.h"
 
 
-FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets, AttackFleetList *newFleets )
+FleetDlg::FleetDlg( QWidget *parent,
+                    const AttackFleetList &fleets,
+                    const AttackFleetList &newFleets )
     : KDialog(parent), m_newFleetList(newFleets), m_fleetList(fleets)
 {
     setObjectName( QLatin1String( "FleetDlg" ) );
@@ -68,9 +68,9 @@ FleetDlg::FleetDlg( QWidget *parent, AttackFleetList *fleets, AttackFleetList *n
 void
 FleetDlg::init()
 {
-    AttackFleet  *curFleet=0;
-    AttackFleetList fleets = *m_newFleetList + *m_fleetList;
-    int newFleets = m_newFleetList->count();
+    AttackFleet *curFleet=0;
+    AttackFleetList fleets = m_newFleetList + m_fleetList;
+    int newFleets = m_newFleetList.count();
 
     m_fleetTable->setRowCount( fleets.count() );
     QTableWidgetItem *item;
@@ -111,7 +111,6 @@ FleetDlg::init()
 
 
 AttackFleetList *FleetDlg::uncheckedFleets() {
-
     AttackFleetList *fleets = new AttackFleetList();
     QTableWidgetItem *item;
     int count = m_fleetTable->rowCount();
@@ -122,7 +121,8 @@ AttackFleetList *FleetDlg::uncheckedFleets() {
             (item->checkState() == Qt::Unchecked) ) {
 
             int pos = m_fleetTable->item(f,1)->text().toInt();
-            if(pos>0) fleets->append( m_newFleetList->at(pos-1) );
+            if (pos > 0)
+                fleets->append( m_newFleetList.at(pos-1) );
         }
     }
 

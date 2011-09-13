@@ -28,7 +28,7 @@
 #include "planet.h"
 #include "minimapview.h"
 #include "ui_newGameDialog.h"
-#include "player.h"
+#include "../players/player.h"
 
 
 // Maximum Number of Players
@@ -41,7 +41,7 @@ public:
     explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
 	setupUi( this );
     }
-	~NewGameDlgUI() {}
+        ~NewGameDlgUI() {}
 };
 
 
@@ -55,8 +55,7 @@ class NewGameDlg : public KDialog
     Q_OBJECT
 
 public:
-    NewGameDlg( QWidget *parent, Map *map, QList<Player *> *playerList,
-                Player *neutralPlayer, GameOptions &options);
+    NewGameDlg( QWidget *parent, Game *game);
     ~NewGameDlg() {}
 
     void  save();
@@ -68,7 +67,7 @@ protected slots:
     void  slotRemovePlayer();
     void  slotOk();
 
-    void  slotUpdateSelection(Sector*);
+    void  slotUpdateSelection(const Coordinate &coord);
     void  slotNewOwner(int);
     void  slotNewKillPercentage(double);
     void  slotNewProduction(int);
@@ -78,13 +77,10 @@ private:
     void  init();
 
 private:
-    Map              *m_map;
-    QList<Player *>  *m_players;
+    Game             *m_game;
     Player           *m_neutral;
 
     NewGameDlgUI     *m_w;
-
-    GameOptions      &m_options;
 };
 
 #endif // KONQUEST_NEWGAMEDLG_H

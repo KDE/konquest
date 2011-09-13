@@ -19,21 +19,23 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
+#include "mapscene.h"
+
 #include <QGraphicsItem>
 #include <QPainter>
 #include <kdebug.h>
 
 #include "map.h"
-#include "sector.h"
-#include "images.h"
-#include "gamelogic.h"
-#include "mapscene.moc"
 #include "mapitems.h"
+#include "../sector.h"
+#include "../images.h"
+#include "../game.h"
+#include "../planet.h"
 
-
-MapScene::MapScene (GameLogic *gamelogic)
+MapScene::MapScene (Game *game)
   : QGraphicsScene(),
-    m_gamelogic(gamelogic),
+    m_game(game),
     m_selectedPlanetItem(NULL),
     m_planetInfoItem(NULL),
     m_width(width()),
@@ -86,7 +88,7 @@ void MapScene::mapUpdate()
         for (int j = 0 ; j < map()->columns() ; j++) {
             sector = map()->sector(Coordinate(j, i));
             if (sector->hasPlanet()) {
-                PlanetItem *item = new PlanetItem(this, sector, m_gamelogic);
+                PlanetItem *item = new PlanetItem(this, sector, m_game);
                 connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
                         this, SLOT(planetItemSelected (PlanetItem *)));
                 item->setZValue(1.0);
@@ -166,7 +168,7 @@ void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
     }
 
     if (!m_planetInfoItem) {
-        m_planetInfoItem = new PlanetInfoItem(m_gamelogic);
+        m_planetInfoItem = new PlanetInfoItem(m_game);
         addItem(m_planetInfoItem);
     }
 

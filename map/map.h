@@ -25,7 +25,7 @@
 #include <QObject>
 #include <QList>
 #include "sector.h"
-#include "player.h"
+#include "../players/player.h"
 
 //*****************************************************************
 // class Map
@@ -53,15 +53,15 @@ public:
     void       clearMap();
     void       resizeMap(int rows, int cols);
 
-    void       populateMap( QList<Player *> &players, Player *neutral,
+    void       populateMap( const QList<Player *> &players, Player *neutral,
 			    int numNeutralPlanets);
     
     double     distance( Planet *p1, Planet *p2 );
 
-    bool hasSelectedSector() const { return m_hasSelectedSector; }
+    /*bool hasSelectedSector() const { return m_hasSelectedSector; }
     Coordinate selectedSector() const { return m_selection; }
     void setSelectedSector( Coordinate c );
-    void setSelectedSector();
+    void setSelectedSector();*/
 
     Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }
 
@@ -86,8 +86,8 @@ protected:
 
     // This is used to implement a selected sector,
     // one who's boarder flashes.
-    bool        m_hasSelectedSector;
-    Coordinate  m_selection;
+    //bool        m_hasSelectedSector;
+    //Coordinate  m_selection;
 };
 
 #endif // KONQUEST_MAP_H

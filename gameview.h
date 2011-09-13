@@ -19,6 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_GAMEVIEW_H
 #define KONQUEST_GAMEVIEW_H
 
@@ -26,7 +27,8 @@
 #include <QWidget>
 
 #include "planet.h"
-#include "player.h"
+#include "players/player.h"
+#include "game.h"
 
 
 //************************************************************************
@@ -38,6 +40,7 @@ class QLabel;
 class QPushButton;
 class QLineEdit;
 class QTextEdit;
+class QIntValidator;
 
 class KLocalizedString;
 
@@ -74,16 +77,12 @@ class GameView : public QWidget
     Q_OBJECT
 
 public:
-    explicit  GameView( QWidget *parent, GameLogic *gameLogic );
+    explicit  GameView( QWidget *parent, Game *game );
     virtual  ~GameView();
-
-//    virtual QSize sizeHint() const;
-
-    bool  isGameInProgress() const { return m_gameInProgress; }
 
 protected slots:
     void  startNewGame();
-    void  shutdownGame();
+    bool  shutdownGame();
     void  planetSelected( Planet * );
     void  newShipCount();
     void  nextPlayer();
@@ -100,6 +99,7 @@ public slots:
 		  Planet *planet = 0, Player *planetPlayer = 0);
     void  beginTurn();
     void  endTurn();
+    void  turn();
 
 signals:
     void  newGUIState( GUIState newState );
@@ -112,12 +112,9 @@ protected:
     virtual void  resizeEvent ( QResizeEvent * event );
 
 private:
-    void  turn();
     void  gameOver();
 
-    void  sendAttackFleet( Planet *source, Planet *dest, int ships );
-
-    void  changeGameView( bool inPlay );
+    void  changeGameView();
     void  cleanupGame();
     
 
@@ -125,21 +122,21 @@ private:
     // Display Widgets
     //***************************************************************
 
-    MapView      *m_mapWidget;
-    MapScene     *m_mapScene;
-    QLabel       *m_gameMessage;
-    QPushButton  *m_endTurnBtn;
-    QLineEdit    *m_shipCountEdit;
-    QLabel       *m_splashScreen;
-    QTextEdit    *m_msgWidget;
+    MapView       *m_mapWidget;
+    MapScene      *m_mapScene;
+    QLabel        *m_gameMessage;
+    QPushButton   *m_endTurnBtn;
+    QLineEdit     *m_shipCountEdit;
+    QIntValidator *m_shipValidator;
+    QLabel        *m_splashScreen;
+    QTextEdit     *m_msgWidget;
 
     //***************************************************************
     // Game objects
     //***************************************************************
 
-    GameLogic          *m_gameLogic;
+    Game *m_game;
 
-    Player             *m_neutralPlayer;  // FIXME: Have here or in gamelogic?
     bool                m_queueMessages;
     QList<GameMessage>  m_messageQueue;
     bool                m_showInformations;
@@ -158,8 +155,6 @@ private:
     //***************************************************************
     // Game State information
     //***************************************************************
-
-    bool                m_gameInProgress;
     GUIState            m_guiState;
 };
 

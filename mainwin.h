@@ -25,7 +25,7 @@
 
 #include <kxmlguiwindow.h>
 
-#include "gamelogic.h"
+#include "game.h"
 #include "gameview.h"
 
 class QAction;
@@ -47,7 +47,7 @@ private slots:
 
 private:
     // Widgets
-    GameLogic  *m_gameLogic;
+    Game       *m_game;
     GameView   *m_gameView;
     QLabel     *m_statusBarText;
 
@@ -56,8 +56,6 @@ private:
     QAction  *m_measureAction;
     QAction  *m_standingAction;
     QAction  *m_fleetAction;
-
-
 };
 
 #endif // KONQUEST_MAINWIN_H

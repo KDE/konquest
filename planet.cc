@@ -19,15 +19,14 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "gamelogic.h"
-#include "planet.moc"
 
+#include "planet.h"
 #include "sector.h"
 #include "fleet.h"
-#include "player.h"
-#include "map.h"
-#include "gamecore.h"
+#include "game.h"
+#include "players/player.h"
 #include <krandomsequence.h>
+#include <QDebug>
 
 //---------------------------------------------------------------------------
 // class Planet
@@ -63,25 +62,15 @@ Planet::createPlayerPlanet( Sector *sector, Player *initialOwner,
 
 
 Planet *
-Planet::createNeutralPlanet( Sector *sector, Player *initialOwner, 
+Planet::createNeutralPlanet( Sector *sector, Player *initialOwner,
 			     const QString &planetName )
 {
-    CoreLogic  clogic;
-    double     killP          = clogic.generateKillPercentage();
-    int        productionRate = (int)clogic.generatePlanetProduction();
+    double     killP          = Game::generateKillPercentage();
+    int        productionRate = (int) Game::generatePlanetProduction();
 
     return new Planet( planetName, sector,
                        initialOwner, productionRate, killP );
 }
-
-void
-Planet::select()
-{
-    m_sector->select();
-
-    emit selected();
-}
-
 
 void
 Planet::conquer( AttackFleet *conqueringFleet )
@@ -94,17 +83,19 @@ Planet::conquer( AttackFleet *conqueringFleet )
 }
 
 void
-Planet::turn(GameOptions *options)
+Planet::turn(const GameOptions &options)
 {
-    if(options->ProductionAfterConquere || !m_justconquered) {
-        if( m_owner->isNeutral() )
-            m_homeFleet.addShips( options->NeutralsProduction );
+    qDebug() << "Planet::turn...";
+
+    if (options.ProductionAfterConquere || !m_justconquered) {
+        if (m_owner->isNeutral() )
+            m_homeFleet.addShips( options.NeutralsProduction );
         else {
             m_homeFleet.addShips( m_productionRate );
             m_owner->statShipsBuilt( m_productionRate );
         }
       
-        if(options->CumulativeProduction)
+        if (options.CumulativeProduction)
             m_productionRate++;
     }
 

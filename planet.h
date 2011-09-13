@@ -68,13 +68,12 @@ public:
     int            ships()      const { return m_showCurShips ? m_homeFleet.shipCount() : m_oldShips; }
 
     void  showOldShips() { m_showCurShips=false; }
-    void  select();
     void  conquer( AttackFleet *conqueringFleet );
-    void  turn(GameOptions *);
+    void  turn(const GameOptions &);
 
+    //void select() { Q_ASSERT(false); }
 signals:
     void  update();
-    void  selected();
 
 private:
     QString       m_name;

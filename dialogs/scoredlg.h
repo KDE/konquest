@@ -2,8 +2,8 @@
     Copyright Russell Steffen <rsteffen@bayarea.net>
     Copyright Stephan Zehetner <s.zehetner@nevox.org>
     Copyright Dmitry Suzdalev <dimsuz@gmail.com>
-    Copyright Inge Wallin <inge@lysator.liu.se>
-    Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright <inge@lysator.liu.se>
+    Copyright <pinaraf@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,32 +19,30 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "mapview.h"
-#include "mapview.moc"
-#include "gamelogic.h"
-#include "mapscene.h"
-#include <QGraphicsScene>
-#include <QResizeEvent>
+#ifndef KONQUEST_SCOREDLG_H
+#define KONQUEST_SCOREDLG_H
 
-MapView::MapView( MapScene* scene, QWidget *parent )
-    : QGraphicsView(scene, parent), m_scene(scene)
+
+#include <QTableWidget>
+#include <KDialog>
+
+#include "../players/player.h"
+
+
+class ScoreDlg : public KDialog
 {
-    setCacheMode( QGraphicsView::CacheBackground );
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setMouseTracking(true);
 
-    setMinimumSize( sizeHint() );
-    resize( sizeHint() );
-}
+public:
+    ScoreDlg( QWidget *parent, const QString& title, 
+              QList<Player *> players );
+    ~ScoreDlg();
 
-void MapView::resizeEvent( QResizeEvent* ev )
-{
-    m_scene->resizeScene(QRectF(0, 0, ev->size().width(), ev->size().height()));
-    QGraphicsView::resizeEvent(ev);
-}
+private:
+    void init();
 
-QSize MapView::sizeHint() const
-{
-    return QSize( (int)m_scene->width(), (int)m_scene->height() );
-}
+    QList<Player *>  m_players;
+    QTableWidget     *m_scoreTable;
+
+};
+
+#endif // KONQUEST_SCOREDLG_H

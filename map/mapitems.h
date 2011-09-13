@@ -28,7 +28,7 @@
 #include <QObject>
 #include "sector.h"
 
-class GameLogic;
+class Game;
 class MapScene;
 
 class PlanetItem : public QGraphicsObject
@@ -36,7 +36,7 @@ class PlanetItem : public QGraphicsObject
     Q_OBJECT
 
 public:
-    PlanetItem(MapScene *scene, Sector *sector, GameLogic *gamelogic);
+    PlanetItem(MapScene *scene, Sector *sector, Game *game);
     ~PlanetItem() {}
 
     QRectF   boundingRect() const;
@@ -60,23 +60,23 @@ private slots:
 private:
     QPixmap renderPixmap( const QString& svgId, int width, int height ) const;
 
-        MapScene  *m_scene;
-        Sector    *m_sector;
+    MapScene  *m_scene;
+    Sector    *m_sector;
 
-        GameLogic *m_gamelogic;
+    Game      *m_game;
 
-        bool       m_hovered;
-        bool       m_selected;
-        bool       m_blinkState;
-        QTimer    *m_blinkTimer;
-        QString    m_lookName;
+    bool       m_hovered;
+    bool       m_selected;
+    bool       m_blinkState;
+    QTimer    *m_blinkTimer;
+    QString    m_lookName;
 };
 
 
 class PlanetInfoItem : public QGraphicsItem
 {
 public:
-    PlanetInfoItem(GameLogic*);
+    PlanetInfoItem(Game*);
     ~PlanetInfoItem() {}
 
     QRectF   boundingRect() const;
@@ -86,7 +86,7 @@ public:
                    QWidget *widget);
 
 private:
-    GameLogic     *m_gamelogic;
+    Game          *m_game;
     QTextDocument  m_textDoc;
     Planet        *m_planet;
 };

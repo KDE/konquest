@@ -1,9 +1,5 @@
 /*
-    Copyright Russell Steffen <rsteffen@bayarea.net>
-    Copyright Stephan Zehetner <s.zehetner@nevox.org>
-    Copyright Dmitry Suzdalev <dimsuz@gmail.com>
-    Copyright <inge@lysator.liu.se>
-    Copyright <pinaraf@gmail.com>
+    Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,30 +15,33 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef KONQUEST_SCOREDLG_H
-#define KONQUEST_SCOREDLG_H
 
-
-#include <QTableWidget>
-#include <KDialog>
+#ifndef COMPUTERPLAYER_H
+#define COMPUTERPLAYER_H
 
 #include "player.h"
 
-
-class ScoreDlg : public KDialog
+class ComputerPlayer : public Player
 {
-
+    Q_OBJECT
 public:
-    ScoreDlg( QWidget *parent, const QString& title, 
-	      QList<Player *> *players );
-    ~ScoreDlg();
+    enum AiLevel { Weak, Normal, Hard };
+
+    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color, AiLevel level);
+
+    void setAiLevel (AiLevel level) { m_level = level; }
+
+    AiLevel aiLevel() { return m_level; }
+
+protected:
+    virtual void play();
+
+signals:
+
+public slots:
 
 private:
-    void init();
-
-    QList<Player *>  *m_players;
-    QTableWidget     *m_scoreTable;
-
+    AiLevel m_level;
 };
 
-#endif // KONQUEST_SCOREDLG_H
+#endif // COMPUTERPLAYER_H

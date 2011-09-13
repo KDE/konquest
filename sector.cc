@@ -19,10 +19,10 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "sector.h"
-#include "sector.moc"
 
-#include "map.h"
+#include "sector.h"
+#include "planet.h"
+#include "map/map.h"
 
 //---------------------------------------------------------------------------
 // class Sector
@@ -80,12 +80,4 @@ Sector::operator=( const Sector &other )
     m_map    = other.m_map;
 
     return *this;
-}
-
-void
-Sector::select()
-{
-    m_map->setSelectedSector( m_coord );
-
-    emit selected();
 }

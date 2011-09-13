@@ -28,20 +28,20 @@
 #include "mainwin.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
-#define KONQUEST_VERSION "2.0"
+#define KONQUEST_VERSION "2.1"
 
 int
 main(int argc, char **argv)
 {
     KAboutData aboutData( "konquest", 0, ki18n("Konquest"),
         KONQUEST_VERSION, ki18n(description), KAboutData::License_GPL,
-        ki18n("Copyright (c) 1999-2010, Developers"), KLocalizedString(), "http://games.kde.org/konquest" );
+        ki18n("Copyright (c) 1999-2011, Developers"), KLocalizedString(), "http://games.kde.org/konquest" );
 
     aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
     aboutData.addCredit(ki18n("Stephan Zehetner"), ki18n("Computer/AI Player"), "s.zehetner@nevox.org");
     aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to KDE4"), "dimsuz@gmail.com");
     aboutData.addCredit(ki18n("Inge Wallin"), ki18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
-    aboutData.addCredit(ki18n("Pierre Ducroquet"), ki18n("Cleaning and bugfixing"), "pinaraf@gmail.com");
+    aboutData.addCredit(ki18n("Pierre Ducroquet"), ki18n("Cleaning and bugfixing, maintenance"), "pinaraf@gmail.com");
     aboutData.addCredit(ki18n("Sean D'Epagnier"), ki18n("Gameplay Enhancements"), "geckosenator@gmail.com");
     
     KCmdLineArgs::init( argc, argv, &aboutData );

@@ -28,7 +28,7 @@
 
 #include <QHeaderView>
 
-ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> *players )
+ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> players )
     : KDialog(parent), m_players(players)
 {
     setObjectName( QLatin1String( "ScoreDlg" ) );
@@ -65,11 +65,11 @@ ScoreDlg::~ScoreDlg()
 void
 ScoreDlg::init()
 {
-    m_scoreTable->setRowCount(m_players->count());
+    m_scoreTable->setRowCount(m_players.count());
     int row = 0;
     
     QTableWidgetItem *item;
-    foreach (Player *curPlayer, (*m_players)) {
+    foreach (Player *curPlayer, m_players) {
         item = new QTableWidgetItem(curPlayer->name());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_scoreTable->setItem(row, 0, item);

@@ -21,8 +21,7 @@
  */
 
 #include "fleet.h"
-#include "fleet.moc"
-#include "gamelogic.h"
+#include "planet.h"
 
 //---------------------------------------------------------------------------
 // class Fleet

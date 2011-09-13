@@ -58,12 +58,8 @@ public:
     void        setPlanet( Planet *planet );
     void        removePlanet();
 
-    void        select();
-
-
 signals:
     void        update();
-    void        selected();
 
 protected slots:
     void        childPlanetUpdate( );

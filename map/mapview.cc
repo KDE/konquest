@@ -19,43 +19,31 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#include "gamecore.h"
-#include "sector.h"
 
-//*******************************************************************
-// Game Core Logic
-//*******************************************************************
+#include "mapview.h"
+#include "mapscene.h"
+#include <QGraphicsScene>
+#include <QResizeEvent>
 
-CoreLogic::CoreLogic()
+MapView::MapView( MapScene* scene, QWidget *parent )
+    : QGraphicsView(scene, parent), m_scene(scene)
 {
-    random.setSeed(0);
+    setCacheMode( QGraphicsView::CacheBackground );
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setMouseTracking(true);
+
+    setMinimumSize( sizeHint() );
+    resize( sizeHint() );
 }
 
-Coordinate
-CoreLogic::generatePlanetCoordinates(int x, int y)
+void MapView::resizeEvent( QResizeEvent* ev )
 {
-    return Coordinate(random.getLong(x), random.getLong(y));
+    m_scene->resizeScene(QRectF(0, 0, ev->size().width(), ev->size().height()));
+    QGraphicsView::resizeEvent(ev);
 }
 
-double
-CoreLogic::generateKillPercentage()
+QSize MapView::sizeHint() const
 {
-    // 0.30 - 0.90
-    return 0.30 + random.getDouble()*0.60;
+    return QSize( (int)m_scene->width(), (int)m_scene->height() );
 }
-
-int
-CoreLogic::generatePlanetProduction()
-{
-    // 5 - 15
-    return 5 + random.getLong(10);
-}
-
-
-double
-CoreLogic::roll()
-{
-    // 0.00 - 1.00
-    return random.getDouble();
-}
-

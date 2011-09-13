@@ -27,6 +27,7 @@
 #include <KPixmapCache>
 #include <QGraphicsScene>
 #include "mapitems.h"
+#include "../game.h"
 
 class Planet;
 class PlanetItem;
@@ -39,12 +40,12 @@ class MapScene: public QGraphicsScene
     Q_OBJECT
 
     public:
-        explicit MapScene(GameLogic *gamelogic);
+        explicit MapScene(Game *game);
         ~MapScene();
 
         QSvgRenderer  *renderer() const  { return m_renderer; }
         KPixmapCache  *pixmapCache() const  { return m_pixmapCache; }
-        Map           *map()      const  { return m_gamelogic->map(); }
+        Map           *map()      const  { return m_game->map(); }
 
         void           selectPlanet(Planet *planet);
         void           unselectPlanet();
@@ -67,7 +68,7 @@ class MapScene: public QGraphicsScene
         void  planetItemSelected (PlanetItem *);
 
     private:
-        GameLogic       *m_gamelogic;
+        Game            *m_game;
 
         QSvgRenderer    *m_renderer;
         KPixmapCache    *m_pixmapCache;

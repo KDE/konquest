@@ -21,8 +21,6 @@
  */
 
 #include "mapitems.h"
-#include "mapitems.moc"
-#include "gamelogic.h"
 
 #include <QGraphicsScene>
 #include <QPainter>
@@ -33,20 +31,21 @@
 #include <kglobalsettings.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <kcolorscheme.h>
 
 #include "mapscene.h"
 #include "map.h"
-
+#include "../planet.h"
 
 /********************************
     PlanetItem
  *******************************/
 
-PlanetItem::PlanetItem (MapScene *scene, Sector *sector, GameLogic *gamelogic)
+PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
     : QGraphicsObject(),
       m_scene(scene),
       m_sector(sector),
-      m_gamelogic(gamelogic),
+      m_game(game),
       m_hovered(false),
       m_selected(false),
       m_blinkState(false)
@@ -107,7 +106,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     if ( m_hovered || (m_selected && m_blinkState) ) {
         QBrush  backBrush = p->brush();
 
-        backBrush.setColor(Qt::white);
+        backBrush.setColor(KColorScheme(QPalette::Active).background().color());
         backBrush.setStyle(Qt::SolidPattern);
 
         p->setOpacity(0.3);
@@ -125,9 +124,9 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     p->drawText(TextRect, m_sector->planet()->name());
 
     // Show the number of ships on the planet.
-    if((m_gamelogic->options().NeutralsShowShips || !m_sector->planet()->player()->isNeutral())
-       && ((!m_gamelogic->options().BlindMap || m_gamelogic->currentPlayer() == m_sector->planet()->player())
-           || (m_gamelogic->options().NeutralsShowShips && m_sector->planet()->player()->isNeutral())))
+    if((m_game->options().NeutralsShowShips || !m_sector->planet()->player()->isNeutral())
+       && ((!m_game->options().BlindMap || m_game->currentPlayer() == m_sector->planet()->player())
+           || (m_game->options().NeutralsShowShips && m_sector->planet()->player()->isNeutral())))
     {
         QString shipCount = QString::number(m_sector->planet()->ships());
 
@@ -211,9 +210,9 @@ void PlanetItem::blinkPlanet()
  *******************************/
 
 
-PlanetInfoItem::PlanetInfoItem (GameLogic *gamelogic)
+PlanetInfoItem::PlanetInfoItem (Game *game)
   : QGraphicsItem(),
-    m_gamelogic(gamelogic),
+    m_game(game),
     m_textDoc(),
     m_planet(NULL)
 {
@@ -224,12 +223,12 @@ void PlanetInfoItem::setPlanet (Planet *planet)
     m_planet = planet;
 
     QString  text = i18n("Planet name: %1", planet->name());
-    if((m_gamelogic->options().NeutralsShowStats || !planet->player()->isNeutral())
-       && ((!m_gamelogic->options().BlindMap || m_gamelogic->currentPlayer() == planet->player())
-           || (m_gamelogic->options().NeutralsShowStats && planet->player()->isNeutral())))
+    if((m_game->options().NeutralsShowStats || !planet->player()->isNeutral())
+       && ((!m_game->options().BlindMap || m_game->currentPlayer() == planet->player())
+           || (m_game->options().NeutralsShowStats && planet->player()->isNeutral())))
     {
         text += QString("<br />" + i18n("Owner: %1", planet->player()->coloredName())
-          + (m_gamelogic->options().NeutralsShowShips || !planet->player()->isNeutral() ?
+          + (m_game->options().NeutralsShowShips || !planet->player()->isNeutral() ?
              QString("<br />"
              + i18n("Ships: %1", planet->ships() )) :
              "")
@@ -253,7 +252,7 @@ void PlanetInfoItem::paint(QPainter *p,
 {
     QBrush  brush = p->brush();
 
-    brush.setColor(Qt::white);
+    brush.setColor(KColorScheme(QPalette::Active).background().color());
     brush.setStyle(Qt::SolidPattern);
 
     p->setOpacity(0.7);

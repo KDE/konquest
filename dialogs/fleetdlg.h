@@ -19,29 +19,30 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
-#ifndef KONQUEST_GAMECORE_H
-#define KONQUEST_GAMECORE_H
+#ifndef KONQUEST_FLEETDLG_H
+#define KONQUEST_FLEETDLG_H
 
-#include <krandomsequence.h>
-#include "sector.h"
+#include <KDialog>
 
-//**********************************************************
-// Core Logic routines
-//**********************************************************
+#include "fleet.h"
 
-class CoreLogic
+class QTableWidget;
+
+class FleetDlg : public KDialog
 {
-public:
-    CoreLogic();
-
-    Coordinate  generatePlanetCoordinates (int rows, int cols);
-    double      generateKillPercentage();
-    int         generatePlanetProduction();
-
-    double      roll();
+public: 
+    FleetDlg( QWidget *parent,
+              const AttackFleetList &fleets,
+              const AttackFleetList &newFleets );
+    AttackFleetList *uncheckedFleets();
 
 private:
-    KRandomSequence  random;
+    void init();
+
+    AttackFleetList  m_newFleetList;
+    AttackFleetList  m_fleetList;
+    QTableWidget     *m_fleetTable;
 };
 
-#endif // KONQUEST_GAMECORE_H
+
+#endif // KONQUEST_FLEETDLG_H

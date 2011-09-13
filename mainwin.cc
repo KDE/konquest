@@ -36,14 +36,12 @@
 #include <kicon.h>
 #include <kstatusbar.h>
 
-#include "mainwin.moc"
-#include "gamelogic.h"
+#include "game.h"
+#include "localgame.h"
 #include "gameview.h"
 
 
 // KonquestMainWindow
-
-
 MainWindow::MainWindow()
 {
     setCaption( i18n("Galactic Conquest") );
@@ -107,30 +105,29 @@ MainWindow::setupActions()
 void
 MainWindow::setupGameView()
 {
-    m_gameLogic = new GameLogic( this );
-    m_gameView  = new GameView( this, m_gameLogic );
+    m_game      = new LocalGame( this );
+    m_gameView  = new GameView( this, m_game );
     setCentralWidget( m_gameView );
 
-    connect ( m_gameLogic, SIGNAL( gameMsg(const KLocalizedString &,
+    connect ( m_game,    SIGNAL( gameMsg(const KLocalizedString &,
 					   Player *, Planet *,
 					   Player * ) ),
 	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
-    connect (m_gameLogic, SIGNAL( beginTurn()), m_gameView, SLOT(beginTurn()));
-    connect (m_gameLogic, SIGNAL( endTurn()), m_gameView, SLOT(endTurn()));
+    connect (m_game, SIGNAL( beginTurn()), m_gameView, SLOT(beginTurn()));
+    connect (m_game, SIGNAL( endTurn()), m_gameView, SLOT(endTurn()));
     connect( m_gameView, SIGNAL( newGUIState( GUIState )),
 	     this,       SLOT( guiStateChange( GUIState ) ) );
 }
 
-
 void
 MainWindow::guiStateChange( GUIState newState )
 {
-    m_endAction     ->setEnabled( m_gameView->isGameInProgress() );
+    m_endAction     ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
     m_fleetAction   ->setEnabled( newState == SOURCE_PLANET );
 
-    m_statusBarText->setText(i18n("Turn # %1", m_gameLogic->turnNumber()));
+    m_statusBarText->setText(i18n("Turn # %1", m_game->turnCounter()));
 }

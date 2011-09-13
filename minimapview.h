@@ -26,7 +26,7 @@
 
 #include <QWidget>
 
-#include "map.h"
+#include "map/map.h"
 
 
 class MiniMapView : public QWidget
@@ -39,18 +39,22 @@ public:
 
     void setMap( Map *newMap );
 
+    Coordinate selection() const { return m_selection; }
+
+    bool hasSelection() const { return m_selection != Coordinate(-1, -1); }
+
 signals:
-    void SelectionChanged(int player, int production, float killratio);
+    void sectorSelected(const Coordinate &coord);
 
 protected:
     void mousePressEvent( QMouseEvent * event );
     void paintEvent(QPaintEvent *event);
     
 private:
-
     void CalculateOffsets (float &, float &, float &);
 
     Map  *m_map;
+    Coordinate m_selection;
 };
 
 

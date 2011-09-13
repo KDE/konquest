@@ -1,29 +1,37 @@
 project(konquest)
 
-add_subdirectory( pics ) 
+add_subdirectory( pics )
 
 ########### next target ###############
 
 set(konquest_SRCS 
-   Konquest.cc 
-   gamelogic.cc
-   planet.cc
-   fleet.cc
-   player.cc
-   map.cc
-   sector.cc
-   gamecore.cc 
-   mainwin.cc 
-   gameview.cc
-   mapview.cc 
-   mapscene.cc
-   mapitems.cc
-   minimapview.cc 
-   newgamedlg.cc 
-   scoredlg.cc 
-   fleetdlg.cc )
+    game.cpp
+    localgame.cpp
 
-kde4_add_ui_files(konquest_SRCS newGameDialog.ui )
+    Konquest.cc
+    planet.cc
+    fleet.cc
+    sector.cc
+    mainwin.cc
+    gameview.cc
+    minimapview.cc
+
+    map/map.cc
+    map/mapview.cc
+    map/mapscene.cc
+    map/mapitems.cc
+
+    dialogs/newgamedlg.cc
+    dialogs/scoredlg.cc
+    dialogs/fleetdlg.cc
+
+    players/computerplayer.cpp
+    players/localplayer.cpp
+    players/neutralplayer.cpp
+    players/player.cpp
+)
+
+kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )
 
 kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-konquest.png")
 kde4_add_executable(konquest ${konquest_SRCS})
