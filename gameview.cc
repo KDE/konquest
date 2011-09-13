@@ -272,6 +272,7 @@ GameView::turn()
 
         } else {
             m_shipCountEdit->setEnabled(false);
+            m_shipCountEdit->setText( QString() );
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
             m_gameMessage->setText( "<qt>" 
@@ -322,7 +323,6 @@ GameView::turn()
             m_gameMessage->setText( m_gameLogic->currentPlayer()->coloredName() +
                                     i18n(": How many ships?") );
 
-            m_shipCountEdit->setText( "" );
             m_shipCountEdit->setEnabled(true);
             m_shipCountEdit->setFocus();
 
