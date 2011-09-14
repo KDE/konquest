@@ -58,11 +58,6 @@ public:
     
     double     distance( Planet *p1, Planet *p2 );
 
-    /*bool hasSelectedSector() const { return m_hasSelectedSector; }
-    Coordinate selectedSector() const { return m_selection; }
-    void setSelectedSector( Coordinate c );
-    void setSelectedSector();*/
-
     Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }
 
     QList<Planet*> planets();
@@ -72,7 +67,6 @@ protected slots:
 
 signals:
     void update();
-    void selectionChanged(Sector*);
 
 private:
     Sector *findRandomFreeSector();
@@ -83,11 +77,6 @@ protected:
     QList<QList<Sector> > m_grid;
     int  m_rows; // size of grid in sectors
     int  m_columns;
-
-    // This is used to implement a selected sector,
-    // one who's boarder flashes.
-    //bool        m_hasSelectedSector;
-    //Coordinate  m_selection;
 };
 
 #endif // KONQUEST_MAP_H
