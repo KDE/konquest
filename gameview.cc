@@ -259,11 +259,7 @@ GameView::turn()
             m_shipCountEdit->setText( QString() );
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
-            //@FIXME !!!
-            m_gameMessage->setText( "<qt>"
-                                  + m_game->currentPlayer()->coloredName()
-                                  + ": "
-                                  +i18n("Select source planet...") + "</qt>" );
+            m_gameMessage->setText( i18n("<qt>%1: Select source planet...</qt>", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
@@ -280,12 +276,7 @@ GameView::turn()
             m_shipCountEdit->setEnabled(false);
             m_endTurnBtn->setEnabled( false );
             m_mapScene->selectPlanet(sourcePlanet);
-            //@FIXME !!!
-            m_gameMessage->setText( "<qt>"
-                                  + m_game->currentPlayer()->coloredName()
-                                  + ": "
-                                  + i18n("Select destination planet...")
-                                  + "</qt>" );
+            m_gameMessage->setText( i18n("<qt>%1: Select destination planet...</qt>", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
@@ -308,9 +299,7 @@ GameView::turn()
             m_endTurnBtn->setFocus();
 
         } else {
-            //@FIXME !!!
-            m_gameMessage->setText( m_game->currentPlayer()->coloredName() +
-                                    i18n(": How many ships?") );
+            m_gameMessage->setText( i18n("%1: How many ships?", m_game->currentPlayer()->coloredName()) );
 
             m_shipCountEdit->setEnabled(true);
             m_shipCountEdit->setFocus();
@@ -351,7 +340,7 @@ GameView::turn()
                        "A ship leaving this turn will arrive on turn %4",
                    sourcePlanet->name(),
                    destPlanet->name(),
-                   dist,
+                   QString::number(dist, 'f', 1),
                    m_game->turnCounter() + (int)std::ceil(dist));
             KMessageBox::information( this, msg, i18n("Distance"));
 
