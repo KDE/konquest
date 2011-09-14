@@ -1,5 +1,9 @@
 /*
-    Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright Russell Steffen <rsteffen@bayarea.net>
+    Copyright Stephan Zehetner <s.zehetner@nevox.org>
+    Copyright Dmitry Suzdalev <dimsuz@gmail.com>
+    Copyright Inge Wallin <inge@lysator.liu.se>
+    Copyright Pierre Ducroquet <pinaraf@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
