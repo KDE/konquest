@@ -231,7 +231,7 @@ void PlanetInfoItem::setPlanet (Planet *planet)
           + (m_game->options().NeutralsShowShips || !planet->player()->isNeutral() ?
              QString("<br />"
              + i18n("Ships: %1", planet->ships() )) :
-             "")
+             QString())
           + "<br />"
           + i18n("Production: %1", planet->production() )
           + "<br />"

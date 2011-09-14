@@ -614,7 +614,7 @@ GameView::newShipCount()
         shipCount = m_shipCountEdit->text().toInt(&ok);
         if (ok)
             haveShipCount = true;
-        m_shipCountEdit->setText( "" );
+        m_shipCountEdit->setText( QString() );
         turn();
         break;
 
@@ -654,7 +654,7 @@ GameView::changeGameView()
 void
 GameView::nextPlayer()
 {
-    // Hum, this should be straighforward
+    // Hum, this should be straightforward
     Player *currentPlayer = m_game->currentPlayer();
     LocalPlayer *humanPlayer = qobject_cast<LocalPlayer*>(currentPlayer);
     if (humanPlayer)

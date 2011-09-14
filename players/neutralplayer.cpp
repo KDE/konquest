@@ -6,7 +6,7 @@
 #include <QApplication>
 
 NeutralPlayer::NeutralPlayer(Game *game) :
-    Player(game, QString::null, Qt::gray)
+    Player(game, QString(), Qt::gray)
 {
 }
 

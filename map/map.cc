@@ -114,8 +114,8 @@ Map::clearMap()
 {
     int x,y;
 
-    for( x = 0; x < rows(); x++ )
-        for( y = 0; y < columns(); y++ )
+    for( x = 0; x < rows(); ++x )
+        for( y = 0; y < columns(); ++y )
              delete m_grid[x][y].planet();
 
     emit update();

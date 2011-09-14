@@ -47,7 +47,7 @@ FleetDlg::FleetDlg( QWidget *parent,
     m_fleetTable = new QTableWidget( this );
     m_fleetTable->setColumnCount( 6 );
     QStringList labels;
-    labels << "" << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
+    labels << QString() << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
 	   << i18n("Kill Percentage") << i18n("Arrival Turn");
     m_fleetTable->setHorizontalHeaderLabels( labels );
     m_fleetTable->verticalHeader()->hide();
