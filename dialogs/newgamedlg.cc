@@ -4,6 +4,7 @@
     Copyright Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright Inge Wallin <inge@lysator.liu.se>
     Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright 2011 Jeffrey Kelling <overlordapophis@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -36,6 +37,8 @@
 #include <QHeaderView>
 #include <QItemDelegate>
 #include <QDebug>
+#include <QLinkedList>
+#include <QPair>
 
 /*************************************************************************
  New Game Dialog Members
@@ -56,10 +59,17 @@ static const QColor PlayerColors[MAX_PLAYERS] = {
 
 class playersListModel : public QAbstractTableModel
 {
+    typedef QPair<QColor, QString> PlayerId;
+    QLinkedList<PlayerId> m_availablePlayerId;
 public:
     playersListModel(QObject *parent, Game *game)
         : QAbstractTableModel(parent), m_game(game), m_players(game->players())
     {
+        for(int a = 0; a < MAX_PLAYERS; ++a)
+        {
+            m_availablePlayerId.push_back(PlayerId(
+                PlayerColors[a], QString( i18nc("Default player name is \"player \" + player number", "Player %1", a) )));
+        }
     }
 
     int rowCount(const QModelIndex &index = QModelIndex()) const
@@ -187,23 +197,10 @@ public:
         int players = m_players.count();
         if (players < MAX_PLAYERS)
         {
-            bool invalidName = true;
-            int i = 1;
-            QString name;
-            while (invalidName) {
-                name = QString( i18nc("Default player name is \"player \" + player number", "Player %1", i) );
-                invalidName = false;
-                foreach (Player *player, m_players)
-                {
-                    invalidName = (player->name() == name);
-                    if (invalidName)
-                        break;
-                }
-                i++;
-            }
             beginInsertRows(QModelIndex(), players, players);
 
-            player = new LocalPlayer(m_game, name, PlayerColors[i-2]);
+            player = new LocalPlayer(m_game, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
+            m_availablePlayerId.pop_front();
             m_players.append(player);
             m_game->setPlayers(m_players);
 
@@ -224,6 +221,7 @@ public:
         {
             beginRemoveRows(QModelIndex(), row, row);
             player = m_players.at(row);
+            m_availablePlayerId.push_back(PlayerId(player->color(), player->name()));
             m_players.removeAt(row);
             m_game->setPlayers(m_players);
             endRemoveRows();
