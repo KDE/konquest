@@ -24,6 +24,7 @@
 #include "../fleet.h"
 
 class Game;
+class Planet;
 
 class Player : public QState
 {
@@ -60,10 +61,13 @@ public:
 
     AttackFleetList attackList() { return m_attackList; }
     AttackFleetList newAttacks() { return m_newAttacks; }
+    AttackFleetList standingOrders() { return m_standingOrders; }
     void attackDone(AttackFleet *fleet);
 
     void addAttackFleet(AttackFleet *fleet);
+    void addStandingOrder(AttackFleet *fleet);
     void cancelNewAttack(AttackFleet *fleet);
+    void deleteStandingOrders(Planet *planet);
 protected:
     virtual void play() = 0;
     virtual void onEntry (QEvent *event);
@@ -82,6 +86,7 @@ private:
     AttackFleetList m_attackList;
     // Fleets to send at the end of this turn
     AttackFleetList m_newAttacks;
+    AttackFleetList m_standingOrders;
 
     // Some fundamental properties.
     QString  m_name;

@@ -75,6 +75,7 @@ Planet::createNeutralPlanet( Sector *sector, Player *initialOwner,
 void
 Planet::conquer( AttackFleet *conqueringFleet )
 {
+    m_owner->deleteStandingOrders(this);
     m_owner = conqueringFleet->owner;
     m_owner->statPlanetsConquered(1);
     m_homeFleet.become( conqueringFleet );

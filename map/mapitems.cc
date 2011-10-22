@@ -4,6 +4,7 @@
     Copyright 2008-2009 Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright Inge Wallin <inge@lysator.liu.se>
     Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright 2011 Jeffrey Kelling <overlordapophis@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -230,9 +231,19 @@ void PlanetInfoItem::setPlanet (Planet *planet)
         text += QString("<br />" + i18n("Owner: %1", planet->player()->coloredName())
           + (m_game->options().NeutralsShowShips || !planet->player()->isNeutral() ?
              QString("<br />"
-             + i18n("Ships: %1", planet->ships() )) :
-             QString())
-          + "<br />"
+          + i18n("Ships: %1", planet->ships() )) :
+             QString()));
+		if( m_game->currentPlayer() == planet->player() )
+        {
+            int shipsNeeded = 0; // determine hw many ships will be neede by standing orders
+            foreach(AttackFleet* fleet, planet->player()->standingOrders()) {
+                if(fleet->source == planet)
+                    shipsNeeded += fleet->shipCount();
+            }
+            if(shipsNeeded)
+                text += QString("<br />" + i18nc("regarding standing orders", "Ships due: %1", shipsNeeded));
+        }
+        text += QString("<br />"
           + i18n("Production: %1", planet->production() )
           + "<br />"
           + i18n("Kill percent: %1", planet->killPercentage() ));

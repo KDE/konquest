@@ -58,7 +58,7 @@ public:
 
     virtual void start() = 0;
 
-    bool attack( Planet *sourcePlanet, Planet *destPlanet, int shipCount);
+    bool attack( Planet *sourcePlanet, Planet *destPlanet, int shipCouna, bool standingOrder = false);
 
     static Coordinate generatePlanetCoordinates (int rows, int cols);
     static double generateKillPercentage();

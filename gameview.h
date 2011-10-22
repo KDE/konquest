@@ -35,7 +35,7 @@
 // forward declarations
 //************************************************************************
 
-
+class QCheckBox;
 class QLabel;
 class QPushButton;
 class QLineEdit;
@@ -86,6 +86,7 @@ protected slots:
     void  planetSelected( Planet * );
     void  newShipCount();
     void  nextPlayer();
+    void  standingOrdersClicked();
 
     //***************************************************************
     // Toolbar items
@@ -127,6 +128,7 @@ private:
     QLabel        *m_gameMessage;
     QPushButton   *m_endTurnBtn;
     QLineEdit     *m_shipCountEdit;
+    QCheckBox     *m_standingOrder;
     QIntValidator *m_shipValidator;
     QLabel        *m_splashScreen;
     QTextEdit     *m_msgWidget;
@@ -149,7 +151,7 @@ private:
     bool                haveDestPlanet;
     Planet             *destPlanet;
 
-    bool                haveShipCount;
+    bool                haveShipCount, standingOrder;
     int                 shipCount;
 
     //***************************************************************

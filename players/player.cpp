@@ -1,5 +1,6 @@
 /*
     Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2011 Jeffrey Kelling <overlordapophis@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -54,6 +55,13 @@ void Player::onExit(QEvent *event)
     Q_UNUSED(event);
     qDebug() << "Exiting state for player " << m_name;
     qDebug() << "We are moving our new attacks to our attacks";
+    for(AttackFleetList::iterator a = m_standingOrders.begin(); a != m_standingOrders.end(); ++a)
+    {
+        AttackFleet* fleet = (*a)->source->fleet().spawnAttackFleet((*a)->destination, (*a)->shipCount(), (*a)->arrivalTurn);
+        ++(*a)->arrivalTurn;
+        if(fleet)
+            m_newAttacks << fleet;
+    }
     m_attackList += m_newAttacks;
     statFleetsLaunched(m_newAttacks.size());
     m_newAttacks.clear();
@@ -94,11 +102,33 @@ void Player::addAttackFleet(AttackFleet *fleet)
     m_newAttacks << fleet;
 }
 
+void Player::addStandingOrder(AttackFleet *fleet)
+{
+    m_standingOrders << fleet;
+}
+
 void Player::cancelNewAttack(AttackFleet *fleet)
 {
-    if (!m_newAttacks.contains(fleet))
-        return;
-    fleet->source->fleet().absorb(fleet);
-    m_newAttacks.removeAll(fleet);
+    if (!m_newAttacks.removeAll(fleet))
+    {
+        if(!m_standingOrders.removeAll(fleet))
+            return;
+    }
+    else
+        fleet->source->fleet().absorb(fleet);
     fleet->deleteLater();
+}
+
+void Player::deleteStandingOrders(Planet *planet)
+{
+    for(AttackFleetList::iterator a = m_standingOrders.begin(); a != m_standingOrders.end(); )
+    {
+        if((*a)->source == planet)
+        {
+            (*a)->deleteLater();
+            a = m_standingOrders.erase(a);
+        }
+        else
+            ++a;
+    }
 }

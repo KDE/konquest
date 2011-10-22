@@ -4,6 +4,7 @@
     Copyright Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright Inge Wallin <inge@lysator.liu.se>
     Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright 2011 Jeffrey Kelling <overlordapophis@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 
 #include "gameview.h"
 
+#include <QCheckBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
@@ -116,6 +118,11 @@ GameView::GameView( QWidget *parent, Game *game )
     m_shipCountEdit->setPalette( palette );
     m_shipCountEdit->setEchoMode( QLineEdit::Password );
 
+    m_standingOrder = new QCheckBox(i18n("Standing order"), this);
+    m_standingOrder->setEnabled(false);
+    m_standingOrder->setPalette( palette );
+    m_standingOrder->setCheckState(Qt::Unchecked);
+
     m_splashScreen = new QLabel( this );
     m_splashScreen->setPixmap(QPixmap(IMAGE_SPLASH));
     m_splashScreen->setScaledContents(true);
@@ -132,6 +139,7 @@ GameView::GameView( QWidget *parent, Game *game )
 
     topLineLayout->addSpacing( 5 );
     topLineLayout->addWidget( m_gameMessage, 10 );
+    topLineLayout->addWidget( m_standingOrder, 1 );
     topLineLayout->addWidget( m_shipCountEdit, 1 );
     topLineLayout->addWidget( m_endTurnBtn, 1 );
     
@@ -146,6 +154,8 @@ GameView::GameView( QWidget *parent, Game *game )
              this,            SLOT(planetSelected(Planet *)) );
     connect( m_shipCountEdit, SIGNAL(returnPressed()),
              this,            SLOT(newShipCount()) );
+    connect( m_standingOrder, SIGNAL(clicked()),
+             this,            SLOT(standingOrdersClicked()) );
     connect( m_endTurnBtn,    SIGNAL( clicked() ),
              this,            SLOT( nextPlayer() ) );
 
@@ -163,6 +173,14 @@ GameView::~GameView()
 //************************************************************************
 // Event handlers
 //************************************************************************
+void GameView::standingOrdersClicked() {
+    m_shipCountEdit->setFocus();
+    if(m_standingOrder->checkState() == Qt::Checked)
+        m_shipValidator->setTop(INT_MAX);
+    else
+        m_shipValidator->setTop(sourcePlanet->fleet().shipCount());
+}
+
 void
 GameView::resizeEvent ( QResizeEvent * ) {
     m_splashScreen->setGeometry( 0, 0, width(), height() );
@@ -239,6 +257,7 @@ GameView::turn()
         haveSourcePlanet = false;
         haveDestPlanet   = false;
         haveShipCount    = false;
+        standingOrder    = false;
         shipCount        = 0;
         m_mapScene->unselectPlanet();
 
@@ -257,6 +276,8 @@ GameView::turn()
         } else {
             m_shipCountEdit->setEnabled(false);
             m_shipCountEdit->setText( QString() );
+            m_standingOrder->setEnabled(false);
+            m_standingOrder->setCheckState(Qt::Unchecked);
             m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
             m_gameMessage->setText( i18n("<qt>%1: Select source planet...</qt>", m_game->currentPlayer()->coloredName()) );
@@ -274,6 +295,7 @@ GameView::turn()
             turn();
         } else {
             m_shipCountEdit->setEnabled(false);
+            m_standingOrder->setEnabled(false);
             m_endTurnBtn->setEnabled( false );
             m_mapScene->selectPlanet(sourcePlanet);
             m_gameMessage->setText( i18n("<qt>%1: Select destination planet...</qt>", m_game->currentPlayer()->coloredName()) );
@@ -286,11 +308,12 @@ GameView::turn()
         // The user has selected, source, distance, ship count.
         if( haveShipCount ) {
             // We now have a complete fleet to send, so send it
-            if( !m_game->attack(sourcePlanet, destPlanet, shipCount) ) {
+            if( !m_game->attack(sourcePlanet, destPlanet, shipCount, standingOrder) ) {
                 KMessageBox::error( this, i18n("Not enough ships to send.") );
             }
 
             m_shipCountEdit->setEnabled(false);
+            m_standingOrder->setEnabled(false);
             m_endTurnBtn->setEnabled( true );
 
             m_guiState = NONE;
@@ -302,6 +325,7 @@ GameView::turn()
             m_gameMessage->setText( i18n("%1: How many ships?", m_game->currentPlayer()->coloredName()) );
 
             m_shipCountEdit->setEnabled(true);
+            m_standingOrder->setEnabled(true);
             m_shipCountEdit->setFocus();
 
             m_endTurnBtn->setEnabled( false );
@@ -405,7 +429,7 @@ GameView::endTurn()
 
 void
 GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
-		  Player *planetPlayer)
+        Player *planetPlayer)
 {
     bool isHumanInvolved = false;
 
@@ -601,9 +625,11 @@ GameView::newShipCount()
     switch (m_guiState) {
     case SHIP_COUNT:
         shipCount = m_shipCountEdit->text().toInt(&ok);
+        standingOrder = m_standingOrder->checkState() == Qt::Checked;
         if (ok)
             haveShipCount = true;
         m_shipCountEdit->setText( QString() );
+        m_standingOrder->setCheckState(Qt::Unchecked);
         turn();
         break;
 
@@ -688,7 +714,7 @@ GameView::showFleets()
 {
     Player *current = m_game->currentPlayer();
     FleetDlg  *fleetDlg = new FleetDlg( this, current->attackList(),
-                                              current->newAttacks());
+                                        current->newAttacks(), current->standingOrders());
     if (fleetDlg->exec()) {
         AttackFleetList *deleteAttacks = fleetDlg->uncheckedFleets();
         foreach(AttackFleet *curFleet, *deleteAttacks) {

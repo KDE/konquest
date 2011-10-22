@@ -33,11 +33,11 @@
 
 #include "planet.h"
 
-
 FleetDlg::FleetDlg( QWidget *parent,
                     const AttackFleetList &fleets,
-                    const AttackFleetList &newFleets )
-    : KDialog(parent), m_newFleetList(newFleets), m_fleetList(fleets)
+                    const AttackFleetList &newFleets,
+                    const AttackFleetList &standingOrders)
+    : KDialog(parent), m_newFleetList(newFleets), m_standingOrders(standingOrders), m_fleetList(fleets)
 {
     setObjectName( QLatin1String( "FleetDlg" ) );
     setModal( true );
@@ -48,7 +48,7 @@ FleetDlg::FleetDlg( QWidget *parent,
     m_fleetTable->setColumnCount( 6 );
     QStringList labels;
     labels << QString() << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
-	   << i18n("Kill Percentage") << i18n("Arrival Turn");
+    	<< i18n("Kill Percentage") << i18n("Arrival Turn");
     m_fleetTable->setHorizontalHeaderLabels( labels );
     m_fleetTable->verticalHeader()->hide();
     m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
@@ -69,8 +69,9 @@ void
 FleetDlg::init()
 {
     AttackFleet *curFleet=0;
-    AttackFleetList fleets = m_newFleetList + m_fleetList;
-    int newFleets = m_newFleetList.count();
+    AttackFleetList fleets = m_standingOrders + m_newFleetList + m_fleetList;
+    const int standingOrders = m_standingOrders.count();
+    const int newFleets = standingOrders + m_newFleetList.count();
 
     m_fleetTable->setRowCount( fleets.count() );
     QTableWidgetItem *item;
@@ -82,6 +83,8 @@ FleetDlg::init()
         if( f < newFleets) {
           item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
           item->setCheckState(Qt::Checked);
+          if( f < standingOrders )
+              item->setText(i18n("Standing order"));
         } else {
           item->setFlags(Qt::ItemIsEnabled);
         }
@@ -120,9 +123,14 @@ AttackFleetList *FleetDlg::uncheckedFleets() {
         if( (item->flags() & Qt::ItemIsUserCheckable) &&
             (item->checkState() == Qt::Unchecked) ) {
 
-            int pos = m_fleetTable->item(f,1)->text().toInt();
-            if (pos > 0)
-                fleets->append( m_newFleetList.at(pos-1) );
+            const int pos = m_fleetTable->item(f,1)->text().toInt() - 1;
+            if (pos >= 0)
+            {
+                if(pos < m_standingOrders.count())
+                    fleets->append( m_standingOrders.at(pos) );
+                else
+                    fleets->append( m_newFleetList.at(pos - m_standingOrders.count()) );
+            }
         }
     }
 

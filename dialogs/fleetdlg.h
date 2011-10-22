@@ -33,13 +33,15 @@ class FleetDlg : public KDialog
 public: 
     FleetDlg( QWidget *parent,
               const AttackFleetList &fleets,
-              const AttackFleetList &newFleets );
+              const AttackFleetList &newFleets,
+              const AttackFleetList &standingOrders );
     AttackFleetList *uncheckedFleets();
 
 private:
     void init();
 
     AttackFleetList  m_newFleetList;
+    AttackFleetList  m_standingOrders;
     AttackFleetList  m_fleetList;
     QTableWidget     *m_fleetTable;
 };

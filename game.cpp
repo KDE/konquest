@@ -67,15 +67,23 @@ int Game::generatePlanetProduction()
     return 5 + random.getLong(10);
 }
 
-bool Game::attack(Planet *sourcePlanet, Planet *destPlanet, int shipCount)
+bool Game::attack(Planet *sourcePlanet, Planet *destPlanet, int shipCount, bool standingOrder)
 {
     int arrival = int(std::ceil(m_map->distance(sourcePlanet, destPlanet))) + m_turnCounter;
-    AttackFleet *fleet = sourcePlanet->fleet().spawnAttackFleet(destPlanet, shipCount, arrival);
-    if (fleet) {
-        m_currentPlayer->addAttackFleet(fleet);
+    if(standingOrder)
+    {
+        m_currentPlayer->addStandingOrder(new AttackFleet(sourcePlanet, destPlanet, shipCount, arrival));
         return true;
     }
-    return false;
+    else
+    {
+        AttackFleet *fleet = sourcePlanet->fleet().spawnAttackFleet(destPlanet, shipCount, arrival);
+        if (fleet) {
+            m_currentPlayer->addAttackFleet(fleet);
+            return true;
+        }
+        return false;
+    }
 }
 
 void Game::setPlayers(const QList<Player *> &players)
