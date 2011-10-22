@@ -63,7 +63,7 @@ class playersListModel : public QAbstractTableModel
     QLinkedList<PlayerId> m_availablePlayerId;
 public:
     playersListModel(QObject *parent, Game *game)
-        : QAbstractTableModel(parent), m_game(game), m_players(game->players())
+        : QAbstractTableModel(parent), m_game(game)
     {
         for(int a = 0; a < MAX_PLAYERS; ++a)
         {

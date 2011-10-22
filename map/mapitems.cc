@@ -84,6 +84,8 @@ QRectF PlanetItem::boundingRect() const
 void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
                        QWidget * /*widget*/)
 {
+    if(!m_sector->planet())
+        return;
     // Display a frame around the planet
     if (!m_sector->planet()->player()->isNeutral()) {
         QBrush backBrush = p->brush();
@@ -233,7 +235,7 @@ void PlanetInfoItem::setPlanet (Planet *planet)
              QString("<br />"
           + i18n("Ships: %1", planet->ships() )) :
              QString()));
-		if( m_game->currentPlayer() == planet->player() )
+        if( m_game->currentPlayer() == planet->player() )
         {
             int shipsNeeded = 0; // determine hw many ships will be neede by standing orders
             foreach(AttackFleet* fleet, planet->player()->standingOrders()) {
