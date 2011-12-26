@@ -555,7 +555,6 @@ GameView::gameOver()
 void
 GameView::cleanupGame()
 {
-    Q_ASSERT(false);
     m_shipCountEdit->hide();
     m_endTurnBtn->setEnabled( false );
 
