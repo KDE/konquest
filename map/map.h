@@ -58,7 +58,17 @@ public:
     
     double     distance( Planet *p1, Planet *p2 );
 
-    Sector *sector( Coordinate coord )  { return &m_grid[coord.y()][coord.x()]; }
+    Sector *sector( Coordinate coord )
+    {
+        if (coord.y() >= 0 && coord.y() < m_grid.size())
+        {
+            if (coord.x() >= 0 && coord.x() < m_grid[coord.y()].size())
+            {
+                return &m_grid[coord.y()][coord.x()];
+            }
+        }
+        return NULL;
+    }
 
     QList<Planet*> planets();
 
