@@ -333,10 +333,10 @@ NewGameDlg::updateOwnerCB()
 {
     m_w->OwnerCB->clear();
 
-    m_w->OwnerCB->addItem("vacant");
+    m_w->OwnerCB->addItem(i18n("vacant"));
     foreach(Player *player, m_game->players())
         m_w->OwnerCB->addItem(player->name());
-    m_w->OwnerCB->addItem("neutral");
+    m_w->OwnerCB->addItem(i18n("neutral"));
 }
 
 void
