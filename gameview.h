@@ -98,8 +98,6 @@ protected slots:
 public slots:
     void  gameMsg(const KLocalizedString &msg, Player *player = 0,
 		  Planet *planet = 0, Player *planetPlayer = 0);
-    void  beginTurn();
-    void  endTurn();
     void  turn();
 
 signals:
