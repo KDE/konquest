@@ -69,6 +69,7 @@ public:
 
     void  showOldShips() { m_showCurShips=false; }
     void  conquer( AttackFleet *conqueringFleet );
+    void  setOwner(Player* player) { m_owner = player; }
     void  turn(const GameOptions &);
 
     //void select() { Q_ASSERT(false); }

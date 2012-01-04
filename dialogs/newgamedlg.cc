@@ -161,6 +161,7 @@ public:
                 {
                     LocalPlayer *newPlayer = new LocalPlayer(player->game(), cPlayer->name(), cPlayer->color());
                     m_players[row] = newPlayer;
+                    m_game->map()->turnOverPlayerPlanets(player, newPlayer);
                     cPlayer->deleteLater();
                     player = newPlayer;
                     cPlayer = 0;
@@ -176,6 +177,7 @@ public:
                         lvl = ComputerPlayer::Hard;
                     cPlayer = new ComputerPlayer(player->game(), player->name(), player->color(), lvl);
                     m_players[row] = cPlayer;
+                    m_game->map()->turnOverPlayerPlanets(player, cPlayer);
                     player->deleteLater();
                     player = cPlayer;
                 }

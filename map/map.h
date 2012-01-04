@@ -49,12 +49,13 @@ public:
     bool  removePlayerPlanet(Player *player);
     void  removePlayerPlanets(Player *player);
     int        playerPlanetCount(Player *player);
+    void       turnOverPlayerPlanets(Player* owner, Player* newOwner);
 
     void       clearMap();
     void       resizeMap(int rows, int cols);
 
     void       populateMap( const QList<Player *> &players, Player *neutral,
-			    int numNeutralPlanets);
+                int numNeutralPlanets);
     
     double     distance( Planet *p1, Planet *p2 );
 
