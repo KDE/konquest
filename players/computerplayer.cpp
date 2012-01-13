@@ -25,7 +25,7 @@
 #include "../planet.h"
 #include <QDebug>
 #include <cmath>
-#include <values.h>
+#include <cfloat>
 
 ComputerPlayer::ComputerPlayer(Game *game,
                                const QString &newName,
@@ -92,7 +92,7 @@ void ComputerPlayer::play()
                 if (hasAttack) {
                     m_game->attack( home, target, ships );
                 } else {
-                    minDistance = MAXDOUBLE;
+                    minDistance = DBL_MAX;
                     int shipsToSend = 0;
                     bool hasDestination = false;
 
