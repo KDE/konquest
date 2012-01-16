@@ -44,6 +44,7 @@ private:
 
 private slots:
     void guiStateChange( GUIState );
+    void startNewGame();
 
 private:
     // Widgets

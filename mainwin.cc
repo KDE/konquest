@@ -23,6 +23,7 @@
 
 #include <QPushButton>
 #include <QLabel>
+#include <QDebug>
 
 #include <klocale.h>
 #include <kglobal.h>
@@ -65,7 +66,7 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew( m_gameView, SLOT( startNewGame() ), actionCollection() );
+    KStandardGameAction::gameNew( this, SLOT( startNewGame() ), actionCollection() );
     KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
     m_endAction = KStandardGameAction::end( m_gameView, SLOT( shutdownGame() ), actionCollection() );
@@ -117,13 +118,30 @@ MainWindow::setupGameView()
 					 Player * ) ) );
     connect (m_game, SIGNAL(beginTurn()), m_gameView, SLOT(beginTurn()));
     connect (m_game, SIGNAL(endTurn()), m_gameView, SLOT(endTurn()));
-    connect( m_gameView, SIGNAL( newGUIState( GUIState )),
+    connect (m_gameView, SIGNAL( newGUIState( GUIState )),
 	     this,       SLOT( guiStateChange( GUIState ) ) );
+}
+
+void
+MainWindow::startNewGame()
+{
+    m_gameView->deleteLater();
+    m_game->deleteLater();
+    this->setupGameView();
+    connect (m_endAction, SIGNAL(triggered()), m_gameView, SLOT(shutdownGame()));
+    m_gameView->startNewGame();
 }
 
 void
 MainWindow::guiStateChange( GUIState newState )
 {
+    qDebug() << "Calling guiStateChange" << (newState == NONE) << m_game->isRunning();
+    if (newState == NONE and !m_game->isRunning())
+    {
+        m_gameView->deleteLater();
+        m_game->deleteLater();
+        this->setupGameView();
+    }
     m_endAction     ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );

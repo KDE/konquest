@@ -504,6 +504,7 @@ GameView::startNewGame()
             connect(local, SIGNAL(canPlay()), this, SLOT(turn()));
     }
 
+    connect(m_game, SIGNAL(finished()), this, SLOT(gameOver()));
     m_game->start();
 
     // Fix all the widgets to run a new game.
@@ -545,6 +546,7 @@ GameView::shutdownGame()
 void
 GameView::gameOver()
 {
+    qDebug() << "Game over";
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"),
                                         m_game->players() );
     scoreDlg->exec();
@@ -555,6 +557,8 @@ GameView::gameOver()
 void
 GameView::cleanupGame()
 {
+    m_game->stop();
+    
     m_shipCountEdit->hide();
     m_endTurnBtn->setEnabled( false );
 

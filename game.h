@@ -57,6 +57,8 @@ public:
     bool isRunning();
 
     virtual void start() = 0;
+    
+    virtual void stop() = 0;
 
     bool attack( Planet *sourcePlanet, Planet *destPlanet, int shipCouna, bool standingOrder = false);
 
@@ -71,7 +73,7 @@ public:
 
     QList<Player *> players() { return m_players; }
 
-    Player *findWinner();
+    void findWinner();
 
     GameOptions &options() { return m_options; }
 

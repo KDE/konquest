@@ -60,10 +60,7 @@ void NeutralPlayer::play()
         planet->turn(m_game->options());
     }
 
-    Player *winner = m_game->findWinner();
-    if (winner) {
-        // GAME OVER !!
-    }
+    m_game->findWinner();
 
     // After all that mess... It's done
     emit(donePlaying());

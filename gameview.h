@@ -81,7 +81,6 @@ public:
     virtual  ~GameView();
 
 protected slots:
-    void  startNewGame();
     bool  shutdownGame();
     void  planetSelected( Planet * );
     void  newShipCount();
@@ -96,6 +95,7 @@ protected slots:
     void  showFleets();
 
 public slots:
+    void  startNewGame();
     void  gameMsg(const KLocalizedString &msg, Player *player = 0,
 		  Planet *planet = 0, Player *planetPlayer = 0);
     void  beginTurn();

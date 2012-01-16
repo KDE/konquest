@@ -174,17 +174,30 @@ void Game::makeKill(Fleet *fleet, Player *player)
     player->statEnemyShipsDestroyed( 1 );
 }
 
-Player *Game::findWinner()
+void Game::findWinner()
 {
+    qDebug() << "Searching for survivors";
     // Check for survivors
-    Player *alive = 0;
+    Player *winner = 0;
     foreach (Player *player, m_players) {
+        if (player->isNeutral()) {
+            continue;
+        }
         if (!player->isDead()) {
-            if (alive)
-                return 0;
-            else
-                alive = player;
+            if (winner) {
+                qDebug() << "Ok, returning 0";
+                return;
+            } else {
+                winner = player;
+            }
         }
     }
-    return alive;
+    qDebug() << "Ok, returning " << winner;
+    if (winner)
+    {
+        // We got a winner
+        qDebug() << "Trying to stop";
+        this->stop();
+        emit(finished());
+    }
 }
