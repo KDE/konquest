@@ -99,6 +99,17 @@ Map::removePlayerPlanets(Player *player)
     while(removePlayerPlanet(player)) ;
 }
    
+void
+Map::turnOverPlayerPlanets(Player* owner, Player* newOwner)
+{
+    foreach(Planet *planet, planets())
+    {
+        if(planet->player() == owner) {
+            planet->setOwner(newOwner);
+        }
+    }
+}
+   
 int
 Map::playerPlanetCount(Player *player)
 {

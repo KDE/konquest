@@ -49,6 +49,7 @@ public:
     bool  removePlayerPlanet(Player *player);
     void  removePlayerPlanets(Player *player);
     int        playerPlanetCount(Player *player);
+    void       turnOverPlayerPlanets(Player* owner, Player* newOwner);
 
     void       clearMap();
     void       resizeMap(int rows, int cols);
