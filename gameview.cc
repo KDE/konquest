@@ -387,46 +387,6 @@ GameView::turn()
     emit newGUIState( m_guiState );
 }
 
-
-//************************************************************************
-// To the end turn processing (resolve combat, etc.)
-//************************************************************************
-void
-GameView::beginTurn()
-{
-    // If the message queue is not empty, show all the collected
-    // messages to the user.
-    if (m_messageQueue.size() > 0) {
-        foreach (Player *plr, m_game->players()) {
-            if (plr->isAiPlayer())
-                continue;
-            QString text;
-            foreach (const GameMessage &msg, m_messageQueue) {
-                if (plr == msg.sender || plr == msg.receiver)
-                    text = text + "<br />" + msg.text;
-            }
-            if (text.size() > 0) {
-                text = "<html>"
-                    + i18n("Messages for %1", plr->coloredName())
-                    + "<br />" + text + "</html>";
-                KMessageBox::information(this, text);
-            }
-        }
-        m_messageQueue.clear();
-    }
-    
-    // Don't queue any messages during the players turn.
-    m_queueMessages = false;
-}
-
-void
-GameView::endTurn()
-{
-    // A lot of messages will be collected in the message queue during
-    // the turn finalisation.
-    m_queueMessages = true;
-}
-
 void
 GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet, 
         Player *planetPlayer)

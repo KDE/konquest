@@ -116,8 +116,6 @@ MainWindow::setupGameView()
 	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
-    connect (m_game, SIGNAL(beginTurn()), m_gameView, SLOT(beginTurn()));
-    connect (m_game, SIGNAL(endTurn()), m_gameView, SLOT(endTurn()));
     connect (m_gameView, SIGNAL( newGUIState( GUIState )),
 	     this,       SLOT( guiStateChange( GUIState ) ) );
 }
