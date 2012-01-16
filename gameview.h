@@ -112,9 +112,10 @@ protected:
     virtual void  keyPressEvent( QKeyEvent * );
     virtual void  resizeEvent ( QResizeEvent * event );
 
-private:
+private slots:
     void  gameOver();
 
+private:
     void  changeGameView();
     void  cleanupGame();
     
