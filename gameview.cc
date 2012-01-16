@@ -708,7 +708,7 @@ GameView::showScores()
 {
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Current Standings"),
                                        m_game->players() );
-    scoreDlg->show();
+    scoreDlg->exec();
     scoreDlg->deleteLater();
 }
 
