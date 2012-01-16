@@ -21,7 +21,7 @@
  */
 
 #include "localplayer.h"
-#include <QDebug>
+#include <KDebug>
 
 LocalPlayer::LocalPlayer(Game *game, const QString &newName, const QColor &color) :
     Player(game, newName, color)
@@ -35,12 +35,12 @@ bool LocalPlayer::isAiPlayer()
 
 void LocalPlayer::play()
 {
-    qDebug() << name() << "::play";
+    kDebug() << name() << "::play";
     emit(canPlay());
 }
 
 void LocalPlayer::done()
 {
-    qDebug() << name() << "::done";
+    kDebug() << name() << "::done";
     emit(donePlaying());
 }

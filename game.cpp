@@ -24,7 +24,7 @@
 #include "players/player.h"
 #include "planet.h"
 #include <KLocalizedString>
-#include <QDebug>
+#include <KDebug>
 #include <cmath>
 
 KRandomSequence Game::random = KRandomSequence();
@@ -176,7 +176,7 @@ void Game::makeKill(Fleet *fleet, Player *player)
 
 void Game::findWinner()
 {
-    qDebug() << "Searching for survivors";
+    kDebug() << "Searching for survivors";
     // Check for survivors
     Player *winner = 0;
     foreach (Player *player, m_players) {
@@ -185,18 +185,18 @@ void Game::findWinner()
         }
         if (!player->isDead()) {
             if (winner) {
-                qDebug() << "Ok, returning 0";
+                kDebug() << "Ok, returning 0";
                 return;
             } else {
                 winner = player;
             }
         }
     }
-    qDebug() << "Ok, returning " << winner;
+    kDebug() << "Ok, returning " << winner;
     if (winner)
     {
         // We got a winner
-        qDebug() << "Trying to stop";
+        kDebug() << "Trying to stop";
         this->stop();
         emit(finished());
     }

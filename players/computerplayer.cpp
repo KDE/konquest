@@ -23,7 +23,7 @@
 #include "computerplayer.h"
 #include "../game.h"
 #include "../planet.h"
-#include <QDebug>
+#include <KDebug>
 #include <cmath>
 #include <cfloat>
 
@@ -39,7 +39,7 @@ ComputerPlayer::ComputerPlayer(Game *game,
 
 void ComputerPlayer::play()
 {
-    qDebug() << "computer playing";
+    kDebug() << "computer playing";
     int      ships = 0, minimumShips =10, shipCountFactor = 2;
     Planet  *target = 0;
 

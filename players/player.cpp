@@ -18,7 +18,7 @@
  */
 
 #include "player.h"
-#include <QDebug>
+#include <KDebug>
 #include "../game.h"
 #include "../planet.h"
 
@@ -40,8 +40,8 @@ void Player::onEntry(QEvent *event)
     if (isNeutral())
         m_game->newTurn();
 
-    qDebug() << "Entering state for player " << m_name;
-    qDebug() << this->metaObject()->className();
+    kDebug() << "Entering state for player " << m_name;
+    kDebug() << this->metaObject()->className();
     m_game->setCurrentPlayer(this);
     Q_UNUSED(event);
     if (isDead())
@@ -53,8 +53,8 @@ void Player::onEntry(QEvent *event)
 void Player::onExit(QEvent *event)
 {
     Q_UNUSED(event);
-    qDebug() << "Exiting state for player " << m_name;
-    qDebug() << "We are moving our new attacks to our attacks";
+    kDebug() << "Exiting state for player " << m_name;
+    kDebug() << "We are moving our new attacks to our attacks";
     for(AttackFleetList::iterator a = m_standingOrders.begin(); a != m_standingOrders.end(); ++a)
     {
         AttackFleet* fleet = (*a)->source->fleet().spawnAttackFleet((*a)->destination, (*a)->shipCount(), (*a)->arrivalTurn);
