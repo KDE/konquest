@@ -26,7 +26,7 @@
 #include "game.h"
 #include "players/player.h"
 #include <krandomsequence.h>
-#include <QDebug>
+#include <KDebug>
 
 //---------------------------------------------------------------------------
 // class Planet
@@ -86,7 +86,7 @@ Planet::conquer( AttackFleet *conqueringFleet )
 void
 Planet::turn(const GameOptions &options)
 {
-    qDebug() << "Planet::turn...";
+    kDebug() << "Planet::turn...";
 
     if (options.ProductionAfterConquere || !m_justconquered) {
         if (m_owner->isNeutral() )

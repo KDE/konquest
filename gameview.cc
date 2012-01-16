@@ -31,7 +31,7 @@
 #include <QPixmap>
 #include <QKeyEvent>
 #include <QIntValidator>
-#include <QDebug>
+#include <KDebug>
 
 #include <kmessagebox.h>
 
@@ -506,7 +506,7 @@ GameView::shutdownGame()
 void
 GameView::gameOver()
 {
-    qDebug() << "Game over";
+    kDebug() << "Game over";
     ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"),
                                         m_game->players() );
     scoreDlg->exec();
@@ -540,7 +540,7 @@ GameView::cleanupGame()
 void
 GameView::planetSelected( Planet *planet )
 {
-    qDebug() << "planetSelected with " << m_guiState;
+    kDebug() << "planetSelected with " << m_guiState;
     switch( m_guiState ) {
         case SOURCE_PLANET:
             if( planet->player() == m_game->currentPlayer() ) {
@@ -607,7 +607,7 @@ GameView::newShipCount()
 void
 GameView::changeGameView()
 {
-    qDebug() << "Calling GameView::changeGameView" << m_game->isRunning();
+    kDebug() << "Calling GameView::changeGameView" << m_game->isRunning();
     if( m_game->isRunning()) {
         m_msgWidget->show();
         m_mapWidget->show();
