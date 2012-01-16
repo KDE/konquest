@@ -29,6 +29,7 @@ public:
     explicit LocalGame(QObject *parent = 0);
 
     virtual void start();
+    virtual void stop();
 signals:
 
 public slots:

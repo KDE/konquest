@@ -31,7 +31,16 @@ void LocalGame::start()
         buildMachine();
         qDebug() << "Starting machine";
         m_gameMachine.start();
-        qApp->processEvents();
+        qApp->processEvents();  // Really important : ignoring this will not apply the change soon enough
+        qDebug() << "Machine state" << m_gameMachine.isRunning();
+    }
+}
+
+void LocalGame::stop()
+{
+    if (m_gameMachine.isRunning()) {
+        m_gameMachine.stop();
+        qApp->processEvents();  // Really important : ignoring this will not apply the change soon enough
         qDebug() << "Machine state" << m_gameMachine.isRunning();
     }
 }

@@ -23,6 +23,7 @@
 
 #include <QPushButton>
 #include <QLabel>
+#include <QDebug>
 
 #include <klocale.h>
 #include <kglobal.h>
@@ -46,8 +47,8 @@ MainWindow::MainWindow()
 {
     setCaption( i18n("Galactic Conquest") );
 
-    setupGameView();
     setupActions();
+    setupGameView();
     setupGUI();
 
     // The status bar.
@@ -65,10 +66,10 @@ MainWindow::~MainWindow()
 void
 MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew( m_gameView, SLOT( startNewGame() ), actionCollection() );
+    KStandardGameAction::gameNew( this, SLOT( startNewGame() ), actionCollection() );
     KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
-    m_endAction = KStandardGameAction::end( m_gameView, SLOT( shutdownGame() ), actionCollection() );
+    m_endAction = KStandardGameAction::end( this, NULL, actionCollection() );
     m_endAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
@@ -76,24 +77,18 @@ MainWindow::setupActions()
     m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
     m_measureAction->setIcon( KIcon( QLatin1String( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );
-    connect(m_measureAction, SIGNAL(triggered(bool)),
-	    m_gameView,      SLOT( measureDistance() ));
     m_measureAction->setEnabled(false);
 
     // Show standings
     m_standingAction = actionCollection()->addAction( QLatin1String(  "game_scores" ) );
     m_standingAction->setIcon( KIcon( QLatin1String( "help-contents" )) );
     m_standingAction->setText( i18n("&Show Standings") );
-    connect(m_standingAction, SIGNAL(triggered(bool)),
-	    m_gameView,       SLOT( showScores() ));
     m_standingAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
     m_fleetAction->setIcon( KIcon( QLatin1String( "fork" )) );
     m_fleetAction->setText( i18n("&Fleet Overview") );
-    connect(m_fleetAction, SIGNAL(triggered(bool)),
-	    m_gameView,    SLOT( showFleets() ));
     m_fleetAction->setEnabled(false);
 
     // Toolbar
@@ -115,13 +110,33 @@ MainWindow::setupGameView()
 	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
 					 Player *, Planet *,
 					 Player * ) ) );
-    connect( m_gameView, SIGNAL( newGUIState( GUIState )),
+    connect (m_gameView, SIGNAL( newGUIState( GUIState )),
 	     this,       SLOT( guiStateChange( GUIState ) ) );
+    
+    connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));   
+    connect(m_standingAction, SIGNAL(triggered(bool)), m_gameView, SLOT( showScores() ));   
+    connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));   
+    connect(m_endAction,      SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
+}
+
+void
+MainWindow::startNewGame()
+{
+    m_gameView->deleteLater();
+    m_game->deleteLater();
+    setupGameView();
+    m_gameView->startNewGame();
 }
 
 void
 MainWindow::guiStateChange( GUIState newState )
 {
+    if (newState == NONE)
+    {
+        m_gameView->deleteLater();
+        m_game->deleteLater();
+        this->setupGameView();
+    }
     m_endAction     ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
