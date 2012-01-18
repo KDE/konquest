@@ -196,8 +196,9 @@ To send ships from a planet to another, select the planet you want to send ships
 the number of ships in the green box in the upper right corner and press &Enter;. Repeat
 this procedure until you have sent out all the ships you want. If you wish to send a constant amount 
 of ships from one planet to another every turn, enter that number and check the <guilabel>Standing Order</guilabel> box,
-and press &Enter;. When you are done, press <guibutton>End Turn</guibutton>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will proceed like this until one of the
-players owns the entire galaxy.
+and press &Enter;. The ships due to the standing order will be sent at the end of the turn. When you are done, press <guibutton>End
+Turn</guibutton>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will
+proceed like this until one of the players owns the entire galaxy.
 </para>
 </chapter>
 
