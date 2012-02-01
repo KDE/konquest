@@ -44,6 +44,11 @@
 <holder>Nicholas Robbins</holder>
 </copyright>
 
+<copyright>
+<year>2012</year>
+<holder>Viktor Chynarov</holder>
+</copyright>
+
 <author>
 <firstname>Anton</firstname>
 <surname>Brondz</surname>
@@ -52,10 +57,15 @@
 </affiliation>
 </author>
 
+<author>
+<firstname>Viktor</firstname>
+<surname>Chynarov</surname>
+</author>
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2007-11-13</date>
-<releaseinfo>2.0</releaseinfo>
+<date>2012-01-16</date>
+<releaseinfo>2.1</releaseinfo>
 
 <abstract>
 <para>
@@ -76,6 +86,14 @@
 <note><title>Game type:</title><para>Strategy, Board</para></note>
 <note><title>Number of players:</title><para>Multiplayer</para></note>
 
+<screenshot>
+<mediaobject>
+	<imageobject><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject><phrase>Main window of &konquest;</phrase></textobject>
+	<caption><para>Main window of &konquest;.</para></caption>
+</mediaobject>
+</screenshot>
+
 <para>
 &konquest; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
 ships to them. The goal is to build an interstellar empire and ultimately conqueror all 
@@ -89,33 +107,81 @@ other player's planets. &konquest; can be played against other people or a compu
 
 <para>
 When you start &konquest;, press <guibutton>New</guibutton> to start a new game.
-You will see a dialog in which you need to enter player names, decide the number of
-planets, and how many turns are allowed. You can also use the reject button to get a
-new map. When you are done, click <guibutton>OK</guibutton> to start the game.
+You will see a dialog in which you need to enter various information to setup your game.
+Listed below are the following parameters for the new game:
 </para>
+<itemizedlist>
+
+<listitem><para>Players</para><itemizedlist>
+  
+  <listitem><para>Amount of players with <guibutton>Add</guibutton> or <guibutton>Remove</guibutton> players</para></listitem>
+  <listitem><para>Names of players</para></listitem>
+  <listitem><para>Type of players (Computer versus Human)</para></listitem>
+  <listitem><para>Difficulty of computer players (Low/Normal/Hard)</para></listitem>
+  </itemizedlist>
+</listitem>  
+
+<listitem><para>Map</para><itemizedlist>
+  
+  <listitem><para>Number of Neutral planets</para></listitem>
+  <listitem><para>Width and height of the map in tile units</para></listitem>
+  <listitem><para>Changing the Owner, Kill Percentage, and Production level of a particular planet</para></listitem>
+  <listitem><para>Change the distribution of planets. Press <guibutton>Randomize</guibutton> to make it random.</para></listitem>
+
+  </itemizedlist>
+</listitem>
+<listitem><para>Options</para><itemizedlist>
+  
+  <listitem><para>Whether or not you can see information about opponents' planets.</para></listitem>
+  <listitem><para>Whether or not cumulative production is enabled or not.</para></listitem>
+  <listitem><para>If production is enabled immediately after capture.</para></listitem>
+  <listitem><para>Allowing amount of ships and other stats to be displayed for neutral planets</para></listitem>
+  <listitem><para>Set the production level for neutral planets</para></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+<para>When you are done changing these settings (optional), click <guibutton>OK</guibutton> to start the game.
+</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject><phrase>New game dialog of &konquest;</phrase></textobject>
+	<caption><para>New game dialog of &konquest;.</para></caption>
+</mediaobject>
+</screenshot>
 
 <para>
 Once the game starts, you will be presented with the game board. Blank squares
 are empty space. At first, each player owns one planet. The planet's background
-is the player colour. If you move your mouse over a planet, you can see additional
-information. On planets which have not yet been conquered by anyone, you will only
-see the planet's name. The information includes:
+is the player color. If you move your mouse over a planet, you can see additional
+  information. Without the <guilabel>Blind Map</guilabel> option enabled when selecting a game, you can see any information about all planet if you hover over it with mouse. If you had selected the <guilabel>Blind Map</guilabel> option when starting a new game, you will only see the planet's name on planets which have been conquered by opponents.The information can include:
 </para>
 
 <itemizedlist>
 <listitem><para>Planet name</para></listitem>
 <listitem><para>Owner</para></listitem>
 <listitem><para>Ships</para></listitem>
+<listitem><para>Ships Due</para></listitem>
 <listitem><para>Production</para></listitem>
 <listitem><para>Kill percent</para></listitem>
 </itemizedlist>
 
+<screenshot>
+<mediaobject>
+	<imageobject><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject><phrase>Playing &konquest;</phrase></textobject>
+	<caption><para>Playing &konquest;.</para></caption>
+</mediaobject>
+</screenshot>
+
 <para>
-The planet name is how the planet is referred to in the game. Planets are named
-alphabetically with uppercase letters. Owner is who owns the planet. If the planet
-is conquered by another player, this will change. Ships is the current number of
-ships on the planet. Production is the number of ships the planet will produce each turn.
-The production varies from planet to planet, but always remains the same. Kill percent
+The <guilabel>Planet name</guilabel> is how the planet is referred to in the game. Planets are named
+alphabetically with uppercase letters. <guilabel>Owner</guilabel> is who owns the planet. If the planet
+is conquered by another player, this will change. <guilabel>Ships</guilabel> is the current number of
+ships on the planet. <guilabel>Ships due</guilabel> will only appear if you have selected a standing order for that planet,
+otherwise it is not there. <guilabel>Production</guilabel> is the number of ships the planet will produce each turn.
+The production varies from planet to planet, but always remains the same. <guilabel>Kill percent</guilabel>
 is a measure of the effectiveness of the ships produced at that planet. Attack fleets take
 the kill percentage of their planet of departure, and defense fleets use the kill
 percentage of the planet they are defending.
@@ -127,11 +193,12 @@ ships is in the lower right corner.
 
 <para>
 To send ships from a planet to another, select the planet you want to send ships from, enter
-the number of ships in the green box in the upper right corner and press enter. Repeat
-this procedure until you have sent out all the ships you want. When you're done, press 
-<guibutton>End Turn</guibutton>. When all players have played one turn, dialog boxes
-will appear and give you the latest news. The game will proceed like this until one of the
-players owns the entire galaxy.
+the number of ships in the green box in the upper right corner and press &Enter;. Repeat
+this procedure until you have sent out all the ships you want. If you wish to send a constant amount 
+of ships from one planet to another every turn, enter that number and check the <guilabel>Standing Order</guilabel> box,
+and press &Enter;. The ships due to the standing order will be sent at the end of the turn. When you are done, press <guibutton>End
+Turn</guibutton>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will
+proceed like this until one of the players owns the entire galaxy.
 </para>
 </chapter>
 
@@ -141,10 +208,10 @@ players owns the entire galaxy.
 <title>Rules</title>
 <itemizedlist>
 <listitem><para>Ships cannot be stopped once they leave a planet.</para></listitem>
-<listitem><para>Ships cannot attack other ships in mid-air.</para></listitem>
+<listitem><para>Ships cannot attack other ships in midair.</para></listitem>
 <listitem><para>Ships can be stored at planets for later use.</para></listitem>
 <listitem><para>A planet cannot be given away.</para></listitem>
-<listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without lauching any
+<listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without launching any
 ships.</para></listitem>
 </itemizedlist>
 </sect1>
@@ -152,12 +219,13 @@ ships.</para></listitem>
 <sect1 id="strattips">
 <title>Strategies and Tips</title>
 <itemizedlist>
-<listitem><para>Don't attack a planet with less than 10 ships.</para></listitem>
+<listitem><para>Do not attack a planet with less than 10 ships.</para></listitem>
 <listitem><para>Attack neutral planets before other players' planets.</para></listitem>
 <listitem><para>Split your ship storages across several planets.</para></listitem>
 <listitem><para>Plan your attacks in advance.</para></listitem>
 <listitem><para>Use the ruler to find out the distance between planets.</para></listitem>
 <listitem><para>Use the information window to get information on planets before an attack.</para></listitem>
+<listitem><para>If this information is available to you, it is preferable to attack a planet with a low kill ratio from a planet with a high one.</para></listitem>
 </itemizedlist>
 </sect1>
 </chapter>
@@ -166,7 +234,7 @@ ships.</para></listitem>
 <title>Menus</title>
 
 <sect1 id="game-menu">
-<title>The <guimenu>Game</guimenu> Menu</title>
+<title>The Game Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -231,7 +299,7 @@ for all fleets</para></listitem>
 </sect1>
 
 <sect1 id="settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
+<title>The Settings Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -281,7 +349,7 @@ change the keyboard shortcuts used by &konquest;.</para>
 </sect1>
 
 <sect1 id="help-menu">
-<title>The <guimenu>Help</guimenu> Menu</title>
+<title>The Help Menu</title>
 
 &help.menu.documentation;
 
@@ -415,6 +483,8 @@ No, that is not possible at the moment.
 
 <para>Documentation copyright 2000 Nicholas Robbins
 &Nicholas.Robbins.mail;</para>
+
+<para>Documentation copyright 2012 Viktor Chynarov</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
