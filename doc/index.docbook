@@ -119,7 +119,9 @@ Listed below are the following parameters for the new game:
   <listitem><para>Type of players (Computer versus Human)</para></listitem>
   <listitem><para>Difficulty of computer players (Low/Normal/Hard)</para></listitem>
   </itemizedlist>
-  <para>To change the of the player open the drop-down list with double-click in the <guilabel>Type</guilabel> column.</para>
+  <para>To change the name of the player double-click in the <guilabel>Name</guilabel> 
+  column and edit it. To change the type of the player open the drop-down list with 
+  double-click in the <guilabel>Type</guilabel> column.</para>
 </listitem>  
 
 <listitem><para>Map</para><itemizedlist>
