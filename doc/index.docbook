@@ -119,9 +119,9 @@ Listed below are the following parameters for the new game:
   <listitem><para>Type of players (Computer versus Human)</para></listitem>
   <listitem><para>Difficulty of computer players (Low/Normal/Hard)</para></listitem>
   </itemizedlist>
-  <para>To change the name of the player double-click in the <guilabel>Name</guilabel> 
-  column and edit it. To change the type of the player open the drop-down list with 
-  double-click in the <guilabel>Type</guilabel> column.</para>
+  <para>To change the name of the player, double-click in the <guilabel>Name</guilabel> 
+  column and edit it. To change the type of the player, open the drop-down list by 
+  double-clicking in the <guilabel>Type</guilabel> column.</para>
 </listitem>  
 
 <listitem><para>Map</para><itemizedlist>
@@ -132,7 +132,7 @@ Listed below are the following parameters for the new game:
   <listitem><para>Change the distribution of planets. Press <guibutton>Randomize</guibutton> to make it random.</para></listitem>
 
   </itemizedlist>
-  <para>You can select the planet using the map thumbnail in the middle of <guilabel>Map</guilabel> pane. Just click on the planet with &LMB; then change the desired options.</para>
+  <para>You can select the planet using the map thumbnail in the middle of <guilabel>Map</guilabel> pane. Just click on the planet with the &LMB;, then change the desired options.</para>
 </listitem>
 <listitem><para>Options</para><itemizedlist>
   
