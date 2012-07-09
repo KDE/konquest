@@ -72,7 +72,8 @@ void MiniMapView::mousePressEvent ( QMouseEvent * event )
     m_selection = Coordinate((event->x() - woffset) / sectorSize,
                              (event->y() - hoffset) / sectorSize);
 
-    if (!m_map->sector(m_selection)->hasPlanet())
+    const Sector *sector = m_map->sector(m_selection);
+    if (sector && !sector->hasPlanet())
         m_selection = Coordinate(-1, -1);
 
     emit sectorSelected(m_selection);
