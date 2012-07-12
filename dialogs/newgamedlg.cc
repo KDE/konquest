@@ -439,8 +439,11 @@ void
 NewGameDlg::slotUpdateSelection(const Coordinate &coord)
 {
     Sector *selected = m_game->map()->sector(coord);
-    if (!selected)
+    if (!selected) {
+        m_w->KillPercentageSB->setEnabled(false);
+        m_w->ProductionSB->setEnabled(false);
         return;
+    }
     bool planet = selected->hasPlanet();
 
     m_w->KillPercentageSB->setEnabled(planet);
@@ -557,8 +560,7 @@ NewGameDlg::slotNewMap()
     // make the planets
     m_game->map()->populateMap(m_game->players(), m_neutral, m_w->neutralPlanetsSB->value());
 
-    if(m_w->map->hasSelection())
-        slotUpdateSelection(m_w->map->selection());
+    slotUpdateSelection(m_w->map->selection());
 }
 
 void
