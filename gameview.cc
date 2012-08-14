@@ -517,6 +517,7 @@ GameView::gameOver()
 void
 GameView::cleanupGame()
 {
+    m_mapScene->clearMap();
     m_game->stop();
     
     m_shipCountEdit->hide();

@@ -71,19 +71,24 @@ void MapScene::selectPlanet(Planet *planet)
     }
 }
 
-void MapScene::mapUpdate()
+void MapScene::clearMap()
 {
     QGraphicsItem  *item;
-    Sector         *sector;
-
     while (items().count() > 0) {
         item = items()[0];
         removeItem(item);
-        m_planetItems.clear();
         delete item;
     }
+    m_planetItems.clear();
     m_planetInfoItem = NULL;
     m_selectedPlanetItem = NULL;
+ }
+
+void MapScene::mapUpdate()
+{    
+    Sector         *sector;
+
+    clearMap();
     for (int i = 0 ; i < map()->rows() ; i++) {
         for (int j = 0 ; j < map()->columns() ; j++) {
             sector = map()->sector(Coordinate(j, i));
