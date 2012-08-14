@@ -89,16 +89,18 @@ void MapScene::mapUpdate()
     Sector         *sector;
 
     clearMap();
-    for (int i = 0 ; i < map()->rows() ; i++) {
-        for (int j = 0 ; j < map()->columns() ; j++) {
-            sector = map()->sector(Coordinate(j, i));
-            if (sector->hasPlanet()) {
-                PlanetItem *item = new PlanetItem(this, sector, m_game);
-                connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
-                        this, SLOT(planetItemSelected (PlanetItem *)));
-                item->setZValue(1.0);
-                addItem(item);
-                m_planetItems.append(item);
+    if(m_game->isRunning()) {
+        for (int i = 0 ; i < map()->rows() ; i++) {
+            for (int j = 0 ; j < map()->columns() ; j++) {
+                sector = map()->sector(Coordinate(j, i));
+                if (sector->hasPlanet()) {
+                    PlanetItem *item = new PlanetItem(this, sector, m_game);
+                    connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
+                            this, SLOT(planetItemSelected (PlanetItem *)));
+                    item->setZValue(1.0);
+                    addItem(item);
+                    m_planetItems.append(item);
+                }
             }
         }
     }
