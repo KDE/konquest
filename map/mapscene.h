@@ -59,6 +59,7 @@ class MapScene: public QGraphicsScene
 
         void           resizeScene(const QRectF& rect);
 
+        void           clearMap();
         void           mapUpdate();
 
     signals:
