@@ -1,9 +1,13 @@
 [Desktop Entry]
 Icon=konquest
 Name=Konquest
+Name[uk]=Konquest
+Name[x-test]=xxKonquestxx
 Exec=konquest -caption %c
 Type=Application
 GenericName=Galactic Strategy Game
+GenericName[uk]=Галактична гра-стратегія
+GenericName[x-test]=xxGalactic Strategy Gamexx
 Terminal=false
 X-DocPath=konquest/index.html
 X-KDE-StartupNotify=true
