@@ -1,5 +1,5 @@
 /*
-    Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2006 Pierre Ducroquet <pinaraf@pinaraf.info>
     Copyright 2011 Jeffrey Kelling <overlordapophis@gmail.com>
 
     This program is free software; you can redistribute it and/or modify

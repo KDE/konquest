@@ -1,9 +1,9 @@
 /*
-    Copyright Russell Steffen <rsteffen@bayarea.net>
-    Copyright Stephan Zehetner <s.zehetner@nevox.org>
-    Copyright Dmitry Suzdalev <dimsuz@gmail.com>
-    Copyright Inge Wallin <inge@lysator.liu.se>
-    Copyright Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright 2003 Russell Steffen <rsteffen@bayarea.net>
+    Copyright 2003 Stephan Zehetner <s.zehetner@nevox.org>
+    Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+    Copyright 2006 Inge Wallin <inge@lysator.liu.se>
+    Copyright 2006 Pierre Ducroquet <pinaraf@gmail.com>
     Copyright Sean D'Epagnier <geckosenator@gmail.com>
 
     This program is free software; you can redistribute it and/or modify

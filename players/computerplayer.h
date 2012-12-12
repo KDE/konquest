@@ -1,5 +1,5 @@
 /*
-    Copyright Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2006 Pierre Ducroquet <pinaraf@pinaraf.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
