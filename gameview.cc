@@ -57,7 +57,9 @@ GameView::GameView( QWidget *parent, Game *game )
     m_queueMessages(false),
     m_messageQueue(), 
     m_showInformations(false),
-    m_guiState( NONE )
+    m_guiState( NONE ),
+    m_cleanupNeeded( false ),
+    m_initCompleted( false )
 {
     QPalette blackPal;
     blackPal.setColor( backgroundRole(), Qt::black );
@@ -477,6 +479,11 @@ GameView::startNewGame()
     m_msgWidget->clear();
     m_shipCountEdit->show();
     m_shipCountEdit->setEnabled(true);
+    m_initCompleted = true;
+
+    //call GameView::gameOver now if needed happens if the game ends immiedently after starting.
+    if(m_cleanupNeeded)
+        gameOver();
 }
 
 
@@ -506,12 +513,16 @@ GameView::shutdownGame()
 void
 GameView::gameOver()
 {
-    kDebug() << "Game over";
-    ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"),
-                                        m_game->players() );
-    scoreDlg->exec();
+    if(m_initCompleted){
+        kDebug() << "Game over";
+        ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"),
+                                            m_game->players() );
+        scoreDlg->exec();
 
-    cleanupGame();
+        cleanupGame();
+    }
+    else
+        m_cleanupNeeded = true;
 }
 
 void
@@ -531,6 +542,8 @@ GameView::cleanupGame()
 
     //m_game->cleanupGame();
 
+    m_initCompleted = false;
+    m_cleanupNeeded = false;
     emit newGUIState(m_guiState);
 }
 
