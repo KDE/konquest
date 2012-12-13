@@ -141,6 +141,7 @@ private:
     bool                m_queueMessages;
     QList<GameMessage>  m_messageQueue;
     bool                m_showInformations;
+    bool                m_initCompleted, m_cleanupNeeded;
 
     // States in the user interaction
     // FIXME: Break out into another file?
