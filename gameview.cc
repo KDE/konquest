@@ -57,9 +57,9 @@ GameView::GameView( QWidget *parent, Game *game )
     m_queueMessages(false),
     m_messageQueue(), 
     m_showInformations(false),
-    m_guiState( NONE ),
+    m_initCompleted( false ),
     m_cleanupNeeded( false ),
-    m_initCompleted( false )
+    m_guiState( NONE )
 {
     QPalette blackPal;
     blackPal.setColor( backgroundRole(), Qt::black );
