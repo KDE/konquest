@@ -79,6 +79,7 @@ class GameView : public QWidget
 public:
     explicit  GameView( QWidget *parent, Game *game );
     virtual  ~GameView();
+    bool  confirmNewGame();
 
 protected slots:
     bool  shutdownGame();

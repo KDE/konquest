@@ -438,6 +438,16 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
     }
 }
 
+//************************************************************************
+// Confirm aborting existing game
+//************************************************************************
+bool GameView::confirmNewGame()
+{
+  if( m_game->isRunning() )
+        return shutdownGame();
+
+  return true;
+}
 
 //************************************************************************
 // Set up the game board for a new game
@@ -445,10 +455,6 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
 void
 GameView::startNewGame()
 {
-    if (m_game->isRunning())
-        if (!shutdownGame())
-            return;
-
     NewGameDlg *newGame = new NewGameDlg( this, m_game );
 
     if( !newGame->exec() ) {
