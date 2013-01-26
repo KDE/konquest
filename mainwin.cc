@@ -122,10 +122,13 @@ MainWindow::setupGameView()
 void
 MainWindow::startNewGame()
 {
-    m_gameView->deleteLater();
-    m_game->deleteLater();
-    setupGameView();
-    m_gameView->startNewGame();
+    if (m_gameView->confirmNewGame())
+    {
+        m_gameView->deleteLater();
+        m_game->deleteLater();
+        setupGameView();
+        m_gameView->startNewGame();
+    }
 }
 
 void
