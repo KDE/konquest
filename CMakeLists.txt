@@ -37,21 +37,10 @@ set(konquest_SRCS
     dialogs/scoredlg.cc
     dialogs/fleetdlg.cc
 
-    players/ai/default/default.cpp
-    players/ai/default/weak.cpp
-    players/ai/default/weak_gui.cpp
-    players/ai/default/normal.cpp
-    players/ai/default/normal_gui.cpp
-    players/ai/default/hard.cpp
-    players/ai/default/hard_gui.cpp
-    players/ai/example/example.cpp
-    players/ai/example/example_gui.cpp
     players/computerplayer.cpp
     players/localplayer.cpp
-    players/localplayer_gui.cpp
     players/neutralplayer.cpp
     players/player.cpp
-    players/player_gui.cpp
 )
 
 kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )
