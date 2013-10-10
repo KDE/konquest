@@ -98,6 +98,25 @@ private:
     int  m_fleetsLaunched;
     int  m_enemyFleetsDestroyed;
     int  m_enemyShipsDestroyed;
+
+    /**
+     * @todo This is a bad GUI hack. The game selection grid is handled by just
+     * a list of player instances. This property stores the GUI name of the class
+     * used to create this player. For example a player of "AiDefaultWeak" class
+     * will be created via "AiDefaultWeakGui" with the GUI name of "Default Weak".
+     * That GUI name is stored here.
+     */
+
+    QString m_guiName;
+
+public:
+    void setGuiName(const QString &guiName) {
+        m_guiName = guiName;
+    }
+
+    QString guiName() const {
+        return m_guiName;
+    }
 };
 
 #endif // PLAYER_H

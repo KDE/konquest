@@ -1,5 +1,5 @@
 /*
-    Copyright 2006 Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2013 Alexander Schuch <aschuch247@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,29 +16,18 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef COMPUTERPLAYER_H
-#define COMPUTERPLAYER_H
-
-#include "player.h"
+#include "localplayer_gui.h"
+#include "localplayer.h"
 
 
-/**
- * This is the base class of all AI players.
- */
-
-class ComputerPlayer : public Player
+LocalPlayerGui::LocalPlayerGui() :
+    PlayerGui(i18nc("A human player", "Human"))
 {
-    Q_OBJECT
+}
 
-protected:
-    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
 
-    virtual void play() = 0;
-
-signals:
-
-public slots:
-
-};
-
-#endif // COMPUTERPLAYER_H
+Player*
+LocalPlayerGui::createInstance(Game *game, const QString &newName, const QColor &color) const
+{
+    return new LocalPlayer(game, newName, color);
+}
