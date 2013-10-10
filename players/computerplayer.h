@@ -21,24 +21,27 @@
 
 #include "player.h"
 
-
-/**
- * This is the base class of all AI players.
- */
-
 class ComputerPlayer : public Player
 {
     Q_OBJECT
+public:
+    enum AiLevel { Weak, Normal, Hard };
+
+    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color, AiLevel level);
+
+    void setAiLevel (AiLevel level) { m_level = level; }
+
+    AiLevel aiLevel() { return m_level; }
 
 protected:
-    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
-
-    virtual void play() = 0;
+    virtual void play();
 
 signals:
 
 public slots:
 
+private:
+    AiLevel m_level;
 };
 
 #endif // COMPUTERPLAYER_H

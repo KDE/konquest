@@ -29,7 +29,6 @@
 #include "minimapview.h"
 #include "ui_newGameDialog.h"
 #include "../players/player.h"
-#include "../players/player_gui.h"
 
 
 // Maximum Number of Players
@@ -57,7 +56,7 @@ class NewGameDlg : public KDialog
 
 public:
     NewGameDlg( QWidget *parent, Game *game);
-    ~NewGameDlg();
+    ~NewGameDlg() {}
 
     void  save();
 
@@ -66,6 +65,7 @@ protected slots:
     void  slotUpdateNeutrals(int);
     void  slotAddPlayer();
     void  slotRemovePlayer();
+    void  slotOk();
 
     void  slotUpdateSelection(const Coordinate &coord);
     void  slotNewOwner(int);
@@ -75,8 +75,6 @@ protected slots:
 private:
     void  updateOwnerCB();
     void  init();
-
-    QList<PlayerGui *> m_selectablePlayer;
 
 private:
     Game             *m_game;
