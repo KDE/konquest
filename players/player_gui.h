@@ -1,5 +1,5 @@
 /*
-    Copyright 2006 Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2013 Alexander Schuch <aschuch247@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,29 +16,26 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef COMPUTERPLAYER_H
-#define COMPUTERPLAYER_H
+#ifndef PLAYER_GUI_H
+#define PLAYER_GUI_H
+
+#include <QColor>
+#include <QString>
+
+#include <klocale.h>
 
 #include "player.h"
 
-
-/**
- * This is the base class of all AI players.
- */
-
-class ComputerPlayer : public Player
+class PlayerGui
 {
-    Q_OBJECT
+public:
+    explicit PlayerGui(const QString &guiName);
+    virtual ~PlayerGui() {};
+    virtual Player* createInstance(Game *game, const QString &newName, const QColor &color) const = 0;
+    QString guiName() const;
 
-protected:
-    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
-
-    virtual void play() = 0;
-
-signals:
-
-public slots:
-
+private:
+    QString m_guiName;
 };
 
-#endif // COMPUTERPLAYER_H
+#endif // PLAYER_GUI_H

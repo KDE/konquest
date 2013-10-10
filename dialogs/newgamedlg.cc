@@ -22,8 +22,14 @@
  */
 #include "newgamedlg.h"
 
+#include "../players/ai/default/weak_gui.h"
+#include "../players/ai/default/normal_gui.h"
+#include "../players/ai/default/hard_gui.h"
+#include "../players/ai/example/example_gui.h"
 #include "../players/computerplayer.h"
+#include "../players/player_gui.h"
 #include "../players/localplayer.h"
+#include "../players/localplayer_gui.h"
 #include "../game.h"
 #include <kconfig.h>
 #include <klocale.h>
@@ -36,6 +42,7 @@
 #include <KComboBox>
 #include <QHeaderView>
 #include <QItemDelegate>
+#include <QList>
 #include <QDebug>
 #include <QLinkedList>
 #include <QPair>
@@ -61,9 +68,11 @@ class playersListModel : public QAbstractTableModel
 {
     typedef QPair<QColor, QString> PlayerId;
     QLinkedList<PlayerId> m_availablePlayerId;
+
 public:
-    playersListModel(QObject *parent, Game *game)
-        : QAbstractTableModel(parent), m_game(game)
+    playersListModel(QObject *parent, Game *game, const QList<PlayerGui*> &selectablePlayer) :
+        QAbstractTableModel(parent), m_game(game),
+        m_selectablePlayer(selectablePlayer)
     {
         for(int a = 0; a < MAX_PLAYERS; ++a)
         {
@@ -102,21 +111,7 @@ public:
                 }
                 else if (column == 1)
                 {
-                    LocalPlayer *lPlayer = qobject_cast<LocalPlayer*>(player);
-                    ComputerPlayer *cPlayer = qobject_cast<ComputerPlayer*>(player);
-                    if (lPlayer)
-                    {
-                        return i18nc("A human player", "Human");
-                    }
-                    else
-                    {
-                        switch (cPlayer->aiLevel())
-                        {
-                        case ComputerPlayer::Weak: return i18n("Computer Weak"); break;
-                        case ComputerPlayer::Normal: return i18n("Computer Normal"); break;
-                        case ComputerPlayer::Hard: return i18n("Computer Hard"); break;
-                        }
-                    }
+                    return player->guiName();
                 }
             }
         }
@@ -150,38 +145,27 @@ public:
             else if (column == 1)
             {
                 QString text = value.toString();
-                ComputerPlayer *cPlayer = qobject_cast<ComputerPlayer*>(player);
-                if (cPlayer && (text == i18n("Computer Weak")))
-                    cPlayer->setAiLevel(ComputerPlayer::Weak);
-                else if (cPlayer && (text == i18n("Computer Normal")))
-                    cPlayer->setAiLevel(ComputerPlayer::Normal);
-                else if (cPlayer && (text == i18n("Computer Hard")))
-                    cPlayer->setAiLevel(ComputerPlayer::Hard);
-                else if (cPlayer && (text == i18nc("A human player", "Human")))
-                {
-                    LocalPlayer *newPlayer = new LocalPlayer(player->game(), cPlayer->name(), cPlayer->color());
+
+                // We only know the GUI name of player controller class to
+                // add. Search all registered player controllers for that name
+                // and then create an instance.
+
+                Player *newPlayer = 0;
+
+                foreach (PlayerGui *playerGui, m_selectablePlayer) {
+                    if (text == playerGui->guiName()) {
+                        newPlayer = playerGui->createInstance(player->game(), player->name(), player->color());
+                        newPlayer->setGuiName(text);
+                        break;
+                    }
+                }
+
+                if (newPlayer) {
                     m_players[row] = newPlayer;
                     m_game->map()->turnOverPlayerPlanets(player, newPlayer);
-                    cPlayer->deleteLater();
-                    player = newPlayer;
-                    cPlayer = 0;
-                }
-                else if (text != i18nc("A human player", "Human"))
-                {
-                    ComputerPlayer::AiLevel lvl = ComputerPlayer::Weak;
-                    if (text == i18n("Computer Weak"))
-                        lvl = ComputerPlayer::Weak;
-                    else if (text == i18n("Computer Normal"))
-                        lvl = ComputerPlayer::Normal;
-                    else if (text == i18n("Computer Hard"))
-                        lvl = ComputerPlayer::Hard;
-                    cPlayer = new ComputerPlayer(player->game(), player->name(), player->color(), lvl);
-                    m_players[row] = cPlayer;
-                    m_game->map()->turnOverPlayerPlanets(player, cPlayer);
                     player->deleteLater();
-                    player = cPlayer;
+                    result = true;
                 }
-                result = true;
             }
         }
 
@@ -201,7 +185,14 @@ public:
         {
             beginInsertRows(QModelIndex(), players, players);
 
-            player = new LocalPlayer(m_game, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
+            /**
+             * @todo If for some reason no player controller is available, do
+             * nothing here and show an error message.
+             */
+
+            player = m_selectablePlayer.at(0)->createInstance(m_game, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
+            player->setGuiName(m_selectablePlayer.at(0)->guiName());
+
             m_availablePlayerId.pop_front();
             m_players.append(player);
             m_game->setPlayers(m_players);
@@ -231,25 +222,24 @@ public:
         return player;
     }
 
-    bool hasHumans() const
-    {
-        foreach (Player *player, m_players)
-        {
-            if (!player->isAiPlayer())
-                return true;
-        }
-        return false;
-    }
-
 private:
     Game *m_game;
     QList<Player *> m_players;
+    QList<PlayerGui*> m_selectablePlayer;
 };
+
+
+/**
+ * This class handles the list of selectable player controllers.
+ * This includes the local player and all enabled AI players.
+ */
 
 class playersListDelegate : public QItemDelegate
 {
 public:
-    playersListDelegate(QObject *parent) : QItemDelegate(parent)
+    playersListDelegate(QObject *parent, const QList<PlayerGui*> &selectablePlayer) :
+        QItemDelegate(parent),
+        m_selectablePlayer(selectablePlayer)
     {
     }
 
@@ -265,10 +255,10 @@ public:
     {
         if (index.column() != 0) {
             KComboBox *cbox = static_cast<KComboBox*>(editor);
-            cbox->addItem(i18nc("A human player", "Human"));
-            cbox->addItem(i18n("Computer Weak"));
-            cbox->addItem(i18n("Computer Normal"));
-            cbox->addItem(i18n("Computer Hard"));
+
+            foreach (PlayerGui* playerGui, m_selectablePlayer) {
+                cbox->addItem(playerGui->guiName());
+            }
 
             cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
         } else {
@@ -289,6 +279,9 @@ public:
             model->setData(index, lineEdit->text(), Qt::EditRole);
         }
     }
+
+private:
+    QList<PlayerGui*> m_selectablePlayer;
 };
 
 NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
@@ -301,18 +294,24 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     setDefaultButton(KDialog::NoDefault);
     showButtonSeparator(true);
 
+    m_selectablePlayer.push_back(new LocalPlayerGui());
+    m_selectablePlayer.push_back(new AiDefaultWeakGui());
+    m_selectablePlayer.push_back(new AiDefaultNormalGui());
+    m_selectablePlayer.push_back(new AiDefaultHardGui());
+    // m_selectablePlayer.push_back(new AiExampleGui());
+
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap(m_game->map());
 
     connect(m_w->map, SIGNAL(sectorSelected(Coordinate)),
             this, SLOT(slotUpdateSelection(Coordinate)));
 
-    playersListModel *model = new playersListModel(this, m_game);
+    playersListModel *model = new playersListModel(this, m_game, m_selectablePlayer);
 
     m_w->playerList->setModel(model);
-    m_w->playerList->setItemDelegate(new playersListDelegate(this));
-    m_w->playerList->header()->setResizeMode(QHeaderView::Stretch);
-    
+    m_w->playerList->setItemDelegate(new playersListDelegate(this, m_selectablePlayer));
+    m_w->playerList->header()->setResizeMode(QHeaderView::ResizeToContents);
+
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateNeutrals(int)));
     connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
@@ -328,6 +327,11 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     setMainWidget(m_w);
     slotNewMap();
+}
+
+NewGameDlg::~NewGameDlg()
+{
+    qDeleteAll(m_selectablePlayer);
 }
 
 void
@@ -420,20 +424,6 @@ NewGameDlg::slotRemovePlayer()
     updateOwnerCB();
 }
 
-void
-NewGameDlg::slotOk()
-{
-    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
-    bool hasHumans = model->hasHumans();
-
-    if (!hasHumans) {
-        KMessageBox::information(this,
-                                 i18n("The game is much more fun when you add a human player!"));
-        return;
-    }
-
-    KDialog::accept();
-}
 
 void
 NewGameDlg::slotUpdateSelection(const Coordinate &coord)
@@ -467,6 +457,8 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
 
     connect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
 }
+
+
 void
 NewGameDlg::slotNewOwner(int index)
 {

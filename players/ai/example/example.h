@@ -1,5 +1,5 @@
 /*
-    Copyright 2006 Pierre Ducroquet <pinaraf@pinaraf.info>
+    Copyright 2013 Alexander Schuch <aschuch247@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,24 +16,29 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef COMPUTERPLAYER_H
-#define COMPUTERPLAYER_H
+#ifndef AI_EXAMPLE_H
+#define AI_EXAMPLE_H
 
-#include "player.h"
+#include "../../computerplayer.h"
 
 
 /**
- * This is the base class of all AI players.
+ * This is a passive example AI player.
+ *
+ * The classes can be used as base for own AI implementations. This
+ * implementation does nothing. In other words, this AI player does not expand
+ * its empire and just stacks its production for a massive defence of its
+ * home world.
  */
 
-class ComputerPlayer : public Player
+class AiExample : public ComputerPlayer
 {
     Q_OBJECT
 
-protected:
-    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
+public:
+    explicit AiExample(Game *game, const QString &newName, const QColor &color);
 
-    virtual void play() = 0;
+    virtual void play();
 
 signals:
 
@@ -41,4 +46,4 @@ public slots:
 
 };
 
-#endif // COMPUTERPLAYER_H
+#endif // AI_EXAMPLE_H

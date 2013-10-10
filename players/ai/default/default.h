@@ -16,29 +16,32 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef COMPUTERPLAYER_H
-#define COMPUTERPLAYER_H
+#ifndef AI_DEFAULT_H
+#define AI_DEFAULT_H
 
-#include "player.h"
+#include "../../computerplayer.h"
 
-
-/**
- * This is the base class of all AI players.
- */
-
-class ComputerPlayer : public Player
+class AiDefault : public ComputerPlayer
 {
     Q_OBJECT
 
 protected:
-    explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
+    enum AiLevel { Weak, Normal, Hard };
 
-    virtual void play() = 0;
+    explicit AiDefault(Game *game, const QString &newName, const QColor &color, AiLevel level);
+
+    void setAiLevel (AiLevel level) { m_level = level; }
+
+    AiLevel aiLevel() const { return m_level; }
+
+    virtual void play();
 
 signals:
 
 public slots:
 
+private:
+    AiLevel m_level;
 };
 
-#endif // COMPUTERPLAYER_H
+#endif // AI_DEFAULT_H
