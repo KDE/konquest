@@ -64,8 +64,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-05-06</date>
-<releaseinfo>2.1 (&kde; 4.11)</releaseinfo>
+<date>2013-10-18</date>
+<releaseinfo>2.1 (&kde; 4.12)</releaseinfo>
 
 <abstract>
 <para>
@@ -122,6 +122,7 @@ Listed below are the following parameters for the new game:
   <para>To change the name of the player, double-click in the <guilabel>Name</guilabel> 
   column and edit it. To change the type of the player, open the drop-down list by 
   double-clicking in the <guilabel>Type</guilabel> column.</para>
+  <para>The type of AI player can be chosen from <guimenuitem>Default Weak</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default Normal/Offensive</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default Hard/Defensive</guimenuitem> (a player with defensive strategy).</para>
 </listitem>  
 
 <listitem><para>Map</para><itemizedlist>
