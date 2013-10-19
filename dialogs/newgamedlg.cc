@@ -146,19 +146,7 @@ public:
             {
                 QString text = value.toString();
 
-                // We only know the GUI name of player controller class to
-                // add. Search all registered player controllers for that name
-                // and then create an instance.
-
-                Player *newPlayer = 0;
-
-                foreach (PlayerGui *playerGui, m_selectablePlayer) {
-                    if (text == playerGui->guiName()) {
-                        newPlayer = playerGui->createInstance(player->game(), player->name(), player->color());
-                        newPlayer->setGuiName(text);
-                        break;
-                    }
-                }
+                Player *newPlayer = getNewPlayerByGuiName(text, player->name(), player->color());
 
                 if (newPlayer) {
                     m_players[row] = newPlayer;
@@ -181,21 +169,27 @@ public:
     {
         Player *player = NULL;
         int players = m_players.count();
-        if (players < MAX_PLAYERS)
-        {
+
+        if ((!m_availablePlayerId.empty()) && (!m_selectablePlayer.empty())) {
             beginInsertRows(QModelIndex(), players, players);
 
-            /**
-             * @todo If for some reason no player controller is available, do
-             * nothing here and show an error message.
-             */
+            // Get the player controller of the last added player. If no player
+            // has been added yet, use the very first registered player
+            // controller as default.
 
-            player = m_selectablePlayer.at(0)->createInstance(m_game, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
-            player->setGuiName(m_selectablePlayer.at(0)->guiName());
+            QString guiName = m_selectablePlayer.front()->guiName();
 
-            m_availablePlayerId.pop_front();
-            m_players.append(player);
-            m_game->setPlayers(m_players);
+            if (!m_players.isEmpty()) {
+                guiName = m_players.last()->guiName();
+            }
+
+            player = getNewPlayerByGuiName(guiName, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
+
+            if (player) {
+                m_availablePlayerId.pop_front();
+                m_players.append(player);
+                m_game->setPlayers(m_players);
+            }
 
             endInsertRows();
         }
@@ -220,6 +214,30 @@ public:
             endRemoveRows();
         }
         return player;
+    }
+
+private:
+
+    /**
+     * Search the list of registered player controllers and return either a new
+     * instance of that controller or NULL if it cannot be found.
+     *
+     * @note The GUI name of the player instance gets set.
+     */
+
+    Player *getNewPlayerByGuiName(const QString &guiName, const QString &playerName, const QColor &color) const
+    {
+        Player *newPlayer = 0;
+
+        foreach (PlayerGui *playerGui, m_selectablePlayer) {
+            if (guiName == playerGui->guiName()) {
+                newPlayer = playerGui->createInstance(m_game, playerName, color);
+                newPlayer->setGuiName(guiName);
+                break;
+            }
+        }
+
+        return newPlayer;
     }
 
 private:
@@ -387,8 +405,9 @@ NewGameDlg::init()
         QString playerType = config.readEntry(keyType,QString());
 
         model->addPlayer();
-        if (!playerName.isEmpty())
+        if (!playerName.isEmpty()) {
             model->setData(model->index(i, 0), playerName, Qt::EditRole);
+        }
         model->setData(model->index(i, 1), playerType, Qt::EditRole);
     }
     updateOwnerCB();
