@@ -180,7 +180,7 @@ void Game::findWinner()
     // Check for survivors
     Player *winner = 0;
     foreach (Player *player, m_players) {
-        if (player->isNeutral()) {
+        if (player->isNeutral() || player->isSpectator()) {
             continue;
         }
         if (!player->isDead()) {

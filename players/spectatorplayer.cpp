@@ -16,18 +16,27 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "localplayer_gui.h"
-#include "localplayer.h"
+#include "spectatorplayer.h"
 
-
-LocalPlayerGui::LocalPlayerGui() :
-    PlayerGui(i18nc("A human player", "Human (Player)"))
+SpectatorPlayer::SpectatorPlayer(
+        Game *game,
+        const QString &newName,
+        const QColor &color)
+    : LocalPlayer(
+        game,
+        newName,
+        color)
 {
 }
 
 
-Player*
-LocalPlayerGui::createInstance(Game *game, const QString &newName, const QColor &color) const
+bool SpectatorPlayer::isDead()
 {
-    return new LocalPlayer(game, newName, color);
+    return false;
+}
+
+
+bool SpectatorPlayer::isSpectator()
+{
+    return true;
 }

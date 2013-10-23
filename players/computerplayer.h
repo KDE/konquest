@@ -33,6 +33,7 @@ class ComputerPlayer : public Player
 protected:
     explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
 
+    virtual bool isAiPlayer();
     virtual void play() = 0;
 
 signals:

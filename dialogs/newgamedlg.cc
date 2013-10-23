@@ -30,6 +30,8 @@
 #include "../players/player_gui.h"
 #include "../players/localplayer.h"
 #include "../players/localplayer_gui.h"
+#include "../players/spectatorplayer.h"
+#include "../players/spectatorplayer_gui.h"
 #include "../game.h"
 #include <kconfig.h>
 #include <klocale.h>
@@ -68,10 +70,13 @@ class playersListModel : public QAbstractTableModel
 {
     typedef QPair<QColor, QString> PlayerId;
     QLinkedList<PlayerId> m_availablePlayerId;
+    NewGameDlg *m_newGameDlg;
 
 public:
-    playersListModel(QObject *parent, Game *game, const QList<PlayerGui*> &selectablePlayer) :
-        QAbstractTableModel(parent), m_game(game),
+    playersListModel(NewGameDlg *newGameDlg, Game *game, const QList<PlayerGui*> &selectablePlayer) :
+        QAbstractTableModel(newGameDlg),
+        m_newGameDlg(newGameDlg),
+        m_game(game),
         m_selectablePlayer(selectablePlayer)
     {
         for(int a = 0; a < MAX_PLAYERS; ++a)
@@ -139,11 +144,17 @@ public:
             Player *player = m_players.at(row);
             if (column == 0)
             {
+
+                // The player name changed.
+
                 player->setName(value.toString());
                 result = true;
             }
             else if (column == 1)
             {
+
+                // The player controller changed.
+
                 QString text = value.toString();
 
                 Player *newPlayer = getNewPlayerByGuiName(text, player->name(), player->color());
@@ -152,6 +163,8 @@ public:
                     m_players[row] = newPlayer;
                     m_game->map()->turnOverPlayerPlanets(player, newPlayer);
                     player->deleteLater();
+
+                    m_newGameDlg->updateButtonOk();
                     result = true;
                 }
             }
@@ -189,6 +202,7 @@ public:
                 m_availablePlayerId.pop_front();
                 m_players.append(player);
                 m_game->setPlayers(m_players);
+                m_newGameDlg->updateButtonOk();
             }
 
             endInsertRows();
@@ -211,9 +225,34 @@ public:
             m_availablePlayerId.push_back(PlayerId(player->color(), player->name()));
             m_players.removeAt(row);
             m_game->setPlayers(m_players);
+            m_newGameDlg->updateButtonOk();
             endRemoveRows();
         }
         return player;
+    }
+
+
+    /**
+     * Check if the match is a spectator match, that is, there are not at least
+     * two non-spectating player controllers added.
+     */
+
+    bool isSpectatorMatch()
+    {
+        int nonSpectatorCount = 0;
+
+        foreach (Player* player, m_players) {
+            if (!player->isSpectator()) {
+
+                // The number of players is very limited so it is not worth to
+                // have an additional break in here as soon as more than one
+                // non-spectating player controller is found.
+
+                ++nonSpectatorCount;
+            }
+        }
+
+        return nonSpectatorCount < 2;
     }
 
 private:
@@ -313,6 +352,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     showButtonSeparator(true);
 
     m_selectablePlayer.push_back(new LocalPlayerGui());
+    m_selectablePlayer.push_back(new SpectatorPlayerGui());
     m_selectablePlayer.push_back(new AiDefaultWeakGui());
     m_selectablePlayer.push_back(new AiDefaultNormalGui());
     m_selectablePlayer.push_back(new AiDefaultHardGui());
@@ -362,6 +402,7 @@ NewGameDlg::updateOwnerCB()
         m_w->OwnerCB->addItem(player->name());
     m_w->OwnerCB->addItem(i18n("neutral"));
 }
+
 
 void
 NewGameDlg::init()
@@ -419,11 +460,11 @@ NewGameDlg::slotAddPlayer()
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
 
     Player *player = model->addPlayer();
-    if (player)
+    if (player) {
         m_game->map()->addPlayerPlanetSomewhere(player);
+    }
 
-    enableButtonOk(model->rowCount() > 1);
-
+    updateButtonOk();
     updateOwnerCB();
 }
 
@@ -438,8 +479,7 @@ NewGameDlg::slotRemovePlayer()
         delete player;
     }
 
-    enableButtonOk(model->rowCount() > 1);
-
+    updateButtonOk();
     updateOwnerCB();
 }
 
@@ -585,4 +625,24 @@ NewGameDlg::slotUpdateNeutrals(int count)
 
     if(m_w->map->hasSelection())
         slotUpdateSelection(m_w->map->selection());
+}
+
+
+/**
+ * Enable the "ok" button if the game settings are sane.
+ */
+
+void
+NewGameDlg::updateButtonOk()
+{
+    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+
+    /**
+     * @todo Check if all non-spectator players have at least one planet.
+     */
+
+    enableButtonOk(
+        (model->rowCount() > 1) &&
+        (!model->isSpectatorMatch())
+    );
 }

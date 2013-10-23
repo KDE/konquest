@@ -467,6 +467,15 @@ GameView::startNewGame()
     delete newGame;
 
     foreach (Player *player, m_game->players()) {
+        if (player->isSpectator()) {
+
+            // All planets a spectator player has assigned are turned into
+            // neutral planets so that a spectator player starts without
+            // any planet.
+
+            m_game->map()->turnOverPlayerPlanets(player, m_game->neutral());
+        }
+
         LocalPlayer *local = qobject_cast<LocalPlayer*>(player);
         if (local)
             connect(local, SIGNAL(canPlay()), this, SLOT(turn()));

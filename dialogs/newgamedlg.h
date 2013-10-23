@@ -72,6 +72,9 @@ protected slots:
     void  slotNewKillPercentage(double);
     void  slotNewProduction(int);
 
+public:
+    void  updateButtonOk();
+
 private:
     void  updateOwnerCB();
     void  init();

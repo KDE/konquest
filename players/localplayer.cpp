@@ -28,16 +28,13 @@ LocalPlayer::LocalPlayer(Game *game, const QString &newName, const QColor &color
 {
 }
 
-bool LocalPlayer::isAiPlayer()
-{
-    return false;
-}
 
 void LocalPlayer::play()
 {
     kDebug() << name() << "::play";
     emit(canPlay());
 }
+
 
 void LocalPlayer::done()
 {

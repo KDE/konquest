@@ -36,6 +36,7 @@ public:
 
     virtual bool isNeutral();
     virtual bool isAiPlayer();
+    virtual bool isSpectator();
 
     // Getters and Setters for some fundamental properties.
     QString name()        const { return m_name; }

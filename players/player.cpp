@@ -79,10 +79,15 @@ bool Player::isDead()
 
 bool Player::isAiPlayer()
 {
-    return true;
+    return false;
 }
 
 bool Player::isNeutral()
+{
+    return false;
+}
+
+bool Player::isSpectator()
 {
     return false;
 }

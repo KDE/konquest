@@ -16,18 +16,34 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "localplayer_gui.h"
+#ifndef SPECTATORPLAYER_H
+#define SPECTATORPLAYER_H
+
 #include "localplayer.h"
 
 
-LocalPlayerGui::LocalPlayerGui() :
-    PlayerGui(i18nc("A human player", "Human (Player)"))
-{
-}
+/**
+ * a spectator player controller
+ *
+ * A spectator is very much like a local human player, except that it has no
+ * planets. It cannot die and it does not count as active player. Its main
+ * purpose is to watch the game, for example watch AIs play against each other.
+ */
 
-
-Player*
-LocalPlayerGui::createInstance(Game *game, const QString &newName, const QColor &color) const
+class SpectatorPlayer : public LocalPlayer
 {
-    return new LocalPlayer(game, newName, color);
-}
+    Q_OBJECT
+
+public:
+    explicit SpectatorPlayer(Game *game, const QString &newName, const QColor &color);
+
+    virtual bool isDead();
+    virtual bool isSpectator();
+
+signals:
+
+public slots:
+
+};
+
+#endif // SPECTATORPLAYER_H

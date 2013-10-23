@@ -22,7 +22,6 @@
 
 #include "computerplayer.h"
 #include "../game.h"
-#include "../planet.h"
 
 #include <KDebug>
 #include <cmath>
@@ -33,5 +32,10 @@ ComputerPlayer::ComputerPlayer(Game *game,
                                const QColor &color)
     : Player(game, newName, color)
 {
+}
 
+
+bool ComputerPlayer::isAiPlayer()
+{
+    return true;
 }

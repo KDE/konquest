@@ -31,8 +31,6 @@ class LocalPlayer : public Player
 public:
     explicit LocalPlayer(Game *game, const QString &newName, const QColor &color);
 
-    virtual bool isAiPlayer();
-
     virtual void play();
 
     void done();
