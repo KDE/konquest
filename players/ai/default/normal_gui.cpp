@@ -21,7 +21,7 @@
 
 
 AiDefaultNormalGui::AiDefaultNormalGui() :
-    PlayerGui(i18n("Default Normal/Offensive"))
+    PlayerGui(i18n("Default (Offensive)"))
 {
 }
 

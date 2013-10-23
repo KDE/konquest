@@ -22,6 +22,8 @@
  */
 #include "newgamedlg.h"
 
+#include "../players/ai/becai/becai_gui.h"
+#include "../players/ai/becai/becai.h"
 #include "../players/ai/default/weak_gui.h"
 #include "../players/ai/default/normal_gui.h"
 #include "../players/ai/default/hard_gui.h"
@@ -357,6 +359,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     m_selectablePlayer.push_back(new AiDefaultNormalGui());
     m_selectablePlayer.push_back(new AiDefaultHardGui());
     // m_selectablePlayer.push_back(new AiExampleGui());
+    m_selectablePlayer.push_back(new AiBecaiGui());
 
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap(m_game->map());

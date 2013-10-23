@@ -37,6 +37,8 @@ set(konquest_SRCS
     dialogs/scoredlg.cc
     dialogs/fleetdlg.cc
 
+    players/ai/becai/becai.cpp
+    players/ai/becai/becai_gui.cpp
     players/ai/default/default.cpp
     players/ai/default/weak.cpp
     players/ai/default/weak_gui.cpp

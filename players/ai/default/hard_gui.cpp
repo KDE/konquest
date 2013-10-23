@@ -21,7 +21,7 @@
 
 
 AiDefaultHardGui::AiDefaultHardGui() :
-    PlayerGui(i18n("Default Hard/Defensive"))
+    PlayerGui(i18n("Default (Hard)"))
 {
 }
 

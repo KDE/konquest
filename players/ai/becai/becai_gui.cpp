@@ -16,18 +16,18 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "weak_gui.h"
-#include "weak.h"
+#include "becai_gui.h"
+#include "becai.h"
 
 
-AiDefaultWeakGui::AiDefaultWeakGui() :
-    PlayerGui(i18n("Default (Weak)"))
+AiBecaiGui::AiBecaiGui() :
+    PlayerGui(i18nc("A distinct unique AI playing a balanced strategy", "Becai (Balanced)"))
 {
 }
 
 
 Player*
-AiDefaultWeakGui::createInstance(Game *game, const QString &newName, const QColor &color) const
+AiBecaiGui::createInstance(Game *game, const QString &newName, const QColor &color) const
 {
-    return new AiDefaultWeak(game, newName, color);
+    return new AiBecai(game, newName, color);
 }

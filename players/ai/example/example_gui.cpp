@@ -21,7 +21,7 @@
 
 
 AiExampleGui::AiExampleGui() :
-    PlayerGui(i18n("Example/Passive"))
+    PlayerGui(i18n("Example (Passive)"))
 {
 }
 

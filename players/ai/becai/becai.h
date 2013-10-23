@@ -16,18 +16,32 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include "weak_gui.h"
-#include "weak.h"
+#ifndef AI_BECAI_H
+#define AI_BECAI_H
+
+#include "../../computerplayer.h"
 
 
-AiDefaultWeakGui::AiDefaultWeakGui() :
-    PlayerGui(i18n("Default (Weak)"))
+/**
+ * This is quite a challenging AI.
+ */
+
+class AiBecai : public ComputerPlayer
 {
-}
+    Q_OBJECT
 
+public:
+    explicit AiBecai(Game *game, const QString &newName, const QColor &color);
 
-Player*
-AiDefaultWeakGui::createInstance(Game *game, const QString &newName, const QColor &color) const
-{
-    return new AiDefaultWeak(game, newName, color);
-}
+    virtual void play();
+
+private:
+    int getMinimumDefenceFleetSize(Planet *planet, int minimumBaseDefenceFleetSize, double averageOwnKillPercentage, double averageOwnProduction);
+
+signals:
+
+public slots:
+
+};
+
+#endif // AI_BECAI_H
