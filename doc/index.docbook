@@ -123,7 +123,7 @@ Listed below are the following parameters for the new game:
   column and edit it. To change the type of the player, open the drop-down list by
   double-clicking in the <guilabel>Type</guilabel> column.</para>
   <para>The type of AI player can be chosen from <guimenuitem>Default (Weak)</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default (Offensive)</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default (Defensive)</guimenuitem> (a player with defensive strategy).</para>
-  <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of the <link linkend="strattips" endterm="strattips.title"/> into account.</para>
+  <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of the <xref linkend="strattips"/> into account.</para>
   <para>Keep in mind that the actual difficulty of any opponent depends on your very own strategy. If you play aggressively yourself, an aggressive AI player might be easier to defeat than a defensive player, and vice versa.</para>
 </listitem>
 
@@ -224,9 +224,9 @@ ships.</para></listitem>
 </sect1>
 
 <sect1 id="strattips">
-<title id="strattips.title">Strategies and Tips</title>
+<title>Strategies and Tips</title>
 <itemizedlist>
-<listitem><para>The game is all about ship production. Try to get as many planets as possible as fast as your can in order to build more ships than any of your opponents.</para></listitem>
+<listitem><para>The game is all about ship production. Try to get as many planets as possible as fast as you can in order to build more ships than any of your opponents.</para></listitem>
 <listitem><para>Do not attack a planet with less than 10 ships, unless you can conquer it.</para></listitem>
 <listitem><para>Attack neutral planets before other players' planets.</para></listitem>
 <listitem><para>Split your ship storages across several planets.</para></listitem>
