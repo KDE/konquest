@@ -166,7 +166,6 @@ public:
                     m_game->map()->turnOverPlayerPlanets(player, newPlayer);
                     player->deleteLater();
 
-                    m_newGameDlg->updateButtonOk();
                     result = true;
                 }
             }
@@ -174,6 +173,7 @@ public:
 
         if (result) {
             m_game->setPlayers(m_players);
+            m_newGameDlg->updateButtonOk();
             emit dataChanged(index, index);
         }
 
@@ -231,30 +231,6 @@ public:
             endRemoveRows();
         }
         return player;
-    }
-
-
-    /**
-     * Check if the match is a spectator match, that is, there are not at least
-     * two non-spectating player controllers added.
-     */
-
-    bool isSpectatorMatch()
-    {
-        int nonSpectatorCount = 0;
-
-        foreach (Player* player, m_players) {
-            if (!player->isSpectator()) {
-
-                // The number of players is very limited so it is not worth to
-                // have an additional break in here as soon as more than one
-                // non-spectating player controller is found.
-
-                ++nonSpectatorCount;
-            }
-        }
-
-        return nonSpectatorCount < 2;
     }
 
 private:
@@ -388,6 +364,8 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     setMainWidget(m_w);
     slotNewMap();
+
+    updateButtonOk();
 }
 
 NewGameDlg::~NewGameDlg()
@@ -490,32 +468,35 @@ NewGameDlg::slotRemovePlayer()
 void
 NewGameDlg::slotUpdateSelection(const Coordinate &coord)
 {
-    Sector *selected = m_game->map()->sector(coord);
-    if (!selected) {
+    Sector *sector = m_game->map()->sector(coord);
+    if (!sector) {
         m_w->KillPercentageSB->setEnabled(false);
         m_w->ProductionSB->setEnabled(false);
         return;
     }
-    bool planet = selected->hasPlanet();
+    bool hasPlanet = sector->hasPlanet();
 
-    m_w->KillPercentageSB->setEnabled(planet);
-    m_w->ProductionSB->setEnabled(planet);
+    m_w->KillPercentageSB->setEnabled(hasPlanet);
+    m_w->ProductionSB->setEnabled(hasPlanet);
 
     disconnect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
 
-    if(planet) {
-        Planet *p = selected->planet();
-        int f = m_w->OwnerCB->findText(p->player()->name());
-        if(f>=0)
+    if (hasPlanet) {
+        Planet *planet = sector->planet();
+        int f = m_w->OwnerCB->findText(planet->player()->name());
+        if (f >= 0) {
             m_w->OwnerCB->setCurrentIndex(f);
-        else
+        }
+        else {
             m_w->OwnerCB->setCurrentIndex(m_w->OwnerCB->count()-1);
+        }
 
-
-        m_w->KillPercentageSB->setValue(p->killPercentage());
-        m_w->ProductionSB->setValue(p->production());
-    } else
+        m_w->KillPercentageSB->setValue(planet->killPercentage());
+        m_w->ProductionSB->setValue(planet->production());
+    }
+    else {
         m_w->OwnerCB->setCurrentIndex(0);
+    }
 
     connect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
 }
@@ -526,21 +507,26 @@ NewGameDlg::slotNewOwner(int index)
 {
     if (!m_w->map->hasSelection())
         return;
-    Sector *selected = m_game->map()->sector(m_w->map->selection());
-    if(selected->hasPlanet())
-        delete selected->planet();
+    Sector *sector = m_game->map()->sector(m_w->map->selection());
+    if (sector->hasPlanet()) {
+        delete sector->planet();
+    }
 
-    if(index > 0)
-        m_game->map()->addPlanet(selected,
+    if (index > 0) {
+        m_game->map()->addPlanet(sector,
                                  index - 1 < m_game->players().count()
                                  ? m_game->players()[index-1]
                                  :  m_neutral,
                                  m_w->ProductionSB->value(),
                                  m_w->KillPercentageSB->value());
+    }
 
     m_w->KillPercentageSB->setEnabled(index);
     m_w->ProductionSB->setEnabled(index);
+
+    updateButtonOk();
 }
+
 
 void
 NewGameDlg::slotNewKillPercentage(double value)
@@ -549,6 +535,7 @@ NewGameDlg::slotNewKillPercentage(double value)
     if(selected->hasPlanet())
         selected->planet()->setKillPercentage(value);
 }
+
 
 void
 NewGameDlg::slotNewProduction(int value)
@@ -595,6 +582,7 @@ NewGameDlg::save()
     config.sync();
 }
 
+
 void
 NewGameDlg::slotNewMap()
 {
@@ -615,7 +603,10 @@ NewGameDlg::slotNewMap()
     m_game->map()->populateMap(m_game->players(), m_neutral, m_w->neutralPlanetsSB->value());
 
     slotUpdateSelection(m_w->map->selection());
+
+    updateButtonOk();
 }
+
 
 void
 NewGameDlg::slotUpdateNeutrals(int count)
@@ -638,14 +629,38 @@ NewGameDlg::slotUpdateNeutrals(int count)
 void
 NewGameDlg::updateButtonOk()
 {
-    playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
+    int nonSpectatorCount = 0;
+    bool isSaneConfiguration = true;
 
-    /**
-     * @todo Check if all non-spectator players have at least one planet.
-     */
+    foreach (Player *player, m_game->players()) {
+        if (player->isSpectator()) {
+
+            // Spectator player controllers can be completely ignored here as
+            // they do not count as active players and thus there is no need for
+            // them to own at least one planet.
+
+            continue;
+        }
+
+        ++nonSpectatorCount;
+
+        bool foundPlanet = false;
+
+        foreach (Planet *planet, m_game->planets()) {
+            if (planet->player() == player) {
+                foundPlanet = true;
+                break;
+            }
+        }
+
+        if (!foundPlanet) {
+            isSaneConfiguration = false;
+            break;
+        }
+    }
 
     enableButtonOk(
-        (model->rowCount() > 1) &&
-        (!model->isSpectatorMatch())
+        (nonSpectatorCount >= 2) &&
+        isSaneConfiguration
     );
 }
