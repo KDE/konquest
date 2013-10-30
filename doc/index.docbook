@@ -64,7 +64,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-10-18</date>
+<date>2013-10-30</date>
 <releaseinfo>2.1 (&kde; 4.12)</releaseinfo>
 
 <abstract>
@@ -207,6 +207,18 @@ and press &Enter;. The ships due to the standing order will be sent at the end o
 Turn</guibutton>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will
 proceed like this until one of the players owns the entire galaxy.
 </para>
+<tip>
+  <para>
+    A keyboard shortcut for <guimenuitem>End Turn</guimenuitem> action can be configured using the
+      <menuchoice>
+	<guimenu>Settings</guimenu>
+	<guimenuitem>Configure Shortcuts...</guimenuitem>
+      </menuchoice> menu item.
+  </para>
+  <para>
+    For more information read the section about <ulink url="help:/fundamentals/config.html#shortcuts">Using and Customizing Shortcuts</ulink> of the &kde; Fundamentals.
+  </para>
+</tip>
 </chapter>
 
 <chapter id="rulestips">
@@ -302,6 +314,14 @@ for all fleets</para></listitem>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Quits the game.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Game</guimenu>
+<guimenuitem>End Turn</guimenuitem>
+</menuchoice></term>
+<listitem><para>Allows you to <action>end turn</action> from the main menu.</para></listitem>
 </varlistentry>
 
 </variablelist>
