@@ -318,7 +318,7 @@ for all fleets</para></listitem>
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Game</guimenu>
+<guimenu>Move</guimenu>
 <guimenuitem>End Turn</guimenuitem>
 </menuchoice></term>
 <listitem><para>Allows you to <action>end turn</action> from the main menu.</para></listitem>
