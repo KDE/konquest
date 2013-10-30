@@ -53,7 +53,8 @@ private:
     QLabel     *m_statusBarText;
 
     // Actions
-    QAction  *m_endAction;
+    QAction  *m_endTurnAction;
+    QAction  *m_endGameAction;
     QAction  *m_measureAction;
     QAction  *m_standingAction;
     QAction  *m_fleetAction;

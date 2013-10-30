@@ -69,8 +69,11 @@ MainWindow::setupActions()
     KStandardGameAction::gameNew( this, SLOT( startNewGame() ), actionCollection() );
     KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
-    m_endAction = KStandardGameAction::end( this, NULL, actionCollection() );
-    m_endAction->setEnabled(false);
+    m_endTurnAction = KStandardGameAction::endTurn(this, NULL, actionCollection());
+    m_endTurnAction->setEnabled(false);
+
+    m_endGameAction = KStandardGameAction::end( this, NULL, actionCollection() );
+    m_endGameAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - KAction not :-(
@@ -112,11 +115,12 @@ MainWindow::setupGameView()
 					 Player * ) ) );
     connect (m_gameView, SIGNAL( newGUIState( GUIState )),
 	     this,       SLOT( guiStateChange( GUIState ) ) );
-    
-    connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));   
-    connect(m_standingAction, SIGNAL(triggered(bool)), m_gameView, SLOT( showScores() ));   
-    connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));   
-    connect(m_endAction,      SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
+
+    connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));
+    connect(m_standingAction, SIGNAL(triggered(bool)), m_gameView, SLOT( showScores() ));
+    connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));
+    connect(m_endTurnAction,  SIGNAL(triggered()),     m_gameView, SLOT(nextPlayer()));
+    connect(m_endGameAction,  SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
 }
 
 void
@@ -140,7 +144,9 @@ MainWindow::guiStateChange( GUIState newState )
         m_game->deleteLater();
         this->setupGameView();
     }
-    m_endAction     ->setEnabled( m_game->isRunning() );
+
+    m_endTurnAction ->setEnabled( m_game->isRunning() );
+    m_endGameAction ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
     m_fleetAction   ->setEnabled( newState == SOURCE_PLANET );
