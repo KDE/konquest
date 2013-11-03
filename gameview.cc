@@ -76,9 +76,9 @@ GameView::GameView( QWidget *parent, Game *game )
                            col.light(),        col.dark(),   col,
                            col.dark(75),       col.dark(75), col.dark(), 
                            Qt::black );
-    palette.setColorGroup( QPalette::Disabled, Qt::white,    Qt::black,
+    palette.setColorGroup( QPalette::Disabled, Qt::white,    QColor(Qt::darkGray).darker(),
                            col.light(),        col.dark(),   col,
-                           col.dark(75),       col.dark(75), Qt::black,
+                           col.darker(150),    col.dark(75), Qt::black,
                            Qt::black );
     
     blackPal.setColor( QPalette::Base, Qt::black );
@@ -493,7 +493,7 @@ GameView::startNewGame()
     // Set up the base GUI for a new game.
     m_msgWidget->clear();
     m_shipCountEdit->show();
-    m_shipCountEdit->setEnabled(true);
+    m_shipCountEdit->setEnabled(false);
     m_initCompleted = true;
 
     //call GameView::gameOver now if needed happens if the game ends immiedently after starting.

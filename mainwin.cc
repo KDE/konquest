@@ -151,7 +151,7 @@ MainWindow::guiStateChange( GUIState newState )
         this->setupGameView();
     }
 
-    m_endTurnAction ->setEnabled( m_game->isRunning() );
+    m_endTurnAction ->setEnabled( m_game->isRunning() && (newState == SOURCE_PLANET));
     m_endGameAction ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
