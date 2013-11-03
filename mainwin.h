@@ -19,6 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_MAINWIN_H
 #define KONQUEST_MAINWIN_H
 
@@ -29,6 +30,8 @@
 #include "gameview.h"
 
 class QAction;
+class QDockWidget;
+
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -38,13 +41,17 @@ public:
     MainWindow();
     ~MainWindow();
 
+    QSize sizeHint() const;
+
 private:
     void setupActions();
     void setupGameView();
+    void setupGUI();
 
 private slots:
     void guiStateChange( GUIState );
     void startNewGame();
+    void updateMessagesActionSlot();
 
 private:
     // Widgets
@@ -54,11 +61,14 @@ private:
 
     // Actions
     KAction  *m_endTurnAction;
+    KAction  *m_messagesAction;
 
     QAction  *m_endGameAction;
     QAction  *m_measureAction;
     QAction  *m_standingAction;
     QAction  *m_fleetAction;
+
+    QDockWidget *m_messagesDock;
 };
 
 #endif // KONQUEST_MAINWIN_H

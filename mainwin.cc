@@ -19,8 +19,10 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #include "mainwin.h"
 
+#include <QDockWidget>
 #include <QPushButton>
 #include <QLabel>
 #include <QDebug>
@@ -54,12 +56,18 @@ MainWindow::MainWindow()
     // The status bar.
     m_statusBarText = new QLabel(i18n("Galactic Conquest"));
     statusBar()->addWidget(m_statusBarText);
-
-    resize(600, 650);
 }
+
 
 MainWindow::~MainWindow()
 {
+}
+
+
+QSize
+MainWindow::sizeHint() const
+{
+    return KXmlGuiWindow::sizeHint().expandedTo(QSize(600, 650));
 }
 
 
@@ -98,6 +106,27 @@ MainWindow::setupActions()
     // Toolbar
     addToolBar ( Qt::LeftToolBarArea, toolBar() );
     toolBar()->setMovable(false);
+
+    // docking area - messages
+
+    m_messagesDock = new QDockWidget(i18n("Messages"), this);
+    m_messagesDock->setObjectName("dock-messages");
+
+    addDockWidget(Qt::BottomDockWidgetArea, m_messagesDock);
+
+    m_messagesAction = actionCollection()->addAction(QLatin1String("view_messages"));
+    m_messagesAction->setText(i18n("Show &Messages"));
+    m_messagesAction->setCheckable(true);
+    m_messagesAction->setChecked(m_messagesDock->isVisible());
+
+    // The dock signal "visibilityChanged" is fired if the dock is shown or
+    // hidden. But this includes hidden in a tab as well. The action should not
+    // represent the visibility state, but if the dock is present somewhere in
+    // the GUI, regardless of currently visible in an active tab or invisible
+    // in a not currently active tab.
+
+    connect(m_messagesAction, SIGNAL(triggered(bool)), m_messagesDock, SLOT(setVisible(bool)));
+    connect(m_messagesDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateMessagesActionSlot()));
 }
 
 
@@ -105,7 +134,7 @@ void
 MainWindow::setupGameView()
 {
     m_game      = new LocalGame( this );
-    m_gameView  = new GameView( this, m_game );
+    m_gameView  = new GameView(this, m_game, m_messagesDock);
     setCentralWidget( m_gameView );
 
     connect ( m_game,    SIGNAL( gameMsg(const KLocalizedString &,
@@ -124,6 +153,29 @@ MainWindow::setupGameView()
     connect(m_endGameAction,  SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
 }
 
+
+void
+MainWindow::setupGUI()
+{
+    KXmlGuiWindow::setupGUI();
+
+    /**
+     * @todo The docks should not be visible on the main screen, and neither
+     * should it be possible to open the docks. During the game and later on,
+     * this is handled by GameView::changeGameView() and by
+     * MainWindow::guiStateChange(). Just the initial setup does not work that
+     * way. - Rework the GUI setup sequence so that the following hack is not
+     * required.
+     */
+
+    m_messagesAction->setEnabled(false);
+
+    m_messagesDock->toggleViewAction()->setEnabled(false);
+
+    m_messagesDock->hide();
+}
+
+
 void
 MainWindow::startNewGame()
 {
@@ -139,8 +191,7 @@ MainWindow::startNewGame()
 void
 MainWindow::guiStateChange( GUIState newState )
 {
-    if (newState == NONE)
-    {
+    if (newState == NONE) {
         m_gameView->deleteLater();
         m_game->deleteLater();
         this->setupGameView();
@@ -163,5 +214,16 @@ MainWindow::guiStateChange( GUIState newState )
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
     m_fleetAction   ->setEnabled( newState == SOURCE_PLANET );
 
+    m_messagesAction->setEnabled(m_game->isRunning());
+
+    m_messagesDock->toggleViewAction()->setEnabled(m_game->isRunning());
+
     m_statusBarText->setText(i18n("Turn # %1", m_game->turnCounter()));
+}
+
+
+void
+MainWindow::updateMessagesActionSlot()
+{
+    m_messagesAction->setChecked(m_messagesDock->toggleViewAction()->isChecked());
 }

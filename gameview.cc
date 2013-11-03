@@ -24,6 +24,7 @@
 #include "gameview.h"
 
 #include <QCheckBox>
+#include <QDockWidget>
 #include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
@@ -51,8 +52,9 @@
  Game Board
 *********************************************************************/
 
-GameView::GameView( QWidget *parent, Game *game )
+GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock)
   : QWidget( parent ),
+    m_messagesDock(messagesDock),
     m_game( game ),
     m_queueMessages(false),
     m_messageQueue(), 
@@ -96,13 +98,13 @@ GameView::GameView( QWidget *parent, Game *game )
     m_mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mapWidget->setFrameShape(QFrame::NoFrame);
 
-    m_msgWidget = new QTextEdit( this );
-    m_msgWidget->setMaximumHeight(75);
+    m_msgWidget = new QTextEdit();
     m_msgWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_msgWidget->setReadOnly(true);
     m_msgWidget->setPalette( blackPal );
     m_msgWidget->setAutoFillBackground( true );
-    m_msgWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    m_messagesDock->setWidget(m_msgWidget);
 
     m_gameMessage = new QLabel( this );
     m_gameMessage->setPalette( palette );
@@ -147,7 +149,6 @@ GameView::GameView( QWidget *parent, Game *game )
 
     mainLayout->addLayout( topLineLayout );
     mainLayout->addWidget( m_mapWidget );
-    mainLayout->addWidget( m_msgWidget );
 
     //**********************************************************************
     // Set up signal/slot connections
@@ -630,7 +631,7 @@ GameView::changeGameView()
 
     kDebug() << "Calling GameView::changeGameView" << isRunning;
 
-    m_msgWidget->setVisible(isRunning);
+    m_messagesDock->setVisible(isRunning);
     m_mapWidget->setVisible(isRunning);
     m_gameMessage->setVisible(isRunning);
     m_standingOrder->setVisible(isRunning);

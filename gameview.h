@@ -23,7 +23,6 @@
 #ifndef KONQUEST_GAMEVIEW_H
 #define KONQUEST_GAMEVIEW_H
 
-
 #include <QWidget>
 
 #include "planet.h"
@@ -36,6 +35,7 @@
 //************************************************************************
 
 class QCheckBox;
+class QDockWidget;
 class QLabel;
 class QPushButton;
 class QLineEdit;
@@ -77,7 +77,7 @@ class GameView : public QWidget
     Q_OBJECT
 
 public:
-    explicit  GameView( QWidget *parent, Game *game );
+    explicit  GameView(QWidget *parent, Game *game, QDockWidget *messagesDock);
     virtual  ~GameView();
     bool  confirmNewGame();
 
@@ -132,6 +132,8 @@ private:
     QIntValidator *m_shipValidator;
     QLabel        *m_splashScreen;
     QTextEdit     *m_msgWidget;
+
+    QDockWidget   *m_messagesDock;
 
     //***************************************************************
     // Game objects
