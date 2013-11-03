@@ -68,19 +68,19 @@ GameView::GameView( QWidget *parent, Game *game )
 
     QColor col(Qt::green);
     QPalette palette;
-    palette.setColorGroup( QPalette::Active,   Qt::white,    Qt::black, 
-                           col.light(),        col.dark(),   col,
-                           col.dark(75),       col.dark(75), col.dark(),
+    palette.setColorGroup( QPalette::Active,    Qt::white,          Qt::black,
+                           col.lighter(),       col.darker(),       col,
+                           col.lighter(125),    col.lighter(125),   col.darker(),
                            Qt::black );
-    palette.setColorGroup( QPalette::Inactive, Qt::white,    Qt::black,
-                           col.light(),        col.dark(),   col,
-                           col.dark(75),       col.dark(75), col.dark(), 
+    palette.setColorGroup( QPalette::Inactive,  Qt::white,          Qt::black,
+                           col.lighter(),       col.darker(),       col,
+                           col.lighter(125),    col.lighter(125),   col.darker(),
                            Qt::black );
-    palette.setColorGroup( QPalette::Disabled, Qt::white,    Qt::black,
-                           col.light(),        col.dark(),   col,
-                           col.dark(75),       col.dark(75), Qt::black,
+    palette.setColorGroup( QPalette::Disabled,  Qt::white,          QColor(Qt::darkGray).darker(),
+                           col.lighter(),       col.darker(),       col,
+                           col.darker(150),     col.lighter(125),   Qt::black,
                            Qt::black );
-    
+
     blackPal.setColor( QPalette::Base, Qt::black );
     blackPal.setColor( QPalette::Window, Qt::black );
     blackPal.setColor( QPalette::Button, QColor(Qt::darkGray).darker() );
@@ -144,7 +144,7 @@ GameView::GameView( QWidget *parent, Game *game )
     topLineLayout->addWidget( m_standingOrder, 1 );
     topLineLayout->addWidget( m_shipCountEdit, 1 );
     topLineLayout->addWidget( m_endTurnBtn, 1 );
-    
+
     mainLayout->addLayout( topLineLayout );
     mainLayout->addWidget( m_mapWidget );
     mainLayout->addWidget( m_msgWidget );
@@ -280,7 +280,6 @@ GameView::turn()
             m_shipCountEdit->setText( QString() );
             m_standingOrder->setEnabled(false);
             m_standingOrder->setCheckState(Qt::Unchecked);
-            m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
             m_gameMessage->setText( i18n("<qt>%1: Select source planet...</qt>", m_game->currentPlayer()->coloredName()) );
             setFocus();
@@ -298,7 +297,6 @@ GameView::turn()
         } else {
             m_shipCountEdit->setEnabled(false);
             m_standingOrder->setEnabled(false);
-            m_endTurnBtn->setEnabled( false );
             m_mapScene->selectPlanet(sourcePlanet);
             m_gameMessage->setText( i18n("<qt>%1: Select destination planet...</qt>", m_game->currentPlayer()->coloredName()) );
             setFocus();
@@ -316,7 +314,6 @@ GameView::turn()
 
             m_shipCountEdit->setEnabled(false);
             m_standingOrder->setEnabled(false);
-            m_endTurnBtn->setEnabled( true );
 
             m_guiState = NONE;
             turn();
@@ -329,8 +326,6 @@ GameView::turn()
             m_shipCountEdit->setEnabled(true);
             m_standingOrder->setEnabled(true);
             m_shipCountEdit->setFocus();
-
-            m_endTurnBtn->setEnabled( false );
 
             m_mapScene->unselectPlanet();
         }
@@ -345,7 +340,6 @@ GameView::turn()
             turn();
         } else {
             m_shipCountEdit->setEnabled(false);
-            m_endTurnBtn->setEnabled( true );
             m_mapScene->unselectPlanet();
 
             m_gameMessage->setText( i18n("Ruler: Select starting planet.") );
@@ -375,7 +369,6 @@ GameView::turn()
         } else {
             m_gameMessage->setText( i18n("Ruler: Select ending planet.") );
             m_shipCountEdit->setEnabled(false);
-            m_endTurnBtn->setEnabled( false );
             m_mapScene->selectPlanet(sourcePlanet);
 
             setFocus();
@@ -385,6 +378,8 @@ GameView::turn()
     default:
         break;
     }
+
+    m_endTurnBtn->setEnabled(m_guiState == SOURCE_PLANET);
 
     emit newGUIState( m_guiState );
 }
@@ -492,11 +487,10 @@ GameView::startNewGame()
 
     // Set up the base GUI for a new game.
     m_msgWidget->clear();
-    m_shipCountEdit->show();
-    m_shipCountEdit->setEnabled(true);
+    m_shipCountEdit->setEnabled(false);
     m_initCompleted = true;
 
-    //call GameView::gameOver now if needed happens if the game ends immiedently after starting.
+    //call GameView::gameOver now if needed happens if the game ends immediately after starting.
     if(m_cleanupNeeded)
         gameOver();
 }
@@ -545,12 +539,8 @@ GameView::cleanupGame()
 {
     m_mapScene->clearMap();
     m_game->stop();
-    
-    m_shipCountEdit->hide();
-    m_endTurnBtn->setEnabled( false );
 
-    m_gameMessage->hide();
-    m_endTurnBtn->hide();
+    m_endTurnBtn->setEnabled( false );
 
     changeGameView();
     m_guiState = NONE;
@@ -636,22 +626,17 @@ GameView::newShipCount()
 void
 GameView::changeGameView()
 {
-    kDebug() << "Calling GameView::changeGameView" << m_game->isRunning();
-    if( m_game->isRunning()) {
-        m_msgWidget->show();
-        m_mapWidget->show();
-        m_gameMessage->show();
-        m_endTurnBtn->show();
-        m_shipCountEdit->show();
-        m_splashScreen->hide();
-    } else {
-        m_mapWidget->hide();
-        m_msgWidget->hide();
-        m_gameMessage->hide();
-        m_endTurnBtn->hide();
-        m_shipCountEdit->hide();
-        m_splashScreen->show();
-    }
+    bool isRunning = m_game->isRunning();
+
+    kDebug() << "Calling GameView::changeGameView" << isRunning;
+
+    m_msgWidget->setVisible(isRunning);
+    m_mapWidget->setVisible(isRunning);
+    m_gameMessage->setVisible(isRunning);
+    m_standingOrder->setVisible(isRunning);
+    m_shipCountEdit->setVisible(isRunning);
+    m_endTurnBtn->setVisible(isRunning);
+    m_splashScreen->setVisible(!isRunning); // negation
 }
 
 

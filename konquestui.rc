@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="konquest"
-     version="1"
+     version="2"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
@@ -17,6 +17,8 @@
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
   <Action name="game_new"/>
   <Action name="game_end"/>
+  <Separator/>
+  <Action name="move_end_turn"/>
   <Separator/>
   <Action name="game_measure"/>
   <Action name="game_scores"/>

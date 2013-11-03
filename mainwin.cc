@@ -70,6 +70,7 @@ MainWindow::setupActions()
     KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
     m_endTurnAction = KStandardGameAction::endTurn(this, NULL, actionCollection());
+    m_endTurnAction->setShortcut(Qt::CTRL + Qt::Key_E);
     m_endTurnAction->setEnabled(false);
 
     m_endGameAction = KStandardGameAction::end( this, NULL, actionCollection() );
@@ -145,7 +146,18 @@ MainWindow::guiStateChange( GUIState newState )
         this->setupGameView();
     }
 
-    m_endTurnAction ->setEnabled( m_game->isRunning() );
+    // An alternative to disabling the "end turn" action during "send fleet
+    // command sequence" is to simply abort this sequence if the user decides
+    // to "end turn" before completion.
+
+    /**
+     * @todo The game view handles the state of the actions, so the game view
+     * should be able to update the enabled state of the actions as well. This
+     * should be implemented via signals, instead of copying the conditions here
+     * again.
+     */
+
+    m_endTurnAction ->setEnabled( m_game->isRunning() && (newState == SOURCE_PLANET) );
     m_endGameAction ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
     m_standingAction->setEnabled( newState == SOURCE_PLANET );
