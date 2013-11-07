@@ -96,7 +96,7 @@ AiBecai::play()
     int totalEnemyPlanets = 0;
     int totalEnemyDefence = 0;
 
-    // The first and nearly most important part is to analyse the current game
+    // The first and nearly most important part is to analyze the current game
     // situation. For this, different metrics are calculated.
 
     /**
@@ -171,7 +171,7 @@ AiBecai::play()
     if (totalOwnPlanets == 0) {
 
         // It is perfectly valid to have no own planets, but to still be alive.
-        // This is the case of having at least one fleet still travelling.
+        // This is the case of having at least one fleet still traveling.
         // We can abort here as there is nothing we can do (and to avoid
         // division by zero later on).
 
