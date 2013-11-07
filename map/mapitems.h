@@ -36,7 +36,7 @@ class PlanetItem : public QGraphicsObject
     Q_OBJECT
 
 public:
-    PlanetItem(MapScene *scene, Sector *sector, Game *game);
+    explicit PlanetItem(MapScene *scene, Sector *sector, Game *game);
     ~PlanetItem() {}
 
     QRectF   boundingRect() const;
