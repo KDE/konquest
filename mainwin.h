@@ -38,6 +38,8 @@ public:
     MainWindow();
     ~MainWindow();
 
+    QSize sizeHint() const;
+
 private:
     void setupActions();
     void setupGameView();

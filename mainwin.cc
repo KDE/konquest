@@ -54,12 +54,18 @@ MainWindow::MainWindow()
     // The status bar.
     m_statusBarText = new QLabel(i18n("Galactic Conquest"));
     statusBar()->addWidget(m_statusBarText);
-
-    resize(600, 650);
 }
+
 
 MainWindow::~MainWindow()
 {
+}
+
+
+QSize
+MainWindow::sizeHint() const
+{
+    return KXmlGuiWindow::sizeHint().expandedTo(QSize(600, 650));
 }
 
 
