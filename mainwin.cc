@@ -91,12 +91,6 @@ MainWindow::setupActions()
     m_measureAction->setText( i18n("&Measure Distance") );
     m_measureAction->setEnabled(false);
 
-    // Show standings
-    m_standingAction = actionCollection()->addAction( QLatin1String(  "game_scores" ) );
-    m_standingAction->setIcon( KIcon( QLatin1String( "help-contents" )) );
-    m_standingAction->setText( i18n("&Show Standings") );
-    m_standingAction->setEnabled(false);
-
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
     m_fleetAction->setIcon( KIcon( QLatin1String( "fork" )) );
@@ -119,6 +113,10 @@ MainWindow::setupActions()
     m_messagesAction->setCheckable(true);
     m_messagesAction->setChecked(m_messagesDock->isVisible());
 
+    // The action signal "toggled" is fired even in case the state is changed
+    // via code using setChecked(). "triggered" however is only fired if the
+    // user actually triggered the change.
+
     // The dock signal "visibilityChanged" is fired if the dock is shown or
     // hidden. But this includes hidden in a tab as well. The action should not
     // represent the visibility state, but if the dock is present somewhere in
@@ -127,6 +125,22 @@ MainWindow::setupActions()
 
     connect(m_messagesAction, SIGNAL(triggered(bool)), m_messagesDock, SLOT(setVisible(bool)));
     connect(m_messagesDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateMessagesActionSlot()));
+
+    // docking area - standings
+
+    m_standingsDock = new QDockWidget(i18n("Standings"), this);
+    m_standingsDock->setObjectName("dock-standings");
+
+    tabifyDockWidget(m_messagesDock, m_standingsDock);
+
+    m_standingsAction = actionCollection()->addAction(QLatin1String("view_standings"));
+    m_standingsAction->setIcon(KIcon(QLatin1String("help-contents")));
+    m_standingsAction->setText(i18n("Show &Standings"));
+    m_standingsAction->setCheckable(true);
+    m_standingsAction->setChecked(m_standingsDock->isVisible());
+
+    connect(m_standingsAction, SIGNAL(triggered(bool)), m_standingsDock, SLOT(setVisible(bool)));
+    connect(m_standingsDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateStandingsActionSlot()));
 }
 
 
@@ -134,7 +148,7 @@ void
 MainWindow::setupGameView()
 {
     m_game      = new LocalGame( this );
-    m_gameView  = new GameView(this, m_game, m_messagesDock);
+    m_gameView  = new GameView(this, m_game, m_messagesDock, m_standingsDock);
     setCentralWidget( m_gameView );
 
     connect ( m_game,    SIGNAL( gameMsg(const KLocalizedString &,
@@ -147,7 +161,6 @@ MainWindow::setupGameView()
 	     this,       SLOT( guiStateChange( GUIState ) ) );
 
     connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));
-    connect(m_standingAction, SIGNAL(triggered(bool)), m_gameView, SLOT( showScores() ));
     connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));
     connect(m_endTurnAction,  SIGNAL(triggered()),     m_gameView, SLOT(nextPlayer()));
     connect(m_endGameAction,  SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
@@ -169,10 +182,13 @@ MainWindow::setupGUI()
      */
 
     m_messagesAction->setEnabled(false);
+    m_standingsAction->setEnabled(false);
 
     m_messagesDock->toggleViewAction()->setEnabled(false);
+    m_standingsDock->toggleViewAction()->setEnabled(false);
 
     m_messagesDock->hide();
+    m_standingsDock->hide();
 }
 
 
@@ -211,12 +227,13 @@ MainWindow::guiStateChange( GUIState newState )
     m_endTurnAction ->setEnabled( m_game->isRunning() && (newState == SOURCE_PLANET) );
     m_endGameAction ->setEnabled( m_game->isRunning() );
     m_measureAction ->setEnabled( newState == SOURCE_PLANET );
-    m_standingAction->setEnabled( newState == SOURCE_PLANET );
     m_fleetAction   ->setEnabled( newState == SOURCE_PLANET );
 
     m_messagesAction->setEnabled(m_game->isRunning());
+    m_standingsAction->setEnabled(m_game->isRunning());
 
     m_messagesDock->toggleViewAction()->setEnabled(m_game->isRunning());
+    m_standingsDock->toggleViewAction()->setEnabled(m_game->isRunning());
 
     m_statusBarText->setText(i18n("Turn # %1", m_game->turnCounter()));
 }
@@ -226,4 +243,11 @@ void
 MainWindow::updateMessagesActionSlot()
 {
     m_messagesAction->setChecked(m_messagesDock->toggleViewAction()->isChecked());
+}
+
+
+void
+MainWindow::updateStandingsActionSlot()
+{
+    m_standingsAction->setChecked(m_standingsDock->toggleViewAction()->isChecked());
 }

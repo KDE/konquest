@@ -52,6 +52,7 @@ private slots:
     void guiStateChange( GUIState );
     void startNewGame();
     void updateMessagesActionSlot();
+    void updateStandingsActionSlot();
 
 private:
     // Widgets
@@ -62,13 +63,14 @@ private:
     // Actions
     KAction  *m_endTurnAction;
     KAction  *m_messagesAction;
+    KAction  *m_standingsAction;
 
     QAction  *m_endGameAction;
     QAction  *m_measureAction;
-    QAction  *m_standingAction;
     QAction  *m_fleetAction;
 
     QDockWidget *m_messagesDock;
+    QDockWidget *m_standingsDock;
 };
 
 #endif // KONQUEST_MAINWIN_H

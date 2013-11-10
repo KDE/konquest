@@ -4,6 +4,7 @@
     Copyright 2006 Dmitry Suzdalev <dimsuz@gmail.com>
     Copyright 2006 Inge Wallin <inge@lysator.liu.se>
     Copyright 2006 Pierre Ducroquet <pinaraf@gmail.com>
+    Copyright 2013 Alexander Schuch <aschuch247@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,27 +21,32 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef KONQUEST_SCOREDLG_H
-#define KONQUEST_SCOREDLG_H
+#ifndef KONQUEST_STANDINGSWIDGET_H
+#define KONQUEST_STANDINGSWIDGET_H
 
-#include <QTableWidget>
-#include <KDialog>
+#include <QWidget>
 
 #include "../players/player.h"
-#include "../view/standingswidget.h"
 
 
-class ScoreDlg : public KDialog
+class QTableWidget;
+
+
+class StandingsWidget : public QWidget
 {
 
 public:
-    ScoreDlg( QWidget *parent, const QString& title, 
-              QList<Player *> players );
-    ~ScoreDlg();
+    explicit StandingsWidget(QWidget *parent);
+    explicit StandingsWidget(QWidget *parent, const QList<Player *> players);
+    ~StandingsWidget();
+
+    QSize sizeHint() const;
+    void update(const QList<Player *> players);
 
 private:
-    StandingsWidget *m_scoreTable;
+    void setupTable();
 
+    QTableWidget *m_scoreTable;
 };
 
-#endif // KONQUEST_SCOREDLG_H
+#endif // KONQUEST_STANDINGSWIDGET_H

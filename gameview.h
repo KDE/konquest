@@ -29,7 +29,6 @@
 #include "players/player.h"
 #include "game.h"
 
-
 //************************************************************************
 // forward declarations
 //************************************************************************
@@ -48,6 +47,7 @@ class Player;
 class MapView;
 class MapScene;
 class GameLogic;
+class StandingsWidget;
 
 
 struct GameMessage {
@@ -77,7 +77,7 @@ class GameView : public QWidget
     Q_OBJECT
 
 public:
-    explicit  GameView(QWidget *parent, Game *game, QDockWidget *messagesDock);
+    explicit  GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDockWidget *standingsDock);
     virtual  ~GameView();
     bool  confirmNewGame();
 
@@ -92,14 +92,13 @@ protected slots:
     // Toolbar items
     //***************************************************************
     void  measureDistance();
-    void  showScores();
     void  showFleets();
 
 public slots:
     void  startNewGame();
     void  gameMsg(const KLocalizedString &msg, Player *player = 0,
 		  Planet *planet = 0, Player *planetPlayer = 0);
-    void  turn();
+    void  turnPreparation();
 
 signals:
     void  newGUIState( GUIState newState );
@@ -117,7 +116,8 @@ private slots:
 private:
     void  changeGameView();
     void  cleanupGame();
-    
+
+    void  turn();
 
     //***************************************************************
     // Display Widgets
@@ -133,7 +133,10 @@ private:
     QLabel        *m_splashScreen;
     QTextEdit     *m_msgWidget;
 
+    StandingsWidget *m_standingsWidget;
+
     QDockWidget   *m_messagesDock;
+    QDockWidget   *m_standingsDock;
 
     //***************************************************************
     // Game objects

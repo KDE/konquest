@@ -56,6 +56,8 @@ set(konquest_SRCS
     players/player_gui.cpp
     players/spectatorplayer.cpp
     players/spectatorplayer_gui.cpp
+
+    view/standingswidget.cpp
 )
 
 kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )

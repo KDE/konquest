@@ -46,15 +46,18 @@
 #include "dialogs/scoredlg.h"
 #include "dialogs/fleetdlg.h"
 
+#include "view/standingswidget.h"
+
 #include <cmath>
 
 /*********************************************************************
  Game Board
 *********************************************************************/
 
-GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock)
+GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDockWidget *standingsDock)
   : QWidget( parent ),
     m_messagesDock(messagesDock),
+    m_standingsDock(standingsDock),
     m_game( game ),
     m_queueMessages(false),
     m_messageQueue(), 
@@ -105,6 +108,9 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock)
     m_msgWidget->setAutoFillBackground( true );
 
     m_messagesDock->setWidget(m_msgWidget);
+
+    m_standingsWidget = new StandingsWidget(0);
+    m_standingsDock->setWidget(m_standingsWidget);
 
     m_gameMessage = new QLabel( this );
     m_gameMessage->setPalette( palette );
@@ -249,6 +255,20 @@ GameView::keyPressEvent( QKeyEvent *e )
 //************************************************************************
 // Game engine/state machine
 //************************************************************************
+
+/**
+ * Prepare the turn for a local player by updating the informational widgets.
+ */
+
+void
+GameView::turnPreparation()
+{
+    m_standingsWidget->update(m_game->players());
+
+    turn();
+}
+
+
 void
 GameView::turn()
 {
@@ -474,7 +494,7 @@ GameView::startNewGame()
 
         LocalPlayer *local = qobject_cast<LocalPlayer*>(player);
         if (local)
-            connect(local, SIGNAL(canPlay()), this, SLOT(turn()));
+            connect(local, SIGNAL(canPlay()), this, SLOT(turnPreparation()));
     }
 
     connect(m_game, SIGNAL(finished()), this, SLOT(gameOver()));
@@ -523,17 +543,30 @@ GameView::shutdownGame()
 void
 GameView::gameOver()
 {
-    if(m_initCompleted){
+    if (m_initCompleted) {
         kDebug() << "Game over";
-        ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Final Standings"),
-                                            m_game->players() );
+
+        /**
+         * @todo This is an attempt to remove duplicate information from screen.
+         * It is not a final solution, but only the best we came up with. The
+         * problem is that the messages cannot be seen anymore, so the player
+         * cannot check what happened last. Furthermore, this sudden change of
+         * the GUI setup can be confusing for players.
+         */
+
+        m_messagesDock->hide();
+        m_standingsDock->hide();
+
+        ScoreDlg *scoreDlg = new ScoreDlg(this, i18n("Final Standings"), m_game->players());
         scoreDlg->exec();
+        scoreDlg->deleteLater();
 
         cleanupGame();
     }
     else
         m_cleanupNeeded = true;
 }
+
 
 void
 GameView::cleanupGame()
@@ -632,6 +665,15 @@ GameView::changeGameView()
     kDebug() << "Calling GameView::changeGameView" << isRunning;
 
     m_messagesDock->setVisible(isRunning);
+
+    if (!isRunning) {
+
+        // Only hide the standings dock if the game is not running, but do not
+        // automatically show it as soon as the game is running.
+
+        m_standingsDock->hide();
+    }
+
     m_mapWidget->setVisible(isRunning);
     m_gameMessage->setVisible(isRunning);
     m_standingOrder->setVisible(isRunning);
@@ -678,14 +720,6 @@ GameView::measureDistance()
     }
 }
 
-void
-GameView::showScores()
-{
-    ScoreDlg *scoreDlg = new ScoreDlg( this, i18n("Current Standings"),
-                                       m_game->players() );
-    scoreDlg->exec();
-    scoreDlg->deleteLater();
-}
 
 void
 GameView::showFleets()
