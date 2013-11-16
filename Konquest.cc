@@ -28,7 +28,7 @@
 #include "mainwin.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
-#define KONQUEST_VERSION "2.1"
+#define KONQUEST_VERSION "2.2"
 
 int
 main(int argc, char **argv)
