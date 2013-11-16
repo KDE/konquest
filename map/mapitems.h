@@ -76,7 +76,7 @@ private:
 class PlanetInfoItem : public QGraphicsItem
 {
 public:
-    PlanetInfoItem(Game*);
+    explicit PlanetInfoItem(Game*);
     ~PlanetInfoItem() {}
 
     QRectF   boundingRect() const;
