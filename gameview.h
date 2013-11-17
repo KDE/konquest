@@ -131,7 +131,9 @@ private:
     QCheckBox     *m_standingOrder;
     QIntValidator *m_shipValidator;
     QLabel        *m_splashScreen;
+
     QTextEdit     *m_msgWidget;
+    int            m_msgWidgetLastTurn;
 
     StandingsWidget *m_standingsWidget;
 

@@ -56,11 +56,12 @@
 
 GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDockWidget *standingsDock)
   : QWidget( parent ),
+    m_msgWidgetLastTurn(0),
     m_messagesDock(messagesDock),
     m_standingsDock(standingsDock),
     m_game( game ),
     m_queueMessages(false),
-    m_messageQueue(), 
+    m_messageQueue(),
     m_showInformations(false),
     m_initCompleted( false ),
     m_cleanupNeeded( false ),
@@ -302,7 +303,7 @@ GameView::turn()
             m_standingOrder->setEnabled(false);
             m_standingOrder->setCheckState(Qt::Unchecked);
             m_mapScene->unselectPlanet();
-            m_gameMessage->setText( i18n("<qt>%1: Select source planet...</qt>", m_game->currentPlayer()->coloredName()) );
+            m_gameMessage->setText( i18n("%1: Select source planet...", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
@@ -319,7 +320,7 @@ GameView::turn()
             m_shipCountEdit->setEnabled(false);
             m_standingOrder->setEnabled(false);
             m_mapScene->selectPlanet(sourcePlanet);
-            m_gameMessage->setText( i18n("<qt>%1: Select destination planet...</qt>", m_game->currentPlayer()->coloredName()) );
+            m_gameMessage->setText( i18n("%1: Select destination planet...", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
@@ -434,11 +435,17 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
        plainMsg = plainMsg.subs(planet->name());
     }
 
-    m_msgWidget->append("<qt><font color=\"white\">"
+    if (m_msgWidgetLastTurn < m_game->turnCounter()) {
+        m_msgWidgetLastTurn = m_game->turnCounter();
+
+        m_msgWidget->append("<font color=\"gray\">"
                         + i18n("Turn %1:", m_game->turnCounter())
-                        + "</font> <font color=\"" + color + "\">"
-                        + colorMsg.toString()+"</font></qt>");
-    m_msgWidget->moveCursor( QTextCursor::End );
+                        + "</font>");
+    }
+
+    m_msgWidget->append("- <font color=\"" + color + "\">"
+                        + colorMsg.toString()+"</font>");
+    m_msgWidget->moveCursor(QTextCursor::End);
 
     if (isHumanInvolved) {
         if ( m_queueMessages ) {
@@ -508,6 +515,7 @@ GameView::startNewGame()
 
     // Set up the base GUI for a new game.
     m_msgWidget->clear();
+    m_msgWidgetLastTurn = 0;
     m_shipCountEdit->setEnabled(false);
     m_initCompleted = true;
 
