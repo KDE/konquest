@@ -124,6 +124,16 @@ StandingsWidget::update(const QList<Player *> players )
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_scoreTable->setItem(row, 5, item);
 
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curPlayer->turnProduction());
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        m_scoreTable->setItem(row, 6, item);
+
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curPlayer->turnShips());
+        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        m_scoreTable->setItem(row, 7, item);
+
         ++row;
     }
 
@@ -140,7 +150,7 @@ StandingsWidget::setupTable()
     QVBoxLayout *main = new QVBoxLayout(this);
 
     m_scoreTable = new QTableWidget();
-    m_scoreTable->setColumnCount(6);
+    m_scoreTable->setColumnCount(8);
     m_scoreTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_scoreTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_scoreTable->setSelectionMode(QAbstractItemView::NoSelection);
@@ -152,7 +162,10 @@ StandingsWidget::setupTable()
         << i18n("Planets\nConquered")
         << i18n("Fleets\nLaunched")
         << i18n("Fleets\nDestroyed")
-        << i18n("Ships\nDestroyed");
+        << i18n("Ships\nDestroyed")
+        << i18n("Current\nProduction")
+        << i18n("Current\nFleet Size");
+
     m_scoreTable->setHorizontalHeaderLabels(headerLabels);
     m_scoreTable->verticalHeader()->hide();
 

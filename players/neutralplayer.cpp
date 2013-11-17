@@ -41,21 +41,28 @@ bool NeutralPlayer::isDead()
 void NeutralPlayer::play()
 {
     kDebug() << "NeutralPlayer::play";
+
     // Go on each attack...
     foreach (Player *player, m_game->players()) {
+        player->resetTurnStats();
+
         foreach (AttackFleet *fleet, player->attackList()) {
-            if( m_game->turnCounter() == fleet->arrivalTurn ) {
-                if (m_game->doFleetArrival(fleet)) {
-                    player->attackDone(fleet);
-                    fleet->deleteLater();
-                }
+            if (m_game->doFleetArrival(fleet)) {
+                player->attackDone(fleet);
+                fleet->deleteLater();
+            }
+            else {
+
+                // Only add the number of ships of the fleet to the player's
+                // total fleet size if the fleet does not arrive this turn.
+
+                player->statShipCount(fleet->shipCount());
             }
         }
     }
 
     // Go over each planet, adding its ships
-    foreach (Planet *planet, m_game->map()->planets())
-    {
+    foreach (Planet *planet, m_game->map()->planets()) {
         kDebug() << "Turn for planet " << planet->name();
         planet->turn(m_game->options());
     }

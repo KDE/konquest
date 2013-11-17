@@ -25,6 +25,13 @@
 
 #include "player.h"
 
+
+/**
+ * The neutral player is the owner of neutral planets. From a game mechanics
+ * point of view, a neutral player's turn starts a new game turn. Attacks and
+ * production are handled here.
+ */
+
 class NeutralPlayer : public Player
 {
     Q_OBJECT
@@ -32,7 +39,7 @@ public:
     explicit NeutralPlayer(Game *game);
 
     virtual bool isDead();
-    
+
     virtual bool isNeutral();
 
 protected:

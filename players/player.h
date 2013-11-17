@@ -48,7 +48,7 @@ public:
     Game *game() const { return m_game; }
 
     // Statistics collection
-    void statShipsBuilt( int x )           { m_shipsBuilt           += x; }
+    void statShipsBuilt( int x )           { m_turnProduction += x; m_shipsBuilt += x; }
     void statPlanetsConquered( int x )     { m_planetsConquered     += x; }
     void statFleetsLaunched( int x )       { m_fleetsLaunched       += x; }
     void statEnemyFleetsDestroyed( int x ) { m_enemyFleetsDestroyed += x; }
@@ -60,6 +60,12 @@ public:
     int  enemyFleetsDestroyed() const { return m_enemyFleetsDestroyed; }
     int  enemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
 
+    void resetTurnStats();
+    void statShipCount(int x) { m_turnShips += x; }
+
+    int turnProduction() const { return m_turnProduction; }
+    int turnShips() const { return m_turnShips; }
+
     AttackFleetList attackList() { return m_attackList; }
     AttackFleetList newAttacks() { return m_newAttacks; }
     AttackFleetList standingOrders() { return m_standingOrders; }
@@ -69,6 +75,7 @@ public:
     void addStandingOrder(AttackFleet *fleet);
     void cancelNewAttack(AttackFleet *fleet);
     void deleteStandingOrders(Planet *planet);
+
 protected:
     virtual void play() = 0;
     virtual void onEntry (QEvent *event);
@@ -99,6 +106,9 @@ private:
     int  m_fleetsLaunched;
     int  m_enemyFleetsDestroyed;
     int  m_enemyShipsDestroyed;
+
+    int m_turnProduction; ///< number of ships produced in this turn
+    int m_turnShips; ///< number of all available player ships in this turn
 
     /**
      * @todo This is a bad GUI hack. The game selection grid is handled by just

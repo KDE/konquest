@@ -31,7 +31,9 @@ Player::Player(Game *game, const QString &newName, const QColor &color) :
     m_planetsConquered(0),
     m_fleetsLaunched(0),
     m_enemyFleetsDestroyed(0),
-    m_enemyShipsDestroyed(0)
+    m_enemyShipsDestroyed(0),
+    m_turnProduction(0),
+    m_turnShips(0)
 {
 }
 
@@ -96,6 +98,19 @@ QString Player::coloredName() const
 {
     return QString("<font color=\"%1\">%2</font>").arg(m_color.name(), m_name);
 }
+
+
+/**
+ * Reset the turn statistics.
+ */
+
+void
+Player::resetTurnStats()
+{
+    m_turnProduction = 0;
+    m_turnShips = 0;
+}
+
 
 void Player::attackDone(AttackFleet *fleet)
 {

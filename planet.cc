@@ -89,15 +89,20 @@ Planet::turn(const GameOptions &options)
     kDebug() << "Planet::turn...";
 
     if (options.ProductionAfterConquere || !m_justconquered) {
-        if (m_owner->isNeutral() )
-            m_homeFleet.addShips( options.NeutralsProduction );
-        else {
-            m_homeFleet.addShips( m_productionRate );
-            m_owner->statShipsBuilt( m_productionRate );
+        if (m_owner->isNeutral()) {
+            m_homeFleet.addShips(options.NeutralsProduction);
+            m_owner->statShipsBuilt(options.NeutralsProduction);
         }
-      
-        if (options.CumulativeProduction)
+        else {
+            m_homeFleet.addShips(m_productionRate);
+            m_owner->statShipsBuilt(m_productionRate);
+        }
+
+        m_owner->statShipCount(m_homeFleet.shipCount());
+
+        if (options.CumulativeProduction) {
             m_productionRate++;
+        }
     }
 
     m_oldShips = m_homeFleet.shipCount();
