@@ -64,7 +64,7 @@ public:
 protected slots:
     void  slotNewMap();
     void  slotUpdateNeutrals(int);
-    void  slotAddPlayer();
+    void  slotAddPlayer(int);
     void  slotRemovePlayer();
 
     void  slotUpdateSelection(const Coordinate &coord);
@@ -80,8 +80,8 @@ private:
     void  init();
 
     QList<PlayerGui *> m_selectablePlayer;
+    QMenu            *m_playerTypeChooser;
 
-private:
     Game             *m_game;
     Player           *m_neutral;
 

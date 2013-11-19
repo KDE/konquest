@@ -50,6 +50,8 @@
 #include <QDebug>
 #include <QLinkedList>
 #include <QPair>
+#include <QMenu>
+#include <QSignalMapper>
 
 /*************************************************************************
  New Game Dialog Members
@@ -154,19 +156,21 @@ public:
             }
             else if (column == 1)
             {
-
                 // The player controller changed.
+                QString playerGuiName = value.toString();
+                foreach (PlayerGui *playerGui, m_selectablePlayer)
+                {
+                    if (playerGui->guiName() == playerGuiName) {
+                        Player *newPlayer = getNewPlayerByGui(playerGui, player->name(), player->color());
 
-                QString text = value.toString();
+                        if (newPlayer) {
+                            m_players[row] = newPlayer;
+                            m_game->map()->turnOverPlayerPlanets(player, newPlayer);
+                            player->deleteLater();
 
-                Player *newPlayer = getNewPlayerByGuiName(text, player->name(), player->color());
-
-                if (newPlayer) {
-                    m_players[row] = newPlayer;
-                    m_game->map()->turnOverPlayerPlanets(player, newPlayer);
-                    player->deleteLater();
-
-                    result = true;
+                            result = true;
+                        }
+                    }
                 }
             }
         }
@@ -180,7 +184,7 @@ public:
         return result;
     }
 
-    Player *addPlayer()
+    Player *addPlayer(PlayerGui* selectedPlayer = 0)
     {
         Player *player = NULL;
         int players = m_players.count();
@@ -192,13 +196,15 @@ public:
             // has been added yet, use the very first registered player
             // controller as default.
 
-            QString guiName = m_selectablePlayer.front()->guiName();
+            if (!selectedPlayer)
+                selectedPlayer = m_selectablePlayer.front();
+            QString guiName = selectedPlayer->guiName();
 
             if (!m_players.isEmpty()) {
                 guiName = m_players.last()->guiName();
             }
 
-            player = getNewPlayerByGuiName(guiName, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
+            player = getNewPlayerByGui(selectedPlayer, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
 
             if (player) {
                 m_availablePlayerId.pop_front();
@@ -242,18 +248,14 @@ private:
      * @note The GUI name of the player instance gets set.
      */
 
-    Player *getNewPlayerByGuiName(const QString &guiName, const QString &playerName, const QColor &color) const
+    Player *getNewPlayerByGui(PlayerGui *playerGui, const QString &playerName, const QColor &color) const
     {
         Player *newPlayer = 0;
-
-        foreach (PlayerGui *playerGui, m_selectablePlayer) {
-            if (guiName == playerGui->guiName()) {
-                newPlayer = playerGui->createInstance(m_game, playerName, color);
-                newPlayer->setGuiName(guiName);
-                break;
-            }
+        if (playerGui)
+        {
+            newPlayer = playerGui->createInstance(m_game, playerName, color);
+            newPlayer->setGuiName(playerGui->guiName());
         }
-
         return newPlayer;
     }
 
@@ -337,6 +339,17 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     // m_selectablePlayer.push_back(new AiExampleGui());
     m_selectablePlayer.push_back(new AiBecaiGui());
 
+    m_playerTypeChooser = new QMenu(this);
+    QSignalMapper *menuMapper = new QSignalMapper(this);
+    for (int i = 0 ; i < m_selectablePlayer.size() ; i++)
+    {
+        PlayerGui *selectablePlayer = m_selectablePlayer[i];
+        QAction *action = m_playerTypeChooser->addAction(selectablePlayer->guiName());
+        menuMapper->setMapping(action, i);
+        connect(action, SIGNAL(triggered(bool)), menuMapper, SLOT(map()));
+    }
+    connect(menuMapper, SIGNAL(mapped(int)), this, SLOT(slotAddPlayer(int)));
+
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap(m_game->map());
 
@@ -348,12 +361,12 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     m_w->playerList->setModel(model);
     m_w->playerList->setItemDelegate(new playersListDelegate(this, m_selectablePlayer));
     m_w->playerList->header()->setResizeMode(QHeaderView::ResizeToContents);
+    m_w->addPlayerButton->setMenu(m_playerTypeChooser);
 
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateNeutrals(int)));
     connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
     connect(m_w->randomizeMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
-    connect(m_w->addPlayerButton, SIGNAL(clicked()), this, SLOT(slotAddPlayer()));
     connect(m_w->removePlayerButton, SIGNAL(clicked()), this, SLOT(slotRemovePlayer()));
 
     connect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
@@ -436,11 +449,13 @@ NewGameDlg::init()
 }
 
 void
-NewGameDlg::slotAddPlayer()
+NewGameDlg::slotAddPlayer(int selectedPlayerType)
 {
+    PlayerGui *selectablePlayer = m_selectablePlayer[selectedPlayerType];
+
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
 
-    Player *player = model->addPlayer();
+    Player *player = model->addPlayer(selectablePlayer);
     if (player) {
         m_game->map()->addPlayerPlanetSomewhere(player);
     }
