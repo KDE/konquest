@@ -145,15 +145,15 @@ StandingsWidget::setupTable()
     m_scoreTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_scoreTable->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QStringList headers;
-    headers
+    QStringList headerLabels;
+    headerLabels
         << i18nc("The player name", "Player")
         << i18n("Ships\nBuilt")
         << i18n("Planets\nConquered")
         << i18n("Fleets\nLaunched")
         << i18n("Fleets\nDestroyed")
         << i18n("Ships\nDestroyed");
-    m_scoreTable->setHorizontalHeaderLabels(headers);
+    m_scoreTable->setHorizontalHeaderLabels(headerLabels);
     m_scoreTable->verticalHeader()->hide();
 
     main->addWidget(m_scoreTable);

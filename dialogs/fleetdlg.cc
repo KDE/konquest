@@ -19,6 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #include "fleetdlg.h"
 
 #include <QTableWidget>
@@ -44,15 +45,25 @@ FleetDlg::FleetDlg( QWidget *parent,
     setCaption( i18n("Fleet Overview") );
     setButtons( KDialog::Ok );
 
-    m_fleetTable = new QTableWidget( this );
-    m_fleetTable->setColumnCount( 6 );
-    QStringList labels;
-    labels << QString() << i18n("Fleet No.")       << i18n("Destination") << i18n("Ships")
-    	<< i18n("Kill Percentage") << i18n("Arrival Turn");
-    m_fleetTable->setHorizontalHeaderLabels( labels );
+    m_fleetTable = new QTableWidget(this);
+    m_fleetTable->setColumnCount(7);
+    m_fleetTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+    m_fleetTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    m_fleetTable->setSelectionMode(QAbstractItemView::NoSelection);
+
+    QStringList headerLabels;
+    headerLabels
+        << QString()
+        << i18n("Fleet No.")
+        << i18n("Source")
+        << i18n("Destination")
+        << i18n("Ships")
+        << i18n("Kill Percentage")
+        << i18n("Arrival Turn");
+    m_fleetTable->setHorizontalHeaderLabels(headerLabels);
     m_fleetTable->verticalHeader()->hide();
+
     m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
-    m_fleetTable->setSelectionMode( QAbstractItemView::NoSelection );
 
     setMainWidget( m_fleetTable );
     connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
@@ -64,6 +75,7 @@ FleetDlg::FleetDlg( QWidget *parent,
     m_fleetTable->setSortingEnabled(true);
     m_fleetTable->sortItems( 1, Qt::AscendingOrder );
 }
+
 
 void
 FleetDlg::init()
@@ -94,21 +106,25 @@ FleetDlg::init()
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 1, item );
         
-        item = new QTableWidgetItem(curFleet->destination->name());
+        item = new QTableWidgetItem(curFleet->source->name());
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 2, item );
         
-        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
+        item = new QTableWidgetItem(curFleet->destination->name());
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 3, item );
         
-        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
+        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 4, item );
         
-        item = new QTableWidgetItem(QString::number(curFleet->arrivalTurn));
+        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 5, item );
+        
+        item = new QTableWidgetItem(QString::number(curFleet->arrivalTurn));
+        item->setFlags(Qt::ItemIsEnabled);
+        m_fleetTable->setItem( f, 6, item );
     }
 }
 
