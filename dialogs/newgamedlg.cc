@@ -192,16 +192,11 @@ public:
         if ((!m_availablePlayerId.empty()) && (!m_selectablePlayer.empty())) {
             beginInsertRows(QModelIndex(), players, players);
 
-            // Get the player controller of the last added player. If no player
-            // has been added yet, use the very first registered player
-            // controller as default.
+            // Use the given player controller. If none is given, use the very
+            // first registered player controller as default.
 
-            if (!selectedPlayer)
+            if (!selectedPlayer) {
                 selectedPlayer = m_selectablePlayer.front();
-            QString guiName = selectedPlayer->guiName();
-
-            if (!m_players.isEmpty()) {
-                guiName = m_players.last()->guiName();
             }
 
             player = getNewPlayerByGui(selectedPlayer, m_availablePlayerId.front().second, m_availablePlayerId.front().first);
