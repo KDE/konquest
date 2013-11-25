@@ -87,10 +87,10 @@ FleetDlg::init()
 
     m_fleetTable->setRowCount( fleets.count() );
     QTableWidgetItem *item;
-    
+
     for( int f = 0; f < fleets.count(); ++f) {
         curFleet = fleets.at(f);
-        
+
         item = new QTableWidgetItem();
         if( f < newFleets) {
           item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
@@ -105,23 +105,23 @@ FleetDlg::init()
         item = new QTableWidgetItem(QString::number(f + 1));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 1, item );
-        
+
         item = new QTableWidgetItem(curFleet->source->name());
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 2, item );
-        
+
         item = new QTableWidgetItem(curFleet->destination->name());
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 3, item );
-        
+
         item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 4, item );
-        
+
         item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 5, item );
-        
+
         item = new QTableWidgetItem(QString::number(curFleet->arrivalTurn));
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem( f, 6, item );
@@ -133,7 +133,7 @@ AttackFleetList *FleetDlg::uncheckedFleets() {
     AttackFleetList *fleets = new AttackFleetList();
     QTableWidgetItem *item;
     int count = m_fleetTable->rowCount();
-    
+
     for( int f = 0; f < count; ++f) {
         item = m_fleetTable->item(f,0);
         if( (item->flags() & Qt::ItemIsUserCheckable) &&
