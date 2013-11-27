@@ -205,7 +205,7 @@ AiBecai::play()
     // including us). Actually it is the production that counts and not the
     // planets, but planets are good enough for us here for the moment.
 
-    int minimumBaseDefenceFleetSize = (int) std::ceil(((totalOwnFleet / 2) / totalOwnPlanets) * (1 - (totalOwnPlanets / (totalOwnPlanets + totalEnemyPlanets))));
+    int minimumBaseDefenceFleetSize = (int) std::ceil(((totalOwnFleet / 2.0) / totalOwnPlanets) * (1 - ((double) totalOwnPlanets / (totalOwnPlanets + totalEnemyPlanets))));
     int originalMinimumBaseDefenceFleetSize = minimumBaseDefenceFleetSize;
 
     // Try to keep the defence above the universe average so that our planets
