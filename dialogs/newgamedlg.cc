@@ -480,12 +480,14 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
 {
     Sector *sector = m_game->map()->sector(coord);
     if (!sector) {
+        m_w->OwnerCB->setEnabled(false);
         m_w->KillPercentageSB->setEnabled(false);
         m_w->ProductionSB->setEnabled(false);
         return;
     }
     bool hasPlanet = sector->hasPlanet();
 
+    m_w->OwnerCB->setEnabled(hasPlanet);
     m_w->KillPercentageSB->setEnabled(hasPlanet);
     m_w->ProductionSB->setEnabled(hasPlanet);
 
