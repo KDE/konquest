@@ -123,7 +123,7 @@ Listed below are the following parameters for the new game:
   column and edit it. To change the type of the player, open the drop-down list by
   double-clicking in the <guilabel>Type</guilabel> column.</para>
   <para>The type of AI player can be chosen from <guimenuitem>Default (Weak)</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default (Offensive)</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default (Defensive)</guimenuitem> (a player with defensive strategy).</para>
-  <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of the <xref linkend="strattips"/> into account.</para>
+  <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of <xref linkend="strattips"/> into account.</para>
   <para>Keep in mind that the actual difficulty of any opponent depends on your very own strategy. If you play aggressively yourself, an aggressive AI player might be easier to defeat than a defensive player, and vice versa.</para>
 </listitem>
 
