@@ -80,6 +80,7 @@ void AiDefault::play()
                         foreach (AttackFleet *curFleet, attackList()) {
                             if (curFleet->destination == attack) {
                                 skip = true;
+                                break;
                             }
                         }
                         if (skip)
@@ -109,6 +110,7 @@ void AiDefault::play()
                             foreach (AttackFleet *curFleet, attackList()) {
                                 if (curFleet->destination == attack) {
                                     skip = true;
+                                    break;
                                 }
                             }
                             if (skip)
