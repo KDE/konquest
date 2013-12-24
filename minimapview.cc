@@ -90,17 +90,17 @@ void MiniMapView::paintEvent(QPaintEvent * /*event*/)
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(Qt::black);
     painter.setBrush(Qt::black);
-    painter.drawRect(QRectF(woffset, hoffset, m_map->columns()*sectorSize, m_map->rows()*sectorSize));
+    painter.drawRect(QRectF(woffset, hoffset, m_map->columns() * sectorSize, m_map->rows() * sectorSize));
 
     // Draw selection
     if (hasSelection()) {
-        if(m_selection.x() >= 0 && m_selection.x() < m_map->columns() &&
-            m_selection.y() >= 0 && m_selection.y() < m_map->rows()) {
-            painter.setBrush(Qt::cyan);
-            painter.drawRect(QRectF(woffset + m_selection.x() * sectorSize,
-                                    hoffset + m_selection.y() * sectorSize,
-                                  sectorSize, sectorSize));
-        }
+        painter.setBrush(Qt::cyan);
+        painter.drawRect(QRectF(
+            woffset + m_selection.x() * sectorSize,
+            hoffset + m_selection.y() * sectorSize,
+            sectorSize,
+            sectorSize
+        ));
     }
 
     // Now draw the planets...

@@ -39,6 +39,11 @@ public:
 
     void setMap( Map *newMap );
 
+    /**
+     * @note Always use hasSelection() first to make sure that the returned
+     * selection is valid.
+     */
+
     Coordinate selection() const { return m_selection; }
 
     bool hasSelection() const { return (m_selection.x() >= 0) && (m_selection.x() < m_map->columns()) && (m_selection.y() >= 0) && (m_selection.y() < m_map->rows()); }
