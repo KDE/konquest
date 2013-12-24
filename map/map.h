@@ -19,17 +19,15 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_MAP_H
 #define KONQUEST_MAP_H
 
 #include <QObject>
 #include <QList>
+
 #include "sector.h"
 #include "../players/player.h"
-
-//*****************************************************************
-// class Map
-//*****************************************************************
 
 
 class Map : public QObject
@@ -43,31 +41,29 @@ public:
     int  rows()     { return m_rows;    }
     int  columns()  { return m_columns; }
 
-    void  addPlanet(Sector *sector, Player *player, int production, double killpercentage);
-    Planet*  addPlayerPlanetSomewhere(Player *player);
-    Planet*  addNeutralPlanetSomewhere(Player *neutral);
-    bool  removePlayerPlanet(Player *player);
-    void  removePlayerPlanets(Player *player);
-    int        playerPlanetCount(Player *player);
-    void       turnOverPlayerPlanets(Player* owner, Player* newOwner);
+    void    addPlanet(Sector *sector, Player *player, int production, double killpercentage);
+    Planet* addPlayerPlanetSomewhere(Player *player);
+    Planet* addNeutralPlanetSomewhere(Player *neutral);
+    bool    removePlayerPlanet(Player *player);
+    void    removePlayerPlanets(Player *player);
+    int     playerPlanetCount(Player *player);
+    void    turnOverPlayerPlanets(Player* owner, Player* newOwner);
 
-    void       clearMap();
-    void       resizeMap(int rows, int cols);
+    void    clearMap();
+    void    resizeMap(int rows, int cols);
 
-    void       populateMap( const QList<Player *> &players, Player *neutral,
-                int numNeutralPlanets);
-    
-    double     distance( Planet *p1, Planet *p2 );
+    void    populateMap( const QList<Player*> &players, Player *neutral, int numNeutralPlanets);
 
-    Sector *sector( Coordinate coord )
+    double  distance( Planet *p1, Planet *p2 );
+
+    Sector *sector(Coordinate coord)
     {
-        if (coord.y() >= 0 && coord.y() < m_grid.size())
-        {
-            if (coord.x() >= 0 && coord.x() < m_grid[coord.y()].size())
-            {
+        if (coord.y() >= 0 && coord.y() < m_grid.size()) {
+            if (coord.x() >= 0 && coord.x() < m_grid[coord.y()].size()) {
                 return &m_grid[coord.y()][coord.x()];
             }
         }
+
         return NULL;
     }
 
@@ -80,9 +76,9 @@ signals:
     void update();
 
 private:
-    Sector *findRandomFreeSector();
-    QString    UniquePlanetName(void);
-    
+    Sector* findRandomFreeSector();
+    QString UniquePlanetName(void);
+
 protected:
     // A map is a 2-D array of Sectors.
     QList<QList<Sector> > m_grid;

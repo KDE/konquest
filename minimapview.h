@@ -20,9 +20,9 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_MINIMAPVIEW_H
 #define KONQUEST_MINIMAPVIEW_H
-
 
 #include <QWidget>
 
@@ -34,10 +34,10 @@ class MiniMapView : public QWidget
     Q_OBJECT
 
 public:
-    explicit MiniMapView( QWidget *parent = 0 );
+    explicit MiniMapView(QWidget *parent = 0);
     ~MiniMapView();
 
-    void setMap( Map *newMap );
+    void setMap(Map *newMap);
 
     /**
      * @note Always use hasSelection() first to make sure that the returned
@@ -52,15 +52,14 @@ signals:
     void sectorSelected(const Coordinate &coord);
 
 protected:
-    void mousePressEvent( QMouseEvent * event );
+    void mousePressEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
-    
+
 private:
-    void CalculateOffsets (float &, float &, float &);
+    void CalculateOffsets(float &, float &, float &);
 
     Map  *m_map;
     Coordinate m_selection;
 };
-
 
 #endif // KONQUEST_MINIMAPVIEW_H

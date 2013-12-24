@@ -20,6 +20,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #include "minimapview.h"
 
 #include <QMouseEvent>
@@ -30,17 +31,19 @@
 #include "players/player.h"
 
 
-MiniMapView::MiniMapView( QWidget *parent )
-  : QWidget( parent ),
-    m_map( 0 ), m_selection(-1, -1)
+MiniMapView::MiniMapView(QWidget *parent) :
+    QWidget(parent),
+    m_map(0),
+    m_selection(-1, -1)
 {
     QPalette  pal = palette();
-    pal.setColor( backgroundRole(), Qt::black );
-    setPalette( pal );
+    pal.setColor(backgroundRole(), Qt::black);
+    setPalette(pal);
 
-    setMinimumSize( 100, 100 );
+    setMinimumSize(100, 100);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
+
 
 MiniMapView::~MiniMapView()
 {
@@ -51,10 +54,12 @@ void
 MiniMapView::setMap(Map *map)
 {
     m_map = map;
-    connect( m_map, SIGNAL( update() ), this, SLOT( update() ) );
+    connect(m_map, SIGNAL(update()), this, SLOT(update()));
 }
 
-void MiniMapView::CalculateOffsets (float &sectorSize, float &woffset, float &hoffset)
+
+void
+MiniMapView::CalculateOffsets(float &sectorSize, float &woffset, float &hoffset)
 {
     sectorSize = ((float)width())/m_map->columns();
     if (height()/m_map->rows() < sectorSize)
@@ -64,7 +69,9 @@ void MiniMapView::CalculateOffsets (float &sectorSize, float &woffset, float &ho
     hoffset = ((float)height() - m_map->rows()*sectorSize)/2;
 }
 
-void MiniMapView::mousePressEvent ( QMouseEvent * event )
+
+void
+MiniMapView::mousePressEvent(QMouseEvent *event)
 {
     float sectorSize, woffset, hoffset;
     CalculateOffsets(sectorSize, woffset, hoffset);
@@ -79,7 +86,9 @@ void MiniMapView::mousePressEvent ( QMouseEvent * event )
     emit sectorSelected(m_selection);
 }
 
-void MiniMapView::paintEvent(QPaintEvent * /*event*/)
+
+void
+MiniMapView::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
 
@@ -114,11 +123,12 @@ void MiniMapView::paintEvent(QPaintEvent * /*event*/)
                     painter.setBrush(player->color());
 
                     // Draw a circle in the planets color to show the planet.
-                    painter.drawEllipse(
-                                QRectF(woffset + col * sectorSize,
-                                       hoffset + row * sectorSize,
-                                       sectorSize,
-                                       sectorSize));
+                    painter.drawEllipse(QRectF(
+                        woffset + col * sectorSize,
+                        hoffset + row * sectorSize,
+                        sectorSize,
+                        sectorSize
+                    ));
                 }
             }
         }
