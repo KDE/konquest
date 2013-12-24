@@ -41,7 +41,7 @@ public:
 
     Coordinate selection() const { return m_selection; }
 
-    bool hasSelection() const { return m_selection != Coordinate(-1, -1); }
+    bool hasSelection() const { return (m_selection.x() >= 0) && (m_selection.x() < m_map->columns()) && (m_selection.y() >= 0) && (m_selection.y() < m_map->rows()); }
 
 signals:
     void sectorSelected(const Coordinate &coord);
