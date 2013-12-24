@@ -71,6 +71,7 @@ ScoreDlg::init()
     QTableWidgetItem *item;
     foreach (Player *curPlayer, m_players) {
         item = new QTableWidgetItem(curPlayer->name());
+        item->setData(Qt::DecorationRole, curPlayer->color());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_scoreTable->setItem(row, 0, item);
         
