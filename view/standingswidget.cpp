@@ -95,7 +95,9 @@ StandingsWidget::update(const QList<Player *> players )
     QTableWidgetItem *item;
 
     foreach (Player *curPlayer, players) {
-        item = new QTableWidgetItem(curPlayer->name());
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curPlayer->name());
+        item->setData(Qt::DecorationRole, curPlayer->color());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_scoreTable->setItem(row, 0, item);
 
