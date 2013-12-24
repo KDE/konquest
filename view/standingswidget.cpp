@@ -61,15 +61,15 @@ StandingsWidget::~StandingsWidget()
 QSize
 StandingsWidget::sizeHint() const
 {
-    int w = m_scoreTable->verticalHeader()->width();
-    int h = m_scoreTable->horizontalHeader()->height();
+    int w = m_standingsTable->verticalHeader()->width();
+    int h = m_standingsTable->horizontalHeader()->height();
 
-    for (int col = 0; col < m_scoreTable->columnCount(); ++col) {
-        w += m_scoreTable->columnWidth(col);
+    for (int col = 0; col < m_standingsTable->columnCount(); ++col) {
+        w += m_standingsTable->columnWidth(col);
     }
 
-    for (int row = 0; row < m_scoreTable->rowCount(); ++row ) {
-        h += m_scoreTable->rowHeight(row);
+    for (int row = 0; row < m_standingsTable->rowCount(); ++row ) {
+        h += m_standingsTable->rowHeight(row);
     }
 
     /**
@@ -85,10 +85,10 @@ StandingsWidget::sizeHint() const
 void
 StandingsWidget::update(const QList<Player *> players )
 {
-    m_scoreTable->setRowCount(players.count());
-    m_scoreTable->clearContents();
+    m_standingsTable->setRowCount(players.count());
+    m_standingsTable->clearContents();
 
-    m_scoreTable->setSortingEnabled(false);
+    m_standingsTable->setSortingEnabled(false);
 
     int row = 0;
 
@@ -99,48 +99,48 @@ StandingsWidget::update(const QList<Player *> players )
         item->setData(Qt::DisplayRole, curPlayer->name());
         item->setData(Qt::DecorationRole, curPlayer->color());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 0, item);
+        m_standingsTable->setItem(row, 0, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->shipsBuilt());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 1, item);
+        m_standingsTable->setItem(row, 1, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->planetsConquered());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 2, item);
+        m_standingsTable->setItem(row, 2, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->fleetsLaunched());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 3, item);
+        m_standingsTable->setItem(row, 3, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyFleetsDestroyed());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 4, item);
+        m_standingsTable->setItem(row, 4, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyShipsDestroyed());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 5, item);
+        m_standingsTable->setItem(row, 5, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnProduction());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 6, item);
+        m_standingsTable->setItem(row, 6, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnShips());
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-        m_scoreTable->setItem(row, 7, item);
+        m_standingsTable->setItem(row, 7, item);
 
         ++row;
     }
 
-    m_scoreTable->setSortingEnabled(true);
-    m_scoreTable->resizeColumnsToContents();
+    m_standingsTable->setSortingEnabled(true);
+    m_standingsTable->resizeColumnsToContents();
 }
 
 
@@ -151,11 +151,11 @@ StandingsWidget::setupTable()
 
     QVBoxLayout *main = new QVBoxLayout(this);
 
-    m_scoreTable = new QTableWidget();
-    m_scoreTable->setColumnCount(8);
-    m_scoreTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
-    m_scoreTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-    m_scoreTable->setSelectionMode(QAbstractItemView::NoSelection);
+    m_standingsTable = new QTableWidget();
+    m_standingsTable->setColumnCount(8);
+    m_standingsTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+    m_standingsTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    m_standingsTable->setSelectionMode(QAbstractItemView::NoSelection);
 
     QStringList headerLabels;
     headerLabels
@@ -168,8 +168,8 @@ StandingsWidget::setupTable()
         << i18n("Current\nProduction")
         << i18n("Current\nFleet Size");
 
-    m_scoreTable->setHorizontalHeaderLabels(headerLabels);
-    m_scoreTable->verticalHeader()->hide();
+    m_standingsTable->setHorizontalHeaderLabels(headerLabels);
+    m_standingsTable->verticalHeader()->hide();
 
-    main->addWidget(m_scoreTable);
+    main->addWidget(m_standingsTable);
 }

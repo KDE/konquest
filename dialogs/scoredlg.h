@@ -39,7 +39,7 @@ public:
     ~ScoreDlg();
 
 private:
-    StandingsWidget *m_scoreTable;
+    StandingsWidget *m_standingsWidget;
 
 };
 

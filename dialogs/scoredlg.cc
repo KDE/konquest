@@ -37,9 +37,9 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> playe
     setCaption(title);
     setButtons( KDialog::Ok );
 
-    m_scoreTable = new StandingsWidget(this, players);
+    m_standingsWidget = new StandingsWidget(this, players);
 
-    setMainWidget( m_scoreTable );
+    setMainWidget( m_standingsWidget );
     connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
 }
 

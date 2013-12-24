@@ -46,7 +46,7 @@ public:
 private:
     void setupTable();
 
-    QTableWidget *m_scoreTable;
+    QTableWidget *m_standingsTable;
 };
 
 #endif // KONQUEST_STANDINGSWIDGET_H
