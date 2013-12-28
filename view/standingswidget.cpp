@@ -103,36 +103,43 @@ StandingsWidget::update(const QList<Player *> players )
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->shipsBuilt());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 1, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->planetsConquered());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 2, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->fleetsLaunched());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 3, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyFleetsDestroyed());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 4, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyShipsDestroyed());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 5, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnProduction());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 6, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnShips());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
         m_standingsTable->setItem(row, 7, item);
 
