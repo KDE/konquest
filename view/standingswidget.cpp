@@ -68,7 +68,7 @@ StandingsWidget::sizeHint() const
         w += m_standingsTable->columnWidth(col);
     }
 
-    for (int row = 0; row < m_standingsTable->rowCount(); ++row ) {
+    for (int row = 0; row < m_standingsTable->rowCount(); ++row) {
         h += m_standingsTable->rowHeight(row);
     }
 
@@ -78,7 +78,7 @@ StandingsWidget::sizeHint() const
      * the hard-coded numbers below!
      */
 
-    return QSize(w, h) + QSize(20, 40);
+    return QSize(w, h) + QSize(m_standingsTable->columnCount() - 1, 40);
 }
 
 
@@ -87,60 +87,58 @@ StandingsWidget::update(const QList<Player *> players )
 {
     m_standingsTable->setRowCount(players.count());
     m_standingsTable->clearContents();
-
     m_standingsTable->setSortingEnabled(false);
 
     int row = 0;
-
     QTableWidgetItem *item;
 
     foreach (Player *curPlayer, players) {
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->name());
         item->setData(Qt::DecorationRole, curPlayer->color());
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 0, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->shipsBuilt());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 1, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->planetsConquered());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 2, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->fleetsLaunched());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 3, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyFleetsDestroyed());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 4, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->enemyShipsDestroyed());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 5, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnProduction());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 6, item);
 
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->turnShips());
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        item->setFlags(Qt::ItemIsEnabled);
         m_standingsTable->setItem(row, 7, item);
 
         ++row;

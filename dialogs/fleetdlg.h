@@ -19,6 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_FLEETDLG_H
 #define KONQUEST_FLEETDLG_H
 
@@ -27,6 +28,7 @@
 #include "fleet.h"
 
 class QTableWidget;
+
 
 class FleetDlg : public KDialog
 {
@@ -37,14 +39,16 @@ public:
               const AttackFleetList &standingOrders );
     AttackFleetList *uncheckedFleets();
 
+    QSize sizeHint() const;
+
 private:
-    void init();
+    void update();
+    void setupTable();
 
     AttackFleetList  m_newFleetList;
     AttackFleetList  m_standingOrders;
     AttackFleetList  m_fleetList;
     QTableWidget     *m_fleetTable;
 };
-
 
 #endif // KONQUEST_FLEETDLG_H

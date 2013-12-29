@@ -22,8 +22,8 @@
 
 #include "fleetdlg.h"
 
-#include <QTableWidget>
 #include <QHeaderView>
+#include <QTableWidget>
 
 #include <kcomponentdata.h>
 #include <kglobal.h>
@@ -33,6 +33,8 @@
 #include <klocale.h>
 
 #include "planet.h"
+#include "../players/player.h"
+
 
 FleetDlg::FleetDlg( QWidget *parent,
                     const AttackFleetList &fleets,
@@ -45,6 +47,59 @@ FleetDlg::FleetDlg( QWidget *parent,
     setCaption( i18n("Fleet Overview") );
     setButtons( KDialog::Ok );
 
+    setupTable();
+    update();
+
+    setMainWidget( m_fleetTable );
+    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
+}
+
+
+QSize
+FleetDlg::sizeHint() const
+{
+    int w = m_fleetTable->verticalHeader()->width();
+    int h = m_fleetTable->horizontalHeader()->height();
+
+    for (int col = 0; col < m_fleetTable->columnCount(); ++col) {
+        w += m_fleetTable->columnWidth(col);
+    }
+
+    for (int row = 0; row < m_fleetTable->rowCount(); ++row) {
+        h += m_fleetTable->rowHeight(row);
+    }
+
+    /**
+     * @todo The created dialogue should not be larger than the screen, and
+     * ideally, it should not be larger than the main application window.
+     * As the vertical main application window size is not (yet) known here,
+     * simply use a hard-coded limit right now.
+     */
+
+    if (h > 480) {
+
+        // As the height of the widget is reduced, a vertical scrollbar is
+        // shown. Add the width of that scrollbar to the width of the widget to
+        // prevent a horizontal scrollbar from appearing.
+
+        h = 480;
+        w += m_fleetTable->style()->pixelMetric(QStyle::PM_ScrollBarExtent);
+    }
+
+    /**
+     * @todo The size calculated here does not yet prevent scrollbars to be
+     * shown for the table. Figure out the offsets needed to be added and remove
+     * the hard-coded numbers below! One reason here is that this size hint is
+     * for the whole dialogue and not just for the table.
+     */
+
+    return QSize(w, h) + QSize(40, 80);
+}
+
+
+void
+FleetDlg::setupTable()
+{
     m_fleetTable = new QTableWidget(this);
     m_fleetTable->setColumnCount(7);
     m_fleetTable->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
@@ -60,76 +115,87 @@ FleetDlg::FleetDlg( QWidget *parent,
         << i18n("Ships")
         << i18n("Kill Percentage")
         << i18n("Arrival Turn");
+
     m_fleetTable->setHorizontalHeaderLabels(headerLabels);
     m_fleetTable->verticalHeader()->hide();
-
-    m_fleetTable->setMinimumSize( m_fleetTable->sizeHint() );
-
-    setMainWidget( m_fleetTable );
-    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
-
-    init();
-
-    resize( 580, 140  );
-
-    m_fleetTable->setSortingEnabled(true);
-    m_fleetTable->sortItems( 1, Qt::AscendingOrder );
 }
 
 
 void
-FleetDlg::init()
+FleetDlg::update()
 {
-    AttackFleet *curFleet=0;
     AttackFleetList fleets = m_standingOrders + m_newFleetList + m_fleetList;
     const int standingOrders = m_standingOrders.count();
     const int newFleets = standingOrders + m_newFleetList.count();
 
     m_fleetTable->setRowCount( fleets.count() );
+
+    int row = 0;
     QTableWidgetItem *item;
 
-    for( int f = 0; f < fleets.count(); ++f) {
-        curFleet = fleets.at(f);
-
+    foreach (AttackFleet *curFleet, fleets) {
         item = new QTableWidgetItem();
-        if( f < newFleets) {
+        if( row < newFleets) {
           item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
           item->setCheckState(Qt::Checked);
-          if( f < standingOrders )
+          if( row < standingOrders )
               item->setText(i18n("Standing order"));
         } else {
           item->setFlags(Qt::ItemIsEnabled);
         }
-        m_fleetTable->setItem( f, 0, item );
+        m_fleetTable->setItem(row, 0, item);
 
-        item = new QTableWidgetItem(QString::number(f + 1));
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, row + 1);
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 1, item );
+        m_fleetTable->setItem(row, 1, item);
 
-        item = new QTableWidgetItem(curFleet->source->name());
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curFleet->source->name());
+        item->setData(Qt::DecorationRole, curFleet->source->player()->color());
         item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 2, item );
+        m_fleetTable->setItem(row, 2, item);
 
-        item = new QTableWidgetItem(curFleet->destination->name());
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curFleet->destination->name());
+        item->setData(Qt::DecorationRole, curFleet->destination->player()->color());
         item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 3, item );
+        m_fleetTable->setItem(row, 3, item);
 
-        item = new QTableWidgetItem(QString::number(curFleet->shipCount()));
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curFleet->shipCount());
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 4, item );
+        m_fleetTable->setItem(row, 4, item);
 
-        item = new QTableWidgetItem(QString("%1") .arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
-        item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 5, item );
+        // The number is formatted and added as a string. Sorting by this
+        // column sorts by string comparison rather than by floating point
+        // number comparison. But as all values have the same amount of
+        // characters/digits, sorting by string actually works.
 
-        item = new QTableWidgetItem(QString::number(curFleet->arrivalTurn));
+        item = new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled);
-        m_fleetTable->setItem( f, 6, item );
+        m_fleetTable->setItem(row, 5, item);
+
+        item = new QTableWidgetItem();
+        item->setData(Qt::DisplayRole, curFleet->arrivalTurn);
+        item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        item->setFlags(Qt::ItemIsEnabled);
+        m_fleetTable->setItem(row, 6, item);
+
+        ++row;
     }
+
+    m_fleetTable->setSortingEnabled(true);
+    m_fleetTable->resizeColumnsToContents();
 }
 
 
-AttackFleetList *FleetDlg::uncheckedFleets() {
+AttackFleetList*
+FleetDlg::uncheckedFleets()
+{
     AttackFleetList *fleets = new AttackFleetList();
     QTableWidgetItem *item;
     int count = m_fleetTable->rowCount();
