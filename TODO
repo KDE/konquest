@@ -20,7 +20,6 @@ Structure and other code issues
 * Remove gamecore.h
 
 * Refactor the GameView
-   - Remove AI players from it						done
    - More signals/slots from gamelogic
 
 Features

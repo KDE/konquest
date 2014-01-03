@@ -1,16 +1,14 @@
-		 Overview over the files in konquest
-		 ===================================
+Overview over the files in Konquest
+===================================
 
 Game classes
 ------------
-gamecore.h	gamecore.cc	Some general code  		FIXME: remove
 gamelogic.h	gamelogic.cc	The game itself. No gui.
 map.h		map.cc		The playing field - the universe
 sector.h	sector.cc	One square on the Map
 player.h	player.cc	Generic player
 planet.h	planet.cc	Info about a Planet
 fleet.h		fleet.cc	Info about a Fleet.
-
 
 Widgets & Views
 ---------------
@@ -27,10 +25,8 @@ fleetdlg.h	fleetdlg.cc	The summary dialog of the fleets
 newgamedlg.h	newgamedlg.cc	The dialog for creating new games
 scoredlg.h	scoredlg.cc	The summary dialog at the end of the game.
 
-
 Misc
 ----
 Konquest.cc			The main program.
 version.h			FIXME: Use global KDE version?
 images.h			Declaration of all the images.
-
