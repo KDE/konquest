@@ -152,25 +152,40 @@ void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
     }
 }
 
-void MapScene::displayPlanetInfo (Planet *planet)
+
+void
+MapScene::displayPlanetInfo(Planet *planet)
 {
-    if (!planet && m_planetInfoItem) {
-        m_planetInfoItem->hide();
+    if (!planet) {
+        if (m_planetInfoItem) {
+            m_planetInfoItem->hide();
+        }
+
         return;
     }
 
-    if (planet) {
-        QPointF pos(planet->sector()->coord().y() * getSectorSize() + itemsHorizontalOffset(),
-                    planet->sector()->coord().x() * getSectorSize());
-        displayPlanetInfo(planet, pos);
-    }
+    /**
+     * @todo Figure out why coord.y and coord.x seem to be used the other way
+     * around.
+     */
+
+    QPointF pos(
+        planet->sector()->coord().y() * getSectorSize() + itemsHorizontalOffset(),
+        planet->sector()->coord().x() * getSectorSize()
+    );
+
+    displayPlanetInfo(planet, pos);
 }
 
-void MapScene::displayPlanetInfo (Planet *planet, const QPointF & pos)
+
+void
+MapScene::displayPlanetInfo (Planet *planet, const QPointF &pos)
 {
     if (!planet) {
-        if (m_planetInfoItem)
+        if (m_planetInfoItem) {
             m_planetInfoItem->hide();
+        }
+
         return;
     }
 

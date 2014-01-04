@@ -170,7 +170,7 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
 void PlanetItem::hoverLeaveEvent( QGraphicsSceneHoverEvent * /*event*/ )
 {
     m_hovered = false;
-    m_scene->displayPlanetInfo(NULL, QPoint());
+    m_scene->displayPlanetInfo(NULL);
 
     update();
 }
@@ -237,7 +237,7 @@ void PlanetInfoItem::setPlanet (Planet *planet)
              QString()));
         if( m_game->currentPlayer() == planet->player() )
         {
-            int shipsNeeded = 0; // determine hw many ships will be neede by standing orders
+            int shipsNeeded = 0; // determine how many ships will be needed by standing orders
             foreach(AttackFleet* fleet, planet->player()->standingOrders()) {
                 if(fleet->source == planet)
                     shipsNeeded += fleet->shipCount();

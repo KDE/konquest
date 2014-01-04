@@ -49,8 +49,16 @@ class MapScene: public QGraphicsScene
 
         void           selectPlanet(Planet *planet);
         void           unselectPlanet();
-        void           displayPlanetInfo(Planet *planet, const QPointF & pos);
-        void           displayPlanetInfo(Planet *planet);
+
+    /**
+     * Show planet information box.
+     *
+     * @param planet
+     * planet for which to show planet information or NULL to hide possibly shown
+     * planet information
+     */
+
+    void displayPlanetInfo(Planet *planet);
 
         void           drawBackground( QPainter * painter, const QRectF & rect );
 
@@ -68,7 +76,21 @@ class MapScene: public QGraphicsScene
     private slots:
         void  planetItemSelected (PlanetItem *);
 
-    private:
+private:
+
+    /**
+     * Show planet information box.
+     *
+     * @param planet
+     * planet for which to show planet information or NULL to hide possibly shown
+     * planet information
+     *
+     * @param pos
+     * position relative to upper left edge of the board
+     */
+
+    void displayPlanetInfo(Planet *planet, const QPointF &pos);
+
         Game            *m_game;
 
         QSvgRenderer    *m_renderer;
