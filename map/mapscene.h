@@ -63,6 +63,7 @@ class MapScene: public QGraphicsScene
         void           drawBackground( QPainter * painter, const QRectF & rect );
 
         qreal          itemsHorizontalOffset();
+        qreal          itemsVerticalOffset();
         qreal          getSectorSize();
 
         void           resizeScene(const QRectF& rect);

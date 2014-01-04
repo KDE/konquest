@@ -76,7 +76,7 @@ QRectF PlanetItem::boundingRect() const
 {
     qreal size = m_scene->getSectorSize();
     return QRectF(m_sector->coord().y() * size + m_scene->itemsHorizontalOffset(),
-                  m_sector->coord().x() * size,
+                  m_sector->coord().x() * size + m_scene->itemsVerticalOffset(),
                   size,
                   size);
 }
@@ -101,7 +101,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     // Display the planet
     qreal sectorSize = m_scene->getSectorSize();
     QPointF sectorTopLeft(m_sector->coord().y() * sectorSize + m_scene->itemsHorizontalOffset(),
-                          m_sector->coord().x() * sectorSize);
+                          m_sector->coord().x() * sectorSize + m_scene->itemsVerticalOffset());
 
     QPixmap planetPix = renderPixmap(m_lookName, sectorSize, sectorSize);
     p->drawPixmap(sectorTopLeft, planetPix);

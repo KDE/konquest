@@ -141,14 +141,12 @@ MapScene::planetItemSelected (PlanetItem *item)
 void
 MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ )
 {
-    // NOTE: without this line, background is black when using Qt 4.6! Qt bug?
-    painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
+    qreal sectorSize = getSectorSize();
+    qreal horizontalOffset = itemsHorizontalOffset();
+    qreal verticalOffset = itemsVerticalOffset();
 
-    qreal m_sectorSize = getSectorSize();
-    qreal m_horizontalOffset = itemsHorizontalOffset();
-
-    qreal mapWidth = map()->columns()*m_sectorSize;
-    qreal mapHeight = map()->rows()*m_sectorSize;
+    qreal mapWidth = map()->columns()*sectorSize;
+    qreal mapHeight = map()->rows()*sectorSize;
 
     QPen pen = painter->pen();
     pen.setColor(Qt::black);
@@ -157,14 +155,16 @@ MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ )
     painter->setPen(pen);
     painter->fillRect(0, 0, m_width, m_height, Qt::black);
     m_renderer->render(painter, "background", QRectF(0, 0, m_width, m_height));
-    m_renderer->render(painter, "screen", QRectF(m_horizontalOffset, -5, mapWidth, mapHeight + 5));
+
+    m_renderer->render(painter, "screen", QRectF(horizontalOffset, verticalOffset, mapWidth, mapHeight));
     painter->setOpacity(0.5);
-    qreal lastLine = mapWidth + m_horizontalOffset;
-    for (qreal i = m_horizontalOffset ; i <= lastLine ; i += m_sectorSize) {
-        painter->drawLine(QPointF(i, 0), QPointF(i, mapHeight));
+    qreal lastLine = mapWidth + horizontalOffset;
+    for (qreal i = horizontalOffset ; i <= lastLine ; i += sectorSize) {
+        painter->drawLine(QPointF(i, verticalOffset), QPointF(i, mapHeight + verticalOffset));
     }
-    for (qreal j = 0 ; j <= mapHeight ; j += m_sectorSize) {
-        painter->drawLine(QPointF(m_horizontalOffset, j), QPointF(mapWidth + m_horizontalOffset, j));
+    lastLine = mapHeight + verticalOffset;
+    for (qreal j = verticalOffset ; j <= lastLine ; j += sectorSize) {
+        painter->drawLine(QPointF(horizontalOffset, j), QPointF(mapWidth + horizontalOffset, j));
     }
 }
 
@@ -187,7 +187,7 @@ MapScene::displayPlanetInfo(Planet *planet)
 
     QPointF pos(
         planet->sector()->coord().y() * getSectorSize() + itemsHorizontalOffset(),
-        planet->sector()->coord().x() * getSectorSize()
+        planet->sector()->coord().x() * getSectorSize() + itemsVerticalOffset()
     );
 
     displayPlanetInfo(planet, pos);
@@ -240,4 +240,11 @@ qreal
 MapScene::itemsHorizontalOffset()
 {
     return (m_width - map()->columns() * getSectorSize()) / 2;
+}
+
+
+qreal
+MapScene::itemsVerticalOffset()
+{
+    return (m_height - map()->rows() * getSectorSize()) / 2;
 }
