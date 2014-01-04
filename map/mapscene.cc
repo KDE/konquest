@@ -33,6 +33,7 @@
 #include "../game.h"
 #include "../planet.h"
 
+
 MapScene::MapScene (Game *game)
   : QGraphicsScene(),
     m_game(game),
@@ -45,13 +46,16 @@ MapScene::MapScene (Game *game)
     m_pixmapCache = new KPixmapCache("konquest-pixmaps");
 }
 
+
 MapScene::~MapScene ()
 {
     delete m_pixmapCache;
     delete m_renderer;
 }
 
-void MapScene::resizeScene(const QRectF& rect)
+
+void
+MapScene::resizeScene(const QRectF& rect)
 {
     m_width = rect.width();
     m_height = rect.height();
@@ -59,7 +63,9 @@ void MapScene::resizeScene(const QRectF& rect)
     setSceneRect(rect);
 }
 
-void MapScene::selectPlanet(Planet *planet)
+
+void
+MapScene::selectPlanet(Planet *planet)
 {
     unselectPlanet();
     foreach (PlanetItem *item, m_planetItems) {
@@ -71,7 +77,9 @@ void MapScene::selectPlanet(Planet *planet)
     }
 }
 
-void MapScene::clearMap()
+
+void
+MapScene::clearMap()
 {
     QGraphicsItem  *item;
     while (items().count() > 0) {
@@ -82,11 +90,13 @@ void MapScene::clearMap()
     m_planetItems.clear();
     m_planetInfoItem = NULL;
     m_selectedPlanetItem = NULL;
- }
+}
 
-void MapScene::mapUpdate()
-{    
-    Sector         *sector;
+
+void
+MapScene::mapUpdate()
+{
+    Sector *sector;
 
     clearMap();
     if(m_game->isRunning()) {
@@ -106,7 +116,9 @@ void MapScene::mapUpdate()
     }
 }
 
-void MapScene::unselectPlanet()
+
+void
+MapScene::unselectPlanet()
 {
     if (m_selectedPlanetItem) {
         m_selectedPlanetItem->unselect();
@@ -115,7 +127,8 @@ void MapScene::unselectPlanet()
 }
 
 
-void MapScene::planetItemSelected (PlanetItem *item)
+void
+MapScene::planetItemSelected (PlanetItem *item)
 {
     if (m_selectedPlanetItem)
         unselectPlanet();
@@ -124,7 +137,10 @@ void MapScene::planetItemSelected (PlanetItem *item)
     emit planetSelected(item->sector()->planet());
 }
 
-void MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ ) {
+
+void
+MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ )
+{
     // NOTE: without this line, background is black when using Qt 4.6! Qt bug?
     painter->setCompositionMode( QPainter::CompositionMode_SourceOver );
 
@@ -209,14 +225,19 @@ MapScene::displayPlanetInfo (Planet *planet, const QPointF &pos)
     update();
 }
 
-qreal MapScene::getSectorSize() {
-    qreal s_w = m_width;
-    s_w = s_w/map()->columns();
-    qreal s_h = m_height;
-    s_h = s_h/map()->rows();
+
+qreal
+MapScene::getSectorSize()
+{
+    qreal s_w = m_width / map()->columns();
+    qreal s_h = m_height / map()->rows();
+
     return qMin(s_w, s_h);
 }
 
-qreal MapScene::itemsHorizontalOffset() {
-    return ((m_width - map()->columns()*getSectorSize())/2);
+
+qreal
+MapScene::itemsHorizontalOffset()
+{
+    return (m_width - map()->columns() * getSectorSize()) / 2;
 }
