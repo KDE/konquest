@@ -213,15 +213,21 @@ MapScene::displayPlanetInfo (Planet *planet, const QPointF &pos)
     m_planetInfoItem->show();
     m_planetInfoItem->setPlanet(planet);
     m_planetInfoItem->setZValue(1.5);
-    m_planetInfoItem->moveBy( pos.x()-m_planetInfoItem->x(),
-                              pos.y()-m_planetInfoItem->y() );
+    m_planetInfoItem->moveBy(
+        pos.x() - m_planetInfoItem->x(),
+        pos.y() - m_planetInfoItem->y()
+    );
+
     // Move to stay in the game field.
-    if (pos.x() > m_width/2) {
+
+    if (pos.x() > m_width / 2) {
         m_planetInfoItem->moveBy(-m_planetInfoItem->boundingRect().width(), 0);
     }
-    if (pos.y() > m_height/2) {
+
+    if (pos.y() > m_height / 2) {
         m_planetInfoItem->moveBy(0, -m_planetInfoItem->boundingRect().height());
     }
+
     update();
 }
 

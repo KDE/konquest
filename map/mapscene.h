@@ -19,6 +19,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
+
 #ifndef KONQUEST_MAPSCENE_H
 #define KONQUEST_MAPSCENE_H
 
@@ -54,17 +55,41 @@ class MapScene: public QGraphicsScene
      * Show planet information box.
      *
      * @param planet
-     * planet for which to show planet information or NULL to hide possibly shown
-     * planet information
+     * planet for which to show planet information or NULL to hide possibly
+     * shown planet information
      */
 
     void displayPlanetInfo(Planet *planet);
 
         void           drawBackground( QPainter * painter, const QRectF & rect );
 
-        qreal          itemsHorizontalOffset();
-        qreal          itemsVerticalOffset();
-        qreal          getSectorSize();
+
+    /**
+     * Get size of a sector in pixel.
+     *
+     * A sector is rendered as a square, so width and height are the same. The
+     * size depends on the number of sectors per direction (horizontal and
+     * vertical) as well as the dimensions of the board canvas.
+     */
+
+    qreal getSectorSize();
+
+    /**
+     * Get the horizontal offset.
+     *
+     * In case the board is tall, it is horizontally centered on the board
+     * canvas.
+     */
+
+    qreal itemsHorizontalOffset();
+
+    /**
+     * Get the vertical offset.
+     *
+     * In case the board is wide, it is vertically centered on the board canvas.
+     */
+
+    qreal itemsVerticalOffset();
 
         void           resizeScene(const QRectF& rect);
 
@@ -83,8 +108,8 @@ private:
      * Show planet information box.
      *
      * @param planet
-     * planet for which to show planet information or NULL to hide possibly shown
-     * planet information
+     * planet for which to show planet information or NULL to hide possibly
+     * shown planet information
      *
      * @param pos
      * position relative to upper left edge of the board
