@@ -46,8 +46,6 @@ set(konquest_SRCS
     players/ai/default/normal_gui.cpp
     players/ai/default/hard.cpp
     players/ai/default/hard_gui.cpp
-    players/ai/example/example.cpp
-    players/ai/example/example_gui.cpp
     players/computerplayer.cpp
     players/localplayer.cpp
     players/localplayer_gui.cpp
@@ -59,6 +57,15 @@ set(konquest_SRCS
 
     view/standingswidget.cpp
 )
+
+option(KONQUEST_EXAMPLE_PLAYER "Include example player" OFF)
+if(KONQUEST_EXAMPLE_PLAYER)
+    message(STATUS "KONQUEST_EXAMPLE_PLAYER")
+    add_definitions(-DKONQUEST_EXAMPLE_PLAYER)
+    list (APPEND konquest_SRCS
+                 players/ai/example/example.cpp
+                 players/ai/example/example_gui.cpp)
+endif()
 
 kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )
 

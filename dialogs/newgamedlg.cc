@@ -27,7 +27,9 @@
 #include "../players/ai/default/weak_gui.h"
 #include "../players/ai/default/normal_gui.h"
 #include "../players/ai/default/hard_gui.h"
+#ifdef KONQUEST_EXAMPLE_PLAYER
 #include "../players/ai/example/example_gui.h"
+#endif
 #include "../players/computerplayer.h"
 #include "../players/player_gui.h"
 #include "../players/localplayer.h"
@@ -331,7 +333,9 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     m_selectablePlayer.push_back(new AiDefaultWeakGui());
     m_selectablePlayer.push_back(new AiDefaultNormalGui());
     m_selectablePlayer.push_back(new AiDefaultHardGui());
-    // m_selectablePlayer.push_back(new AiExampleGui());
+#ifdef KONQUEST_EXAMPLE_PLAYER
+    m_selectablePlayer.push_back(new AiExampleGui());
+#endif
     m_selectablePlayer.push_back(new AiBecaiGui());
 
     m_playerTypeChooser = new QMenu(this);
