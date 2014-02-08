@@ -291,15 +291,6 @@ ships.</para></listitem>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Show Standings</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Opens</action> a window to display the detailed current 
-standings for all players</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
 <guimenuitem>Fleet Overview</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Opens</action> a window to display detailed information 
