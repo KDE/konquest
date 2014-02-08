@@ -64,8 +64,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-10-30</date>
-<releaseinfo>2.1 (&kde; 4.12)</releaseinfo>
+<date>2014-02-08</date>
+<releaseinfo>2.3 (&kde; 4.13)</releaseinfo>
 
 <abstract>
 <para>
@@ -121,8 +121,9 @@ Listed below are the following parameters for the new game:
   </itemizedlist>
   <para>To change the name of the player, double-click in the <guilabel>Name</guilabel>
   column and edit it. To change the type of the player, open the drop-down list by
-  double-clicking in the <guilabel>Type</guilabel> column.</para>
-  <para>The type of AI player can be chosen from <guimenuitem>Default (Weak)</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default (Offensive)</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default (Defensive)</guimenuitem> (a player with defensive strategy).</para>
+  double-clicking in the <guilabel>Type</guilabel> column. It is also possible to select the type of the new players using the drop-down list of the <guibutton>Add</guibutton> button.</para>
+<para>There are two types of the human players in &konquest;, namely <guimenuitem>Human (Player)</guimenuitem> and <guimenuitem>Human (Spectator)</guimenuitem>. The latter option allows watching the game without taking part in it.</para>
+<para>The type of AI player can be chosen from <guimenuitem>Default (Weak)</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default (Offensive)</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default (Defensive)</guimenuitem> (a player with defensive strategy).</para>
   <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of <xref linkend="strattips"/> into account.</para>
   <para>Keep in mind that the actual difficulty of any opponent depends on your very own strategy. If you play aggressively yourself, an aggressive AI player might be easier to defeat than a defensive player, and vice versa.</para>
 </listitem>
@@ -322,6 +323,22 @@ for all fleets</para></listitem>
 <guimenuitem>End Turn</guimenuitem>
 </menuchoice></term>
 <listitem><para>Allows you to <action>end turn</action> from the main menu.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>View</guimenu>
+<guimenuitem>Show Messages</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Show or hide</action> the messages panel.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>View</guimenu>
+<guimenuitem>Show Standings</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Show or hide</action> the current player standings table.</para></listitem>
 </varlistentry>
 
 </variablelist>
