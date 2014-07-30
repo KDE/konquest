@@ -45,7 +45,7 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_justconquered(false)
 {
     KRandomSequence r;
-    m_planetLook = r.getLong(9);
+    m_planetLook = r.getLong(10);
     connect(&m_homeFleet, SIGNAL(update()), this, SIGNAL(update()));
     m_sector->setPlanet( this );
 }
