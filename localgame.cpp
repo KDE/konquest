@@ -58,12 +58,11 @@ void LocalGame::buildMachine()
     if (m_gameMachine.isRunning())
         return;
 
-    m_gameMachine.addState(m_neutral);
-
-    foreach (Player *player, m_players)
-    {
-        m_gameMachine.addState(player);
-    }
+    // Player is a subclass of QState and the constructor of Player already adds
+    // the new Player object to m_gameMachine by passing it to the superclass
+    // constructor QState(QState *parent = 0).
+    // Accordingly, we can instantly go ahead with configuring the other
+    // parts of the machine.
 
     m_gameMachine.setInitialState(m_neutral);
 
