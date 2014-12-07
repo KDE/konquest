@@ -32,7 +32,7 @@
 #include <QPixmap>
 #include <QKeyEvent>
 #include <QIntValidator>
-#include <KDebug>
+#include <QDebug>
 
 #include <kmessagebox.h>
 
@@ -552,7 +552,7 @@ void
 GameView::gameOver()
 {
     if (m_initCompleted) {
-        kDebug() << "Game over";
+        //qDebug() << "Game over";
 
         /**
          * @todo This is an attempt to remove duplicate information from screen.
@@ -601,7 +601,7 @@ GameView::cleanupGame()
 void
 GameView::planetSelected( Planet *planet )
 {
-    kDebug() << "planetSelected with " << m_guiState;
+    //qDebug() << "planetSelected with " << m_guiState;
     switch( m_guiState ) {
         case SOURCE_PLANET:
             if( planet->player() == m_game->currentPlayer() ) {
@@ -670,7 +670,7 @@ GameView::changeGameView()
 {
     bool isRunning = m_game->isRunning();
 
-    kDebug() << "Calling GameView::changeGameView" << isRunning;
+    //qDebug() << "Calling GameView::changeGameView" << isRunning;
 
     m_messagesDock->setVisible(isRunning);
 

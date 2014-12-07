@@ -20,7 +20,7 @@
 #include "../game.h"
 #include "../planet.h"
 #include <QColor>
-#include <KDebug>
+#include <QDebug>
 #include <QApplication>
 
 NeutralPlayer::NeutralPlayer(Game *game) :
@@ -40,7 +40,7 @@ bool NeutralPlayer::isDead()
 
 void NeutralPlayer::play()
 {
-    kDebug() << "NeutralPlayer::play";
+    //qDebug() << "NeutralPlayer::play";
 
     // Go on each attack...
     foreach (Player *player, m_game->players()) {
@@ -63,7 +63,7 @@ void NeutralPlayer::play()
 
     // Go over each planet, adding its ships
     foreach (Planet *planet, m_game->map()->planets()) {
-        kDebug() << "Turn for planet " << planet->name();
+        //qDebug() << "Turn for planet " << planet->name();
         planet->turn(m_game->options());
     }
 

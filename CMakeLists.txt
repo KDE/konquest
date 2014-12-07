@@ -107,7 +107,7 @@ install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( PROGRAMS konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES konquestui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/konquest )
 
 ecm_install_icons( ICONS hi128-apps-konquest.png  hi16-apps-konquest.png  hi22-apps-konquest.png  hi32-apps-konquest.png  hi48-apps-konquest.png  hi64-apps-konquest.png DESTINATION ${ICON_INSTALL_DIR} )

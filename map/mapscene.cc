@@ -24,7 +24,7 @@
 
 #include <QGraphicsItem>
 #include <QPainter>
-#include <kdebug.h>
+#include <QDebug>
 
 #include "map.h"
 #include "mapitems.h"

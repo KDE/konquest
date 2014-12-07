@@ -36,7 +36,7 @@
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
-#include <kicon.h>
+#include <QIcon>
 #include <kstatusbar.h>
 
 #include "game.h"
@@ -87,13 +87,13 @@ MainWindow::setupActions()
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - QAction not :-(
     m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
-    m_measureAction->setIcon( KIcon( QLatin1String( "go-jump" )) );
+    m_measureAction->setIcon( QIcon::fromTheme( QLatin1String( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );
     m_measureAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
-    m_fleetAction->setIcon( KIcon( QLatin1String( "fork" )) );
+    m_fleetAction->setIcon( QIcon::fromTheme( QLatin1String( "fork" )) );
     m_fleetAction->setText( i18n("&Fleet Overview") );
     m_fleetAction->setEnabled(false);
 
@@ -134,7 +134,7 @@ MainWindow::setupActions()
     tabifyDockWidget(m_messagesDock, m_standingsDock);
 
     m_standingsAction = actionCollection()->addAction(QLatin1String("view_standings"));
-    m_standingsAction->setIcon(KIcon(QLatin1String("help-contents")));
+    m_standingsAction->setIcon(QIcon::fromTheme(QLatin1String("help-contents")));
     m_standingsAction->setText(i18n("Show &Standings"));
     m_standingsAction->setCheckable(true);
     m_standingsAction->setChecked(m_standingsDock->isVisible());

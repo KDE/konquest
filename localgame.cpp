@@ -17,7 +17,7 @@
  */
 
 #include "localgame.h"
-#include <KDebug>
+#include <QDebug>
 #include <QApplication>
 
 LocalGame::LocalGame(QObject *parent) :
@@ -29,10 +29,10 @@ void LocalGame::start()
 {
     if (!m_gameMachine.isRunning()) {
         buildMachine();
-        kDebug() << "Starting machine";
+        //qDebug() << "Starting machine";
         m_gameMachine.start();
         qApp->processEvents();  // Really important : ignoring this will not apply the change soon enough
-        kDebug() << "Machine state" << m_gameMachine.isRunning();
+        //qDebug() << "Machine state" << m_gameMachine.isRunning();
     }
 }
 
@@ -41,7 +41,7 @@ void LocalGame::stop()
     if (m_gameMachine.isRunning()) {
         m_gameMachine.stop();
         qApp->processEvents();  // Really important : ignoring this will not apply the change soon enough
-        kDebug() << "Machine state" << m_gameMachine.isRunning();
+        //qDebug() << "Machine state" << m_gameMachine.isRunning();
     }
 }
 
@@ -54,7 +54,7 @@ void LocalGame::addPlayer(Player *player)
 
 void LocalGame::buildMachine()
 {
-    kDebug() << "Building machine";
+    //qDebug() << "Building machine";
     if (m_gameMachine.isRunning())
         return;
 
@@ -79,8 +79,8 @@ void LocalGame::buildMachine()
         else
             nextPlayer = m_players[i + 1];
 
-        kDebug() << "Adding transition from "
-                 << player->name() << " to " << nextPlayer->name();
+        //qDebug() << "Adding transition from "
+                 //<< player->name() << " to " << nextPlayer->name();
         player->addTransition(player, SIGNAL(donePlaying()), nextPlayer);
         connect(player, SIGNAL(donePlaying()), this, SLOT(playerIsDone()));
     }
@@ -88,5 +88,5 @@ void LocalGame::buildMachine()
 
 void LocalGame::playerIsDone()
 {
-    kDebug() << "It seems a player is done :" << currentPlayer()->name();
+    //qDebug() << "It seems a player is done :" << currentPlayer()->name();
 }

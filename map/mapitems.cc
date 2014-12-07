@@ -31,7 +31,7 @@
 #include <kiconloader.h>
 #include <kglobalsettings.h>
 #include <klocale.h>
-#include <kdebug.h>
+#include <QDebug>
 #include <kcolorscheme.h>
 
 #include "mapscene.h"
