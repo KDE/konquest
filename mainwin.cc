@@ -32,7 +32,7 @@
 #include <kmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
-#include <kaction.h>
+#include <QAction>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
@@ -85,7 +85,7 @@ MainWindow::setupActions()
     m_endGameAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
-    //different state - KAction not :-(
+    //different state - QAction not :-(
     m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
     m_measureAction->setIcon( KIcon( QLatin1String( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );

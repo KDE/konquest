@@ -23,7 +23,7 @@
 #ifndef KONQUEST_MAINWIN_H
 #define KONQUEST_MAINWIN_H
 
-#include <kaction.h>
+#include <QAction>
 #include <kxmlguiwindow.h>
 
 #include "game.h"
@@ -61,9 +61,9 @@ private:
     QLabel     *m_statusBarText;
 
     // Actions
-    KAction  *m_endTurnAction;
-    KAction  *m_messagesAction;
-    KAction  *m_standingsAction;
+    QAction *m_endTurnAction;
+    QAction *m_messagesAction;
+    QAction *m_standingsAction;
 
     QAction  *m_endGameAction;
     QAction  *m_measureAction;

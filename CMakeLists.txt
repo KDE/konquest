@@ -1,15 +1,43 @@
 project(konquest)
 
-if(NOT COMPILING_KDEGAMES)
-	find_package(KDE4 REQUIRED)
-	include(KDE4Defaults)
-	include(MacroLibrary)
-	find_package(KDEGames REQUIRED)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+set (QT_MIN_VERSION "5.3.0")
 
-	add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-	add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-	include_directories(${KDEGAMES_INCLUDE_DIRS} ${KDE4_INCLUDES} ${QDBUS_INCLUDE_DIRS})
-endif(NOT COMPILING_KDEGAMES)
+find_package(ECM 1.3.0 REQUIRED CONFIG)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
+find_package(KF5 REQUIRED COMPONENTS 
+    CoreAddons
+    Config
+    ItemModels
+    WidgetsAddons
+    WindowSystem
+    Config
+    DBusAddons
+    I18n
+    ConfigWidgets
+    TextWidgets
+    XmlGui
+    KIO
+    NotifyConfig
+    NewStuff
+    KDELibs4Support)
+
+find_package(KF5KDEGames 4.9.0 REQUIRED)
+find_package(Phonon4Qt5 CONFIG REQUIRED)
+
+include_directories(BEFORE ${PHONON_INCLUDES})
+
+include(FeatureSummary)
+include(ECMInstallIcons)
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+add_definitions(-DTRANSLATION_DOMAIN="konquest")
+
 
 add_subdirectory( pics )
 add_subdirectory( doc )
@@ -67,12 +95,12 @@ if(KONQUEST_EXAMPLE_PLAYER)
                  players/ai/example/example_gui.cpp)
 endif()
 
-kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )
+ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
 kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-konquest.png")
-kde4_add_executable(konquest ${konquest_SRCS})
+add_executable(konquest ${konquest_SRCS})
 
-target_link_libraries(konquest  ${KDE4_KDEUI_LIBS} kdegames )
+target_link_libraries(konquest   KF5KDEGames KF5::KDELibs4Support Qt5::Svg)
 
 install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -82,6 +110,6 @@ install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES konquestui.rc  DESTINATION  ${DATA_INSTALL_DIR}/konquest )
 
-kde4_install_icons( ${ICON_INSTALL_DIR} )
+ecm_install_icons( ${ICON_INSTALL_DIR} )
 
 

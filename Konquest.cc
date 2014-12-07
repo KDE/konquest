@@ -23,7 +23,7 @@
 #include <kapplication.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
-#include <kaboutdata.h>
+#include <K4AboutData>
 #include <kstandarddirs.h>
 
 #include "mainwin.h"
@@ -34,8 +34,8 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
-    KAboutData aboutData( "konquest", 0, ki18n("Konquest"),
-        KONQUEST_VERSION, ki18n(description), KAboutData::License_GPL,
+    K4AboutData aboutData( "konquest", 0, ki18n("Konquest"),
+        KONQUEST_VERSION, ki18n(description), K4AboutData::License_GPL,
         ki18n("Copyright (c) 1999-2013, Developers"), KLocalizedString(), "http://games.kde.org/konquest" );
 
     aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
@@ -48,7 +48,6 @@ main(int argc, char **argv)
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
-    KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 
     if (a.isSessionRestored())
         RESTORE(MainWindow)
