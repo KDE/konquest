@@ -40,7 +40,7 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> playe
     m_standingsWidget = new StandingsWidget(this, players);
 
     setMainWidget( m_standingsWidget );
-    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
+    connect(this, &ScoreDlg::okClicked, this, &ScoreDlg::accept);
 }
 
 

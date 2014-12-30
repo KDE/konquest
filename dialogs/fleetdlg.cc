@@ -51,7 +51,7 @@ FleetDlg::FleetDlg( QWidget *parent,
     update();
 
     setMainWidget( m_fleetTable );
-    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
+    connect(this, &FleetDlg::okClicked, this, &FleetDlg::accept);
 }
 
 

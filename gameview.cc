@@ -160,14 +160,10 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
     //**********************************************************************
     // Set up signal/slot connections
     //**********************************************************************
-    connect( m_mapScene,      SIGNAL( planetSelected(Planet *) ),
-             this,            SLOT(planetSelected(Planet *)) );
-    connect( m_shipCountEdit, SIGNAL(returnPressed()),
-             this,            SLOT(newShipCount()) );
-    connect( m_standingOrder, SIGNAL(clicked()),
-             this,            SLOT(standingOrdersClicked()) );
-    connect( m_endTurnBtn,    SIGNAL( clicked() ),
-             this,            SLOT( nextPlayer() ) );
+    connect(m_mapScene, &MapScene::planetSelected, this, &GameView::planetSelected);
+    connect(m_shipCountEdit, &QLineEdit::returnPressed, this, &GameView::newShipCount);
+    connect(m_standingOrder, &QCheckBox::clicked, this, &GameView::standingOrdersClicked);
+    connect(m_endTurnBtn, &QPushButton::clicked, this, &GameView::nextPlayer);
 
     changeGameView();
 }
@@ -501,10 +497,10 @@ GameView::startNewGame()
 
         LocalPlayer *local = qobject_cast<LocalPlayer*>(player);
         if (local)
-            connect(local, SIGNAL(canPlay()), this, SLOT(turnPreparation()));
+            connect(local, &LocalPlayer::canPlay, this, &GameView::turnPreparation);
     }
 
-    connect(m_game, SIGNAL(finished()), this, SLOT(gameOver()));
+    connect(m_game, &Game::finished, this, &GameView::gameOver);
     m_game->start();
 
     // Fix all the widgets to run a new game.

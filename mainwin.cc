@@ -123,8 +123,8 @@ MainWindow::setupActions()
     // the GUI, regardless of currently visible in an active tab or invisible
     // in a not currently active tab.
 
-    connect(m_messagesAction, SIGNAL(triggered(bool)), m_messagesDock, SLOT(setVisible(bool)));
-    connect(m_messagesDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateMessagesActionSlot()));
+    connect(m_messagesAction, &QAction::triggered, m_messagesDock, &QDockWidget::setVisible);
+    connect(m_messagesDock, &QDockWidget::visibilityChanged, this, &MainWindow::updateMessagesActionSlot);
 
     // docking area - standings
 
@@ -139,8 +139,8 @@ MainWindow::setupActions()
     m_standingsAction->setCheckable(true);
     m_standingsAction->setChecked(m_standingsDock->isVisible());
 
-    connect(m_standingsAction, SIGNAL(triggered(bool)), m_standingsDock, SLOT(setVisible(bool)));
-    connect(m_standingsDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateStandingsActionSlot()));
+    connect(m_standingsAction, &QAction::triggered, m_standingsDock, &QDockWidget::setVisible);
+    connect(m_standingsDock, &QDockWidget::visibilityChanged, this, &MainWindow::updateStandingsActionSlot);
 }
 
 
@@ -151,19 +151,13 @@ MainWindow::setupGameView()
     m_gameView  = new GameView(this, m_game, m_messagesDock, m_standingsDock);
     setCentralWidget( m_gameView );
 
-    connect ( m_game,    SIGNAL( gameMsg(const KLocalizedString &,
-					   Player *, Planet *,
-					   Player * ) ),
-	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
-					 Player *, Planet *,
-					 Player * ) ) );
-    connect (m_gameView, SIGNAL( newGUIState( GUIState )),
-	     this,       SLOT( guiStateChange( GUIState ) ) );
+    connect(m_game, &Game::gameMsg, m_gameView, &GameView::gameMsg);
+    connect(m_gameView, &GameView::newGUIState, this, &MainWindow::guiStateChange);
 
-    connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));
-    connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));
-    connect(m_endTurnAction,  SIGNAL(triggered()),     m_gameView, SLOT(nextPlayer()));
-    connect(m_endGameAction,  SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
+    connect(m_measureAction, &QAction::triggered, m_gameView, &GameView::measureDistance);
+    connect(m_fleetAction, &QAction::triggered, m_gameView, &GameView::showFleets);
+    connect(m_endTurnAction, &QAction::triggered, m_gameView, &GameView::nextPlayer);
+    connect(m_endGameAction, &QAction::triggered, m_gameView, &GameView::shutdownGame);
 }
 
 
