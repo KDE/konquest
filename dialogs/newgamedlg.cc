@@ -40,7 +40,6 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <kpushbutton.h>
 #include <KStandardGuiItem>
 #include <kglobal.h>
 
