@@ -403,19 +403,6 @@ You have not lost the game until you have lost all your ships.
 <qandaentry>
 <question>
 <para>
-I am running out of turns, what can I do?
-</para>
-</question>
-<answer>
-<para>
-You can continue playing. When you are at the last turn, you will be prompted to add more.
-</para>
-</answer>
-</qandaentry>
-
-<qandaentry>
-<question>
-<para>
 Can I store ships on a planet for later use?
 </para>
 </question>
