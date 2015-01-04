@@ -113,3 +113,4 @@ install( FILES konquestui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/konquest )
 ecm_install_icons( ICONS hi128-apps-konquest.png  hi16-apps-konquest.png  hi22-apps-konquest.png  hi32-apps-konquest.png  hi48-apps-konquest.png  hi64-apps-konquest.png DESTINATION ${ICON_INSTALL_DIR} )
 
 
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
