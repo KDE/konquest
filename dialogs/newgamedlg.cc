@@ -399,7 +399,7 @@ NewGameDlg::updateOwnerCB()
 void
 NewGameDlg::init()
 {
-    KConfigGroup config = KGlobal::config()->group("Game");
+    KConfigGroup config = KSharedConfig::openConfig()->group("Game");
 
     int nrOfPlayers = config.readEntry("NrOfPlayers",0);
     if (nrOfPlayers < 2)
@@ -563,7 +563,7 @@ NewGameDlg::slotNewProduction(int value)
 void
 NewGameDlg::save()
 {
-    KConfigGroup config = KGlobal::config()->group("Game");
+    KConfigGroup config = KSharedConfig::openConfig()->group("Game");
     
     config.writeEntry("NrOfPlanets", m_w->neutralPlanetsSB->value());
     config.writeEntry("SizeWidth", m_w->widthSB->value());
