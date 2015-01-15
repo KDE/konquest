@@ -28,6 +28,7 @@
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>
+#include <KDBusService>
 
 #include "mainwin.h"
 
@@ -37,6 +38,8 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
+    QApplication app(argc, argv);
+
     KAboutData aboutData( "konquest", i18n("Konquest"),
         KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
         i18n("Copyright (c) 1999-2013, Developers"), "http://games.kde.org/konquest" );
@@ -48,7 +51,6 @@ main(int argc, char **argv)
     aboutData.addCredit(i18n("Pierre Ducroquet"), i18n("Cleaning and bugfixing, maintenance"), "pinaraf@gmail.com");
     aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), "geckosenator@gmail.com");
 
-    QApplication app(argc, argv);
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     parser.addVersionOption();
@@ -56,7 +58,7 @@ main(int argc, char **argv)
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
-
+    KDBusService service;
 
     if (app.isSessionRestored())
         RESTORE(MainWindow)

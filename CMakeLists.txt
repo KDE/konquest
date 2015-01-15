@@ -100,7 +100,7 @@ ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-apps-konquest.png")
 add_executable(konquest ${konquest_SRCS})
 
-target_link_libraries(konquest   KF5KDEGames KF5::KDELibs4Support Qt5::Svg)
+target_link_libraries(konquest   KF5KDEGames KF5::KDELibs4Support Qt5::Svg KF5::DBusAddons)
 
 install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
