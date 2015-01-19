@@ -21,10 +21,8 @@
  */
 
 
-#include <klocale.h>
-
+#include <KLocalizedString>
 #include <KAboutData>
-#include <kstandarddirs.h>
 #include <QApplication>
 #include <KLocalizedString>
 #include <QCommandLineParser>
