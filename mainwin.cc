@@ -27,7 +27,7 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kglobal.h>
 #include <kmenubar.h>
 #include <ktoolbar.h>

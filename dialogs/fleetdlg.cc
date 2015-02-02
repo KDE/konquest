@@ -30,7 +30,7 @@
 #include <kpushbutton.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "planet.h"
 #include "../players/player.h"

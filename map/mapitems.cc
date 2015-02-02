@@ -29,7 +29,6 @@
 #include <QTimer>
 
 #include <kiconloader.h>
-#include <kglobalsettings.h>
 #include <KLocalizedString>
 #include <QDebug>
 #include <kcolorscheme.h>

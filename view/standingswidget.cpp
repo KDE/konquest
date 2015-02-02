@@ -28,7 +28,6 @@
 #include <QVBoxLayout>
 
 #include <KLocalizedString>
-#include <kcomponentdata.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
 

@@ -22,7 +22,7 @@
 
 #include "scoredlg.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kcomponentdata.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>

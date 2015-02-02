@@ -38,7 +38,7 @@
 #include "../players/spectatorplayer_gui.h"
 #include "../game.h"
 #include <kconfig.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 #include <KStandardGuiItem>
 #include <kglobal.h>
