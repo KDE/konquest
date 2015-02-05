@@ -28,8 +28,7 @@
 #include <QDebug>
 
 #include <KLocalizedString>
-#include <kglobal.h>
-#include <kmenubar.h>
+#include <qmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
 #include <QAction>
@@ -37,7 +36,7 @@
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
 #include <QIcon>
-#include <kstatusbar.h>
+#include <qstatusbar.h>
 
 #include "game.h"
 #include "localgame.h"

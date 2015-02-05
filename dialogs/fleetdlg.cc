@@ -27,7 +27,6 @@
 
 #include <kcomponentdata.h>
 #include <kglobal.h>
-#include <kpushbutton.h>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
 #include <KLocalizedString>
