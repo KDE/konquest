@@ -3,7 +3,7 @@ project(konquest)
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 set (QT_MIN_VERSION "5.3.0")
 
-find_package(ECM 1.3.0 REQUIRED CONFIG)
+find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
@@ -30,6 +30,7 @@ find_package(Phonon4Qt5 CONFIG REQUIRED)
 include_directories(BEFORE ${PHONON_INCLUDES})
 
 include(FeatureSummary)
+include(ECMAddAppIcon)
 include(ECMInstallIcons)
 include(KDEInstallDirs)
 include(KDECompilerSettings)
@@ -97,20 +98,21 @@ endif()
 
 ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
-kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-apps-konquest.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-apps-konquest.png")
+ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
 add_executable(konquest ${konquest_SRCS})
 
 target_link_libraries(konquest   KF5KDEGames KF5::KDELibs4Support Qt5::Svg KF5::DBusAddons)
 
-install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES konquestui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/konquest )
+install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
+install( FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest )
 
-ecm_install_icons( ICONS hi128-apps-konquest.png  hi16-apps-konquest.png  hi22-apps-konquest.png  hi32-apps-konquest.png  hi48-apps-konquest.png  hi64-apps-konquest.png DESTINATION ${ICON_INSTALL_DIR} )
+ecm_install_icons( ICONS hi128-apps-konquest.png  hi16-apps-konquest.png  hi22-apps-konquest.png  hi32-apps-konquest.png  hi48-apps-konquest.png  hi64-apps-konquest.png DESTINATION ${KDE_INSTALL_ICONDIR} )
 
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
