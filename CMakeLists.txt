@@ -98,7 +98,7 @@ endif()
 
 ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-apps-konquest.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-konquest.png")
 ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
 add_executable(konquest ${konquest_SRCS})
 
@@ -112,7 +112,7 @@ install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest )
 
-ecm_install_icons( ICONS hi128-apps-konquest.png  hi16-apps-konquest.png  hi22-apps-konquest.png  hi32-apps-konquest.png  hi48-apps-konquest.png  hi64-apps-konquest.png DESTINATION ${KDE_INSTALL_ICONDIR} )
+ecm_install_icons( ICONS 128-apps-konquest.png  16-apps-konquest.png  22-apps-konquest.png  32-apps-konquest.png  48-apps-konquest.png  64-apps-konquest.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor )
 
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
