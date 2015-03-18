@@ -27,7 +27,7 @@
 #include <KLocalizedString>
 #include <QCommandLineParser>
 #include <KDBusService>
-
+#include <Kdelibs4ConfigMigrator>
 #include "mainwin.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
@@ -36,6 +36,11 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("konquest"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("konquestrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
+    migrate.migrate();
+
     QApplication app(argc, argv);
 
     KAboutData aboutData( "konquest", i18n("Konquest"),
