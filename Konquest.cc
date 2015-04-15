@@ -36,12 +36,12 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
+    QApplication app(argc, argv);
+
     Kdelibs4ConfigMigrator migrate(QStringLiteral("konquest"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("konquestrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
     migrate.migrate();
-
-    QApplication app(argc, argv);
 
     KAboutData aboutData( "konquest", i18n("Konquest"),
         KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
