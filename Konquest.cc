@@ -42,7 +42,7 @@ main(int argc, char **argv)
     migrate.setConfigFiles(QStringList() << QStringLiteral("konquestrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
     migrate.migrate();
-
+    KLocalizedString::setApplicationDomain("konquest");
     KAboutData aboutData( "konquest", i18n("Konquest"),
         KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
         i18n("Copyright (c) 1999-2013, Developers"), "http://games.kde.org/konquest" );
