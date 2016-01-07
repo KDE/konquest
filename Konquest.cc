@@ -69,5 +69,6 @@ main(int argc, char **argv)
         MainWindow *w = new MainWindow;
         w->show();
     }
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("konquest")));
     return app.exec();
 }
