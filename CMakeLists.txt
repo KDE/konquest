@@ -2,27 +2,29 @@ project(konquest)
 
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 set (QT_MIN_VERSION "5.3.0")
+set (KF5_MIN_VERSION "5.15.0")
 
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
-find_package(KF5 REQUIRED COMPONENTS 
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Config
+    ConfigWidgets
     CoreAddons
-    Config
-    ItemModels
-    WidgetsAddons
-    WindowSystem
-    Config
+    Crash
     DBusAddons
     I18n
-    ConfigWidgets
-    TextWidgets
-    XmlGui
+    ItemModels
+    KDELibs4Support
     KIO
-    NotifyConfig
     NewStuff
-    KDELibs4Support)
+    NotifyConfig
+    TextWidgets
+    WidgetsAddons
+    WindowSystem
+    XmlGui
+)
 
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 find_package(Phonon4Qt5 CONFIG REQUIRED)
@@ -101,17 +103,30 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-konquest.png")
 ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
 add_executable(konquest ${konquest_SRCS})
 
-target_link_libraries(konquest   KF5KDEGames KF5::KDELibs4Support Qt5::Svg KF5::DBusAddons)
+target_link_libraries(konquest
+    Qt5::Svg
+    KF5::Crash
+    KF5::DBusAddons
+    KF5::KDELibs4Support
+    KF5KDEGames
+)
 
-install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
-install( FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest )
+install(PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
+install(FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest)
 
-ecm_install_icons( ICONS 128-apps-konquest.png  16-apps-konquest.png  22-apps-konquest.png  32-apps-konquest.png  48-apps-konquest.png  64-apps-konquest.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor )
-
+ecm_install_icons(ICONS
+    128-apps-konquest.png
+    16-apps-konquest.png
+    22-apps-konquest.png
+    32-apps-konquest.png
+    48-apps-konquest.png
+    64-apps-konquest.png
+    DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor
+)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
