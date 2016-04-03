@@ -7,29 +7,23 @@ set (KF5_MIN_VERSION "5.15.0")
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Completion
     Config
     ConfigWidgets
     CoreAddons
     Crash
     DBusAddons
     I18n
-    ItemModels
     KDELibs4Support
-    KIO
-    NewStuff
-    NotifyConfig
-    TextWidgets
     WidgetsAddons
-    WindowSystem
     XmlGui
 )
 
-find_package(KF5KDEGames 4.9.0 REQUIRED)
-find_package(Phonon4Qt5 CONFIG REQUIRED)
+find_package(KF5DocTools ${KF5_MIN_VERSION})
 
-include_directories(BEFORE ${PHONON_INCLUDES})
+find_package(KF5KDEGames 4.9.0 REQUIRED)
 
 include(FeatureSummary)
 include(ECMAddAppIcon)
@@ -42,7 +36,9 @@ add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 
 add_subdirectory( pics )
-add_subdirectory( doc )
+if (KF5DocTools_FOUND)
+    add_subdirectory( doc )
+endif()
 
 ########### next target ###############
 
