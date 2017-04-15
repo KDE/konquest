@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.kde.konquest.desktop</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Konquest</name>
+  <summary>Galactic Strategy Game</summary>
+    <description>
+    <p>
+      Konquest is a version of Gnu-Lactic Konquest. Players conquer other planets
+      by sending ships to them. The goal is to build an interstellar empire and ultimately
+      conquer all other player's planets.
+    </p>
+  </description>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=konquest</url>
+  <url type="help">https://docs.kde.org/?application=konquest</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://kde.org/images/screenshots/konquest.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>konquest</binary>
+  </provides>
+</component>

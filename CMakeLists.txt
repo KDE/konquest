@@ -79,9 +79,8 @@ install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( PROGRAMS konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES konquestui.rc  DESTINATION  ${DATA_INSTALL_DIR}/konquest )
+install(FILES org.kde.konquest.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/metainfo/ )
 
 kde4_install_icons( ${ICON_INSTALL_DIR} )
-
-
