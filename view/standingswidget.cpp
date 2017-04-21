@@ -27,9 +27,8 @@
 #include <QTableWidget>
 #include <QVBoxLayout>
 
+#include <KGuiItem>
 #include <KLocalizedString>
-#include <KStandardGuiItem>
-#include <kguiitem.h>
 
 
 StandingsWidget::StandingsWidget(QWidget *parent) :

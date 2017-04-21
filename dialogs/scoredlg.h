@@ -23,7 +23,6 @@
 #ifndef KONQUEST_SCOREDLG_H
 #define KONQUEST_SCOREDLG_H
 
-#include <QTableWidget>
 #include <QDialog>
 
 #include "../players/player.h"

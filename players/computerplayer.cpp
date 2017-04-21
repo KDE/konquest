@@ -23,7 +23,6 @@
 #include "computerplayer.h"
 #include "../game.h"
 
-#include <QDebug>
 #include <cmath>
 #include <cfloat>
 

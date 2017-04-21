@@ -25,7 +25,6 @@
 
 #include <QMouseEvent>
 #include <QPainter>
-#include <QDebug>
 
 #include "planet.h"
 #include "players/player.h"

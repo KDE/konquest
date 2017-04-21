@@ -23,8 +23,8 @@
 #ifndef KONQUEST_MAP_H
 #define KONQUEST_MAP_H
 
-#include <QObject>
 #include <QList>
+#include <QObject>
 
 #include "sector.h"
 #include "../players/player.h"

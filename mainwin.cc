@@ -22,20 +22,17 @@
 
 #include "mainwin.h"
 
-#include <QDockWidget>
-#include <QPushButton>
-#include <QLabel>
-#include <QDebug>
-
-#include <KLocalizedString>
-#include <qmenubar.h>
-#include <ktoolbar.h>
 #include <QAction>
-#include <kactioncollection.h>
-#include <kstandardaction.h>
-#include <kstandardgameaction.h>
+#include <QDockWidget>
 #include <QIcon>
-#include <qstatusbar.h>
+#include <QLabel>
+#include <QPushButton>
+#include <QStatusBar>
+
+#include <KActionCollection>
+#include <KStandardGameAction>
+#include <KLocalizedString>
+#include <KToolBar>
 
 #include "game.h"
 #include "localgame.h"

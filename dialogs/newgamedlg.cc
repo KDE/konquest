@@ -37,15 +37,13 @@
 #include "../players/spectatorplayer.h"
 #include "../players/spectatorplayer_gui.h"
 #include "../game.h"
-#include <kconfig.h>
-#include <KLocalizedString>
-#include <KStandardGuiItem>
 
+#include <KConfig>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 
 #include <QComboBox>
-#include <QDebug>
 #include <QHeaderView>
 #include <QItemDelegate>
 #include <QLineEdit>

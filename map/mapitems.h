@@ -25,7 +25,6 @@
 
 #include <QGraphicsObject>
 #include <QTextDocument>
-#include <QObject>
 #include "sector.h"
 
 class Game;

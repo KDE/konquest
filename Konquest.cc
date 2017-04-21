@@ -21,14 +21,14 @@
  */
 
 
-#include <KLocalizedString>
 #include <KAboutData>
 #include <KCrash>
-#include <QApplication>
-#include <KLocalizedString>
-#include <QCommandLineParser>
-#include <KDBusService>
 #include <Kdelibs4ConfigMigrator>
+#include <KDBusService>
+#include <KLocalizedString>
+
+#include <QApplication>
+#include <QCommandLineParser>
 #include "mainwin.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");

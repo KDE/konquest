@@ -23,14 +23,13 @@
 
 #include "mapitems.h"
 
+#include <QBrush>
 #include <QGraphicsScene>
 #include <QPainter>
-#include <QBrush>
 #include <QTimer>
 
 #include <KLocalizedString>
-#include <QDebug>
-#include <kcolorscheme.h>
+#include <KColorScheme>
 
 #include "mapscene.h"
 #include "map.h"

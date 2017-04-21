@@ -22,10 +22,6 @@
 
 #include "scoredlg.h"
 
-#include <KLocalizedString>
-#include <KStandardGuiItem>
-
-#include <QHeaderView>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>

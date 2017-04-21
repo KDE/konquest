@@ -19,9 +19,7 @@
 #include "neutralplayer.h"
 #include "../game.h"
 #include "../planet.h"
-#include <QColor>
 #include <QDebug>
-#include <QApplication>
 
 NeutralPlayer::NeutralPlayer(Game *game) :
     Player(game, QString(), Qt::gray)

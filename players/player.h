@@ -19,8 +19,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QState>
 #include <QColor>
+#include <QState>
 #include "../fleet.h"
 
 class Game;

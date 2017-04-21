@@ -24,9 +24,11 @@
 #define KONQUEST_MAPSCENE_H
 
 
-#include <QSvgRenderer>
 #include <QGraphicsScene>
+#include <QSvgRenderer>
+
 #include <KImageCache>
+
 #include "mapitems.h"
 #include "../game.h"
 

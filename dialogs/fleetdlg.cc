@@ -22,13 +22,12 @@
 
 #include "fleetdlg.h"
 
-#include <QHeaderView>
-#include <QTableWidget>
-
-#include <KStandardGuiItem>
 #include <KLocalizedString>
+
 #include <QDialogButtonBox>
+#include <QHeaderView>
 #include <QPushButton>
+#include <QTableWidget>
 #include <QVBoxLayout>
 
 #include "planet.h"
