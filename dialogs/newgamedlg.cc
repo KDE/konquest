@@ -39,12 +39,12 @@
 #include "../game.h"
 #include <kconfig.h>
 #include <KLocalizedString>
-#include <kmessagebox.h>
 #include <KStandardGuiItem>
-#include <kglobal.h>
 
 #include <KLineEdit>
 #include <KComboBox>
+#include <KConfigGroup>
+
 #include <QHeaderView>
 #include <QItemDelegate>
 #include <QList>
@@ -53,6 +53,9 @@
 #include <QPair>
 #include <QMenu>
 #include <QSignalMapper>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 /*************************************************************************
  New Game Dialog Members
@@ -318,14 +321,20 @@ private:
 };
 
 NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
-    : KDialog( parent),
+    : QDialog( parent),
       m_game(game)
 {
     m_neutral = m_game->neutral();
-    setCaption(i18n("Start New Game"));
-    setButtons(KDialog::Ok|KDialog::Cancel);
-    setDefaultButton(KDialog::NoDefault);
-    showButtonSeparator(true);
+    setWindowTitle(i18n("Start New Game"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     m_selectablePlayer.push_back(new LocalPlayerGui());
     m_selectablePlayer.push_back(new SpectatorPlayerGui());
@@ -373,7 +382,9 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     init();
 
-    setMainWidget(m_w);
+    mainLayout->addWidget(m_w);
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     slotNewMap();
 
     updateButtonOk();
@@ -674,7 +685,7 @@ NewGameDlg::updateButtonOk()
         }
     }
 
-    enableButtonOk(
+    okButton->setEnabled(
         (nonSpectatorCount >= 2) &&
         isSaneConfiguration
     );

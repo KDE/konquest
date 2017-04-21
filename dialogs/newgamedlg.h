@@ -23,7 +23,7 @@
 #define KONQUEST_NEWGAMEDLG_H
 
 
-#include <kdialog.h>
+#include <QDialog>
 
 #include "planet.h"
 #include "minimapview.h"
@@ -51,7 +51,7 @@ public:
  ************************************************************************/
 
 
-class NewGameDlg : public KDialog
+class NewGameDlg : public QDialog
 {
     Q_OBJECT
 
@@ -81,6 +81,7 @@ private:
 
     QList<PlayerGui *> m_selectablePlayer;
     QMenu            *m_playerTypeChooser;
+    QPushButton      *okButton;
 
     Game             *m_game;
     Player           *m_neutral;

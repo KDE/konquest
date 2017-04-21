@@ -46,7 +46,7 @@
 // KonquestMainWindow
 MainWindow::MainWindow()
 {
-    setCaption( i18n("Galactic Conquest") );
+    setWindowTitle( i18n("Galactic Conquest") );
 
     setupActions();
     setupGameView();
