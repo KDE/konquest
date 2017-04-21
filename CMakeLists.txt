@@ -15,6 +15,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Crash
     DBusAddons
+    GuiAddons
     I18n
     KDELibs4Support
     WidgetsAddons
@@ -101,9 +102,12 @@ add_executable(konquest ${konquest_SRCS})
 
 target_link_libraries(konquest
     Qt5::Svg
+    KF5::CoreAddons
     KF5::Crash
     KF5::DBusAddons
+    KF5::GuiAddons
     KF5::KDELibs4Support
+    KF5::XmlGui
     KF5KDEGames
 )
 

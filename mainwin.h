@@ -24,7 +24,7 @@
 #define KONQUEST_MAINWIN_H
 
 #include <QAction>
-#include <kxmlguiwindow.h>
+#include <KXmlGuiWindow>
 
 #include "game.h"
 #include "gameview.h"
