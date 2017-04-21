@@ -44,8 +44,8 @@ ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> playe
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ScoreDlg::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ScoreDlg::reject);
 
     m_standingsWidget = new StandingsWidget(this, players);
     mainLayout->addWidget(m_standingsWidget );

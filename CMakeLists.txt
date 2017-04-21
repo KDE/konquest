@@ -16,6 +16,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     GuiAddons
     I18n
     XmlGui
+    WidgetsAddons
 )
 
 find_package(KF5DocTools ${KF5_MIN_VERSION})
@@ -104,6 +105,7 @@ target_link_libraries(konquest
     KF5::GuiAddons
     KF5::I18n
     KF5::XmlGui
+    KF5::WidgetsAddons
     KF5KDEGames
 )
 

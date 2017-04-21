@@ -54,7 +54,7 @@ void
 MiniMapView::setMap(Map *map)
 {
     m_map = map;
-    connect(m_map, SIGNAL(update()), this, SLOT(update()));
+    connect(m_map, &Map::update, this, static_cast<void (QWidget::*)(void)>(&QWidget::update));
 }
 
 

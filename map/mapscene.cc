@@ -105,8 +105,7 @@ MapScene::mapUpdate()
                 sector = map()->sector(Coordinate(j, i));
                 if (sector->hasPlanet()) {
                     PlanetItem *item = new PlanetItem(this, sector, m_game);
-                    connect(item, SIGNAL(planetItemSelected (PlanetItem *)),
-                            this, SLOT(planetItemSelected (PlanetItem *)));
+                    connect(item, &PlanetItem::planetItemSelected, this, &MapScene::planetItemSelected);
                     item->setZValue(1.0);
                     addItem(item);
                     m_planetItems.append(item);

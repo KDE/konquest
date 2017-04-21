@@ -334,8 +334,8 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     mainLayout->addWidget(mainWidget);
     okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &NewGameDlg::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &NewGameDlg::reject);
 
     m_selectablePlayer.push_back(new LocalPlayerGui());
     m_selectablePlayer.push_back(new SpectatorPlayerGui());
@@ -356,13 +356,12 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
         menuMapper->setMapping(action, i);
         connect(action, SIGNAL(triggered(bool)), menuMapper, SLOT(map()));
     }
-    connect(menuMapper, SIGNAL(mapped(int)), this, SLOT(slotAddPlayer(int)));
+    connect(menuMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &NewGameDlg::slotAddPlayer);
 
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap(m_game->map());
 
-    connect(m_w->map, SIGNAL(sectorSelected(Coordinate)),
-            this, SLOT(slotUpdateSelection(Coordinate)));
+    connect(m_w->map, &MiniMapView::sectorSelected, this, &NewGameDlg::slotUpdateSelection);
 
     playersListModel *model = new playersListModel(this, m_game, m_selectablePlayer);
 
@@ -371,15 +370,15 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     m_w->playerList->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     m_w->addPlayerButton->setMenu(m_playerTypeChooser);
 
-    connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateNeutrals(int)));
-    connect(m_w->widthSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
-    connect(m_w->heightSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
-    connect(m_w->randomizeMap, SIGNAL(clicked()), this, SLOT(slotNewMap()));
-    connect(m_w->removePlayerButton, SIGNAL(clicked()), this, SLOT(slotRemovePlayer()));
+    connect(m_w->neutralPlanetsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotUpdateNeutrals);
+    connect(m_w->widthSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewMap);
+    connect(m_w->heightSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewMap);
+    connect(m_w->randomizeMap, &QPushButton::clicked, this, &NewGameDlg::slotNewMap);
+    connect(m_w->removePlayerButton, &QPushButton::clicked, this, &NewGameDlg::slotRemovePlayer);
 
-    connect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
-    connect(m_w->KillPercentageSB, SIGNAL(valueChanged(double)), this, SLOT(slotNewKillPercentage(double)));
-    connect(m_w->ProductionSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewProduction(int)));
+    connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
+    connect(m_w->KillPercentageSB, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &NewGameDlg::slotNewKillPercentage);
+    connect(m_w->ProductionSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewProduction);
 
     init();
 
@@ -506,7 +505,7 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
     m_w->KillPercentageSB->setEnabled(hasPlanet);
     m_w->ProductionSB->setEnabled(hasPlanet);
 
-    disconnect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
+    disconnect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
 
     if (hasPlanet) {
         Planet *planet = sector->planet();
@@ -525,7 +524,7 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
         m_w->OwnerCB->setCurrentIndex(0);
     }
 
-    connect(m_w->OwnerCB, SIGNAL(currentIndexChanged(int)), this, SLOT(slotNewOwner(int)));
+    connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
 }
 
 
@@ -621,9 +620,9 @@ NewGameDlg::slotNewMap()
     // make sure we have space for neutrals
     int maxneutrals = m_w->heightSB->value()*m_w->widthSB->value() - m_game->players().count();
     if(m_w->neutralPlanetsSB->value() > maxneutrals) {
-        disconnect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+        disconnect(m_w->neutralPlanetsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewMap);
         m_w->neutralPlanetsSB->setValue(maxneutrals);
-        connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotNewMap()));
+        connect(m_w->neutralPlanetsSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewMap);
     }
 
     // make the planets
