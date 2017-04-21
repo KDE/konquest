@@ -25,7 +25,6 @@
 #include <QHeaderView>
 #include <QTableWidget>
 
-#include <kglobal.h>
 #include <KStandardGuiItem>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
