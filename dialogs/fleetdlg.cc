@@ -182,7 +182,7 @@ FleetDlg::update()
         // number comparison. But as all values have the same amount of
         // characters/digits, sorting by string actually works.
 
-        item = new QTableWidgetItem(QString("%1").arg(KLocale::global()->formatNumber(curFleet->source->killPercentage(), 3)));
+        item = new QTableWidgetItem(QStringLiteral("%1").arg(curFleet->source->killPercentage(), 3, 'f', 3));
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem(row, 5, item);

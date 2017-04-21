@@ -34,8 +34,6 @@
 #include <QIntValidator>
 #include <QDebug>
 
-#include <kmessagebox.h>
-
 #include "players/player.h"
 #include "players/localplayer.h"
 #include "images.h"

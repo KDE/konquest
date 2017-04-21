@@ -28,7 +28,6 @@
 #include <QBrush>
 #include <QTimer>
 
-#include <kiconloader.h>
 #include <KLocalizedString>
 #include <QDebug>
 #include <kcolorscheme.h>
@@ -53,7 +52,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
     if (m_sector->planet() != NULL) {
         m_lookName = QString("planet_%1").arg(m_sector->planet()->planetLook() + 1);
     }
-    setAcceptsHoverEvents(true);
+    setAcceptHoverEvents(true);
 
     m_blinkTimer = new QTimer(this);
     connect(m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkPlanet()));

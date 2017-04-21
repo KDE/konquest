@@ -41,20 +41,21 @@
 #include <KLocalizedString>
 #include <KStandardGuiItem>
 
-#include <KLineEdit>
-#include <KComboBox>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
+#include <QComboBox>
+#include <QDebug>
 #include <QHeaderView>
 #include <QItemDelegate>
+#include <QLineEdit>
 #include <QList>
-#include <QDebug>
 #include <QLinkedList>
-#include <QPair>
 #include <QMenu>
+#include <QPair>
+#include <QPushButton>
 #include <QSignalMapper>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 /*************************************************************************
@@ -282,15 +283,15 @@ public:
     QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &index) const
     {
         if (index.column() == 0)
-            return new KLineEdit(parent);
+            return new QLineEdit(parent);
         else
-            return new KComboBox(parent);
+            return new QComboBox(parent);
     }
 
     void setEditorData(QWidget *editor, const QModelIndex &index) const
     {
         if (index.column() != 0) {
-            KComboBox *cbox = static_cast<KComboBox*>(editor);
+            QComboBox *cbox = static_cast<QComboBox*>(editor);
 
             foreach (PlayerGui* playerGui, m_selectablePlayer) {
                 cbox->addItem(playerGui->guiName());
@@ -298,7 +299,7 @@ public:
 
             cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
         } else {
-            KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
+            QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
             lineEdit->setText(index.data(Qt::DisplayRole).toString());
         }
     }
@@ -306,11 +307,11 @@ public:
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
     {
         if (index.column() != 0) {
-            KComboBox *cbox = static_cast<KComboBox*>(editor);
+            QComboBox *cbox = static_cast<QComboBox*>(editor);
 
             model->setData(index, cbox->currentText(), Qt::EditRole);
         } else {
-            KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
+            QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
 
             model->setData(index, lineEdit->text(), Qt::EditRole);
         }
@@ -367,7 +368,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     m_w->playerList->setModel(model);
     m_w->playerList->setItemDelegate(new playersListDelegate(this, m_selectablePlayer));
-    m_w->playerList->header()->setResizeMode(QHeaderView::ResizeToContents);
+    m_w->playerList->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     m_w->addPlayerButton->setMenu(m_playerTypeChooser);
 
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateNeutrals(int)));
