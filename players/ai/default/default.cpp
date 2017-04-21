@@ -24,7 +24,7 @@
 #include "../../../game.h"
 #include "../../../planet.h"
 
-#include <KDebug>
+#include <QDebug>
 #include <cmath>
 #include <cfloat>
 
@@ -41,7 +41,7 @@ AiDefault::AiDefault(Game *game,
 
 void AiDefault::play()
 {
-    kDebug() << "computer playing";
+    //qDebug() << "computer playing";
     int      ships = 0, minimumShips =10, shipCountFactor = 2;
     Planet  *target = 0;
 

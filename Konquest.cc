@@ -20,12 +20,15 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <kapplication.h>
-#include <klocale.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <kstandarddirs.h>
 
+#include <KLocalizedString>
+#include <KAboutData>
+#include <KCrash>
+#include <QApplication>
+#include <KLocalizedString>
+#include <QCommandLineParser>
+#include <KDBusService>
+#include <Kdelibs4ConfigMigrator>
 #include "mainwin.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
@@ -34,27 +37,42 @@ static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
 int
 main(int argc, char **argv)
 {
-    KAboutData aboutData( "konquest", 0, ki18n("Konquest"),
-        KONQUEST_VERSION, ki18n(description), KAboutData::License_GPL,
-        ki18n("Copyright (c) 1999-2013, Developers"), KLocalizedString(), "http://games.kde.org/konquest" );
+    QApplication app(argc, argv);
 
-    aboutData.addAuthor(ki18n("Russ Steffen"), KLocalizedString(), "rsteffen@bayarea.net");
-    aboutData.addCredit(ki18n("Stephan Zehetner"), ki18n("Computer/AI Player"), "s.zehetner@nevox.org");
-    aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to KDE4"), "dimsuz@gmail.com");
-    aboutData.addCredit(ki18n("Inge Wallin"), ki18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
-    aboutData.addCredit(ki18n("Pierre Ducroquet"), ki18n("Cleaning and bugfixing, maintenance"), "pinaraf@gmail.com");
-    aboutData.addCredit(ki18n("Sean D'Epagnier"), ki18n("Gameplay Enhancements"), "geckosenator@gmail.com");
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("konquest"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("konquestrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
+    migrate.migrate();
+    KLocalizedString::setApplicationDomain("konquest");
+    KAboutData aboutData( "konquest", i18n("Konquest"),
+        KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
+        i18n("Copyright (c) 1999-2013, Developers"), "http://games.kde.org/konquest" );
 
-    KCmdLineArgs::init( argc, argv, &aboutData );
+    aboutData.addAuthor(i18n("Russ Steffen"), QString(), "rsteffen@bayarea.net");
+    aboutData.addCredit(i18n("Stephan Zehetner"), i18n("Computer/AI Player"), "s.zehetner@nevox.org");
+    aboutData.addCredit(i18n("Dmitry Suzdalev"), i18n("Port to KDE4"), "dimsuz@gmail.com");
+    aboutData.addCredit(i18n("Inge Wallin"), i18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
+    aboutData.addCredit(i18n("Pierre Ducroquet"), i18n("Cleaning and bugfixing, maintenance"), "pinaraf@gmail.com");
+    aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), "geckosenator@gmail.com");
 
-    KApplication a;
-    KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
+    aboutData.setOrganizationDomain(QByteArray("kde.org"));
 
-    if (a.isSessionRestored())
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
+    parser.addVersionOption();
+    parser.addHelpOption();
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
+    KDBusService service;
+
+    if (app.isSessionRestored())
         RESTORE(MainWindow)
     else {
         MainWindow *w = new MainWindow;
         w->show();
     }
-    return a.exec();
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("konquest")));
+    return app.exec();
 }

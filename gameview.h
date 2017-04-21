@@ -81,7 +81,7 @@ public:
     virtual  ~GameView();
     bool  confirmNewGame();
 
-protected slots:
+public slots:
     bool  shutdownGame();
     void  planetSelected( Planet * );
     void  newShipCount();

@@ -22,25 +22,34 @@
 
 #include "scoredlg.h"
 
-#include <klocale.h>
-#include <kcomponentdata.h>
+#include <KLocalizedString>
 #include <KStandardGuiItem>
-#include <kguiitem.h>
 
 #include <QHeaderView>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> players )
-    : KDialog(parent)
+    : QDialog(parent)
 {
     setObjectName( QLatin1String( "ScoreDlg" ) );
     setModal( true );
-    setCaption(title);
-    setButtons( KDialog::Ok );
+    setWindowTitle(title);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     m_standingsWidget = new StandingsWidget(this, players);
-
-    setMainWidget( m_standingsWidget );
-    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
+    mainLayout->addWidget(m_standingsWidget );
+    mainLayout->addWidget(buttonBox);
 }
 
 

@@ -148,7 +148,7 @@ Map::UniquePlanetName(void)
     char c = 'A';
 again:
     foreach(Planet *planet, planets()) {
-        if (planet->name().at(0).toAscii() == c) {
+        if (planet->name().at(0).toLatin1() == c) {
             c++;
             goto again;
         }

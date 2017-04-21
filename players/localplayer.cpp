@@ -21,7 +21,7 @@
  */
 
 #include "localplayer.h"
-#include <KDebug>
+#include <QDebug>
 
 LocalPlayer::LocalPlayer(Game *game, const QString &newName, const QColor &color) :
     Player(game, newName, color)
@@ -31,13 +31,13 @@ LocalPlayer::LocalPlayer(Game *game, const QString &newName, const QColor &color
 
 void LocalPlayer::play()
 {
-    kDebug() << name() << "::play";
+    //qDebug() << name() << "::play";
     emit(canPlay());
 }
 
 
 void LocalPlayer::done()
 {
-    kDebug() << name() << "::done";
+    //qDebug() << name() << "::done";
     emit(donePlaying());
 }

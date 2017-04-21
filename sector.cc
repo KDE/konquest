@@ -54,7 +54,7 @@ void Sector::setPlanet( Planet *planet )
 {
     m_planet = planet;
 
-    connect( m_planet, SIGNAL( update() ), this, SLOT( childPlanetUpdate() ) );
+    connect(m_planet, &Planet::update, this, &Sector::childPlanetUpdate);
 
     emit update();
 }

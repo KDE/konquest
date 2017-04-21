@@ -25,8 +25,8 @@
 
 
 #include <QSvgRenderer>
-#include <KPixmapCache>
 #include <QGraphicsScene>
+#include <KImageCache>
 #include "mapitems.h"
 #include "../game.h"
 
@@ -45,7 +45,7 @@ class MapScene: public QGraphicsScene
         ~MapScene();
 
         QSvgRenderer  *renderer() const  { return m_renderer; }
-        KPixmapCache  *pixmapCache() const  { return m_pixmapCache; }
+        KImageCache   *imageCache() const  { return m_imageCache; }
         Map           *map()      const  { return m_game->map(); }
 
         void           selectPlanet(Planet *planet);
@@ -120,7 +120,7 @@ private:
         Game            *m_game;
 
         QSvgRenderer    *m_renderer;
-        KPixmapCache    *m_pixmapCache;
+        KImageCache     *m_imageCache;
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;
         QVector<PlanetItem*> m_planetItems;

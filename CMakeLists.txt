@@ -1,18 +1,41 @@
 project(konquest)
 
-if(NOT COMPILING_KDEGAMES)
-	find_package(KDE4 REQUIRED)
-	include(KDE4Defaults)
-	include(MacroLibrary)
-	find_package(KDEGames REQUIRED)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+set (QT_MIN_VERSION "5.3.0")
+set (KF5_MIN_VERSION "5.15.0")
 
-	add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-	add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-	include_directories(${KDEGAMES_INCLUDE_DIRS} ${KDE4_INCLUDES} ${QDBUS_INCLUDE_DIRS})
-endif(NOT COMPILING_KDEGAMES)
+find_package(ECM 1.7.0 REQUIRED CONFIG)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Config
+    CoreAddons
+    Crash
+    DBusAddons
+    GuiAddons
+    I18n
+    XmlGui
+)
+
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+
+find_package(KF5KDEGames 4.9.0 REQUIRED)
+
+include(FeatureSummary)
+include(ECMAddAppIcon)
+include(ECMInstallIcons)
+include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+
 
 add_subdirectory( pics )
-add_subdirectory( doc )
+if (KF5DocTools_FOUND)
+    add_subdirectory( doc )
+endif()
 
 ########### next target ###############
 
@@ -67,20 +90,40 @@ if(KONQUEST_EXAMPLE_PLAYER)
                  players/ai/example/example_gui.cpp)
 endif()
 
-kde4_add_ui_files(konquest_SRCS dialogs/newGameDialog.ui )
+ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
-kde4_add_app_icon(konquest_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-konquest.png")
-kde4_add_executable(konquest ${konquest_SRCS})
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-konquest.png")
+ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
+add_executable(konquest ${konquest_SRCS})
 
-target_link_libraries(konquest  ${KDE4_KDEUI_LIBS} kdegames )
+target_link_libraries(konquest
+    Qt5::Svg
+    KF5::CoreAddons
+    KF5::Crash
+    KF5::DBusAddons
+    KF5::GuiAddons
+    KF5::I18n
+    KF5::XmlGui
+    KF5KDEGames
+)
 
-install(TARGETS konquest  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.konquest.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES konquestui.rc  DESTINATION  ${DATA_INSTALL_DIR}/konquest )
-install(FILES org.kde.konquest.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/metainfo/ )
+install(PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
+install(FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest)
+install(FILES org.kde.konquest.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
-kde4_install_icons( ${ICON_INSTALL_DIR} )
+ecm_install_icons(ICONS
+    128-apps-konquest.png
+    16-apps-konquest.png
+    22-apps-konquest.png
+    32-apps-konquest.png
+    48-apps-konquest.png
+    64-apps-konquest.png
+    DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor
+)
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

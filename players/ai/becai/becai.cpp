@@ -21,7 +21,7 @@
 #include <cfloat>
 #include <cmath>
 
-#include <KDebug>
+#include <QDebug>
 #include <QMap>
 #include <QMultiMap>
 #include <QtAlgorithms>
@@ -226,27 +226,27 @@ AiBecai::play()
 
     int enemyAttackPerOwnPlanet = std::ceil((double) totalEnemyDefence / totalOwnPlanets);
 
-    kDebug() << "total own production: " << totalOwnProduction;
-    kDebug() << "total own fleet: " << totalOwnFleet;
-    kDebug() << "total own planets: " << totalOwnPlanets;
-    kDebug() << "total total planets: " << totalTotalPlanets;
-    kDebug() << "total enemy production: " << totalEnemyProduction;
-    kDebug() << "total enemy defence: " << totalEnemyDefence;
-    kDebug() << "total enemy planets: " << totalEnemyPlanets;
-    kDebug() << "minimum base defence fleet size: " << minimumBaseDefenceFleetSize;
-    kDebug() << "minimum capped base defence fleet size: " << minimumCappedBaseDefenceFleetSize;
-    kDebug() << "enemy attack per own planet: " << enemyAttackPerOwnPlanet;
-    kDebug() << "average non-own planet defence fleet size: " << averageNonOwnPlanetDefenceFleetSize;
-    kDebug() << "average own kill percentage: " << averageOwnKillPercentage;
-    kDebug() << "average own production: " << averageOwnProduction;
+    //qDebug() << "total own production: " << totalOwnProduction;
+    //qDebug() << "total own fleet: " << totalOwnFleet;
+    //qDebug() << "total own planets: " << totalOwnPlanets;
+    //qDebug() << "total total planets: " << totalTotalPlanets;
+    //qDebug() << "total enemy production: " << totalEnemyProduction;
+    //qDebug() << "total enemy defence: " << totalEnemyDefence;
+    //qDebug() << "total enemy planets: " << totalEnemyPlanets;
+    //qDebug() << "minimum base defence fleet size: " << minimumBaseDefenceFleetSize;
+    //qDebug() << "minimum capped base defence fleet size: " << minimumCappedBaseDefenceFleetSize;
+    //qDebug() << "enemy attack per own planet: " << enemyAttackPerOwnPlanet;
+    //qDebug() << "average non-own planet defence fleet size: " << averageNonOwnPlanetDefenceFleetSize;
+    //qDebug() << "average own kill percentage: " << averageOwnKillPercentage;
+    //qDebug() << "average own production: " << averageOwnProduction;
 
     if (minimumBaseDefenceFleetSize > minimumCappedBaseDefenceFleetSize) {
-        kDebug() << "Reducing minimum base defence fleet size from " << minimumBaseDefenceFleetSize << " to " << minimumCappedBaseDefenceFleetSize << " (cap).";
+        //qDebug() << "Reducing minimum base defence fleet size from " << minimumBaseDefenceFleetSize << " to " << minimumCappedBaseDefenceFleetSize << " (cap).";
         minimumBaseDefenceFleetSize = minimumCappedBaseDefenceFleetSize;
     }
 
     if (minimumBaseDefenceFleetSize > enemyAttackPerOwnPlanet) {
-        kDebug() << "Reducing minimum base defence fleet size from " << minimumBaseDefenceFleetSize << " to " << enemyAttackPerOwnPlanet << " (enemy attack per own planet).";
+        //qDebug() << "Reducing minimum base defence fleet size from " << minimumBaseDefenceFleetSize << " to " << enemyAttackPerOwnPlanet << " (enemy attack per own planet).";
         minimumBaseDefenceFleetSize = enemyAttackPerOwnPlanet;
 
         if (minimumBaseDefenceFleetSize < averageOwnProduction) {
@@ -258,7 +258,7 @@ AiBecai::play()
             // So keep up a minimum fleet hopefully large enough to destroy any
             // (small) incoming enemy fleet.
 
-            kDebug() << "Minimum base defence is too low. Resetting to original minimum base defence fleet size!";
+            //qDebug() << "Minimum base defence is too low. Resetting to original minimum base defence fleet size!";
             minimumBaseDefenceFleetSize = originalMinimumBaseDefenceFleetSize;
         }
     }
@@ -272,7 +272,7 @@ AiBecai::play()
         // The actual problem is that in this situation, the calculated
         // minimum base defence fleet size is zero.
 
-        kDebug() << "No enemy planets found! Evenly distribute our fleet among our planets.";
+        //qDebug() << "No enemy planets found! Evenly distribute our fleet among our planets.";
         minimumBaseDefenceFleetSize = totalOwnFleet / totalOwnPlanets;
     }
 
@@ -507,7 +507,7 @@ AiBecai::play()
                     }
 
                     if (attackFleetSize > 0) {
-                        kDebug() << "Attacking " << attackPlanet->name() << " from " << home->name() << " with " << attackFleetSize << ".";
+                        //qDebug() << "Attacking " << attackPlanet->name() << " from " << home->name() << " with " << attackFleetSize << ".";
                         m_game->attack(home, attackPlanet, attackFleetSize);
 
                         surplusFleetSize -= attackFleetSize;
@@ -561,7 +561,7 @@ AiBecai::play()
                         // the support planet actually needs (or less), but for
                         // now this is good enough.
 
-                        kDebug() << "Supporting (support) " << closestSupportPlanet->name() << " from " << home->name() << " with " << surplusFleetSize << ".";
+                        //qDebug() << "Supporting (support) " << closestSupportPlanet->name() << " from " << home->name() << " with " << surplusFleetSize << ".";
                         m_game->attack(home, closestSupportPlanet, surplusFleetSize);
 
                         // We do not have any surplus fleet anymore to send
@@ -581,7 +581,7 @@ AiBecai::play()
             // needed.
 
             if (surplusFleetSize > 3 * home->production()) { // > 0) {
-                kDebug() << "Supporting (upstream) " << closestUpstreamPlanet->name() << " from " << home->name() << " with " << surplusFleetSize << ".";
+                //qDebug() << "Supporting (upstream) " << closestUpstreamPlanet->name() << " from " << home->name() << " with " << surplusFleetSize << ".";
                 m_game->attack(home, closestUpstreamPlanet, surplusFleetSize);
             }
         }

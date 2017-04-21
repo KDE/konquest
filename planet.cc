@@ -26,7 +26,7 @@
 #include "game.h"
 #include "players/player.h"
 #include <krandomsequence.h>
-#include <KDebug>
+#include <QDebug>
 
 //---------------------------------------------------------------------------
 // class Planet
@@ -46,7 +46,7 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
 {
     KRandomSequence r;
     m_planetLook = r.getLong(10);
-    connect(&m_homeFleet, SIGNAL(update()), this, SIGNAL(update()));
+    connect(&m_homeFleet, &DefenseFleet::update, this, &Planet::update);
     m_sector->setPlanet( this );
 }
 
@@ -86,7 +86,7 @@ Planet::conquer( AttackFleet *conqueringFleet )
 void
 Planet::turn(const GameOptions &options)
 {
-    kDebug() << "Planet::turn...";
+    //qDebug() << "Planet::turn...";
 
     if (options.ProductionAfterConquere || !m_justconquered) {
         if (m_owner->isNeutral()) {

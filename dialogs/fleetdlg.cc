@@ -25,12 +25,12 @@
 #include <QHeaderView>
 #include <QTableWidget>
 
-#include <kcomponentdata.h>
 #include <kglobal.h>
-#include <kpushbutton.h>
 #include <KStandardGuiItem>
-#include <kguiitem.h>
-#include <klocale.h>
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "planet.h"
 #include "../players/player.h"
@@ -40,18 +40,26 @@ FleetDlg::FleetDlg( QWidget *parent,
                     const AttackFleetList &fleets,
                     const AttackFleetList &newFleets,
                     const AttackFleetList &standingOrders)
-    : KDialog(parent), m_newFleetList(newFleets), m_standingOrders(standingOrders), m_fleetList(fleets)
+    : QDialog(parent), m_newFleetList(newFleets), m_standingOrders(standingOrders), m_fleetList(fleets)
 {
     setObjectName( QLatin1String( "FleetDlg" ) );
     setModal( true );
-    setCaption( i18n("Fleet Overview") );
-    setButtons( KDialog::Ok );
+    setWindowTitle( i18n("Fleet Overview") );
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     setupTable();
     update();
-
-    setMainWidget( m_fleetTable );
-    connect( this, SIGNAL(okClicked()), this, SLOT(accept()) );
+    mainLayout->addWidget(m_fleetTable);
+    mainLayout->addWidget(buttonBox);
 }
 
 
@@ -174,7 +182,7 @@ FleetDlg::update()
         // number comparison. But as all values have the same amount of
         // characters/digits, sorting by string actually works.
 
-        item = new QTableWidgetItem(QString("%1").arg(KGlobal::locale()->formatNumber(curFleet->source->killPercentage(), 3)));
+        item = new QTableWidgetItem(QStringLiteral("%1").arg(curFleet->source->killPercentage(), 3, 'f', 3));
         item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         item->setFlags(Qt::ItemIsEnabled);
         m_fleetTable->setItem(row, 5, item);

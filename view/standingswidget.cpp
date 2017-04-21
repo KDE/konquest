@@ -27,8 +27,7 @@
 #include <QTableWidget>
 #include <QVBoxLayout>
 
-#include <klocale.h>
-#include <kcomponentdata.h>
+#include <KLocalizedString>
 #include <KStandardGuiItem>
 #include <kguiitem.h>
 

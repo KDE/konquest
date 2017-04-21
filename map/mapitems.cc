@@ -28,10 +28,8 @@
 #include <QBrush>
 #include <QTimer>
 
-#include <kiconloader.h>
-#include <kglobalsettings.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <KLocalizedString>
+#include <QDebug>
 #include <kcolorscheme.h>
 
 #include "mapscene.h"
@@ -54,7 +52,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
     if (m_sector->planet() != NULL) {
         m_lookName = QString("planet_%1").arg(m_sector->planet()->planetLook() + 1);
     }
-    setAcceptsHoverEvents(true);
+    setAcceptHoverEvents(true);
 
     m_blinkTimer = new QTimer(this);
     connect(m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkPlanet()));
@@ -145,12 +143,12 @@ QPixmap PlanetItem::renderPixmap( const QString& svgId, int width, int height ) 
 {
     QPixmap pix;
     QString cacheKey = QString("%1%2x%3").arg(svgId).arg(width).arg(height);
-    if (!m_scene->pixmapCache()->find(cacheKey, pix)) {
+    if (!m_scene->imageCache()->findPixmap(cacheKey, &pix)) {
         pix = QPixmap(width, height);
         pix.fill(Qt::transparent);
         QPainter pixPainter(&pix);
         m_scene->renderer()->render(&pixPainter, svgId, QRect(0, 0, width, height));
-        m_scene->pixmapCache()->insert(cacheKey, pix);
+        m_scene->imageCache()->insertPixmap(cacheKey, pix);
     }
 
     return pix;

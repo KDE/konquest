@@ -23,14 +23,14 @@
 #ifndef KONQUEST_FLEETDLG_H
 #define KONQUEST_FLEETDLG_H
 
-#include <KDialog>
+#include <QDialog>
 
 #include "fleet.h"
 
 class QTableWidget;
 
 
-class FleetDlg : public KDialog
+class FleetDlg : public QDialog
 {
 public: 
     FleetDlg( QWidget *parent,

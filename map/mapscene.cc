@@ -24,7 +24,7 @@
 
 #include <QGraphicsItem>
 #include <QPainter>
-#include <kdebug.h>
+#include <QDebug>
 
 #include "map.h"
 #include "mapitems.h"
@@ -43,13 +43,13 @@ MapScene::MapScene (Game *game)
     m_height(height())
 {
     m_renderer = new QSvgRenderer(IMAGES_SVG);
-    m_pixmapCache = new KPixmapCache("konquest-pixmaps");
+    m_imageCache = new KImageCache("konquest-pixmaps", 100000);
 }
 
 
 MapScene::~MapScene ()
 {
-    delete m_pixmapCache;
+    delete m_imageCache;
     delete m_renderer;
 }
 

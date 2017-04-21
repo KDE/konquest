@@ -24,13 +24,13 @@
 #define KONQUEST_SCOREDLG_H
 
 #include <QTableWidget>
-#include <KDialog>
+#include <QDialog>
 
 #include "../players/player.h"
 #include "../view/standingswidget.h"
 
 
-class ScoreDlg : public KDialog
+class ScoreDlg : public QDialog
 {
 
 public:

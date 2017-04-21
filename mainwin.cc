@@ -27,17 +27,16 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <klocale.h>
-#include <kglobal.h>
-#include <kmenubar.h>
+#include <KLocalizedString>
+#include <qmenubar.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
-#include <kaction.h>
+#include <QAction>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
 #include <kstandardgameaction.h>
-#include <kicon.h>
-#include <kstatusbar.h>
+#include <QIcon>
+#include <qstatusbar.h>
 
 #include "game.h"
 #include "localgame.h"
@@ -47,7 +46,7 @@
 // KonquestMainWindow
 MainWindow::MainWindow()
 {
-    setCaption( i18n("Galactic Conquest") );
+    setWindowTitle( i18n("Galactic Conquest") );
 
     setupActions();
     setupGameView();
@@ -85,15 +84,15 @@ MainWindow::setupActions()
     m_endGameAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
-    //different state - KAction not :-(
+    //different state - QAction not :-(
     m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
-    m_measureAction->setIcon( KIcon( QLatin1String( "go-jump" )) );
+    m_measureAction->setIcon( QIcon::fromTheme( QLatin1String( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );
     m_measureAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
-    m_fleetAction->setIcon( KIcon( QLatin1String( "fork" )) );
+    m_fleetAction->setIcon( QIcon::fromTheme( QLatin1String( "fork" )) );
     m_fleetAction->setText( i18n("&Fleet Overview") );
     m_fleetAction->setEnabled(false);
 
@@ -123,8 +122,8 @@ MainWindow::setupActions()
     // the GUI, regardless of currently visible in an active tab or invisible
     // in a not currently active tab.
 
-    connect(m_messagesAction, SIGNAL(triggered(bool)), m_messagesDock, SLOT(setVisible(bool)));
-    connect(m_messagesDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateMessagesActionSlot()));
+    connect(m_messagesAction, &QAction::triggered, m_messagesDock, &QDockWidget::setVisible);
+    connect(m_messagesDock, &QDockWidget::visibilityChanged, this, &MainWindow::updateMessagesActionSlot);
 
     // docking area - standings
 
@@ -134,13 +133,13 @@ MainWindow::setupActions()
     tabifyDockWidget(m_messagesDock, m_standingsDock);
 
     m_standingsAction = actionCollection()->addAction(QLatin1String("view_standings"));
-    m_standingsAction->setIcon(KIcon(QLatin1String("help-contents")));
+    m_standingsAction->setIcon(QIcon::fromTheme(QLatin1String("help-contents")));
     m_standingsAction->setText(i18n("Show &Standings"));
     m_standingsAction->setCheckable(true);
     m_standingsAction->setChecked(m_standingsDock->isVisible());
 
-    connect(m_standingsAction, SIGNAL(triggered(bool)), m_standingsDock, SLOT(setVisible(bool)));
-    connect(m_standingsDock, SIGNAL(visibilityChanged(bool)), this, SLOT(updateStandingsActionSlot()));
+    connect(m_standingsAction, &QAction::triggered, m_standingsDock, &QDockWidget::setVisible);
+    connect(m_standingsDock, &QDockWidget::visibilityChanged, this, &MainWindow::updateStandingsActionSlot);
 }
 
 
@@ -151,19 +150,13 @@ MainWindow::setupGameView()
     m_gameView  = new GameView(this, m_game, m_messagesDock, m_standingsDock);
     setCentralWidget( m_gameView );
 
-    connect ( m_game,    SIGNAL( gameMsg(const KLocalizedString &,
-					   Player *, Planet *,
-					   Player * ) ),
-	      m_gameView,  SLOT( gameMsg(const KLocalizedString &,
-					 Player *, Planet *,
-					 Player * ) ) );
-    connect (m_gameView, SIGNAL( newGUIState( GUIState )),
-	     this,       SLOT( guiStateChange( GUIState ) ) );
+    connect(m_game, &Game::gameMsg, m_gameView, &GameView::gameMsg);
+    connect(m_gameView, &GameView::newGUIState, this, &MainWindow::guiStateChange);
 
-    connect(m_measureAction,  SIGNAL(triggered(bool)), m_gameView, SLOT( measureDistance() ));
-    connect(m_fleetAction,    SIGNAL(triggered(bool)), m_gameView, SLOT( showFleets() ));
-    connect(m_endTurnAction,  SIGNAL(triggered()),     m_gameView, SLOT(nextPlayer()));
-    connect(m_endGameAction,  SIGNAL(triggered()),     m_gameView, SLOT(shutdownGame()));
+    connect(m_measureAction, &QAction::triggered, m_gameView, &GameView::measureDistance);
+    connect(m_fleetAction, &QAction::triggered, m_gameView, &GameView::showFleets);
+    connect(m_endTurnAction, &QAction::triggered, m_gameView, &GameView::nextPlayer);
+    connect(m_endGameAction, &QAction::triggered, m_gameView, &GameView::shutdownGame);
 }
 
 

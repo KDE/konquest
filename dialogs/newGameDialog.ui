@@ -79,7 +79,7 @@
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="KIntSpinBox" name="neutralPlanetsSB">
+       <widget class="QSpinBox" name="neutralPlanetsSB">
         <property name="minimum">
          <number>0</number>
         </property>
@@ -102,7 +102,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="KIntSpinBox" name="widthSB">
+       <widget class="QSpinBox" name="widthSB">
         <property name="minimum">
          <number>4</number>
         </property>
@@ -125,7 +125,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="KIntSpinBox" name="heightSB">
+       <widget class="QSpinBox" name="heightSB">
         <property name="minimum">
          <number>4</number>
         </property>
@@ -307,11 +307,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>MiniMapView</class>
    <extends>QWidget</extends>

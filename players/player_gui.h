@@ -22,8 +22,6 @@
 #include <QColor>
 #include <QString>
 
-#include <klocale.h>
-
 #include "player.h"
 
 class PlayerGui

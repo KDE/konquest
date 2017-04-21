@@ -38,22 +38,25 @@
 #include "../players/spectatorplayer_gui.h"
 #include "../game.h"
 #include <kconfig.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
+#include <KLocalizedString>
 #include <KStandardGuiItem>
-#include <kglobal.h>
 
-#include <KLineEdit>
-#include <KComboBox>
+#include <KConfigGroup>
+#include <KSharedConfig>
+
+#include <QComboBox>
+#include <QDebug>
 #include <QHeaderView>
 #include <QItemDelegate>
+#include <QLineEdit>
 #include <QList>
-#include <QDebug>
 #include <QLinkedList>
-#include <QPair>
 #include <QMenu>
+#include <QPair>
+#include <QPushButton>
 #include <QSignalMapper>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 /*************************************************************************
  New Game Dialog Members
@@ -280,15 +283,15 @@ public:
     QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &index) const
     {
         if (index.column() == 0)
-            return new KLineEdit(parent);
+            return new QLineEdit(parent);
         else
-            return new KComboBox(parent);
+            return new QComboBox(parent);
     }
 
     void setEditorData(QWidget *editor, const QModelIndex &index) const
     {
         if (index.column() != 0) {
-            KComboBox *cbox = static_cast<KComboBox*>(editor);
+            QComboBox *cbox = static_cast<QComboBox*>(editor);
 
             foreach (PlayerGui* playerGui, m_selectablePlayer) {
                 cbox->addItem(playerGui->guiName());
@@ -296,7 +299,7 @@ public:
 
             cbox->setCurrentIndex( cbox->findText(index.data( Qt::DisplayRole).toString()) );
         } else {
-            KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
+            QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
             lineEdit->setText(index.data(Qt::DisplayRole).toString());
         }
     }
@@ -304,11 +307,11 @@ public:
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
     {
         if (index.column() != 0) {
-            KComboBox *cbox = static_cast<KComboBox*>(editor);
+            QComboBox *cbox = static_cast<QComboBox*>(editor);
 
             model->setData(index, cbox->currentText(), Qt::EditRole);
         } else {
-            KLineEdit *lineEdit = static_cast<KLineEdit*>(editor);
+            QLineEdit *lineEdit = static_cast<QLineEdit*>(editor);
 
             model->setData(index, lineEdit->text(), Qt::EditRole);
         }
@@ -319,14 +322,20 @@ private:
 };
 
 NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
-    : KDialog( parent),
+    : QDialog( parent),
       m_game(game)
 {
     m_neutral = m_game->neutral();
-    setCaption(i18n("Start New Game"));
-    setButtons(KDialog::Ok|KDialog::Cancel);
-    setDefaultButton(KDialog::NoDefault);
-    showButtonSeparator(true);
+    setWindowTitle(i18n("Start New Game"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     m_selectablePlayer.push_back(new LocalPlayerGui());
     m_selectablePlayer.push_back(new SpectatorPlayerGui());
@@ -359,7 +368,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     m_w->playerList->setModel(model);
     m_w->playerList->setItemDelegate(new playersListDelegate(this, m_selectablePlayer));
-    m_w->playerList->header()->setResizeMode(QHeaderView::ResizeToContents);
+    m_w->playerList->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
     m_w->addPlayerButton->setMenu(m_playerTypeChooser);
 
     connect(m_w->neutralPlanetsSB, SIGNAL(valueChanged(int)), this, SLOT(slotUpdateNeutrals(int)));
@@ -374,7 +383,9 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
 
     init();
 
-    setMainWidget(m_w);
+    mainLayout->addWidget(m_w);
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     slotNewMap();
 
     updateButtonOk();
@@ -400,7 +411,7 @@ NewGameDlg::updateOwnerCB()
 void
 NewGameDlg::init()
 {
-    KConfigGroup config = KGlobal::config()->group("Game");
+    KConfigGroup config = KSharedConfig::openConfig()->group("Game");
 
     int nrOfPlayers = config.readEntry("NrOfPlayers",0);
     if (nrOfPlayers < 2)
@@ -564,7 +575,7 @@ NewGameDlg::slotNewProduction(int value)
 void
 NewGameDlg::save()
 {
-    KConfigGroup config = KGlobal::config()->group("Game");
+    KConfigGroup config = KSharedConfig::openConfig()->group("Game");
     
     config.writeEntry("NrOfPlanets", m_w->neutralPlanetsSB->value());
     config.writeEntry("SizeWidth", m_w->widthSB->value());
@@ -675,7 +686,7 @@ NewGameDlg::updateButtonOk()
         }
     }
 
-    enableButtonOk(
+    okButton->setEnabled(
         (nonSpectatorCount >= 2) &&
         isSaneConfiguration
     );

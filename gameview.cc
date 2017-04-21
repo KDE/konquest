@@ -32,9 +32,7 @@
 #include <QPixmap>
 #include <QKeyEvent>
 #include <QIntValidator>
-#include <KDebug>
-
-#include <kmessagebox.h>
+#include <QDebug>
 
 #include "players/player.h"
 #include "players/localplayer.h"
@@ -160,14 +158,10 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
     //**********************************************************************
     // Set up signal/slot connections
     //**********************************************************************
-    connect( m_mapScene,      SIGNAL( planetSelected(Planet *) ),
-             this,            SLOT(planetSelected(Planet *)) );
-    connect( m_shipCountEdit, SIGNAL(returnPressed()),
-             this,            SLOT(newShipCount()) );
-    connect( m_standingOrder, SIGNAL(clicked()),
-             this,            SLOT(standingOrdersClicked()) );
-    connect( m_endTurnBtn,    SIGNAL( clicked() ),
-             this,            SLOT( nextPlayer() ) );
+    connect(m_mapScene, &MapScene::planetSelected, this, &GameView::planetSelected);
+    connect(m_shipCountEdit, &QLineEdit::returnPressed, this, &GameView::newShipCount);
+    connect(m_standingOrder, &QCheckBox::clicked, this, &GameView::standingOrdersClicked);
+    connect(m_endTurnBtn, &QPushButton::clicked, this, &GameView::nextPlayer);
 
     changeGameView();
 }
@@ -501,10 +495,10 @@ GameView::startNewGame()
 
         LocalPlayer *local = qobject_cast<LocalPlayer*>(player);
         if (local)
-            connect(local, SIGNAL(canPlay()), this, SLOT(turnPreparation()));
+            connect(local, &LocalPlayer::canPlay, this, &GameView::turnPreparation);
     }
 
-    connect(m_game, SIGNAL(finished()), this, SLOT(gameOver()));
+    connect(m_game, &Game::finished, this, &GameView::gameOver);
     m_game->start();
 
     // Fix all the widgets to run a new game.
@@ -552,7 +546,7 @@ void
 GameView::gameOver()
 {
     if (m_initCompleted) {
-        kDebug() << "Game over";
+        //qDebug() << "Game over";
 
         /**
          * @todo This is an attempt to remove duplicate information from screen.
@@ -601,7 +595,7 @@ GameView::cleanupGame()
 void
 GameView::planetSelected( Planet *planet )
 {
-    kDebug() << "planetSelected with " << m_guiState;
+    //qDebug() << "planetSelected with " << m_guiState;
     switch( m_guiState ) {
         case SOURCE_PLANET:
             if( planet->player() == m_game->currentPlayer() ) {
@@ -670,7 +664,7 @@ GameView::changeGameView()
 {
     bool isRunning = m_game->isRunning();
 
-    kDebug() << "Calling GameView::changeGameView" << isRunning;
+    //qDebug() << "Calling GameView::changeGameView" << isRunning;
 
     m_messagesDock->setVisible(isRunning);
 
