@@ -30,7 +30,6 @@
 #include <KLocalizedString>
 #include <qmenubar.h>
 #include <ktoolbar.h>
-#include <kiconloader.h>
 #include <QAction>
 #include <kactioncollection.h>
 #include <kstandardaction.h>
