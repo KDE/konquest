@@ -67,7 +67,7 @@ int Game::generatePlanetProduction()
     return 5 + random.getLong(10);
 }
 
-bool Game::attack(Planet *sourcePlanet, Planet *destPlanet, int shipCount, bool standingOrder)
+bool Game::attack(Planet *sourcePlanet, Planet *destPlanet, long long shipCount, bool standingOrder)
 {
     int arrival = int(std::ceil(m_map->distance(sourcePlanet, destPlanet))) + m_turnCounter;
     if(standingOrder)

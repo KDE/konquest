@@ -48,23 +48,23 @@ public:
     Game *game() const { return m_game; }
 
     // Statistics collection
-    void statShipsBuilt( int x )           { m_turnProduction += x; m_shipsBuilt += x; }
-    void statPlanetsConquered( int x )     { m_planetsConquered     += x; }
-    void statFleetsLaunched( int x )       { m_fleetsLaunched       += x; }
-    void statEnemyFleetsDestroyed( int x ) { m_enemyFleetsDestroyed += x; }
-    void statEnemyShipsDestroyed( int x )  { m_enemyShipsDestroyed  += x; }
+    void statShipsBuilt( long long x )           { m_turnProduction += x; m_shipsBuilt += x; }
+    void statPlanetsConquered( long long x )     { m_planetsConquered     += x; }
+    void statFleetsLaunched( long long x )       { m_fleetsLaunched       += x; }
+    void statEnemyFleetsDestroyed( long long x ) { m_enemyFleetsDestroyed += x; }
+    void statEnemyShipsDestroyed( long long x )  { m_enemyShipsDestroyed  += x; }
 
-    int  shipsBuilt()           const { return m_shipsBuilt;           }
-    int  planetsConquered()     const { return m_planetsConquered;     }
-    int  fleetsLaunched()       const { return m_fleetsLaunched;       }
-    int  enemyFleetsDestroyed() const { return m_enemyFleetsDestroyed; }
-    int  enemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
+    long long  shipsBuilt()           const { return m_shipsBuilt;           }
+    long long  planetsConquered()     const { return m_planetsConquered;     }
+    long long  fleetsLaunched()       const { return m_fleetsLaunched;       }
+    long long  enemyFleetsDestroyed() const { return m_enemyFleetsDestroyed; }
+    long long  enemyShipsDestroyed()  const { return m_enemyShipsDestroyed;  }
 
     void resetTurnStats();
-    void statShipCount(int x) { m_turnShips += x; }
+    void statShipCount(long long x) { m_turnShips += x; }
 
-    int turnProduction() const { return m_turnProduction; }
-    int turnShips() const { return m_turnShips; }
+    long long turnProduction() const { return m_turnProduction; }
+    long long turnShips() const { return m_turnShips; }
 
     AttackFleetList attackList() { return m_attackList; }
     AttackFleetList newAttacks() { return m_newAttacks; }
@@ -101,14 +101,14 @@ private:
     QColor   m_color;
 
     // statistics counters
-    int  m_shipsBuilt;
-    int  m_planetsConquered;
-    int  m_fleetsLaunched;
-    int  m_enemyFleetsDestroyed;
-    int  m_enemyShipsDestroyed;
+    long long  m_shipsBuilt;
+    long long  m_planetsConquered;
+    long long  m_fleetsLaunched;
+    long long  m_enemyFleetsDestroyed;
+    long long  m_enemyShipsDestroyed;
 
-    int m_turnProduction; ///< number of ships produced in this turn
-    int m_turnShips; ///< number of all available player ships in this turn
+    long long m_turnProduction; ///< number of ships produced in this turn
+    long long m_turnShips; ///< number of all available player ships in this turn
 
     /**
      * @todo This is a bad GUI hack. The game selection grid is handled by just

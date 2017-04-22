@@ -73,7 +73,7 @@ MainWindow::setupActions()
     KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
 
     m_endTurnAction = KStandardGameAction::endTurn(this, NULL, actionCollection());
-    m_endTurnAction->setShortcut(Qt::CTRL + Qt::Key_E);
+    m_endTurnAction->setShortcut(Qt::CTRL | Qt::Key_E);
     m_endTurnAction->setEnabled(false);
 
     m_endGameAction = KStandardGameAction::end( this, NULL, actionCollection() );

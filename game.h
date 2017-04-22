@@ -60,7 +60,7 @@ public:
     
     virtual void stop() = 0;
 
-    bool attack( Planet *sourcePlanet, Planet *destPlanet, int shipCouna, bool standingOrder = false);
+    bool attack( Planet *sourcePlanet, Planet *destPlanet, long long shipCount, bool standingOrder = false);
 
     static Coordinate generatePlanetCoordinates (int rows, int cols);
     static double generateKillPercentage();

@@ -39,14 +39,14 @@ class Fleet : public QObject
         
 public:
 
-    explicit Fleet( int initialShipCount );
+    explicit Fleet( long long initialShipCount );
     virtual ~Fleet() {}
 
-    int   shipCount()   const { return m_shipCount; }
-    void  removeShips( int lostShips );
+    long long   shipCount()   const { return m_shipCount; }
+    void  removeShips( long long lostShips );
 
 protected:
-    int m_shipCount;
+    long long m_shipCount;
 };
 
 
@@ -54,7 +54,7 @@ class AttackFleet : public Fleet
 {
     Q_OBJECT
 public:
-    AttackFleet( Planet *src, Planet *dest, int initialCount, int arrivalTurn );
+    AttackFleet( Planet *src, Planet *dest, long long initialCount, int arrivalTurn );
 
     Player  *owner;
     Planet  *source;
@@ -68,14 +68,14 @@ class DefenseFleet : public Fleet
     Q_OBJECT
         
 public:
-    DefenseFleet( Planet *newHome, int initialCount  );
+    DefenseFleet( Planet *newHome, long long initialCount  );
 
     void absorb( AttackFleet *fleet );
     void become( AttackFleet *fleet );
 
-    void addShips( int newShips );
+    void addShips( long long newShips );
     
-    AttackFleet *spawnAttackFleet( Planet *destination, int shipCount, int arrivalTurn );
+    AttackFleet *spawnAttackFleet( Planet *destination, long long shipCount, int arrivalTurn );
 
     Planet *home;
 signals:

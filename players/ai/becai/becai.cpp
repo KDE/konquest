@@ -90,7 +90,7 @@ AiBecai::play()
 
     int totalOwnProduction = 0;
     int totalOwnPlanets = 0;
-    int totalOwnFleet = 0;
+    long long totalOwnFleet = 0;
 
     int totalEnemyProduction = 0;
     int totalEnemyPlanets = 0;

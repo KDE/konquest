@@ -160,7 +160,7 @@ private:
     Planet             *destPlanet;
 
     bool                haveShipCount, standingOrder;
-    int                 shipCount;
+    long long           shipCount;
 
     //***************************************************************
     // Game State information
