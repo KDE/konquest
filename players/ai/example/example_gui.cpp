@@ -17,6 +17,9 @@
  */
 
 #include "example_gui.h"
+
+#include <KLocalizedString>
+
 #include "example.h"
 
 
