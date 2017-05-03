@@ -151,7 +151,7 @@ AiBecai::play()
     // create the arithmetic average. In an FFA game with multiple enemies, we
     // have an advantage if we can keep defence at a higher level than others.
 
-    qSort(nonOwnPlanetDefenceFleetSizeList);
+    std::sort(nonOwnPlanetDefenceFleetSizeList.begin(), nonOwnPlanetDefenceFleetSizeList.end());
 
     for (int i = std::floor((double) nonOwnPlanetDefenceFleetSizeList.size() / 10); i > 0; --i) {
         nonOwnPlanetDefenceFleetSizeList.takeFirst();
