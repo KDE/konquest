@@ -31,7 +31,7 @@ class LocalPlayer : public Player
 public:
     explicit LocalPlayer(Game *game, const QString &newName, const QColor &color);
 
-    virtual void play();
+    void play() Q_DECL_OVERRIDE;
 
     void done();
 signals:

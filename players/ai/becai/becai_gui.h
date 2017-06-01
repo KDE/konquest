@@ -26,7 +26,7 @@ class AiBecaiGui : public PlayerGui
 {
 public:
     explicit AiBecaiGui();
-    virtual Player* createInstance(Game *game, const QString &newName, const QColor &color) const;
+    Player* createInstance(Game *game, const QString &newName, const QColor &color) const Q_DECL_OVERRIDE;
 };
 
 #endif // AI_BECAI_GUI_H

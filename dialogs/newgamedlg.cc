@@ -93,18 +93,18 @@ public:
         }
     }
 
-    int rowCount(const QModelIndex &index = QModelIndex()) const
+    int rowCount(const QModelIndex &index = QModelIndex()) const Q_DECL_OVERRIDE
     {
         Q_UNUSED(index);
         return m_players.count();
     }
 
-    int columnCount(const QModelIndex&) const
+    int columnCount(const QModelIndex&) const Q_DECL_OVERRIDE
     {
         return 2;
     }
 
-    QVariant data(const QModelIndex &index, int role) const
+    QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE
     {
         if (index.isValid())
         {
@@ -130,7 +130,7 @@ public:
         return QVariant();
     }
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const Q_DECL_OVERRIDE
     {
         if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
         {
@@ -140,7 +140,7 @@ public:
         return QVariant();
     }
 
-    bool setData(const QModelIndex &index, const QVariant &value, int)
+    bool setData(const QModelIndex &index, const QVariant &value, int) Q_DECL_OVERRIDE
     {
         bool result = false;
         if (index.isValid())
@@ -216,7 +216,7 @@ public:
         return player;
     }
 
-    Qt::ItemFlags flags(const QModelIndex &) const
+    Qt::ItemFlags flags(const QModelIndex &) const Q_DECL_OVERRIDE
     {
         return Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
     }
@@ -278,7 +278,7 @@ public:
     {
     }
 
-    QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &index) const
+    QWidget * createEditor(QWidget *parent, const QStyleOptionViewItem &, const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         if (index.column() == 0)
             return new QLineEdit(parent);
@@ -286,7 +286,7 @@ public:
             return new QComboBox(parent);
     }
 
-    void setEditorData(QWidget *editor, const QModelIndex &index) const
+    void setEditorData(QWidget *editor, const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         if (index.column() != 0) {
             QComboBox *cbox = static_cast<QComboBox*>(editor);
@@ -302,7 +302,7 @@ public:
         }
     }
 
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const Q_DECL_OVERRIDE
     {
         if (index.column() != 0) {
             QComboBox *cbox = static_cast<QComboBox*>(editor);

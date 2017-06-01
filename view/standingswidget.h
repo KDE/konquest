@@ -40,7 +40,7 @@ public:
     explicit StandingsWidget(QWidget *parent, const QList<Player *> players);
     ~StandingsWidget();
 
-    QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
     void update(const QList<Player *> players);
 
 private:

@@ -34,7 +34,7 @@ protected:
 
     AiLevel aiLevel() const { return m_level; }
 
-    virtual void play();
+    void play() Q_DECL_OVERRIDE;
 
 signals:
 

@@ -107,8 +107,8 @@ signals:
     // Event Handlers
     //***************************************************************
 protected:
-    virtual void  keyPressEvent( QKeyEvent * );
-    virtual void  resizeEvent ( QResizeEvent * event );
+    void  keyPressEvent( QKeyEvent * ) Q_DECL_OVERRIDE;
+    void  resizeEvent ( QResizeEvent * event ) Q_DECL_OVERRIDE;
 
 private slots:
     void  gameOver();
