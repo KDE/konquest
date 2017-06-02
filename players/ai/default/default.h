@@ -23,8 +23,6 @@
 
 class AiDefault : public ComputerPlayer
 {
-    Q_OBJECT
-
 protected:
     enum AiLevel { Weak, Normal, Hard };
 
@@ -35,10 +33,6 @@ protected:
     AiLevel aiLevel() const { return m_level; }
 
     void play() override;
-
-signals:
-
-public slots:
 
 private:
     AiLevel m_level;

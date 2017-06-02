@@ -37,7 +37,7 @@ Game::Game(QObject *parent) :
     m_map = new Map(10, 10);
     m_gameMachine.addState(m_finalState);
     m_neutral = new NeutralPlayer(this);
-    connect(&m_gameMachine, SIGNAL(finished()), this, SIGNAL(finished()));
+    connect(&m_gameMachine, &QStateMachine::finished, this, &Game::finished);
 }
 
 const QList<Planet*> Game::planets()

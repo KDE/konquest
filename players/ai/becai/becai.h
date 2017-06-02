@@ -28,8 +28,6 @@
 
 class AiBecai : public ComputerPlayer
 {
-    Q_OBJECT
-
 public:
     explicit AiBecai(Game *game, const QString &newName, const QColor &color);
 
@@ -37,11 +35,6 @@ public:
 
 private:
     int getMinimumDefenceFleetSize(Planet *planet, int minimumBaseDefenceFleetSize, double averageOwnKillPercentage, double averageOwnProduction);
-
-signals:
-
-public slots:
-
 };
 
 #endif // AI_BECAI_H

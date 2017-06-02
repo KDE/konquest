@@ -73,7 +73,7 @@ public:
     void  turn(const GameOptions &);
 
     //void select() { Q_ASSERT(false); }
-signals:
+Q_SIGNALS:
     void  update();
 
 private:

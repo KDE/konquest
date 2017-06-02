@@ -98,10 +98,10 @@ class MapScene: public QGraphicsScene
         void           clearMap();
         void           mapUpdate();
 
-    signals:
+    Q_SIGNALS:
         void  planetSelected( Planet * );
 
-    private slots:
+    private:
         void  planetItemSelected (PlanetItem *);
 
 private:

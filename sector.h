@@ -58,14 +58,12 @@ public:
     void        setPlanet( Planet *planet );
     void        removePlanet();
 
-signals:
+Q_SIGNALS:
     void        update();
 
-protected slots:
+protected:
     void        childPlanetUpdate( );
 
-    
-protected:
     Map        *m_map;
     Coordinate  m_coord;
     Planet     *m_planet;  // a sector has 0 or 1 planets

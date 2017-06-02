@@ -53,15 +53,13 @@ public:
 
 class NewGameDlg : public QDialog
 {
-    Q_OBJECT
-
 public:
     NewGameDlg( QWidget *parent, Game *game);
     ~NewGameDlg();
 
     void  save();
 
-protected slots:
+protected:
     void  slotNewMap();
     void  slotUpdateNeutrals(int);
     void  slotAddPlayer(int);

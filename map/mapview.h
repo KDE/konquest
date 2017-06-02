@@ -28,7 +28,6 @@ class MapScene;
 
 class MapView : public QGraphicsView
 {
-    Q_OBJECT
 public:
     explicit MapView( MapScene* scene, QWidget *parent = 0 );
     

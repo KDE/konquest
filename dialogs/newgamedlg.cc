@@ -352,7 +352,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
         PlayerGui *selectablePlayer = m_selectablePlayer[i];
         QAction *action = m_playerTypeChooser->addAction(selectablePlayer->guiName());
         menuMapper->setMapping(action, i);
-        connect(action, SIGNAL(triggered(bool)), menuMapper, SLOT(map()));
+        connect(action, &QAction::triggered, menuMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
     }
     connect(menuMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &NewGameDlg::slotAddPlayer);
 

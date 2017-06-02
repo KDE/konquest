@@ -34,10 +34,9 @@ public:
     void play() override;
 
     void done();
-signals:
-    void canPlay();
 
-public slots:
+Q_SIGNALS:
+    void canPlay();
 
 };
 

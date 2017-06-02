@@ -23,14 +23,8 @@
 
 class AiDefaultNormal : public AiDefault
 {
-    Q_OBJECT
 public:
     explicit AiDefaultNormal(Game *game, const QString &newName, const QColor &color);
-
-signals:
-
-public slots:
-
 };
 
 #endif // AI_DEFAULT_NORMAL_H

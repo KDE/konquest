@@ -84,7 +84,7 @@ public:
     int turnCounter() const { return m_turnCounter; }
 
     bool doFleetArrival (AttackFleet *fleet);
-signals:
+Q_SIGNALS:
     void started();
     void finished();
     void waitingForPlayer(Player *player);
@@ -98,9 +98,8 @@ private:
 
     void makeKill(Fleet *fleet, Player *player);
 
-public slots:
 
-private slots:
+private:
     void newTurn() { m_turnCounter++; }
 
 protected:

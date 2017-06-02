@@ -24,18 +24,16 @@
 
 class LocalGame : public Game
 {
-    Q_OBJECT
 public:
     explicit LocalGame(QObject *parent = 0);
 
     void start() override;
     void stop() override;
-signals:
 
-public slots:
+public:
     void addPlayer(Player *player);
-
     void playerIsDone();
+
 protected:
     void buildMachine() override;
 };

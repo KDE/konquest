@@ -34,7 +34,6 @@
 
 class NeutralPlayer : public Player
 {
-    Q_OBJECT
 public:
     explicit NeutralPlayer(Game *game);
 
@@ -44,11 +43,6 @@ public:
 
 protected:
     void play() override;
-
-signals:
-
-public slots:
-
 };
 
 #endif // NEUTRALPLAYER_H

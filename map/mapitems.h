@@ -49,10 +49,10 @@ public:
     void     select ();
     Sector  *sector () { return m_sector; }
 
-signals:
+Q_SIGNALS:
     void     planetItemSelected (PlanetItem *);
 
-private slots:
+private:
     void     updatePlanet ();
     void     blinkPlanet ();
 

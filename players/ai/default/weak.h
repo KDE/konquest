@@ -23,14 +23,8 @@
 
 class AiDefaultWeak : public AiDefault
 {
-    Q_OBJECT
 public:
     explicit AiDefaultWeak(Game *game, const QString &newName, const QColor &color);
-
-signals:
-
-public slots:
-
 };
 
 #endif // AI_DEFAULT_WEAK_H

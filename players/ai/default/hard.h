@@ -23,13 +23,8 @@
 
 class AiDefaultHard : public AiDefault
 {
-    Q_OBJECT
 public:
     explicit AiDefaultHard(Game *game, const QString &newName, const QColor &color);
-
-signals:
-
-public slots:
 
 };
 

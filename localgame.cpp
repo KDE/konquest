@@ -66,8 +66,8 @@ void LocalGame::buildMachine()
 
     m_gameMachine.setInitialState(m_neutral);
 
-    connect(m_neutral, SIGNAL(donePlaying()), this, SLOT(playerIsDone()));
-    m_neutral->addTransition(m_neutral, SIGNAL(donePlaying()), m_players[0]);
+    connect(m_neutral, &NeutralPlayer::donePlaying, this, &LocalGame::playerIsDone);
+    m_neutral->addTransition(m_neutral, &NeutralPlayer::donePlaying, m_players[0]);
 
     // Now add transitions
     for (int i = 0 ; i < m_players.count() ; i++)
@@ -81,8 +81,8 @@ void LocalGame::buildMachine()
 
         //qDebug() << "Adding transition from "
                  //<< player->name() << " to " << nextPlayer->name();
-        player->addTransition(player, SIGNAL(donePlaying()), nextPlayer);
-        connect(player, SIGNAL(donePlaying()), this, SLOT(playerIsDone()));
+        player->addTransition(player, &Player::donePlaying, nextPlayer);
+        connect(player, &Player::donePlaying, this, &LocalGame::playerIsDone);
     }
 }
 

@@ -28,18 +28,11 @@
 
 class ComputerPlayer : public Player
 {
-    Q_OBJECT
-
 protected:
     explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
 
     bool isAiPlayer() override;
     void play() override = 0;
-
-signals:
-
-public slots:
-
 };
 
 #endif // COMPUTERPLAYER_H

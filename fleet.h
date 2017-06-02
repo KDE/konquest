@@ -35,8 +35,6 @@ class Planet;
 
 class Fleet : public QObject
 {
-    Q_OBJECT
-        
 public:
 
     explicit Fleet( long long initialShipCount );
@@ -52,7 +50,6 @@ protected:
 
 class AttackFleet : public Fleet
 {
-    Q_OBJECT
 public:
     AttackFleet( Planet *src, Planet *dest, long long initialCount, int arrivalTurn );
 
@@ -66,7 +63,7 @@ public:
 class DefenseFleet : public Fleet
 {
     Q_OBJECT
-        
+
 public:
     DefenseFleet( Planet *newHome, long long initialCount  );
 
@@ -78,7 +75,7 @@ public:
     AttackFleet *spawnAttackFleet( Planet *destination, long long shipCount, int arrivalTurn );
 
     Planet *home;
-signals:
+Q_SIGNALS:
     void update();
 };
 

@@ -82,12 +82,8 @@ protected:
     void onExit (QEvent *event) override;
     Game *m_game;
 
-signals:
+Q_SIGNALS:
     void donePlaying();
-
-public slots:
-
-private slots:
 
 private:
     // Attack fleets sent by this player that are still moving

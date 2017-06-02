@@ -69,10 +69,10 @@ public:
 
     const QList<Planet*> planets();
 
-protected slots:
+protected:
     void childSectorUpdate();
 
-signals:
+Q_SIGNALS:
     void update();
 
 private:

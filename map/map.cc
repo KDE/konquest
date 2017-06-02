@@ -52,7 +52,7 @@ Map::resizeMap (int rowsCount, int columnsCount)
         m_grid << QList<Sector>();
         for (int col = 0; col < columnsCount; col++) {
             m_grid[row] << Sector(this, Coordinate(row, col));
-            connect(&m_grid[row][col], SIGNAL(update()), this, SLOT(childSectorUpdate()));
+            connect(&m_grid[row][col], &Sector::update, this, &Map::childSectorUpdate);
         }
     }
 }

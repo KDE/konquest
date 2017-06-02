@@ -81,7 +81,6 @@ public:
     virtual  ~GameView();
     bool  confirmNewGame();
 
-public slots:
     bool  shutdownGame();
     void  planetSelected( Planet * );
     void  newShipCount();
@@ -94,13 +93,12 @@ public slots:
     void  measureDistance();
     void  showFleets();
 
-public slots:
     void  startNewGame();
     void  gameMsg(const KLocalizedString &msg, Player *player = 0,
 		  Planet *planet = 0, Player *planetPlayer = 0);
     void  turnPreparation();
 
-signals:
+Q_SIGNALS:
     void  newGUIState( GUIState newState );
 
     //***************************************************************
@@ -110,10 +108,9 @@ protected:
     void  keyPressEvent( QKeyEvent * ) override;
     void  resizeEvent ( QResizeEvent * event ) override;
 
-private slots:
+private:
     void  gameOver();
 
-private:
     void  changeGameView();
     void  cleanupGame();
 

@@ -48,7 +48,7 @@ public:
 
     bool hasSelection() const { return (m_selection.x() >= 0) && (m_selection.x() < m_map->columns()) && (m_selection.y() >= 0) && (m_selection.y() < m_map->rows()); }
 
-signals:
+Q_SIGNALS:
     void sectorSelected(const Coordinate &coord);
 
 protected:
