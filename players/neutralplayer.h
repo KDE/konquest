@@ -38,12 +38,12 @@ class NeutralPlayer : public Player
 public:
     explicit NeutralPlayer(Game *game);
 
-    bool isDead() Q_DECL_OVERRIDE;
+    bool isDead() override;
 
-    bool isNeutral() Q_DECL_OVERRIDE;
+    bool isNeutral() override;
 
 protected:
-    void play() Q_DECL_OVERRIDE;
+    void play() override;
 
 signals:
 

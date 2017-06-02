@@ -26,7 +26,7 @@ class SpectatorPlayerGui : public PlayerGui
 {
 public:
     explicit SpectatorPlayerGui();
-    Player* createInstance(Game *game, const QString &newName, const QColor &color) const Q_DECL_OVERRIDE;
+    Player* createInstance(Game *game, const QString &newName, const QColor &color) const override;
 };
 
 #endif // SPECTATOR_PLAYER_GUI_H

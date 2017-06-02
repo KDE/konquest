@@ -28,8 +28,8 @@ class LocalGame : public Game
 public:
     explicit LocalGame(QObject *parent = 0);
 
-    void start() Q_DECL_OVERRIDE;
-    void stop() Q_DECL_OVERRIDE;
+    void start() override;
+    void stop() override;
 signals:
 
 public slots:
@@ -37,7 +37,7 @@ public slots:
 
     void playerIsDone();
 protected:
-    void buildMachine() Q_DECL_OVERRIDE;
+    void buildMachine() override;
 };
 
 #endif // LOCALGAME_H

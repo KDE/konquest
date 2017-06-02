@@ -52,8 +52,8 @@ signals:
     void sectorSelected(const Coordinate &coord);
 
 protected:
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     void CalculateOffsets(float &, float &, float &);

@@ -37,8 +37,8 @@ class SpectatorPlayer : public LocalPlayer
 public:
     explicit SpectatorPlayer(Game *game, const QString &newName, const QColor &color);
 
-    bool isDead() Q_DECL_OVERRIDE;
-    bool isSpectator() Q_DECL_OVERRIDE;
+    bool isDead() override;
+    bool isSpectator() override;
 
 signals:
 

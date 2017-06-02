@@ -78,8 +78,8 @@ public:
 
 protected:
     virtual void play() = 0;
-    void onEntry (QEvent *event) Q_DECL_OVERRIDE;
-    void onExit (QEvent *event) Q_DECL_OVERRIDE;
+    void onEntry (QEvent *event) override;
+    void onExit (QEvent *event) override;
     Game *m_game;
 
 signals:

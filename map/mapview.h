@@ -33,8 +33,8 @@ public:
     explicit MapView( MapScene* scene, QWidget *parent = 0 );
     
 private:
-    void resizeEvent( QResizeEvent* ) Q_DECL_OVERRIDE;
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    void resizeEvent( QResizeEvent* ) override;
+    QSize sizeHint() const override;
 
     MapScene* m_scene;
 };

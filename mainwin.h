@@ -41,7 +41,7 @@ public:
     MainWindow();
     ~MainWindow();
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 private:
     void setupActions();

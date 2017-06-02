@@ -39,7 +39,7 @@ public:
               const AttackFleetList &standingOrders );
     AttackFleetList *uncheckedFleets();
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 private:
     void update();

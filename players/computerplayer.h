@@ -33,8 +33,8 @@ class ComputerPlayer : public Player
 protected:
     explicit ComputerPlayer(Game *game, const QString &newName, const QColor &color);
 
-    bool isAiPlayer() Q_DECL_OVERRIDE;
-    void play() Q_DECL_OVERRIDE = 0;
+    bool isAiPlayer() override;
+    void play() override = 0;
 
 signals:
 

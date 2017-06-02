@@ -26,7 +26,7 @@ class AiDefaultHardGui : public PlayerGui
 {
 public:
     explicit AiDefaultHardGui();
-    Player* createInstance(Game *game, const QString &newName, const QColor &color) const Q_DECL_OVERRIDE;
+    Player* createInstance(Game *game, const QString &newName, const QColor &color) const override;
 };
 
 #endif // AI_DEFAULT_HARD_GUI_H

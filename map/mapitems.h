@@ -38,13 +38,13 @@ public:
     explicit PlanetItem(MapScene *scene, Sector *sector, Game *game);
     ~PlanetItem() {}
 
-    QRectF   boundingRect() const Q_DECL_OVERRIDE;
+    QRectF   boundingRect() const override;
     void     paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                   QWidget *widget) Q_DECL_OVERRIDE;
+                   QWidget *widget) override;
 
-    void     hoverEnterEvent ( QGraphicsSceneHoverEvent *event ) Q_DECL_OVERRIDE;
-    void     hoverLeaveEvent ( QGraphicsSceneHoverEvent *event ) Q_DECL_OVERRIDE;
-    void     mousePressEvent ( QGraphicsSceneMouseEvent *event ) Q_DECL_OVERRIDE;
+    void     hoverEnterEvent ( QGraphicsSceneHoverEvent *event ) override;
+    void     hoverLeaveEvent ( QGraphicsSceneHoverEvent *event ) override;
+    void     mousePressEvent ( QGraphicsSceneMouseEvent *event ) override;
     void     unselect ();
     void     select ();
     Sector  *sector () { return m_sector; }
@@ -78,11 +78,11 @@ public:
     explicit PlanetInfoItem(Game*);
     ~PlanetInfoItem() {}
 
-    QRectF   boundingRect() const Q_DECL_OVERRIDE;
+    QRectF   boundingRect() const override;
     void     setPlanet (Planet *planet);
     Planet  *planet () { return m_planet; }
     void     paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                   QWidget *widget) Q_DECL_OVERRIDE;
+                   QWidget *widget) override;
 
 private:
     Game          *m_game;

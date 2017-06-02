@@ -63,7 +63,7 @@ class MapScene: public QGraphicsScene
 
     void displayPlanetInfo(Planet *planet);
 
-        void           drawBackground( QPainter * painter, const QRectF & rect ) Q_DECL_OVERRIDE;
+        void           drawBackground( QPainter * painter, const QRectF & rect ) override;
 
 
     /**

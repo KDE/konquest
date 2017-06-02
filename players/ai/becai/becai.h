@@ -33,7 +33,7 @@ class AiBecai : public ComputerPlayer
 public:
     explicit AiBecai(Game *game, const QString &newName, const QColor &color);
 
-    void play() Q_DECL_OVERRIDE;
+    void play() override;
 
 private:
     int getMinimumDefenceFleetSize(Planet *planet, int minimumBaseDefenceFleetSize, double averageOwnKillPercentage, double averageOwnProduction);

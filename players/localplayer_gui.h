@@ -26,7 +26,7 @@ class LocalPlayerGui : public PlayerGui
 {
 public:
     explicit LocalPlayerGui();
-    Player* createInstance(Game *game, const QString &newName, const QColor &color) const Q_DECL_OVERRIDE;
+    Player* createInstance(Game *game, const QString &newName, const QColor &color) const override;
 };
 
 #endif // LOCAL_PLAYER_GUI_H
