@@ -40,7 +40,7 @@ Game::Game(QObject *parent) :
     connect(&m_gameMachine, SIGNAL(finished()), this, SIGNAL(finished()));
 }
 
-QList<Planet*> Game::planets()
+const QList<Planet*> Game::planets()
 {
     return m_map->planets();
 }
@@ -179,7 +179,7 @@ void Game::findWinner()
     //qDebug() << "Searching for survivors";
     // Check for survivors
     Player *winner = 0;
-    foreach (Player *player, m_players) {
+    for (Player *player : players()) {
         if (player->isNeutral() || player->isSpectator()) {
             continue;
         }

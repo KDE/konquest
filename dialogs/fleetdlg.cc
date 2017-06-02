@@ -130,7 +130,7 @@ FleetDlg::setupTable()
 void
 FleetDlg::update()
 {
-    AttackFleetList fleets = m_standingOrders + m_newFleetList + m_fleetList;
+    const AttackFleetList fleets = m_standingOrders + m_newFleetList + m_fleetList;
     const int standingOrders = m_standingOrders.count();
     const int newFleets = standingOrders + m_newFleetList.count();
 
@@ -139,7 +139,7 @@ FleetDlg::update()
     int row = 0;
     QTableWidgetItem *item;
 
-    foreach (AttackFleet *curFleet, fleets) {
+    for (AttackFleet *curFleet : fleets) {
         item = new QTableWidgetItem();
         if( row < newFleets) {
           item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);

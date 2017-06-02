@@ -231,7 +231,7 @@ GameView::keyPressEvent( QKeyEvent *e )
 
     planetName += e->text().toUpper();
     
-    foreach (Planet *p, m_game->planets()) {
+    for (Planet *p : m_game->planets()) {
         if( p->name() == planetName ) {
             if ( m_showInformations ) {
                 m_mapScene->selectPlanet(p);
@@ -485,7 +485,7 @@ GameView::startNewGame()
 
     delete newGame;
 
-    foreach (Player *player, m_game->players()) {
+    for (Player *player : m_game->players()) {
         if (player->isSpectator()) {
 
             // All planets a spectator player has assigned are turned into
@@ -732,8 +732,8 @@ GameView::showFleets()
     FleetDlg  *fleetDlg = new FleetDlg( this, current->attackList(),
                                         current->newAttacks(), current->standingOrders());
     if (fleetDlg->exec()) {
-        AttackFleetList *deleteAttacks = fleetDlg->uncheckedFleets();
-        foreach(AttackFleet *curFleet, *deleteAttacks) {
+        const AttackFleetList *deleteAttacks = fleetDlg->uncheckedFleets();
+        for (AttackFleet *curFleet : *deleteAttacks) {
             current->cancelNewAttack(curFleet);
         }
         delete deleteAttacks;

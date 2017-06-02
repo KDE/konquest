@@ -67,7 +67,7 @@ void
 MapScene::selectPlanet(Planet *planet)
 {
     unselectPlanet();
-    foreach (PlanetItem *item, m_planetItems) {
+    for (PlanetItem *item : qAsConst(m_planetItems)) {
         if (item->sector() == planet->sector()) {
             item->select();
             m_selectedPlanetItem = item;

@@ -41,10 +41,10 @@ void NeutralPlayer::play()
     //qDebug() << "NeutralPlayer::play";
 
     // Go on each attack...
-    foreach (Player *player, m_game->players()) {
+    for (Player *player : m_game->players()) {
         player->resetTurnStats();
 
-        foreach (AttackFleet *fleet, player->attackList()) {
+        for (AttackFleet *fleet : player->attackList()) {
             if (m_game->doFleetArrival(fleet)) {
                 player->attackDone(fleet);
                 fleet->deleteLater();
@@ -60,7 +60,7 @@ void NeutralPlayer::play()
     }
 
     // Go over each planet, adding its ships
-    foreach (Planet *planet, m_game->map()->planets()) {
+    for (Planet *planet : m_game->map()->planets()) {
         //qDebug() << "Turn for planet " << planet->name();
         planet->turn(m_game->options());
     }

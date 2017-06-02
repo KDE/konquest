@@ -105,7 +105,7 @@ AiBecai::play()
      * day. Or maybe but them into an own class.
      */
 
-    foreach (Fleet *fleet, this->attackList()) {
+    for (Fleet *fleet : this->attackList()) {
         totalOwnFleet += fleet->shipCount();
     }
 
@@ -120,7 +120,7 @@ AiBecai::play()
 
     double totalKillPercentage = 0;
 
-    foreach (Planet *planet, m_game->planets()) {
+    for (Planet *planet : m_game->planets()) {
         totalTotalPlanets += 1;
 
         if (planet->player() == this) {
@@ -160,7 +160,7 @@ AiBecai::play()
 
     int averageNonOwnPlanetDefenceFleetSize = 0;
 
-    foreach (int fleetSize, nonOwnPlanetDefenceFleetSizeList) {
+    for (const int &fleetSize : qAsConst(nonOwnPlanetDefenceFleetSizeList)) {
         averageNonOwnPlanetDefenceFleetSize += fleetSize;
     }
 
@@ -276,7 +276,7 @@ AiBecai::play()
         minimumBaseDefenceFleetSize = totalOwnFleet / totalOwnPlanets;
     }
 
-    foreach (Planet *home, m_game->planets()) {
+    for (Planet *home : m_game->planets()) {
         if (home->player() != this) {
             continue;
         }
@@ -292,7 +292,7 @@ AiBecai::play()
 
         QMultiMap<double, TargetPlanet> targetList;
 
-        foreach (Planet *other, m_game->planets()) {
+        for (Planet *other : m_game->planets()) {
             if (other->player() == this) {
                 if (other != home) {
 
@@ -333,7 +333,7 @@ AiBecai::play()
 
                 bool found = false;
 
-                foreach (AttackFleet *fleet, this->attackList() + this->newAttacks()) {
+                for (AttackFleet *fleet : this->attackList() + this->newAttacks()) {
                     if (fleet->destination == other) {
                         found = true;
                         break;
@@ -539,7 +539,7 @@ AiBecai::play()
 
                 bool skip = false;
 
-                foreach (AttackFleet *fleet, this->attackList() + this->newAttacks()) {
+                for (AttackFleet *fleet : this->attackList() + this->newAttacks()) {
                     if ((fleet->destination == closestSupportPlanet) && (fleet->owner == this)) {
                         skip = true;
                         break;

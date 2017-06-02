@@ -67,7 +67,7 @@ public:
         return NULL;
     }
 
-    QList<Planet*> planets();
+    const QList<Planet*> planets();
 
 protected slots:
     void childSectorUpdate();

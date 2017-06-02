@@ -161,7 +161,7 @@ public:
             {
                 // The player controller changed.
                 QString playerGuiName = value.toString();
-                foreach (PlayerGui *playerGui, m_selectablePlayer)
+                for (PlayerGui *playerGui : qAsConst(m_selectablePlayer))
                 {
                     if (playerGui->guiName() == playerGuiName) {
                         Player *newPlayer = getNewPlayerByGui(playerGui, player->name(), player->color());
@@ -291,7 +291,7 @@ public:
         if (index.column() != 0) {
             QComboBox *cbox = static_cast<QComboBox*>(editor);
 
-            foreach (PlayerGui* playerGui, m_selectablePlayer) {
+            for (PlayerGui* playerGui : qAsConst(m_selectablePlayer)) {
                 cbox->addItem(playerGui->guiName());
             }
 
@@ -399,7 +399,7 @@ NewGameDlg::updateOwnerCB()
     m_w->OwnerCB->clear();
 
     m_w->OwnerCB->addItem(i18n("vacant"));
-    foreach(Player *player, m_game->players())
+    for (Player* player : m_game->players())
         m_w->OwnerCB->addItem(player->name());
     m_w->OwnerCB->addItem(i18n("neutral"));
 }
@@ -656,7 +656,7 @@ NewGameDlg::updateButtonOk()
     int nonSpectatorCount = 0;
     bool isSaneConfiguration = true;
 
-    foreach (Player *player, m_game->players()) {
+    for (Player *player : m_game->players()) {
         if (player->isSpectator()) {
 
             // Spectator player controllers can be completely ignored here as
@@ -670,7 +670,7 @@ NewGameDlg::updateButtonOk()
 
         bool foundPlanet = false;
 
-        foreach (Planet *planet, m_game->planets()) {
+        for (Planet *planet : m_game->planets()) {
             if (planet->player() == player) {
                 foundPlanet = true;
                 break;

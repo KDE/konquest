@@ -73,7 +73,7 @@ bool Player::isDead()
 {
     if (m_attackList.count() > 0)
         return false;
-    foreach (Planet *planet, m_game->planets())
+    for (Planet *planet : m_game->planets())
         if (planet->player() == this)
             return false;
     return true;

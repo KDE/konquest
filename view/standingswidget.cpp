@@ -90,7 +90,7 @@ StandingsWidget::update(const QList<Player *> players )
     int row = 0;
     QTableWidgetItem *item;
 
-    foreach (Player *curPlayer, players) {
+    for (Player *curPlayer : players) {
         item = new QTableWidgetItem();
         item->setData(Qt::DisplayRole, curPlayer->name());
         item->setData(Qt::DecorationRole, curPlayer->color());

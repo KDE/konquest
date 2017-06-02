@@ -65,13 +65,13 @@ public:
     static Coordinate generatePlanetCoordinates (int rows, int cols);
     static double generateKillPercentage();
     static int generatePlanetProduction();
-    QList<Planet *>  planets();
+    const QList<Planet *>  planets();
 
     Map *map() { return m_map; }
 
     Player *currentPlayer() { return m_currentPlayer; }
 
-    QList<Player *> players() { return m_players; }
+    const QList<Player *> players() { return m_players; }
 
     void findWinner();
 

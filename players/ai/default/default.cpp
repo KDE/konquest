@@ -61,7 +61,7 @@ void AiDefault::play()
        break;
     }
 
-    foreach (Planet *home, m_game->planets()) {
+    for (Planet *home : m_game->planets()) {
         if (home->player() == this) {
             bool  hasAttack = false;
             ships = (int)floor(home->ships() * 0.7 );
@@ -69,7 +69,7 @@ void AiDefault::play()
             if (ships >= minimumShips) {
                 double  minDistance = 100;
 
-                foreach (Planet *attack, m_game->planets()) {
+                for (Planet *attack : m_game->planets()) {
                     if (attack->player() == this)
                         continue;
 
@@ -77,7 +77,7 @@ void AiDefault::play()
                     double  dist = m_game->map()->distance( home, attack );
 
                     if (dist < minDistance && attack->ships() < ships ) {
-                        foreach (AttackFleet *curFleet, attackList()) {
+                        for (AttackFleet *curFleet : attackList()) {
                             if (curFleet->destination == attack) {
                                 skip = true;
                                 break;
@@ -99,7 +99,7 @@ void AiDefault::play()
                     int shipsToSend = 0;
                     bool hasDestination = false;
 
-                    foreach (Planet *attack, m_game->planets()) {
+                    for (Planet *attack : m_game->planets()) {
                         bool    skip = false;
                         double  dist = m_game->map()->distance( home, attack );
                         int     homeships = (int)floor(home->ships() * 0.5 );
@@ -107,7 +107,7 @@ void AiDefault::play()
                         if (dist < minDistance
                             && attack->player() == this
                             && attack->ships() < homeships ) {
-                            foreach (AttackFleet *curFleet, attackList()) {
+                            for (AttackFleet *curFleet : attackList()) {
                                 if (curFleet->destination == attack) {
                                     skip = true;
                                     break;

@@ -88,7 +88,7 @@ Map::addNeutralPlanetSomewhere(Player *neutral)
 bool
 Map::removePlayerPlanet(Player *player)
 {
-    foreach (Planet *planet, planets()) {
+    for (Planet *planet : planets()) {
         if (planet->player() == player) {
             delete planet;
             return true;
@@ -108,7 +108,7 @@ Map::removePlayerPlanets(Player *player)
 void
 Map::turnOverPlayerPlanets(Player* owner, Player* newOwner)
 {
-    foreach (Planet *planet, planets()) {
+    for (Planet *planet : planets()) {
         if (planet->player() == owner) {
             planet->setOwner(newOwner);
         }
@@ -120,7 +120,7 @@ int
 Map::playerPlanetCount(Player *player)
 {
     int count = 0;
-    foreach (Planet *planet, planets()) {
+    for (Planet *planet : planets()) {
         if (planet->player() == player) {
             count++;
         }
@@ -147,7 +147,7 @@ Map::UniquePlanetName(void)
 {
     char c = 'A';
 again:
-    foreach(Planet *planet, planets()) {
+    for (Planet *planet : planets()) {
         if (planet->name().at(0).toLatin1() == c) {
             c++;
             goto again;
@@ -161,7 +161,7 @@ void
 Map::populateMap(const QList<Player *> &players, Player *neutral, int numNeutralPlanets)
 {
     // Create a planet for each player.
-    foreach (Player *player, players) {
+    for (Player *player : players) {
         addPlayerPlanetSomewhere(player);
     }
 
@@ -188,8 +188,8 @@ Map::distance(Planet *p1, Planet *p2)
 Sector*
 Map::findRandomFreeSector()
 {
-    foreach (const QList<Sector> &i, m_grid) {
-        foreach (const Sector &j, i) {
+    for (const QList<Sector> &i : qAsConst(m_grid)) {
+        for (const Sector &j : i) {
             if (!j.hasPlanet()) {
                 goto freesectorexists;
             }
@@ -217,12 +217,12 @@ Map::childSectorUpdate()
 }
 
 
-QList <Planet*>
+const QList <Planet*>
 Map::planets()
 {
     QList <Planet*>planets;
-    foreach (const QList<Sector> &i, m_grid) {
-        foreach (const Sector &j, i) {
+    for (const QList<Sector> &i : qAsConst(m_grid)) {
+        for (const Sector &j : i) {
             if (j.hasPlanet()) {
                 planets += j.planet();
             }

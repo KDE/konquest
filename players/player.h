@@ -66,9 +66,9 @@ public:
     long long turnProduction() const { return m_turnProduction; }
     long long turnShips() const { return m_turnShips; }
 
-    AttackFleetList attackList() { return m_attackList; }
-    AttackFleetList newAttacks() { return m_newAttacks; }
-    AttackFleetList standingOrders() { return m_standingOrders; }
+    const AttackFleetList attackList() { return m_attackList; }
+    const AttackFleetList newAttacks() { return m_newAttacks; }
+    const AttackFleetList standingOrders() { return m_standingOrders; }
     void attackDone(AttackFleet *fleet);
 
     void addAttackFleet(AttackFleet *fleet);

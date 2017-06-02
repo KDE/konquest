@@ -235,7 +235,7 @@ void PlanetInfoItem::setPlanet (Planet *planet)
         if( m_game->currentPlayer() == planet->player() )
         {
             int shipsNeeded = 0; // determine how many ships will be needed by standing orders
-            foreach(AttackFleet* fleet, planet->player()->standingOrders()) {
+            for (AttackFleet* fleet : planet->player()->standingOrders()) {
                 if(fleet->source == planet)
                     shipsNeeded += fleet->shipCount();
             }
