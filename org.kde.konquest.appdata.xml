@@ -9,6 +9,7 @@
   <name xml:lang="cs">Konquest</name>
   <name xml:lang="en-GB">Konquest</name>
   <name xml:lang="es">Konquest</name>
+  <name xml:lang="fr">Konquest</name>
   <name xml:lang="nl">Konquest</name>
   <name xml:lang="pl">Konquest</name>
   <name xml:lang="pt">Conquista GNU-Láctica</name>
@@ -27,6 +28,7 @@
   <summary xml:lang="cs">Strategická galaktická hra</summary>
   <summary xml:lang="en-GB">Galactic Strategy Game</summary>
   <summary xml:lang="es">Juego de estrategia galáctica</summary>
+  <summary xml:lang="fr">Jeu de stratégie galactique</summary>
   <summary xml:lang="nl">Strategisch ruimtespel</summary>
   <summary xml:lang="pl">Galaktyczna gra strategiczna</summary>
   <summary xml:lang="pt">Jogo de Estratégia Galáctica</summary>
@@ -48,6 +50,7 @@
     <p xml:lang="ca-valencia">El Konquest és una versió del Gnu-Lactic Konquest. Els jugadors conquereixen altres planetes envinat-hi naus. L'objectiu és construir un imperi interestel·lar i finalment conquerir els planetes de tots els altres jugadors.</p>
     <p xml:lang="en-GB">Konquest is a version of Gnu-Lactic Konquest. Players conquer other planets by sending ships to them. The goal is to build an interstellar empire and ultimately conquer all other player's planets.</p>
     <p xml:lang="es">Konquest es una versión de Gnu-Lactic Konquest. Los jugadores pueden conquistar otros planetas enviando naves a ellos. El objetivo es construir un imperio interestelar y conquistar todos los planetas del resto de jugadores.</p>
+    <p xml:lang="fr">Konquest est une version de Gnu-Lactic Konquest. Les joueurs peuvent conquérir d'autres planètes en envoyant des vaisseaux à leur conquête. L'objectif est de construire un empire intergalactique et de conquérir toutes les planètes des autres joueurs.</p>
     <p xml:lang="nl">Konquest is de  versie van Gnu-Lactic Konquest. Spelers veroveren andere planeten door er schepen heen te zenden. Het doel is een interstellair rijk op te bouwen en uiteindelijk alle andere planeten van spelers te veroveren.</p>
     <p xml:lang="pl">Konquest jest wersją Gnu-Lactic Konquest. Gracze zdobywają inne planety wysyłając na nie statki. Celem jest budowa międzygwiezdnego imperium i zdobycie wszystkich planet przeciwnika.</p>
     <p xml:lang="pt">O Konquest é uma versão da Conquista Gnu-Láctica. Os jogadores conquistam outros planetas ao mandar naves para eles. O objectivo é construir um império inter-estelar e, em última instância, conquistar todos os planetas dos outros jogadores.</p>
