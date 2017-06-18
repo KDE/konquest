@@ -14,6 +14,7 @@
   <name xml:lang="pl">Konquest</name>
   <name xml:lang="pt">Conquista GNU-Láctica</name>
   <name xml:lang="sk">Konquest</name>
+  <name xml:lang="sl">Konquest</name>
   <name xml:lang="sr">К‑освајање</name>
   <name xml:lang="sr-Latn">K‑osvajanje</name>
   <name xml:lang="sr-ijekavian">К‑освајање</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="pl">Galaktyczna gra strategiczna</summary>
   <summary xml:lang="pt">Jogo de Estratégia Galáctica</summary>
   <summary xml:lang="sk">Galaktická strategická hra</summary>
+  <summary xml:lang="sl">Galaktična strateška igra</summary>
   <summary xml:lang="sr">Галактичка стратешка игра</summary>
   <summary xml:lang="sr-Latn">Galaktička strateška igra</summary>
   <summary xml:lang="sr-ijekavian">Галактичка стратешка игра</summary>
@@ -54,6 +56,7 @@
     <p xml:lang="nl">Konquest is de  versie van Gnu-Lactic Konquest. Spelers veroveren andere planeten door er schepen heen te zenden. Het doel is een interstellair rijk op te bouwen en uiteindelijk alle andere planeten van spelers te veroveren.</p>
     <p xml:lang="pl">Konquest jest wersją Gnu-Lactic Konquest. Gracze zdobywają inne planety wysyłając na nie statki. Celem jest budowa międzygwiezdnego imperium i zdobycie wszystkich planet przeciwnika.</p>
     <p xml:lang="pt">O Konquest é uma versão da Conquista Gnu-Láctica. Os jogadores conquistam outros planetas ao mandar naves para eles. O objectivo é construir um império inter-estelar e, em última instância, conquistar todos os planetas dos outros jogadores.</p>
+    <p xml:lang="sl">Konquest je različica igre Gnu-Lactic Konquest. Igralci zavojujejo druge planete, tako da nanje pošiljajo vesoljske ladje. Cilj igre je izgraditi medzvezdni imperij in osvojiti vse planete drugih igralcev.</p>
     <p xml:lang="sr">У К‑освајању играчи освајају друге планете тако што шаљу бродове на њих. Циљ је изградити међузвездано царство и коначно освојити планете свих осталих играча.</p>
     <p xml:lang="sr-Latn">U K‑osvajanju igrači osvajaju druge planete tako što šalju brodove na njih. Cilj je izgraditi međuzvezdano carstvo i konačno osvojiti planete svih ostalih igrača.</p>
     <p xml:lang="sr-ijekavian">У К‑освајању играчи освајају друге планете тако што шаљу бродове на њих. Циљ је изградити међузвездано царство и коначно освојити планете свих осталих играча.</p>
