@@ -40,6 +40,11 @@ Game::Game(QObject *parent) :
     connect(&m_gameMachine, &QStateMachine::finished, this, &Game::finished);
 }
 
+Game::~Game()
+{
+    delete m_map;
+}
+
 const QList<Planet*> Game::planets()
 {
     return m_map->planets();

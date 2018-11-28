@@ -53,6 +53,7 @@ class Game : public QObject
     Q_OBJECT
 public:
     explicit Game(QObject *parent = 0);
+    ~Game();
 
     bool isRunning();
 
