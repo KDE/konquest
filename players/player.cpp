@@ -71,7 +71,7 @@ void Player::onExit(QEvent *event)
 
 bool Player::isDead()
 {
-    if (m_attackList.count() > 0)
+    if (!m_attackList.isEmpty())
         return false;
     for (Planet *planet : m_game->planets())
         if (planet->player() == this)

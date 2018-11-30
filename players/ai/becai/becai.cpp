@@ -164,7 +164,7 @@ AiBecai::play()
         averageNonOwnPlanetDefenceFleetSize += fleetSize;
     }
 
-    if (nonOwnPlanetDefenceFleetSizeList.size() > 0) {
+    if (!nonOwnPlanetDefenceFleetSizeList.isEmpty()) {
         averageNonOwnPlanetDefenceFleetSize = std::ceil((double) averageNonOwnPlanetDefenceFleetSize / nonOwnPlanetDefenceFleetSizeList.size());
     }
 
