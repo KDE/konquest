@@ -34,7 +34,7 @@
 
 
 MapScene::MapScene (Game *game)
-  : QGraphicsScene(),
+  : QGraphicsScene(game),
     m_game(game),
     m_selectedPlanetItem(NULL),
     m_planetInfoItem(NULL),

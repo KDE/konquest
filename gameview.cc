@@ -98,7 +98,7 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
     // Create the widgets in the main window
     //********************************************************************
     m_mapScene  = new MapScene(m_game);
-    m_mapWidget = new MapView( m_mapScene );
+    m_mapWidget = new MapView( m_mapScene, this );
     m_mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mapWidget->setFrameShape(QFrame::NoFrame);
 
