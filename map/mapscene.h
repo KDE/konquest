@@ -44,7 +44,7 @@ class MapScene: public QGraphicsScene
 
     public:
         explicit MapScene(Game *game);
-        ~MapScene();
+        ~MapScene() override;
 
         QSvgRenderer  *renderer() const  { return m_renderer; }
         KImageCache   *imageCache() const  { return m_imageCache; }
