@@ -34,7 +34,7 @@ class ScoreDlg : public QDialog
 
 public:
     ScoreDlg( QWidget *parent, const QString& title, 
-              QList<Player *> players );
+              const QList<Player *> &players );
     ~ScoreDlg();
 
 private:

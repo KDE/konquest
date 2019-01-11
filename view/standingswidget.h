@@ -37,11 +37,11 @@ class StandingsWidget : public QWidget
 
 public:
     explicit StandingsWidget(QWidget *parent);
-    explicit StandingsWidget(QWidget *parent, const QList<Player *> players);
+    explicit StandingsWidget(QWidget *parent, const QList<Player *> &players);
     ~StandingsWidget();
 
     QSize sizeHint() const override;
-    void update(const QList<Player *> players);
+    void update(const QList<Player *> &players);
 
 private:
     void setupTable();

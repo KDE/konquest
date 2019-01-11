@@ -40,7 +40,7 @@ public:
 
     // Getters and Setters for some fundamental properties.
     QString name()        const { return m_name; }
-    void setName(QString name) {  m_name = name; }
+    void setName(const QString &name) {  m_name = name; }
 
     QString coloredName() const;
     QColor& color()             { return m_color; }

@@ -42,7 +42,7 @@ StandingsWidget::StandingsWidget(QWidget *parent) :
  * @note Use "delegating constructor" once C++11 is required by KDE.
  */
 
-StandingsWidget::StandingsWidget(QWidget *parent, const QList<Player *> players) :
+StandingsWidget::StandingsWidget(QWidget *parent, const QList<Player *> &players) :
     // StandingsWidget(parent)
     QWidget(parent)
 {
@@ -81,7 +81,7 @@ StandingsWidget::sizeHint() const
 
 
 void
-StandingsWidget::update(const QList<Player *> players )
+StandingsWidget::update(const QList<Player *> &players )
 {
     m_standingsTable->setRowCount(players.count());
     m_standingsTable->clearContents();

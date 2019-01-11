@@ -26,7 +26,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, QList<Player *> players )
+ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, const QList<Player *> &players )
     : QDialog(parent)
 {
     setObjectName( QLatin1String( "ScoreDlg" ) );
