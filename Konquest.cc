@@ -44,16 +44,16 @@ main(int argc, char **argv)
     migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
     migrate.migrate();
     KLocalizedString::setApplicationDomain("konquest");
-    KAboutData aboutData( "konquest", i18n("Konquest"),
+    KAboutData aboutData( QStringLiteral("konquest"), i18n("Konquest"),
         KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
-        i18n("Copyright (c) 1999-2013, Developers"), "http://games.kde.org/konquest" );
+        i18n("Copyright (c) 1999-2013, Developers"), QStringLiteral("http://games.kde.org/konquest") );
 
-    aboutData.addAuthor(i18n("Russ Steffen"), QString(), "rsteffen@bayarea.net");
-    aboutData.addCredit(i18n("Stephan Zehetner"), i18n("Computer/AI Player"), "s.zehetner@nevox.org");
-    aboutData.addCredit(i18n("Dmitry Suzdalev"), i18n("Port to KDE4"), "dimsuz@gmail.com");
-    aboutData.addCredit(i18n("Inge Wallin"), i18n("Cleaning and bugfixing"), "inge@lysator.liu.se");
-    aboutData.addCredit(i18n("Pierre Ducroquet"), i18n("Cleaning and bugfixing, maintenance"), "pinaraf@gmail.com");
-    aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), "geckosenator@gmail.com");
+    aboutData.addAuthor(i18n("Russ Steffen"), QString(), QStringLiteral("rsteffen@bayarea.net"));
+    aboutData.addCredit(i18n("Stephan Zehetner"), i18n("Computer/AI Player"), QStringLiteral("s.zehetner@nevox.org"));
+    aboutData.addCredit(i18n("Dmitry Suzdalev"), i18n("Port to KDE4"), QStringLiteral("dimsuz@gmail.com"));
+    aboutData.addCredit(i18n("Inge Wallin"), i18n("Cleaning and bugfixing"), QStringLiteral("inge@lysator.liu.se"));
+    aboutData.addCredit(i18n("Pierre Ducroquet"), i18n("Cleaning and bugfixing, maintenance"), QStringLiteral("pinaraf@gmail.com"));
+    aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), QStringLiteral("geckosenator@gmail.com"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
 

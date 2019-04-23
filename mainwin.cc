@@ -81,14 +81,14 @@ MainWindow::setupActions()
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
     //different state - QAction not :-(
-    m_measureAction = actionCollection()->addAction( QLatin1String(  "game_measure" ) );
-    m_measureAction->setIcon( QIcon::fromTheme( QLatin1String( "go-jump" )) );
+    m_measureAction = actionCollection()->addAction( QStringLiteral(  "game_measure" ) );
+    m_measureAction->setIcon( QIcon::fromTheme( QStringLiteral( "go-jump" )) );
     m_measureAction->setText( i18n("&Measure Distance") );
     m_measureAction->setEnabled(false);
 
     // Show fleet overview
-    m_fleetAction = actionCollection()->addAction( QLatin1String(  "game_fleets" ) );
-    m_fleetAction->setIcon( QIcon::fromTheme( QLatin1String( "fork" )) );
+    m_fleetAction = actionCollection()->addAction( QStringLiteral(  "game_fleets" ) );
+    m_fleetAction->setIcon( QIcon::fromTheme( QStringLiteral( "fork" )) );
     m_fleetAction->setText( i18n("&Fleet Overview") );
     m_fleetAction->setEnabled(false);
 
@@ -99,11 +99,11 @@ MainWindow::setupActions()
     // docking area - messages
 
     m_messagesDock = new QDockWidget(i18n("Messages"), this);
-    m_messagesDock->setObjectName("dock-messages");
+    m_messagesDock->setObjectName(QStringLiteral("dock-messages"));
 
     addDockWidget(Qt::BottomDockWidgetArea, m_messagesDock);
 
-    m_messagesAction = actionCollection()->addAction(QLatin1String("view_messages"));
+    m_messagesAction = actionCollection()->addAction(QStringLiteral("view_messages"));
     m_messagesAction->setText(i18n("Show &Messages"));
     m_messagesAction->setCheckable(true);
     m_messagesAction->setChecked(m_messagesDock->isVisible());
@@ -124,12 +124,12 @@ MainWindow::setupActions()
     // docking area - standings
 
     m_standingsDock = new QDockWidget(i18n("Standings"), this);
-    m_standingsDock->setObjectName("dock-standings");
+    m_standingsDock->setObjectName(QStringLiteral("dock-standings"));
 
     tabifyDockWidget(m_messagesDock, m_standingsDock);
 
-    m_standingsAction = actionCollection()->addAction(QLatin1String("view_standings"));
-    m_standingsAction->setIcon(QIcon::fromTheme(QLatin1String("help-contents")));
+    m_standingsAction = actionCollection()->addAction(QStringLiteral("view_standings"));
+    m_standingsAction->setIcon(QIcon::fromTheme(QStringLiteral("help-contents")));
     m_standingsAction->setText(i18n("Show &Standings"));
     m_standingsAction->setCheckable(true);
     m_standingsAction->setChecked(m_standingsDock->isVisible());

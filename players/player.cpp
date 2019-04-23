@@ -96,7 +96,7 @@ bool Player::isSpectator()
 
 QString Player::coloredName() const
 {
-    return QString("<font color=\"%1\">%2</font>").arg(m_color.name(), m_name);
+    return QStringLiteral("<font color=\"%1\">%2</font>").arg(m_color.name(), m_name);
 }
 
 

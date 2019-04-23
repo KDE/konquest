@@ -40,7 +40,7 @@ FleetDlg::FleetDlg( QWidget *parent,
                     const AttackFleetList &standingOrders)
     : QDialog(parent), m_newFleetList(newFleets), m_standingOrders(standingOrders), m_fleetList(fleets)
 {
-    setObjectName( QLatin1String( "FleetDlg" ) );
+    setObjectName( QStringLiteral( "FleetDlg" ) );
     setModal( true );
     setWindowTitle( i18n("Fleet Overview") );
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);

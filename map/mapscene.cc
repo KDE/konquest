@@ -42,7 +42,7 @@ MapScene::MapScene (Game *game)
     m_height(height())
 {
     m_renderer = new QSvgRenderer(IMAGES_SVG);
-    m_imageCache = new KImageCache("konquest-pixmaps", 100000);
+    m_imageCache = new KImageCache(QStringLiteral("konquest-pixmaps"), 100000);
 }
 
 
@@ -152,9 +152,9 @@ MapScene::drawBackground ( QPainter * painter, const QRectF & /*rect*/ )
     pen.setStyle(Qt::SolidLine);
     painter->setPen(pen);
     painter->fillRect(0, 0, m_width, m_height, Qt::black);
-    m_renderer->render(painter, "background", QRectF(0, 0, m_width, m_height));
+    m_renderer->render(painter, QStringLiteral("background"), QRectF(0, 0, m_width, m_height));
 
-    m_renderer->render(painter, "screen", QRectF(horizontalOffset, verticalOffset, mapWidth, mapHeight));
+    m_renderer->render(painter, QStringLiteral("screen"), QRectF(horizontalOffset, verticalOffset, mapWidth, mapHeight));
     painter->setOpacity(0.5);
     qreal lastLine = mapWidth + horizontalOffset;
     for (qreal i = horizontalOffset ; i <= lastLine ; i += sectorSize) {

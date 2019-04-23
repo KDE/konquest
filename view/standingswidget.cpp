@@ -150,7 +150,7 @@ StandingsWidget::update(const QList<Player *> &players )
 void
 StandingsWidget::setupTable()
 {
-    setObjectName(QLatin1String("widget-standings"));
+    setObjectName(QStringLiteral("widget-standings"));
 
     QVBoxLayout *main = new QVBoxLayout(this);
 

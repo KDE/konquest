@@ -29,7 +29,7 @@
 ScoreDlg::ScoreDlg( QWidget *parent, const QString& title, const QList<Player *> &players )
     : QDialog(parent)
 {
-    setObjectName( QLatin1String( "ScoreDlg" ) );
+    setObjectName( QStringLiteral( "ScoreDlg" ) );
     setModal( true );
     setWindowTitle(title);
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);

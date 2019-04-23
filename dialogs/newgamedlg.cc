@@ -440,8 +440,8 @@ NewGameDlg::init()
     playersListModel *model = static_cast<playersListModel*>(m_w->playerList->model());
     for(int i = 0; i < nrOfPlayers; ++i)
     {
-        QString keyName = QString("Player_%1").arg(i);
-        QString keyType = QString("PlayerType_%1").arg(i);
+        QString keyName = QStringLiteral("Player_%1").arg(i);
+        QString keyType = QStringLiteral("PlayerType_%1").arg(i);
 
         QString playerName = config.readEntry(keyName,QString());
         QString playerType = config.readEntry(keyType,QString());
@@ -595,9 +595,9 @@ NewGameDlg::save()
     config.writeEntry("NrOfPlayers", model->rowCount());
     for (int i = 0; i < model->rowCount(); ++i)
     {
-        QString  keyName        = QString("Player_%1").arg(i);
+        QString  keyName        = QStringLiteral("Player_%1").arg(i);
         QString  playerName = model->data(model->index(i, 0), Qt::DisplayRole).toString();
-        QString  keyType = QString("PlayerType_%1").arg(i);
+        QString  keyType = QStringLiteral("PlayerType_%1").arg(i);
         QString  playerType = model->data(model->index(i, 1), Qt::DisplayRole).toString();
 
         config.writeEntry(keyName, playerName);

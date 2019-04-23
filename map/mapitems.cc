@@ -49,7 +49,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
       m_blinkState(false)
 {
     if (m_sector->planet() != NULL) {
-        m_lookName = QString("planet_%1").arg(m_sector->planet()->planetLook() + 1);
+        m_lookName = QStringLiteral("planet_%1").arg(m_sector->planet()->planetLook() + 1);
     }
     setAcceptHoverEvents(true);
 
@@ -63,7 +63,7 @@ void PlanetItem::updatePlanet()
 {
     Planet  *planet = m_sector->planet();
     if (planet != NULL) {
-        m_lookName = QString("planet_%1").arg(planet->planetLook() + 1);
+        m_lookName = QStringLiteral("planet_%1").arg(planet->planetLook() + 1);
         update();
     }
 }
@@ -118,9 +118,9 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
 
     QRectF TextRect(sectorTopLeft.x(), sectorTopLeft.y(), sectorSize, sectorSize);
 
-    QPixmap nameBackgroundPix = renderPixmap("planet_name_background", sectorSize, sectorSize);
+    QPixmap nameBackgroundPix = renderPixmap(QStringLiteral("planet_name_background"), sectorSize, sectorSize);
     p->drawPixmap(TextRect.topLeft(), nameBackgroundPix);
-    p->setFont(QFont("Times", 16));
+    p->setFont(QFont(QStringLiteral("Times"), 16));
     p->drawText(TextRect, m_sector->planet()->name());
 
     // Show the number of ships on the planet.
@@ -130,10 +130,10 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
     {
         QString shipCount = QString::number(m_sector->planet()->ships());
 
-        QPixmap shipsBackgroundPix = renderPixmap("planet_ship_count_background",
+        QPixmap shipsBackgroundPix = renderPixmap(QStringLiteral("planet_ship_count_background"),
                                                   sectorSize, sectorSize);
         p->drawPixmap(TextRect.topLeft(), shipsBackgroundPix);
-        p->setFont(QFont("Times", 16));
+        p->setFont(QFont(QStringLiteral("Times"), 16));
         p->drawText(TextRect, Qt::AlignRight | Qt::AlignBottom, shipCount);
     }
 }
@@ -141,7 +141,7 @@ void PlanetItem::paint(QPainter *p, const QStyleOptionGraphicsItem * /*option*/,
 QPixmap PlanetItem::renderPixmap( const QString& svgId, int width, int height ) const
 {
     QPixmap pix;
-    QString cacheKey = QString("%1%2x%3").arg(svgId).arg(width).arg(height);
+    QString cacheKey = QStringLiteral("%1%2x%3").arg(svgId).arg(width).arg(height);
     if (!m_scene->imageCache()->findPixmap(cacheKey, &pix)) {
         pix = QPixmap(width, height);
         pix.fill(Qt::transparent);

@@ -221,7 +221,7 @@ GameView::keyPressEvent( QKeyEvent *e )
         return;
     }
     
-    if ( e->text() == "?" ) {
+    if ( e->text() == QLatin1String("?") ) {
         // Switch the information key info...
         m_showInformations = !m_showInformations;
         return;
@@ -408,7 +408,7 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
 {
     bool isHumanInvolved = false;
 
-    QString           color    = "white";
+    QString           color    = QStringLiteral("white");
     KLocalizedString  colorMsg = msg;
     KLocalizedString  plainMsg = msg;
 
@@ -426,7 +426,7 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
           isHumanInvolved = true;
 
        QString  color = planetPlayer->color().name();
-       colorMsg = colorMsg.subs(QString("<font color=\"%1\">%2</font>")
+       colorMsg = colorMsg.subs(QStringLiteral("<font color=\"%1\">%2</font>")
                                 .arg(color, planet->name()));
        plainMsg = plainMsg.subs(planet->name());
     }
