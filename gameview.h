@@ -46,7 +46,6 @@ class KLocalizedString;
 class Player;
 class MapView;
 class MapScene;
-class GameLogic;
 class StandingsWidget;
 
 
