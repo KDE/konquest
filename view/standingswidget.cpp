@@ -27,7 +27,6 @@
 #include <QTableWidget>
 #include <QVBoxLayout>
 
-#include <KGuiItem>
 #include <KLocalizedString>
 
 
