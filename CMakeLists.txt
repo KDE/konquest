@@ -33,6 +33,9 @@ include(KDECMakeSettings)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
 
 add_subdirectory( pics )
 if (KF5DocTools_FOUND)

@@ -52,7 +52,6 @@
 #include <QMenu>
 #include <QPair>
 #include <QPushButton>
-#include <QSignalMapper>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
@@ -346,15 +345,12 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     m_selectablePlayer.push_back(new AiBecaiGui());
 
     m_playerTypeChooser = new QMenu(this);
-    QSignalMapper *menuMapper = new QSignalMapper(this);
     for (int i = 0 ; i < m_selectablePlayer.size() ; i++)
     {
         PlayerGui *selectablePlayer = m_selectablePlayer[i];
         QAction *action = m_playerTypeChooser->addAction(selectablePlayer->guiName());
-        menuMapper->setMapping(action, i);
-        connect(action, &QAction::triggered, menuMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+        connect(action, &QAction::triggered, this, [this, i]() { slotAddPlayer(i);});
     }
-    connect(menuMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &NewGameDlg::slotAddPlayer);
 
     m_w = new NewGameDlgUI(this);
     m_w->map->setMap(m_game->map());
