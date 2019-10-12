@@ -27,7 +27,7 @@
 
 class Sector;
 class Player;
-class GameOptions;
+struct GameOptions;
 
 //**************************************************************
 // class Planet
