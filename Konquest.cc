@@ -66,7 +66,7 @@ main(int argc, char **argv)
     KDBusService service;
 
     if (app.isSessionRestored())
-        RESTORE(MainWindow)
+        kRestoreMainWindows<MainWindow>();
     else {
         MainWindow *w = new MainWindow;
         w->show();
