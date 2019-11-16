@@ -46,7 +46,7 @@ main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("konquest");
     KAboutData aboutData( QStringLiteral("konquest"), i18n("Konquest"),
         KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
-        i18n("Copyright (c) 1999-2013, Developers"), QStringLiteral("http://games.kde.org/konquest") );
+        i18n("Copyright (c) 1999-2013, Developers"), QStringLiteral("https://kde.org/applications/games/org.kde.konquest") );
 
     aboutData.addAuthor(i18n("Russ Steffen"), QString(), QStringLiteral("rsteffen@bayarea.net"));
     aboutData.addCredit(i18n("Stephan Zehetner"), i18n("Computer/AI Player"), QStringLiteral("s.zehetner@nevox.org"));
