@@ -16,11 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <KLocalizedString>
-
 #include "normal_gui.h"
 #include "normal.h"
 
+#include <KLocalizedString>
 
 AiDefaultNormalGui::AiDefaultNormalGui() :
     PlayerGui(i18n("Default (Offensive)"))

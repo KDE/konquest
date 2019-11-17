@@ -16,11 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <KLocalizedString>
-
 #include "spectatorplayer_gui.h"
 #include "spectatorplayer.h"
 
+#include <KLocalizedString>
 
 SpectatorPlayerGui::SpectatorPlayerGui() :
     PlayerGui(i18nc("A human spectator", "Human (Spectator)"))

@@ -16,11 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <KLocalizedString>
-
 #include "weak_gui.h"
 #include "weak.h"
 
+#include <KLocalizedString>
 
 AiDefaultWeakGui::AiDefaultWeakGui() :
     PlayerGui(i18n("Default (Weak)"))

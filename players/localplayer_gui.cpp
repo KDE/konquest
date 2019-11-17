@@ -16,11 +16,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <KLocalizedString>
-
 #include "localplayer_gui.h"
 #include "localplayer.h"
 
+#include <KLocalizedString>
 
 LocalPlayerGui::LocalPlayerGui() :
     PlayerGui(i18nc("A human player", "Human (Player)"))
