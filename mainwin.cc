@@ -69,8 +69,8 @@ MainWindow::sizeHint() const
 void
 MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew( this, SLOT( startNewGame() ), actionCollection() );
-    KStandardGameAction::quit( this, SLOT( close() ), actionCollection() );
+    KStandardGameAction::gameNew( this, SLOT(startNewGame()), actionCollection() );
+    KStandardGameAction::quit( this, SLOT(close()), actionCollection() );
 
     m_endTurnAction = KStandardGameAction::endTurn(this, NULL, actionCollection());
     m_endTurnAction->setShortcut(Qt::CTRL | Qt::Key_E);
