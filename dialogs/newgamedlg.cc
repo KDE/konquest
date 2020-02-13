@@ -48,7 +48,7 @@
 #include <QItemDelegate>
 #include <QLineEdit>
 #include <QList>
-#include <QLinkedList>
+#include <QVector>
 #include <QMenu>
 #include <QPair>
 #include <QPushButton>
@@ -75,7 +75,7 @@ static const QColor PlayerColors[MAX_PLAYERS] = {
 class playersListModel : public QAbstractTableModel
 {
     typedef QPair<QColor, QString> PlayerId;
-    QLinkedList<PlayerId> m_availablePlayerId;
+    QVector<PlayerId> m_availablePlayerId;
     NewGameDlg *m_newGameDlg;
 
 public:
