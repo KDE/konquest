@@ -370,7 +370,11 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
     connect(m_w->randomizeMap, &QPushButton::clicked, this, &NewGameDlg::slotNewMap);
     connect(m_w->removePlayerButton, &QPushButton::clicked, this, &NewGameDlg::slotRemovePlayer);
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
+#else
+    connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) , this, &NewGameDlg::slotNewOwner);
+#endif
     connect(m_w->KillPercentageSB, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), this, &NewGameDlg::slotNewKillPercentage);
     connect(m_w->ProductionSB, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &NewGameDlg::slotNewProduction);
 
@@ -499,7 +503,11 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
     m_w->KillPercentageSB->setEnabled(hasPlanet);
     m_w->ProductionSB->setEnabled(hasPlanet);
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     disconnect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
+#else
+    disconnect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) , this, &NewGameDlg::slotNewOwner);
+#endif
 
     if (hasPlanet) {
         Planet *planet = sector->planet();
@@ -518,7 +526,11 @@ NewGameDlg::slotUpdateSelection(const Coordinate &coord)
         m_w->OwnerCB->setCurrentIndex(0);
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDlg::slotNewOwner);
+#else
+    connect(m_w->OwnerCB, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) , this, &NewGameDlg::slotNewOwner);
+#endif
 }
 
 
