@@ -98,6 +98,7 @@
     <p xml:lang="tr">Konquest, Gnu-Laktik Konquest'in bir sürümüdür. Oyuncular diğer gezegenlere gemi göndererek ele geçirirler. Hedef yıldızlararası bir imparatorluk kurmak ve sonuç olarak diğer oyuncunun gezegenlerini fethedmektir.</p>
     <p xml:lang="uk">Konquest — версія гри Gnu-Lacticю У цій грі гравці підкорюють планети, надсилаючи до них космічні кораблі. Метою гри є побудова міжзоряної імперії і повне підкорення планет всіх інших гравців.</p>
     <p xml:lang="x-test">xxKonquest is a version of Gnu-Lactic Konquest. Players conquer other planets by sending ships to them. The goal is to build an interstellar empire and ultimately conquer all other player's planets.xx</p>
+    <p xml:lang="zh-CN">Konque是Gnu-Lactic Konques的版本。玩家通过向其他星球派遣飞船来征服它们。 目标是建立一个星际帝国并最终征服所有其他玩家的星球。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=konquest</url>
   <url type="help">https://docs.kde.org/?application=konquest</url>
