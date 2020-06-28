@@ -455,25 +455,6 @@ No, that is not possible at the moment.
 
 </chapter>
 
-<appendix id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-konquest">
-<title>How to obtain &konquest;</title>
-
-&install.intro.documentation;
-
-</sect1>
-
-<sect1 id="compilation">
-<title>Compilation and Installation</title>
-
-&install.compile.documentation;
-
-</sect1>
-
-</appendix>
-
 &documentation.index;
 
 </book>
