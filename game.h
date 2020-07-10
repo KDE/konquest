@@ -28,7 +28,7 @@
 #include <QFinalState>
 #include <QState>
 
-#include <krandomsequence.h>
+#include <KRandomSequence>
 
 #include "fleet.h"
 #include "players/player.h"

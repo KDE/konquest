@@ -25,7 +25,7 @@
 #include "fleet.h"
 #include "game.h"
 #include "players/player.h"
-#include <krandomsequence.h>
+#include <KRandomSequence>
 #include <QDebug>
 
 //---------------------------------------------------------------------------
