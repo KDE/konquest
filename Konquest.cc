@@ -32,8 +32,6 @@
 #include "mainwin.h"
 #include "konquest_version.h"
 
-static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
-
 int
 main(int argc, char **argv)
 {
@@ -48,7 +46,7 @@ main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("konquest");
     KAboutData aboutData( QStringLiteral("konquest"), i18n("Konquest"),
         QStringLiteral(KONQUEST_VERSION_STRING),
-        i18n(description),
+        i18n("Galactic Strategy Game"),
         KAboutLicense::GPL,
         i18n("Copyright (c) 1999-2013, Developers"), QStringLiteral("https://kde.org/applications/games/org.kde.konquest") );
 
