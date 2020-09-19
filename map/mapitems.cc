@@ -227,10 +227,10 @@ void PlanetInfoItem::setPlanet (Planet *planet)
        && ((!m_game->options().BlindMap || m_game->currentPlayer() == planet->player())
            || (m_game->options().NeutralsShowStats && planet->player()->isNeutral())))
     {
-        text += QString("<br />" + i18n("Owner: %1", planet->player()->coloredName())
+        text += QLatin1String("<br />") + i18n("Owner: %1", planet->player()->coloredName()
           + (m_game->options().NeutralsShowShips || !planet->player()->isNeutral() ?
-             QString("<br />"
-          + i18n("Ships: %1", planet->ships() )) :
+             QLatin1String("<br />")
+          + i18n("Ships: %1", planet->ships() ) :
              QString()));
         if( m_game->currentPlayer() == planet->player() )
         {
@@ -240,12 +240,12 @@ void PlanetInfoItem::setPlanet (Planet *planet)
                     shipsNeeded += fleet->shipCount();
             }
             if(shipsNeeded)
-                text += QString("<br />" + i18nc("regarding standing orders", "Ships due: %1", shipsNeeded));
+                text += QLatin1String("<br />") + i18nc("regarding standing orders", "Ships due: %1", shipsNeeded);
         }
-        text += QString("<br />"
-          + i18n("Production: %1", planet->production() )
-          + "<br />"
-          + i18n("Kill percent: %1", planet->killPercentage() ));
+        text += QLatin1String("<br />")
+          + i18n("Production: %1", planet->production())
+          + QLatin1String("<br />")
+          + i18n("Kill percent: %1", planet->killPercentage() );
     }
     m_textDoc.setHtml(text);
 }

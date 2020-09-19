@@ -153,7 +153,7 @@ again:
             goto again;
         }
     }
-    return QChar(c);
+    return QChar::fromLatin1(c);
 }
 
 

@@ -434,13 +434,13 @@ GameView::gameMsg(const KLocalizedString &msg, Player *player, Planet *planet,
     if (m_msgWidgetLastTurn < m_game->turnCounter()) {
         m_msgWidgetLastTurn = m_game->turnCounter();
 
-        m_msgWidget->append("<font color=\"gray\">"
+        m_msgWidget->append(QLatin1String("<font color=\"gray\">")
                         + i18n("Turn %1:", m_game->turnCounter())
-                        + "</font>");
+                        + QLatin1String("</font>"));
     }
 
-    m_msgWidget->append("- <font color=\"" + color + "\">"
-                        + colorMsg.toString()+"</font>");
+    m_msgWidget->append(QLatin1String("- <font color=\"") + color + QLatin1String("\">")
+                        + colorMsg.toString()+QLatin1String("</font>"));
     m_msgWidget->moveCursor(QTextCursor::End);
 
     if (isHumanInvolved) {

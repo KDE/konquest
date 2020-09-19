@@ -24,7 +24,7 @@
 
 #include <QStandardPaths>
 
-#define IMAGE_SPLASH    QStandardPaths::locate(QStandardPaths::DataLocation, "pics/konquest-splash.png")
-#define IMAGES_SVG      QStandardPaths::locate(QStandardPaths::DataLocation, "pics/default_theme.svgz")
+#define IMAGE_SPLASH    QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/konquest-splash.png"))
+#define IMAGES_SVG      QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("pics/default_theme.svgz"))
 
 #endif // KONQUEST_IMAGES_H
