@@ -30,9 +30,9 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include "mainwin.h"
+#include "konquest_version.h"
 
 static const char description[] = I18N_NOOP("Galactic Strategy KDE Game");
-#define KONQUEST_VERSION "2.4"
 
 int
 main(int argc, char **argv)
@@ -47,7 +47,9 @@ main(int argc, char **argv)
     migrate.migrate();
     KLocalizedString::setApplicationDomain("konquest");
     KAboutData aboutData( QStringLiteral("konquest"), i18n("Konquest"),
-        KONQUEST_VERSION, i18n(description), KAboutLicense::GPL,
+        QStringLiteral(KONQUEST_VERSION_STRING),
+        i18n(description),
+        KAboutLicense::GPL,
         i18n("Copyright (c) 1999-2013, Developers"), QStringLiteral("https://kde.org/applications/games/org.kde.konquest") );
 
     aboutData.addAuthor(i18n("Russ Steffen"), QString(), QStringLiteral("rsteffen@bayarea.net"));
