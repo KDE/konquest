@@ -74,7 +74,7 @@ DefenseFleet::spawnAttackFleet( Planet *dest, long long count, int arrivalTurn )
 
     removeShips( count );
 
-    emit update();
+    Q_EMIT update();
     
     return newFleet;
 }

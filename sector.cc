@@ -56,20 +56,20 @@ void Sector::setPlanet( Planet *planet )
 
     connect(m_planet, &Planet::update, this, &Sector::childPlanetUpdate);
 
-    emit update();
+    Q_EMIT update();
 }
 
 void Sector::removePlanet()
 {
     m_planet = nullptr;
 
-    emit update();
+    Q_EMIT update();
 }
 
 
 void Sector::childPlanetUpdate()
 {
-    emit update();
+    Q_EMIT update();
 }
 
 Sector &

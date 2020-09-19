@@ -32,12 +32,12 @@ LocalPlayer::LocalPlayer(Game *game, const QString &newName, const QColor &color
 void LocalPlayer::play()
 {
     //qDebug() << name() << "::play";
-    emit(canPlay());
+    Q_EMIT canPlay();
 }
 
 
 void LocalPlayer::done()
 {
     //qDebug() << name() << "::done";
-    emit(donePlaying());
+    Q_EMIT donePlaying();
 }

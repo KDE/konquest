@@ -132,7 +132,7 @@ MapScene::planetItemSelected (PlanetItem *item)
         unselectPlanet();
     m_selectedPlanetItem = item;
 
-    emit planetSelected(item->sector()->planet());
+    Q_EMIT planetSelected(item->sector()->planet());
 }
 
 

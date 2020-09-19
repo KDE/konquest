@@ -68,5 +68,5 @@ void NeutralPlayer::play()
     m_game->findWinner();
 
     // After all that mess... It's done
-    emit(donePlaying());
+    Q_EMIT donePlaying();
 }

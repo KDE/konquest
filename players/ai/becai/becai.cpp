@@ -175,7 +175,7 @@ AiBecai::play()
         // We can abort here as there is nothing we can do (and to avoid
         // division by zero later on).
 
-        emit(donePlaying());
+        Q_EMIT donePlaying();
         return;
     }
 
@@ -587,5 +587,5 @@ AiBecai::play()
         }
     }
 
-    emit(donePlaying());
+    Q_EMIT donePlaying();
 }

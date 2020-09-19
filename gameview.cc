@@ -399,7 +399,7 @@ GameView::turn()
 
     m_endTurnBtn->setEnabled(m_guiState == SOURCE_PLANET);
 
-    emit newGUIState( m_guiState );
+    Q_EMIT newGUIState( m_guiState );
 }
 
 void
@@ -587,7 +587,7 @@ GameView::cleanupGame()
 
     m_initCompleted = false;
     m_cleanupNeeded = false;
-    emit newGUIState(m_guiState);
+    Q_EMIT newGUIState(m_guiState);
 }
 
 

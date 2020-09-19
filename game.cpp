@@ -113,7 +113,7 @@ bool Game::doFleetArrival(AttackFleet *fleet)
     if( fleet->owner == fleet->destination->player()) {
         fleet->destination->fleet().absorb(fleet);
         if ( !fleet->owner->isAiPlayer() )
-            emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
+            Q_EMIT gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
                             "Reinforcements (%1 ships) have arrived for planet %2.")
                 .subs(fleet->shipCount()), nullptr, fleet->destination);
     } else {
@@ -158,7 +158,7 @@ bool Game::doFleetArrival(AttackFleet *fleet)
 
         if( planetHolds ) {
             defenderPlanet->player()->statEnemyFleetsDestroyed(1);
-            emit gameMsg(ki18n("Planet %2 has held against an attack from %1."),
+            Q_EMIT gameMsg(ki18n("Planet %2 has held against an attack from %1."),
                          attacker->owner, defenderPlanet);
         } else {
             Player *defender = defenderPlanet->player();
@@ -166,7 +166,7 @@ bool Game::doFleetArrival(AttackFleet *fleet)
 
             defenderPlanet->conquer( attacker );
 
-            emit gameMsg(ki18n("Planet %2 has fallen to %1."),
+            Q_EMIT gameMsg(ki18n("Planet %2 has fallen to %1."),
                          attacker->owner, defenderPlanet, defender);
         }
     }
@@ -203,6 +203,6 @@ void Game::findWinner()
         // We got a winner
         //qDebug() << "Trying to stop";
         this->stop();
-        emit(finished());
+        Q_EMIT finished();
     }
 }

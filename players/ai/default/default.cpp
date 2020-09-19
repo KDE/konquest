@@ -131,5 +131,5 @@ void AiDefault::play()
             }
         }
     }
-    emit(donePlaying());
+    Q_EMIT donePlaying();
 }

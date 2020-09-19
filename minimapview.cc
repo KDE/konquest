@@ -82,7 +82,7 @@ MiniMapView::mousePressEvent(QMouseEvent *event)
     if (sector && !sector->hasPlanet())
         m_selection = Coordinate(-1, -1);
 
-    emit sectorSelected(m_selection);
+    Q_EMIT sectorSelected(m_selection);
 }
 
 

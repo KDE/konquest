@@ -179,7 +179,7 @@ void PlanetItem::mousePressEvent( QGraphicsSceneMouseEvent * /*event*/ )
     m_blinkTimer->start(500);
     update();
 
-    emit planetItemSelected(this);
+    Q_EMIT planetItemSelected(this);
 }
 
 void PlanetItem::select(  )

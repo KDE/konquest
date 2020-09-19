@@ -48,7 +48,7 @@ private:
     void setupGameView();
     void setupGUI();
 
-private slots:
+private Q_SLOTS:
     void guiStateChange( GUIState );
     void startNewGame();
     void updateMessagesActionSlot();

@@ -107,5 +107,5 @@ Planet::turn(const GameOptions &options)
     m_oldShips = m_homeFleet.shipCount();
     m_showCurShips = true;
     m_justconquered = false;
-    emit update();
+    Q_EMIT update();
 }

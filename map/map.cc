@@ -138,7 +138,7 @@ Map::clearMap()
         }
     }
 
-    emit update();
+    Q_EMIT update();
 }
 
 
@@ -172,7 +172,7 @@ Map::populateMap(const QList<Player *> &players, Player *neutral, int numNeutral
         }
     }
 
-    emit update();
+    Q_EMIT update();
 }
 
 
@@ -213,7 +213,7 @@ freesectorexists:
 void
 Map::childSectorUpdate()
 {
-    emit update();
+    Q_EMIT update();
 }
 
 

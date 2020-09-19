@@ -180,7 +180,7 @@ public:
         if (result) {
             m_game->setPlayers(m_players);
             m_newGameDlg->updateButtonOk();
-            emit dataChanged(index, index);
+            Q_EMIT dataChanged(index, index);
         }
 
         return result;

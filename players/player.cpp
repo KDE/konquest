@@ -47,7 +47,7 @@ void Player::onEntry(QEvent *event)
     m_game->setCurrentPlayer(this);
     Q_UNUSED(event);
     if (isDead())
-        emit donePlaying();
+        Q_EMIT donePlaying();
     else
         play();
 }
