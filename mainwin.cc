@@ -72,11 +72,11 @@ MainWindow::setupActions()
     KStandardGameAction::gameNew( this, SLOT(startNewGame()), actionCollection() );
     KStandardGameAction::quit( this, SLOT(close()), actionCollection() );
 
-    m_endTurnAction = KStandardGameAction::endTurn(this, NULL, actionCollection());
+    m_endTurnAction = KStandardGameAction::endTurn(this, nullptr, actionCollection());
     m_endTurnAction->setShortcut(Qt::CTRL | Qt::Key_E);
     m_endTurnAction->setEnabled(false);
 
-    m_endGameAction = KStandardGameAction::end( this, NULL, actionCollection() );
+    m_endGameAction = KStandardGameAction::end( this, nullptr, actionCollection() );
     m_endGameAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the

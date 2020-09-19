@@ -110,7 +110,7 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
 
     m_messagesDock->setWidget(m_msgWidget);
 
-    m_standingsWidget = new StandingsWidget(0);
+    m_standingsWidget = new StandingsWidget(nullptr);
     m_standingsDock->setWidget(m_standingsWidget);
 
     m_gameMessage = new QLabel( this );
@@ -210,7 +210,7 @@ GameView::keyPressEvent( QKeyEvent *e )
         default:
             break;
         }
-        m_mapScene->displayPlanetInfo( NULL );
+        m_mapScene->displayPlanetInfo( nullptr );
         m_mapScene->unselectPlanet();
         m_showInformations = false;
         return;
@@ -238,7 +238,7 @@ GameView::keyPressEvent( QKeyEvent *e )
                 m_mapScene->displayPlanetInfo( p );
                 m_showInformations = false;
             } else {
-                m_mapScene->displayPlanetInfo( NULL );
+                m_mapScene->displayPlanetInfo( nullptr );
                 m_mapScene->selectPlanet(p);
                 planetSelected( p );
             }

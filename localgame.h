@@ -25,7 +25,7 @@
 class LocalGame : public Game
 {
 public:
-    explicit LocalGame(QObject *parent = 0);
+    explicit LocalGame(QObject *parent = nullptr);
 
     void start() override;
     void stop() override;

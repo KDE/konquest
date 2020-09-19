@@ -32,7 +32,7 @@
 
 MiniMapView::MiniMapView(QWidget *parent) :
     QWidget(parent),
-    m_map(0),
+    m_map(nullptr),
     m_selection(-1, -1)
 {
     QPalette  pal = palette();

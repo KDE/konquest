@@ -29,7 +29,7 @@ class MapScene;
 class MapView : public QGraphicsView
 {
 public:
-    explicit MapView( MapScene* scene, QWidget *parent = 0 );
+    explicit MapView( MapScene* scene, QWidget *parent = nullptr );
     
 private:
     void resizeEvent( QResizeEvent* ) override;

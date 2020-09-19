@@ -34,7 +34,7 @@ class MiniMapView : public QWidget
     Q_OBJECT
 
 public:
-    explicit MiniMapView(QWidget *parent = 0);
+    explicit MiniMapView(QWidget *parent = nullptr);
     ~MiniMapView();
 
     void setMap(Map *newMap);

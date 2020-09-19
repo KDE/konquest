@@ -64,7 +64,7 @@ public:
             }
         }
 
-        return NULL;
+        return nullptr;
     }
 
     const QList<Planet*> planets();

@@ -52,7 +52,7 @@ class Game : public QObject
 {
     Q_OBJECT
 public:
-    explicit Game(QObject *parent = 0);
+    explicit Game(QObject *parent = nullptr);
     ~Game();
 
     bool isRunning();
@@ -89,8 +89,8 @@ Q_SIGNALS:
     void started();
     void finished();
     void waitingForPlayer(Player *player);
-    void gameMsg( const KLocalizedString &msg, Player *player = 0,
-                  Planet *planet = 0, Player *planetPlayer = 0 );
+    void gameMsg( const KLocalizedString &msg, Player *player = nullptr,
+                  Planet *planet = nullptr, Player *planetPlayer = nullptr );
 
 private:
     static KRandomSequence random;

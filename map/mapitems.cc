@@ -48,7 +48,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
       m_selected(false),
       m_blinkState(false)
 {
-    if (m_sector->planet() != NULL) {
+    if (m_sector->planet() != nullptr) {
         m_lookName = QStringLiteral("planet_%1").arg(m_sector->planet()->planetLook() + 1);
     }
     setAcceptHoverEvents(true);
@@ -62,7 +62,7 @@ PlanetItem::PlanetItem (MapScene *scene, Sector *sector, Game *game)
 void PlanetItem::updatePlanet()
 {
     Planet  *planet = m_sector->planet();
-    if (planet != NULL) {
+    if (planet != nullptr) {
         m_lookName = QStringLiteral("planet_%1").arg(planet->planetLook() + 1);
         update();
     }
@@ -167,7 +167,7 @@ void PlanetItem::hoverEnterEvent( QGraphicsSceneHoverEvent * /*event*/ )
 void PlanetItem::hoverLeaveEvent( QGraphicsSceneHoverEvent * /*event*/ )
 {
     m_hovered = false;
-    m_scene->displayPlanetInfo(NULL);
+    m_scene->displayPlanetInfo(nullptr);
 
     update();
 }
@@ -214,7 +214,7 @@ PlanetInfoItem::PlanetInfoItem (Game *game)
   : QGraphicsItem(),
     m_game(game),
     m_textDoc(),
-    m_planet(NULL)
+    m_planet(nullptr)
 {
 }
 

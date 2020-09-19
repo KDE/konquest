@@ -70,7 +70,7 @@ Map::addPlayerPlanetSomewhere(Player *player)
 {
     Sector *sector = findRandomFreeSector();
     if (!sector)
-        return NULL;
+        return nullptr;
     return Planet::createPlayerPlanet(sector, player, UniquePlanetName());
 }
 
@@ -80,7 +80,7 @@ Map::addNeutralPlanetSomewhere(Player *neutral)
 {
     Sector *sector = findRandomFreeSector();
     if (!sector)
-        return NULL;
+        return nullptr;
     return Planet::createNeutralPlanet(sector, neutral, UniquePlanetName());
 }
 
@@ -196,7 +196,7 @@ Map::findRandomFreeSector()
         }
     }
 
-    return NULL;
+    return nullptr;
 
 freesectorexists:
 

@@ -93,8 +93,8 @@ public:
     void  showFleets();
 
     void  startNewGame();
-    void  gameMsg(const KLocalizedString &msg, Player *player = 0,
-		  Planet *planet = 0, Player *planetPlayer = 0);
+    void  gameMsg(const KLocalizedString &msg, Player *player = nullptr,
+		  Planet *planet = nullptr, Player *planetPlayer = nullptr);
     void  turnPreparation();
 
 Q_SIGNALS:

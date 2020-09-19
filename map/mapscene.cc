@@ -36,8 +36,8 @@
 MapScene::MapScene (Game *game)
   : QGraphicsScene(game),
     m_game(game),
-    m_selectedPlanetItem(NULL),
-    m_planetInfoItem(NULL),
+    m_selectedPlanetItem(nullptr),
+    m_planetInfoItem(nullptr),
     m_width(width()),
     m_height(height())
 {
@@ -87,8 +87,8 @@ MapScene::clearMap()
         delete item;
     }
     m_planetItems.clear();
-    m_planetInfoItem = NULL;
-    m_selectedPlanetItem = NULL;
+    m_planetInfoItem = nullptr;
+    m_selectedPlanetItem = nullptr;
 }
 
 
@@ -120,7 +120,7 @@ MapScene::unselectPlanet()
 {
     if (m_selectedPlanetItem) {
         m_selectedPlanetItem->unselect();
-        m_selectedPlanetItem = NULL;
+        m_selectedPlanetItem = nullptr;
     }
 }
 

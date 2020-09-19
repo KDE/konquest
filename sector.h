@@ -53,7 +53,7 @@ public:
     Sector &operator=( const Sector & );
 
     Coordinate  coord()     const { return m_coord; }
-    bool        hasPlanet() const { return m_planet != NULL; }
+    bool        hasPlanet() const { return m_planet != nullptr; }
     Planet     *planet()    const { return m_planet; }
     void        setPlanet( Planet *planet );
     void        removePlanet();

@@ -186,9 +186,9 @@ public:
         return result;
     }
 
-    Player *addPlayer(PlayerGui* selectedPlayer = 0)
+    Player *addPlayer(PlayerGui* selectedPlayer = nullptr)
     {
-        Player *player = NULL;
+        Player *player = nullptr;
         int players = m_players.count();
 
         if ((!m_availablePlayerId.empty()) && (!m_selectablePlayer.empty())) {
@@ -222,7 +222,7 @@ public:
 
     Player *removePlayer(int row)
     {
-        Player *player = NULL;
+        Player *player = nullptr;
         if (row >= 0 && row < m_players.count())
         {
             beginRemoveRows(QModelIndex(), row, row);
@@ -247,7 +247,7 @@ private:
 
     Player *getNewPlayerByGui(PlayerGui *playerGui, const QString &playerName, const QColor &color) const
     {
-        Player *newPlayer = 0;
+        Player *newPlayer = nullptr;
         if (playerGui)
         {
             newPlayer = playerGui->createInstance(m_game, playerName, color);

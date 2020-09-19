@@ -67,7 +67,7 @@ AttackFleet *
 DefenseFleet::spawnAttackFleet( Planet *dest, long long count, int arrivalTurn )
 {
     if( m_shipCount < count ) {
-        return NULL;
+        return nullptr;
     }
 
     AttackFleet *newFleet = new AttackFleet( home, dest, count, arrivalTurn  );

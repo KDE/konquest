@@ -29,20 +29,20 @@
 //---------------------------------------------------------------------------
 
 Sector::Sector()
-  : m_map(NULL ),
+  : m_map(nullptr ),
     m_coord( 0,0 ),
-    m_planet( NULL )
+    m_planet( nullptr )
 {}
 
 Sector::Sector( Map *map, Coordinate coord )
   : m_map( map ),
     m_coord( coord ),
-    m_planet(NULL)
+    m_planet(nullptr)
 {
 }
 
 Sector::Sector( const Sector & other )
-  : QObject( 0 ), 
+  : QObject( nullptr ),
     m_map(other.m_map), 
     m_coord(other.m_coord),
     m_planet(other.m_planet)
@@ -61,7 +61,7 @@ void Sector::setPlanet( Planet *planet )
 
 void Sector::removePlanet()
 {
-    m_planet = NULL;
+    m_planet = nullptr;
 
     emit update();
 }

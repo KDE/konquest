@@ -43,7 +43,7 @@ void AiDefault::play()
 {
     //qDebug() << "computer playing";
     int      ships = 0, minimumShips =10, shipCountFactor = 2;
-    Planet  *target = 0;
+    Planet  *target = nullptr;
 
     switch (m_level)
     {

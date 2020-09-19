@@ -115,7 +115,7 @@ bool Game::doFleetArrival(AttackFleet *fleet)
         if ( !fleet->owner->isAiPlayer() )
             emit gameMsg(ki18np("Reinforcements (1 ship) have arrived for planet %2.",
                             "Reinforcements (%1 ships) have arrived for planet %2.")
-                .subs(fleet->shipCount()), 0, fleet->destination);
+                .subs(fleet->shipCount()), nullptr, fleet->destination);
     } else {
         // let's get ready to rumble...
         AttackFleet   *attacker       = fleet;
@@ -183,7 +183,7 @@ void Game::findWinner()
 {
     //qDebug() << "Searching for survivors";
     // Check for survivors
-    Player *winner = 0;
+    Player *winner = nullptr;
     for (Player *player : players()) {
         if (player->isNeutral() || player->isSpectator()) {
             continue;
