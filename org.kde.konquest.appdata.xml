@@ -112,6 +112,7 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=konquest</url>
   <url type="help">https://docs.kde.org/?application=konquest</url>
   <url type="donation">https://www.kde.org/community/donations/?app=konquest&amp;source=appdata</url>
+  <url type="homepage">https://kde.org/applications/games/org.kde.konquest</url>
   <screenshots>
     <screenshot type="default">
       <image>https://kde.org/images/screenshots/konquest.png</image>
