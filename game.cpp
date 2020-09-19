@@ -27,7 +27,7 @@
 #include <QDebug>
 #include <cmath>
 
-KRandomSequence Game::random = KRandomSequence();
+QRandomGenerator Game::random = QRandomGenerator(QRandomGenerator::global()->generate());
 
 Game::Game(QObject *parent) :
     QObject(parent)
@@ -57,19 +57,19 @@ bool Game::isRunning()
 
 Coordinate Game::generatePlanetCoordinates(int x, int y)
 {
-    return Coordinate(random.getLong(x), random.getLong(y));
+    return Coordinate(random.bounded(x), random.bounded(y));
 }
 
 double Game::generateKillPercentage()
 {
     // 0.30 - 0.90
-    return 0.30 + random.getDouble()*0.60;
+    return 0.30 + random.bounded(0.60);
 }
 
 int Game::generatePlanetProduction()
 {
     // 5 - 15
-    return 5 + random.getLong(10);
+    return 5 + random.bounded(10);
 }
 
 bool Game::attack(Planet *sourcePlanet, Planet *destPlanet, long long shipCount, bool standingOrder)
@@ -127,8 +127,8 @@ bool Game::doFleetArrival(AttackFleet *fleet)
         bool  planetHolds = true;
 
         while( !haveVictor ) {
-            double  attackerRoll = random.getDouble();
-            double  defenderRoll = random.getDouble();
+            double  attackerRoll = random.bounded(1.0);
+            double  defenderRoll = random.bounded(1.0);
 
             /* special case if both have 0 kill percentages */
             if( defenderPlanet->killPercentage() == 0 &&

@@ -25,7 +25,7 @@
 #include "fleet.h"
 #include "game.h"
 #include "players/player.h"
-#include <KRandomSequence>
+#include <QRandomGenerator>
 #include <QDebug>
 
 //---------------------------------------------------------------------------
@@ -44,8 +44,7 @@ Planet::Planet( const QString &planetName, Sector *sector, Player *initialOwner,
     m_showCurShips(true),
     m_justconquered(false)
 {
-    KRandomSequence r;
-    m_planetLook = r.getLong(10);
+    m_planetLook = QRandomGenerator::global()->bounded(10);
     connect(&m_homeFleet, &DefenseFleet::update, this, &Planet::update);
     m_sector->setPlanet( this );
 }

@@ -27,8 +27,7 @@
 #include <QStateMachine>
 #include <QFinalState>
 #include <QState>
-
-#include <KRandomSequence>
+#include <QRandomGenerator>
 
 #include "fleet.h"
 #include "players/player.h"
@@ -93,7 +92,7 @@ Q_SIGNALS:
                   Planet *planet = nullptr, Player *planetPlayer = nullptr );
 
 private:
-    static KRandomSequence random;
+    static QRandomGenerator random;
 
     Player *m_currentPlayer;
 
