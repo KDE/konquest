@@ -31,8 +31,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     WidgetsAddons
 )
 
-find_package(KF5DocTools ${KF5_MIN_VERSION})
-
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
 include(FeatureSummary)
@@ -60,9 +58,7 @@ add_definitions(
 )
 
 add_subdirectory( pics )
-if (KF5DocTools_FOUND)
-    add_subdirectory( doc )
-endif()
+add_subdirectory( doc )
 
 ########### next target ###############
 
