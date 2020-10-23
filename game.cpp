@@ -21,7 +21,6 @@
  */
 
 #include "game.h"
-#include "players/player.h"
 #include "planet.h"
 #include <KLocalizedString>
 #include <QDebug>
