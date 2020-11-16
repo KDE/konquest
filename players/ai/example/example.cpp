@@ -33,5 +33,5 @@ AiExample::AiExample(
 void
 AiExample::play()
 {
-    emit(donePlaying());
+    Q_EMIT donePlaying();
 }
