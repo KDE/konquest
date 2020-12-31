@@ -120,6 +120,8 @@ endif()
 
 ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
+qt5_add_resources(konquest_SRCS konquest.qrc)
+
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-konquest.png")
 ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
 add_executable(konquest ${konquest_SRCS})
@@ -142,7 +144,6 @@ install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install(PROGRAMS org.kde.konquest.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
-install(FILES konquestui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/konquest)
 install(FILES org.kde.konquest.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 ecm_install_icons(ICONS
