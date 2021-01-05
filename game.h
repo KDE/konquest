@@ -75,7 +75,6 @@ public:
 Q_SIGNALS:
     void started();
     void finished();
-    void waitingForPlayer(Player *player);
     void gameMsg( const KLocalizedString &msg, Player *player = nullptr,
                   Planet *planet = nullptr, Player *planetPlayer = nullptr );
 
