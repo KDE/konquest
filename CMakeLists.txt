@@ -107,6 +107,7 @@ set(konquest_SRCS
     players/spectatorplayer_gui.cpp
 
     view/standingswidget.cpp
+    konquest.qrc
 )
 
 option(KONQUEST_EXAMPLE_PLAYER "Include example player" OFF)
@@ -120,7 +121,6 @@ endif()
 
 ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui )
 
-qt5_add_resources(konquest_SRCS konquest.qrc)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*-apps-konquest.png")
 ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
