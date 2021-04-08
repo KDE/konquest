@@ -17,7 +17,6 @@
 #include "game.h"
 #include "gameview.h"
 
-class QAction;
 class QDockWidget;
 
 
