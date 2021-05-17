@@ -3,7 +3,9 @@ ecm_setup_version(${KONQUEST_VERSION}
     VERSION_HEADER konquest_version.h
 )
 
-set(konquest_SRCS 
+add_executable(konquest)
+
+target_sources(konquest PRIVATE
     game.cpp
     localgame.cpp
 
@@ -43,23 +45,23 @@ set(konquest_SRCS
     players/spectatorplayer_gui.cpp
 
     view/standingswidget.cpp
+
     konquest.qrc
 )
 
 if(KONQUEST_EXAMPLE_PLAYER)
     message(STATUS "KONQUEST_EXAMPLE_PLAYER")
-    add_definitions(-DKONQUEST_EXAMPLE_PLAYER)
-    list (APPEND konquest_SRCS
-                 players/ai/example/example.cpp
-                 players/ai/example/example_gui.cpp)
+    target_compile_definitions(konquest PRIVATE -DKONQUEST_EXAMPLE_PLAYER)
+    target_sources(konquest PRIVATE
+        players/ai/example/example.cpp
+        players/ai/example/example_gui.cpp
+    )
 endif()
 
-ki18n_wrap_ui(konquest_SRCS dialogs/newGameDialog.ui)
+ki18n_wrap_ui(konquest dialogs/newGameDialog.ui)
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-konquest.png")
-ecm_add_app_icon(konquest_SRCS ICONS ${ICONS_SRCS})
-
-add_executable(konquest ${konquest_SRCS})
+ecm_add_app_icon(konquest ICONS ${ICONS_SRCS})
 
 target_link_libraries(konquest
     KF5KDEGames
