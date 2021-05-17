@@ -24,7 +24,7 @@ class AiExample : public ComputerPlayer
 public:
     explicit AiExample(Game *game, const QString &newName, const QColor &color);
 
-    virtual void play();
+    void play() override;
 
 };
 

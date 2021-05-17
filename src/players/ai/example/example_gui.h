@@ -14,7 +14,7 @@ class AiExampleGui : public PlayerGui
 {
 public:
     explicit AiExampleGui();
-    virtual Player* createInstance(Game *game, const QString &newName, const QColor &color) const;
+    Player* createInstance(Game *game, const QString &newName, const QColor &color) const override;
 };
 
 #endif // AI_EXAMPLE_GUI_H
