@@ -72,7 +72,7 @@ target_link_libraries(konquest
     KF5::I18n
     KF5::XmlGui
     KF5::WidgetsAddons
-    Qt5::Svg
+    Qt::Svg
 )
 
 install(TARGETS konquest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
