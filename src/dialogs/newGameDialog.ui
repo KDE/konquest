@@ -189,7 +189,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Kill Percentage:</string>
+         <string>Kill percentage:</string>
         </property>
         <property name="buddy">
          <cstring>neutralPlanetsSB</cstring>
@@ -206,7 +206,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Owner</string>
+         <string>Owner:</string>
         </property>
        </widget>
       </item>
@@ -231,21 +231,21 @@
       <item>
        <widget class="QCheckBox" name="BlindMapCB">
         <property name="text">
-         <string>Blind Map</string>
+         <string>Blind map</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="CumulativeProductionCB">
         <property name="text">
-         <string>Cumulative Production</string>
+         <string>Cumulative production</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="ProductionAfterConquereCB">
         <property name="text">
-         <string>Production After Capture</string>
+         <string>Production after capture</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -270,21 +270,21 @@
          <item row="0" column="0" colspan="2">
           <widget class="QCheckBox" name="NeutralsShowShipsCB">
            <property name="text">
-            <string>Show Ships</string>
+            <string>Show ships</string>
            </property>
           </widget>
          </item>
          <item row="1" column="0" colspan="2">
           <widget class="QCheckBox" name="NeutralsShowStatsCB">
            <property name="text">
-            <string>Show Stats</string>
+            <string>Show stats</string>
            </property>
           </widget>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_7">
            <property name="text">
-            <string>Production</string>
+            <string>Production:</string>
            </property>
           </widget>
          </item>

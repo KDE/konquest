@@ -312,7 +312,7 @@ NewGameDlg::NewGameDlg( QWidget *parent, Game *game)
       m_game(game)
 {
     m_neutral = m_game->neutral();
-    setWindowTitle(i18n("Start New Game"));
+    setWindowTitle(i18nc("@title:window", "Start New Game"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;

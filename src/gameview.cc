@@ -521,7 +521,7 @@ GameView::shutdownGame()
     int choice = KMessageBox::warningContinueCancel
       ( this,
         i18n("Do you wish to retire this game?"),
-        i18n("End Game"),
+        i18nc("@title:window", "End Game"),
         KStandardGuiItem::ok() );
 
     if( choice == KMessageBox::Cancel )
@@ -549,7 +549,7 @@ GameView::gameOver()
         m_messagesDock->hide();
         m_standingsDock->hide();
 
-        ScoreDlg *scoreDlg = new ScoreDlg(this, i18n("Final Standings"), m_game->players());
+        ScoreDlg *scoreDlg = new ScoreDlg(this, i18nc("@title:window", "Final Standings"), m_game->players());
         scoreDlg->exec();
         scoreDlg->deleteLater();
 

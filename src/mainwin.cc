@@ -30,7 +30,7 @@
 // KonquestMainWindow
 MainWindow::MainWindow()
 {
-    setWindowTitle( i18n("Galactic Conquest") );
+    setWindowTitle(i18nc("@title:window", "Galactic Conquest"));
 
     setupActions();
     setupGameView();
@@ -71,13 +71,13 @@ MainWindow::setupActions()
     //different state - QAction not :-(
     m_measureAction = actionCollection()->addAction( QStringLiteral(  "game_measure" ) );
     m_measureAction->setIcon( QIcon::fromTheme( QStringLiteral( "go-jump" )) );
-    m_measureAction->setText( i18n("&Measure Distance") );
+    m_measureAction->setText( i18n("&Measure Distance...") );
     m_measureAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QStringLiteral(  "game_fleets" ) );
     m_fleetAction->setIcon( QIcon::fromTheme( QStringLiteral( "fork" )) );
-    m_fleetAction->setText( i18n("&Fleet Overview") );
+    m_fleetAction->setText( i18n("&Fleet Overview...") );
     m_fleetAction->setEnabled(false);
 
     // Toolbar

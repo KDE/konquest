@@ -30,7 +30,7 @@ FleetDlg::FleetDlg( QWidget *parent,
 {
     setObjectName( QStringLiteral( "FleetDlg" ) );
     setModal( true );
-    setWindowTitle( i18n("Fleet Overview") );
+    setWindowTitle(i18nc("@title:window", "Fleet Overview"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
