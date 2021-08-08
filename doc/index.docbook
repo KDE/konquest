@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&konquest;">
-  <!ENTITY package "kdegames">	
+  <!ENTITY gnu-lactic "<application>&GNU;-Lactic</application>">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
@@ -64,12 +63,12 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-02-08</date>
-<releaseinfo>2.3 (&kde; 4.13)</releaseinfo>
+<date>2021-08-08</date>
+<releaseinfo>2.4 (KDE Gear 21.08)</releaseinfo>
 
 <abstract>
 <para>
-&konquest; is a game of galactic conquest for &kde;
+&konquest; is a game of galactic conquest
 </para>
 </abstract>
 
@@ -77,6 +76,9 @@
 <keyword>KDE</keyword>
 <keyword>Konquest</keyword>
 <keyword>kdegames</keyword>
+<keyword>board</keyword>
+<keyword>multiplayer</keyword>
+<keyword>strategy</keyword>
 </keywordset>
 
 </bookinfo>
@@ -95,8 +97,8 @@
 </screenshot>
 
 <para>
-&konquest; is the &kde; version of Gnu-Lactic. Players conquer other planets by sending
-ships to them. The goal is to build an interstellar empire and ultimately conqueror all 
+&konquest; is the &kde; version of &gnu-lactic;. Players conquer other planets by sending
+ships to them. The goal is to build an interstellar empire and ultimately conqueror all
 other player's planets. &konquest; can be played against other people or a computer.
 </para>
 
@@ -110,46 +112,50 @@ When you start &konquest;, press <guibutton>New</guibutton> to start a new game.
 You will see a dialog in which you need to enter various information to setup your game.
 Listed below are the following parameters for the new game:
 </para>
-<itemizedlist>
 
-<listitem><para>Players</para><itemizedlist>
+  <para><guilabel>Players</guilabel></para>
 
-  <listitem><para>Amount of players with <guibutton>Add</guibutton> or <guibutton>Remove</guibutton> players</para></listitem>
-  <listitem><para>Names of players</para></listitem>
-  <listitem><para>Type of players (Computer versus Human)</para></listitem>
-  <listitem><para>Difficulty of computer players (Low/Normal/Hard)</para></listitem>
+  <itemizedlist>
+    <listitem><para>Amount of players with <guibutton>Add</guibutton> or <guibutton>Remove</guibutton> players</para></listitem>
+    <listitem><para>Names of players</para></listitem>
+    <listitem><para>Type of players (Computer versus Human)</para></listitem>
+    <listitem><para>Difficulty of computer players (Low/Normal/Hard)</para></listitem>
   </itemizedlist>
-  <para>To change the name of the player, double-click in the <guilabel>Name</guilabel>
-  column and edit it. To change the type of the player, open the drop-down list by
-  double-clicking in the <guilabel>Type</guilabel> column. It is also possible to select the type of the new players using the drop-down list of the <guibutton>Add</guibutton> button.</para>
+
+<para>To change the name of the player, double-click in the <guilabel>Name</guilabel> column and edit it. To change the type of the player, open the drop-down list by double-clicking in the <guilabel>Type</guilabel> column. It is also possible to select the type of the new players using the drop-down list of the <guibutton>Add</guibutton> button.</para>
+
 <para>There are two types of the human players in &konquest;, namely <guimenuitem>Human (Player)</guimenuitem> and <guimenuitem>Human (Spectator)</guimenuitem>. The latter option allows watching the game without taking part in it.</para>
+
 <para>The type of AI player can be chosen from <guimenuitem>Default (Weak)</guimenuitem> (a player that is neither aggressive in attacks nor in defense), <guimenuitem>Default (Offensive)</guimenuitem> (an aggressive attacking player) and <guimenuitem>Default (Defensive)</guimenuitem> (a player with defensive strategy).</para>
-  <para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of <xref linkend="strattips"/> into account.</para>
-  <para>Keep in mind that the actual difficulty of any opponent depends on your very own strategy. If you play aggressively yourself, an aggressive AI player might be easier to defeat than a defensive player, and vice versa.</para>
-</listitem>
 
-<listitem><para>Map</para><itemizedlist>
-  
-  <listitem><para>Number of Neutral planets</para></listitem>
-  <listitem><para>Width and height of the map in tile units</para></listitem>
-  <listitem><para>Changing the Owner, Kill Percentage, and Production level of a particular planet</para></listitem>
-  <listitem><para>Change the distribution of planets. Press <guibutton>Randomize</guibutton> to make it random.</para></listitem>
+<para>Besides these classic AI players, <guimenuitem>Becai (Balanced)</guimenuitem> is a balanced player taking most of <xref linkend="strattips"/> into account.</para>
 
-  </itemizedlist>
-  <para>You can select the planet using the map thumbnail in the middle of <guilabel>Map</guilabel> pane. Just click on the planet with the &LMB;, then change the desired options.</para>
-</listitem>
-<listitem><para>Options</para><itemizedlist>
-  
-  <listitem><para>Whether or not you can see information about opponents' planets.</para></listitem>
-  <listitem><para>Whether or not cumulative production is enabled or not.</para></listitem>
-  <listitem><para>If production is enabled immediately after capture.</para></listitem>
-  <listitem><para>Allowing amount of ships and other stats to be displayed for neutral planets</para></listitem>
-  <listitem><para>Set the production level for neutral planets</para></listitem>
-  </itemizedlist>
-</listitem>
-</itemizedlist>
-<para>When you are done changing these settings (optional), click <guibutton>OK</guibutton> to start the game.
-</para>
+<para>Keep in mind that the actual difficulty of any opponent depends on your very own strategy. If you play aggressively yourself, an aggressive AI player might be easier to defeat than a defensive player, and vice versa.</para>
+
+<variablelist>
+  <varlistentry>
+    <term><guilabel>Map</guilabel></term>
+    <listitem><para><guilabel>Neutral planets:</guilabel> Number of neutral planets.</para>
+    <para><guilabel>Width:</guilabel> and <guilabel>Height:</guilabel> of the map in tile units.</para>
+    <para>Changing the <guilabel>Owner:</guilabel>, <guilabel>Kill percentage:</guilabel>, and <guilabel>Production:</guilabel> level of a particular planet.</para>
+    <para>Change the distribution of planets. Press <guibutton>Randomize</guibutton> to make it random.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>You can select the planet using the map thumbnail in the middle of <guilabel>Map</guilabel> pane. Just click on the planet with the &LMB;, then change the desired options.</para>
+
+<variablelist>
+  <varlistentry>
+    <term><guilabel>Options</guilabel></term>
+    <listitem><para><guilabel>Blind map</guilabel>: Whether or not you can see information about opponents' planets.</para>
+    <para><guilabel>Cumulative production</guilabel>: Whether or not it is enabled.</para>
+    <para><guilabel>Production after capture</guilabel>: If it is enabled immediately.</para>
+    <para><guilabel>Show ships</guilabel>: Allowing amount of ships and other stats to be displayed for neutral planets.</para>
+    <para><guilabel>Show stats</guilabel>: Set the production level for neutral planets.</para></listitem>
+  </varlistentry>
+</variablelist>
+
+<para>When you are done changing these settings (optional), click <guibutton>OK</guibutton> to start the game.</para>
 
 <screenshot>
 <mediaobject>
@@ -160,19 +166,17 @@ Listed below are the following parameters for the new game:
 </screenshot>
 
 <para>
-Once the game starts, you will be presented with the game board. Blank squares
-are empty space. At first, each player owns one planet. The planet's background
-is the player color. If you move your mouse over a planet, you can see additional
-  information. Without the <guilabel>Blind Map</guilabel> option enabled when selecting a game, you can see any information about all planet if you hover over it with mouse. If you had selected the <guilabel>Blind Map</guilabel> option when starting a new game, you will only see the planet's name on planets which have been conquered by opponents.The information can include:
+Once the game starts, you will be presented the game board. Blank squares are empty space. At first, each player owns one planet. The planet's background is the player's color. If you move the mouse over a planet, you can see additional information. Without the <guilabel>Blind map</guilabel> option enabled when selecting a game, you can see any information about the planet if you hover over it with mouse. If you had selected the <guilabel>Blind map</guilabel> option when starting a new game, you will only see the planet's name on planets which have been conque
+red by opponents. The information can include:
 </para>
 
 <itemizedlist>
-<listitem><para>Planet name</para></listitem>
-<listitem><para>Owner</para></listitem>
-<listitem><para>Ships</para></listitem>
-<listitem><para>Ships Due</para></listitem>
-<listitem><para>Production</para></listitem>
-<listitem><para>Kill percent</para></listitem>
+<listitem><para><guilabel>Planet name:</guilabel></para></listitem>
+<listitem><para><guilabel>Owner:</guilabel></para></listitem>
+<listitem><para><guilabel>Ships:</guilabel></para></listitem>
+<listitem><para><guilabel>Ships due:</guilabel></para></listitem>
+<listitem><para><guilabel>Production:</guilabel></para></listitem>
+<listitem><para><guilabel>Kill percent:</guilabel></para></listitem>
 </itemizedlist>
 
 <screenshot>
@@ -184,37 +188,22 @@ is the player color. If you move your mouse over a planet, you can see additiona
 </screenshot>
 
 <para>
-The <guilabel>Planet name</guilabel> is how the planet is referred to in the game. Planets are named
-alphabetically with uppercase letters. <guilabel>Owner</guilabel> is who owns the planet. If the planet
-is conquered by another player, this will change. <guilabel>Ships</guilabel> is the current number of
-ships on the planet. <guilabel>Ships due</guilabel> will only appear if you have selected a standing order for that planet,
-otherwise it is not there. <guilabel>Production</guilabel> is the number of ships the planet will produce each turn.
-The production varies from planet to planet, but always remains the same. <guilabel>Kill percent</guilabel>
-is a measure of the effectiveness of the ships produced at that planet. Attack fleets take
-the kill percentage of their planet of departure, and defense fleets use the kill
-percentage of the planet they are defending.
-You can get easily see the planet name, the owner and the current number of ships
-on a planet in the square in which the planet lies. The owner is represented by the
-background color of the planet, the name is in the upper left corner and the number of
-ships is in the lower right corner.
+The <guilabel>Planet name:</guilabel> is how the planet is referred to in the game. Planets are named alphabetically with uppercase letters. <guilabel>Owner:</guilabel> is who owns the planet. If the planet is conquered by another player, this will change. <guilabel>Ships:</guilabel> is the current number of ships on the planet. <guilabel>Ships due:</guilabel> will only appear if you have selected a standing order for that planet, otherwise it is not there. <guilabel>Production:</guilabel> is the number of ships the planet will produce each turn. The production varies from planet to planet, but always remains the same. <guilabel>Kill percent:</guilabel> is a measure of the effectiveness of the ships produced at that planet. Attack fleets take the kill percentage of their planet of departure, and defense fleets use the kill percentage of the planet they are defending. You can get easily see the planet name, the owner and the current number of ships on a planet in the square in which the planet lies. The owner is represented by the background color of the planet, the name is in the upper left corner and the number of ships is in the lower right corner.
 </para>
 
 <para>
 To send ships from a planet to another, select the planet you want to send ships from, enter
 the number of ships in the green box in the upper right corner and press &Enter;. Repeat
-this procedure until you have sent out all the ships you want. If you wish to send a constant amount 
-of ships from one planet to another every turn, enter that number and check the <guilabel>Standing Order</guilabel> box,
+this procedure until you have sent out all the ships you want. If you wish to send a constant amount
+of ships from one planet to another every turn, enter that number and check the <guilabel>Standing order</guilabel> box,
 and press &Enter;. The ships due to the standing order will be sent at the end of the turn. When you are done, press <guibutton>End
 Turn</guibutton>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will
 proceed like this until one of the players owns the entire galaxy.
 </para>
 <tip>
   <para>
-    A keyboard shortcut for <guimenuitem>End Turn</guimenuitem> action can be configured using the
-      <menuchoice>
-	<guimenu>Settings</guimenu>
-	<guimenuitem>Configure Shortcuts...</guimenuitem>
-      </menuchoice> menu item.
+    A keyboard shortcut for <guibutton>End Turn</guibutton> action can be configured using the
+    <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> menu item.
   </para>
   <para>
     For more information read the section about <ulink url="help:/fundamentals/config.html#shortcuts">Using and Customizing Shortcuts</ulink> of the &kde; Fundamentals.
@@ -226,27 +215,28 @@ proceed like this until one of the players owns the entire galaxy.
 <title>Game Rules, Strategies and Tips</title>
 <sect1 id="rules">
 <title>Rules</title>
+
 <itemizedlist>
-<listitem><para>Ships cannot be stopped once they leave a planet.</para></listitem>
-<listitem><para>Ships cannot attack other ships in midair.</para></listitem>
-<listitem><para>Ships can be stored at planets for later use.</para></listitem>
-<listitem><para>A planet cannot be given away.</para></listitem>
-<listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without launching any
-ships.</para></listitem>
+  <listitem><para>Ships cannot be stopped once they leave a planet.</para></listitem>
+  <listitem><para>Ships cannot attack other ships in midair.</para></listitem>
+  <listitem><para>Ships can be stored at planets for later use.</para></listitem>
+  <listitem><para>A planet cannot be given away.</para></listitem>
+  <listitem><para>A player can skip a turn by pressing <guibutton>End Turn</guibutton> without launching any ships.</para></listitem>
 </itemizedlist>
 </sect1>
 
 <sect1 id="strattips">
 <title>Strategies and Tips</title>
+
 <itemizedlist>
-<listitem><para>The game is all about ship production. Try to get as many planets as possible as fast as you can in order to build more ships than any of your opponents.</para></listitem>
-<listitem><para>Do not attack a planet with less than 10 ships, unless you can conquer it.</para></listitem>
-<listitem><para>Attack neutral planets before other players' planets.</para></listitem>
-<listitem><para>Split your ship storages across several planets.</para></listitem>
-<listitem><para>Plan your attacks in advance.</para></listitem>
-<listitem><para>Use the ruler to find out the distance between planets.</para></listitem>
-<listitem><para>Use the information window to get information on planets before an attack.</para></listitem>
-<listitem><para>If this information is available to you, it is preferable to attack a planet with a low kill ratio from a planet with a high one.</para></listitem>
+  <listitem><para>The game is all about ship production. Try to get as many planets as possible as fast as you can in order to build more ships than any of your opponents.</para></listitem>
+  <listitem><para>Do not attack a planet with less than 10 ships, unless you can conquer it.</para></listitem>
+  <listitem><para>Attack neutral planets before other players' planets.</para></listitem>
+  <listitem><para>Split your ship storages across several planets.</para></listitem>
+  <listitem><para>Plan your attacks in advance.</para></listitem>
+  <listitem><para>Use the ruler to find out the distance between planets.</para></listitem>
+  <listitem><para>Use the information window to get information on planets before an attack.</para></listitem>
+  <listitem><para>If this information is available to you, it is preferable to attack a planet with a low kill ratio from a planet with a high one.</para></listitem>
 </itemizedlist>
 </sect1>
 </chapter>
@@ -272,29 +262,29 @@ ships.</para></listitem>
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
+<keycombo action="simul">&Ctrl;&End;</keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>End Game</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>End the current game, without closing</action> &konquest;</para></listitem>
+<listitem><para><action>End the current game, without closing</action> &konquest;.</para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Measure Distance</guimenuitem>
+<guimenuitem>Measure Distance...</guimenuitem>
 </menuchoice></term>
-<listitem><para>Click with the &LMB; on two planets to see their distance.</para></listitem>
+<listitem><para><action>Allows to measure the distance.</action> Click with the &LMB; on two planets to see their distance.</para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Fleet Overview</guimenuitem>
+<guimenuitem>Fleet Overview...</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Opens</action> a window to display detailed information 
-for all fleets</para></listitem>
+<listitem><para><action>Opens a window</action> to display detailed information
+for all fleets.</para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -321,7 +311,7 @@ for all fleets</para></listitem>
 <guimenu>View</guimenu>
 <guimenuitem>Show Messages</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Show or hide</action> the messages panel.</para></listitem>
+<listitem><para><action>Show or hide the messages panel.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -329,7 +319,7 @@ for all fleets</para></listitem>
 <guimenu>View</guimenu>
 <guimenuitem>Show Standings</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Show or hide</action> the current player standings table.</para></listitem>
+<listitem><para><action>Show or hide the current player standings table.</action></para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -346,86 +336,37 @@ of the &kde; Fundamentals.
 
 <chapter id="faq">
 <title>Frequently Asked Questions</title>
+
 <qandaset>
+  <qandaentry>
+    <question><para>Can I redirect ships once they have left a planet?</para></question>
+    <answer><para>No, once ships leave a planet, they cannot be stopped or redirected.</para></answer>
+  </qandaentry>
 
-<qandaentry>
-<question>
-<para>
-Can I redirect ships once they have left a planet?
-</para>
-</question>
-<answer>
-<para>
-No, once ships leave a planet, they cannot be stopped or redirected.
-</para>
-</answer>
-</qandaentry>
+  <qandaentry>
+    <question><para>Do the different colors and shapes of planets mean anything?</para></question>
+    <answer><para>No, they are random.</para></answer>
+  </qandaentry>
 
-<qandaentry>
-<question>
-<para>
-Do the different colors and shapes of planets mean anything?
-</para>
-</question>
-<answer>
-<para>
-No, they are random.
-</para>
-</answer>
-</qandaentry>
+  <qandaentry>
+    <question><para>How can I know where my ships are?</para></question>
+    <answer><para>Click <guibutton>Show Standings</guibutton>. It will give you information about fleets currently in flight.</para></answer>
+  </qandaentry>
 
-<qandaentry>
-<question>
-<para>
-How can I know where my ships are?
-</para>
-</question>
-<answer>
-<para>
-Click <guibutton>Show Standings</guibutton>. It will give you information about fleets currently in flight.
-</para>
-</answer>
-</qandaentry>
+  <qandaentry>
+    <question><para>I have lost all my planets, but I am still in the game, why?</para></question>
+    <answer><para>You have not lost the game until you have lost all your ships.</para></answer>
+  </qandaentry>
 
-<qandaentry>
-<question>
-<para>
-I have lost all my planets, but I am still in the game, why?
-</para>
-</question>
-<answer>
-<para>
-You have not lost the game until you have lost all your ships.
-</para>
-</answer>
-</qandaentry>
+  <qandaentry>
+    <question><para>Can I store ships on a planet for later use?</para></question>
+    <answer><para>Yes, you should however store them on multiple planets to be able to send them to nearby planets.</para></answer>
+  </qandaentry>
 
-<qandaentry>
-<question>
-<para>
-Can I store ships on a planet for later use?
-</para>
-</question>
-<answer>
-<para>
-Yes, you should however store them on multiple planets to be able to send them to nearby planets.
-</para>
-</answer>
-</qandaentry>
-
-<qandaentry>
-<question>
-<para>
-Is it possible to change the theme?
-</para>
-</question>
-<answer>
-<para>
-No, that is not possible at the moment.
-</para>
-</answer>
-</qandaentry>
-
+  <qandaentry>
+    <question><para>Is it possible to change the theme?</para></question>
+    <answer><para>No, that is not possible at the moment.</para></answer>
+  </qandaentry>
 </qandaset>
 </chapter>
 
@@ -437,21 +378,19 @@ No, that is not possible at the moment.
 
 <para>&konquest;</para>
 
-<para>&GNU;-Lactic Conquest Project, &kde; version by &Russ.Steffen;,
-&Russ.Steffen.mail;.</para>
+<para>&gnu-lactic; Conquest Project, &kde; version by &Russ.Steffen;, &Russ.Steffen.mail;.</para>
 
-<para>Copyright &copy; 1998 by the &GNU;-Lactic Conquest Project </para>
+<para>Copyright &copy; 1998 by the &gnu-lactic; Conquest Project </para>
 
-<para>Documentation copyright 2000 Nicholas Robbins
-&Nicholas.Robbins.mail;</para>
+<para>Documentation copyright 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
 
 <para>Documentation copyright 2012 Viktor Chynarov</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
-&underFDL;               <!-- FDL: do not remove -->
+&underFDL; <!-- FDL: do not remove -->
 
-&underGPL;        	 <!-- GPL License -->
+&underGPL; <!-- GPL License -->
 
 </chapter>
 
