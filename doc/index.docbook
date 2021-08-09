@@ -166,8 +166,7 @@ Listed below are the following parameters for the new game:
 </screenshot>
 
 <para>
-Once the game starts, you will be presented the game board. Blank squares are empty space. At first, each player owns one planet. The planet's background is the player's color. If you move the mouse over a planet, you can see additional information. Without the <guilabel>Blind map</guilabel> option enabled when selecting a game, you can see any information about the planet if you hover over it with mouse. If you had selected the <guilabel>Blind map</guilabel> option when starting a new game, you will only see the planet's name on planets which have been conque
-red by opponents. The information can include:
+Once the game starts, you will be presented the game board. Blank squares are empty space. At first, each player owns one planet. The planet's background is the player's color. If you move the mouse over a planet, you can see additional information. Without the <guilabel>Blind map</guilabel> option enabled when selecting a game, you can see any information about the planet if you hover over it with mouse. If you had selected the <guilabel>Blind map</guilabel> option when starting a new game, you will only see the planet's name on planets which have been conquered by opponents. The information can include:
 </para>
 
 <itemizedlist>
