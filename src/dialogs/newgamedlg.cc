@@ -149,7 +149,7 @@ public:
             {
                 // The player controller changed.
                 QString playerGuiName = value.toString();
-                for (PlayerGui *playerGui : qAsConst(m_selectablePlayer))
+                for (PlayerGui *playerGui : std::as_const(m_selectablePlayer))
                 {
                     if (playerGui->guiName() == playerGuiName) {
                         Player *newPlayer = getNewPlayerByGui(playerGui, player->name(), player->color());
@@ -279,7 +279,7 @@ public:
         if (index.column() != 0) {
             QComboBox *cbox = static_cast<QComboBox*>(editor);
 
-            for (PlayerGui* playerGui : qAsConst(m_selectablePlayer)) {
+            for (PlayerGui* playerGui : std::as_const(m_selectablePlayer)) {
                 cbox->addItem(playerGui->guiName());
             }
 

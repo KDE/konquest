@@ -176,7 +176,7 @@ Map::distance(Planet *p1, Planet *p2)
 Sector*
 Map::findRandomFreeSector()
 {
-    for (const QList<Sector> &i : qAsConst(m_grid)) {
+    for (const QList<Sector> &i : std::as_const(m_grid)) {
         for (const Sector &j : i) {
             if (!j.hasPlanet()) {
                 goto freesectorexists;
@@ -209,7 +209,7 @@ const QList <Planet*>
 Map::planets()
 {
     QList <Planet*>planets;
-    for (const QList<Sector> &i : qAsConst(m_grid)) {
+    for (const QList<Sector> &i : std::as_const(m_grid)) {
         for (const Sector &j : i) {
             if (j.hasPlanet()) {
                 planets += j.planet();

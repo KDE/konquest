@@ -148,7 +148,7 @@ AiBecai::play()
 
     int averageNonOwnPlanetDefenceFleetSize = 0;
 
-    for (const int &fleetSize : qAsConst(nonOwnPlanetDefenceFleetSizeList)) {
+    for (const int &fleetSize : std::as_const(nonOwnPlanetDefenceFleetSizeList)) {
         averageNonOwnPlanetDefenceFleetSize += fleetSize;
     }
 
