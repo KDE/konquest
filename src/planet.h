@@ -32,7 +32,7 @@ public:
             double newKillP );
 
     // FIXME: Nobody inherits Planet.  Why virtual?  /iw
-    virtual ~Planet();
+    ~Planet() override;
 
     static Planet *createPlayerPlanet( Sector *sector,
                                        Player *initialOwner, const QString &planetName );

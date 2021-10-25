@@ -65,7 +65,7 @@ class GameView : public QWidget
 
 public:
     explicit  GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDockWidget *standingsDock);
-    virtual  ~GameView();
+    ~GameView() override;
     bool  confirmNewGame();
 
     bool  shutdownGame();

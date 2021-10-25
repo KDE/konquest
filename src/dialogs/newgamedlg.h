@@ -31,7 +31,7 @@ public:
     explicit NewGameDlgUI( QWidget *parent ) : QWidget( parent ) {
 	setupUi( this );
     }
-        ~NewGameDlgUI() {}
+        ~NewGameDlgUI() override {}
 };
 
 
@@ -44,7 +44,7 @@ class NewGameDlg : public QDialog
 {
 public:
     NewGameDlg( QWidget *parent, Game *game);
-    ~NewGameDlg();
+    ~NewGameDlg() override;
 
     void  save();
 

@@ -23,7 +23,7 @@ class ScoreDlg : public QDialog
 public:
     ScoreDlg( QWidget *parent, const QString& title, 
               const QList<Player *> &players );
-    ~ScoreDlg();
+    ~ScoreDlg() override;
 
 private:
     StandingsWidget *m_standingsWidget;

@@ -23,7 +23,7 @@ class MiniMapView : public QWidget
 
 public:
     explicit MiniMapView(QWidget *parent = nullptr);
-    ~MiniMapView();
+    ~MiniMapView() override;
 
     void setMap(Map *newMap);
 

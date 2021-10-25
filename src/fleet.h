@@ -27,7 +27,7 @@ class Fleet : public QObject
 public:
 
     explicit Fleet( long long initialShipCount );
-    virtual ~Fleet() {}
+    ~Fleet() override {}
 
     long long   shipCount()   const { return m_shipCount; }
     void  removeShips( long long lostShips );

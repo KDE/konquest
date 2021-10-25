@@ -25,7 +25,7 @@ class PlanetItem : public QGraphicsObject
 
 public:
     explicit PlanetItem(MapScene *scene, Sector *sector, Game *game);
-    ~PlanetItem() {}
+    ~PlanetItem() override {}
 
     QRectF   boundingRect() const override;
     void     paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
@@ -65,7 +65,7 @@ class PlanetInfoItem : public QGraphicsItem
 {
 public:
     explicit PlanetInfoItem(Game*);
-    ~PlanetInfoItem() {}
+    ~PlanetInfoItem() override {}
 
     QRectF   boundingRect() const override;
     void     setPlanet (Planet *planet);

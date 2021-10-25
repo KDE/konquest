@@ -26,7 +26,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
     MainWindow();
-    ~MainWindow();
+    ~MainWindow() override;
 
     QSize sizeHint() const override;
 

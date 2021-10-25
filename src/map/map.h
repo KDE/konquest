@@ -24,7 +24,7 @@ class Map : public QObject
 
 public:
     Map(int rows, int cols);
-    virtual ~Map();
+    ~Map() override;
 
     int  rows()     { return m_rows;    }
     int  columns()  { return m_columns; }
