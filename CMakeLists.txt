@@ -29,7 +29,7 @@ include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg)
 if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6StateMachine ${REQUIRED_QT_VERSION} CONFIG)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS StateMachine)
 endif()
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
