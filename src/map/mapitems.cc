@@ -11,6 +11,7 @@
 
 #include "mapitems.h"
 
+#include <QAbstractTextDocumentLayout>
 #include <QBrush>
 #include <QGraphicsScene>
 #include <QPainter>
@@ -250,7 +251,9 @@ void PlanetInfoItem::paint(QPainter *p,
 {
     QBrush  brush = p->brush();
 
-    brush.setColor(KColorScheme(QPalette::Active).background().color());
+    const KColorScheme colorScheme(QPalette::Active);
+
+    brush.setColor(colorScheme.background().color());
     brush.setStyle(Qt::SolidPattern);
 
     p->setOpacity(0.7);
@@ -260,5 +263,9 @@ void PlanetInfoItem::paint(QPainter *p,
                 brush);
     p->setOpacity(1.0);
 
-    m_textDoc.drawContents(p);
+    p->save();
+    QAbstractTextDocumentLayout::PaintContext ctx;
+    ctx.palette.setColor(QPalette::Text, colorScheme.foreground().color());
+    m_textDoc.documentLayout()->draw(p, ctx);
+    p->restore();
 }
