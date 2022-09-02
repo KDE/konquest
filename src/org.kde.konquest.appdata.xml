@@ -128,9 +128,9 @@
     <binary>konquest</binary>
   </provides>
   <releases>
+    <release version="2.4.22081" date="2022-09-08"/>
     <release version="2.4.22080" date="2022-08-18"/>
     <release version="2.4.22043" date="2022-07-07"/>
     <release version="2.4.22042" date="2022-06-09"/>
-    <release version="2.4.22041" date="2022-05-12"/>
   </releases>
 </component>
