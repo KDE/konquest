@@ -52,8 +52,6 @@ main(int argc, char **argv)
     aboutData.addCredit(i18n("Pierre Ducroquet"), i18n("Cleaning and bugfixing, maintenance"), QStringLiteral("pinaraf@gmail.com"));
     aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), QStringLiteral("geckosenator@gmail.com"));
 
-    aboutData.setOrganizationDomain(QByteArray("kde.org"));
-
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
