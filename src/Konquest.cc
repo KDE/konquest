@@ -43,7 +43,7 @@ main(int argc, char **argv)
         KAboutLicense::GPL,
         i18n("Copyright (c) 1999-2013, Developers"),
         QString(),
-        QStringLiteral("https://kde.org/applications/games/org.kde.konquest") );
+        QStringLiteral("https://apps.kde.org/konquest") );
 
     aboutData.addAuthor(i18n("Russ Steffen"), QString(), QStringLiteral("rsteffen@bayarea.net"));
     aboutData.addCredit(i18n("Stephan Zehetner"), i18n("Computer/AI Player"), QStringLiteral("s.zehetner@nevox.org"));
