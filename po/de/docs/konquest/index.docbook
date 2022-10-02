@@ -1,0 +1,758 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>Das Handbuch zu &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2014-02-08</date>
+<releaseinfo
+>2.3 (&kde; 4.13)</releaseinfo>
+
+<abstract>
+<para
+>&konquest; ist ein galaktisches Eroberungsspiel für &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+<note
+><title
+>Spieltyp:</title
+><para
+>Strategiespiel, Brettspiel</para
+></note>
+<note
+><title
+>Anzahl Spieler:</title
+><para
+>Mehrspieler-Spiel</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Hauptfenster von &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Hauptfenster von &konquest;</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&konquest; ist die &kde;-Version von Gnu-Lactic. Spieler schicken Schiffe zu anderen Planeten, um sie zu erobern. Ziel des Spiels ist es, ein galaktisches Imperium zu beherrschen und alle Planeten der Gegner zu erobern. &konquest; kann gegen andere Spieler oder gegen den Rechner gespielt werden. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Spielanleitung</title>
+
+<para
+>Drücken Sie beim Start von &konquest; <guibutton
+>Neu</guibutton
+>, um ein neues Spiel zu starten. Es erscheint ein Dialog, in dem Sie die folgenden Einstellungen für das neue Spiel ändern können: </para>
+<itemizedlist>
+
+<listitem
+><para
+>Spieler</para
+><itemizedlist>
+
+  <listitem
+><para
+>Die Anzahl der Spieler kann mit den Knöpfen <guibutton
+>Hinzufügen</guibutton
+> und <guibutton
+>Entfernen</guibutton
+> geändert werden.</para
+></listitem>
+  <listitem
+><para
+>Namen der Spieler. Durch Doppelklicken auf einen Namen können Sie ihn ändern.</para
+></listitem>
+  <listitem
+><para
+>Art der Spieler (Computer oder Mensch)</para
+></listitem>
+  <listitem
+><para
+>Spielstärke von Computerspielern (leicht, normal, schwer). Durch Doppelklicken auf einen Eintrag können Sie den Typ ändern.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Um den Namen der Spieler zu ändern, doppelklicken Sie auf einen Eintrag in der Spalte <guilabel
+>Name</guilabel
+> und bearbeiten Sie ihn dann. Um den Typ der Spieler zu ändern, doppelklicken Sie auf einen Eintrag in der Spalte <guilabel
+>Typ</guilabel
+> und wählen Sie den Typ im Auswahlfeld. Den Typ eines neuen Spielers können Sie auch im Auswahlfeld des Knopfs <guibutton
+>Hinzufügen</guibutton
+> auswählen.</para>
+<para
+>Es gibt zwei Arten von menschlichen Spielern in &konquest;, nämlich <guimenuitem
+>Mensch (Spieler)</guimenuitem
+> und <guimenuitem
+>Mensch (Zuschauer)</guimenuitem
+>. Mit der letzten Einstellung können Sie ein Spiel beobachten ohne mit zuspielen.</para>
+<para
+>Als Typ des KI-Spielers kann zwischen <guimenuitem
+>Standard (Schwach)</guimenuitem
+> (der Spieler ist weder aggressiv im Angriff noch in der Verteidigung), <guimenuitem
+>Standard (Offensiv)</guimenuitem
+> (ein aggressiv angreifender Spieler) und <guimenuitem
+>Standard (Defensiv)</guimenuitem
+> (ein Spieler mit einer defensiven Strategie) gewählt werden.</para>
+  <para
+>Neben diesen klassischen KI-Spielern gibt es noch <guimenuitem
+>Becai (Ausgewogen)</guimenuitem
+>. Dieser ausgewogene KI-Spieler berücksichtigt viele <xref linkend="strattips"/>.</para>
+  <para
+>Bedenken Sie, dass der tatsächliche Schwierigkeitsgrad jedes Gegners auch von Ihrer eigenen Strategie abhängt. Wenn Sie selbst aggressiv spielen, ist für Sie wahrscheinlich ein aggressiver KI-Spieler einfacher zu schlagen als ein defensiver KI-Spieler und umgekehrt.</para>
+</listitem>
+
+<listitem
+><para
+>Karte</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Anzahl der neutralen Planeten</para
+></listitem>
+  <listitem
+><para
+>Breite und Höhe der Karte in Kacheleinheiten</para
+></listitem>
+  <listitem
+><para
+>Einstellung von Eigentümer, Tötungsrate und Produktion für einzelne Planeten. Klicken Sie mit der &LMBn; auf einen Planeten in der Karte, um ihn auszuwählen.</para
+></listitem>
+  <listitem
+><para
+>Ändern Sie die Anordnung der Planeten und drücken Sie dazu auf <guibutton
+>Zufällig</guibutton
+>.</para
+></listitem>
+
+  </itemizedlist>
+  <para
+>Sie können einen Planeten in der Vorschau in der Mitte des Bereichs <guilabel
+>Karte</guilabel
+> auswählen, Klicken Sie mit der &LMBn; auf einen Planeten und ändern Sie dann dessen Einstellungen.</para>
+</listitem>
+<listitem
+><para
+>Einstellungen</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Stellen Sie ein, ob Sie Informationen über die Planeten des Gegners angezeigt bekommen.</para
+></listitem>
+  <listitem
+><para
+>Aktivieren Sie die gesamte Produktion.</para
+></listitem>
+  <listitem
+><para
+>Wählen Sie, ob die Produktion sofort nach der Eroberung beginnt.</para
+></listitem>
+  <listitem
+><para
+>Schalten Sie die Anzeige der Schiffe und weiterer Statistiken für neutrale Planeten ein oder aus.</para
+></listitem>
+  <listitem
+><para
+>Legen Sie die Produktion für neutrale Planeten fest.</para
+></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+<para
+>Haben Sie alles nach Ihren Wünschen eingestellt, drücken Sie auf click <guibutton
+>OK</guibutton
+>, um das Spiel zu starten. </para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Der Dialog „Neues Spiel beginnen“ von &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Der Dialog „Neues Spiel beginnen“ von &konquest;</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Wenn das Spiel startet, sehen Sie das Spielfeld. Leere Felder stellen leeren Weltraum dar. Zu Beginn besitzt jeder Spieler einen Planeten. Die Hintergrundfarbe des Planeten ist die Farbe des Spielers. Um weitere Informationen zu einem Planeten zu erhalten, bewegen Sie den Mauszeiger über ihn. Ist <guilabel
+>Karte ausblenden</guilabel
+> aktiv wird nur der Name des Planeten angezeigt, ansonsten alle folgenden Informationen über den Planeten: </para>
+
+<itemizedlist>
+<listitem
+><para
+>Name des Planeten</para
+></listitem>
+<listitem
+><para
+>Eigentümer</para
+></listitem>
+<listitem
+><para
+>Schiffe</para
+></listitem>
+<listitem
+><para
+>Dauerauftrag</para
+></listitem>
+<listitem
+><para
+>Produktion</para
+></listitem>
+<listitem
+><para
+>Tötungsrate</para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>&konquest; spielen</phrase
+></textobject>
+	<caption
+><para
+>&konquest; spielen</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Name des Planeten</guilabel
+> bezeichnet den Planeten während des Spiels. Planeten werden alphabetisch und in Großbuchstaben benannt. <guilabel
+>Eigentümer</guilabel
+> besitzt den Planeten. Wird ein Planet von einem anderen Spieler erobert, ändert sich der Eigentümer des Planeten. <guilabel
+>Schiffe</guilabel
+> zeigt die aktuelle Anzahl Schiffe auf dem Planeten. <guilabel
+>Dauerauftrag</guilabel
+> wird nur angezeigt, wenn die Einstellung für den Planeten ausgewählt wurde.<guilabel
+>Produktion</guilabel
+> ist die Anzahl Schiffe, die der Planet pro Runde produziert. Jeder Planet produziert verschieden viele Schiffe, diese aber konstant. <guilabel
+>Tötungsrate</guilabel
+> bezeichnet die Effektivität der auf diesem Planeten produzierten Schiffe. Angriffsflotten übernehmen die Tötungsrate ihres Abflug-Planeten; Verteidigungsflotten die des Planeten, den sie verteidigen. Namen, Eigentümer und Anzahl der stationierten Schiffe sehen Sie in dem Feld, in dem der Planet liegt. Die Hintergrundfarbe des Planeten steht für den Eigentümer, der Name des Planeten steht oben links und die Anzahl der Schiffe unten rechts. </para>
+
+<para
+>Um Schiffe von einem Planeten zu einem anderen zu schicken, klicken Sie auf den Startplaneten und auf den Zielplaneten, geben Sie oben rechts die Anzahl Schiffe ein, die Sie versenden möchten und drücken Sie die &Enter;taste. Wiederholen Sie das, bis Sie alle gewünschten Schiffe versendet haben. Möchten Sie in jeder Spielrunde eine konstante Anzahl an Schiffen von einem Planeten zum anderen schicken, aktivieren Sie das Ankreuzfeld <guilabel
+>Dauerauftrag</guilabel
+> und drücken die Taste &Enter;. Diese Schiffe werden am Ende der Spielrunde versendet.Wenn Sie fertig sind, drücken Sie <guibutton
+>Runde beenden</guibutton
+>. Wenn alle Spieler ihre Runde beendet haben, erscheinen Dialoge mit den aktuellen Ereignissen. Das Spielt wird so fortgesetzt, bis ein Spieler die gesamte Galaxis erobert hat. </para>
+<tip>
+  <para
+>Ein Kurzbefehl für die Aktion <guimenuitem
+>Zug beenden</guimenuitem
+> kann im Menü mit <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Kurzbefehle festlegen ...</guimenuitem
+></menuchoice
+> eingerichtet werden. </para>
+  <para
+>Weitere Informationen dazu finden Sie im Abschnitt <ulink url="help:/fundamentals/config.html#shortcuts"
+>Kurzbefehle benutzen und anpassen</ulink
+> der &kde;-Grundlagen. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Spielregeln, Spielstrategien und Tipps</title>
+<sect1 id="rules">
+<title
+>Spielregeln</title>
+<itemizedlist>
+<listitem
+><para
+>Schiffe können unterwegs nicht gestoppt werden, nachdem sie einen Planeten verlassen haben.</para
+></listitem>
+<listitem
+><para
+>Schiffe können im Flug keine gegnerischen Schiffe angreifen.</para
+></listitem>
+<listitem
+><para
+>Schiffe können zum späteren Abruf auf Planeten vorgehalten werden.</para
+></listitem>
+<listitem
+><para
+>Ein Plant kann nicht abgegeben werden.</para
+></listitem>
+<listitem
+><para
+>Ein Spieler kann eine Runde aussetzen, indem er <guibutton
+>Runde beenden</guibutton
+> drückt, ohne Schiffe zu versenden.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Spielstrategien und Tipps</title>
+<itemizedlist>
+<listitem
+><para
+>In diesem Spiel geht es um die Produktion von Schiffen, Versuchen Sie möglichst viele Planeten so schnell wie möglich zu erobern, damit Sie in der Lage sind, mehr Schiffe als Ihre Gegner zu produzieren.</para
+></listitem>
+<listitem
+><para
+>Greifen Sie einen Planeten mit mindestens 10 Schiffen an, um ihn zu erobern.</para
+></listitem>
+<listitem
+><para
+>Greifen Sie zuerst neutrale Planeten, dann die Planeten des Gegners an.</para
+></listitem>
+<listitem
+><para
+>Verteilen Sie Ihre Schiffe auf mehrere Planeten.</para
+></listitem>
+<listitem
+><para
+>Planen Sie Ihre Angriffe im Voraus.</para
+></listitem>
+<listitem
+><para
+>Benutzen Sie den Entfernungsmesser, um die Entfernung zwischen Planeten zu ermitteln.</para
+></listitem>
+<listitem
+><para
+>Benutzen Sie das Informationsfenster, um vor einem Angriff Informationen über Planeten zu sammeln.</para
+></listitem>
+<listitem
+><para
+>Kennen Sie die Tötungsrate von Planeten, sollten Sie besser einen Planeten mit einer niedrigen Tötungsrate angreifen.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menüs</title>
+
+<sect1 id="menu-items">
+<title
+>Menüeinträge</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Startet ein neues Spiel.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Ende</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Spiel beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Beendet das laufende Spiel</action
+>, aber nicht &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Entfernung messen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Klicken Sie mit der &LMBn; auf zwei Planeten, um ihre Entfernung zu messen.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Flottenübersicht</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Öffnet</action
+> ein Fenster mit ausführlichen Informationen über alle Flotten.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Beendet das Spiel.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zug</guimenu
+> <guimenuitem
+>Zug beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ermöglicht es, mit der Aktion im Hauptmenü einen <action
+>Zug zu beenden</action
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Nachrichten anzeigen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Blendet</action
+> das Nachrichtenfenster ein oder aus.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Stand anzeigen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Blendet</action
+> das Fenster mit dem aktuellen Spielstand ein oder aus.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Zusätzlich hat &konquest; die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Häufig gestellte Fragen</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Kann ich die Schiffe umleiten, wenn Sie einen Planeten verlassen haben? </para>
+</question>
+<answer>
+<para
+>Nein, Schiff können während des Fluges weder umgeleitet noch gestoppt werden. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Haben die unterschiedlichen Farben und Darstellungen der Planeten eine Bedeutung?  </para>
+</question>
+<answer>
+<para
+>Nein, das ist Zufall. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Wie sehe ich, wo sich meine Schiffe befinden? </para>
+</question>
+<answer>
+<para
+>Klicken Sie auf <guibutton
+>Stand anzeigen</guibutton
+>. Damit öffnen Sie einen Dialog mit Informationen über Ihre Flotte. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Warum geht das Spiel noch weiter, obwohl ich habe alle meine Planeten verloren haben? </para>
+</question>
+<answer>
+<para
+>Sie haben das Spiel erst dann verloren, wenn Sie keine Schiffe mehr haben. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kann ich Schiffe zur späteren Verwendung auf einem Planeten vorhalten? </para>
+</question>
+<answer>
+<para
+>Ja. Sie sollten sie jedoch auf mehreren Planeten vorhalten um sie besser zu Planeten in deren Nähe schicken zu können. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kann ich das Erscheinungsbild des Spiels ändern? </para>
+</question>
+<answer>
+<para
+>Nein, das ist in dieser Version des Spiels nicht möglich. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Danksagungen und Lizenz</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&GNU;-Lactic Conquest Projekt, &kde;-Version von &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 &GNU;-Lactic Conquest Projekt </para>
+
+<para
+>Copyright der Dokumentation 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Copyright der Dokumentation 2012 Viktor Chynarov</para>
+
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

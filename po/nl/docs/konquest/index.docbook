@@ -1,0 +1,776 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+&Niels.Reedijk;&Rinse.Devries;&Freek.de.Kruijf; 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Ontwikkelaar</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Nalezer</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-08-08</date>
+<releaseinfo
+>2.4 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&konquest; is een spel over galactisch veroveren </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>bord</keyword>
+<keyword
+>meer dan één speler</keyword>
+<keyword
+>strategie</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+<note
+><title
+>Speltype:</title
+><para
+>Strategie, bord</para
+></note>
+<note
+><title
+>Aantal spelers:</title
+><para
+>Meer dan één speler</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Hoofdvenster van &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Hoofdvenster van &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&konquest; is de &kde; versie van &gnu-lactic;. Spelers veroveren andere planeten door er schepen heen te zenden. Het doel is een interstellair rijk op te bouwen en uiteindelijk alle andere planeten van spelers te veroveren. &konquest; kan tegen iemand anders worden gespeeld of tegen een computer. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Hoe te spelen</title>
+
+<para
+>Als u &konquest; opstart, druk dan op <guibutton
+>Nieuw</guibutton
+> om een nieuw spel te starten. U krijgt een dialoog te zien waarin u allerlei informatie moet invoeren om uw spel in te stellen. In de lijst hieronder staan de volgende parameters voor het nieuwe spel: </para>
+
+  <para
+><guilabel
+>Spelers</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>Aantal spelers met <guibutton
+>Toevoegen</guibutton
+> of <guibutton
+>Verwijderen</guibutton
+> van spelers</para
+></listitem>
+    <listitem
+><para
+>Namen van de spelers</para
+></listitem>
+    <listitem
+><para
+>Type spelers (computer versus mens)</para
+></listitem>
+    <listitem
+><para
+>Moeilijkheidsgraad van de computerspelers (gemakkelijk/normaal/moeilijk)</para
+></listitem>
+  </itemizedlist>
+
+<para
+>Om de naam van de speler te wijzigen, dubbelklik in de kolom <guilabel
+>Naam</guilabel
+> en bewerk het. Om het type speler te wijzigen, open de afrollijst door dubbel te klikken in de kolom <guilabel
+>Type</guilabel
+>. Het is ook mogelijk om het type van de nieuwe spelers te selecteren met het afrollijst van de knop <guibutton
+>Toevoegen</guibutton
+>.</para>
+
+<para
+>Er zijn twee typen menselijke spelers in &konquest;, namelijk <guimenuitem
+>Menselijk (speler)</guimenuitem
+> en <guimenuitem
+>Menselijk (toeschouwer)</guimenuitem
+>. De laatste optie biedt het bekijken van het spel zonder er aan deel te nemen.</para>
+
+<para
+>Het type speler met Kunstmatige Intelligentie kan gekozen worden uit <guimenuitem
+>Standaard (zwak)</guimenuitem
+> (een speler die niet agressief is in de aanval of in de verdediging), <guimenuitem
+>Standaard (offensief)</guimenuitem
+> (een agressief aanvallende speler) en <guimenuitem
+>Standaard (defensief)</guimenuitem
+> (een speler met een defensieve strategie).</para>
+
+<para
+>Naast deze klassieke spelers met kunstmatige intelligentie, is <guimenuitem
+>Becai (gebalanceerd)</guimenuitem
+> een gebalanceerde speler die het meeste van <xref linkend="strattips"/> in overweging neemt.</para>
+
+<para
+>Hou er rekening mee dat de actuele moeilijkheidsgraad van elke tegenstander afhangt van uw eigen strategie. Als u zelf agressief speelt, zal een agressieve kunstmatige speler gemakkelijker zijn te verslaan dan een defensieve speler en omgekeerd.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Kaart</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Neutrale planeten:</guilabel
+> Aantal neutrale planeten.</para>
+    <para
+><guilabel
+>Breedte:</guilabel
+> en <guilabel
+>Hoogte:</guilabel
+> van de kaart in stenen.</para>
+    <para
+>Het wijzigen van de <guilabel
+>Eigenaar:</guilabel
+>, <guilabel
+>Slachtofferpercentage:</guilabel
+> en <guilabel
+>Productie:</guilabel
+> niveau van een specifieke planeet.</para>
+    <para
+>De verdeling van planeten wijzigen. Druk op <guibutton
+>Willekeurig</guibutton
+> om het willekeurig te maken.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>U kunt de planeet selecteren met de kaartminiatuur in het midden van het paneel <guilabel
+>Kaart</guilabel
+>. Klik gewoon met de &LMB; op de planeet en wijzig daarna de gewenste opties.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Opties</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Blinde kaart</guilabel
+>: of u wel of niet informatie over planeten van de tegenstander kunt zien.</para>
+    <para
+><guilabel
+>Cumulatieve productie</guilabel
+>: of het wel of niet is ingeschakeld.</para>
+    <para
+><guilabel
+>Production na vangst</guilabel
+>: of het onmiddellijk is ingeschakeld.</para>
+    <para
+><guilabel
+>Schepen tonen</guilabel
+>: toestaan de hoeveelheid schepen en andere statistieken weer te geven voor neutrale planeten.</para>
+    <para
+><guilabel
+>Statistieken tonen</guilabel
+>: stel het productieniveau in voor neutrale planeten.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Wanneer u klaar bent met het wijzigen van deze instellingen (optioneel), klik op <guibutton
+>OK</guibutton
+> om het spel te starten.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Dialoog voor een nieuw spel in &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Dialoog Nieuw spel van &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Nadat het spel is gestart, krijgt u het speelbord te zien. Blanco vakjes is lege ruimte. Eerst bezit elke speler één planeet. De achtergrond van de planeet heeft de kleur van de speler. Als u de muis over een planeet beweegt, krijgt u extra informatie te zien. Zonder de optie <guilabel
+>Blinde kaart</guilabel
+> ingeschakeld bij het selecteren van een spel, ziet u alle informatie over alle planeten als u met de muis over de planeet beweegt. Als u de optie <guilabel
+>Blinde kaart</guilabel
+> hebt geactiveerd bij het starten van een nieuw spel, dan ziet u alleen de naam van de planeet op planeten die zijn veroverd door tegenstanders. De informatie kan bevatten: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Planeetnaam:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Eigenaar:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Schepen:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Schepen aan de beurt:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Productie:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Slachtofferpercentage:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>&konquest; spelen</phrase
+></textobject>
+	<caption
+><para
+>&konquest; spelen.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>De <guilabel
+>Naam van de planeet</guilabel
+> is hoe naar de planeet wordt verwezen in het spel. Planeten hebben een alfabetische naam in hoofdletters. <guilabel
+>Eigenaar</guilabel
+> is wie eigenaar is van de planeet. Als de planeet wordt veroverd door een andere speler, dan verandert dat. <guilabel
+>Schepen</guilabel
+> is het huidige aantal schepen op de planeet. <guilabel
+>Schepen aan de beurt</guilabel
+> verschijnt alleen als u een staande order voor die planeet hebt staan, anders is deze er niet. <guilabel
+>Productie</guilabel
+> is het aantal schepen dat de planeet elke beurt produceert. De productie varieert van planeet tot planeet, maar blijft altijd hetzelfde. <guilabel
+>Slachtofferpercentage</guilabel
+> is een maat voor de effectiviteit van de geproduceerde schepen op die planeet. Aanvalsvloten nemen het slachtofferpercentage van hun planeet van vertrek en defensievloten gebruiken het slachtofferpercentage van de planeet die zij verdedigen. U kunt de naam van de planeet, de eigenaar en het huidige aantal schepen op een planeet gemakkelijk zien in het vierkant waarin de planeet zich bevindt. De eigenaar wordt gerepresenteerd door de achtergrondkleur van de planeet, de naam staat in de linkerbovenhoek en het aantal schepen staat in de hoek rechtsonder. </para>
+
+<para
+>Om schepen van een planeet naar een ander te zenden, selecteert u de planeet waarvan u schepen wilt verzenden, voer het aantal schepen in in het groene vakje in de rechtsbovenhoek en druk op &Enter;. Herhaal deze procedure totdat u alle schepen die u wilt verzenden hebt verzonden. Als u elke beurt een constante hoeveelheid schepen van één planeet naar een ander wilt versturen, voer dat aantal in en activeer het vakje <guilabel
+>Staande order</guilabel
+> en druk op &Enter;. De Schepen aan de beurt van de staande order zullen verzonden worden aan het einde van de beurt. Wanneer u klaar bent, drukt u op <guibutton
+>Beurt beëindigen</guibutton
+>. Wanneer alle spelers één beurt hebben gedaan, dan verschijnen er dialoogvakjes die u het laatste nieuws geven. Het spel gaat zo verder totdat één van de spelers eigenaar is van de gehele galaxy. </para>
+<tip>
+  <para
+>Er kan sneltoets voor de actie <guibutton
+>Beurt beëindigen</guibutton
+> worden ingesteld met het menu-item <menuchoice
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Sneltoetsen instellen...</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Voor meer informatie lees de sectie over <ulink url="help:/fundamentals/config.html#shortcuts"
+>Sneltoetsen gebruiken en aanpassen</ulink
+> van de &kde;-fundamentals. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Spelregels, strategieën en tips</title>
+<sect1 id="rules">
+<title
+>Regels</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Schepen kunnen niet meer stoppen als ze planeet verlaten hebben.</para
+></listitem>
+  <listitem
+><para
+>Schepen kunnen in de ruimte geen andere schepen aanvallen.</para
+></listitem>
+  <listitem
+><para
+>Schepen kunnen op planeten opgeslagen worden voor gebruik later.</para
+></listitem>
+  <listitem
+><para
+>Een planeet kan niet weggegeven worden.</para
+></listitem>
+  <listitem
+><para
+>Een speler kan een beurt overslaan door op de knop <guibutton
+>Beurt beëindigen</guibutton
+> klikken zonder een schip te lanceren.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strategieën en tips</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Het spel gaat helemaal over het bouwen van schepen. Probeer zo snel mogelijk zoveel als mogelijk is planeten te krijgen om meer schepen te bouwen dan elk van uw tegenstanders.</para
+></listitem>
+  <listitem
+><para
+>Doe geen aanval op een planeet met minder dan 10 schepen, tenzij u het kunt veroveren.</para
+></listitem>
+  <listitem
+><para
+>Val neutrale planeten aan voordat planeten van de tegenstander worden aangevallen.</para
+></listitem>
+  <listitem
+><para
+>Splits het opslaan uw schepen over verschillende planeten.</para
+></listitem>
+  <listitem
+><para
+>Plan uw aanval van tevoren.</para
+></listitem>
+  <listitem
+><para
+>De liniaal gebruiken om de afstand tussen planeten te vinden.</para
+></listitem>
+  <listitem
+><para
+>Het informatioevenster voor informatie over planeten voor een aanval.</para
+></listitem>
+  <listitem
+><para
+>Als deze informatie aan u bekend is, is er een voorkeur om een planeet aan te vallen met een lage slachtofferverhouding van een planeet met een hoge.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menu's</title>
+
+<sect1 id="menu-items">
+<title
+>Menu-items</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Start een nieuw spel.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spel beëindigen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Beëindig het huidige spel, zonder sluiten</action
+> van &konquest;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afstand meten...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>De afstand meten wordt toegestaan.</action
+> Klik met de &LMB; op twee planeten om hun afstand te zien.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Vlootoverzicht...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Opent een venster</action
+> om gedetailleerde informatie over alle vloten te tonen.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Beëindigt het spel.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Beurt beëindigen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Stelt u in staat <action
+>een beurt te beëindigen</action
+> vanuit het hoofdmenu.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Berichten tonen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Het berichtenpaneel tonen of verbergen.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Stand tonen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>De tabel met de stand van de huidige speler tonen of verbergen.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Bovendien heeft &konquest; de gezamenlijke menu-items van &kde; <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, voor meer informatie lees de secties over de <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Instellingen</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van &kde;-fundamentals. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Veel voorkomende vragen</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Kan ik schepen een andere richting opsturen wanneer ze een planeet hebben verlaten?</para
+></question>
+    <answer
+><para
+>Nee, wanneer een schip een planeet verlaat, dan kan ze niet worden gestopt of in een andere richting worden gestuurd.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Betekenen de verschillende kleuren en vormen van de planeten iets?</para
+></question>
+    <answer
+><para
+>Nee, ze zijn willekeurig.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Hoe weet ik waar mijn schepen zijn?</para
+></question>
+    <answer
+><para
+>Klik <guibutton
+>Stand tonen</guibutton
+>. Het geeft u informatie over vloten die in de lucht zijn.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Ik heb al mijn planeten verloren, maar ik ben nog steeds in het spel, waarom?</para
+></question>
+    <answer
+><para
+>U hebt het spel niet verloren, dan nadat u alle schepen hebt verloren.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Kan ik schepen op een planeet opslaan voor later gebruik?</para
+></question>
+    <answer
+><para
+>Ja, u zou ze echter op meerdere planeten moeten opslaan om in staat te zijn om ze naar naburige planeten te verzenden.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Kan het thema worden gewijzigd?</para
+></question>
+    <answer
+><para
+>Nee, dat is op dit moment niet mogelijk.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&gnu-lactic; Conquest Project, &kde; versie door &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 door het &gnu-lactic; Conquest Project </para>
+
+<para
+>Documentatie copyright 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Documentatie copyright 2012 Viktor Chynarov</para>
+
+&meld.fouten;&vertaling.niels;&vertaling.rinse; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

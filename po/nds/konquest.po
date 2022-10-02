@@ -1,0 +1,633 @@
+# translation of konquest.po to Low Saxon
+# Translation of konquest.po to Low Saxon
+#
+# Manfred Wiese <m.j.wiese@web.de>, 2006, 2008, 2010, 2011.
+# Sönke Dibbern <s_dibbern@web.de>, 2006, 2007, 2009, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2014-06-09 22:35+0200\n"
+"Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Manfred Wiese, Sönke Dibbern"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "m.j.wiese@web.de, s_dibbern@web.de"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Flottenöversicht"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Flott Nr."
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "Born"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Teel"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Scheep"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Dootmaak-Andeel"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Ankaam-Törn"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Stahreeg"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialoog"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Spelers"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Tofögen"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Wegmaken"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Koort"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "&Neutraal Planeten:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Breed:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "&Hööchde:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Produkschoon:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Kill Percentage:"
+msgid "Kill percentage:"
+msgstr "Dootmaak-Andeel:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Tofällig"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
+msgstr "Eegner"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Optschonen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, fuzzy, kde-format
+#| msgid "Blind Map"
+msgid "Blind map"
+msgstr "Koort ahn Lännernaams"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+#| msgid "Cumulative Production"
+msgid "Cumulative production"
+msgstr "Tosamenreekt Produkschoon"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+#| msgid "Production After Capture"
+msgid "Production after capture"
+msgstr "Produkschoon na't Bedwingen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Neutraal"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+#| msgid "Show Ships"
+msgid "Show ships"
+msgstr "Scheep wiesen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+#| msgid "Show Stats"
+msgid "Show stats"
+msgstr "Statistik wiesen"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Speler %1"
+
+# unreviewed-context
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Naam"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Typ"
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Nieg Speel starten"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "leddig"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "neutraal"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Ünnerstütten (1 Schipp) för Planet %2 is ankamen."
+msgstr[1] "Ünnerstütten (%1 Scheep) för Planet %2 is ankamen."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Planet %2 hett den Angreep vun %1 standhollen."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Planet %2 is an %1 fallen."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Törn beennen"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1: Bornplanet utsöken..."
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1: Teelplanet utsöken..."
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Nich noog Scheep för't Afschicken."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: Wo vele Scheep?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Baas: Söök den Startplanet ut."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"De Afstand vun Planet %1 na Planet %2 is %3 Lichtjohren.\n"
+"En Schipp, dat in dissen Törn afflüggt, warrt in Törn %4 ankamen"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Afstand"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Baas: Söök den Teelplanet ut."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "Törn %1:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Wullt Du dit Speel opgeven?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Speelenn"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Lest Stand"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Galaktsch Strategiespeel för KDE"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Copyright (c) 1999-2013 de Schrieverslüüd"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Reeknerspeler"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Porteren na KDE 4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Kode-Oprümen un Fehlerrichten"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Kode-Oprümen, Fehlerrichten un Pleeg"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Verbetert Speelafloop"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Speel"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Ansicht"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hööft-Warktüüchbalken"
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Galaxie innehmen"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Galaxie innehmen"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "Afstand &utmeten"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
+msgstr "&Flottenöversicht"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "Narichten"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "&Narichten wiesen"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "Stand"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "Stand &wiesen"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Törn Nr. %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Planetennaam: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Eegner: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Scheep: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Utstahn Scheep: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Produkschoon: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Dootmaak-Andeel: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Becai (utgleken)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "Standard (vörsichtig)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "Standard (beetsch)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "Standard (eenfach)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "Bispill (aftöven)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Minsch (Speler)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "Minsch (Tokieker)"
+
+# unreviewed-context
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Speler"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Scheep\n"
+"Buut"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Planeten\n"
+"Innahmen"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Flotten\n"
+"Sendt"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Flotten\n"
+"Tweigahn"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Scheep\n"
+"Tweigahn"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"Aktuell\n"
+"Produkschoon"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"Aktuell\n"
+"Flottgrött"
+
+#~ msgid "Production"
+#~ msgstr "Produkschoon"
+
+#~ msgid "Current Standings"
+#~ msgstr "Aktuell Stand"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Minsch"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Reekner (swach)"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Reekner (normaal)"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Reekner (swoor)"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr ""
+#~ "Dat Speel maakt veel mehr Pläseer, wenn Du en minschlich Speler toföögst!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Dat ehrmaals mächtige Riek vun %1 liggt nu in Gruus un Muus."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Dat ünnergahn Riek vun %1 is in't Leven torüchkrapen."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "De mächtige %1 hett de Galaxie innahmen!"
+
+#~ msgid "Game Over"
+#~ msgstr "Speel vörbi"
+
+#~ msgid "&Reject"
+#~ msgstr "&Aflehnen"

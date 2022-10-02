@@ -1,0 +1,777 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>&konquest;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+> <surname
+>Laane</surname
+> <affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Arendaja</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Korrigeerija</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2014-02-08</date>
+<releaseinfo
+>2.3 (&kde; 4.13)</releaseinfo>
+
+<abstract>
+<para
+>&konquest; on &kde; galaktika vallutamise mäng. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+<note
+><title
+>Mängu tüüp:</title
+><para
+>strateegia, lauamäng</para
+></note>
+<note
+><title
+>Mängijate arv:</title
+><para
+>Mitme mängijaga mäng</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>&konquest;i peaaken</phrase
+></textobject>
+	<caption
+><para
+>&konquest;i peaaken</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&konquest; Gnu-Lacticu &kde; versioon. Mängijad vallutavad teisi planeete, saates neile oma laevu. Eesmärk on rajada galaktiline impeerium ning lõpuks vallutada kõigi teiste mängijate planeedid. &konquest;i võib mängida nii teiste inimeste kui ka arvuti vastu. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Kuidas mängida</title>
+
+<para
+>&konquest;i käivitamisel klõpsa uue mängu alustamiseks ikoonile <guibutton
+>Uus</guibutton
+>. Ilmub dialoog, kus tuleb sisestada mitmesugust teavet mängu häälestamiseks. Allpool on ära toodud uue mängu jaoks vajalikud parameetrid: </para>
+<itemizedlist>
+
+<listitem
+><para
+>Mängijad</para
+><itemizedlist>
+
+  <listitem
+><para
+>Mängijate arv, keda saab nuppudega <guibutton
+>lisada</guibutton
+> või <guibutton
+>eemaldada</guibutton
+></para
+></listitem>
+  <listitem
+><para
+>Mängijate nimi</para
+></listitem>
+  <listitem
+><para
+>Mängijate tüüp (arvuti inimese vastu)</para
+></listitem>
+  <listitem
+><para
+>Arvutimängijate tugevus (nõrk/tavaline/tugev)</para
+></listitem>
+  </itemizedlist>
+  <para
+>Mängija nime muutmiseks tee topeltklõps veerul <guilabel
+>Nimi</guilabel
+> ja muuda seda. Mängija tüübi muutmiseks ava rippmenüü, tehes topeltklõpsu veerul <guilabel
+>Tüüp</guilabel
+>. Samuti saab uue mängija tüübi valida nupu <guibutton
+>Lisa</guibutton
+> rippmenüüst.</para>
+<para
+>&konquest;is on kaht laadi inimmängikaid: <guimenuitem
+>inimene (mängija)</guimenuitem
+> ja <guimenuitem
+>inimene (vaatleja)</guimenuitem
+>. Viimane saab mängu pealt vaadata ilma selles ise osalemata.</para>
+<para
+>Tehisintellektist mängija tüübid on järgmised: <guimenuitem
+>vaikimisi (nõrk)</guimenuitem
+> (mängija ei ole rünnakul ega kaitses agressiivne), <guimenuitem
+>vaikimisi (ründav)</guimenuitem
+> (agressiivselt ründav mängija) ja <guimenuitem
+>vaikimisi (kaitsev)</guimenuitem
+> (kaitsestrateegiaga mängija).</para>
+  <para
+>Lisaks neile klassikalistele tehisintellektist mängijatele on olemas <guimenuitem
+>Becai (tasakaalustatud)</guimenuitem
+>, kelle mängus on tähtsal kohal nipid, mida kirjeldab <xref linkend="strattips"/>.</para>
+  <para
+>Peane tähele, et mis tahes vastase tegelik raskusaste sõltub sinu enda strateegiast. Kui mängid ise agressiivselt, võib olla lihtsam võita agressiivset kui kaitsele orienteeritud tehisintellekti ning vastupidi.</para>
+</listitem>
+
+<listitem
+><para
+>Kaart</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Neutraalsete planeetide arv</para
+></listitem>
+  <listitem
+><para
+>Kaardi laius ja kõrgus klotsühikutes</para
+></listitem>
+  <listitem
+><para
+>Konkreetse planeedi omaniku tapatõhususe ja tootmistaseme muutmine</para
+></listitem>
+  <listitem
+><para
+>Planeetide jaotuse muutmine. Kui soovid, et see oleks juhuslik, klõpsa nupule <guibutton
+>Muuda juhuslikuks</guibutton
+>.</para
+></listitem>
+
+  </itemizedlist>
+  <para
+>Planeedi saab valida kaardi pisipildil paneeli <guilabel
+>Kaart</guilabel
+> keskel. Klõpsa lihtsalt planeedil &HVNga; ja muuda siis enda tahtmist mööda valikuid.</para>
+</listitem>
+<listitem
+><para
+>Valikud</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Võimalus määrata, kas teavet vastaste planeetide kohta näeb või mitte</para
+></listitem>
+  <listitem
+><para
+>Võimalus määrata, kas kumulatiivne tootmine on lubatud või mitte</para
+></listitem>
+  <listitem
+><para
+>Võimalus määrata, kas tootmine lubatakse kohe pärast vallutamist</para
+></listitem>
+  <listitem
+><para
+>Võimalus määrata, kas neutraalsete planeetide puhul näidatakse laevade arvu ja muud statistikat</para
+></listitem>
+  <listitem
+><para
+>Võimalus määrata neutraalsete planeetide tootmistase</para
+></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+<para
+>Kui oled seadistusi vajalikult muutnud, klõpsa mängu alustamiseks nupule <guibutton
+>OK</guibutton
+>. </para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>&konquest;i uue mängu dialoog</phrase
+></textobject>
+	<caption
+><para
+>&konquest;i uue mängu dialoog</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Kui mäng on käivitunud, näeb mänguvälja. Tühjad väljad tähistavadki tühja ruumi. Esialgu on igal mängijal üks planeet. Planeedi taust on mängija värvis. Kui viia hiir planeedi kohale, näeb lisateavet. Kui mängu käivitamisel ei ole valitud <guilabel
+>Pimekaart</guilabel
+>, näeb hiire viimisel planeedi kohale alati selle kohta kogu teavet. Kui aga <guilabel
+>Pimekaart</guilabel
+> on valitud, näeb planeetide puhul, mille on vallutanud vaenlased, ainult planeedi nime. Näidatava teabe hulka kuulub: </para>
+
+<itemizedlist>
+<listitem
+><para
+>Planeedi nimi</para
+></listitem>
+<listitem
+><para
+>Omanik</para
+></listitem>
+<listitem
+><para
+>Laevade arv</para
+></listitem>
+<listitem
+><para
+>Laevade püsiarv</para
+></listitem>
+<listitem
+><para
+>Tootmine</para
+></listitem>
+<listitem
+><para
+>Tapatõhusus</para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>&konquest;i mängimine</phrase
+></textobject>
+	<caption
+><para
+>&konquest;i mängimine</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Planeedi nimi</guilabel
+> tähistabki planeedi nime, nagu seda mängus kasutatakse. Planeetidele antakse nimeks järjestikused suurtähed. <guilabel
+>Omanik</guilabel
+> tähendab planeedi omanikku. Kui mängija vallutab mõne planeedi, muutub ka selle omanik. <guilabel
+>Laevade arv</guilabel
+> tähistab laevade hetkearvu planeedil. <guilabel
+>Laevade püsiarvu</guilabel
+> näeb ainult siis, kui planeedile on määratud püsikorraldus. <guilabel
+>Tootmine</guilabel
+> näitab, mitu laeva planeet käiguga toodab. See varieerub planeediti, kuid püsib alati samal tasemel. <guilabel
+>Tapatõhusus</guilabel
+> tähendab planeedil toodetud laevade tõhusust. Ründava laevastiku tapatõhusus võrdub nende lähteplaneedi tapatõhususega, kaitsva laevastiku oma kaitstava planeedi omaga. Planeedi nime, omanikku ja laevade arvu näeb kohe samas ruudus, kus planeet asub. Omanikku tähistab planeedi taustavärv, nimi asub üleval vasakus nurgas ja laevade arv all paremas nurgas. </para>
+
+<para
+>Laevade saatmiseks ühelt planeedilt teisele, vali planeet, millelt soovid laevu saata, sisesta ülal paremal rohelisse kasti laevade arv ja vajuta &Enter;. Korda seda, kuni oled teele saatnud just nii palju laevu, kui soovisid. Kui soovid, et teatud planeedilt saadetakse teisele igal käigul kindel arv laevu, sisesta see arv, märgi ruuduke <guilabel
+>Püsikorraldus</guilabel
+> ja vajuta &Enter;. Püsikorralduse alusel saadetavad laevad saadetakse teele käigu lõpul. Kui oled kõigega valmis, klõpsa nupule <guibutton
+>Käigu lõpp</guibutton
+>. Kui kõik mängijad on käigu sooritanud, ilmuvad dialoogikasti teated nende saavutuste kohta. Mäng kestab seni, kuni üks mängija vallutab kogu galaktika. </para>
+<tip>
+  <para
+><guimenuitem
+>Käigu lõpetamise</guimenuitem
+> kiirklahvi saab seadistada menüükäsuga <menuchoice
+><guimenu
+>Seadistused</guimenu
+><guimenuitem
+>Kiirklahvide seadistamine...</guimenuitem
+></menuchoice
+> </para>
+  <para
+>Täpsemat teavet annab &kde; põhialuste käsiraamatu <ulink url="help:/fundamentals/config.html#shortcuts"
+>kiirklahvide kasutamist ja kohandamist</ulink
+> käsitlev osa. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Mängureeglid, strateegia ja nõuanded</title>
+<sect1 id="rules">
+<title
+>Reeglid</title>
+<itemizedlist>
+<listitem
+><para
+>Teele saadetud laevu ei saa enam peatada.</para
+></listitem>
+<listitem
+><para
+>Laevad ei saa rünnata teisi laevu väljaspool planeete.</para
+></listitem>
+<listitem
+><para
+>Laevad võib jätta planeedile seisma hilisemaks kasutamiseks.</para
+></listitem>
+<listitem
+><para
+>Planeeti ei saa niisama loovutada.</para
+></listitem>
+<listitem
+><para
+>Mängija võib käigu vahele jätta, klõpsates nupule <guibutton
+>Käigu lõpp</guibutton
+> ilma laevu välja saatmata.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strateegia ja nõuanded</title>
+<itemizedlist>
+<listitem
+><para
+>Mängu tuumaks on laevade tootmine. Ürita hõivata nii kiiresti kui võimalik nii palju planeete kui võimalik, et ehitada rohkem laevu kui ükski sinu vastane.</para
+></listitem>
+<listitem
+><para
+>Ära ründa planeeti vähem kui 10 laevaga, kui sa just ei ole kindel, et suudad ka nii selle vallutada.</para
+></listitem>
+<listitem
+><para
+>Ründa kõigepealt neutraalseid planeete, alles siis vastasmängijate omi.</para
+></listitem>
+<listitem
+><para
+>Jaga oma laevavarud mitme planeedi vahel.</para
+></listitem>
+<listitem
+><para
+>Kavanda oma rünnakuid ette.</para
+></listitem>
+<listitem
+><para
+>Kasuta mõõdikut planeetide vahemaa tuvastamiseks.</para
+></listitem>
+<listitem
+><para
+>Hangi teabeaknast kasulikku teavet planeedi kohta enne selle ründamist.</para
+></listitem>
+<listitem
+><para
+>Kui vastav teave on saadaval, tasub eelistada väikese tapatõhususega planeetide ründamist suure tapatõhususega planeetide ründamisele.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menüüd</title>
+
+<sect1 id="menu-items">
+<title
+>Menüükirjed</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Uus</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Alustab uut mängu.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Lõpeta mäng</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Lõpetab aktiivse mängu ilma &konquest;i sulgemata</action
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Mõõda kaugust</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Klõpsa &HVNga; kahel planeedil nendevahelise kauguse nägemiseks.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Laevastiku ülevaade</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avab</action
+> akna, kus näeb kõigi laevastike üksikasjalikku teavet.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Lõpetab mängu.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Käigu lõpp</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Võimaldab menüüst <action
+>lõpetada käigu</action
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Vaade</guimenu
+> <guimenuitem
+>Näita teateid</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Näitab või peidab</action
+> teadete paneeli.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Vaade</guimenu
+> <guimenuitem
+>Näita seisu</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Näitab või peidab</action
+> aktiivse mängija seisu.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Lisaks on &konquest;il tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Korduma kippuvad küsimused</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Kas laevu saab pärast väljasaatmist mujale ümber suunata? </para>
+</question>
+<answer>
+<para
+>Ei. Kui laevad on planeedilt lahkunud, ei saa neid enam peatada ega ümber suunata. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kas planeetide eri värvidel ja kujul on mingi tähendus? </para>
+</question>
+<answer>
+<para
+>Ei, need on juhuslikud. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kuidas ma teada saan, kus on mu laevad? </para>
+</question>
+<answer>
+<para
+>Klõpsa <guibutton
+>Näita seisu</guibutton
+>, mis näitab, kus asuvad parajasti teel laevastikud. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ma kaotasin kõik planeedid, aga olen ikka mängus. Miks? </para>
+</question>
+<answer>
+<para
+>Sa kaotad mängu alles siis, kui kaotad kõik oma laevad. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kas laevu saab jätta planeedile hilisemaks kasutamiseks? </para>
+</question>
+<answer>
+<para
+>Jah ja seda peakski tegema, kusjuures mõtet on paigutada laevu mitmele planeedile, et saata nad sealt teistele lähedal asuvatele planeetidele. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kas teemat saab vahetada? </para>
+</question>
+<answer>
+<para
+>Ei, see ei ole veel võimalik. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Autorid ja litsents</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&GNU;-Lactic Conquesti projekt, &kde; versioon: &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Autoriõigus &copy; 1998: &GNU;-Lactic Conquest Project </para>
+
+<para
+>Dokumentatsiooni autoriõigus 2000: Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Dokumentatsiooni autoriõigus 2012: Viktor Chynarov</para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Paigaldamine</title>
+
+<sect1 id="getting-konquest">
+<title
+>&konquest;i hankimine</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompileerimine ja paigaldamine</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

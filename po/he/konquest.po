@@ -1,0 +1,584 @@
+# translation of konquest.po to hebrew
+# KDE Hebrew Localization Project
+# Translation of konquest.po into Hebrew
+#
+# In addition to the copyright owners of the program
+# which this translation accompanies, this translation is
+# Copyright (C) 1999-2002 Meni Livne <livne@kde.org>
+#
+# This translation is subject to the same Open Source
+# license as the program which it accompanies.
+# Diego Iastrubni <elcuco@kde.org>, 2005.
+# Israel Berger <israelb@gmail.com>, 2005.
+# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2017-05-16 07:01-0400\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: hebrew <kde-l10n-he@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Israel Berger"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "israelb@gmail.com"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "סקירת הצי"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "מספר צי"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr ""
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "יעד"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "ספינות"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "אחוז הריגה"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "תור הגעה"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, fuzzy, kde-format
+msgid "Players"
+msgstr "שחקן"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, fuzzy, kde-format
+msgid "&Neutral planets:"
+msgstr "מספר כוכבי לכת ניטרליים: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, fuzzy, kde-format
+msgid "Production:"
+msgstr "ייצור: "
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+msgid "Kill percentage:"
+msgstr "אחוז הריגה"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+msgid "Owner:"
+msgstr "בעלים: "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+msgid "Cumulative production"
+msgstr "ייצור: "
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+msgid "Production after capture"
+msgstr "ייצור: "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, fuzzy, kde-format
+msgid "Neutrals"
+msgstr "מספר כוכבי לכת ניטרליים: %1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+msgid "Show ships"
+msgstr "ספינות"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+msgid "Show stats"
+msgstr "ה&צג דירוג"
+
+#: dialogs/newgamedlg.cc:80
+#, fuzzy, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "שחקן"
+
+#: dialogs/newgamedlg.cc:125
+#, fuzzy, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "שם"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr ""
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "התחל במשחק חדש"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr ""
+
+#: dialogs/newgamedlg.cc:389
+#, fuzzy, kde-format
+msgid "neutral"
+msgstr "מספר כוכבי לכת ניטרליים: %1"
+
+#: game.cpp:103
+#, fuzzy, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "תגבורת (%1 ספינות) הגיעה לכוכב %2."
+msgstr[1] "תגבורת (%1 ספינות) הגיעה לכוכב %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "הכוכב %2 הדף את ההתקפה מ־%1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "הכוכב %2 נפל לידי %1."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "סיים תור"
+
+#: gameview.cc:290
+#, fuzzy, kde-format
+msgid "%1: Select source planet..."
+msgstr "בחר את כוכב המקור..."
+
+#: gameview.cc:307
+#, fuzzy, kde-format
+msgid "%1: Select destination planet..."
+msgstr "בחר את כוכב היעד..."
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "אין מספיק ספינות לשלוח"
+
+#: gameview.cc:330
+#, fuzzy, kde-format
+msgid "%1: How many ships?"
+msgstr ": כמה ספינות?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "השליט: בחר את הכוכב הראשון."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"המרחק מכוכב %1 לכוכב %2 הוא %3 שנות־אור.\n"
+"ספינה שתעזוב בתור הזה תגיע בתור %4"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "מרחק"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "השליט: בחר את הכוכב השני."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr ""
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "האם אתה בטוח שברצונך לפרוש ממשחק זה?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "סיים משחק"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "דירוג סופי"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "משחק אסטרטגיה גלקטי עבור KDE"
+
+#: Konquest.cc:44
+#, fuzzy, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Copyright (c) 1999-2001, המפתחים"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr ""
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr ""
+
+#: Konquest.cc:49
+#, fuzzy, kde-format
+msgid "Computer/AI Player"
+msgstr "שחקן מחשב"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr ""
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr ""
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr ""
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr ""
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr ""
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "שם"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "מסע כיבוש גלקטי"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "מסע כיבוש גלקטי"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "מ&דוד מרחק"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
+msgstr "&סקירת הצי"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr ""
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr ""
+
+#: mainwin.cc:114
+#, fuzzy, kde-format
+msgid "Standings"
+msgstr "דירוג סופי"
+
+#: mainwin.cc:121
+#, fuzzy, kde-format
+msgid "Show &Standings"
+msgstr "ה&צג דירוג"
+
+#: mainwin.cc:215
+#, fuzzy, kde-format
+msgid "Turn # %1"
+msgstr "תור #: %1 מתוך %2"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "שם כוכב הלכת: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "בעלים: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "ספינות: %1"
+
+#: map/mapitems.cc:232
+#, fuzzy, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "ספינות: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "ייצור: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "אחוז הריגה: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr ""
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr ""
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr ""
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr ""
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr ""
+
+#: players/localplayer_gui.cpp:13
+#, fuzzy, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "שחקן אנושי"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr ""
+
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "שחקן"
+
+#: view/standingswidget.cpp:153
+#, fuzzy, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr "ספינות נבנו"
+
+#: view/standingswidget.cpp:154
+#, fuzzy, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr "כוכבים נכבשו"
+
+#: view/standingswidget.cpp:155
+#, fuzzy, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr "ציים הושקו"
+
+#: view/standingswidget.cpp:156
+#, fuzzy, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr "ציים הושמדו"
+
+#: view/standingswidget.cpp:157
+#, fuzzy, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr "ספינות הושמדו"
+
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr "ייצור: "
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Production"
+#~ msgstr "ייצור: "

@@ -1,0 +1,638 @@
+# Copyright (C) 2011 Free Software Foundation, Inc.
+#
+# Tamas Szanto <taszanto@gmail.com>, 1999.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2014-01-20 22:42+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Szántó Tamás"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "taszanto@gmail.com"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Áttekintés"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Sorszám"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "Forrás"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Cél"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Űrhajók"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Találati arány"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Megérkezési kör"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Állandó parancs"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Párbeszédablak"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Játékosok"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Hozzáadás"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Eltávolítás"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Térkép"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "Semleges b&olygó:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Szélesség:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "Ma&gasság:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Termelés:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Kill Percentage:"
+msgid "Kill percentage:"
+msgstr "Gyilkolási arány:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Véletlenszerű"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
+msgstr "Tulajdonos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Beállítások"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, fuzzy, kde-format
+#| msgid "Blind Map"
+msgid "Blind map"
+msgstr "Vaktérkép"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+#| msgid "Cumulative Production"
+msgid "Cumulative production"
+msgstr "Halmozott termelés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+#| msgid "Production After Capture"
+msgid "Production after capture"
+msgstr "Termelés az elfoglalás után"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Semlegesek"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+#| msgid "Show Ships"
+msgid "Show ships"
+msgstr "Űrhajók megjelenítése"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+#| msgid "Show Stats"
+msgid "Show stats"
+msgstr "Állások megjelenítése"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "%1. játékos"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Név"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Típus"
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Új játék kezdése"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "szabad"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "semleges"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Erősítés (1 űrhajó) érkezett erre a bolygóra: %2."
+msgstr[1] "Erősítés (%1 űrhajó) érkezett erre a bolygóra: %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "A(z) %2 bolygó visszaverte %1 támadását."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "A(z) %2 bolygó megadta magát, %1 diadalmaskodott."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "A kör befejezése"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1: Forrásbolygó kiválasztása…"
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1: Célbolygó kiválasztása…"
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Nincs a bolygón ennyi űrhajó."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: Hány űrhajót indít?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Válassza ki a kiindulópont bolygót! "
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"A(z) %1 bolygó és a(z) %2 bolygó távolsága %3 fényév.\n"
+"Egy most induló űrhajó a(z) %4. körben ér oda."
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Távolság"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Válassza ki a célpont bolygót!"
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "%1. kör:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Abba szeretné hagyni a játékot?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Vége a játéknak"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Végeredmény"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Hódító"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Háború a galaxisban - KDE-alapú stratégiai játék"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Copyright © A program fejlesztői, 1999-2013."
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Gépi játékos"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "KDE4-es átirat"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Kódtisztítás, hibajavítások"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Kódtisztítás és hibajavítások, karbantartás"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Játékmenet fejlesztések"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Sean D'Epagnier"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Játék"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Nézet"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Alap eszköztár"
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Űrháború a galaxisban"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Űrháború a galaxisban"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "&Távolságmérés"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
+msgstr "Át&tekintés"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "Üzenetek"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "Ü&zenetek megjelenítése"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "Állás"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "Á&llás megjelenítése"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "%1. kör"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "A bolygó neve: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "A bolygó ura: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Űrhajók: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Esedékes űrhajók: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Termelés: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Találati arány: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Becai (kiegyenlített)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "Alapértelmezett (védekező)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "Alapértelmezett (támadó)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "Alapértelmezett (gyenge)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "Példa (passzív)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Ember (játékos)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "Ember (néző)"
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Játékos"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Legyártott\n"
+"hajók"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Meghódított\n"
+"bolygók"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Bevetett\n"
+"kötelékek"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Megsemmisített\n"
+"kötelékek"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Megsemmisített\n"
+"űrhajók"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"Jelenlegi\n"
+"termelés"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"Jelenlegi\n"
+"flottaméret"
+
+#~ msgid "Production"
+#~ msgstr "Termelés"
+
+#~ msgid "Current Standings"
+#~ msgstr "A jelenlegi állás"
+
+#, fuzzy
+#~| msgid "Default Weak"
+#~ msgid "Default (Hard)"
+#~ msgstr "Alapértelmezett gyenge"
+
+#~ msgid "Default Hard/Defensive"
+#~ msgstr "Alapértelmezett erős/védekező"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Személy"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Gép (könnyű)"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Gép (közepes)"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Gép (nehéz)"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr "A játék csak akkor érdekes, ha egy nem gépi játékos is szerepel..."
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "%1 hajdan virágzó birodalma romokban hever."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "%1 halódó birodalma újból erőre kapott."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "%1, a nagy hódító, leigázta az egész Galaxist!"
+
+#~ msgid "Game Over"
+#~ msgstr "Vége a játéknak"
+
+#~ msgid "&Reject"
+#~ msgstr "Új térkép &kérése"

@@ -1,0 +1,662 @@
+# Copyright (C).
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2013, 2020, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest-0.99.1\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2022-02-06 17:11+0000\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: dialogs/fleetdlg.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Sumarul flotei"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Nr. flotă"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "Sursă"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Destinație"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Nave"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Procentaj distrugere:"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Turul de sosire"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Ordin în vigoare"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialog"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Jucători"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Adaugă"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Elimină"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Hartă"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "Planete &neutre:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Lățime:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "Î&nălțime:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Producția:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, kde-format
+msgid "Kill percentage:"
+msgstr "Procentaj distrugere:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Amestecă"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, kde-format
+msgid "Owner:"
+msgstr "Proprietar:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Opțiuni"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr "Hartă oarbă"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, kde-format
+msgid "Cumulative production"
+msgstr "Producție cumulativă"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, kde-format
+msgid "Production after capture"
+msgstr "Producție după capturare"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Neutre"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, kde-format
+msgid "Show ships"
+msgstr "Arată navele"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, kde-format
+msgid "Show stats"
+msgstr "Arată statistici"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Jucător %1"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Nume"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Tip"
+
+#: dialogs/newgamedlg.cc:315
+#, kde-format
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Începe joc nou"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "vacantă"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "neutră"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Au sosit întăriri (1 corabie) pentru planeta %2."
+msgstr[1] "Au sosit întăriri (%1 corăbii) pentru planeta %2."
+msgstr[2] "Au sosit întăriri (%1 de corăbii) pentru planeta %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Planeta %2 a rezistat unui atac din partea lui %1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Planeta %2 a fost capturată de %1."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Termină turul"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1: Alegeți planeta sursă..."
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1: Alegeți planeta destinație..."
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Nu aveți suficiente nave de trimis."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: Cîte nave?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Conducător: Alegeți planeta de plecare."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Distanța dintre planeta %1 și planeta %2 este de %3 ani lumină.\n"
+"O navă ce pleacă în această tură va sosi în turul %4."
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Distanța"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Conducător: Alegeți planeta fianală."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "Turul %1:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Doriți să încheiați acest joc?"
+
+#: gameview.cc:524
+#, kde-format
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Termină jocul"
+
+#: gameview.cc:552
+#, kde-format
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Situația finală"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, kde-format
+msgid "Galactic Strategy Game"
+msgstr "Joc de strategie galactică"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Drept de autor (c) 1999-20013, Dezvoltatorii"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Calculator/jucător IA"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Portarea pe KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Curățare și corecții"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Curățare și corecții, întreținere"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Îmbunătățiri pentru cursul jocului"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Joc"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Vizualizare"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bara de unelte principală"
+
+#: mainwin.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Cucerire galactică"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Cucerire galactică"
+
+#: mainwin.cc:74
+#, kde-format
+msgid "&Measure Distance..."
+msgstr "&Măsoară distanța…"
+
+#: mainwin.cc:80
+#, kde-format
+msgid "&Fleet Overview..."
+msgstr "Sumarul &flotei…"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "Mesaje"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "Arată &mesajele"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "Situația"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "Arată &situația"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Turul # %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Denumirea planetei: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Stăpîn: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Nave: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Nave așteptate: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Producția: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Procentaj distrugeri: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Becai (balansat)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "Implicit (defensiv)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "Implicit (ofensiv)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "Implicit (slab)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "Exemplu (pasiv)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Om (jucător)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "Om (spectator)"
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Jucător"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Nave\n"
+"construite"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Planete\n"
+"cucerite"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Flote\n"
+"lansate"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Flote\n"
+"distruse"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Nave\n"
+"distruse"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"Producție\n"
+"actuală"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"Dimensiune\n"
+"actuală flotă"
+
+#~ msgid "Production"
+#~ msgstr "Producție"
+
+#~ msgid "Current Standings"
+#~ msgstr "Situația actuală"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Om"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Calculator slab"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Calculator normal"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Calculator dificil"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr "Jocul este mult mai distractiv cînd adăugați un jucător uman!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Imperiul lui %1, odată puternic, a ajuns ruine."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Imperiul decăzut al lui %1 a revenit la viață."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "Atotputernicul %1 a cucerit galaxia!"
+
+#~ msgid "Game Over"
+#~ msgstr "Jocul s-a încheiat"
+
+#~ msgid "&Reject"
+#~ msgstr "&Respinge"
+
+#, fuzzy
+#~ msgid "Player list:"
+#~ msgstr "Lista de &jucători"
+
+#, fuzzy
+#~ msgid "&Human player:"
+#~ msgstr "Jucător"
+
+#, fuzzy
+#~ msgid "Preview map:"
+#~ msgstr "Previzualizare hartă"
+
+#, fuzzy
+#~ msgid ""
+#~ "This is the last turn.\n"
+#~ "Do you wish to add extra turns?"
+#~ msgstr ""
+#~ "Aceasta este ultima mutare.\n"
+#~ "Doriți să mai adăugați alte ture?"
+
+#, fuzzy
+#~ msgid "&Add Turns"
+#~ msgstr "Adaugă %1 ture"
+
+#, fuzzy
+#~ msgid "Extra turns: %1"
+#~ msgstr "Număr de mutări: %1"
+
+#, fuzzy
+#~ msgid "Number of &players: %1"
+#~ msgstr "Număr de mutări: %1"
+
+#, fuzzy
+#~ msgid "Number of &turns: %1"
+#~ msgstr "Număr de mutări: %1"
+
+#, fuzzy
+#~ msgid "Planet name: "
+#~ msgstr "Nume planetă: "
+
+#~ msgid "Ships: "
+#~ msgstr "Nave: "
+
+#, fuzzy
+#~ msgid "Kill percent: "
+#~ msgstr "Distrugeri: "

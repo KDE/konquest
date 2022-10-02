@@ -1,0 +1,796 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok Erövring</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Granskare</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-08-08</date>
+<releaseinfo
+>2.4 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>Erövring är ett galaktiskt erövringsspel </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Erövring</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>brädspel</keyword>
+<keyword
+>flera spelare</keyword>
+<keyword
+>strategi</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+<note
+><title
+>Speltyp:</title
+><para
+>Strategi, brädspel</para
+></note>
+<note
+><title
+>Antal spelare:</title
+><para
+>Flera spelare</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Huvudfönstret i Erövring</phrase
+></textobject>
+	<caption
+><para
+>Huvudfönstret i Erövring.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Erövring är &kde;:s version av &gnu-lactic;. Spelare erövrar andra planeter genom att skicka farkoster till dem. Målet är att bygga ett interstellärt imperium och slutligen erövra alla andra spelares planeter. Erövring kan spelas mot andra människor eller mot datorn. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Hur man spelar</title>
+
+<para
+>När du startar Erövring, klicka på <guibutton
+>Ny</guibutton
+> för att börja ett nytt spel. Då visas en dialogruta där du måste ange diverse information för att ställa in spelet. Nedan listas följande parametrar för ett nytt spel:: </para>
+
+  <para
+><guilabel
+>Spelare</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>Antal spelare med <guibutton
+>Lägg till</guibutton
+> eller <guibutton
+>Ta bort</guibutton
+> spelare</para
+></listitem>
+    <listitem
+><para
+>Spelarnas namn</para
+></listitem>
+    <listitem
+><para
+>Typ av spelare (dator mot människa))</para
+></listitem>
+    <listitem
+><para
+>Datorspelares skicklighet (svag, normal, stark))</para
+></listitem>
+  </itemizedlist>
+
+<para
+>För att ändra en spelares namn, dubbelklicka på kolumnen <guilabel
+>Namn</guilabel
+> och redigera det. För att ändra spelarens typ, visa kombinationsrutan med ett dubbelklick på kolumnen <guilabel
+>Typ</guilabel
+>. Det är också möjligt att välja nya spelares typ med kombinationslistan för knappen <guibutton
+>Lägg till</guibutton
+>.</para>
+
+<para
+>Det finns två typer av mänsklig spelare i &konquest;, närmare bestämt <guimenuitem
+>Människa (spelare)</guimenuitem
+> och <guimenuitem
+>Människa (åskådare)</guimenuitem
+>. Det senare alternativet gör det möjligt att titta på spelet utan att delta.</para>
+
+<para
+>Typ av AI-spelare kan väljas bland <guimenuitem
+>Förvald (svag)</guimenuitem
+> (en spelare som varken attackerar eller försvarar aggressivt), <guimenuitem
+>Förvald (offensiv)</guimenuitem
+> (en spelare som attackerar aggressivt) och <guimenuitem
+>Förvald (defensiv)</guimenuitem
+> (en spelare med en defensiv strategi).</para>
+
+<para
+>Förutom dessa klassiska AI-spelare är <guimenuitem
+>Becai (balanserad)</guimenuitem
+> en balanserad spelare som tar hänsyn till de flesta <xref linkend="strattips"/>.</para>
+
+<para
+>Kom ihåg att den verkliga svårigheten med vilken motståndare som helst beror på själva din egna strategi. Om du själv spelar aggressivt, kan en aggressiv AI-spelare vara lättare att slå än en defensiv spelare, och tvärtom.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Karta</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Neutrala planeter:</guilabel
+> Antal neutrala planeter.</para>
+    <para
+>Kartans <guilabel
+>Bredd:</guilabel
+> och <guilabel
+>Höjd:</guilabel
+> i antal rutor.</para>
+    <para
+>Ändring av <guilabel
+>Ägare:</guilabel
+>, <guilabel
+>Procentuell slagkraft:</guilabel
+> och <guilabel
+>Produktionsnivå:</guilabel
+> för en viss planet.</para>
+    <para
+>Ändra fördelningen av planeter. Klicka på <guibutton
+>Gör slumpmässig</guibutton
+> för att göra den slumpmässig.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Planeten kan väljas genom att använda miniatyrbilden av kartan mitt i rutan <guilabel
+>Karta</guilabel
+>. Klicka bara på planeten med vänster musknapp och ändra önskade alternativ.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Alternativ</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Dold karta</guilabel
+>: Om det går att se information om motståndarens planeter.</para>
+    <para
+><guilabel
+>Sammanlagd produktion</guilabel
+>: Om den är aktiverad eller inte.</para>
+    <para
+><guilabel
+>Produktion efter erövring</guilabel
+>: Om den aktiveras omedelbart.</para>
+    <para
+><guilabel
+>Visa farkoster</guilabel
+>: Tillåt att antal farkoster och annan statistik visas för neutrala planeter.</para>
+    <para
+><guilabel
+>Visa statistik</guilabel
+>: Ange produktionsnivå för neutrala planeter.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>När du är klar med att ändra inställningarna (valfritt), klicka på <guibutton
+>Ok</guibutton
+> för att starta spelet.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Ny speldialogruta för Erövring</phrase
+></textobject>
+	<caption
+><para
+>Ny speldialogruta för Erövring.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>När spelet väl startar, visas spelbrädet. Tomma rutor är tom rymd. Från början äger varje spelare en planet. Planetens bakgrund är spelarens färg. Om du rör musen över en planet, kan du se ytterligare information. Om alternativet <guilabel
+>Dold karta</guilabel
+> inte aktiverades när spelet valdes, kan du se all information om en planet när musen hålls över den. Om alternativet <guilabel
+>Dold karta</guilabel
+> valdes när ett nytt spel startades, ser du bara planetens namn för planeter som har erövrats av motståndare. Informationen kan omfatta: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Planetens namn:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Ägare:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Farkoster:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Farkoster på väg:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Produktion:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Procentuell slagkraft:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Att spela Erövring</phrase
+></textobject>
+	<caption
+><para
+>Att spela Erövring.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Planetens namn:</guilabel
+> är sättet som man anger planeter i spelet. Planeter namnges alfabetiskt med stora bokstäver. <guilabel
+>Ägare:</guilabel
+> är den som äger planeten. Om planeten erövras av en annan spelare, ändras det. <guilabel
+>Farkoster:</guilabel
+> är antal farkoster på planeten. <guilabel
+>Farkoster på väg:</guilabel
+> visas bara om du har valt en stående order för planeten, annars finns det inte. <guilabel
+>Produktion:</guilabel
+> är antalet farkoster som planeten bygger varje omgång. Produktionen varierar från planet till planet, men förblir alltid samma. <guilabel
+>Procentuell slagkraft:</guilabel
+> är ett mått på effektiviteten hos farkosterna som produceras på planeten. Attackflottor använder slagkraften hos avgångsplaneten, och försvarsflottor använder slagkraften hos planeten de försvarar. Du kan enkelt se planetens namn, ägaren, och nuvarande antal farkoster på planeten i rutan där planeten finns. Ägaren representeras av planetens bakgrundsfärg, namnet visas i övre vänstra hörnet, och antal farkoster i nedre högra hörnet. </para>
+
+<para
+>För att skicka farkoster från en planet till en annan, markera planeten du vill skicka farkoster från, skriv in antal farkoster i den gröna rutan i övre högra hörnet och tryck på returtangenten. Upprepa proceduren till du har skickat alla farkoster du vill. Om du vill skicka ett visst antal farkoster från en planet till en annan varje omgång, skriv in antalet, markera rutan <guilabel
+>Stående order</guilabel
+> och tryck på returtangenten. Farkoster som beror på den stående ordern skickas vid omgångens slut. När du är klar, klicka på <guibutton
+>Avsluta omgång</guibutton
+>. När alla spelare har spelat en omgång, visas dialogrutor som ger senaste nytt. Spelet fortsätter på detta vis till en av spelarna äger hela galaxen. </para>
+<tip>
+  <para
+>En snabbtangent för åtgärden <guibutton
+>Avsluta omgång</guibutton
+> kan ställas in med menyalternativet <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa genvägar...</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>För mer information, läs avsnittet <ulink url="help:/fundamentals/config.html#shortcuts"
+>Använda och anpassa genvägar</ulink
+> i &kde;:s grunder. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Spelets regler, strategi och tips</title>
+<sect1 id="rules">
+<title
+>Regler</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Farkoster kan inte stoppas när de väl har lämnat en planet.</para
+></listitem>
+  <listitem
+><para
+>Farkoster kan inte attackera andra farkoster i luften.</para
+></listitem>
+  <listitem
+><para
+>Farkoster kan lagras på planeter för senare användning.</para
+></listitem>
+  <listitem
+><para
+>En planet kan inte ges bort.</para
+></listitem>
+  <listitem
+><para
+>En spelare kan hoppa över sin tur genom att klicka på <guibutton
+>Avsluta omgång</guibutton
+> utan att skjuta upp några farkoster.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strategi och tips</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Spelet handlar om att producera skepp. Försök få så många planeter som möjligt så snabbt det går för att bygga fler skepp en någon av motståndarna.</para
+></listitem>
+  <listitem
+><para
+>Attackera inte en planet med färre än tio farkoster, om det inte går att erövra den.</para
+></listitem>
+  <listitem
+><para
+>Attackera neutrala planeter innan andra spelares planeter.</para
+></listitem>
+  <listitem
+><para
+>Dela lagringsplatser för farkoster över flera planeter.</para
+></listitem>
+  <listitem
+><para
+>Planera dina attacker i förväg.</para
+></listitem>
+  <listitem
+><para
+>Använd linjalen för att ta reda på avståndet mellan planeter.</para
+></listitem>
+  <listitem
+><para
+>Använd informationsfönstret för att få information om planeter innan en attack.</para
+></listitem>
+  <listitem
+><para
+>Om informationen är tillgänglig, är en attack av en planet med låg slagkraft från en planet med en hög att föredra.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menyer</title>
+
+<sect1 id="menu-items">
+<title
+>Menyalternativ</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Startar ett nytt spel.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Sluta spel</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avslutar nuvarande spel, utan att stänga</action
+> Erövring.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Mät avståndet...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Gör det möjligt att mäta avståndet.</action
+> Klicka med musens vänsterknapp på två planeter för att se deras avstånd.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Översikt över flottan...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Öppnar ett fönster</action
+> för att visa detaljerad information om alla flottor.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avslutar spelet.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Avsluta omgång</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Låter dig <action
+>avsluta omgången</action
+> från huvudmenyn.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Visa meddelanden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Visa eller dölj meddelanderutan.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Visa ställning</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Visa eller dölj den nuvarande spelarens ställningstabell.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Dessutom har Erövring de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Vanliga frågor</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Kan man dirigera om farkoster när de väl har lämnat en planet?</para
+></question>
+    <answer
+><para
+>Nej, när farkoster väl har lämnat en planet kan de inte stoppas eller dirigeras om.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Betyder de olika färgerna och formerna hos planeter någonting?</para
+></question>
+    <answer
+><para
+>Nej, de är slumpmässiga.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Hur kan jag veta var mina farkoster finns?</para
+></question>
+    <answer
+><para
+>Klicka på <guibutton
+>Visa statistik</guibutton
+>. Det ger information om flottor som för närvarande flyger.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Jag har förlorat alla mina planeter, men är fortfarande med i spelet. Varför?</para
+></question>
+    <answer
+><para
+>Du har inte förlorat spelet förrän du har förlorat alla dina farkoster.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Kan man lagra farkoster på en planet för senare användning?</para
+></question>
+    <answer
+><para
+>Ja, men du bör lagra dem på flera planeter för att kunna skicka dem till näraliggande planeter.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Är det möjligt att ändra tema?</para
+></question>
+    <answer
+><para
+>Nej, det är inte möjligt för tillfället.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Tack till och licens</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&gnu-lactic; Conquest projektet, &kde;-version av &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 av &gnu-lactic; Conquest projektet </para>
+
+<para
+>Dokumentation copyright 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Dokumentation copyright 2012 Viktor Chynarov</para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

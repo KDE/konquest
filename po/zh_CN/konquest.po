@@ -1,0 +1,566 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2022-09-20 01:56\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/konquest/konquest.pot\n"
+"X-Crowdin-File-ID: 5703\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE 中国"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-china@kde.org"
+
+#: dialogs/fleetdlg.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "舰队概览"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "舰队编号"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "原因"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "目的地"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "飞船数"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "杀伤率"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "到达回合"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "定期支付"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "对话"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "玩家"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "添加(&A)"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "删除(&R)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "地图"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "中立星球(&N)："
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "宽度(&W)："
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "高度(&H)："
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "产量："
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, kde-format
+msgid "Kill percentage:"
+msgstr "杀伤率："
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "随机化(&R)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, kde-format
+msgid "Owner:"
+msgstr "所有者："
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "选项"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr "盲图"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, kde-format
+msgid "Cumulative production"
+msgstr "累积产量"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, kde-format
+msgid "Production after capture"
+msgstr "夺取后产量"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "中立单位"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, kde-format
+msgid "Show ships"
+msgstr "显示舰船数"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, kde-format
+msgid "Show stats"
+msgstr "显示状态"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "玩家 %1"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "姓名"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "类型"
+
+#: dialogs/newgamedlg.cc:315
+#, kde-format
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "开始新游戏"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "未占用"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "中性"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "增援部队(%1 条飞船)已经到达 %2 星球。"
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "%2 星球抵挡住了来自 %1 的进攻。"
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "%2 星球落入 %1 之手。"
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "回合结束"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1：选择起点星球"
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1：选择目标星球…"
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "没有足够的飞船可派遣。"
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1：多少飞船？"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "统治者：选择起点星球。"
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"从星球 %1 到星球 %2 的距离为 %3 光年。\n"
+"这回合出发的飞船将在回合 %4 到达"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "距离"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "统治者：选择终止星球。"
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "回合 %1："
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "您要退出游戏吗？"
+
+#: gameview.cc:524
+#, kde-format
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "结束游戏"
+
+#: gameview.cc:552
+#, kde-format
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "最终战果"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, kde-format
+msgid "Galactic Strategy Game"
+msgstr "星际策略游戏"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Copyright (c) 1999-2013, Developers"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "计算机玩家"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "移植到 KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "代码清理和除错"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "代码清理和除错，维护"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "乐趣强化"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "游戏(&G)"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "视图(&V)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "主工具栏"
+
+#: mainwin.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "星系征服"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "星系征服游戏"
+
+#: mainwin.cc:74
+#, kde-format
+msgid "&Measure Distance..."
+msgstr "测量距离(&M)..."
+
+#: mainwin.cc:80
+#, kde-format
+msgid "&Fleet Overview..."
+msgstr "舰队概览(&F)..."
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "信件"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "显示消息(&M)"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "战绩表"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "显示战果(&S)"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "回合 # %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "星球名字：%1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "所有者：%1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "飞船数：%1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "飞船数：%1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "产量：%1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "杀伤率：%1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Becai (平衡)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "默认 (防御)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "默认 (进攻)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "默认 (弱)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "示例 (被动)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "人类(玩家)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "人类(旁观者)"
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "玩家"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr "建造的飞船数"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr "征服的星球数"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr "组成的舰队数"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr "摧毁的舰队数"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr "摧毁的飞船数"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"当前\n"
+"生产"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"当前\n"
+"舰队大小"

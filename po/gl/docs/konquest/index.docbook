@@ -1,0 +1,607 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Galician  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Manual do &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Xosé</firstname
+><surname
+>Calvo</surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+>Tradutor do proxecto Trasno</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Desenvolvedor</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2007-11-13</date>
+<releaseinfo
+>2.0</releaseinfo>
+
+<abstract>
+<para
+>O &konquest; é un xogo de conquistas galácticas para o &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdución</title>
+<note
+><title
+>Tipo de xogo:</title
+><para
+>Estratexia, Taboleiro</para
+></note>
+<note
+><title
+>Número de xogadores:</title
+><para
+>Multi-xogador</para
+></note>
+
+<para
+>O &konquest; é a versión para o &kde; de Gnu-Lactic. Os xogadores conquistan outros planetas enviando naves. O obxectivo é construír un imperio interestelar e finalmente conquistar todos os planetas dos demais xogadores. O &konquest; pódese xogar contra outras persoas ou contra un computador. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Como xogar</title>
+
+<para
+>When you start &konquest;, press <guibutton
+>New</guibutton
+> to start a new game. You will see a dialog in which you need to enter player names, decide the number of planets, and how many turns are allowed. You can also use the reject button to get a new map. When you are done, click <guibutton
+>OK</guibutton
+> to start the game. </para>
+
+<para
+>Once the game starts, you will be presented with the game board. Blank squares are empty space. At first, each player owns one planet. The planet's background is the player colour. If you move your mouse over a planet, you can see additional information. On planets which have not yet been conquered by anyone, you will only see the planet's name. The information includes: </para>
+
+<itemizedlist>
+<listitem
+><para
+>Nome do planeta</para
+></listitem>
+<listitem
+><para
+>Dono</para
+></listitem>
+<listitem
+><para
+>Naves</para
+></listitem>
+<listitem
+><para
+>Produción</para
+></listitem>
+<listitem
+><para
+>Porcentaxe de baixas</para
+></listitem>
+</itemizedlist>
+
+<para
+>The planet name is how the planet is referred to in the game. Planets are named alphabetically with uppercase letters. Owner is who owns the planet. If the planet is conquered by another player, this will change. Ships is the current number of ships on the planet. Production is the number of ships the planet will produce each turn. The production varies from planet to planet, but always remains the same. Kill percent is a measure of the effectiveness of the ships produced at that planet. Attack fleets take the kill percentage of their planet of departure, and defense fleets use the kill percentage of the planet they are defending. You can get easily see the planet name, the owner and the current number of ships on a planet in the square in which the planet lies. The owner is represented by the background color of the planet, the name is in the upper left corner and the number of ships is in the lower right corner. </para>
+
+<para
+>To send ships from a planet to another, select the planet you want to send ships from, enter the number of ships in the green box in the upper right corner and press enter. Repeat this procedure until you have sent out all the ships you want. When you're done, press <guibutton
+>End Turn</guibutton
+>. When all players have played one turn, dialog boxes will appear and give you the latest news. The game will proceed like this until one of the players owns the entire galaxy. </para>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Regras do xogo, estratexias e suxestións</title>
+<sect1 id="rules">
+<title
+>Regras</title>
+<itemizedlist>
+<listitem
+><para
+>As naves non poden ser detidas unha vez que deixan o planeta.</para
+></listitem>
+<listitem
+><para
+>Ships cannot attack other ships in mid-air.</para
+></listitem>
+<listitem
+><para
+>As naves pódense almacenar nos planetas para empregalas máis tarde.</para
+></listitem>
+<listitem
+><para
+>Non se pode entregar un planeta.</para
+></listitem>
+<listitem
+><para
+>A player can skip a turn by pressing <guibutton
+>End Turn</guibutton
+> without lauching any ships.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Estratexias e suxestións</title>
+<itemizedlist>
+<listitem
+><para
+>Don't attack a planet with less than 10 ships.</para
+></listitem>
+<listitem
+><para
+>Ataca os planetas neutrais antes dos planetas dos demais xogadores.</para
+></listitem>
+<listitem
+><para
+>Divide as túas reservas de naves entre varios planetas.</para
+></listitem>
+<listitem
+><para
+>Planea os ataques con antelación.</para
+></listitem>
+<listitem
+><para
+>Emprega a regra para saber a distancia entre planetas.</para
+></listitem>
+<listitem
+><para
+>Emprega a xanela de información para obter información sobre os planetas antes dun ataque.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menús</title>
+
+<sect1 id="game-menu">
+<title
+>The <guimenu
+>Game</guimenu
+> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+></keycap
+></keycombo
+></shortcut
+><guimenu
+>Partida</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Inicia unha partida nova.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Rematar</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partida</guimenu
+> <guimenuitem
+>Rematar a partida</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Rematar a partida sen fechar</action
+> o &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partida</guimenu
+> <guimenuitem
+>Medir a distancia</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Preme dous planetas co &LMB; para ver a súa distancia.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partida</guimenu
+> <guimenuitem
+>Mostrar a situación</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre</action
+> unha xanela que mostra a situación actual detallada de todos os xogadores.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partida</guimenu
+> <guimenuitem
+>Resumo das frotas</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre</action
+> unha xanela que mostra información detallada de todas as frotas</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partida</guimenu
+> <guimenuitem
+>Saír</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sae do xogo.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>The <guimenu
+>Settings</guimenu
+> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuración</guimenu
+> <guimenuitem
+>Mostrar a barra de ferramentas</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Conmutar</action
+> que se vexa ou non a barra de ferramentas.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuración</guimenu
+> <guimenuitem
+>Mostrar a barra de estado</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Alternar que se mostre ou non a barra de estado. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuración</guimenu
+> <guimenuitem
+>Configurar os atallos de teclado...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Abre</action
+> un diálogo de configuración normal do &kde; para mudar os atallos de teclado empregados polo &konquest;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuración</guimenu
+> <guimenuitem
+>Configurar as barras de ferramentas...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>abre o diálogo de configuración normal das barras de ferramentas do &kde; para personalizar as iconas da barra de ferramentas do &konquest;.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>The <guimenu
+>Help</guimenu
+> Menu</title>
+&help.menu.documentation; </sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Preguntas frecuentes</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Podo redirixir as naves unha vez que saian dun planeta? </para>
+</question>
+<answer>
+<para
+>Non, unha vez que as naves saen dun planeta non se poden deter ou redirixir. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Significan algo as cores e formas dos planetas? </para>
+</question>
+<answer>
+<para
+>Non, son ao chou. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Como sei onde están as miñas naves? </para>
+</question>
+<answer>
+<para
+>Preme <guibutton
+>Mostrar a situación</guibutton
+>. Dá información sobre as frotas que están en voo. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Perdín todos os meus planetas mais aínda estou no xogo. Por que? </para>
+</question>
+<answer>
+<para
+>Non se perde a partida até ter perdidas todas as naves. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Non me quedan roldas que xogar, que podo facer? </para>
+</question>
+<answer>
+<para
+>Podes continuar a xogar. Cando chegues á derradeira rolda háseche pedir se queres engadir máis. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Podo almacenar naves nun planeta para empregalas máis tarde? </para>
+</question>
+<answer>
+<para
+>Si. Porén, deberíalas almacenar en varios planetas para podelas enviar a planetas próximos. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Enviei todas as naves que había nun planeta mais cando movo o rato por riba del mostra que as naves aínda están alí. Por que? </para>
+</question>
+<answer>
+<para
+>O número de naves sobre cada planeta actualízase cando remata unha rolda. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>É posíbel modificar o tema? </para>
+</question>
+<answer>
+<para
+>Non, de momento non é posíbel. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Créditos e licenza</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&GNU;-Lactic Conquest Project, &kde; versión de &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 by the &GNU;-Lactic Conquest Project </para>
+
+<para
+>Copyright da documentación 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Tradución da documentación: Xosé Calvo - http://trasno.net/</para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalación</title>
+
+<sect1 id="getting-konquest">
+<title
+>Como obter o &konquest;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Compilación e instalación</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

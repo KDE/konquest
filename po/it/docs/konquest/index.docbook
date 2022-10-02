@@ -1,0 +1,812 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Vincenzo</firstname
+><surname
+>Reale</surname
+><affiliation
+><address
+><email
+>smart2128vr@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Marcello</firstname
+><surname
+>Anni</surname
+><affiliation
+><address
+><email
+>marcello.anni@alice.it</email
+></address
+></affiliation
+><contrib
+>Traduzione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Sviluppatore</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Revisore</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>8/8/2021</date>
+<releaseinfo
+>2.4 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&konquest; è un gioco di conquista galattica </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>tabellone</keyword>
+<keyword
+>multigiocatore</keyword>
+<keyword
+>strategia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+<note
+><title
+>Tipo di gioco:</title
+><para
+>Strategia, disposizione</para
+></note>
+<note
+><title
+>Numero di giocatori:</title
+><para
+>Multigiocatore</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Finestra principale di &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Finestra principale di &konquest;</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&konquest; è la versione &kde; di &gnu-lactic;. I giocatori conquistano gli altri pianeti inviandogli contro delle flotte. L'obiettivo è costruire un impero interstellare e infine conquistare tutti i pianeti degli altri giocatori. Con &konquest; puoi sfidare altri giocatori o il computer. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Come giocare</title>
+
+<para
+>Quando avvii &konquest;, premi <guibutton
+>Nuovo</guibutton
+> per avviare un nuovo gioco. Ti apparirà una finestra di configurazione dove devi inserire le varie informazioni per configurare la partita. Sotto sono elencati i seguenti parametri per la nuova partita. </para>
+
+  <para
+><guilabel
+>Giocatori</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>Numero di giocatori determinato con i pulsanti <guibutton
+>Aggiungi</guibutton
+> o <guibutton
+>Rimuovi</guibutton
+></para
+></listitem>
+    <listitem
+><para
+>Nome dei giocatori</para
+></listitem>
+    <listitem
+><para
+>Tipo di giocatori (Computer contro Umano)</para
+></listitem>
+    <listitem
+><para
+>Abilità dei giocatori del computer (bassa/normale/alta)</para
+></listitem>
+  </itemizedlist>
+
+<para
+>Per cambiare il nome del giocatore, fare doppio clic nella colonna <guilabel
+>Nome</guilabel
+> e modificarlo. Per cambiare il tipo di giocatore, aprire l'elenco a tendina facendo doppio clic nella colonna <guilabel
+>Tipo</guilabel
+>. È inoltre possibile selezionare il tipo dei nuovi giocatori utilizzando l'elenco a tendina del pulsante <guibutton
+>Aggiungi</guibutton
+>.</para>
+
+<para
+>Esistono due tipi di giocatori umani in &konquest; cioè <guimenuitem
+>Umano (giocatore)</guimenuitem
+> e <guimenuitem
+>Umano (spettatore)</guimenuitem
+>. L'ultima opzione consente di guardare la partita senza prendervi parte.</para>
+
+<para
+>Il tipo di giocatore del computer può essere scelto tra <guimenuitem
+>Predefinito (Debole)</guimenuitem
+> (un giocatore non aggressivo sia in attacco che in difesa), <guimenuitem
+>Predefinito (Aggressivo)</guimenuitem
+> (un giocatore con una strategia di attacco) e <guimenuitem
+>Predefinito (Difensivo)</guimenuitem
+> (un giocatore con una strategia di difesa).</para>
+
+<para
+>Insieme a questi classici giocatori del computer, <guimenuitem
+>Becai (Bilanciato)</guimenuitem
+> è un giocatore bilanciato che tiene in considerazione la maggior parte del<xref linkend="strattips"/>.</para>
+
+<para
+>Ricorda che la difficoltà effettiva di ogni avversario dipende dalla tua strategia personale. Se tu stesso giochi in modo aggressivo, un giocatore del computer aggressivo può essere più facile da sconfiggere rispetto a un giocatore difensivo, e viceversa.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Mappa</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Pianeti neutrali:</guilabel
+> Numero di pianeti neutrali.</para>
+    <para
+><guilabel
+>Larghezza</guilabel
+> e <guilabel
+>Altezza</guilabel
+> della mappa in piastrelle.</para>
+    <para
+>Cambiare il <guilabel
+>Dominatore:</guilabel
+>, la <guilabel
+>Percentuale di distruzione:</guilabel
+> e il livello di <guilabel
+>Produzione:</guilabel
+> di un determinato pianeta.</para>
+    <para
+>Cambia la distribuzione dei pianeti. Premi <guibutton
+>Rimescola</guibutton
+> per renderla casuale.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Puoi selezionare il pianeta usando l'anteprima della mappa al centro del riquadro <guilabel
+>Mappa</guilabel
+>. Devi solamente fare clic sul pianeta con il &LMB;, quindi cambia le opzioni desiderate.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Opzioni</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Mappa nascosta</guilabel
+>: se è possibile vedere o meno le informazioni sui pianeti degli avversari.</para>
+    <para
+><guilabel
+>Produzione cumulativa</guilabel
+> Se è abilitata o meno.</para>
+    <para
+><guilabel
+>Produzione dopo la cattura</guilabel
+>: se è abilitata immediatamente.</para>
+    <para
+><guilabel
+>Mostra navi</guilabel
+>: consente di visualizzare la quantità di navi e altre statistiche per i pianeti neutrali.</para>
+    <para
+><guilabel
+>Mostra statistiche</guilabel
+>: imposta il livello di produzione per i pianeti neutrali.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Quando hai finito di modificare queste impostazioni (opzionale), fai clic sul pulsante <guibutton
+>OK</guibutton
+> per iniziare la partita.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Nuova finestra di gioco di &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Nuova finestra di gioco di &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Una volta che il gioco è avviato, sarà presentata la mappa di gioco. I quadrati neri sono spazio vuoto. All'inizio, ogni giocatore possiede un pianeta. Lo sfondo del pianeta è il colore del giocatore. Se si sposta il mouse su un pianeta, è possibile vedere informazioni aggiuntive. Senza l'opzione <guilabel
+>Mappa nascosta</guilabel
+> attivata quando si seleziona una partita, è possibile vedere qualsiasi informazione riguardo ai pianeti spostando il mouse sopra di essi. Se si è selezionata l'opzione <guilabel
+>Mappa nascosta</guilabel
+> all'inizio di una nuova partita, si vedrà solo il nome del pianeta nei pianeti conquistati dagli avversari. Le informazioni includono: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Nome del pianeta:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Dominatore:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Navi:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Navi previste:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Produzione:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Percentuale di distruzione:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Giocare a &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Giocare a &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Il <guilabel
+>Nome del pianeta</guilabel
+> identifica il pianeta nel gioco. I pianeti sono chiamati con le lettere maiuscole dell'alfabeto. <guilabel
+>Dominatore:</guilabel
+> è colui che possiede il pianeta. Se il pianeta viene conquistato da un altro giocatore, questo cambierà. <guilabel
+>Navi:</guilabel
+> è il numero attuale delle navi presenti nel pianeta. Le <guilabel
+>Navi previste:</guilabel
+> appariranno solo se hai selezionato un ordine permanente per quel pianeta, altrimenti no.<guilabel
+>Produzione:</guilabel
+> è il numero delle navi che il pianeta produrrà ogni turno. La produzione varia da pianeta a pianeta, ma rimane sempre uguale. La <guilabel
+>Percentuale di distruzione:</guilabel
+> è un indice di efficacia delle navi prodotte in quel pianeta. Le navi di attacco prendono la percentuale di distruzione dal pianeta di partenza, e le navi di difesa usano la percentuale di distruzione del pianeta che stanno difendendo. Puoi facilmente vedere il nome del pianeta, il dominatore e il numero attuale delle navi di un pianeta nel quadrato nel quale si trova il pianeta. Il dominatore è rappresentato dal colore di sfondo del pianeta, il nome è nell'angolo in alto a sinistra e il numero di navi si trova nell'angolo in basso a destra. </para>
+
+<para
+>Per inviare navi da un pianeta a un altro, seleziona il pianeta dal quale vuoi inviare le navi, digita il numero di navi nella casella verde nell'angolo in alto a destra e premi &Enter;. Ripeti questa procedura fino a quando hai inviato tutte le navi che vuoi. Se ogni turno vuoi inviare un numero costante di navi da un pianeta all'altro, digita il numero e spunta la casella <guilabel
+>Ordine permanente</guilabel
+> e premi &Enter;. Le navi previste dall'ordine permanente saranno inviate alla fine del turno. Quando hai finito, premi <guibutton
+>Fine turno</guibutton
+>. Quando tutti i giocatori hanno finito il proprio turno, appariranno dei riquadro che forniscono le ultime notizie. Il gioco continuerà in questo modo fino a quando uno dei giocatori possiede l'intera galassia. </para>
+<tip>
+  <para
+>Una scorciatoia da tastiera per l'azione <guibutton
+>Fine turno</guibutton
+> può essere configurata attraverso <menuchoice
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Configura le scorciatoie...</guimenuitem
+> </menuchoice
+>. </para>
+  <para
+>Per maggiori informazioni leggi la sezione relativa a <ulink url="help:/fundamentals/config.html#shortcuts"
+>Uso e personalizzazione delle scorciatoie</ulink
+> dei Fondamentali di &kde;. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Regole del gioco, strategie e trucchi</title>
+<sect1 id="rules">
+<title
+>Regole</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Le navi non possono essere fermate una volta che lasciano un pianeta.</para
+></listitem>
+  <listitem
+><para
+>Le navi non possono attaccare altre navi in volo.</para
+></listitem>
+  <listitem
+><para
+>Le navi non possono essere lasciate nei pianeti per un uso successivo.</para
+></listitem>
+  <listitem
+><para
+>Un pianeta non può essere dato ceduto.</para
+></listitem>
+  <listitem
+><para
+>Un giocatore può saltare un turno premendo <guibutton
+>Fine Turno</guibutton
+> senza lanciare nessuna nave.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strategie e trucchi</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Il gioco ruota tutto sulla produzione di navi. Cerca di ottenere più pianeti possibili il prima possibile in modo da costruire più navi di qualsiasi altro concorrente.</para
+></listitem>
+  <listitem
+><para
+>Non attaccare un pianeta con meno di 10 navi, a meno che sei in grado di conquistarlo.</para
+></listitem>
+  <listitem
+><para
+>Attacca i pianeti neutrali prima dei pianeti degli altri giocatori.</para
+></listitem>
+  <listitem
+><para
+>Dividi la tua flotta di navi in più pianeti.</para
+></listitem>
+  <listitem
+><para
+>Pianifica i tuoi attacchi in anticipo.</para
+></listitem>
+  <listitem
+><para
+>Usa il righello per scoprire la distanza tra i pianeti.</para
+></listitem>
+  <listitem
+><para
+>Usa la finestra delle informazioni per ottenere informazioni sui pianeti prima di un attacco.</para
+></listitem>
+  <listitem
+><para
+>Se questa informazione è disponibile per te, è preferibile attaccare un pianeta con un indice di distruzione basso da un pianeta con un indice più alto.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>I Menu</title>
+
+<sect1 id="menu-items">
+<title
+>Voci del menu</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Nuova</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avvia una nuova partita.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Fine della partita</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Termina la partita attuale, senza chiudere</action
+> &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partita</guimenu
+> <guimenuitem
+>Misura della distanza...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Consente di misurare la distanza.</action
+> Fai clic con il &LMB; su due pianeti per vedere la loro distanza.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partita</guimenu
+> <guimenuitem
+>Situazione flotte...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Apre una finestra</action
+> che mostra informazioni dettagliate su tutte le flotte</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Esci</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Esce dal gioco.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mossa</guimenu
+> <guimenuitem
+>Fine turno</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ti consente di <action
+>finire il turno</action
+> dal menu principale.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visualizza</guimenu
+> <guimenuitem
+>Mostra messaggi</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostrare o nascondere il pannello dei messaggi.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partita</guimenu
+> <guimenuitem
+>Mostra classifica</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostrare o nascondere l'attuale classifica dei giocatori.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Inoltre, &konquest; ha le comuni voci del menu &kde; <guimenu
+>Impostazioni</guimenu
+> e <guimenu
+>Aiuto</guimenu
+>, per maggiori informazioni leggi le sezioni riguardo il <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menu Impostazioni</ulink
+> e <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei «Fondamentali di &kde;». </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Domande poste frequentemente</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Posso deviare le navi una volta che hanno lasciato un pianeta?</para
+></question>
+    <answer
+><para
+>No, una volta che le navi hanno lasciato un pianeta, non possono essere fermate o deviate.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>I colori e le forme diverse dei pianeti significano qualcosa?</para
+></question>
+    <answer
+><para
+>No, sono casuali.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Come posso sapere dove sono le mie navi?</para
+></question>
+    <answer
+><para
+>Fare clic su <guibutton
+>Mostra classifica</guibutton
+>. Fornirà informazioni sulle flotte attualmente in volo.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Ho perso tutti i miei pianeti, ma sono ancora in gioco, perché?</para
+></question>
+    <answer
+><para
+>Non hai perso il gioco fino a quando non hai perso tutte le tue navi.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Posso spostare le navi su un pianeta per un uso successivo?</para
+></question>
+    <answer
+><para
+>Sì, dovresti tuttavia spostarle in più pianeti per essere in grado di inviarle ai pianeti vicini.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>È possibile cambiare tema?</para
+></question>
+    <answer
+><para
+>No, al momento non è possibile.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&gnu-lactic; Conquest Project, versione per &kde; di &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 del &gnu-lactic; Conquest Project </para>
+
+<para
+>La documentazione è copyright 2000 di Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Copyright della documentazione Viktor Chynarov 2012</para>
+
+<para
+>Traduzione: Vincenzo Reale <email
+>smart2128vr@gmail.com</email
+></para
+><para
+>Traduzione: Marcello Anni <email
+>marcello.anni@alice.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

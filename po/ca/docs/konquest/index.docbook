@@ -1,0 +1,778 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Desenvolupador</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>8 d'agost de 2021</date>
+<releaseinfo
+>2.4 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>El &konquest; és un joc de conquesta galàctica </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>tauler</keyword>
+<keyword
+>multijugador</keyword>
+<keyword
+>estratègia</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+<note
+><title
+>Tipus de joc:</title
+><para
+>Estratègia, tauler</para
+></note>
+<note
+><title
+>Nombre de jugadors:</title
+><para
+>Multijugador</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Finestra principal del &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Finestra principal del &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>El &konquest; és una versió &kde; del &gnu-lactic;. Els jugadors conquereixen altres planetes enviant-hi naus. L'objectiu és construir un imperi interestel·lar i finalment conquerir els planetes de tots els altres jugadors. El &konquest; es pot jugar contra altres persones o contra un ordinador. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Com jugar</title>
+
+<para
+>Quan inicieu el &konquest;, premeu <guibutton
+>Nova</guibutton
+> per a iniciar una partida nova. Veureu un diàleg en el qual haureu d'introduir informació diversa per a configurar-la. A continuació es llisten els paràmetres següents: </para>
+
+  <para
+><guilabel
+>Jugadors</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>Quantitat de jugadors amb els botons <guibutton
+>Afegeix</guibutton
+> o <guibutton
+>Elimina</guibutton
+></para
+></listitem>
+    <listitem
+><para
+>Noms dels jugadors</para
+></listitem>
+    <listitem
+><para
+>Tipus de jugadors (ordinador contra humà)</para
+></listitem>
+    <listitem
+><para
+>Dificultat dels jugadors de l'ordinador (Baixa/Normal/Difícil)</para
+></listitem>
+  </itemizedlist>
+
+<para
+>Per a canviar el nom del jugador, feu doble clic a la columna <guilabel
+>Nom</guilabel
+> i editeu-lo. Per a canviar el tipus del jugador, obriu la llista desplegable fent doble clic a la columna <guilabel
+>Tipus</guilabel
+>. També és possible seleccionar el tipus dels jugadors nous utilitzant la llista desplegable en el botó <guibutton
+>Afegeix</guibutton
+>.</para>
+
+<para
+>En el &konquest; hi ha dos tipus de jugadors humans, s'anomenen <guimenuitem
+>Humà (jugador)</guimenuitem
+> i <guimenuitem
+>Humà (espectador)</guimenuitem
+>. L'última opció permet veure la partida sense participar-hi.</para>
+
+<para
+>El tipus de jugador de la IA es pot triar entre <guimenuitem
+>Predeterminat (dèbil)</guimenuitem
+> (un jugador que no és agressiu en atac ni en defensa), <guimenuitem
+>Predeterminat (ofensiva)</guimenuitem
+> (un jugador atacant agressiu) i <guimenuitem
+>Predeterminat (defensiva)</guimenuitem
+> (un jugador amb estratègia defensiva).</para>
+
+<para
+>A més d'aquests clàssics jugadors de la IA, <guimenuitem
+>Becai (equilibrada)</guimenuitem
+> és un jugador equilibrat que té en compte la major part de <xref linkend="strattips"/>.</para>
+
+<para
+>Recordeu que la dificultat real de qualsevol oponent depèn de la seva pròpia estratègia. Si jugueu agressivament, podria ser més fàcil derrotar un jugador agressiu de la IA que un jugador defensiu i viceversa.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Mapa</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Planetes neutral:</guilabel
+> El nombre de planetes neutrals.</para>
+    <para
+><guilabel
+>Amplada:</guilabel
+> i <guilabel
+>Alçada:</guilabel
+> del mapa en unitats de caselles.</para>
+    <para
+>Canviar el <guilabel
+>Propietari:</guilabel
+>, el <guilabel
+>Percentatge d'atac:</guilabel
+> i el nivell de <guilabel
+>Producció:</guilabel
+> d'un planeta en particular.</para>
+    <para
+>Canviar la distribució dels planetes. Premeu <guibutton
+>Aleatòria</guibutton
+> per a fer-ho a l'atzar.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Podeu seleccionar el planeta utilitzant la miniatura del mapa que hi ha a la meitat de la subfinestra <guilabel
+>Mapa</guilabel
+>. Senzillament feu clic sobre el planeta amb el &BER; i canvieu les opcions desitjades.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Opcions</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Encega el mapa</guilabel
+>: Si veureu informació o no sobre els planetes dels oponents.</para>
+    <para
+><guilabel
+>Producció acumulada</guilabel
+>: Si estarà habilitada o no.</para>
+    <para
+><guilabel
+>Producció després de la captura</guilabel
+>: Si estarà habilitada immediatament.</para>
+    <para
+><guilabel
+>Mostra les naus</guilabel
+>: Permet que es mostrin la quantitat de naus i altres estadístiques per als planetes neutrals.</para>
+    <para
+><guilabel
+>Mostra les estadístiques</guilabel
+>: Estableix el nivell de producció per als planetes neutrals.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>En acabar de canviar aquestes opcions de configuració (opcional), feu clic a <guibutton
+>D'acord</guibutton
+> per a començar la partida.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Diàleg «Comença una partida nova» del &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Diàleg «Comença una partida nova» del &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Una vegada que comença la partida, es presentarà el tauler de joc. Els quadres en blanc són l'espai buit. Al començament, cada jugador posseeix un planeta. El fons del planeta és del color del jugador. Si moveu el ratolí per sobre d'un planeta, veureu informació addicional. Si no es té habilitada l'opció <guilabel
+>Encega el mapa</guilabel
+> quan se selecciona una partida, podreu veure qualsevol informació sobre els planetes si situeu el ratolí a sobre seu. Si seleccioneu l'opció <guilabel
+>Encega el mapa</guilabel
+>, només veureu el nom del planeta en els planetes que han estat conquistats pels oponents. La informació pot incloure: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Nom del planeta:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Propietari:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Naus:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Naus compromeses:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Producció:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Percentatge d'atac:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Jugant al &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Jugant al &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>El <guilabel
+>Nom del planeta:</guilabel
+> és com es refereix al planeta en la partida. Els planetes s'anomenen alfabèticament amb lletres en majúscula. El <guilabel
+>Propietari:</guilabel
+> és qui posseeix el planeta. Si el planeta és conquistat per un altre jugador, això canviarà. Les <guilabel
+>Naus:</guilabel
+> són el nombre actual de naus que hi ha al planeta. Les <guilabel
+>Naus compromeses:</guilabel
+> només apareixeran si heu seleccionat una ordre permanent per a aquest planeta, en cas contrari, no hi seran. La <guilabel
+>Producció:</guilabel
+> és el nombre de naus que produirà el planeta cada torn. La producció varia de planeta a planeta, però sempre segueix sent la mateixa. El <guilabel
+>Percentatge d'atac:</guilabel
+> és una mesura de l'efectivitat de les naus produïdes en aquest planeta. Les flotes d'atac prenen el percentatge d'atac del seu planeta de sortida, i les flotes de defensa utilitzen el percentatge d'atac del planeta que estan defensant. Podreu veure amb facilitat el nom del planeta, el propietari i el nombre actual de naus en un planeta en el quadre on es troba el planeta. El propietari és representat pel color de fons del planeta, el nom es troba a la cantonada superior esquerra i el nombre de naus es troba a la cantonada inferior dreta. </para>
+
+<para
+>Per a enviar a les naus des d'un planeta a un altre, seleccioneu el planeta des del qual voleu enviar les naus, introduïu el nombre de naus en el quadre verd que hi ha a la cantonada superior dreta i premeu &Intro;. Repetiu aquest procediment fins que hàgiu enviat totes les naus que vulgueu. Si voleu enviar una quantitat constant de naus des d'un planeta a un altre, introduïu aquest nombre, reviseu el quadre <guilabel
+>Ordre permanent</guilabel
+> i premeu &Intro;. Les naus compromeses a l'ordre permanent s'enviaran al final del torn. En acabar, premeu <guibutton
+>Finalitza el torn</guibutton
+>. Quan tots els jugadors hagin jugat un torn, apareixeran diàlegs i us donaran les últimes notícies. La partida procedirà així fins que un dels jugadors posseeixi tota la galàxia. </para>
+<tip>
+  <para
+>Es pot configurar una drecera per a l'acció <guibutton
+>Finalitza el torn</guibutton
+> emprant l'element de menú <menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura les dreceres de teclat...</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Per a més informació, llegiu la secció sobre <ulink url="help:/fundamentals/config.html#shortcuts"
+>Ús i personalització de les dreceres</ulink
+> en els Fonaments del &kde;. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Les regles del joc, estratègies i consells</title>
+<sect1 id="rules">
+<title
+>Regles</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Les naus no es poden aturar una vegada deixen un planeta.</para
+></listitem>
+  <listitem
+><para
+>Les naus no poden atacar a altres naus en l'aire.</para
+></listitem>
+  <listitem
+><para
+>Les naus es poden emmagatzemar en els planetes per al seu ús posterior.</para
+></listitem>
+  <listitem
+><para
+>Un planeta no es pot regalar.</para
+></listitem>
+  <listitem
+><para
+>Un jugador pot saltar un torn prement <guibutton
+>Finalitza el torn</guibutton
+> sense llançar cap nau.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Les estratègies i consells</title>
+
+<itemizedlist>
+  <listitem
+><para
+>El joc té a veure amb la producció de naus. Intenteu obtenir tants planetes el més ràpid possible com pugueu per a construir més naus que qualsevol dels vostres oponents.</para
+></listitem>
+  <listitem
+><para
+>No ataqueu un planeta amb menys de 10 naus, llevat que pugueu conquerir-lo.</para
+></listitem>
+  <listitem
+><para
+>Ataqueu els planetes neutrals abans que els planetes dels altres jugadors.</para
+></listitem>
+  <listitem
+><para
+>Dividiu els vostres magatzems de naus a través de diversos planetes.</para
+></listitem>
+  <listitem
+><para
+>Planegeu els vostres atacs per endavant.</para
+></listitem>
+  <listitem
+><para
+>Utilitzeu el regle per a esbrinar la distància entre els planetes.</para
+></listitem>
+  <listitem
+><para
+>Utilitzeu la finestra d'informació per a obtenir informació sobre els planetes abans d'un atac.</para
+></listitem>
+  <listitem
+><para
+>Si està disponible aquesta informació, és preferible atacar un planeta amb una relació d'atac baixa des d'un planeta amb una que sigui alta.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menús</title>
+
+<sect1 id="menu-items">
+<title
+>Elements de menú</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Comença una partida nova.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Finalitza la partida</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Finalitza la partida actual, sense tancar</action
+> el &konquest;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Joc</guimenu
+> <guimenuitem
+>Mesura la distància...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Permet mesurar la distància.</action
+> Feu clic amb el &BER; sobre dos planetes per a veure la seva distància.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Joc</guimenu
+> <guimenuitem
+>Vista general de la flota...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Obre una finestra</action
+> per a mostrar informació detallada per a totes les flotes.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Surt de la partida.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mou</guimenu
+><guimenuitem
+>Finalitza el torn</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Permet <action
+>finalitzar el torn</action
+> des del menú principal.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Mostra els missatges</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostra o oculta el plafó de missatges.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Mostra els resultats</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostra o oculta la taula de classificació.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>De manera addicional, el &konquest; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Preguntes més freqüents</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Puc redirigir les naus una vegada han deixat un planeta?</para
+></question>
+    <answer
+><para
+>No, una vegada que deixen un planeta, no es poden aturar ni redirigir.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Els diferents colors i formes dels planetes signifiquen alguna cosa?</para
+></question>
+    <answer
+><para
+>No, són aleatoris.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Com puc saber on es troben les meves naus?</para
+></question>
+    <answer
+><para
+>Feu clic a <guibutton
+>Mostra els resultats</guibutton
+>. Us donarà informació sobre les flotes actualment en vol.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>He perdut tots els meus planetes, però encara estic en la partida, per què?</para
+></question>
+    <answer
+><para
+>No haureu perdut la partida fins que hàgiu perdut totes les vostres naus.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Puc emmagatzemar les naus en un planeta per al seu ús posterior?</para
+></question>
+    <answer
+><para
+>Sí, però, haureu d'emmagatzemar-les en diversos planetes per a poder enviar-les als planetes propers.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>És possible canviar el tema?</para
+></question>
+    <answer
+><para
+>No, en aquest moment això no és possible.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Crèdits i llicència</title>
+
+<para
+>&konquest;</para>
+
+<para
+>Projecte Conquest del &gnu-lactic;, versió &kde; per en &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 pel Projecte Conquest del &gnu-lactic; </para>
+
+<para
+>Copyright de la documentació 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Copyright de la documentació 2012 Viktor Chynarov</para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

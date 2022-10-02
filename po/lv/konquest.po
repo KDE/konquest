@@ -1,0 +1,636 @@
+# translation of konquest.po to Latvian
+# Copyright (C) 2008, 2009 Free Software Foundation, Inc.
+#
+# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
+# Maris Nartiss <maris.kde@gmail.com>, 2009.
+# Einars Sprugis <einars8@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2012-06-29 22:31+0300\n"
+"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Viesturs Zariņš"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "viesturs.zarins@mii.lu.lv"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Flotes pārskats"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Flotes Nr."
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr ""
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Galamērķis"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Kuģi"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Nogalināšanas procents"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Pienākšanas gājiens"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Stāvošo kārtība"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Logs"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Spēlētāji"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Pievienot"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Noņemt"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Karte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "&Neitrālas planētas:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Platums:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "&Augstums:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Ražošana:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Kill Percentage:"
+msgid "Kill percentage:"
+msgstr "Nogalināto procents"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Sajaukt"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
+msgstr "Īpašnieks"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Opcijas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, fuzzy, kde-format
+#| msgid "Blind Map"
+msgid "Blind map"
+msgstr "Aklā karte"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+#| msgid "Cumulative Production"
+msgid "Cumulative production"
+msgstr "Kumulatīvā ražošana"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+#| msgid "Production After Capture"
+msgid "Production after capture"
+msgstr "Ražošana pēc sagūstīšanas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Neitrālie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+#| msgid "Show Ships"
+msgid "Show ships"
+msgstr "Rādīt kuģus"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+#| msgid "Show Stats"
+msgid "Show stats"
+msgstr "Rādīt statistiku"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "%1. spēlētājs"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Vārds"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Tips"
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Sākt jaunu spēli"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "brīvs"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "neitrāls"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Planētā %2 ir ieradušies papildspēki (%1 kuģis)."
+msgstr[1] "Planētā %2 ir ieradušies papildspēki (%1 kuģi)."
+msgstr[2] "Planētā %2 ir ieradušies papildspēki (%1 kuģu)."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Planēta %2 izturēja uzbrukumu no %1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Planēta %2 padevās %1."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Gājiena beigas"
+
+#: gameview.cc:290
+#, fuzzy, kde-format
+#| msgid "<qt>%1: Select source planet...</qt>"
+msgid "%1: Select source planet..."
+msgstr "<qt>%1: izvēlieties avota planētu...</qt>"
+
+#: gameview.cc:307
+#, fuzzy, kde-format
+#| msgid "<qt>%1: Select destination planet...</qt>"
+msgid "%1: Select destination planet..."
+msgstr "<qt>%1: izvēlieties mērķa planētu...</qt>"
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Jums nav tik daudz kuģu."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: cik kuģu?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Valdnieks: Izvēlieties avota planētu."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Attālums starp planētu %1 un planētu %2 ir %3 gaismas gadi.\n"
+"Kuģis izlidojot šajā gājienā tur ieradīsies %4. gājenā"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Attālums"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Valdnieks: Izvēlieties mērķa planētu."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "%1. gājiens:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Vai vēlaties beigt šo spēli?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Beigt spēli"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Gala rezultāts"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Galaktiskās stratēģijas KDE Spēle"
+
+#: Konquest.cc:44
+#, fuzzy, kde-format
+#| msgid "Copyright (c) 1999-2011, Developers"
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Autortiesības (c) 1999-2011, izstrādātāji"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Computer/AI Player"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Pielāgošana KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Tīrīšana un kļūdu labošana"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Tīrīšana un kļūdu labošana, uzturēšana"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Spēlējamības uzlabojumi"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Spēle"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Galvenā rīkjosla "
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Galaktikas iekarošana"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Galaktikas iekarošana"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "&Mērīt attālumu"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
+msgstr "&Flotes pārskats"
+
+#: mainwin.cc:89
+#, fuzzy, kde-format
+#| msgid "Messages for %1"
+msgid "Messages"
+msgstr "Ziņojumi %1"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr ""
+
+#: mainwin.cc:114
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgid "Standings"
+msgstr "Gala rezultāts"
+
+#: mainwin.cc:121
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgid "Show &Standings"
+msgstr "&Rādīt rezultātu"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Gājiens # %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Planētas nosaukums: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Īpašnieks: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Kuģi: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Ieplānotie kuģi: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Ražošana: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Nokaušanas varbūtība: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr ""
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr ""
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr ""
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr ""
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr ""
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr ""
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr ""
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Spēlētājs"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Kuģu \n"
+"uzbūvēts"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Planētu\n"
+"iekarots"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Flotu\n"
+"palaists"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Flotu\n"
+"iznīcināts"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Kuģu\n"
+"iznīcināts"
+
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid "Production"
+msgid ""
+"Current\n"
+"Production"
+msgstr "Ražošana"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+
+#~ msgid "Production"
+#~ msgstr "Ražošana"
+
+#~ msgid "Current Standings"
+#~ msgstr "Šobrīdējais rezultāts"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Cilvēks"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Vājš dators"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Normāls dators"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Spēcīgs dators"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr "Šī spēle ir daudz jautrāka, ja pievieno spēlētāju-cilvēku!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Kādreiz spēcīgā %1 impērija tagad ir sabirusi pīšļos."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Kritusī %1 impērija ir atgriezusies dzīvē."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "Varenais %1 ir iekarojis galaktiku!"
+
+#~ msgid "Game Over"
+#~ msgstr "Spēle galā"
+
+#~ msgid "&Reject"
+#~ msgstr "&Noraidīt"

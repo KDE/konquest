@@ -1,0 +1,596 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Manuel de &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+&traducteurYvesDessertine;&traducteurStanislasZeller; 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Relecteur</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>13/11/2007</date>
+<releaseinfo
+>2.0</releaseinfo>
+
+<abstract>
+<para
+>&konquest; est un jeu de conquête galactique pour &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+<note
+><title
+>Type de jeu : </title
+><para
+>Stratégie, plateau</para
+></note>
+<note
+><title
+>Nombre possible de joueurs : </title
+><para
+>Multi-joueurs</para
+></note>
+
+<para
+>&konquest; est la version &kde; de GNU-Lactic. les joueurs conquièrent d'autres planètes en leurs envoyant des vaisseaux. Le but est de construire un empire inter-stellaire et au final conquérir toutes les planètes des autres joueurs. &konquest; peut être joué contre d'autres joueurs ou contre l'ordinateur. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Comment jouer</title>
+
+<para
+>Lorsque vous démarrez &konquest;, appuyez sur <guibutton
+>Nouveau</guibutton
+> pour démarrer une nouvelle partie. Vous verrez une boîte de dialogue dans laquelle vous devez saisir les noms des joueurs, décider du nombre de planètes et combien de tour sont permis. Vous pouvez aussi utiliser le bouton « Refuser » pour afficher une nouvelle carte. Quand tout est configuré, cliquez sur <guibutton
+>Ok</guibutton
+> pour commencer la partie. </para>
+
+<para
+>Une fois que le jeu démarre, le plateau de jeu vous est présenté. Les cases vides sont des espaces vierges. En premier, chaque joueur possède une planète. La couleur de la planète est la couleur du joueur. Si vous déplacer votre souris sur la planète, vous pouvez lire des informations additionnelles. Sur les planètes qui n'ont pas été colonisées, vous verrez seulement le nom des planètes. Les informations incluent :  </para>
+
+<itemizedlist>
+<listitem
+><para
+>Planète</para
+></listitem>
+<listitem
+><para
+>Propriétaire</para
+></listitem>
+<listitem
+><para
+>Vaisseaux</para
+></listitem>
+<listitem
+><para
+>Production</para
+></listitem>
+<listitem
+><para
+>Mortalité</para
+></listitem>
+</itemizedlist>
+
+<para
+>Le nom de la planète est celui qui est indiqué dans le jeu. Les planètes sont nommées par ordre alphabétique avec des lettres majuscules. Le propriétaire est celui à qui appartient la planète. Si la planète est conquis par un autre joueur, le nom sera modifié. Les vaisseaux sont le nombre courant de vaisseaux sur la planète. La production est le nombre de vaisseaux que la planète produira à chaque tour. La production varie de planète en planète, mais reste toujours la même. La mortalité est une mesure de l'efficacité des vaisseaux produits sur cette planète. Les flottes d'attaque prennent la mortalité de leur planète de départ, et les flottes de défense utilisent la mortalité de la planète qu'ils défendent. Vous pouvez facilement voir le nom de la planète, le propriétaire et le nombre courant de vaisseaux sur une planète dans la case sur laquelle la planète se situe. Le propriétaire est représenté par la couleur de fond de la planète, le nom est dans le coin en haut à gauche et le nombre de vaisseaux est dans le coin en bas à droite. </para>
+
+<para
+>Pour envoyer des vaisseaux depuis une planète vers une autre, sélectionnez la planète d'où vous voulez envoyer des vaisseaux, saisissez le nombre de vaisseaux dans la boîte verte dans le coin supérieur droit et appuyez sur &Enter;. Répétez la procédure jusqu'à ce que vous avez envoyé tous les vaisseaux que vous voulez. Cliquez ensuite sur <guibutton
+>Fin du tour</guibutton
+>. Quand tous les joueurs ont joué leur tour, les boîtes de dialogue apparaîtront et vous donnerons les dernières nouvelles. Le jeu continuera jusqu'à ce qu'un des joueurs contrôle la galaxie entière. </para>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Règles du jeu, stratégies et astuces</title>
+<sect1 id="rules">
+<title
+>Règles</title>
+<itemizedlist>
+<listitem
+><para
+>Les vaisseaux ne peuvent pas être stoppés une fois qu'ils ont quitté une planète.</para
+></listitem>
+<listitem
+><para
+>Les vaisseaux ne peuvent pas attaquer d'autres vaisseaux en plein ciel.</para
+></listitem>
+<listitem
+><para
+>Les vaisseaux peuvent être concentrés sur des planètes pour une utilisation ultérieure.</para
+></listitem>
+<listitem
+><para
+>Une planète ne peut pas être donnée.</para
+></listitem>
+<listitem
+><para
+>Un joueur peut passer son tour en cliquant sur <guibutton
+>Fin du tour</guibutton
+> sans lancer de vaisseaux.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Stratégies et astuces</title>
+<itemizedlist>
+<listitem
+><para
+>Ne pas attaquer une planète avec moins de dix vaisseaux.</para
+></listitem>
+<listitem
+><para
+>Attaquer les planètes neutres avant les autres planètes appartenant à des joueurs.</para
+></listitem>
+<listitem
+><para
+>Scinder votre flotte vers plusieurs planètes.</para
+></listitem>
+<listitem
+><para
+>Planifier vos attaques à l'avance.</para
+></listitem>
+<listitem
+><para
+>Utiliser le bouton « Mesurer la distance » pour calculer la distance entre les planètes.</para
+></listitem>
+<listitem
+><para
+>Utiliser la fenêtre d'informations pour recevoir des informations sur les planètes avant une attaque.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menus</title>
+
+<sect1 id="game-menu">
+<title
+>Le menu <guimenu
+>Jeu</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Nouveau</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Commence une nouvelle partie.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Terminer la partie</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Terminer la partie courante; sans quitter</action
+> &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Mesurer la distance</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Cliquez avec le &BGS; sur deux planètes pour voir leur distance.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Afficher la situation</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Ouvre</action
+> une fenêtre pour afficher les détails actuels de la situation pour tous les joueurs.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Vue d'ensemble de la flotte</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Ouvre</action
+> une fenêtre qui affiche les informations détaillées pour toute la flotte</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Quitter</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Quitte le jeu.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Le menu <guimenu
+>Configuration</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher la barre d'outils</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Affiche ou cache</action
+> la barre d'outils.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher la barre d'état</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Affiche ou cache la barre d'état. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer les raccourcis clavier...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Ouvres</action
+> une boîte de dialogue de configuration de raccourcis standard &kde; pour modifier les raccourcis clavier utilisés par &konquest;.
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer les barres d'outils...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Affiche une boîte de configuration de barre d'outils standard &kde; pour personnaliser l'icône de la barre d'outils &konquest;.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Le menu <guimenu
+>Aide</guimenu
+></title>
+&help.menu.documentation; </sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Foire aux questions</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Puis-je rediriger les vaisseaux une fois qu'ils ont quitté leur planète ? </para>
+</question>
+<answer>
+<para
+>Non. Une fois que les vaisseaux quittent une planète, ils ne peuvent pas être arrêtés ou redirigés. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Est-ce que les différentes couleurs et formes des planètes signifient quelque chose ? </para>
+</question>
+<answer>
+<para
+>Non. C'est le hasard total. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment puis-je savoir où mes vaisseaux se situent ? </para>
+</question>
+<answer>
+<para
+>Cliquez sur <guibutton
+>Afficher la situation</guibutton
+>. Cela affichera des informations à propos des flottes actuellement en vol. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>J'ai perdu mes planètes, mais je suis toujours dans la partie. Pourquoi ? </para>
+</question>
+<answer>
+<para
+>Vous n'avez pas perdu la partie tant que vous n'avez pas perdu tous vos vaisseaux. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>J'ai épuisé mes tours de jeu, que puis-je faire ? </para>
+</question>
+<answer>
+<para
+>Vous pouvez continuer à jouer. Quand vous jouez le dernier tour, vous serez avisé de tours supplémentaires. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Puis-je concentrer des vaisseaux sur une planète pour utiliser plus tard ? </para>
+</question>
+<answer>
+<para
+>Oui. Vous pouvez toutefois les concentrer sur plusieurs planètes pour avoir la possibilité de les envoyer sur des planètes proches. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>J'ai envoyé tous les vaisseaux sur une planète, mais quand je déplace ma souris sur la planète, les informations m'affichent toujours ces vaisseaux en place. Pourquoi ? </para>
+</question>
+<answer>
+<para
+>Le nombre de vaisseaux sur une planète est mis à jour quand le tour est terminé. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Est-il possible de modifier le thème ? </para>
+</question>
+<answer>
+<para
+>Non, ce n'est pas possible pour le moment. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Remerciements et licence</title>
+
+<para
+>&konquest;</para>
+
+<para
+>Projet &GNU;-Lactic Conquest, &kde; version par &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 par le projet &GNU;-Lactic Conquest </para>
+
+<para
+>Copyright de la documentation 2000 Nicholas Robbins <email
+>logik9000@chartermi.com</email
+></para>
+
+<para
+>Traduction française par &YvesDessertine; et &StanislasZeller;.</para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-konquest">
+<title
+>Comment obtenir &konquest;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Compilation et installation</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

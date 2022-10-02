@@ -1,0 +1,618 @@
+# translation of konquest.po to Greek
+#
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2007.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2006, 2007.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# Stelios <sstavra@gmail.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2021-09-03 11:11+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς,Τούσης Μανώλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr,manolis@koppermind.homelinux.org"
+
+#: dialogs/fleetdlg.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Επισκόπηση στόλου"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Αριθμός στόλου"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "Αρχή"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Σκάφη"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Ποσοστό θανάτων"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Γύρος άφιξης"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Μόνιμη διαταγή"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Διάλογος"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Παίκτες"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Προσθήκη"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "Α&φαίρεση"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Χάρτης"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "Ουδέτεροι π&λανήτες:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Πλάτος:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "Ύ&ψος:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Παραγωγή:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, kde-format
+msgid "Kill percentage:"
+msgstr "Ποσοστό θανάτων:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Τυχαία"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, kde-format
+msgid "Owner:"
+msgstr "Ιδιοκτήτης:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Επιλογές"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr "Κρυφός χάρτης"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, kde-format
+msgid "Cumulative production"
+msgstr "Αθροιστική παραγωγή"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, kde-format
+msgid "Production after capture"
+msgstr "Παραγωγή μετά την κατάληψη"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Ουδέτερα"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, kde-format
+msgid "Show ships"
+msgstr "Εμφάνιση πλοίων"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, kde-format
+msgid "Show stats"
+msgstr "Εμφάνιση στατιστικών"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Παίκτης %1"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Όνομα"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Τύπος"
+
+#: dialogs/newgamedlg.cc:315
+#, kde-format
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Έναρξη νέου παιχνιδιού"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "κενός"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "ουδέτερος"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Έφτασαν οι ενισχύσεις (1 σκάφος) για τον πλανήτη %2."
+msgstr[1] "Έφτασαν οι ενισχύσεις (%1 σκάφη) για τον πλανήτη %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Ο πλανήτης %2 επέζησε από την επίθεση του %1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Ο πλανήτης %2 κατακτήθηκε από τον %1."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Γύρος τέλους"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1: Επιλέξτε πλανήτη αρχής..."
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1: Επιλέξτε πλανήτη προορισμού..."
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Δεν είναι αρκετά τα σκάφη για να αποσταλούν."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: Πόσα σκάφη;"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Κανόνας: Επιλέξτε πλανήτη αρχής."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Η απόσταση του πλανήτη %1 από τον πλανήτη %2 είναι %3 έτη φωτός.\n"
+"Ένα σκάφος που φεύγει σε αυτόν το γύρο θα φτάσει στο γύρο %4"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Απόσταση"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Κανόνας: Επιλέξτε πλανήτη προορισμού."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "Γύρος %1:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Επιθυμείτε να παραιτηθείτε από αυτό το παιχνίδι;"
+
+#: gameview.cc:524
+#, kde-format
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Τέλος παιχνιδιού"
+
+#: gameview.cc:552
+#, kde-format
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Τελική κατάταξη"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, kde-format
+msgid "Galactic Strategy Game"
+msgstr "Παιχνίδι γαλαξιακής στρατηγικής"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Πνευματικά δικαιώματα (c) 1999-2013, Ομάδα ανάπτυξης"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Υπολογιστής/Παίκτης AI"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Προσαρμογή στο KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Διαμόρφωση κώδικα και διόρθωση σφαλμάτων"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Καθαρισμός κώδικα, διόρθωση σφαλμάτων και συντήρηση"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Βελτιώσεις στο παίξιμο του παιχνιδιού"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "Παιχ&νίδι"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "&Προβολή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: mainwin.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Γαλαξιακή κατάκτηση"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Γαλαξιακή κατάκτηση"
+
+#: mainwin.cc:74
+#, kde-format
+msgid "&Measure Distance..."
+msgstr "&Μέτρηση απόστασης..."
+
+#: mainwin.cc:80
+#, kde-format
+msgid "&Fleet Overview..."
+msgstr "&Επισκόπηση στόλου..."
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "Μηνύματα"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "Εμφάνιση &μηνυμάτων"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "Κατάταξη"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "Εμφάνι&ση κατάταξης"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Γύρος #: %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Όνομα πλανήτη: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Ιδιοκτήτης: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Σκάφη: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Αναμενόμενα σκάφη: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Παραγωγή: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Ποσοστό θανάτων: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Becai (ισορροπημένη)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "Προκαθορισμένη (αμυντική)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "Προκαθορισμένη (επιθετική)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "Προκαθορσιμένη (αδύναμη)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "Παράδειγμα (παθητικό)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Άνθρωπος (παίκτης)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "Άνθρωπος (θεατής)"
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Παίκτης"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Κατασκευασμένα\n"
+"σκάφη"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Κατακτημένοι\n"
+"πλανήτες"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Εκτοξευμένοι\n"
+"στόλοι"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Κατεστραμμένοι\n"
+"στόλοι"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Κατεστραμμένα\n"
+"σκάφη"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"Τρέχουσα\n"
+"Παραγωγή"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"Τρέχον\n"
+"μέγεθος στόλου"
+
+#~ msgid "Production"
+#~ msgstr "Παραγωγή"
+
+#~ msgid "Current Standings"
+#~ msgstr "Τρέχουσα κατάταξη"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Άνθρωπος"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Υπολογιστής (εύκολο)"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Υπολογιστής (κανονικό)"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Υπολογιστής (δύσκολο)"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr ""
+#~ "Το παιχνίδι είναι πιο διασκεδαστικό με την προσθήκη ενός ανθρώπινου "
+#~ "παίκτη!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Η κάποτε ισχυρή αυτοκρατορία του %1 έχει καταστραφεί."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Η πεσμένη αυτοκρατορία του %1 έχει επανέλθει στη ζωή."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "Ο παντοδύναμος %1 έχει κατακτήσει τον γαλαξία!"
+
+#~ msgid "Game Over"
+#~ msgstr "Τέλος παιχνιδιού"
+
+#~ msgid "&Reject"
+#~ msgstr "Απόρ&ριψη"

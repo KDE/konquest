@@ -1,0 +1,628 @@
+# Translation of konquest.po to Ukrainian
+# Copyright (C) 2002-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Andriy Rysin <rysin@kde.org>, 2002, 2003.
+# Eugene Onischenko <oneugene@ukr.net>, 2003.
+# Ivan Petrouchtchak <iip@telus.net>, 2005.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2021-08-08 09:12+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andriy Rysin,Eugene Onischenko,Іван Петрущак"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "rysin@kde.org,oneugene@ukr.net,iip@telus.net"
+
+#: dialogs/fleetdlg.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Перегляд флоту"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Номер флоту"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr "Походження"
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Призначення"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Кораблів"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Бойова ефективність"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Хід прибуття"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Тривалий наказ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Діалогове вікно"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Гравці"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Додати"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "Ви&лучити"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Карта"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "&Нейтральні планети:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Ширина:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "&Висота:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Виробництво:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, kde-format
+msgid "Kill percentage:"
+msgstr "Бойова ефективність:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Випадково"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, kde-format
+msgid "Owner:"
+msgstr "Власник:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Параметри"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr "Закрита карта"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, kde-format
+msgid "Cumulative production"
+msgstr "Накопичувальне виробництво"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, kde-format
+msgid "Production after capture"
+msgstr "Виробництво після захоплення"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Нейтральні"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, kde-format
+msgid "Show ships"
+msgstr "Показувати кораблі"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, kde-format
+msgid "Show stats"
+msgstr "Показувати результати"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Гравець %1"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Ім'я"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Тип"
+
+#: dialogs/newgamedlg.cc:315
+#, kde-format
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Нова гра"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "немає"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "нейтральна"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Підкріплення (%1 корабель) прибуло на планету %2."
+msgstr[1] "Підкріплення (%1 кораблі) прибуло на планету %2."
+msgstr[2] "Підкріплення (%1 кораблів) прибуло на планету %2."
+msgstr[3] "Підкріплення (%1 корабель) прибуло на планету %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Планета %2 відбила атаку %1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "%1 підкорив планету %2."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Закінчити хід"
+
+#: gameview.cc:290
+#, kde-format
+msgid "%1: Select source planet..."
+msgstr "%1: виберіть вихідну планету…"
+
+#: gameview.cc:307
+#, kde-format
+msgid "%1: Select destination planet..."
+msgstr "%1: виберіть планету призначення…"
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Недостатньо кораблів, щоб відіслати."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: скільки кораблів?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Лінійка: виберіть початкову планету"
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Відстань між планетою %1 та планетою %2 дорівнює %3 світових років.\n"
+"Корабель, що вирушив цього ходу, прибуде на %4-му ході"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Відстань"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Лінійка: Виберіть кінцеву планету."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "Хід %1:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Ви хочете закінчити гру?"
+
+#: gameview.cc:524
+#, kde-format
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Завершення гри"
+
+#: gameview.cc:552
+#, kde-format
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Остаточні результати"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, kde-format
+msgid "Galactic Strategy Game"
+msgstr "Галактична гра-стратегія"
+
+#: Konquest.cc:44
+#, kde-format
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "© Розробники, 1999–2013"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Комп'ютерний гравець"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Портування KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Чищення і виправлення вад"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Чищення і виправлення вад, супровід"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Покращення ігрового процесу"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Гра"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Головний пенал"
+
+#: mainwin.cc:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Завоювання галактик"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Завоювання галактик"
+
+#: mainwin.cc:74
+#, kde-format
+msgid "&Measure Distance..."
+msgstr "&Вимірювання відстані…"
+
+#: mainwin.cc:80
+#, kde-format
+msgid "&Fleet Overview..."
+msgstr "Перегляд &флоту…"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr "Повідомлення"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr "&Показувати повідомлення"
+
+#: mainwin.cc:114
+#, kde-format
+msgid "Standings"
+msgstr "Результати"
+
+#: mainwin.cc:121
+#, kde-format
+msgid "Show &Standings"
+msgstr "Показувати &результати"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Хід %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Назва планети: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Власник: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Кораблів: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Надісланих кораблів: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Виробництво: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Бойова ефективність: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr "Бекаї (збалансований)"
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr "Типовий (атакувальний)"
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr "Типовий (атакувальний)"
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr "Типовий (слабкий)"
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr "Приклад (пасивний)"
+
+#: players/localplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Людина (гравець)"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr "Людина (спостерігач)"
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Гравець"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Побудовано\n"
+"кораблів"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Завойовано\n"
+"планет"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Відправлено\n"
+"флотів"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Флотів\n"
+"знищено"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Кораблів\n"
+"знищено"
+
+#: view/standingswidget.cpp:158
+#, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr ""
+"Поточне\n"
+"виробництво"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+"Поточний\n"
+"розмір флоту"
+
+#~ msgid "Production"
+#~ msgstr "Виробництво"
+
+#~ msgid "Current Standings"
+#~ msgstr "Поточні результати"
+
+#~ msgid "Default (Hard)"
+#~ msgstr "Типовий (складний)"
+
+#~ msgid "Default Hard/Defensive"
+#~ msgstr "Типовий складний/захисний"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Людина"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Комп'ютер, слабкий"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Комп'ютер, посередній"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Комп'ютер, сильний"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr "Гра стане значно цікавішою, якщо додати людину-гравця!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Колись могутня імперія %1 тепер у руїнах."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Імперія %1, що була в занепаді, потихеньку відроджується."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "Могутній %1 підкорив галактику!"
+
+#~ msgid "Game Over"
+#~ msgstr "Гру закінчено"
+
+#~ msgid "&Reject"
+#~ msgstr "&Відмовитись"

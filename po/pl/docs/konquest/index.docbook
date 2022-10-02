@@ -1,0 +1,609 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Polish "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Podręcznik &konquest; </title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Michał</firstname
+><surname
+>Bendowski</surname
+><affiliation
+><address
+><email
+>bendowski@gmail.com</email
+></address
+></affiliation
+><contrib
+></contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Programista</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Recenzent</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2007-11-13</date>
+<releaseinfo
+>2.0</releaseinfo>
+
+<abstract>
+<para
+>&konquest; jest grą podbijania galaktyki dla środowiska &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Wstęp</title>
+<note
+><title
+>Typ gry:</title
+><para
+>Strategiczna, Planszowa</para
+></note>
+<note
+><title
+>Liczba graczy:</title
+><para
+>Rozgrywka wieloosobowa</para
+></note>
+
+<para
+>&konquest; jest przeznaczoną dla środowiska &kde; wersją gry Gnu-Lactic. Gracze podbijają inne planety wysyłając w ich kierunku statki. Celem jest zbudowanie międzygwiezdnego imperium i podbicie planet wszystkich pozostałych graczy. W grę &konquest; można grać z innymi ludźmi bądź z komputerem. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Jak grać</title>
+
+<para
+>Po uruchomieniu gry &konquest;, naciśnij przycisk <guibutton
+>Nowa</guibutton
+> aby rozpocząć nową grę. Otworzy się wtedy okno dialogowe, gdzie należy wprowadzić nazwy graczy, określić liczbę planet i tur gry. Możesz także użyć przycisku odrzuć, aby uzyskać nową mapę. Po zakończeniu ustawień, należy nacisnąć <guibutton
+>OK</guibutton
+> aby uruchomić grę. </para>
+
+<para
+>Po uruchomieniu gry, widoczna stanie się plansza. Puste kwadraty oznaczają pustą przestrzeń. Na początku, każdy z graczy posiada jedną planetę. Tło planety oznaczone jest kolorem gracza. Po najechaniu myszką na planetę, pokazują się dodatkowe informacje. Po najechaniu na planetę, która nie została jeszcze podbita przez nikogo, widoczna będzie tylko jej nazwa. Wyświetlane są następujące informacje: </para>
+
+<itemizedlist>
+<listitem
+><para
+>Nazwa planety</para
+></listitem>
+<listitem
+><para
+>Właściciel</para
+></listitem>
+<listitem
+><para
+>Statki</para
+></listitem>
+<listitem
+><para
+>Produkcja</para
+></listitem>
+<listitem
+><para
+>Skuteczność</para
+></listitem>
+</itemizedlist>
+
+<para
+>Nazwa planety jest wykorzystywana do odnoszenia się do niej w trakcie gry. Planety nazywane są alfabetycznie za pomocą dużych liter. Właścicielem planety jest gracz, który ją podbił. Jeżeli planeta zostanie podbita przez innego gracza, to właściciel się zmieni. Pole statki wyświetla liczbę statków znajdujących się aktualnie na planecie. Produkcja - określa liczbę statków, którą planeta produkuje w każdej turze gry. Poziom produkcji różni się między planetami, ale zawsze jest taki sam. Skuteczność jest miernikiem efektywności statków produkowanych na danej planecie. Flotylle atakujące wykorzystują miernik skuteczności planety, z której wyruszyły, flotylle broniące się używają wskaźnika skuteczności bronionej planety. Możesz łatwo uzyskać informację o nazwie planety, jej właścicielu i liczbie statków patrząc na kwadrat, w którym leży planeta. Kolor tła planety oznacza właściciela, nazwa jest w górnym lewym rogu kwadratu a liczba statków w dolnym prawym rogu. </para>
+
+<para
+>Aby wysłać statki z jednej planety na drugą, wybierz myszką planetę, na którą chcesz wysłać statki, wpisz liczbę statków w zielonym polu w prawym górnym rogu i naciśnij enter. Powtórz tą procedurę, aż wyślesz wszystkie statki, które chcesz wysłać. Jeżeli skończyłeś wysyłanie, naciśnij <guibutton
+>Koniec tury</guibutton
+>. Gdy wszyscy gracze zakończyli swoje rundy, wyświetli się okno dialogowe zawierające najnowsze wiadomości. Gra będzie odbywać się w ten sposób aż do czasu, gdy jeden z graczy stanie się właścicielem całej galaktyki. </para>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Zasady gry, strategia gry i sztuczki</title>
+<sect1 id="rules">
+<title
+>Zasady</title>
+<itemizedlist>
+<listitem
+><para
+>Statki nie mogą zostać zatrzymane po opuszczeniu planety.</para
+></listitem>
+<listitem
+><para
+>Statki nie mogą atakować innych statków w czasie lotu.</para
+></listitem>
+<listitem
+><para
+>Statki nie mogą być gromadzone na planecie do późniejszego użycia.</para
+></listitem>
+<listitem
+><para
+>Planeta nie może zostać oddana innemu graczowi.</para
+></listitem>
+<listitem
+><para
+>Gracz może opuścić swoją rundę naciskając przycisk <guibutton
+>Koniec tury</guibutton
+> bez wysyłania żadnych statków.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strategia i wskazówki</title>
+<itemizedlist>
+<listitem
+><para
+>Nie atakuj planety jeżeli masz mniej niż 10 statków.</para
+></listitem>
+<listitem
+><para
+>Atakuj najpierw planety neutralne, a później planety innych graczy.</para
+></listitem>
+<listitem
+><para
+>Podziel swoje zasoby statków pomiędzy kilka planet.</para
+></listitem>
+<listitem
+><para
+>Planuj swoje ataki z wyprzedzeniem.</para
+></listitem>
+<listitem
+><para
+>Użyj linijki, aby określić odległość między planetami.</para
+></listitem>
+<listitem
+><para
+>Użyj okna informacyjnego aby uzyskać informacje o planecie zanim ją zaatakujesz.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menu</title>
+
+<sect1 id="game-menu">
+<title
+>Menu <guimenu
+>Gra</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Nowa</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Rozpoczyna nową grę.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Zakończ grę</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Kończy bieżącą grę, nie zamyka</action
+> &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Gra</guimenu
+> <guimenuitem
+>Zmierz odległość</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Kliknij lewym przyciskiem myszy na pierwszej planecie, a następnie na drugiej, żeby zobaczyć dzielący je dystans.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Gra</guimenu
+> <guimenuitem
+>Pokaż wyniki</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Otwiera</action
+> okno wyświetlające dokładne, bieżące wyniki wszystkich graczy.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Gra</guimenu
+> <guimenuitem
+>Przegląd floty</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Otwiera</action
+> okno wyświetlające dokładne informacje na temat wszystkich flot.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Zakończ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Kończy grę.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Menu <guimenu
+>Ustawienia</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Wyświetlaj/Ukryj pasek narzędzi</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Przełącza</action
+> wyświetlanie paska narzędzi.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Wyświetl pasek stanu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Włącza lub wyłącza wyświetlanie paska stanu. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Konfiguracja skrótów...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Otwiera</action
+> standardowe okno dialogowe &kde; pozwalające zmienić skróty klawiszowe używane przez &konquest;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Konfiguracja pasków narzędzi...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Przywołuje standardowe okno dialogowe &kde; pozwalające zmienić ikony na pasku narzędzi &konquest;.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Menu <guimenu
+>Pomoc</guimenu
+></title>
+&help.menu.documentation; </sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Najczęściej zadawane pytania</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Czy mogę zmienić kierunek statków po opuszczeniu planety? </para>
+</question>
+<answer>
+<para
+>Nie, jeżeli statki opuszczą planetę, to nie mogą być zatrzymane, nie da się też zmienić ich kierunku. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Czy różne kolory i kształty planet coś oznaczają? </para>
+</question>
+<answer>
+<para
+>Nie, są wybierane losowo. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Skąd mogę wiedzieć gdzie są moje statki? </para>
+</question>
+<answer>
+<para
+>Kliknij na przycisk <guibutton
+>Pokaż wyniki</guibutton
+>. Wyświetli się informacja o flotach, które aktualnie znajdują się w trakcie lotu. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Utraciłem wszystkie swoje planety, ale dalej jestem w grze, dlaczego? </para>
+</question>
+<answer>
+<para
+>Gra kończy się po utraceniu wszystkich statków. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kończy mi się liczba rund, co mogę zrobić? </para>
+</question>
+<answer>
+<para
+>Możesz kontynuować grę. Po osiągnięciu ostatnie rundy, pojawi się pytanie czy chcesz dodać więcej rund. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Czy mogę gromadzić statki na planetach do późniejszego użycia? </para>
+</question>
+<answer>
+<para
+>Tak, powinieneś jednakże gromadzić je na wielu różnych planetach, abyś mógł je wysyłać w kierunku sąsiednich planet. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Wysłałem wszystkie statki z planety, ale kiedy przesuwam kursor myszki na planetę, to pokazuje się informacja, że statki są na planecie, dlaczego? </para>
+</question>
+<answer>
+<para
+>Liczba statków na planecie jest aktualizowane po zakończeniu tury. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Czy możliwa jest zmiana motywu?  </para>
+</question>
+<answer>
+<para
+>Nie, w tym momencie jest to niemożliwe. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Zasługi i licencje</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&GNU;-Lactic Conquest Project, wersja dla &kde; autorstwa &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 by the &GNU;-Lactic Conquest Project </para>
+
+<para
+>Documentation copyright 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Polskie tłumaczenie: Michał Bendowski <email
+>bendowski@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalacja</title>
+
+<sect1 id="getting-konquest">
+<title
+>Jak zdobyć &konquest;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilacja i instalacja</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

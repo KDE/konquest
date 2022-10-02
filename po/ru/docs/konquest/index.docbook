@@ -1,0 +1,301 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Справочное руководство по &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+><email
+>logik9000@chartermi.net</email
+></address>
+</affiliation>
+</author>
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+><email
+>rsteffen@bayarea.net</email
+></address
+></affiliation>
+<contrib
+>Разработчик</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Редактор</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Валя</firstname
+><surname
+>Ванеева</surname
+><affiliation
+><address
+><email
+>fattie@altlinux.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Николас Роббинс (Nicholas Robbins)</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>0.99.02</releaseinfo>
+
+<abstract
+><para
+>&konquest; &mdash; великолепная игра для захвата мира.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>Это &kde;-версия <application
+>Gnu-Lactic Konquest</application
+>, многопользовательской стратегии. Цель игры &mdash; расширить свою межзвездную империю на всю галактику и, конечно, сокрушить своих противников.</para>
+
+</chapter>
+
+<chapter id="using-konquest">
+<title
+>Использование &konquest;</title>
+
+<sect1 id="konquest-features">
+<title
+>Особенности &konquest;</title>
+
+<para
+>увлекательная игра для захвата вселенной. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+<title
+>Настройка</title>
+
+<para
+>При первом запуске &konquest; открывается окно настроек. В нем вы можете указать имена игроков, определить количество планет, а также допустимое число ходов (не беспокойтесь, позже вы сможете добавить еще). Вы также можете отказываться от карты до тех пор, пока не найдете подходящую вам галактику. После этого нажмите на кнопку <guibutton
+>Начать игру</guibutton
+>!</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Меню</title>
+
+<para
+></para>
+
+<sect1 id="konquest-mainwindow">
+<title
+>Основное окно &konquest;</title>
+
+<para
+>Сведения о планете (большой черный прямоугольник справа) &mdash; ваш источник информации о состоянии Галактики. Ваши шпионы будут докладывать вам о действиях ваших соперников, но только не на собственных планетах. В число сведений о планете входят: <guilabel
+>Название планеты</guilabel
+>, <guilabel
+>Правитель</guilabel
+>, <guilabel
+>Производство</guilabel
+>, информация о флоте(<guilabel
+>Кораблей</guilabel
+> и <guilabel
+>Мощь кораблей</guilabel
+>).</para>
+
+<para
+>Уровень <guilabel
+>Производства</guilabel
+> равен числу кораблей, которые могут быть созданы на планете за один ход. Флот представлен количеством <guilabel
+>Кораблей</guilabel
+> на планете. <guilabel
+>Мощь кораблей</guilabel
+> &mdash; мера эффективности кораблей, произведенных на этой планете. У атакующей флотилии мощь равна мощи кораблей на той планете, откуда они летят, а у защищающей &mdash; мощи планеты, находящейся под защитой.</para>
+
+<sect2>
+<title
+>Меню <guimenu
+>Игра</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Новая игра</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Начать новую игру.</action
+></para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Закрыть окно игры.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title
+>Меню <guimenu
+>Справка</guimenu
+></title>
+&help.menu.documentation; </sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+
+
+<title
+>Авторские права и лицензирование</title>
+
+<para
+>&konquest;</para>
+
+<para
+>Проект GNU-Lactic Conquest, версия для &kde; создана Руссом Штеффеном (Russ Steffen), <email
+>rsteffen@ia.net</email
+>. См. также сайт <ulink url="http://www.ia.net/~rsteffen/konquest.html"
+>http://www.ia.net/~rsteffen/konquest.html</ulink
+>.</para>
+
+<para
+>Авторские права на программу принадлежат проекту GNU-Lactic Conquest, 1998. </para>
+
+<para
+>Авторские права на документацию принадлежат проекту Николасу Роббинсу (Nicholas Robbins) <email
+>logik9000@chartermi.com</email
+>, 2000.</para>
+
+<para
+>Валя Ванеева <email
+>fattie@altlinux.ru</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Установка</title>
+
+<sect1 id="getting-konquest">
+<title
+>Как получить &konquest;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="requirements">
+<title
+>Системные требования</title>
+
+<para
+>Для игры в &konquest; вам необходимо установить &kde; 3.0. Рекомендуется также установить глубину цвета у X-сервера в значение не менее 8 битов на точку, так как в программе содержатся отсканированные изображения, которые могут потребовать большой глубины цвета. </para>
+
+<para
+>Все библиотеки, необходимые для &konquest; и саму программу можно скачать с <ulink url="http://www.ia.net/~rsteffen/konquest.html"
+>сайта &konquest;</ulink
+>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Компиляция и установка</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

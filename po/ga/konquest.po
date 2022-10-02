@@ -1,0 +1,668 @@
+# Irish translation of konquest
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the konquest package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames/konquest.po\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2004-12-03 14:52-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "seoc@iolfree.ie,kscanne@gmail.com"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Foramharc an Loingis"
+
+#: dialogs/fleetdlg.cc:106
+#, kde-format
+msgid "Fleet No."
+msgstr "Uimhir an Loingis"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr ""
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Sprioc"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Spáslonga"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Céatadán Maraithe"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Babhta Teachta"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr "Buanordú"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialóg"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, kde-format
+msgid "Players"
+msgstr "Imreoirí"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "C&uir Leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Bain"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Mapa"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, kde-format
+msgid "&Neutral planets:"
+msgstr "Pláinéid &neodracha:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Leithead:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "&Airde:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, kde-format
+msgid "Production:"
+msgstr "Táirgeadh:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Kill Percentage:"
+msgid "Kill percentage:"
+msgstr "Céatadán Maraithe:"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr "&Randamaigh"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
+msgstr "Úinéir"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr "Roghanna"
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, fuzzy, kde-format
+#| msgid "Blind Map"
+msgid "Blind map"
+msgstr "Mapa Folaithe"
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+#| msgid "Cumulative Production"
+msgid "Cumulative production"
+msgstr "Táirgeadh Carnach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+#| msgid "Production After Capture"
+msgid "Production after capture"
+msgstr "Táirgeadh Tar Éis Gabháil"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, kde-format
+msgid "Neutrals"
+msgstr "Neodraigh"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+#| msgid "Show Ships"
+msgid "Show ships"
+msgstr "Taispeáin Spáslonga"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+#| msgid "Show Stats"
+msgid "Show stats"
+msgstr "Taispeáin Staitisticí"
+
+#: dialogs/newgamedlg.cc:80
+#, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Imreoir %1"
+
+#: dialogs/newgamedlg.cc:125
+#, kde-format
+msgctxt "The player name"
+msgid "Name"
+msgstr "Ainm"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Cineál"
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Tosaigh Cluiche Nua"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr "folamh"
+
+#: dialogs/newgamedlg.cc:389
+#, kde-format
+msgid "neutral"
+msgstr "neodrach"
+
+#: game.cpp:103
+#, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Shroich fórsa athneartach (1 spáslong) pláinéad %2."
+msgstr[1] "Shroich fórsa athneartach (%1 spáslong) pláinéad %2."
+msgstr[2] "Shroich fórsa athneartach (%1 spáslong) pláinéad %2."
+msgstr[3] "Shroich fórsa athneartach (%1 spáslong) pláinéad %2."
+msgstr[4] "Shroich fórsa athneartach (%1 spáslong) pláinéad %2."
+
+#: game.cpp:148
+#, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Sheas pláinéad %2 in aghaidh ionradh ó %1."
+
+#: game.cpp:156
+#, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Ghabh %1 pláinéad %2."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Cuir Deireadh leis an mBabhta"
+
+#: gameview.cc:290
+#, fuzzy, kde-format
+#| msgid "<qt>%1: Select source planet...</qt>"
+msgid "%1: Select source planet..."
+msgstr "<qt>%1: Roghnaigh pláinéad foinse...</qt>"
+
+#: gameview.cc:307
+#, fuzzy, kde-format
+#| msgid "<qt>%1: Select destination planet...</qt>"
+msgid "%1: Select destination planet..."
+msgstr "<qt>%1: Roghnaigh pláinéad sprice...</qt>"
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Níl go leor spáslong le cur chun bealaigh."
+
+#: gameview.cc:330
+#, kde-format
+msgid "%1: How many ships?"
+msgstr "%1: Cé mhéad spáslong?"
+
+# distance ruler
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Rialóir: Roghnaigh pláinéad tosaigh."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Is é %3 solasbhliain an fad idir Pláinéad %1 agus Pláinéad %2.\n"
+"Má fhágann spáslong sa bhabhta seo, sroichfidh sé Pláinéad %2 i mbabhta %4"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Fad"
+
+# distance ruler
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Rialóir: Roghnaigh pláinéad deiridh."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr "Babhta %1:"
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "An bhfuil fonn ort éirí as an gcluiche seo?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Cuir Cluiche i gCrích"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Rangú Deireanach"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Cluiche Réaltrach Straitéise KDE"
+
+#: Konquest.cc:44
+#, fuzzy, kde-format
+#| msgid "Copyright (c) 1999-2011, Developers"
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "© 1999-2011, Na Forbróirí"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr "Russ Steffen"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr "Stephan Zehetner"
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Computer/AI Player"
+msgstr "Imreoir Ríomhaire"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr "Leagan KDE4"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr "Inge Wallin"
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr "Glanadh agus ceartúcháin"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr "Pierre Ducroquet"
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr "Glanadh agus ceartúcháin, cothabháil"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr "Sean D'Epagnier"
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr "Feabhsú imirt an chluiche"
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Cluiche"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Príomhbharra Uirlisí"
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Concas Réaltrach"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Concas Réaltrach"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "To&mhais Fad"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
+msgstr "&Foramharc an Loingis"
+
+#: mainwin.cc:89
+#, fuzzy, kde-format
+#| msgid "Messages for %1"
+msgid "Messages"
+msgstr "Teachtaireachtaí le haghaidh %1"
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr ""
+
+#: mainwin.cc:114
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgid "Standings"
+msgstr "Rangú Deireanach"
+
+#: mainwin.cc:121
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgid "Show &Standings"
+msgstr "Tai&speáin Rangú"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Babhta # %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Ainm an phláinéid: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Úinéir: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Spáslonga: %1"
+
+#: map/mapitems.cc:232
+#, kde-format
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Spáslonga le teacht: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Táirgeadh: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Céatadán maraithe: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr ""
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr ""
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr ""
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr ""
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr ""
+
+#: players/localplayer_gui.cpp:13
+#, fuzzy, kde-format
+#| msgid "Human Player"
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Imreoir Daonna"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr ""
+
+#: view/standingswidget.cpp:152
+#, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Imreoir"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr ""
+"Spáslonga\n"
+"Tógtha"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr ""
+"Pláinéid\n"
+"Cloíte"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr ""
+"Loingis\n"
+"Lainseáilte"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr ""
+"Loingis\n"
+"Scriosta"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr ""
+"Spáslonga\n"
+"Scriosta"
+
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid "Production"
+msgid ""
+"Current\n"
+"Production"
+msgstr "Táirgeadh"
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+
+#~ msgid "Production"
+#~ msgstr "Táirgeadh"
+
+#~ msgid "Current Standings"
+#~ msgstr "Rangú Reatha"
+
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Duine"
+
+#~ msgid "Computer Weak"
+#~ msgstr "Ríomhaire Lag"
+
+#~ msgid "Computer Normal"
+#~ msgstr "Ríomhaire Gnách"
+
+#~ msgid "Computer Hard"
+#~ msgstr "Ríomhaire Láidir"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr ""
+#~ "Bainfidh tú i bhfad níos mó sult as an gcluiche má chuireann tú imreoir "
+#~ "daonna leis!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Tá impireacht %1 cloíte, impireacht a bhí an-láidir lá den saol."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Tá anam in impireacht cloíte %1 arís."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "Fuair %1 bua ar an réaltra!"
+
+#~ msgid "Game Over"
+#~ msgstr "Cluiche Thart"
+
+#~ msgid "&Reject"
+#~ msgstr "&Diúltaigh"
+
+#~ msgid "Player list:"
+#~ msgstr "Liosta imreoirí:"
+
+#~ msgid "New Column"
+#~ msgstr "Colún Nua"
+
+#~ msgid "&Human player:"
+#~ msgstr "Imreoir &daonna:"
+
+#~ msgid "&Add Human Player"
+#~ msgstr "&Cuir Imreoir Daonna Leis"
+
+#~ msgid "Preview map:"
+#~ msgstr "Réamhamharc ar an mapa:"
+
+#~ msgid "&Game Over"
+#~ msgstr "&Cluiche Thart"
+
+#~ msgctxt "Generated AI player name"
+#~ msgid "Comp%1"
+#~ msgstr "Ríomh%1"
+
+#~ msgid "Number of &players: %1"
+#~ msgstr "Líon &na n-imreoirí: %1"
+
+#~ msgid "Ships: "
+#~ msgstr "Spáslonga: "

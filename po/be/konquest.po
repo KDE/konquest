@@ -1,0 +1,711 @@
+# translation of konquest.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: konquest\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"PO-Revision-Date: 2007-06-25 11:11+0300\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
+msgid "Fleet Overview"
+msgstr "Апісанне флота"
+
+#: dialogs/fleetdlg.cc:106
+#, fuzzy, kde-format
+msgid "Fleet No."
+msgstr "№"
+
+#: dialogs/fleetdlg.cc:107
+#, kde-format
+msgid "Source"
+msgstr ""
+
+#: dialogs/fleetdlg.cc:108
+#, kde-format
+msgid "Destination"
+msgstr "Прызначэнне"
+
+#: dialogs/fleetdlg.cc:109
+#, kde-format
+msgid "Ships"
+msgstr "Караблі"
+
+#: dialogs/fleetdlg.cc:110
+#, kde-format
+msgid "Kill Percentage"
+msgstr "Моц флота"
+
+#: dialogs/fleetdlg.cc:111
+#, kde-format
+msgid "Arrival Turn"
+msgstr "Ход прыбыцця"
+
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#, kde-format
+msgid "Standing order"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
+#: dialogs/newGameDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Дыялог"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: dialogs/newGameDialog.ui:26
+#, fuzzy, kde-format
+msgid "Players"
+msgstr "Гульнёўцы"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
+#: dialogs/newGameDialog.ui:45
+#, kde-format
+msgid "&Add"
+msgstr "&Дадаць"
+
+#. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
+#: dialogs/newGameDialog.ui:52
+#, kde-format
+msgid "&Remove"
+msgstr "&Выдаліць"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: dialogs/newGameDialog.ui:68
+#, kde-format
+msgid "Map"
+msgstr "Карта"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: dialogs/newGameDialog.ui:74
+#, fuzzy, kde-format
+#| msgid "&Neutral Planets:"
+msgid "&Neutral planets:"
+msgstr "Колькасць нейтральных планет:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: dialogs/newGameDialog.ui:97
+#, kde-format
+msgid "&Width:"
+msgstr "&Шырыня:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: dialogs/newGameDialog.ui:120
+#, kde-format
+msgid "&Height:"
+msgstr "&Вышыня:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
+#, fuzzy, kde-format
+msgid "Production:"
+msgstr "Вытворчасць: "
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: dialogs/newGameDialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgid "Kill percentage:"
+msgstr "Моц флота"
+
+#. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
+#: dialogs/newGameDialog.ui:202
+#, kde-format
+msgid "&Randomize"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/newGameDialog.ui:209
+#, fuzzy, kde-format
+msgid "Owner:"
+msgstr "Кіраўнік: "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: dialogs/newGameDialog.ui:228
+#, kde-format
+msgid "Options"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
+#: dialogs/newGameDialog.ui:234
+#, kde-format
+msgid "Blind map"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
+#: dialogs/newGameDialog.ui:241
+#, fuzzy, kde-format
+msgid "Cumulative production"
+msgstr "Вытворчасць: "
+
+#. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
+#: dialogs/newGameDialog.ui:248
+#, fuzzy, kde-format
+msgid "Production after capture"
+msgstr "Вытворчасць: "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: dialogs/newGameDialog.ui:258
+#, fuzzy, kde-format
+#| msgid "&Neutral Planets:"
+msgid "Neutrals"
+msgstr "Колькасць нейтральных планет:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
+#: dialogs/newGameDialog.ui:273
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgid "Show ships"
+msgstr "Караблі"
+
+#. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
+#: dialogs/newGameDialog.ui:280
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgid "Show stats"
+msgstr "Паказаць расстаноўкі"
+
+#: dialogs/newgamedlg.cc:80
+#, fuzzy, kde-format
+msgctxt "Default player name is \"player \" + player number"
+msgid "Player %1"
+msgstr "Гулец"
+
+#: dialogs/newgamedlg.cc:125
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "The player name"
+msgid "Name"
+msgstr "Назва"
+
+#: dialogs/newgamedlg.cc:126
+#, kde-format
+msgid "Type"
+msgstr "Тып"
+
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
+msgid "Start New Game"
+msgstr "Пачаць гульню"
+
+#: dialogs/newgamedlg.cc:386
+#, kde-format
+msgid "vacant"
+msgstr ""
+
+#: dialogs/newgamedlg.cc:389
+#, fuzzy, kde-format
+#| msgid "&Neutral Planets:"
+msgid "neutral"
+msgstr "Колькасць нейтральных планет:"
+
+#: game.cpp:103
+#, fuzzy, kde-format
+msgid "Reinforcements (1 ship) have arrived for planet %2."
+msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
+msgstr[0] "Падмацаванне (%1 караблёў) прыбыла на планету %2"
+msgstr[1] "Падмацаванне (%1 караблёў) прыбыла на планету %2"
+msgstr[2] "Падмацаванне (%1 караблёў) прыбыла на планету %2"
+
+#: game.cpp:148
+#, fuzzy, kde-format
+msgid "Planet %2 has held against an attack from %1."
+msgstr "Планета %2 адбіла атаку %1."
+
+#: game.cpp:156
+#, fuzzy, kde-format
+msgid "Planet %2 has fallen to %1."
+msgstr "Планета %2 заваяваная %1."
+
+#: gameview.cc:107
+#, kde-format
+msgid "End Turn"
+msgstr "Канец ходу"
+
+#: gameview.cc:290
+#, fuzzy, kde-format
+#| msgid "Select source planet..."
+msgid "%1: Select source planet..."
+msgstr "Вылучыце зыходную планету..."
+
+#: gameview.cc:307
+#, fuzzy, kde-format
+#| msgid "Select destination planet..."
+msgid "%1: Select destination planet..."
+msgstr "Вылучыце планету прызначэння..."
+
+#: gameview.cc:318
+#, kde-format
+msgid "Not enough ships to send."
+msgstr "Нядосыць караблёў для адпраўкі."
+
+#: gameview.cc:330
+#, fuzzy, kde-format
+#| msgid ": How many ships?"
+msgid "%1: How many ships?"
+msgstr ": Колькі караблёў?"
+
+#: gameview.cc:351
+#, kde-format
+msgid "Ruler: Select starting planet."
+msgstr "Лінейка: вылучыце стартавую планету."
+
+#: gameview.cc:365
+#, kde-format
+msgid ""
+"The distance from Planet %1 to Planet %2 is %3 light years.\n"
+"A ship leaving this turn will arrive on turn %4"
+msgstr ""
+"Адлегласць ад планеты %1 да планеты %2 - %3 светлавых гадоў.\n"
+"Карабель, які стартуе на гэтым ходзе, даляціць да яе на %4-м ходзе"
+
+#: gameview.cc:371
+#, kde-format
+msgid "Distance"
+msgstr "Адлегласць"
+
+#: gameview.cc:376
+#, kde-format
+msgid "Ruler: Select ending planet."
+msgstr "Лінейка: вылучыце канчатковую планету."
+
+#: gameview.cc:426
+#, kde-format
+msgid "Turn %1:"
+msgstr ""
+
+#: gameview.cc:523
+#, kde-format
+msgid "Do you wish to retire this game?"
+msgstr "Вы хочаце выйсці з гэтай гульні?"
+
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
+msgid "End Game"
+msgstr "Скончыць гульню"
+
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
+msgid "Final Standings"
+msgstr "Заключныя расстаноўкі"
+
+#: Konquest.cc:40
+#, kde-format
+msgid "Konquest"
+msgstr "Konquest"
+
+#: Konquest.cc:42
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Галактычная стратэгія для KDE"
+
+#: Konquest.cc:44
+#, fuzzy, kde-format
+#| msgid "Copyright (c) 1999-2006, Developers"
+msgid "Copyright (c) 1999-2013, Developers"
+msgstr "Аўтарскія правы (c) 1999-2006, распрацоўшчыкі Konquest"
+
+#: Konquest.cc:48
+#, kde-format
+msgid "Russ Steffen"
+msgstr ""
+
+#: Konquest.cc:49
+#, kde-format
+msgid "Stephan Zehetner"
+msgstr ""
+
+#: Konquest.cc:49
+#, fuzzy, kde-format
+msgid "Computer/AI Player"
+msgstr "Кампутарны гулец"
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: Konquest.cc:50
+#, kde-format
+msgid "Port to KDE4"
+msgstr ""
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Inge Wallin"
+msgstr ""
+
+#: Konquest.cc:51
+#, kde-format
+msgid "Cleaning and bugfixing"
+msgstr ""
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Pierre Ducroquet"
+msgstr ""
+
+#: Konquest.cc:52
+#, kde-format
+msgid "Cleaning and bugfixing, maintenance"
+msgstr ""
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Sean D'Epagnier"
+msgstr ""
+
+#: Konquest.cc:53
+#, kde-format
+msgid "Gameplay Enhancements"
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: konquestui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Гульня"
+
+#. i18n: ectx: Menu (view)
+#: konquestui.rc:14
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: konquestui.rc:20
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Галоўная панель начыння"
+
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Заваёва галактыкі"
+
+#: mainwin.cc:40
+#, kde-format
+msgid "Galactic Conquest"
+msgstr "Заваёва галактыкі"
+
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
+msgstr "Вымераць адлегласць"
+
+#: mainwin.cc:80
+#, fuzzy, kde-format
+msgid "&Fleet Overview..."
+msgstr "Флот"
+
+#: mainwin.cc:89
+#, kde-format
+msgid "Messages"
+msgstr ""
+
+#: mainwin.cc:95
+#, kde-format
+msgid "Show &Messages"
+msgstr ""
+
+#: mainwin.cc:114
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgid "Standings"
+msgstr "Заключныя расстаноўкі"
+
+#: mainwin.cc:121
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgid "Show &Standings"
+msgstr "Паказаць расстаноўкі"
+
+#: mainwin.cc:215
+#, kde-format
+msgid "Turn # %1"
+msgstr "Ход # %1"
+
+#: map/mapitems.cc:214
+#, kde-format
+msgid "Planet name: %1"
+msgstr "Назва планеты: %1"
+
+#: map/mapitems.cc:219
+#, kde-format
+msgid "Owner: %1"
+msgstr "Уладальнік: %1"
+
+#: map/mapitems.cc:222
+#, kde-format
+msgid "Ships: %1"
+msgstr "Караблёў: %1"
+
+#: map/mapitems.cc:232
+#, fuzzy, kde-format
+#| msgid "Ships: %1"
+msgctxt "regarding standing orders"
+msgid "Ships due: %1"
+msgstr "Караблёў: %1"
+
+#: map/mapitems.cc:235
+#, kde-format
+msgid "Production: %1"
+msgstr "Вытворчасць: %1"
+
+#: map/mapitems.cc:237
+#, kde-format
+msgid "Kill percent: %1"
+msgstr "Моц караблёў: %1"
+
+#: players/ai/becai/becai_gui.cpp:13
+#, kde-format
+msgctxt "A distinct unique AI playing a balanced strategy"
+msgid "Becai (Balanced)"
+msgstr ""
+
+#: players/ai/default/hard_gui.cpp:13
+#, kde-format
+msgid "Default (Defensive)"
+msgstr ""
+
+#: players/ai/default/normal_gui.cpp:13
+#, kde-format
+msgid "Default (Offensive)"
+msgstr ""
+
+#: players/ai/default/weak_gui.cpp:13
+#, kde-format
+msgid "Default (Weak)"
+msgstr ""
+
+#: players/ai/example/example_gui.cpp:15
+#, kde-format
+msgid "Example (Passive)"
+msgstr ""
+
+#: players/localplayer_gui.cpp:13
+#, fuzzy, kde-format
+msgctxt "A human player"
+msgid "Human (Player)"
+msgstr "Чалавек"
+
+#: players/spectatorplayer_gui.cpp:13
+#, kde-format
+msgctxt "A human spectator"
+msgid "Human (Spectator)"
+msgstr ""
+
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+msgctxt "The player name"
+msgid "Player"
+msgstr "Гульнёўца"
+
+#: view/standingswidget.cpp:153
+#, kde-format
+msgid ""
+"Ships\n"
+"Built"
+msgstr "Пабудавана караблёў"
+
+#: view/standingswidget.cpp:154
+#, kde-format
+msgid ""
+"Planets\n"
+"Conquered"
+msgstr "Заваявана планет"
+
+#: view/standingswidget.cpp:155
+#, kde-format
+msgid ""
+"Fleets\n"
+"Launched"
+msgstr "Адпраўлена флатоў"
+
+#: view/standingswidget.cpp:156
+#, kde-format
+msgid ""
+"Fleets\n"
+"Destroyed"
+msgstr "Знішчана флатоў"
+
+#: view/standingswidget.cpp:157
+#, kde-format
+msgid ""
+"Ships\n"
+"Destroyed"
+msgstr "Знішчана караблёў"
+
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+msgid ""
+"Current\n"
+"Production"
+msgstr "Вытворчасць: "
+
+#: view/standingswidget.cpp:159
+#, kde-format
+msgid ""
+"Current\n"
+"Fleet Size"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Production"
+#~ msgstr "Вытворчасць: "
+
+#, fuzzy
+#~ msgid "Current Standings"
+#~ msgstr "Бягучыя расстаноўкі"
+
+#, fuzzy
+#~ msgctxt "A human player"
+#~ msgid "Human"
+#~ msgstr "Чалавек"
+
+#, fuzzy
+#~ msgid "Computer Weak"
+#~ msgstr "Кампутарны гулец"
+
+#, fuzzy
+#~ msgid "Computer Normal"
+#~ msgstr "Кампутарны гулец"
+
+#, fuzzy
+#~ msgid "Computer Hard"
+#~ msgstr "Кампутарны гулец"
+
+#~ msgid "The game is much more fun when you add a human player!"
+#~ msgstr "Гуляць з рэальным гульцом нашмат цікавей!"
+
+#~ msgid "The once mighty empire of %1 has fallen in ruins."
+#~ msgstr "Некалі магутная імперыя %1 зараз у руінах."
+
+#~ msgid "The fallen empire of %1 has staggered back to life."
+#~ msgstr "Імперыя %1, якая была ў заняпадзе, зараз паволі адраджаецца."
+
+#~ msgid "The mighty %1 has conquered the galaxy!"
+#~ msgstr "%1 заваяваў галактыку!"
+
+#~ msgid "Game Over"
+#~ msgstr "Гульня скончаная"
+
+#~ msgid "&Reject"
+#~ msgstr "&Адхіліць"
+
+#, fuzzy
+#~ msgid "Player list:"
+#~ msgstr "Спіс гульцоў:"
+
+#, fuzzy
+#~ msgid "New Column"
+#~ msgstr "Новы слупок"
+
+#, fuzzy
+#~ msgid "&Human player:"
+#~ msgstr "Чалавек:"
+
+#, fuzzy
+#~ msgid "&Add Human Player"
+#~ msgstr "Дадаць рэальнага гульца"
+
+#, fuzzy
+#~ msgid "Preview map:"
+#~ msgstr "Паглядзець карту:"
+
+#, fuzzy
+#~ msgid "Computer Player thinking..."
+#~ msgstr "Кампутарны гулец думае..."
+
+#, fuzzy
+#~ msgid "Out of Turns"
+#~ msgstr "Няма хадоў"
+
+#, fuzzy
+#~ msgid ""
+#~ "This is the last turn.\n"
+#~ "Do you wish to add extra turns?"
+#~ msgstr ""
+#~ "Гэты быў апошні ход.\n"
+#~ "Жадаеце працягнуць далей?"
+
+#, fuzzy
+#~ msgid "&Add Turns"
+#~ msgstr "Дадаць хады"
+
+#, fuzzy
+#~ msgid "Add the specified number of turns to the game and continue playing."
+#~ msgstr "Дадаць дадатковыя хады і працягнуць гульню."
+
+#, fuzzy
+#~ msgid "&Game Over"
+#~ msgstr "Гульня скончаная"
+
+#, fuzzy
+#~ msgid "Terminate the current game."
+#~ msgstr "Скончыць гульню."
+
+#, fuzzy
+#~ msgid "Extra turns: %1"
+#~ msgstr "Колькасць дадатковых хадоў: %1"
+
+#, fuzzy
+#~ msgctxt "Generated AI player name"
+#~ msgid "Comp%1"
+#~ msgstr "Кампутар_%1"
+
+#, fuzzy
+#~ msgid "Number of &players: %1"
+#~ msgstr "Колькасць гульцоў: %1"
+
+#, fuzzy
+#~ msgid "Number of &turns: %1"
+#~ msgstr "Колькасць хадоў: %1"
+
+#, fuzzy
+#~ msgid "Planet name: "
+#~ msgstr "Назоў планеты: "
+
+#, fuzzy
+#~ msgid "Ships: "
+#~ msgstr "Караблёў: "
+
+#, fuzzy
+#~ msgid "Kill percent: "
+#~ msgstr "Моц караблёў: "

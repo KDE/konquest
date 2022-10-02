@@ -1,0 +1,788 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&konquest;">
+  <!ENTITY package "kdegames"
+>	
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>O Manual do &konquest;</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Desenvolvimento</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Revisão</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2012-01-16</date>
+<releaseinfo
+>2.1</releaseinfo>
+
+<abstract>
+<para
+>O &konquest; é um jogo de conquista galáctica para o &kde; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Conquista GNU-Láctica</keyword>
+<keyword
+>kdegames</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+<note
+><title
+>Tipo de jogo:</title
+><para
+>Estratégia, Tabuleiro</para
+></note>
+<note
+><title
+>Número de jogadores:</title
+><para
+>Multi-jogador</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Janela principal do &konquest;</phrase
+></textobject>
+	<caption
+><para
+>A janela principal do &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>O &konquest; é a versão para &kde; do Gnu-Lactic. Os jogadores conquistam outros planetas ao enviar naves para eles. O objectivo é criar um império intergaláctico e, em última instância, conquistar os planetas de todos os outros jogadores. O &kappname; pode ser jogado contra outros jogadores ou um computador. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Como Jogar</title>
+
+<para
+>Quando você iniciar o &konquest;, carregue em <guibutton
+>Novo</guibutton
+> para iniciar um jogo novo. A partir daí você irá ver uma janela onde necessita de introduzir algumas informações para configurar o jogo. Em baixo, aparecem os seguintes parâmetros para o novo jogo: </para>
+<itemizedlist>
+
+<listitem
+><para
+>Jogadores</para
+><itemizedlist>
+  
+  <listitem
+><para
+>A quantidade de jogadores, com as opções para <guibutton
+>Adicionar</guibutton
+> ou <guibutton
+>Remover</guibutton
+> jogadores</para
+></listitem>
+  <listitem
+><para
+>Nomes dos jogadores</para
+></listitem>
+  <listitem
+><para
+>Tipo de jogadores (Computador vs Humano)</para
+></listitem>
+  <listitem
+><para
+>Dificuldade dos jogadores por computador (Baixa/Normal/Alta)</para
+></listitem>
+  </itemizedlist>
+  <para
+>Para mudar o nome do jogador, faça duplo-click sobre a coluna <guilabel
+>Nome</guilabel
+> e edite-a. Para mudar o tipo do jogador, abra a lista com um duplo-click na coluna <guilabel
+>Tipo</guilabel
+>.</para>
+</listitem
+>  
+
+<listitem
+><para
+>Mapa</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Número de planetas neutros</para
+></listitem>
+  <listitem
+><para
+>Largura e altura do mapa em unidades de padrões</para
+></listitem>
+  <listitem
+><para
+>Mudar o Dono, a Percentagem de Mortes e o Nível de Produção de um dado planeta</para
+></listitem>
+  <listitem
+><para
+>Mudar a distribuição dos planetas. Carregue em <guibutton
+>Aleatório</guibutton
+> para o tornar aleatório.</para
+></listitem>
+
+  </itemizedlist>
+  <para
+>Poderá seleccionar o planeta com a miniatura do mapa no meio da área <guilabel
+>Mapa</guilabel
+>. Basta carregar no planeta com o &LMB; e depois mude as opções desejadas.</para>
+</listitem>
+<listitem
+><para
+>Opções</para
+><itemizedlist>
+  
+  <listitem
+><para
+>Se pode ou não ver informações sobre os planetas dos adversários.</para
+></listitem>
+  <listitem
+><para
+>Se é permitida a produção acumulada ou não.</para
+></listitem>
+  <listitem
+><para
+>Se a produção fica activa imediatamente após a captura.</para
+></listitem>
+  <listitem
+><para
+>Permitir mostrar a quantidade de naves e outras estatísticas para os planetas neutros</para
+></listitem>
+  <listitem
+><para
+>Definir o nível de produção para os planetas neutros</para
+></listitem>
+  </itemizedlist>
+</listitem>
+</itemizedlist>
+<para
+>Quando acabar de alterar estas definições (opcional), carregue em <guibutton
+>OK</guibutton
+> para iniciar o jogo. </para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Janela de novo jogo do &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Janela de novo jogo do &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Logo que o jogo comece, ser-lhe-á apresentado o tabuleiro de jogo. Os quadrados vazios são espaços em branco. Na primeira vez, cada jogador possui um planeta. O fundo do planeta é a cor do jogador. Se passar o seu rato por cima de um planeta, poderá ver informações adicionais. Se não tiver a opção do <guilabel
+>Mapa Cego</guilabel
+> activada ao seleccionar um jogo, poderá ver quaisquer informações sobre todos os planetas, ao passar o rato sobre eles. Se tiver seleccionado a opção <guilabel
+>Mapa Cego</guilabel
+> ao iniciar um jogo, só irá ver o nome do planeta se este tiver sido conquistado por adversários. A informação inclui: </para>
+
+<itemizedlist>
+<listitem
+><para
+>Nome do planeta</para
+></listitem>
+<listitem
+><para
+>Dono</para
+></listitem>
+<listitem
+><para
+>Naves</para
+></listitem>
+<listitem
+><para
+>Naves em Falta</para
+></listitem>
+<listitem
+><para
+>Produção</para
+></listitem>
+<listitem
+><para
+>Percentagem de mortes</para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Jogar o &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Jogar o &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>O <guilabel
+>Nome do planeta</guilabel
+> é como o mesmo é referido no jogo. Os planetas são nomeados de forma alfabética em maiúsculas. O <guilabel
+>Dono</guilabel
+> é quem possui o planeta. Se o planeta tiver sido conquistado por outro jogador, este irá mudar. As <guilabel
+>Naves</guilabel
+> correspondem ao número actual de naves no planeta. As <guilabel
+>Naves em falta</guilabel
+> só aparecem se tiver seleccionado uma ordem de permanência nesse planeta, caso contrário não aparece. A <guilabel
+>Produção</guilabel
+> é o número de naves que o planeta irá produzir de cada vez. A produção varia de planeta para planeta, mas permanece sempre a mesma. A <guilabel
+>Percentagem de mortes</guilabel
+> é uma medida da eficiência das naves produzidas nesse planeta. As frotas de ataque usam a percentagem de mortes do planeta que estão a defender. Poderá ver facilmente o nome do planeta, o seu dono e o número actual de naves de um planeta no quadrado em que este se encontra. O dono é representado pela cor de fundo do planeta, pelo nome no canto superior esquerdo e pelo número de naves no canto inferior direito. </para>
+
+<para
+>Para enviar naves de um planeta para outro, seleccione o planeta de onde deseja enviar naves, indique o número de naves no campo verde do canto superior direito e carregue em &Enter;. Repita este procedimento até que tenha enviado todas as naves que deseja. Se desejar enviar um número constante de naves de um planeta para outro em cada jogada, indique esse número e assinale a opção <guilabel
+>Ordem de Permanência</guilabel
+> e carregue em &Enter;. As naves em falta para a ordem de permanência serão enviadas no fim da jogada. Quando terminar, carregue em <guibutton
+>Terminar a Vez</guibutton
+>. Quando todos os jogadores tiverem terminado as suas jogadas, irão aparecer janelas que lhe dão as últimas notícias. O jogo irá prosseguir desta forma até que um dos jogadores possua a galáxia inteira. </para>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Regras do Jogo, Estratégias e Sugestões</title>
+<sect1 id="rules">
+<title
+>Regras</title>
+<itemizedlist>
+<listitem
+><para
+>As naves não poderão ser paradas logo que deixem um planeta.</para
+></listitem>
+<listitem
+><para
+>As naves não poderão atacar outras naves em pleno ar.</para
+></listitem>
+<listitem
+><para
+>As naves poderão ser guardadas nos planetas para uso posterior.</para
+></listitem>
+<listitem
+><para
+>Um planeta não poderá ser abandonado.</para
+></listitem>
+<listitem
+><para
+>Um jogador poderá passar a sua vez se carregar em <guibutton
+>Terminar a Vez</guibutton
+> sem lançar quaisquer naves.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Estratégias e Dicas</title>
+<itemizedlist>
+<listitem
+><para
+>Não ataque um planeta com menos de 10 naves.</para
+></listitem>
+<listitem
+><para
+>Ataque os planetas neutros antes dos planetas dos outros jogadores.</para
+></listitem>
+<listitem
+><para
+>Divida o armazenamento da sua nave em vários planetas.</para
+></listitem>
+<listitem
+><para
+>Planeie antecipadamente os seus ataques.</para
+></listitem>
+<listitem
+><para
+>Use a régua para descobrir a distância entre os planetas.</para
+></listitem>
+<listitem
+><para
+>Use a janela de informação para obter dados sobre os planetas antes de um ataque.</para
+></listitem>
+<listitem
+><para
+>Se esta informação estiver disponível para si, é preferível atacar um planeta com uma taxa baixa de mortes a partir de um planeta com uma taxa elevada.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Menus</title>
+
+<sect1 id="game-menu">
+<title
+>O Menu Jogo</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Novo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Inicia um novo jogo.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Novo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Termina o jogo actual, sem fechar</action
+> o &konquest;</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Medir a Distância</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Carregue com o &LMB; em dois planetas para ver a distância entre eles.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Mostrar a Situação</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre</action
+> uma janela para ver a situação actual de todos os jogadores</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Vista da Frota</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre</action
+> uma janela que mostra informações detalhadas sobre todas as frotas</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Sair</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sai do jogo.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>O Menu Configuração</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar a Barra de Ferramentas</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Activa ou desactiva</action
+> a visualização da barra de ferramentas.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar a Barra de Estado</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Activa ou desactiva a visibilidade da barra de estado. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar os Atalhos...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Abre</action
+> uma janela de configuração de atalhos do &kde; para mudar os atalhos de teclado usados pelo &konquest;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Mostra a janela de configuração de barras de ferramentas normal do &kde; para configurar os ícones da barra de ferramentas do &konquest;.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>O Menu Ajuda</title>
+&help.menu.documentation; </sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Perguntas Mais Frequentes</title>
+<qandaset>
+
+<qandaentry>
+<question>
+<para
+>Posso direccionar as naves logo que tenham abandonado um planeta? </para>
+</question>
+<answer>
+<para
+>Não. Logo que as naves deixem um planeta, não poderão ser interrompidas ou direccionadas. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>As cores e formas dos planetas significam alguma coisa? </para>
+</question>
+<answer>
+<para
+>Não, são aleatórias. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Como é que sei quais são as minhas naves? </para>
+</question>
+<answer>
+<para
+>Carregue em <guibutton
+>Mostrar as Posições</guibutton
+>. Isto dar-lhe-á a informação acerca das frotas em voo actualmente. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Perdi todos os meus planetas, mas ainda estou em jogo. Porquê? </para>
+</question>
+<answer>
+<para
+>Não perde o jogo até que tenha perdido todas as suas naves. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Estou a ficar sem vez de jogar, o que posso fazer? </para>
+</question>
+<answer>
+<para
+>Pode continuar a jogar. Quando chegar à última vez, ser-lhe-á pedido para adicionar mais. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Posso guardar as naves num planeta para uso posterior? </para>
+</question>
+<answer>
+<para
+>Sim. Contudo, devê-las-á guardar em vários planetas para poder enviá-los para planetas próximos. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Enviei todas as naves de um planeta, mas quando passo o rato por cima do mesmo, ainda mostra as naves no seu lugar. Porquê? </para>
+</question>
+<answer>
+<para
+>O número de naves num planeta é actualizado quando terminar a jogada. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>É possível mudar o tema? </para>
+</question>
+<answer>
+<para
+>Não, não é possível de momento. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Créditos e Licença</title>
+
+<para
+>&konquest;</para>
+
+<para
+>Projecto da Conquista &GNU;-Láctica, com versão para &kde; de &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 do Projecto &GNU;-Lactic Conquest </para>
+
+<para
+>Documentação com 'copyright' 2000 de Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Documentação com 'copyright' 2012 de Viktor Chynarov</para>
+
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalação</title>
+
+<sect1 id="getting-konquest">
+<title
+>Como obter o &konquest;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Compilação e Instalação</title>
+&install.compile.documentation; </sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
