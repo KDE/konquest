@@ -93,7 +93,7 @@ msgstr "Jugadors"
 #: dialogs/newGameDialog.ui:45
 #, kde-format
 msgid "&Add"
-msgstr "&Afig"
+msgstr "Afi&g"
 
 #. i18n: ectx: property (text), widget (QPushButton, removePlayerButton)
 #: dialogs/newGameDialog.ui:52
@@ -117,7 +117,7 @@ msgstr "Planetes &neutrals:"
 #: dialogs/newGameDialog.ui:97
 #, kde-format
 msgid "&Width:"
-msgstr "&Amplària:"
+msgstr "A&mplària:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: dialogs/newGameDialog.ui:120
@@ -393,7 +393,7 @@ msgstr "&Joc"
 #: konquestui.rc:14
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: konquestui.rc:20
