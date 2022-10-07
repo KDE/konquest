@@ -600,6 +600,3 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-
-#~ msgid "Production"
-#~ msgstr "建造"
