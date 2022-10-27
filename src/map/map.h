@@ -55,7 +55,7 @@ public:
         return nullptr;
     }
 
-    const QList<Planet*> planets();
+    const QList<Planet*> planets() const;
 
 protected:
     void childSectorUpdate();
@@ -65,7 +65,7 @@ Q_SIGNALS:
 
 private:
     Sector* findRandomFreeSector();
-    QString UniquePlanetName(void);
+    QString UniquePlanetName() const;
 
 protected:
     // A map is a 2-D array of Sectors.

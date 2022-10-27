@@ -130,18 +130,40 @@ Map::clearMap()
 }
 
 
+// Create an unique name in the A-Z range
+// once we reach Z, go do the same but with 2 chars, etc.
 QString
-Map::UniquePlanetName(void)
+Map::UniquePlanetName() const
 {
-    char c = 'A';
+    QString newName = QStringLiteral("A");
 again:
     for (Planet *planet : planets()) {
-        if (planet->name().at(0).toLatin1() == c) {
-            c++;
+        if (planet->name() == newName) {
+            if (newName.back() == QLatin1Char('Z')) {
+                bool addNewA = true;
+                for (int i = newName.length() - 1; i >= 0; --i) {
+                    if (newName[i] != QLatin1Char('Z')) {
+                        newName[i] = newName[i].unicode() + 1;
+                        for (int j = i + 1; j < newName.length(); ++j) {
+                            newName[j] = QLatin1Char('A');
+                        }
+                        addNewA = false;
+                        break;
+                    }
+                }
+                if (addNewA) {
+                    for (int i = 0; i < newName.length(); ++i) {
+                        newName[i] = QLatin1Char('A');
+                    }
+                    newName += QStringLiteral("A");
+                }
+            } else {
+                newName.back() = newName.back().unicode() + 1;
+            }
             goto again;
         }
     }
-    return QChar::fromLatin1(c);
+    return newName;
 }
 
 
@@ -206,10 +228,10 @@ Map::childSectorUpdate()
 
 
 const QList <Planet*>
-Map::planets()
+Map::planets() const
 {
     QList <Planet*>planets;
-    for (const QList<Sector> &i : std::as_const(m_grid)) {
+    for (const QList<Sector> &i : m_grid) {
         for (const Sector &j : i) {
             if (j.hasPlanet()) {
                 planets += j.planet();
