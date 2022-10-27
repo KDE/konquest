@@ -143,7 +143,7 @@ again:
                 bool addNewA = true;
                 for (int i = newName.length() - 1; i >= 0; --i) {
                     if (newName[i] != QLatin1Char('Z')) {
-                        newName[i] = newName[i].unicode() + 1;
+                        newName[i] = static_cast<char16_t>(newName[i].unicode() + 1);
                         for (int j = i + 1; j < newName.length(); ++j) {
                             newName[j] = QLatin1Char('A');
                         }
@@ -158,7 +158,7 @@ again:
                     newName += QStringLiteral("A");
                 }
             } else {
-                newName.back() = newName.back().unicode() + 1;
+                newName.back() = static_cast<char16_t>(newName.back().unicode() + 1);
             }
             goto again;
         }
