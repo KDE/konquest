@@ -584,25 +584,3 @@ msgid ""
 msgstr ""
 "Mida actual\n"
 "de la flota"
-
-#~ msgid "Production"
-#~ msgstr "Producció"
-
-#~ msgid "Current Standings"
-#~ msgstr "Resultats actuals"
-
-#~ msgctxt "A human player"
-#~ msgid "Human"
-#~ msgstr "Humà"
-
-#~ msgid "Computer Weak"
-#~ msgstr "Ordinador fluix"
-
-#~ msgid "Computer Normal"
-#~ msgstr "Ordinador normal"
-
-#~ msgid "Computer Hard"
-#~ msgstr "Ordinador difícil"
-
-#~ msgid "The game is much more fun when you add a human player!"
-#~ msgstr "El joc és molt més divertit si afegiu un jugador humà!"
