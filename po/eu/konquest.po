@@ -1,55 +1,58 @@
-# translation of konquest.po to Basque
-# Copyright (C) 2003, 2005, 2009 Free Software Foundation, Inc.
+# Translation for konquest.po to Euskara/Basque (eu).
+# Copyright (C) 2003-2022 This file is copyright:
+# This file is distributed under the same license as the konquest package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
+# Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-01 00:42+0000\n"
-"PO-Revision-Date: 2009-06-16 17:14+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"PO-Revision-Date: 2022-12-01 00:10+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ion Gaztañaga"
+msgstr "Iñigo Salvador Azurmendi,Ion Gaztañaga"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "igaztanaga@gmail.com"
+msgstr "xalba@ni.eus,igaztanaga@gmail.com"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
-msgstr "Ontziteriaren ikuspegi orokorra"
+msgstr "Ontzidiaren ikuspegi orokorra"
 
 #: dialogs/fleetdlg.cc:106
 #, kde-format
 msgid "Fleet No."
-msgstr "Ontziteriaren zbkia."
+msgstr "Ontzidi zk."
 
 #: dialogs/fleetdlg.cc:107
 #, kde-format
 msgid "Source"
-msgstr ""
+msgstr "Sorburua"
 
 #: dialogs/fleetdlg.cc:108
 #, kde-format
 msgid "Destination"
-msgstr "Helburua"
+msgstr "Jomuga"
 
 #: dialogs/fleetdlg.cc:109
 #, kde-format
@@ -59,7 +62,7 @@ msgstr "Ontziak"
 #: dialogs/fleetdlg.cc:110
 #, kde-format
 msgid "Kill Percentage"
-msgstr "Hildakoen portzentaia"
+msgstr "Hildakoen ehunekoa"
 
 #: dialogs/fleetdlg.cc:111
 #, kde-format
@@ -69,7 +72,7 @@ msgstr "Heltze-txanda"
 #: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
 msgid "Standing order"
-msgstr ""
+msgstr "Ordena iraunkorra"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
 #: dialogs/newGameDialog.ui:14
@@ -103,10 +106,9 @@ msgstr "Mapa"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: dialogs/newGameDialog.ui:74
-#, fuzzy, kde-format
-#| msgid "&Neutral Planets:"
+#, kde-format
 msgid "&Neutral planets:"
-msgstr "&Planeta neutralak:"
+msgstr "Planeta &neutralak:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: dialogs/newGameDialog.ui:97
@@ -123,76 +125,69 @@ msgstr "&Altuera:"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
-#, fuzzy, kde-format
-#| msgid "Production: %1"
+#, kde-format
 msgid "Production:"
-msgstr "Ekoizketa: %1"
+msgstr "Ekoizpena:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgid "Kill percentage:"
-msgstr "Hildakoen portzentaia"
+msgstr "Hildakoen ehunekoa:"
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
 #: dialogs/newGameDialog.ui:202
 #, kde-format
 msgid "&Randomize"
-msgstr ""
+msgstr "Ausa&zko egin"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner: %1"
+#, kde-format
 msgid "Owner:"
-msgstr "Jabea: %1"
+msgstr "Jabea:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "Aukerak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
 #, kde-format
 msgid "Blind map"
-msgstr ""
+msgstr "Mapa itsua"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Production: %1"
+#, kde-format
 msgid "Cumulative production"
-msgstr "Ekoizketa: %1"
+msgstr "Ekoizpen metatua"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
 #, kde-format
 msgid "Production after capture"
-msgstr ""
+msgstr "Atzeman ondorengo ekoizpena"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: dialogs/newGameDialog.ui:258
-#, fuzzy, kde-format
-#| msgid "&Neutral Planets:"
+#, kde-format
 msgid "Neutrals"
-msgstr "&Planeta neutralak:"
+msgstr "Neutralak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgid "Show ships"
-msgstr "Ontziak"
+msgstr "Erakutsi ontziak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show stats"
-msgstr "&Erakutsi posizioak"
+msgstr "Erakutsi estatistikak"
 
 #: dialogs/newgamedlg.cc:80
 #, kde-format
@@ -212,56 +207,52 @@ msgid "Type"
 msgstr "Mota"
 
 #: dialogs/newgamedlg.cc:315
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
-msgstr "&Hasi joko berria"
+msgstr "Hasi joko berria"
 
 #: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
-msgstr ""
+msgstr "hutsik"
 
 #: dialogs/newgamedlg.cc:389
-#, fuzzy, kde-format
-#| msgid "&Neutral Planets:"
+#, kde-format
 msgid "neutral"
-msgstr "&Planeta neutralak:"
+msgstr "neutrala"
 
 #: game.cpp:103
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] "Errefortzuak (ontzi 1) iritsi dira %2 planetara."
-msgstr[1] "Errefortzuak (%1 ontzi) iritsi dira %2 planetara."
+msgstr[0] "%2 planetarako errefortzua (ontzi 1) iritsi da."
+msgstr[1] "%2 planetarako errefortzua (%1 ontzi) iritsi da."
 
 #: game.cpp:148
 #, kde-format
 msgid "Planet %2 has held against an attack from %1."
-msgstr "%2 planetak %1-(r)en erasoa gelditu du."
+msgstr "%2 planetak %1(r)en erasoari eutsi dio."
 
 #: game.cpp:156
 #, kde-format
 msgid "Planet %2 has fallen to %1."
-msgstr "%1-(e)k %2 planeta eskuratu du."
+msgstr "%2 planeta %1(r)en esku erori da."
 
 #: gameview.cc:107
 #, kde-format
 msgid "End Turn"
-msgstr "Hurrengo txanda"
+msgstr "Bukatu txanda"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "Select source planet..."
+#, kde-format
 msgid "%1: Select source planet..."
-msgstr "Hautatu iturburu-planeta..."
+msgstr "%1: Hautatu sorburu-planeta..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet..."
-msgstr "Hautatu helburu-planeta..."
+msgstr "%1: Hautatu jomuga-planeta..."
 
 #: gameview.cc:318
 #, kde-format
@@ -269,15 +260,14 @@ msgid "Not enough ships to send."
 msgstr "Ez dago bidaltzeko ontzi nahikorik."
 
 #: gameview.cc:330
-#, fuzzy, kde-format
-#| msgid ": How many ships?"
+#, kde-format
 msgid "%1: How many ships?"
-msgstr ": Zenbat ontzi?"
+msgstr "%1: Zenbat ontzi?"
 
 #: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
-msgstr "Distanzia: Hautatu hasierako planeta."
+msgstr "Erregela: Hautatu hasierako planeta."
 
 #: gameview.cc:365
 #, kde-format
@@ -285,8 +275,8 @@ msgid ""
 "The distance from Planet %1 to Planet %2 is %3 light years.\n"
 "A ship leaving this turn will arrive on turn %4"
 msgstr ""
-"%1 planetatik %2 planetarako distanzia %3 argi-urtekoa da.\n"
-"Txanda honetan irteten den ontzi bat %4 txandan iritsiko da"
+"%1 planetatik %2 planetarako distantzia %3 argi-urtekoa da.\n"
+"Txanda honetan abiatzen den ontzi bat %4 txandan iritsiko da"
 
 #: gameview.cc:371
 #, kde-format
@@ -296,12 +286,12 @@ msgstr "Distantzia"
 #: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
-msgstr "Distanzia: Hautatu amaierako planeta."
+msgstr "Erregela: Hautatu amaierako planeta."
 
 #: gameview.cc:426
 #, kde-format
 msgid "Turn %1:"
-msgstr "Txanda %1:"
+msgstr "%1 Txanda:"
 
 #: gameview.cc:523
 #, kde-format
@@ -309,15 +299,13 @@ msgid "Do you wish to retire this game?"
 msgstr "Joko honetatik erretiratu nahi duzu?"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "Amaitu jokoa"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Amaierako posizioak"
@@ -328,16 +316,14 @@ msgid "Konquest"
 msgstr "Konquest"
 
 #: Konquest.cc:42
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "KDE-ren estrategia galaktikoko jokoa"
+msgstr "Estrategia-joko galaktikoa"
 
 #: Konquest.cc:44
-#, fuzzy, kde-format
-#| msgid "Copyright (c) 1999-2006, Developers"
+#, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
-msgstr "Copyright (c) 1999-2006, garatzaileak"
+msgstr "Copyright (c) 1999-2013, Garatzaileak"
 
 #: Konquest.cc:48
 #, kde-format
@@ -355,10 +341,9 @@ msgid "Computer/AI Player"
 msgstr "Ordenagailua/AA jokalaria"
 
 #: Konquest.cc:50
-#, fuzzy, kde-format
-#| msgid "Dimitry Suzalev"
+#, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dimitry Suzalev"
+msgstr "Dmitry Suzdalev"
 
 #: Konquest.cc:50
 #, kde-format
@@ -381,20 +366,19 @@ msgid "Pierre Ducroquet"
 msgstr "Pierre Ducroquet"
 
 #: Konquest.cc:52
-#, fuzzy, kde-format
-#| msgid "Cleaning and bugfixing"
+#, kde-format
 msgid "Cleaning and bugfixing, maintenance"
-msgstr "Garbiketa eta akatsen konponketak"
+msgstr "Garbiketa eta akatsak zuzentzea, mantentze-lana"
 
 #: Konquest.cc:53
 #, kde-format
 msgid "Sean D'Epagnier"
-msgstr ""
+msgstr "Sean D'Epagnier"
 
 #: Konquest.cc:53
 #, kde-format
 msgid "Gameplay Enhancements"
-msgstr ""
+msgstr "Joko hobekuntzak"
 
 #. i18n: ectx: Menu (game)
 #: konquestui.rc:10
@@ -406,7 +390,7 @@ msgstr "&Jokoa"
 #: konquestui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Ikuspegia"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: konquestui.rc:20
@@ -415,8 +399,7 @@ msgid "Main Toolbar"
 msgstr "Tresna-barra nagusia"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
 msgstr "Konkista galaktikoa"
@@ -427,39 +410,34 @@ msgid "Galactic Conquest"
 msgstr "Konkista galaktikoa"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
 msgstr "&Neurtu distantzia"
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "&Fleet Overview"
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "&Ontziteriaren ikuspegi orokorra"
+msgstr "&Ontzidiaren ikuspegi orokorra..."
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages for %1"
+#, kde-format
 msgid "Messages"
-msgstr "Mezuak %1(r)entzako"
+msgstr "Mezuak"
 
 #: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
-msgstr ""
+msgstr "Erakutsi &mezuak"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgid "Standings"
-msgstr "Amaierako posizioak"
+msgstr "Posizioak"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show &Standings"
-msgstr "&Erakutsi posizioak"
+msgstr "Erakutsi po&sizioak"
 
 #: mainwin.cc:215
 #, kde-format
@@ -482,11 +460,10 @@ msgid "Ships: %1"
 msgstr "Ontziak: %1"
 
 #: map/mapitems.cc:232
-#, fuzzy, kde-format
-#| msgid "Ships: %1"
+#, kde-format
 msgctxt "regarding standing orders"
 msgid "Ships due: %1"
-msgstr "Ontziak: %1"
+msgstr "Dagokien ontziak: %1"
 
 #: map/mapitems.cc:235
 #, kde-format
@@ -502,39 +479,39 @@ msgstr "Hildakoen portzentaia: %1"
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
-msgstr ""
+msgstr "Becai (Orekatua)"
 
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr ""
+msgstr "Lehenetsia (Defentsiba)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr ""
+msgstr "Lehenetsia (Ofentsiba)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr ""
+msgstr "Lehenetsia (Ahula)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr ""
+msgstr "Adibidea (Pasiboa)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr ""
+msgstr "Ikuslea (Jokalaria)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr ""
+msgstr "Gizakia (Ikuslea)"
 
 #: view/standingswidget.cpp:152
 #, kde-format
@@ -567,7 +544,7 @@ msgid ""
 "Launched"
 msgstr ""
 "Jaurtitako\n"
-"ontziteriak"
+"ontzidiak"
 
 #: view/standingswidget.cpp:156
 #, kde-format
@@ -575,8 +552,8 @@ msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr ""
-"Desegindako\n"
-"ontziteriak"
+"Suntsitutako\n"
+"ontzidiak"
 
 #: view/standingswidget.cpp:157
 #, kde-format
@@ -584,16 +561,17 @@ msgid ""
 "Ships\n"
 "Destroyed"
 msgstr ""
-"Desegindako\n"
+"Suntsitutako\n"
 "ontziak"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Production: %1"
+#, kde-format
 msgid ""
 "Current\n"
 "Production"
-msgstr "Ekoizketa: %1"
+msgstr ""
+"Uneko\n"
+"ekoizpena"
 
 #: view/standingswidget.cpp:159
 #, kde-format
@@ -601,6 +579,8 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+"Ontzidiaren\n"
+"uneko neurria"
 
 #, fuzzy
 #~| msgid "Production: %1"
