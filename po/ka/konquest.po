@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-01 00:42+0000\n"
-"PO-Revision-Date: 2022-10-08 11:44+0200\n"
+"PO-Revision-Date: 2022-12-12 09:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "მოკვლის პროცენტულობა"
 #: dialogs/fleetdlg.cc:111
 #, kde-format
 msgid "Arrival Turn"
-msgstr ""
+msgstr "ჩამოსვლის სვლა"
 
 #: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
@@ -158,13 +158,13 @@ msgstr "შემთხვევითი რუკა"
 #: dialogs/newGameDialog.ui:241
 #, kde-format
 msgid "Cumulative production"
-msgstr ""
+msgstr "ჯამური წარმოება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
 #, kde-format
 msgid "Production after capture"
-msgstr ""
+msgstr "წარმოება დაპყრობის შემდეგ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: dialogs/newGameDialog.ui:258
@@ -210,7 +210,7 @@ msgstr "ახალი თამაშის დაწყება"
 #: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
-msgstr ""
+msgstr "ცარიელია"
 
 #: dialogs/newgamedlg.cc:389
 #, kde-format
@@ -221,18 +221,18 @@ msgstr "ნეიტრალური"
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "მხარდაჭერა (1 ხომალდი) ჩამოვიდა პლანეტისთვის %2."
+msgstr[1] "მხარდაჭერა (%1 ხომალდი) ჩამოვიდა პლანეტისთვის %2."
 
 #: game.cpp:148
 #, kde-format
 msgid "Planet %2 has held against an attack from %1."
-msgstr ""
+msgstr "პლანეტამ %2 %1-ის შეტევისგან თავი დაიცვა."
 
 #: game.cpp:156
 #, kde-format
 msgid "Planet %2 has fallen to %1."
-msgstr ""
+msgstr "პლანეტა %2 დანებდა %1-ს."
 
 #: gameview.cc:107
 #, kde-format
@@ -242,27 +242,27 @@ msgstr "სვლის დასრულება"
 #: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet..."
-msgstr ""
+msgstr "%1: აირჩიეთ საწყისი პლანეტა..."
 
 #: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet..."
-msgstr ""
+msgstr "%1: აირჩიეთ სამიზნე პლანეტა..."
 
 #: gameview.cc:318
 #, kde-format
 msgid "Not enough ships to send."
-msgstr ""
+msgstr "გასაგზავნად ხომალდები საკმარისია რაა."
 
 #: gameview.cc:330
 #, kde-format
 msgid "%1: How many ships?"
-msgstr ""
+msgstr "%1: რამდენი ხომალდი?"
 
 #: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
-msgstr ""
+msgstr "სახაზავი: აირჩიეთ საწყისი პლანეტა."
 
 #: gameview.cc:365
 #, kde-format
@@ -270,6 +270,8 @@ msgid ""
 "The distance from Planet %1 to Planet %2 is %3 light years.\n"
 "A ship leaving this turn will arrive on turn %4"
 msgstr ""
+"პლანეტიდან %1 პლანეტამდე %2 მანძილი %3 სინათლის წელია.\n"
+"ახლა გასული ხომალდი იქ %4-ე სვლაზე ჩავა"
 
 #: gameview.cc:371
 #, kde-format
@@ -279,7 +281,7 @@ msgstr "მანძილი"
 #: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
-msgstr ""
+msgstr "სახაზავი: აირჩიეთ საბოლოო პლანეტა."
 
 #: gameview.cc:426
 #, kde-format
@@ -289,7 +291,7 @@ msgstr "სვლა %1:"
 #: gameview.cc:523
 #, kde-format
 msgid "Do you wish to retire this game?"
-msgstr ""
+msgstr "გნებავთ, დაასრულოთ ეს თამაში?"
 
 #: gameview.cc:524
 #, kde-format
@@ -301,7 +303,7 @@ msgstr "თამაშის დასრულება"
 #, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
-msgstr ""
+msgstr "ჯამური შედეგები"
 
 #: Konquest.cc:40
 #, kde-format
@@ -316,7 +318,7 @@ msgstr "გალაქტიკური სტრატეგიული თ�
 #: Konquest.cc:44
 #, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
-msgstr ""
+msgstr "(c) 1999-2013, პროგრამისტები, ყველა უფლება დაცულია"
 
 #: Konquest.cc:48
 #, kde-format
@@ -331,7 +333,7 @@ msgstr "Stephan Zehetner"
 #: Konquest.cc:49
 #, kde-format
 msgid "Computer/AI Player"
-msgstr ""
+msgstr "კომპიუტერი/AI მოთამაშე"
 
 #: Konquest.cc:50
 #, kde-format
@@ -341,7 +343,7 @@ msgstr "Dmitry Suzdalev"
 #: Konquest.cc:50
 #, kde-format
 msgid "Port to KDE4"
-msgstr ""
+msgstr "KDE4-ზე გადატანა"
 
 #: Konquest.cc:51
 #, kde-format
@@ -351,7 +353,7 @@ msgstr "Inge Wallin"
 #: Konquest.cc:51
 #, kde-format
 msgid "Cleaning and bugfixing"
-msgstr ""
+msgstr "გასუფთავება და შეცდომების გასწორება"
 
 #: Konquest.cc:52
 #, kde-format
@@ -361,17 +363,17 @@ msgstr "Pierre Ducroquet"
 #: Konquest.cc:52
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
-msgstr ""
+msgstr "გასუფთავება და შეცდომების გასწორება, კოდისთვის თვალყურის დევნება"
 
 #: Konquest.cc:53
 #, kde-format
 msgid "Sean D'Epagnier"
-msgstr ""
+msgstr "Sean D'Epagnier"
 
 #: Konquest.cc:53
 #, kde-format
 msgid "Gameplay Enhancements"
-msgstr ""
+msgstr "თამაშის დახვეწა"
 
 #. i18n: ectx: Menu (game)
 #: konquestui.rc:10
@@ -395,22 +397,22 @@ msgstr "ხელსაწყოთა მთავარი ზოლი"
 #, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
-msgstr ""
+msgstr "გალაქტიკური კვესტი"
 
 #: mainwin.cc:40
 #, kde-format
 msgid "Galactic Conquest"
-msgstr ""
+msgstr "გალაქტიკური კვესტი"
 
 #: mainwin.cc:74
 #, kde-format
 msgid "&Measure Distance..."
-msgstr ""
+msgstr "&მანძილის გაზომვა..."
 
 #: mainwin.cc:80
 #, kde-format
 msgid "&Fleet Overview..."
-msgstr ""
+msgstr "&ფლოტის მიმოხილვა..."
 
 #: mainwin.cc:89
 #, kde-format
@@ -420,27 +422,27 @@ msgstr "შეტყობინებები"
 #: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
-msgstr ""
+msgstr "შეტყობინებების &ჩვენება"
 
 #: mainwin.cc:114
 #, kde-format
 msgid "Standings"
-msgstr ""
+msgstr "შედეგები"
 
 #: mainwin.cc:121
 #, kde-format
 msgid "Show &Standings"
-msgstr ""
+msgstr "&შედეგების ჩვენება"
 
 #: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
-msgstr ""
+msgstr "სვლა # %1"
 
 #: map/mapitems.cc:214
 #, kde-format
 msgid "Planet name: %1"
-msgstr ""
+msgstr "პლანეტის სახელი: %1"
 
 #: map/mapitems.cc:219
 #, kde-format
@@ -450,61 +452,61 @@ msgstr "მფლობელი: %1"
 #: map/mapitems.cc:222
 #, kde-format
 msgid "Ships: %1"
-msgstr ""
+msgstr "ხიმალდები: %1"
 
 #: map/mapitems.cc:232
 #, kde-format
 msgctxt "regarding standing orders"
 msgid "Ships due: %1"
-msgstr ""
+msgstr "გასაგზავნი ხომალდები: %1"
 
 #: map/mapitems.cc:235
 #, kde-format
 msgid "Production: %1"
-msgstr ""
+msgstr "წარმოება: %1"
 
 #: map/mapitems.cc:237
 #, kde-format
 msgid "Kill percent: %1"
-msgstr ""
+msgstr "მოკვლის პროცენტულობა: %1"
 
 #: players/ai/becai/becai_gui.cpp:13
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
-msgstr ""
+msgstr "ბეკაი (ბალანსირებული)"
 
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr ""
+msgstr "ნაგულისხმები (დაცვითი)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr ""
+msgstr "ნაგულისხმები (შეტევითი)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr ""
+msgstr "Default (სუსტი)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr ""
+msgstr "მაგალითი (პასიური)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr ""
+msgstr "ადამიანი (მოთამაშე)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr ""
+msgstr "ადამიანი (მაყურებელი)"
 
 #: view/standingswidget.cpp:152
 #, kde-format
@@ -527,6 +529,8 @@ msgid ""
 "Planets\n"
 "Conquered"
 msgstr ""
+"დაპყრობილი\n"
+"პლანეტები"
 
 #: view/standingswidget.cpp:155
 #, kde-format
@@ -534,6 +538,8 @@ msgid ""
 "Fleets\n"
 "Launched"
 msgstr ""
+"გაგზავნილი\n"
+"ფლოტები"
 
 #: view/standingswidget.cpp:156
 #, kde-format
@@ -541,6 +547,8 @@ msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr ""
+"განადგურებული\n"
+"ფლოტები"
 
 #: view/standingswidget.cpp:157
 #, kde-format
@@ -548,6 +556,8 @@ msgid ""
 "Ships\n"
 "Destroyed"
 msgstr ""
+"განადგურებული\n"
+"ხომალდები"
 
 #: view/standingswidget.cpp:158
 #, kde-format
@@ -555,6 +565,8 @@ msgid ""
 "Current\n"
 "Production"
 msgstr ""
+"მიმდინარე\n"
+"წარმოება"
 
 #: view/standingswidget.cpp:159
 #, kde-format
@@ -562,3 +574,5 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+"ფლოტის\n"
+"მიმდინარე ზომა"
