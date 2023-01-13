@@ -51,10 +51,10 @@ void AiDefault::play()
 
     for (Planet *home : m_game->planets()) {
         if (home->player() == this) {
-            bool  hasAttack = false;
             ships = (int)floor(home->ships() * 0.7 );
 
             if (ships >= minimumShips) {
+                bool hasAttack = false;
                 double  minDistance = 100;
 
                 for (Planet *attack : m_game->planets()) {
