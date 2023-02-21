@@ -64,7 +64,7 @@ msgstr "Gemiler"
 #: dialogs/fleetdlg.cc:110
 #, kde-format
 msgid "Kill Percentage"
-msgstr "Yok Etme Yüzdesi"
+msgstr "Öldürme Yüzdesi"
 
 #: dialogs/fleetdlg.cc:111
 #, kde-format
@@ -159,7 +159,7 @@ msgstr "Seçenekler"
 #: dialogs/newGameDialog.ui:234
 #, kde-format
 msgid "Blind map"
-msgstr "Kör harita:"
+msgstr "Kör harita"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
@@ -228,8 +228,8 @@ msgstr "tarafsız"
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] "Takviye kuvvetleri (%1 gemi), %2 gezegeni için ulaştı."
-msgstr[1] "Takviye kuvvetleri (%1 gemi), %2 gezegeni için ulaştı."
+msgstr[0] "Takviye kuvvetleri (%1 gemi), %2 gezegenine ulaştı."
+msgstr[1] "Takviye kuvvetleri (%1 gemi), %2 gezegenine ulaştı."
 
 #: game.cpp:148
 #, kde-format
@@ -244,7 +244,7 @@ msgstr "%2 gezegeni %1 tarafından ele geçirildi."
 #: gameview.cc:107
 #, kde-format
 msgid "End Turn"
-msgstr "Hamle Sonu"
+msgstr "Sırayı Bitir"
 
 #: gameview.cc:290
 #, kde-format
@@ -350,7 +350,7 @@ msgstr "Dmitry Suzdalev"
 #: Konquest.cc:50
 #, kde-format
 msgid "Port to KDE4"
-msgstr "Kde4 Geçişi"
+msgstr "Kde4 aktarımı"
 
 #: Konquest.cc:51
 #, kde-format
@@ -370,7 +370,7 @@ msgstr "Pierre Ducroquet"
 #: Konquest.cc:52
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
-msgstr "Temizleme ve hata düzeltmeler, yürütme"
+msgstr "Temizleme ve hata düzeltmeler, bakım"
 
 #: Konquest.cc:53
 #, kde-format
@@ -424,7 +424,7 @@ msgstr "&Filo Genel Görünümü..."
 #: mainwin.cc:89
 #, kde-format
 msgid "Messages"
-msgstr "İleti"
+msgstr "İletiler"
 
 #: mainwin.cc:95
 #, kde-format
@@ -444,12 +444,12 @@ msgstr "&Puan Durumunu Göster"
 #: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
-msgstr "Sıra # %1"
+msgstr "%1. Sıra"
 
 #: map/mapitems.cc:214
 #, kde-format
 msgid "Planet name: %1"
-msgstr "Gezegen ismi : %1"
+msgstr "Gezegen adı: %1"
 
 #: map/mapitems.cc:219
 #, kde-format
@@ -475,7 +475,7 @@ msgstr "Üretim sayısı: %1"
 #: map/mapitems.cc:237
 #, kde-format
 msgid "Kill percent: %1"
-msgstr "Yok etme yüzdesi: %1"
+msgstr "Öldürme yüzdesi: %1"
 
 #: players/ai/becai/becai_gui.cpp:13
 #, kde-format
@@ -583,6 +583,3 @@ msgid ""
 msgstr ""
 "Geçerli\n"
 "Filo Sayısı"
-
-#~ msgid "Production"
-#~ msgstr "Üretim sayısı"
