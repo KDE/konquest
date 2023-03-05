@@ -323,7 +323,7 @@ msgstr "الغزو"
 #, fuzzy, kde-format
 #| msgid "Galactic Strategy KDE Game"
 msgid "Galactic Strategy Game"
-msgstr "لعبة استراتجية في الكون للكدي"
+msgstr "لعبة استراتجية في الكون للكِيدِي"
 
 #: Konquest.cc:44
 #, fuzzy, kde-format
@@ -353,7 +353,7 @@ msgstr "Dimitry Suzalev"
 #: Konquest.cc:50
 #, kde-format
 msgid "Port to KDE4"
-msgstr "النقل للكدي4"
+msgstr "النقل للكِيدِي4"
 
 #: Konquest.cc:51
 #, kde-format
