@@ -63,8 +63,13 @@ ki18n_wrap_ui(konquest dialogs/newGameDialog.ui)
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-konquest.png")
 ecm_add_app_icon(konquest ICONS ${ICONS_SRCS})
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(konquest KDEGames6)
+else()
+    target_link_libraries(konquest KF5KDEGames)
+endif()
+
 target_link_libraries(konquest
-    KF5KDEGames
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::Crash
     KF${KF_MAJOR_VERSION}::DBusAddons
