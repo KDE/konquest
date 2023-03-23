@@ -1,15 +1,15 @@
+# Translation of konquest.pot into esperanto.
 # Esperantaj mesaĝoj por "konquest"
 # Copyright (C) 1998 Free Software Foundation, Inc.
 # Wolfram Diestel <diestel@rzaix340.rz.uni-leipzig.de>, 1998.
-#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-01 00:42+0000\n"
-"PO-Revision-Date: 2001-05-22 19:57GMT\n"
-"Last-Translator: Wolfram Diestel <wolfram@steloj.de>\n"
+"PO-Revision-Date: 2023-03-22 19:14+01\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -29,15 +29,15 @@ msgid "Your emails"
 msgstr "wolfram@steloj.de"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
-msgstr "Detruitaj flugkaravanoj"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "Fleet No."
-msgstr "Flugkaravano alvenis"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:107
 #, kde-format
@@ -50,14 +50,14 @@ msgid "Destination"
 msgstr "Celo"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ships"
-msgstr "Ŝipoj: "
+msgstr ""
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kill Percentage"
-msgstr "Mortoprocentoj: "
+msgstr ""
 
 #: dialogs/fleetdlg.cc:111
 #, kde-format
@@ -77,9 +77,9 @@ msgstr "Dialogo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: dialogs/newGameDialog.ui:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Players"
-msgstr "Ludantoj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, addPlayerButton)
 #: dialogs/newGameDialog.ui:45
@@ -101,9 +101,9 @@ msgstr "Klavomapo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: dialogs/newGameDialog.ui:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Neutral planets:"
-msgstr "Nombro de neŭtralaj planedoj: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: dialogs/newGameDialog.ui:97
@@ -120,16 +120,15 @@ msgstr "&Alto:"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
-#, fuzzy, kde-format
-#| msgid "Production: "
+#, kde-format
 msgid "Production:"
-msgstr "Produktado: "
+msgstr "Produktado:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kill percentage:"
-msgstr "Mortoprocentoj: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
 #: dialogs/newGameDialog.ui:202
@@ -139,10 +138,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "Posedanto"
+msgstr "Posedanto:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
@@ -158,48 +156,45 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Production: "
+#, kde-format
 msgid "Cumulative production"
-msgstr "Produktado: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, fuzzy, kde-format
-#| msgid "Production: "
+#, kde-format
 msgid "Production after capture"
-msgstr "Produktado: "
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: dialogs/newGameDialog.ui:258
-#, fuzzy, kde-format
+#, kde-format
 msgid "Neutrals"
-msgstr "Nombro de neŭtralaj planedoj: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show ships"
-msgstr "Ŝipoj: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show stats"
-msgstr "&Montru rezulton"
+msgstr ""
 
 #: dialogs/newgamedlg.cc:80
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
-msgstr "Ludantoj"
+msgstr ""
 
 #: dialogs/newgamedlg.cc:125
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "The player name"
 msgid "Name"
-msgstr "Finu ludon"
+msgstr ""
 
 #: dialogs/newgamedlg.cc:126
 #, kde-format
@@ -207,10 +202,10 @@ msgid "Type"
 msgstr "Tipo"
 
 #: dialogs/newgamedlg.cc:315
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
-msgstr "&Komencu ludon"
+msgstr ""
 
 #: dialogs/newgamedlg.cc:386
 #, kde-format
@@ -218,26 +213,26 @@ msgid "vacant"
 msgstr ""
 
 #: dialogs/newgamedlg.cc:389
-#, fuzzy, kde-format
+#, kde-format
 msgid "neutral"
-msgstr "Nombro de neŭtralaj planedoj: %1"
+msgstr ""
 
 #: game.cpp:103
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] "Subteno alvenis por la planedo %1"
-msgstr[1] "Subteno alvenis por la planedo %1"
+msgstr[0] ""
+msgstr[1] ""
 
 #: game.cpp:148
-#, fuzzy, kde-format
+#, kde-format
 msgid "Planet %2 has held against an attack from %1."
-msgstr "Planedo %1 rezistis atakon de %2"
+msgstr ""
 
 #: game.cpp:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Planet %2 has fallen to %1."
-msgstr "Planedo %1 nun apartenas al %2"
+msgstr ""
 
 #: gameview.cc:107
 #, kde-format
@@ -245,14 +240,14 @@ msgid "End Turn"
 msgstr "Finu rondon"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: Select source planet..."
-msgstr ": Elektu deirplanedon..."
+msgstr ""
 
 #: gameview.cc:307
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: Select destination planet..."
-msgstr ": Elektu celplanedon..."
+msgstr ""
 
 #: gameview.cc:318
 #, kde-format
@@ -260,10 +255,9 @@ msgid "Not enough ships to send."
 msgstr "Ne sufiĉe da ŝipoj por sendado."
 
 #: gameview.cc:330
-#, fuzzy, kde-format
-#| msgid ": How many ships?"
+#, kde-format
 msgid "%1: How many ships?"
-msgstr ": Kiom da ŝipoj?"
+msgstr ""
 
 #: gameview.cc:351
 #, kde-format
@@ -300,15 +294,13 @@ msgid "Do you wish to retire this game?"
 msgstr "Ĉu vi volas fini tiun ĉi ludon?"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "Finu ludon"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Fina rezulto"
@@ -319,9 +311,9 @@ msgid "Konquest"
 msgstr "Konkero"
 
 #: Konquest.cc:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "Galakta KDE-ludo"
+msgstr ""
 
 #: Konquest.cc:44
 #, kde-format
@@ -344,10 +336,9 @@ msgid "Computer/AI Player"
 msgstr ""
 
 #: Konquest.cc:50
-#, fuzzy, kde-format
-#| msgid "Dimitry Suzalev"
+#, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dimitry Suzalev"
+msgstr ""
 
 #: Konquest.cc:50
 #, kde-format
@@ -403,26 +394,25 @@ msgid "Main Toolbar"
 msgstr "Ĉefa ilobreto"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
-msgstr "GNUlakta Konkero"
+msgstr ""
 
 #: mainwin.cc:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Galactic Conquest"
-msgstr "GNUlakta Konkero"
+msgstr ""
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
-msgstr "&Mezuru distancon"
+msgstr "&Mezuri distancon..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "Detruitaj flugkaravanoj"
+msgstr ""
 
 #: mainwin.cc:89
 #, kde-format
@@ -435,26 +425,24 @@ msgid "Show &Messages"
 msgstr ""
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgid "Standings"
-msgstr "Fina rezulto"
+msgstr ""
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show &Standings"
-msgstr "&Montru rezulton"
+msgstr "Montri re&zultojn"
 
 #: mainwin.cc:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "Turn # %1"
-msgstr "Rondo #: %1 el %2"
+msgstr ""
 
 #: map/mapitems.cc:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "Planet name: %1"
-msgstr "Planedonomo: %1"
+msgstr ""
 
 #: map/mapitems.cc:219
 #, kde-format
@@ -467,11 +455,10 @@ msgid "Ships: %1"
 msgstr "Ŝipoj: %1"
 
 #: map/mapitems.cc:232
-#, fuzzy, kde-format
-#| msgid "Ships: %1"
+#, kde-format
 msgctxt "regarding standing orders"
 msgid "Ships due: %1"
-msgstr "Ŝipoj: %1"
+msgstr ""
 
 #: map/mapitems.cc:235
 #, kde-format
@@ -479,9 +466,9 @@ msgid "Production: %1"
 msgstr "Produktado: %1"
 
 #: map/mapitems.cc:237
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kill percent: %1"
-msgstr "Mortoprocentoj: %1"
+msgstr ""
 
 #: players/ai/becai/becai_gui.cpp:13
 #, kde-format
@@ -510,10 +497,10 @@ msgid "Example (Passive)"
 msgstr ""
 
 #: players/localplayer_gui.cpp:13
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr "Ludantoj"
+msgstr ""
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
@@ -528,39 +515,39 @@ msgid "Player"
 msgstr "Ludanto"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Ships\n"
 "Built"
-msgstr "Konstruitaj ŝipoj"
+msgstr ""
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Planets\n"
 "Conquered"
-msgstr "Konkeritaj planedoj"
+msgstr ""
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Fleets\n"
 "Launched"
-msgstr "Startitaj flugkaravanoj"
+msgstr ""
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Fleets\n"
 "Destroyed"
-msgstr "Detruitaj flugkaravanoj"
+msgstr ""
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Ships\n"
 "Destroyed"
-msgstr "Detruitaj ŝipoj"
+msgstr ""
 
 #: view/standingswidget.cpp:158
 #, kde-format
@@ -575,72 +562,3 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Production: "
-#~ msgid "Production"
-#~ msgstr "Produktado: "
-
-#, fuzzy
-#~ msgid "Current Standings"
-#~ msgstr "Fina rezulto"
-
-#~ msgid "The once mighty empire of %1 has fallen in ruins."
-#~ msgstr "La iame potenca imperio de %1 pereis en ruinoj."
-
-#~ msgid "The fallen empire of %1 has staggered back to life."
-#~ msgstr "La pereinta imperio de %1 ŝanceliĝis re al vivo."
-
-#~ msgid "Game Over"
-#~ msgstr "Ludo finita"
-
-#, fuzzy
-#~ msgid "&Reject"
-#~ msgstr "Alia &mapo"
-
-#, fuzzy
-#~ msgid "Player list:"
-#~ msgstr "&Ludantolisto"
-
-#, fuzzy
-#~ msgid "&Human player:"
-#~ msgstr "Ludantoj"
-
-#, fuzzy
-#~ msgid "Preview map:"
-#~ msgstr "Mapo"
-
-#, fuzzy
-#~ msgid ""
-#~ "This is the last turn.\n"
-#~ "Do you wish to add extra turns?"
-#~ msgstr ""
-#~ "Tio estas la lasta rondo.\n"
-#~ "Ĉu vi volas aldoni pliajn rondojn?"
-
-#, fuzzy
-#~ msgid "&Add Turns"
-#~ msgstr "Aldonu %1 rondojn"
-
-#, fuzzy
-#~ msgid "Extra turns: %1"
-#~ msgstr "Nombro de rondoj: %1"
-
-#, fuzzy
-#~ msgid "Number of &players: %1"
-#~ msgstr "Nombro de rondoj: %1"
-
-#, fuzzy
-#~ msgid "Number of &turns: %1"
-#~ msgstr "Nombro de rondoj: %1"
-
-#, fuzzy
-#~ msgid "Planet name: "
-#~ msgstr "Planedonomo: "
-
-#~ msgid "Ships: "
-#~ msgstr "Ŝipoj: "
-
-#, fuzzy
-#~ msgid "Kill percent: "
-#~ msgstr "Mortoprocentoj: "
