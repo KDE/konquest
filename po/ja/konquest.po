@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -233,8 +233,7 @@ msgstr "中立"
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] "援軍 (艦数 1) は惑星 %2 に到着しました。"
-msgstr[1] "援軍 (艦数 %1) は惑星 %2 に到着しました。"
+msgstr[0] "援軍 (艦数 %1) は惑星 %2 に到着しました。"
 
 #: game.cpp:148
 #, kde-format
