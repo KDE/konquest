@@ -182,13 +182,13 @@ msgstr "Neutrais"
 #: dialogs/newGameDialog.ui:273
 #, kde-format
 msgid "Show ships"
-msgstr "Mostrar as naves"
+msgstr "Amosar as naves"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
 #, kde-format
 msgid "Show stats"
-msgstr "Mostrar as estatísticas"
+msgstr "Amosar as estatísticas"
 
 #: dialogs/newgamedlg.cc:80
 #, kde-format
@@ -428,7 +428,7 @@ msgstr "Mensaxes"
 #: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
-msgstr "Mostrar as &mensaxes"
+msgstr "Amosar as &mensaxes"
 
 #: mainwin.cc:114
 #, kde-format
@@ -438,7 +438,7 @@ msgstr "Situación"
 #: mainwin.cc:121
 #, kde-format
 msgid "Show &Standings"
-msgstr "Mostrar o &estado"
+msgstr "Amosar o &estado"
 
 #: mainwin.cc:215
 #, kde-format
