@@ -729,3 +729,5 @@ GameView::showFleets()
     }
     fleetDlg->deleteLater();
 }
+
+#include "moc_gameview.cpp"

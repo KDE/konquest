@@ -193,3 +193,5 @@ void Game::findWinner()
         Q_EMIT finished();
     }
 }
+
+#include "moc_game.cpp"

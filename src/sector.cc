@@ -69,3 +69,5 @@ Sector::operator=( const Sector &other )
 
     return *this;
 }
+
+#include "moc_sector.cpp"

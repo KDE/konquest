@@ -76,3 +76,5 @@ DefenseFleet::addShips( long long newShips )
         m_shipCount = 0;
 }
 
+
+#include "moc_fleet.cpp"

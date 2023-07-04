@@ -269,3 +269,5 @@ void PlanetInfoItem::paint(QPainter *p,
     m_textDoc.documentLayout()->draw(p, ctx);
     p->restore();
 }
+
+#include "moc_mapitems.cpp"

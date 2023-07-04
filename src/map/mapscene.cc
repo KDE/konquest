@@ -240,3 +240,5 @@ MapScene::itemsVerticalOffset()
 {
     return (m_height - map()->rows() * getSectorSize()) / 2;
 }
+
+#include "moc_mapscene.cpp"

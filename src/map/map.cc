@@ -240,3 +240,5 @@ Map::planets() const
     }
     return planets;
 }
+
+#include "moc_map.cpp"

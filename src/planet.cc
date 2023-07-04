@@ -97,3 +97,5 @@ Planet::turn(const GameOptions &options)
     m_justconquered = false;
     Q_EMIT update();
 }
+
+#include "moc_planet.cpp"

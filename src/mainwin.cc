@@ -228,3 +228,5 @@ MainWindow::updateStandingsActionSlot()
 {
     m_standingsAction->setChecked(m_standingsDock->toggleViewAction()->isChecked());
 }
+
+#include "moc_mainwin.cpp"

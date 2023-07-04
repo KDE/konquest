@@ -140,3 +140,5 @@ void Player::deleteStandingOrders(Planet *planet)
             ++a;
     }
 }
+
+#include "moc_player.cpp"

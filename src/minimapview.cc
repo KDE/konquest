@@ -121,3 +121,5 @@ MiniMapView::paintEvent(QPaintEvent * /*event*/)
         }
     }
 }
+
+#include "moc_minimapview.cpp"

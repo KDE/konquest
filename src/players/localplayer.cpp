@@ -29,3 +29,5 @@ void LocalPlayer::done()
     //qDebug() << name() << "::done";
     Q_EMIT donePlaying();
 }
+
+#include "moc_localplayer.cpp"
