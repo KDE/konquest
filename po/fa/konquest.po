@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -229,10 +229,11 @@ msgid "neutral"
 msgstr "سیاره‌های &بی‌طرف‌:"
 
 #: game.cpp:103
-#, kde-format
+#, fuzzy, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
 msgstr[0] "نیروهای کمکی )%1 سفینه فضایی( برای سیاره %2 رسیدند."
+msgstr[1] ""
 
 #: game.cpp:148
 #, kde-format
