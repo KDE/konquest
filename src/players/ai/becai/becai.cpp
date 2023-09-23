@@ -430,11 +430,7 @@ AiBecai::play()
         // Process the first few possible targets from the target list. As this
         // is a priority list, only consider the first few ones and do not
         // process possible targets with low priority (high score).
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        QMapIterator<double, TargetPlanet> targetListIt(targetList);
-#else
         QMultiMapIterator<double, TargetPlanet> targetListIt(targetList);
-#endif
         int skipCount = 3;
 
         while (targetListIt.hasNext() && (skipCount > 0)) {

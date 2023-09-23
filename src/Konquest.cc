@@ -8,34 +8,22 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "mainwin.h"
+#include "konquest_version.h"
 
 #include <KAboutData>
 #include <KCrash>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 #include <KDBusService>
 #include <KLocalizedString>
 
 #include <QApplication>
 #include <QCommandLineParser>
-#include "mainwin.h"
-#include "konquest_version.h"
 
 int
 main(int argc, char **argv)
 {
-    // Fixes blurry icons with fractional scaling
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("konquest"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("konquestrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("konquestui.rc"));
-    migrate.migrate();
-#endif
+
     KLocalizedString::setApplicationDomain("konquest");
     KAboutData aboutData( QStringLiteral("konquest"), i18n("Konquest"),
         QStringLiteral(KONQUEST_VERSION_STRING),

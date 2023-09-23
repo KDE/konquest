@@ -63,14 +63,9 @@ MiniMapView::mousePressEvent(QMouseEvent *event)
     float sectorSize, woffset, hoffset;
     CalculateOffsets(sectorSize, woffset, hoffset);
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     const QPoint mousePos = event->position().toPoint();
     m_selection = Coordinate((mousePos.x() - woffset) / sectorSize,
                              (mousePos.y() - hoffset) / sectorSize);
-#else
-    m_selection = Coordinate((event->x() - woffset) / sectorSize,
-                             (event->y() - hoffset) / sectorSize);
-#endif
 
     const Sector *sector = m_map->sector(m_selection);
     if (sector && !sector->hasPlanet())
