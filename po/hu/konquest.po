@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2014-01-20 22:42+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -316,73 +316,73 @@ msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Végeredmény"
 
-#: Konquest.cc:40
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "Hódító"
 
-#: Konquest.cc:42
+#: Konquest.cc:30
 #, fuzzy, kde-format
 #| msgid "Galactic Strategy KDE Game"
 msgid "Galactic Strategy Game"
 msgstr "Háború a galaxisban - KDE-alapú stratégiai játék"
 
-#: Konquest.cc:44
+#: Konquest.cc:32
 #, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr "Copyright © A program fejlesztői, 1999-2013."
 
-#: Konquest.cc:48
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr "Russ Steffen"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr "Stephan Zehetner"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr "Gépi játékos"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr "KDE4-es átirat"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr "Kódtisztítás, hibajavítások"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr "Pierre Ducroquet"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "Kódtisztítás és hibajavítások, karbantartás"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr "Játékmenet fejlesztések"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr "Sean D'Epagnier"

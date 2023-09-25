@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -311,73 +311,73 @@ msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Finale Stand"
 
-#: Konquest.cc:40
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "Konquest"
 
-#: Konquest.cc:42
+#: Konquest.cc:30
 #, fuzzy, kde-format
 #| msgid "Galactic Strategy KDE Game"
 msgid "Galactic Strategy Game"
 msgstr "Galaktiese Strategie Kde Speletjie"
 
-#: Konquest.cc:44
+#: Konquest.cc:32
 #, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr ""
 
-#: Konquest.cc:48
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr ""
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr ""
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr ""
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr ""
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr ""
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr ""
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr ""
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr ""
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr ""
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr ""
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr ""

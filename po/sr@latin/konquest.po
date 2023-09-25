@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-12 03:23+0200\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2013-12-29 10:14+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -35,50 +35,52 @@ msgstr ""
 "m.puzovic@etoncollege.org.uk,twiddle@eunet.yu,caslav.ilic@gmx.net,"
 "slsimic@gmail.com"
 
-#: dialogs/fleetdlg.cc:45
-#, kde-format
+#: dialogs/fleetdlg.cc:33
+#, fuzzy, kde-format
+#| msgid "Fleet Overview"
+msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Pregled flote"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:118
+#: dialogs/fleetdlg.cc:106
 #, kde-format
 msgid "Fleet No."
 msgstr "br. flote"
 
 # >> @title:column
 # skip-rule: t-source, t-source2
-#: dialogs/fleetdlg.cc:119
+#: dialogs/fleetdlg.cc:107
 #, kde-format
 msgid "Source"
 msgstr "ishodište"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:120
+#: dialogs/fleetdlg.cc:108
 #, kde-format
 msgid "Destination"
 msgstr "odredište"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:121
+#: dialogs/fleetdlg.cc:109
 #, kde-format
 msgid "Ships"
 msgstr "brodovi"
 
 # >> @title:column Measure of effectiveness in combat
-#: dialogs/fleetdlg.cc:122
+#: dialogs/fleetdlg.cc:110
 #, kde-format
 msgid "Kill Percentage"
 msgstr "pobedonosnost"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:123
+#: dialogs/fleetdlg.cc:111
 #, kde-format
 msgid "Arrival Turn"
 msgstr "potez dolaska"
 
 # >> @option:check
-#: dialogs/fleetdlg.cc:148 gameview.cc:132
+#: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
 msgid "Standing order"
 msgstr "Trajno naređenje"
@@ -132,7 +134,8 @@ msgid "&Height:"
 msgstr "&Visina:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: dialogs/newGameDialog.ui:153
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
 #, kde-format
 msgid "Production:"
 msgstr "Proizvodnja:"
@@ -140,8 +143,9 @@ msgstr "Proizvodnja:"
 # >> Measure of effectiveness in combat
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, kde-format
-msgid "Kill Percentage:"
+#, fuzzy, kde-format
+#| msgid "Kill Percentage:"
+msgid "Kill percentage:"
 msgstr "Pobedonosnost:"
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
@@ -152,8 +156,9 @@ msgstr "&Nasumično"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, kde-format
-msgid "Owner"
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgid "Owner:"
 msgstr "Vlasnik"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -164,20 +169,23 @@ msgstr "Opcije"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
-#, kde-format
-msgid "Blind Map"
+#, fuzzy, kde-format
+#| msgid "Blind Map"
+msgid "Blind map"
 msgstr "Slepa mapa"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, kde-format
-msgid "Cumulative Production"
+#, fuzzy, kde-format
+#| msgid "Cumulative Production"
+msgid "Cumulative production"
 msgstr "Kumulativna proizvodnja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, kde-format
-msgid "Production After Capture"
+#, fuzzy, kde-format
+#| msgid "Production After Capture"
+msgid "Production after capture"
 msgstr "Proizvodnja po zarobljavanju"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
@@ -188,60 +196,58 @@ msgstr "Neutralni"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, kde-format
-msgid "Show Ships"
+#, fuzzy, kde-format
+#| msgid "Show Ships"
+msgid "Show ships"
 msgstr "Prikaži brodove"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, kde-format
-msgid "Show Stats"
+#, fuzzy, kde-format
+#| msgid "Show Stats"
+msgid "Show stats"
 msgstr "Prikaži statistiku"
 
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: dialogs/newGameDialog.ui:287
-#, kde-format
-msgid "Production"
-msgstr "Proizvodnja"
-
-#: dialogs/newgamedlg.cc:91
+#: dialogs/newgamedlg.cc:80
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Igrač %1"
 
 # >> @title:column +
-#: dialogs/newgamedlg.cc:136
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "ime"
 
 # >> @title:column Player type
-#: dialogs/newgamedlg.cc:137
+#: dialogs/newgamedlg.cc:126
 #, kde-format
 msgid "Type"
 msgstr "vrsta"
 
 # >> @title:window
-#: dialogs/newgamedlg.cc:326
-#, kde-format
+#: dialogs/newgamedlg.cc:315
+#, fuzzy, kde-format
+#| msgid "Start New Game"
+msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Započinjanje nove igre"
 
 # >> @item vacant planet
-#: dialogs/newgamedlg.cc:397
+#: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
 msgstr "prazna"
 
 # >> @item neutral planet
-#: dialogs/newgamedlg.cc:400
+#: dialogs/newgamedlg.cc:389
 #, kde-format
 msgid "neutral"
 msgstr "neutralna"
 
-#: game.cpp:116
+#: game.cpp:103
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
@@ -250,48 +256,48 @@ msgstr[1] "Stiže pojačanje (%1 broda) za planetu %2."
 msgstr[2] "Stiže pojačanje (%1 brodova) za planetu %2."
 msgstr[3] "Stiže pojačanje (%1 brod) za planetu %2."
 
-#: game.cpp:161
+#: game.cpp:148
 #, kde-format
 msgid "Planet %2 has held against an attack from %1."
 msgstr "Planeta %2 je izdržala napad od %1."
 
-#: game.cpp:169
+#: game.cpp:156
 #, kde-format
 msgid "Planet %2 has fallen to %1."
 msgstr "Planeta %2 je pala u ruke %1."
 
-#: gameview.cc:119
+#: gameview.cc:107
 #, kde-format
 msgid "End Turn"
 msgstr "Kraj poteza"
 
 # rewrite-msgid: /source/start/
-#: gameview.cc:302
+#: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet..."
 msgstr "%1: Izaberite polaznu planetu..."
 
-#: gameview.cc:319
+#: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet..."
 msgstr "%1: Izaberite odredišnu planetu..."
 
-#: gameview.cc:330
+#: gameview.cc:318
 #, kde-format
 msgid "Not enough ships to send."
 msgstr "Nema dovoljno brodova za slanje."
 
-#: gameview.cc:342
+#: gameview.cc:330
 #, kde-format
 msgid "%1: How many ships?"
 msgstr "%1: Koliko brodova?"
 
-#: gameview.cc:363
+#: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
 msgstr "Lenjir: Izaberite polaznu planetu."
 
-#: gameview.cc:377
+#: gameview.cc:365
 #, kde-format
 msgid ""
 "The distance from Planet %1 to Planet %2 is %3 light years.\n"
@@ -300,102 +306,107 @@ msgstr ""
 "Rastojanje od planete %1 do planete %2 je %3 svetlosnih godina.\n"
 "Brod koji krene u ovom potezu stići će u potezu %4."
 
-#: gameview.cc:383
+#: gameview.cc:371
 #, kde-format
 msgid "Distance"
 msgstr "Rastojanje"
 
-#: gameview.cc:388
+#: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
 msgstr "Lenjir: Izaberite odredišnu planetu."
 
-#: gameview.cc:438
+#: gameview.cc:426
 #, kde-format
 msgid "Turn %1:"
 msgstr "Potez %1:"
 
-#: gameview.cc:535
+#: gameview.cc:523
 #, kde-format
 msgid "Do you wish to retire this game?"
 msgstr "Želite li da se povučete iz igre?"
 
-#: gameview.cc:536
-#, kde-format
+#: gameview.cc:524
+#, fuzzy, kde-format
+#| msgid "End Game"
+msgctxt "@title:window"
 msgid "End Game"
 msgstr "Kraj igre"
 
-#: gameview.cc:564
-#, kde-format
+#: gameview.cc:552
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Konačne pozicije"
 
-#: Konquest.cc:34
-#, kde-format
-msgid "Galactic Strategy KDE Game"
-msgstr "Galaktička strateška igra za KDE"
-
-#: Konquest.cc:49
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "K‑osvajanje"
 
-#: Konquest.cc:51
+#: Konquest.cc:30
+#, fuzzy, kde-format
+#| msgid "Galactic Strategy KDE Game"
+msgid "Galactic Strategy Game"
+msgstr "Galaktička strateška igra za KDE"
+
+#: Konquest.cc:32
 #, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr "© 1999–2013, programeri"
 
-#: Konquest.cc:53
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr "Ras Stefen"
 
-#: Konquest.cc:54
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr "Štefan Ceetner"
 
-#: Konquest.cc:54
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr "računarski igrač (VI)"
 
-#: Konquest.cc:55
+#: Konquest.cc:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitrij Suzdaljev"
 
-#: Konquest.cc:55
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr "prenos na KDE4"
 
-#: Konquest.cc:56
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Valin"
 
-#: Konquest.cc:56
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr "čišćenje i sređivanje grešaka"
 
-#: Konquest.cc:57
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr "Pjer Dikroke"
 
-#: Konquest.cc:57
+#: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "čišćenje i sređivanje grešaka, održavanje"
 
-#: Konquest.cc:58
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr "Šon Depanjer"
 
-#: Konquest.cc:58
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr "poboljšanja izvođenja"
@@ -418,125 +429,134 @@ msgstr "&Prikaz"
 msgid "Main Toolbar"
 msgstr "Glavna traka"
 
-#: mainwin.cc:45 mainwin.cc:52
+#: mainwin.cc:33
+#, fuzzy, kde-format
+#| msgid "Galactic Conquest"
+msgctxt "@title:window"
+msgid "Galactic Conquest"
+msgstr "Galaktičko osvajanje"
+
+#: mainwin.cc:40
 #, kde-format
 msgid "Galactic Conquest"
 msgstr "Galaktičko osvajanje"
 
-#: mainwin.cc:86
-#, kde-format
-msgid "&Measure Distance"
+#: mainwin.cc:74
+#, fuzzy, kde-format
+#| msgid "&Measure Distance"
+msgid "&Measure Distance..."
 msgstr "&Izmeri rastojanje"
 
-#: mainwin.cc:92
-#, kde-format
-msgid "&Fleet Overview"
+#: mainwin.cc:80
+#, fuzzy, kde-format
+#| msgid "&Fleet Overview"
+msgid "&Fleet Overview..."
 msgstr "Pregled &flote"
 
-#: mainwin.cc:101
+#: mainwin.cc:89
 #, kde-format
 msgid "Messages"
 msgstr "Poruke"
 
-#: mainwin.cc:107
+#: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
 msgstr "Prikaži &poruke"
 
-#: mainwin.cc:126
+#: mainwin.cc:114
 #, kde-format
 msgid "Standings"
 msgstr "Pozicije"
 
-#: mainwin.cc:133
+#: mainwin.cc:121
 #, kde-format
 msgid "Show &Standings"
 msgstr "Prikaži &pozicije"
 
 # >> @info:status
-#: mainwin.cc:227
+#: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
 msgstr "potez #%1"
 
-#: map/mapitems.cc:225
+#: map/mapitems.cc:214
 #, kde-format
 msgid "Planet name: %1"
 msgstr "Ime planete: %1"
 
-#: map/mapitems.cc:230
+#: map/mapitems.cc:219
 #, kde-format
 msgid "Owner: %1"
 msgstr "Vlasnik: %1"
 
-#: map/mapitems.cc:233
+#: map/mapitems.cc:222
 #, kde-format
 msgid "Ships: %1"
 msgstr "Brodova: %1"
 
-#: map/mapitems.cc:243
+#: map/mapitems.cc:232
 #, kde-format
 msgctxt "regarding standing orders"
 msgid "Ships due: %1"
 msgstr "Očekivanih brodova: %1"
 
-#: map/mapitems.cc:246
+#: map/mapitems.cc:235
 #, kde-format
 msgid "Production: %1"
 msgstr "Proizvodnja: %1"
 
-#: map/mapitems.cc:248
+#: map/mapitems.cc:237
 #, kde-format
 msgid "Kill percent: %1"
 msgstr "Pobedonosnost: %1"
 
 # well-spelled: Бекаи
-#: players/ai/becai/becai_gui.cpp:25
+#: players/ai/becai/becai_gui.cpp:13
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
 msgstr "Bekai (balansirano)"
 
-#: players/ai/default/hard_gui.cpp:25
+#: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
 msgstr "Podrazumevano (defanzivno)"
 
-#: players/ai/default/normal_gui.cpp:25
+#: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
 msgstr "Podrazumevano (ofanzivno)"
 
-#: players/ai/default/weak_gui.cpp:25
+#: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
 msgstr "Podrazumevano (slabo)"
 
-#: players/ai/example/example_gui.cpp:27
+#: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
 msgstr "Primer (pasivno)"
 
-#: players/localplayer_gui.cpp:25
+#: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
 msgstr "Čovek (igrač)"
 
-#: players/spectatorplayer_gui.cpp:25
+#: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr "Čovek (posmatrač)"
 
-#: view/standingswidget.cpp:164
+#: view/standingswidget.cpp:152
 #, kde-format
 msgctxt "The player name"
 msgid "Player"
 msgstr "Igrač"
 
 # >> @title:column
-#: view/standingswidget.cpp:165
+#: view/standingswidget.cpp:153
 #, kde-format
 msgid ""
 "Ships\n"
@@ -546,7 +566,7 @@ msgstr ""
 "brodova"
 
 # >> @title:column
-#: view/standingswidget.cpp:166
+#: view/standingswidget.cpp:154
 #, kde-format
 msgid ""
 "Planets\n"
@@ -556,7 +576,7 @@ msgstr ""
 "planeta"
 
 # >> @title:column
-#: view/standingswidget.cpp:167
+#: view/standingswidget.cpp:155
 #, kde-format
 msgid ""
 "Fleets\n"
@@ -566,7 +586,7 @@ msgstr ""
 "flota"
 
 # >> @title:column
-#: view/standingswidget.cpp:168
+#: view/standingswidget.cpp:156
 #, kde-format
 msgid ""
 "Fleets\n"
@@ -576,7 +596,7 @@ msgstr ""
 "flota"
 
 # >> @title:column
-#: view/standingswidget.cpp:169
+#: view/standingswidget.cpp:157
 #, kde-format
 msgid ""
 "Ships\n"
@@ -585,7 +605,7 @@ msgstr ""
 "uništenih\n"
 "brodova"
 
-#: view/standingswidget.cpp:170
+#: view/standingswidget.cpp:158
 #, kde-format
 msgid ""
 "Current\n"
@@ -594,7 +614,7 @@ msgstr ""
 "Trenutna\n"
 "proizvodnja"
 
-#: view/standingswidget.cpp:171
+#: view/standingswidget.cpp:159
 #, kde-format
 msgid ""
 "Current\n"
@@ -602,3 +622,6 @@ msgid ""
 msgstr ""
 "Trenutna\n"
 "veličina flote"
+
+#~ msgid "Production"
+#~ msgstr "Proizvodnja"

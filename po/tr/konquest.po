@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2022-04-14 13:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -312,72 +312,72 @@ msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Son Durum"
 
-#: Konquest.cc:40
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "Konquest"
 
-#: Konquest.cc:42
+#: Konquest.cc:30
 #, kde-format
 msgid "Galactic Strategy Game"
 msgstr "Galaktik Strateji Oyunu"
 
-#: Konquest.cc:44
+#: Konquest.cc:32
 #, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr "Telif Hakkı (c) 1999-2013, Geliştiriciler"
 
-#: Konquest.cc:48
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr "Russ Steffen"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr "Stephan Zehetner"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr "Bilgisayar/YZ Oyuncusu"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr "Kde4 aktarımı"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr "Temizleme ve hata düzeltmeler"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr "Pierre Ducroquet"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "Temizleme ve hata düzeltmeler, bakım"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr "Sean D'Epagnier"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr "Oynanış İyileştirmeleri"

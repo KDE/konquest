@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2009-10-25 07:48+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -319,74 +319,74 @@ msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "​រយះ​ពេល​ចុង​ក្រោយ​"
 
-#: Konquest.cc:40
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "Konquest"
 
-#: Konquest.cc:42
+#: Konquest.cc:30
 #, fuzzy, kde-format
 #| msgid "Galactic Strategy KDE Game"
 msgid "Galactic Strategy Game"
 msgstr "ល្បែង​យុទ្ធសាស្ត្រ​កាឡាក់ស៊ីរបស់​ KDE"
 
-#: Konquest.cc:44
+#: Konquest.cc:32
 #, fuzzy, kde-format
 #| msgid "Copyright (c) 1999-2011, Developers"
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ១៩៩៩-២០១១ ដោយ​អ្នក​អភិវឌ្ឍន៍"
 
-#: Konquest.cc:48
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr "Russ Steffen"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr "Stephan Zehetner"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr "កុំព្យូទ័រ/អ្នកលេង AI​"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dimitry Suzalev"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr "ច្រក​សម្រាប់​ KDE4"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr "Inge Wallin"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr "សម្អាត និង​កែ​កំហុស"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr "Pierre Ducroquet"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "សម្អាត កែ​កំហុស និង​ថែទាំ"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr "Sean D'Epagnier"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr "ការ​ធ្វើ​ឲ្យ​ការ​លេង​ល្បែង​កាន់​តែ​ប្រសើរ​ឡើង"

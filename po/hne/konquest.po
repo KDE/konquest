@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-01 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2009-02-26 10:55+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -322,76 +322,76 @@ msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "फाइनल स्टैंडिंग्स"
 
-#: Konquest.cc:40
+#: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
 msgstr "कान्क्वेस्ट"
 
-#: Konquest.cc:42
+#: Konquest.cc:30
 #, fuzzy, kde-format
 #| msgid "Galactic Strategy KDE Game"
 msgid "Galactic Strategy Game"
 msgstr "गेलेक्टिक कौसल केडीई खेल"
 
-#: Konquest.cc:44
+#: Konquest.cc:32
 #, fuzzy, kde-format
 #| msgid "Copyright (c) 1999-2006, Developers"
 msgid "Copyright (c) 1999-2013, Developers"
 msgstr "कापीराइट (c) 1999-2006, बनइया मन"
 
-#: Konquest.cc:48
+#: Konquest.cc:36
 #, kde-format
 msgid "Russ Steffen"
 msgstr "रस स्टीफन"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Stephan Zehetner"
 msgstr "स्टीफन जेहेन्टर"
 
-#: Konquest.cc:49
+#: Konquest.cc:37
 #, kde-format
 msgid "Computer/AI Player"
 msgstr "कम्प्यूटर/एआई खिलाड़ी"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, fuzzy, kde-format
 #| msgid "Dimitry Suzalev"
 msgid "Dmitry Suzdalev"
 msgstr "दिमित्रि सुजालेव"
 
-#: Konquest.cc:50
+#: Konquest.cc:38
 #, kde-format
 msgid "Port to KDE4"
 msgstr "केडीई४ बर पोर्ट"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Inge Wallin"
 msgstr "इंग वालिन"
 
-#: Konquest.cc:51
+#: Konquest.cc:39
 #, kde-format
 msgid "Cleaning and bugfixing"
 msgstr "कोड साफ करना अउ बगफिक्स करना"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, kde-format
 msgid "Pierre Ducroquet"
 msgstr "पियरे दुक्रोक्वेत"
 
-#: Konquest.cc:52
+#: Konquest.cc:40
 #, fuzzy, kde-format
 #| msgid "Cleaning and bugfixing"
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "कोड साफ करना अउ बगफिक्स करना"
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Sean D'Epagnier"
 msgstr ""
 
-#: Konquest.cc:53
+#: Konquest.cc:41
 #, kde-format
 msgid "Gameplay Enhancements"
 msgstr ""
