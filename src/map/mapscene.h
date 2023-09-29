@@ -113,7 +113,7 @@ private:
         KImageCache     *m_imageCache;
         PlanetItem      *m_selectedPlanetItem;
         PlanetInfoItem  *m_planetInfoItem;
-        QVector<PlanetItem*> m_planetItems;
+        QList<PlanetItem*> m_planetItems;
 
         qreal m_width;
         qreal m_height;
