@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2021-08-14 13:31+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -185,35 +185,35 @@ msgstr "Show ships"
 msgid "Show stats"
 msgstr "Show stats"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Player %1"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "Name"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr "Type"
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Start New Game"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr "vacant"
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, kde-format
 msgid "neutral"
 msgstr "neutral"

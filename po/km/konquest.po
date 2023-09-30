@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2009-10-25 07:48+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -194,36 +194,36 @@ msgstr "បង្ហាញ​នាវា"
 msgid "Show stats"
 msgstr "បង្ហាញ​ស្ថានភាព"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "អ្នក​លេង %1"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr "ប្រភេទ"
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, fuzzy, kde-format
 #| msgid "Start New Game"
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "ចាប់​ផ្ដើម​ល្បែង​ថ្មី"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr "ទំនេរ"
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, kde-format
 msgid "neutral"
 msgstr "អព្យាក្រឹត​ ៖"

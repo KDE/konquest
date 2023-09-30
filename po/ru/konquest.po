@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2022-02-25 16:53+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -196,35 +196,35 @@ msgstr "Показывать количество кораблей"
 msgid "Show stats"
 msgstr "Показывать статистику"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Игрок %1"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "Имя"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr "Тип"
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Начать игру"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr "отсутствует"
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, kde-format
 msgid "neutral"
 msgstr "нейтральная"

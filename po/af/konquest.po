@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -187,35 +187,35 @@ msgstr "Skepe: "
 msgid "Show stats"
 msgstr "Vertoon Stand"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, fuzzy, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Speler"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, fuzzy, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "Einde Speletjie"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Begin Speletjie"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, fuzzy, kde-format
 msgid "neutral"
 msgstr "Nommer van nutrale planete: %1"

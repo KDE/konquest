@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2004-11-22 03:30-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -190,37 +190,37 @@ msgstr "கப்பல்கள்"
 msgid "Show stats"
 msgstr "நிலையைக் காட்டவும்"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, fuzzy, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "விளையாடுபவர்"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "The player name"
 msgid "Name"
 msgstr "பெயர்"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, fuzzy, kde-format
 #| msgid "Start New Game"
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "புதிய விளையாட்டை ஆரம்பிக்கவும்"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, fuzzy, kde-format
 msgid "neutral"
 msgstr "நடுநிலையான கிரகங்களின் எண்ணிக்கை:%1"

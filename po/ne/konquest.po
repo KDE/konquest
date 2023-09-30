@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-09-30 01:41+0000\n"
 "PO-Revision-Date: 2007-08-20 12:19+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -192,38 +192,38 @@ msgstr "जहाज"
 msgid "Show stats"
 msgstr "अस्तित्व देखाउनुहोस्"
 
-#: dialogs/newgamedlg.cc:80
+#: dialogs/newgamedlg.cc:79
 #, fuzzy, kde-format
 #| msgid "Player %1"
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "खेलाडी %1"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:124
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "The player name"
 msgid "Name"
 msgstr "नाम"
 
-#: dialogs/newgamedlg.cc:126
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgid "Type"
 msgstr "प्रकार"
 
-#: dialogs/newgamedlg.cc:315
+#: dialogs/newgamedlg.cc:314
 #, fuzzy, kde-format
 #| msgid "Start New Game"
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "नयाँ खेल सुरु गर्नुहोस्"
 
-#: dialogs/newgamedlg.cc:386
+#: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:389
+#: dialogs/newgamedlg.cc:388
 #, fuzzy, kde-format
 #| msgid "&Neutral Planets:"
 msgid "neutral"
