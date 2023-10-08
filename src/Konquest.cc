@@ -41,6 +41,7 @@ main(int argc, char **argv)
     aboutData.addCredit(i18n("Sean D'Epagnier"), i18n("Gameplay Enhancements"), QStringLiteral("geckosenator@gmail.com"));
 
     KAboutData::setApplicationData(aboutData);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("konquest")));
 
     KCrash::initialize();
 
@@ -57,6 +58,6 @@ main(int argc, char **argv)
         MainWindow *w = new MainWindow;
         w->show();
     }
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("konquest")));
+
     return app.exec();
 }
