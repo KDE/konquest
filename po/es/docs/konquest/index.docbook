@@ -485,12 +485,12 @@
 ><guimenu
 >Preferencias</guimenu
 > <guimenuitem
->Configurar los accesos rápidos...</guimenuitem
+>Configurar los atajos de teclado...</guimenuitem
 ></menuchoice
 >  </para>
   <para
 >Para más información lea la sección <ulink url="help:/fundamentals/config.html#shortcuts"
->Modificar los accesos rápidos</ulink
+>Modificar los atajos de teclado</ulink
 > del manual Fundamentos de &kde;. </para>
 </tip>
 </chapter>
