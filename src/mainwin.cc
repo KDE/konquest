@@ -18,7 +18,7 @@
 #include <QStatusBar>
 
 #include <KActionCollection>
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 #include <KLocalizedString>
 #include <KToolBar>
 
@@ -57,14 +57,14 @@ MainWindow::sizeHint() const
 void
 MainWindow::setupActions()
 {
-    KStandardGameAction::gameNew(this, &MainWindow::startNewGame, actionCollection());
-    KStandardGameAction::quit(this, &MainWindow::close, actionCollection());
+    KGameStandardAction::gameNew(this, &MainWindow::startNewGame, actionCollection());
+    KGameStandardAction::quit(this, &MainWindow::close, actionCollection());
 
-    m_endTurnAction = KStandardGameAction::endTurn(this, nullptr, actionCollection());
+    m_endTurnAction = KGameStandardAction::endTurn(this, nullptr, actionCollection());
     KActionCollection::setDefaultShortcut(m_endTurnAction, Qt::CTRL | Qt::Key_E);
     m_endTurnAction->setEnabled(false);
 
-    m_endGameAction = KStandardGameAction::end( this, nullptr, actionCollection() );
+    m_endGameAction = KGameStandardAction::end( this, nullptr, actionCollection() );
     m_endGameAction->setEnabled(false);
 
     //AB: there is no icon for disabled - KToolBar::insertButton shows the
