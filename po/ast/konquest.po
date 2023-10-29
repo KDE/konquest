@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-30 01:41+0000\n"
-"PO-Revision-Date: 2023-10-25 13:11+0200\n"
+"PO-Revision-Date: 2023-10-28 23:38+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -41,12 +41,12 @@ msgstr ""
 #: dialogs/fleetdlg.cc:107
 #, kde-format
 msgid "Source"
-msgstr ""
+msgstr "Orixe"
 
 #: dialogs/fleetdlg.cc:108
 #, kde-format
 msgid "Destination"
-msgstr ""
+msgstr "Destín"
 
 #: dialogs/fleetdlg.cc:109
 #, kde-format
@@ -121,7 +121,7 @@ msgstr ""
 #: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
 #, kde-format
 msgid "Production:"
-msgstr ""
+msgstr "Producción:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
@@ -145,7 +145,7 @@ msgstr ""
 #: dialogs/newGameDialog.ui:228
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "Opciones"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
@@ -273,7 +273,7 @@ msgstr ""
 #: gameview.cc:371
 #, kde-format
 msgid "Distance"
-msgstr ""
+msgstr "Distancia"
 
 #: gameview.cc:376
 #, kde-format
@@ -305,7 +305,7 @@ msgstr ""
 #: Konquest.cc:28
 #, kde-format
 msgid "Konquest"
-msgstr ""
+msgstr "Konquest"
 
 #: Konquest.cc:30
 #, kde-format
@@ -394,12 +394,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
-msgstr ""
+msgstr "Conquista galáctica"
 
 #: mainwin.cc:40
 #, kde-format
 msgid "Galactic Conquest"
-msgstr ""
+msgstr "Conquista galáctica"
 
 #: mainwin.cc:74
 #, kde-format
