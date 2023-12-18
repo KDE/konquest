@@ -3,19 +3,20 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2012, 2013, 2014.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-30 01:41+0000\n"
-"PO-Revision-Date: 2014-01-02 13:36+0800\n"
-"Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
-"Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
+"PO-Revision-Date: 2023-12-17 19:48+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -29,8 +30,7 @@ msgid "Your emails"
 msgstr "hydonsingore@mail.educities.edu.tw, franklin@goodhorse.idv.tw"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "艦隊總覽"
@@ -127,8 +127,7 @@ msgstr "生產力："
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
-#| msgid "Kill Percentage:"
+#, kde-format
 msgid "Kill percentage:"
 msgstr "擊殺率："
 
@@ -140,10 +139,9 @@ msgstr "隨機化(&R)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "擁有者"
+msgstr "擁有者："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
@@ -153,22 +151,19 @@ msgstr "選項"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
-#, fuzzy, kde-format
-#| msgid "Blind Map"
+#, kde-format
 msgid "Blind map"
 msgstr "盲目地圖"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Cumulative Production"
+#, kde-format
 msgid "Cumulative production"
 msgstr "累積生產力"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, fuzzy, kde-format
-#| msgid "Production After Capture"
+#, kde-format
 msgid "Production after capture"
 msgstr "抓取後生產力"
 
@@ -180,15 +175,13 @@ msgstr "中立"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
-#| msgid "Show Ships"
+#, kde-format
 msgid "Show ships"
 msgstr "顯示戰艦數"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "Show Stats"
+#, kde-format
 msgid "Show stats"
 msgstr "顯示統計"
 
@@ -210,8 +203,7 @@ msgid "Type"
 msgstr "類型"
 
 #: dialogs/newgamedlg.cc:314
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "開始新遊戲"
@@ -302,15 +294,13 @@ msgid "Do you wish to retire this game?"
 msgstr "你是否要退出遊戲？"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "結束遊戲"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "最後生存者"
@@ -321,10 +311,9 @@ msgid "Konquest"
 msgstr "Konquest"
 
 #: Konquest.cc:30
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "KDE 銀河戰略遊戲"
+msgstr "銀河戰略遊戲"
 
 #: Konquest.cc:32
 #, kde-format
@@ -405,8 +394,7 @@ msgid "Main Toolbar"
 msgstr "主工具列"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
 msgstr "銀河征戰"
@@ -417,16 +405,14 @@ msgid "Galactic Conquest"
 msgstr "銀河征戰"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
-msgstr "測量距離(&M)"
+msgstr "測量距離(&M)..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "&Fleet Overview"
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "艦隊總覽(&F)"
+msgstr "艦隊總覽(&F)..."
 
 #: mainwin.cc:89
 #, kde-format
