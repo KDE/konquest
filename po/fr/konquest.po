@@ -11,8 +11,8 @@
 # Angot Julien <angot.julien@gmail.com>, 2007, 2008.
 # ANGOT Julien <angot.julien@gmail.com>, 2010.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2010, 2011, 2012, 2013, 2014.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020, 2021.
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2012, 2013, 2020, 2021.
+# Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
 msgstr ""
