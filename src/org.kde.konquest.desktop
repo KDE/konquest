@@ -135,6 +135,4 @@ GenericName[zh_CN]=星际策略游戏
 GenericName[zh_TW]=銀河戰略遊戲
 X-DocPath=konquest/index.html
 X-KDE-StartupNotify=true
-X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;StrategyGame;
-X-DBUS-ServiceName=org.kde.konquest
