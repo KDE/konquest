@@ -8,7 +8,7 @@
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004.
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2009.
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2012.
-# Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2013, 2020, 2021.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2013, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
