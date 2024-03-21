@@ -3,37 +3,37 @@
 # Tamas Szanto <taszanto@gmail.com>, 1999.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-30 01:41+0000\n"
-"PO-Revision-Date: 2014-01-20 22:42+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2024-03-20 22:24+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "taszanto@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
-msgstr "Áttekintés"
+msgstr "Flottaáttekintő"
 
 #: dialogs/fleetdlg.cc:106
 #, kde-format
@@ -127,8 +127,7 @@ msgstr "Termelés:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
-#| msgid "Kill Percentage:"
+#, kde-format
 msgid "Kill percentage:"
 msgstr "Gyilkolási arány:"
 
@@ -140,10 +139,9 @@ msgstr "&Véletlenszerű"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "Tulajdonos"
+msgstr "Tulajdonos:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
@@ -153,22 +151,19 @@ msgstr "Beállítások"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
-#, fuzzy, kde-format
-#| msgid "Blind Map"
+#, kde-format
 msgid "Blind map"
 msgstr "Vaktérkép"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Cumulative Production"
+#, kde-format
 msgid "Cumulative production"
 msgstr "Halmozott termelés"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, fuzzy, kde-format
-#| msgid "Production After Capture"
+#, kde-format
 msgid "Production after capture"
 msgstr "Termelés az elfoglalás után"
 
@@ -180,15 +175,13 @@ msgstr "Semlegesek"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
-#| msgid "Show Ships"
+#, kde-format
 msgid "Show ships"
 msgstr "Űrhajók megjelenítése"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "Show Stats"
+#, kde-format
 msgid "Show stats"
 msgstr "Állások megjelenítése"
 
@@ -210,11 +203,10 @@ msgid "Type"
 msgstr "Típus"
 
 #: dialogs/newgamedlg.cc:314
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
-msgstr "Új játék kezdése"
+msgstr "Új játék indítása"
 
 #: dialogs/newgamedlg.cc:385
 #, kde-format
@@ -303,15 +295,13 @@ msgid "Do you wish to retire this game?"
 msgstr "Abba szeretné hagyni a játékot?"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
-msgstr "Vége a játéknak"
+msgstr "Játék befejezése"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Végeredmény"
@@ -322,10 +312,9 @@ msgid "Konquest"
 msgstr "Hódító"
 
 #: Konquest.cc:30
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "Háború a galaxisban - KDE-alapú stratégiai játék"
+msgstr "Galaktikus stratégiai játék"
 
 #: Konquest.cc:32
 #, kde-format
@@ -406,11 +395,10 @@ msgid "Main Toolbar"
 msgstr "Alap eszköztár"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
-msgstr "Űrháború a galaxisban"
+msgstr "Galaktikus hódítás"
 
 #: mainwin.cc:40
 #, kde-format
@@ -418,16 +406,14 @@ msgid "Galactic Conquest"
 msgstr "Űrháború a galaxisban"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
-msgstr "&Távolságmérés"
+msgstr "&Távolságmérés…"
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "&Fleet Overview"
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "Át&tekintés"
+msgstr "&Flottaáttekintő…"
 
 #: mainwin.cc:89
 #, kde-format
