@@ -4,35 +4,35 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Maris Nartiss <maris.kde@gmail.com>, 2009.
 # Einars Sprugis <einars8@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:36+0000\n"
-"PO-Revision-Date: 2012-06-29 22:31+0300\n"
-"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-04-24 12:56+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 24.02.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Viesturs Zariņš"
+msgstr "Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "viesturs.zarins@mii.lu.lv"
+msgstr "viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Flotes pārskats"
@@ -45,7 +45,7 @@ msgstr "Flotes Nr."
 #: dialogs/fleetdlg.cc:107
 #, kde-format
 msgid "Source"
-msgstr ""
+msgstr "Avots"
 
 #: dialogs/fleetdlg.cc:108
 #, kde-format
@@ -70,7 +70,7 @@ msgstr "Pienākšanas gājiens"
 #: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
 msgid "Standing order"
-msgstr "Stāvošo kārtība"
+msgstr "Pastāvīgais rīkojums"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
 #: dialogs/newGameDialog.ui:14
@@ -129,10 +129,9 @@ msgstr "Ražošana:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
-#| msgid "Kill Percentage:"
+#, kde-format
 msgid "Kill percentage:"
-msgstr "Nogalināto procents"
+msgstr "Nogalināto procents:"
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
 #: dialogs/newGameDialog.ui:202
@@ -142,10 +141,9 @@ msgstr "&Sajaukt"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "Īpašnieks"
+msgstr "Īpašnieks:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
@@ -155,22 +153,19 @@ msgstr "Opcijas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
-#, fuzzy, kde-format
-#| msgid "Blind Map"
+#, kde-format
 msgid "Blind map"
 msgstr "Aklā karte"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Cumulative Production"
+#, kde-format
 msgid "Cumulative production"
-msgstr "Kumulatīvā ražošana"
+msgstr "Kopējā ražošana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, fuzzy, kde-format
-#| msgid "Production After Capture"
+#, kde-format
 msgid "Production after capture"
 msgstr "Ražošana pēc sagūstīšanas"
 
@@ -182,15 +177,13 @@ msgstr "Neitrālie"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
-#| msgid "Show Ships"
+#, kde-format
 msgid "Show ships"
 msgstr "Rādīt kuģus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "Show Stats"
+#, kde-format
 msgid "Show stats"
 msgstr "Rādīt statistiku"
 
@@ -212,8 +205,7 @@ msgid "Type"
 msgstr "Tips"
 
 #: dialogs/newgamedlg.cc:314
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Sākt jaunu spēli"
@@ -244,24 +236,22 @@ msgstr "Planēta %2 izturēja uzbrukumu no %1."
 #: game.cpp:156
 #, kde-format
 msgid "Planet %2 has fallen to %1."
-msgstr "Planēta %2 padevās %1."
+msgstr "Planētu %2 ieguva %1."
 
 #: gameview.cc:107
 #, kde-format
 msgid "End Turn"
-msgstr "Gājiena beigas"
+msgstr "Beigt gājienu"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "<qt>%1: Select source planet...</qt>"
+#, kde-format
 msgid "%1: Select source planet..."
-msgstr "<qt>%1: izvēlieties avota planētu...</qt>"
+msgstr "%1: norādiet avota planētu..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "<qt>%1: Select destination planet...</qt>"
+#, kde-format
 msgid "%1: Select destination planet..."
-msgstr "<qt>%1: izvēlieties mērķa planētu...</qt>"
+msgstr "%1: norādiet mērķa planētu..."
 
 #: gameview.cc:318
 #, kde-format
@@ -276,7 +266,7 @@ msgstr "%1: cik kuģu?"
 #: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
-msgstr "Valdnieks: Izvēlieties avota planētu."
+msgstr "Valdnieks: izvēlieties sākuma planētu."
 
 #: gameview.cc:365
 #, kde-format
@@ -285,7 +275,7 @@ msgid ""
 "A ship leaving this turn will arrive on turn %4"
 msgstr ""
 "Attālums starp planētu %1 un planētu %2 ir %3 gaismas gadi.\n"
-"Kuģis izlidojot šajā gājienā tur ieradīsies %4. gājenā"
+"Kuģis, izlidojot šajā gājienā, tur ieradīsies %4. gājienā"
 
 #: gameview.cc:371
 #, kde-format
@@ -295,7 +285,7 @@ msgstr "Attālums"
 #: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
-msgstr "Valdnieks: Izvēlieties mērķa planētu."
+msgstr "Valdnieks: norādiet mērķa planētu."
 
 #: gameview.cc:426
 #, kde-format
@@ -308,18 +298,16 @@ msgid "Do you wish to retire this game?"
 msgstr "Vai vēlaties beigt šo spēli?"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "Beigt spēli"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
-msgstr "Gala rezultāts"
+msgstr "Gala rezultāti"
 
 #: Konquest.cc:29
 #, kde-format
@@ -327,16 +315,14 @@ msgid "Konquest"
 msgstr "Konquest"
 
 #: Konquest.cc:31
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "Galaktiskās stratēģijas KDE Spēle"
+msgstr "Galaktiskās stratēģijas spēle"
 
 #: Konquest.cc:33
-#, fuzzy, kde-format
-#| msgid "Copyright (c) 1999-2011, Developers"
+#, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
-msgstr "Autortiesības (c) 1999-2011, izstrādātāji"
+msgstr "Autortiesības (c) 1999—2013, izstrādātāji"
 
 #: Konquest.cc:37
 #, kde-format
@@ -361,7 +347,7 @@ msgstr "Dmitry Suzdalev"
 #: Konquest.cc:39
 #, kde-format
 msgid "Port to KDE4"
-msgstr "Pielāgošana KDE4"
+msgstr "KDE4 ports"
 
 #: Konquest.cc:40
 #, kde-format
@@ -403,17 +389,16 @@ msgstr "&Spēle"
 #: konquestui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Skats"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: konquestui.rc:20
 #, kde-format
 msgid "Main Toolbar"
-msgstr "Galvenā rīkjosla "
+msgstr "Galvenā rīkjosla"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
 msgstr "Galaktikas iekarošana"
@@ -424,44 +409,39 @@ msgid "Galactic Conquest"
 msgstr "Galaktikas iekarošana"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
-msgstr "&Mērīt attālumu"
+msgstr "&Mērīt attālumu..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "&Fleet Overview"
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "&Flotes pārskats"
+msgstr "&Flotes pārskats..."
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages for %1"
+#, kde-format
 msgid "Messages"
-msgstr "Ziņojumi %1"
+msgstr "Ziņojumi"
 
 #: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
-msgstr ""
+msgstr "Rādīt &ziņojumus"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgid "Standings"
-msgstr "Gala rezultāts"
+msgstr "Rezultāti"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show &Standings"
-msgstr "&Rādīt rezultātu"
+msgstr "&Rādīt rezultātus"
 
 #: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
-msgstr "Gājiens # %1"
+msgstr "Gājiena Nr. %1"
 
 #: map/mapitems.cc:214
 #, kde-format
@@ -492,45 +472,45 @@ msgstr "Ražošana: %1"
 #: map/mapitems.cc:237
 #, kde-format
 msgid "Kill percent: %1"
-msgstr "Nokaušanas varbūtība: %1"
+msgstr "Nogalināšanas varbūtība: %1"
 
 #: players/ai/becai/becai_gui.cpp:13
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
-msgstr ""
+msgstr "Becai (līdzsvarots)"
 
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr ""
+msgstr "Noklusējuma (vērsts uz aizsardzību)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr ""
+msgstr "Noklusējuma (uzbrūkošs)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr ""
+msgstr "Noklusējuma (vājš)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr ""
+msgstr "Parauga (pasīvs)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr ""
+msgstr "Cilvēks (spēlētājs)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr ""
+msgstr "Cilvēks (skatītājs)"
 
 #: view/standingswidget.cpp:152
 #, kde-format
@@ -544,7 +524,7 @@ msgid ""
 "Ships\n"
 "Built"
 msgstr ""
-"Kuģu \n"
+"Kuģu\n"
 "uzbūvēts"
 
 #: view/standingswidget.cpp:154
@@ -584,12 +564,13 @@ msgstr ""
 "iznīcināts"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Production"
+#, kde-format
 msgid ""
 "Current\n"
 "Production"
-msgstr "Ražošana"
+msgstr ""
+"Pašreizējā\n"
+"ražošana"
 
 #: view/standingswidget.cpp:159
 #, kde-format
@@ -597,6 +578,8 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+"Pašreizējās\n"
+"flotes lielums"
 
 #~ msgid "Production"
 #~ msgstr "Ražošana"
