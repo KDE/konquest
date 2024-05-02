@@ -287,7 +287,7 @@ GameView::turn()
             m_standingOrder->setEnabled(false);
             m_standingOrder->setCheckState(Qt::Unchecked);
             m_mapScene->unselectPlanet();
-            m_gameMessage->setText( i18n("%1: Select source planet...", m_game->currentPlayer()->coloredName()) );
+            m_gameMessage->setText( i18n("%1: Select source planet…", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
@@ -304,7 +304,7 @@ GameView::turn()
             m_shipCountEdit->setEnabled(false);
             m_standingOrder->setEnabled(false);
             m_mapScene->selectPlanet(sourcePlanet);
-            m_gameMessage->setText( i18n("%1: Select destination planet...", m_game->currentPlayer()->coloredName()) );
+            m_gameMessage->setText( i18n("%1: Select destination planet…", m_game->currentPlayer()->coloredName()) );
             setFocus();
         }
 
