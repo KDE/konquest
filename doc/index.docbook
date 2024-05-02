@@ -202,7 +202,7 @@ proceed like this until one of the players owns the entire galaxy.
 <tip>
   <para>
     A keyboard shortcut for <guibutton>End Turn</guibutton> action can be configured using the
-    <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> menu item.
+    <menuchoice><guimenu>Settings</guimenu> <guimenuitem>Configure Shortcuts…</guimenuitem></menuchoice> menu item.
   </para>
   <para>
     For more information read the section about <ulink url="help:/fundamentals/config.html#shortcuts">Using and Customizing Shortcuts</ulink> of the &kde; Fundamentals.
@@ -272,7 +272,7 @@ proceed like this until one of the players owns the entire galaxy.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Measure Distance...</guimenuitem>
+<guimenuitem>Measure Distance…</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Allows to measure the distance.</action> Click with the &LMB; on two planets to see their distance.</para></listitem>
 </varlistentry>
@@ -280,7 +280,7 @@ proceed like this until one of the players owns the entire galaxy.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Fleet Overview...</guimenuitem>
+<guimenuitem>Fleet Overview</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Opens a window</action> to display detailed information
 for all fleets.</para></listitem>
