@@ -100,15 +100,15 @@ FleetDlg::setupTable()
     m_fleetTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_fleetTable->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QStringList headerLabels;
-    headerLabels
-        << QString()
-        << i18n("Fleet No.")
-        << i18n("Source")
-        << i18n("Destination")
-        << i18n("Ships")
-        << i18n("Kill Percentage")
-        << i18n("Arrival Turn");
+    const QStringList headerLabels {
+        QString(),
+        i18nc("@title:column", "Fleet No."),
+        i18nc("@title:column", "Source"),
+        i18nc("@title:column", "Destination"),
+        i18nc("@title:column", "Ships"),
+        i18nc("@title:column", "Kill Percentage"),
+        i18nc("@title:column", "Arrival Turn"),
+    };
 
     m_fleetTable->setHorizontalHeaderLabels(headerLabels);
     m_fleetTable->verticalHeader()->hide();

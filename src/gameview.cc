@@ -104,7 +104,7 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
     m_gameMessage = new QLabel( this );
     m_gameMessage->setPalette( palette );
 
-    m_endTurnBtn = new QPushButton( i18n("End Turn"), this );
+    m_endTurnBtn = new QPushButton( i18nc("@action:button", "End Turn"), this );
     m_endTurnBtn->setFixedSize( m_endTurnBtn->sizeHint() );
     m_endTurnBtn->setPalette( palette );
 
@@ -117,7 +117,7 @@ GameView::GameView(QWidget *parent, Game *game, QDockWidget *messagesDock, QDock
     m_shipCountEdit->setPalette( palette );
     m_shipCountEdit->setEchoMode( QLineEdit::Password );
 
-    m_standingOrder = new QCheckBox(i18n("Standing order"), this);
+    m_standingOrder = new QCheckBox(i18nc("@option:check", "Standing order"), this);
     m_standingOrder->setEnabled(false);
     m_standingOrder->setPalette( palette );
     m_standingOrder->setCheckState(Qt::Unchecked);

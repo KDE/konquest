@@ -147,16 +147,16 @@ StandingsWidget::setupTable()
     m_standingsTable->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_standingsTable->setSelectionMode(QAbstractItemView::NoSelection);
 
-    QStringList headerLabels;
-    headerLabels
-        << i18nc("The player name", "Player")
-        << i18n("Ships\nBuilt")
-        << i18n("Planets\nConquered")
-        << i18n("Fleets\nLaunched")
-        << i18n("Fleets\nDestroyed")
-        << i18n("Ships\nDestroyed")
-        << i18n("Current\nProduction")
-        << i18n("Current\nFleet Size");
+    const QStringList headerLabels {
+        i18nc("@title:column the player name", "Player"),
+        i18nc("@title:column", "Ships\nBuilt"),
+        i18nc("@title:column", "Planets\nConquered"),
+        i18nc("@title:column", "Fleets\nLaunched"),
+        i18nc("@title:column", "Fleets\nDestroyed"),
+        i18nc("@title:column", "Ships\nDestroyed"),
+        i18nc("@title:column", "Current\nProduction"),
+        i18nc("@title:column", "Current\nFleet Size"),
+    };
 
     m_standingsTable->setHorizontalHeaderLabels(headerLabels);
     m_standingsTable->verticalHeader()->hide();

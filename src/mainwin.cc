@@ -71,13 +71,13 @@ MainWindow::setupActions()
     //different state - QAction not :-(
     m_measureAction = actionCollection()->addAction( QStringLiteral(  "game_measure" ) );
     m_measureAction->setIcon( QIcon::fromTheme( QStringLiteral( "go-jump" )) );
-    m_measureAction->setText( i18n("&Measure Distance...") );
+    m_measureAction->setText( i18nc("@action", "&Measure Distance…") );
     m_measureAction->setEnabled(false);
 
     // Show fleet overview
     m_fleetAction = actionCollection()->addAction( QStringLiteral(  "game_fleets" ) );
     m_fleetAction->setIcon( QIcon::fromTheme( QStringLiteral( "fork" )) );
-    m_fleetAction->setText( i18n("&Fleet Overview...") );
+    m_fleetAction->setText( i18nc("@action", "&Fleet Overview") );
     m_fleetAction->setEnabled(false);
 
     // Toolbar
@@ -86,13 +86,13 @@ MainWindow::setupActions()
 
     // docking area - messages
 
-    m_messagesDock = new QDockWidget(i18n("Messages"), this);
+    m_messagesDock = new QDockWidget(i18nc("@title:window", "Messages"), this);
     m_messagesDock->setObjectName(QStringLiteral("dock-messages"));
 
     addDockWidget(Qt::BottomDockWidgetArea, m_messagesDock);
 
     m_messagesAction = actionCollection()->addAction(QStringLiteral("view_messages"));
-    m_messagesAction->setText(i18n("Show &Messages"));
+    m_messagesAction->setText(i18nc("@option:check", "Show &Messages"));
     m_messagesAction->setCheckable(true);
     m_messagesAction->setChecked(m_messagesDock->isVisible());
 
@@ -111,14 +111,14 @@ MainWindow::setupActions()
 
     // docking area - standings
 
-    m_standingsDock = new QDockWidget(i18n("Standings"), this);
+    m_standingsDock = new QDockWidget(i18nc("@title:window", "Standings"), this);
     m_standingsDock->setObjectName(QStringLiteral("dock-standings"));
 
     tabifyDockWidget(m_messagesDock, m_standingsDock);
 
     m_standingsAction = actionCollection()->addAction(QStringLiteral("view_standings"));
     m_standingsAction->setIcon(QIcon::fromTheme(QStringLiteral("help-contents")));
-    m_standingsAction->setText(i18n("Show &Standings"));
+    m_standingsAction->setText(i18nc("@option:check", "Show &Standings"));
     m_standingsAction->setCheckable(true);
     m_standingsAction->setChecked(m_standingsDock->isVisible());
 
