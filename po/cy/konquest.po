@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2005-10-10 09:37+0100\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -38,37 +38,48 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Trosolwg Llynges"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Rhif Llynges."
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "Cyrchfan"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "Llongau"
 
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Canran Lladd"
 
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Tro Cyrraedd"
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr ""
@@ -248,20 +259,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Mae planed %2 wedi syrthio i %1."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Gorffen Tro"
+
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Sefyllfa Derfynol"
 
 #: gameview.cc:290
 #, fuzzy, kde-format
 #| msgid "Select source planet..."
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "Dewis planed darddiad..."
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "Select destination planet..."
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "Dewis planed gyrchfan..."
 
 #: gameview.cc:318
@@ -427,34 +447,41 @@ msgstr "Gorchfygiad Galaethol"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "&Mesur Pellter"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-#| msgid "&Fleet Overview"
-msgid "&Fleet Overview..."
-msgstr "Trosolwg Llyn&ges"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "Trosolwg Llynges"
 
 #: mainwin.cc:89
 #, kde-format
+msgctxt "@title:window"
 msgid "Messages"
 msgstr ""
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "Dang&os Sefyllfa"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Sefyllfa Derfynol"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Dang&os Sefyllfa"
 
@@ -534,62 +561,74 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
+#: view/standingswidget.cpp:151
 #, fuzzy, kde-format
 #| msgid "Player"
-msgctxt "The player name"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Chwaraewr"
 
-#: view/standingswidget.cpp:153
+#: view/standingswidget.cpp:152
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr "Llongau wedi'u Hadeiladu"
 
-#: view/standingswidget.cpp:154
+#: view/standingswidget.cpp:153
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr "Planedau wei'u Gorchfygu"
 
-#: view/standingswidget.cpp:155
+#: view/standingswidget.cpp:154
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr "Llyngesau wedi'i Lansio"
 
-#: view/standingswidget.cpp:156
+#: view/standingswidget.cpp:155
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr "Llyngesau wedi'u Dinistrio"
 
-#: view/standingswidget.cpp:157
+#: view/standingswidget.cpp:156
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr "Llongau wedi'u Dinistrio"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Production: "
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "Cynhyrchiad: "
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~| msgid "&Fleet Overview"
+#~ msgid "&Fleet Overview..."
+#~ msgstr "Trosolwg Llyn&ges"
 
 #, fuzzy
 #~| msgid "Production: "

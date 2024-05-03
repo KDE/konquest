@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2005-10-25 16:30+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -39,37 +39,48 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Намуди Флот"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Рақами Флот."
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "Чои макон"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "Киштиҳо"
 
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Куштани фоиз"
 
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Баргашт"
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr ""
@@ -249,20 +260,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Cайёраи %2 пароканда шуд ба %1."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Навбати охирон"
+
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Охири истодан"
 
 #: gameview.cc:290
 #, fuzzy, kde-format
 #| msgid "Select source planet..."
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "Интихоб кунед сарчашмаи саёра..."
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "Select destination planet..."
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "Интихоби ҷои сайёра..."
 
 #: gameview.cc:318
@@ -428,34 +448,41 @@ msgstr "Муҳорибаи галактикӣ"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "&Чен кунии масофа"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-#| msgid "&Fleet Overview"
-msgid "&Fleet Overview..."
-msgstr "&Намуди флот"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "Намуди Флот"
 
 #: mainwin.cc:89
 #, kde-format
+msgctxt "@title:window"
 msgid "Messages"
 msgstr ""
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "&Нишон диҳед истодагиро"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Охири истодан"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "&Нишон диҳед истодагиро"
 
@@ -535,62 +562,74 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
+#: view/standingswidget.cpp:151
 #, fuzzy, kde-format
 #| msgid "Player"
-msgctxt "The player name"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Бозингар"
 
-#: view/standingswidget.cpp:153
+#: view/standingswidget.cpp:152
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr "Сохтани кишти"
 
-#: view/standingswidget.cpp:154
+#: view/standingswidget.cpp:153
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr "Сайёраҳо забд карда шудаанд"
 
-#: view/standingswidget.cpp:155
+#: view/standingswidget.cpp:154
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr "Флотҳоро сар доданд"
 
-#: view/standingswidget.cpp:156
+#: view/standingswidget.cpp:155
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr "Флотҳо нобуд шуданд"
 
-#: view/standingswidget.cpp:157
+#: view/standingswidget.cpp:156
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr "Киштиҳо нобуд шуданд"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Production: "
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "Маҳсулот: "
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~| msgid "&Fleet Overview"
+#~ msgid "&Fleet Overview..."
+#~ msgstr "&Намуди флот"
 
 #, fuzzy
 #~| msgid "Production: "

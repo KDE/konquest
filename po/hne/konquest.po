@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2009-02-26 10:55+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -36,37 +36,48 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "फ्लीट ओवरव्यू"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "फ्लीट नं."
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "गंतव्य"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "जहाज"
 
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "मार प्रतिसत"
 
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "आगम बारी"
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr ""
@@ -247,20 +258,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "ग्रह %2 ल %1 हर जीत ले."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "आखिरी बारी"
+
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "फाइनल स्टैंडिंग्स"
 
 #: gameview.cc:290
 #, fuzzy, kde-format
 #| msgid "Select source planet..."
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "स्रोत प्लेनेट चुनव..."
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "Select destination planet..."
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "गंतव्य प्लेनेट चुनव..."
 
 #: gameview.cc:318
@@ -429,35 +449,42 @@ msgstr "गेलेक्टिक कानक्वेस्ट"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "दूरी मापें (&M)"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-#| msgid "&Fleet Overview"
-msgid "&Fleet Overview..."
-msgstr "फ्लीट ओवरव्यू (&F)"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "फ्लीट ओवरव्यू"
 
 #: mainwin.cc:89
 #, fuzzy, kde-format
 #| msgid "Messages for %1"
+msgctxt "@title:window"
 msgid "Messages"
 msgstr "%1 बर संदेस"
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Messages for %1"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "%1 बर संदेस"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "फाइनल स्टैंडिंग्स"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "स्टैंडिंग्स देखाव (&S)"
 
@@ -536,14 +563,20 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
-#, kde-format
-msgctxt "The player name"
+#: view/standingswidget.cpp:151
+#, fuzzy, kde-format
+#| msgctxt "The player name"
+#| msgid "Player"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "खिलाड़ी"
 
-#: view/standingswidget.cpp:153
-#, kde-format
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Built"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
@@ -551,8 +584,12 @@ msgstr ""
 "जहाज\n"
 " बनाए"
 
-#: view/standingswidget.cpp:154
-#, kde-format
+#: view/standingswidget.cpp:153
+#, fuzzy, kde-format
+#| msgid ""
+#| "Planets\n"
+#| "Conquered"
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
@@ -560,8 +597,12 @@ msgstr ""
 "ग्रह\n"
 "अधिगृहित"
 
-#: view/standingswidget.cpp:155
-#, kde-format
+#: view/standingswidget.cpp:154
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Launched"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
@@ -569,8 +610,12 @@ msgstr ""
 "फ्लीट्स\n"
 "लांच्ड"
 
-#: view/standingswidget.cpp:156
-#, kde-format
+#: view/standingswidget.cpp:155
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
@@ -578,8 +623,12 @@ msgstr ""
 "फ्लीट्स\n"
 "नस्ट"
 
-#: view/standingswidget.cpp:157
-#, kde-format
+#: view/standingswidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
@@ -587,20 +636,27 @@ msgstr ""
 "जहाज\n"
 "नस्ट"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Production: %1"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "उत्पादनः %1"
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~| msgid "&Fleet Overview"
+#~ msgid "&Fleet Overview..."
+#~ msgstr "फ्लीट ओवरव्यू (&F)"
 
 #, fuzzy
 #~| msgid "Production: %1"

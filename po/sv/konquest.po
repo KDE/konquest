@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2021-08-08 07:56+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -36,37 +36,49 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Översikt över flottan"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Nummer i flottan"
 
-#: dialogs/fleetdlg.cc:107
-#, kde-format
+#: dialogs/fleetdlg.cc:106
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column"
 msgid "Source"
 msgstr "Källa"
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "Mål"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "Farkoster"
 
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Procentuell slagkraft"
 
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Ankomstomgång"
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr "Stående order"
@@ -237,18 +249,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Planeten %2 har fallit till %1."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Avsluta omgång"
 
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Standing order"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Stående order"
+
 #: gameview.cc:290
-#, kde-format
-msgid "%1: Select source planet..."
+#, fuzzy, kde-format
+#| msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "%1: Välj avgångsplanet..."
 
 #: gameview.cc:307
-#, kde-format
-msgid "%1: Select destination planet..."
+#, fuzzy, kde-format
+#| msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "%1: Välj ankomstplanet..."
 
 #: gameview.cc:318
@@ -407,32 +430,45 @@ msgid "Galactic Conquest"
 msgstr "Galaktisk erövring"
 
 #: mainwin.cc:74
-#, kde-format
-msgid "&Measure Distance..."
+#, fuzzy, kde-format
+#| msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "&Mät avståndet..."
 
 #: mainwin.cc:80
-#, kde-format
-msgid "&Fleet Overview..."
-msgstr "Översikt över &flottan..."
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "Översikt över flottan"
 
 #: mainwin.cc:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Messages"
+msgctxt "@title:window"
 msgid "Messages"
 msgstr "Meddelanden"
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show &Messages"
+msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Visa &meddelanden"
 
 #: mainwin.cc:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Ställning"
 
 #: mainwin.cc:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show &Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Visa &ställning"
 
@@ -510,14 +546,20 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr "Människa (åskådare)"
 
-#: view/standingswidget.cpp:152
-#, kde-format
-msgctxt "The player name"
+#: view/standingswidget.cpp:151
+#, fuzzy, kde-format
+#| msgctxt "The player name"
+#| msgid "Player"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Spelare"
 
-#: view/standingswidget.cpp:153
-#, kde-format
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Built"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
@@ -525,8 +567,12 @@ msgstr ""
 "Farkoster\n"
 "byggda"
 
-#: view/standingswidget.cpp:154
-#, kde-format
+#: view/standingswidget.cpp:153
+#, fuzzy, kde-format
+#| msgid ""
+#| "Planets\n"
+#| "Conquered"
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
@@ -534,8 +580,12 @@ msgstr ""
 "Planeter\n"
 "erövrade"
 
-#: view/standingswidget.cpp:155
-#, kde-format
+#: view/standingswidget.cpp:154
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Launched"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
@@ -543,8 +593,12 @@ msgstr ""
 "Flottor\n"
 "ivägskickade"
 
-#: view/standingswidget.cpp:156
-#, kde-format
+#: view/standingswidget.cpp:155
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
@@ -552,8 +606,12 @@ msgstr ""
 "Flottor\n"
 "förstörda"
 
-#: view/standingswidget.cpp:157
-#, kde-format
+#: view/standingswidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
@@ -561,8 +619,12 @@ msgstr ""
 "Farkoster\n"
 "förstörda"
 
-#: view/standingswidget.cpp:158
-#, kde-format
+#: view/standingswidget.cpp:157
+#, fuzzy, kde-format
+#| msgid ""
+#| "Current\n"
+#| "Production"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
@@ -570,14 +632,21 @@ msgstr ""
 "Aktuell\n"
 "produktion"
 
-#: view/standingswidget.cpp:159
-#, kde-format
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Current\n"
+#| "Fleet Size"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
 "Aktuell\n"
 "flottstorlek"
+
+#~ msgid "&Fleet Overview..."
+#~ msgstr "Översikt över &flottan..."
 
 #~ msgid "Production"
 #~ msgstr "Produktion"

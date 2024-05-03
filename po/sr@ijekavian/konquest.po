@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2013-12-29 10:14+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -43,44 +43,56 @@ msgid "Fleet Overview"
 msgstr "Преглед флоте"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "бр. флоте"
 
 # >> @title:column
 # skip-rule: t-source, t-source2
-#: dialogs/fleetdlg.cc:107
-#, kde-format
+#: dialogs/fleetdlg.cc:106
+#, fuzzy, kde-format
+#| msgid "Source"
+msgctxt "@title:column"
 msgid "Source"
 msgstr "исходиште"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "одредиште"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "бродови"
 
 # >> @title:column Measure of effectiveness in combat
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "побједоносност"
 
 # >> @title:column
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "потез доласка"
 
 # >> @option:check
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr "Трајно наређење"
@@ -267,19 +279,31 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Планета %2 је пала у руке %1."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Крај потеза"
 
+# >> @option:check
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Standing order"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Трајно наређење"
+
 # rewrite-msgid: /source/start/
 #: gameview.cc:290
-#, kde-format
-msgid "%1: Select source planet..."
+#, fuzzy, kde-format
+#| msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "%1: Изаберите полазну планету..."
 
 #: gameview.cc:307
-#, kde-format
-msgid "%1: Select destination planet..."
+#, fuzzy, kde-format
+#| msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "%1: Изаберите одредишну планету..."
 
 #: gameview.cc:318
@@ -444,32 +468,42 @@ msgstr "Галактичко освајање"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "&Измјери растојање"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-#| msgid "&Fleet Overview"
-msgid "&Fleet Overview..."
-msgstr "Преглед &флоте"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "Преглед флоте"
 
 #: mainwin.cc:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Messages"
+msgctxt "@title:window"
 msgid "Messages"
 msgstr "Поруке"
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show &Messages"
+msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Прикажи &поруке"
 
 #: mainwin.cc:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Позиције"
 
 #: mainwin.cc:121
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show &Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Прикажи &позиције"
 
@@ -549,15 +583,21 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr "Човек (посматрач)"
 
-#: view/standingswidget.cpp:152
-#, kde-format
-msgctxt "The player name"
+#: view/standingswidget.cpp:151
+#, fuzzy, kde-format
+#| msgctxt "The player name"
+#| msgid "Player"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Играч"
 
 # >> @title:column
-#: view/standingswidget.cpp:153
-#, kde-format
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Built"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
@@ -566,8 +606,12 @@ msgstr ""
 "бродова"
 
 # >> @title:column
-#: view/standingswidget.cpp:154
-#, kde-format
+#: view/standingswidget.cpp:153
+#, fuzzy, kde-format
+#| msgid ""
+#| "Planets\n"
+#| "Conquered"
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
@@ -576,8 +620,12 @@ msgstr ""
 "планета"
 
 # >> @title:column
-#: view/standingswidget.cpp:155
-#, kde-format
+#: view/standingswidget.cpp:154
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Launched"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
@@ -586,8 +634,12 @@ msgstr ""
 "флота"
 
 # >> @title:column
-#: view/standingswidget.cpp:156
-#, kde-format
+#: view/standingswidget.cpp:155
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
@@ -596,8 +648,12 @@ msgstr ""
 "флота"
 
 # >> @title:column
-#: view/standingswidget.cpp:157
-#, kde-format
+#: view/standingswidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
@@ -605,8 +661,12 @@ msgstr ""
 "уништених\n"
 "бродова"
 
-#: view/standingswidget.cpp:158
-#, kde-format
+#: view/standingswidget.cpp:157
+#, fuzzy, kde-format
+#| msgid ""
+#| "Current\n"
+#| "Production"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
@@ -614,14 +674,23 @@ msgstr ""
 "Тренутна\n"
 "производња"
 
-#: view/standingswidget.cpp:159
-#, kde-format
+#: view/standingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid ""
+#| "Current\n"
+#| "Fleet Size"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
 "Тренутна\n"
 "величина флоте"
+
+#, fuzzy
+#~| msgid "&Fleet Overview"
+#~ msgid "&Fleet Overview..."
+#~ msgstr "Преглед &флоте"
 
 #~ msgid "Production"
 #~ msgstr "Производња"

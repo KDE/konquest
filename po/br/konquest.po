@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: Sat Feb 20 1999 12:01:26+0200\n"
 "Last-Translator: Romuald Texier <texierr@worldnet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -33,37 +33,46 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Lestrazoù distrujet"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Lestraz niv."
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "Dehaezadur"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "Listri"
 
-#: dialogs/fleetdlg.cc:110
+#: dialogs/fleetdlg.cc:109
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Galloud reuz : "
 
-#: dialogs/fleetdlg.cc:111
+#: dialogs/fleetdlg.cc:110
 #, kde-format
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr ""
@@ -240,20 +249,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Kouezhet eo planedenn %2 da %1."
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Echu ganin"
+
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Stadoù diwezh"
 
 #: gameview.cc:290
 #, fuzzy, kde-format
 #| msgid "Select source planet..."
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "Dibabit planedenn orin ..."
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "Select destination planet..."
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "Dibabit ar blanedenn dehaezadur ..."
 
 #: gameview.cc:318
@@ -419,33 +437,40 @@ msgstr "Aloubiñ ar galaksi"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "&Muzuliañ an hed"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-msgid "&Fleet Overview..."
+msgctxt "@action"
+msgid "&Fleet Overview"
 msgstr "Lestrazoù distrujet"
 
 #: mainwin.cc:89
 #, kde-format
+msgctxt "@title:window"
 msgid "Messages"
 msgstr ""
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "&Diskouez stadoù"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Stadoù diwezh"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "&Diskouez stadoù"
 
@@ -525,61 +550,72 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
+#: view/standingswidget.cpp:151
 #, fuzzy, kde-format
 #| msgid "Player"
-msgctxt "The player name"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "C'hoarier(ez)"
 
-#: view/standingswidget.cpp:153
+#: view/standingswidget.cpp:152
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr "Listri savet"
 
-#: view/standingswidget.cpp:154
+#: view/standingswidget.cpp:153
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr "Planed aloubet"
 
-#: view/standingswidget.cpp:155
+#: view/standingswidget.cpp:154
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr "Lestrazoù moret"
 
-#: view/standingswidget.cpp:156
+#: view/standingswidget.cpp:155
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr "Lestrazoù distrujet"
 
-#: view/standingswidget.cpp:157
+#: view/standingswidget.cpp:156
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr "Listri distrujet"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "Kenderc'h :"
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~ msgid "&Fleet Overview..."
+#~ msgstr "Lestrazoù distrujet"
 
 #, fuzzy
 #~ msgid "Production"

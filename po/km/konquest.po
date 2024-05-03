@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2009-10-25 07:48+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -36,37 +36,48 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "ទិដ្ឋភាព​ទូទៅ​នៃ​កង​នាវា"
 
-#: dialogs/fleetdlg.cc:106
-#, kde-format
+#: dialogs/fleetdlg.cc:105
+#, fuzzy, kde-format
+#| msgid "Fleet No."
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "លេខ​កង​នាវា"
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
-#, kde-format
+#: dialogs/fleetdlg.cc:107
+#, fuzzy, kde-format
+#| msgid "Destination"
+msgctxt "@title:column"
 msgid "Destination"
 msgstr "ទិស​ដៅ"
 
-#: dialogs/fleetdlg.cc:109
-#, kde-format
+#: dialogs/fleetdlg.cc:108
+#, fuzzy, kde-format
+#| msgid "Ships"
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "នាវា"
 
-#: dialogs/fleetdlg.cc:110
-#, kde-format
+#: dialogs/fleetdlg.cc:109
+#, fuzzy, kde-format
+#| msgid "Kill Percentage"
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "ភាគ​រយ​ក្នុង​ការ​សម្លាប់"
 
-#: dialogs/fleetdlg.cc:111
-#, kde-format
+#: dialogs/fleetdlg.cc:110
+#, fuzzy, kde-format
+#| msgid "Arrival Turn"
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "ដល់វេន"
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr "លំដាប់​បញ្ឈរ"
@@ -245,20 +256,29 @@ msgid "Planet %2 has fallen to %1."
 msgstr "ផ្កាយ​ព្រះ​គ្រោះ​ %2 បាន​ធ្លាក់​ទៅ​កាន់​ %1 ។"
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "បញ្ចប់​វេន"
+
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Standing order"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "លំដាប់​បញ្ឈរ"
 
 #: gameview.cc:290
 #, fuzzy, kde-format
 #| msgid "<qt>%1: Select source planet...</qt>"
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr "<qt>%1 ៖ ជ្រើស​ប្រភព​ផ្កាយ​ព្រះគ្រោះ...</qt>"
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "<qt>%1: Select destination planet...</qt>"
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr "<qt>%1 ៖ ជ្រើស​ទិសដៅ​ផ្កាយ​ព្រះគ្រោះ...</qt>"
 
 #: gameview.cc:318
@@ -424,35 +444,42 @@ msgstr "ការ​វាទ​ទី​យក​កាឡាក់ស៊ី"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "រង្វាស់​ចម្ងាយ"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-#| msgid "&Fleet Overview"
-msgid "&Fleet Overview..."
-msgstr "ទិដ្ឋភាព​ទូទៅ​របស់​​កង​នាវា"
+#| msgid "Fleet Overview"
+msgctxt "@action"
+msgid "&Fleet Overview"
+msgstr "ទិដ្ឋភាព​ទូទៅ​នៃ​កង​នាវា"
 
 #: mainwin.cc:89
 #, fuzzy, kde-format
 #| msgid "Messages for %1"
+msgctxt "@title:window"
 msgid "Messages"
 msgstr "សារ​សម្រាប់ %1"
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Messages for %1"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "សារ​សម្រាប់ %1"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "​រយះ​ពេល​ចុង​ក្រោយ​"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "បង្ហាញ​រយះ​ពេល"
 
@@ -530,14 +557,20 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
-#, kde-format
-msgctxt "The player name"
+#: view/standingswidget.cpp:151
+#, fuzzy, kde-format
+#| msgctxt "The player name"
+#| msgid "Player"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "អ្នក​លេង"
 
-#: view/standingswidget.cpp:153
-#, kde-format
+#: view/standingswidget.cpp:152
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Built"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
@@ -545,8 +578,12 @@ msgstr ""
 "នាវា\n"
 "ស្ថាបនា"
 
-#: view/standingswidget.cpp:154
-#, kde-format
+#: view/standingswidget.cpp:153
+#, fuzzy, kde-format
+#| msgid ""
+#| "Planets\n"
+#| "Conquered"
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
@@ -554,8 +591,12 @@ msgstr ""
 "ផ្កាយ​ព្រះ​គ្រោះ​\n"
 "ត្រូវ​បាន​​វាត​​ទី"
 
-#: view/standingswidget.cpp:155
-#, kde-format
+#: view/standingswidget.cpp:154
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Launched"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
@@ -563,8 +604,12 @@ msgstr ""
 "កង​នាវា\n"
 "ត្រូវ​​បាន​បាញ់"
 
-#: view/standingswidget.cpp:156
-#, kde-format
+#: view/standingswidget.cpp:155
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fleets\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
@@ -572,8 +617,12 @@ msgstr ""
 "កង​នាវា\n"
 "ត្រូវ​បាន​កម្ទេច​"
 
-#: view/standingswidget.cpp:157
-#, kde-format
+#: view/standingswidget.cpp:156
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ships\n"
+#| "Destroyed"
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
@@ -581,20 +630,27 @@ msgstr ""
 "នាវា\n"
 "ត្រូវ​បាន​កម្ទេច"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Production"
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "ផលិត​ផល"
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~| msgid "&Fleet Overview"
+#~ msgid "&Fleet Overview..."
+#~ msgstr "ទិដ្ឋភាព​ទូទៅ​របស់​​កង​នាវា"
 
 #~ msgid "Production"
 #~ msgstr "ផលិត​ផល"

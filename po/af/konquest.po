@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -32,37 +32,43 @@ msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Vloot Vernietig"
 
-#: dialogs/fleetdlg.cc:106
+#: dialogs/fleetdlg.cc:105
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Floot Arriveer"
 
-#: dialogs/fleetdlg.cc:107
+#: dialogs/fleetdlg.cc:106
 #, kde-format
+msgctxt "@title:column"
 msgid "Source"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:108
+#: dialogs/fleetdlg.cc:107
 #, kde-format
+msgctxt "@title:column"
 msgid "Destination"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:109
+#: dialogs/fleetdlg.cc:108
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid "Ships"
 msgstr "Skepe: "
 
-#: dialogs/fleetdlg.cc:110
+#: dialogs/fleetdlg.cc:109
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Stop persent: "
 
-#: dialogs/fleetdlg.cc:111
+#: dialogs/fleetdlg.cc:110
 #, kde-format
+msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr ""
 
-#: dialogs/fleetdlg.cc:136 gameview.cc:120
+#: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
 msgstr ""
@@ -238,18 +244,27 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Planeet %1 het verval na %2"
 
 #: gameview.cc:107
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "End Turn"
+msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Einde Skakel"
 
+#: gameview.cc:120
+#, fuzzy, kde-format
+#| msgid "Final Standings"
+msgctxt "@option:check"
+msgid "Standing order"
+msgstr "Finale Stand"
+
 #: gameview.cc:290
 #, fuzzy, kde-format
-msgid "%1: Select source planet..."
+msgid "%1: Select source planet…"
 msgstr ": Kies bron planeet..."
 
 #: gameview.cc:307
 #, fuzzy, kde-format
-msgid "%1: Select destination planet..."
+msgid "%1: Select destination planet…"
 msgstr ": Kies bestemming planeet..."
 
 #: gameview.cc:318
@@ -415,33 +430,40 @@ msgstr "Galaktiese Kruistog"
 #: mainwin.cc:74
 #, fuzzy, kde-format
 #| msgid "&Measure Distance"
-msgid "&Measure Distance..."
+msgctxt "@action"
+msgid "&Measure Distance…"
 msgstr "Meet Afstand"
 
 #: mainwin.cc:80
 #, fuzzy, kde-format
-msgid "&Fleet Overview..."
+msgctxt "@action"
+msgid "&Fleet Overview"
 msgstr "Vloot Vernietig"
 
 #: mainwin.cc:89
 #, kde-format
+msgctxt "@title:window"
 msgid "Messages"
 msgstr ""
 
 #: mainwin.cc:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr ""
+msgstr "Vertoon Stand"
 
 #: mainwin.cc:114
 #, fuzzy, kde-format
 #| msgid "Final Standings"
+msgctxt "@title:window"
 msgid "Standings"
 msgstr "Finale Stand"
 
 #: mainwin.cc:121
 #, fuzzy, kde-format
 #| msgid "&Show Standings"
+msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Vertoon Stand"
 
@@ -520,62 +542,73 @@ msgctxt "A human spectator"
 msgid "Human (Spectator)"
 msgstr ""
 
-#: view/standingswidget.cpp:152
+#: view/standingswidget.cpp:151
 #, fuzzy, kde-format
 #| msgid "Player"
-msgctxt "The player name"
+msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Speler"
 
-#: view/standingswidget.cpp:153
+#: view/standingswidget.cpp:152
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr "Skepe Gebou"
 
-#: view/standingswidget.cpp:154
+#: view/standingswidget.cpp:153
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr "Planete Verower"
 
-#: view/standingswidget.cpp:155
+#: view/standingswidget.cpp:154
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr "Vloot Geloop"
 
-#: view/standingswidget.cpp:156
+#: view/standingswidget.cpp:155
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr "Vloot Vernietig"
 
-#: view/standingswidget.cpp:157
+#: view/standingswidget.cpp:156
 #, fuzzy, kde-format
+msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr "Skepe Vernietig"
 
-#: view/standingswidget.cpp:158
+#: view/standingswidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "Production: "
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr "Produksie: "
 
-#: view/standingswidget.cpp:159
+#: view/standingswidget.cpp:158
 #, kde-format
+msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+
+#, fuzzy
+#~ msgid "&Fleet Overview..."
+#~ msgstr "Vloot Vernietig"
 
 #, fuzzy
 #~| msgid "Production: "
