@@ -1,25 +1,25 @@
 # Translation of konquest.po to Catalan (Valencian)
-# Copyright (C) 2000-2021 This_file_is_part_of_KDE
+# Copyright (C) 2000-2024 This_file_is_part_of_KDE
 #
 # Francesc J Devesa i Berenguer <frandeve@hotmail.com>, 2000, 2001.
 # Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2007.
 # Aleix Pol <aleixpol@gmail.com>, 2007.
 # Manuel Tortosa <manutortosa@chakra-project.org>, 2009, 2010, 2011.
-# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2014, 2015, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2014, 2015, 2020, 2021, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-12-11 10:46+0100\n"
+"PO-Revision-Date: 2024-05-03 09:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -43,43 +43,37 @@ msgid "Fleet Overview"
 msgstr "Vista general de la flota"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Núm. de flota"
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Origen"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Destinació"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "Naus"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Percentatge d'atac"
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Torn d'arribada"
@@ -255,30 +249,26 @@ msgid "Planet %2 has fallen to %1."
 msgstr "El planeta %2 ha sigut conquerit per %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Finalitza el torn"
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "Ordre permanent"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Selecciona el planeta d'origen..."
+msgstr "%1: Selecciona el planeta d'origen…"
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Selecciona el planeta de destinació..."
+msgstr "%1: Selecciona el planeta de destinació…"
 
 #: gameview.cc:318
 #, kde-format
@@ -436,44 +426,37 @@ msgid "Galactic Conquest"
 msgstr "Conquesta galàctica"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr "&Mesura la distància..."
+msgstr "&Mesura la distància…"
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Vista general de la flota"
+msgstr "Vista general de la &flota"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Missatges"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Mostra els &missatges"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Resultats"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Mostra els re&sultats"
@@ -553,18 +536,13 @@ msgid "Human (Spectator)"
 msgstr "Humà (espectador)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Jugador"
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -574,10 +552,7 @@ msgstr ""
 "construïdes"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -587,10 +562,7 @@ msgstr ""
 "conquerits"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -600,10 +572,7 @@ msgstr ""
 "desplegades"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -613,10 +582,7 @@ msgstr ""
 "destruïdes"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -626,10 +592,7 @@ msgstr ""
 "destruïdes"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -639,10 +602,7 @@ msgstr ""
 "actual"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -650,6 +610,3 @@ msgid ""
 msgstr ""
 "Mida actual\n"
 "de la flota"
-
-#~ msgid "&Fleet Overview..."
-#~ msgstr "Vista general de la &flota..."

@@ -17,14 +17,14 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2024-02-11 10:09+0200\n"
+"PO-Revision-Date: 2024-05-03 08:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -45,43 +45,37 @@ msgid "Fleet Overview"
 msgstr "סקירת הצי"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "מספר צי"
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "מקור"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "יעד"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "ספינות"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "אחוז הריגה"
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "תור הגעה"
@@ -259,28 +253,24 @@ msgid "Planet %2 has fallen to %1."
 msgstr "הכוכב %2 נפל לידי %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "סיום תור"
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "סדר העמדה"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
 msgstr "%1: בחירת כוכב מקור…"
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
 msgstr "%1: בחירת כוכב יעד…"
 
@@ -440,44 +430,37 @@ msgid "Galactic Conquest"
 msgstr "מסע כיבוש גלקטי"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
 msgstr "מ&דידת מרחק…"
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "סקירת הצי"
+msgstr "&סקירת הצי"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "הודעות"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "ה&צגת הודעות"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "העמדות"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "ה&צגת העמדות"
@@ -557,18 +540,13 @@ msgid "Human (Spectator)"
 msgstr "שחקן מתצפת"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "שחקן"
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -578,10 +556,7 @@ msgstr ""
 "שנבנו"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -591,10 +566,7 @@ msgstr ""
 "שנכבשו"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -604,10 +576,7 @@ msgstr ""
 "שהושקו"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -617,10 +586,7 @@ msgstr ""
 "שהושמדו"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -630,10 +596,7 @@ msgstr ""
 "שהושמדו"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -643,10 +606,7 @@ msgstr ""
 "נוכחי"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
