@@ -8,7 +8,7 @@
 # Rafael Osuna <rosuna@wol.es>, 2003, 2004.
 # Santiago Fernandez Sancho <santi@kde-es.org>, 2004, 2006.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2009, 2013, 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010, 2011.
 # Sofía Priego <spriego@darksylvania.net>, %Y.
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-08-14 19:22+0100\n"
+"PO-Revision-Date: 2024-05-05 22:53+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Víctor Romero <livingstone@thepentagon.com>\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -49,43 +49,37 @@ msgid "Fleet Overview"
 msgstr "Vista general de la flota"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
-msgstr "Nº de la flota."
+msgstr "N.º de la flota."
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Origen"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Destino"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "Naves"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Porcentaje de muertes"
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Turno de llegada"
@@ -184,7 +178,7 @@ msgstr "Mapa ciego"
 #: dialogs/newGameDialog.ui:241
 #, kde-format
 msgid "Cumulative production"
-msgstr "Producción acumulativa"
+msgstr "Producción acumulada"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
@@ -231,7 +225,7 @@ msgstr "Tipo"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
-msgstr "Comenzar nueva partida"
+msgstr "Empezar una nueva partida"
 
 #: dialogs/newgamedlg.cc:385
 #, kde-format
@@ -241,19 +235,19 @@ msgstr "disponible"
 #: dialogs/newgamedlg.cc:388
 #, kde-format
 msgid "neutral"
-msgstr "Neutrales"
+msgstr "neutral"
 
 #: game.cpp:103
 #, kde-format
 msgid "Reinforcements (1 ship) have arrived for planet %2."
 msgid_plural "Reinforcements (%1 ships) have arrived for planet %2."
-msgstr[0] "Han llegado refuerzos (1 naves) para el planeta %2."
+msgstr[0] "Han llegado refuerzos (1 nave) para el planeta %2."
 msgstr[1] "Han llegado refuerzos (%1 naves) para el planeta %2."
 
 #: game.cpp:148
 #, kde-format
 msgid "Planet %2 has held against an attack from %1."
-msgstr "El planeta %2 se ha defendido contra un ataque desde %1."
+msgstr "El planeta %2 se ha defendido de un ataque de %1."
 
 #: game.cpp:156
 #, kde-format
@@ -261,30 +255,26 @@ msgid "Planet %2 has fallen to %1."
 msgstr "El planeta %2 ha caído ante %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Terminar turno"
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "Orden de posición"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Seleccione planeta de origen..."
+msgstr "%1: Selecciona planeta de origen..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Seleccione planeta de destino..."
+msgstr "%1: Selecciona planeta de destino..."
 
 #: gameview.cc:318
 #, kde-format
@@ -299,7 +289,7 @@ msgstr "%1: ¿Cuántas naves?"
 #: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
-msgstr "Gobernador: Seleccione planeta inicial."
+msgstr "Gobernador: Selecciona planeta inicial."
 
 #: gameview.cc:365
 #, kde-format
@@ -308,7 +298,7 @@ msgid ""
 "A ship leaving this turn will arrive on turn %4"
 msgstr ""
 "La distancia desde el planeta %1 al planeta %2 es de %3 años luz.\n"
-"Una nave partiendo en este turno llegará en el turno %4"
+"Una nave que parta en este turno llegará en el turno %4."
 
 #: gameview.cc:371
 #, kde-format
@@ -318,7 +308,7 @@ msgstr "Distancia"
 #: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
-msgstr "Gobernador: Seleccione planeta final."
+msgstr "Gobernador: Selecciona planeta final."
 
 #: gameview.cc:426
 #, kde-format
@@ -328,13 +318,13 @@ msgstr "Turno %1:"
 #: gameview.cc:523
 #, kde-format
 msgid "Do you wish to retire this game?"
-msgstr "¿Desea retirarse de esta partida?"
+msgstr "¿Quieres retirarte de esta partida?"
 
 #: gameview.cc:524
 #, kde-format
 msgctxt "@title:window"
 msgid "End Game"
-msgstr "Finalizar partida"
+msgstr "Terminar la partida"
 
 #: gameview.cc:552
 #, kde-format
@@ -370,7 +360,7 @@ msgstr "Stephan Zehetner"
 #: Konquest.cc:38
 #, kde-format
 msgid "Computer/AI Player"
-msgstr "Jugador máquina/IA"
+msgstr "Jugador de la máquina/IA."
 
 #: Konquest.cc:39
 #, kde-format
@@ -380,7 +370,7 @@ msgstr "Dmitry Suzdalev"
 #: Konquest.cc:39
 #, kde-format
 msgid "Port to KDE4"
-msgstr "Portado a KDE4"
+msgstr "Adaptación para KDE4."
 
 #: Konquest.cc:40
 #, kde-format
@@ -390,7 +380,7 @@ msgstr "Inge Wallin"
 #: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing"
-msgstr "Limpieza y corrección de errores"
+msgstr "Limpieza y corrección de errores."
 
 #: Konquest.cc:41
 #, kde-format
@@ -400,7 +390,7 @@ msgstr "Pierre Ducroquet"
 #: Konquest.cc:41
 #, kde-format
 msgid "Cleaning and bugfixing, maintenance"
-msgstr "Limpieza y corrección de errores, mantenimiento"
+msgstr "Limpieza y corrección de errores, mantenimiento."
 
 #: Konquest.cc:42
 #, kde-format
@@ -410,7 +400,7 @@ msgstr "Sean D'Epagnier"
 #: Konquest.cc:42
 #, kde-format
 msgid "Gameplay Enhancements"
-msgstr "Mejoras del juego"
+msgstr "Mejoras del juego."
 
 #. i18n: ectx: Menu (game)
 #: konquestui.rc:10
@@ -442,44 +432,37 @@ msgid "Galactic Conquest"
 msgstr "Conquista galáctica"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
 msgstr "&Medir distancia..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Vista general de la flota"
+msgstr "Vista general de la &flota"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Mensajes"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "&Mostrar mensajes"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Posiciones"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Mo&strar posiciones"
@@ -487,7 +470,7 @@ msgstr "Mo&strar posiciones"
 #: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
-msgstr "Turno nº: %1"
+msgstr "Turno n.º %1"
 
 #: map/mapitems.cc:214
 #, kde-format
@@ -529,17 +512,17 @@ msgstr "Becai (equilibrado)"
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr "Por omisión (defensivo)"
+msgstr "Predeterminado (defensivo)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr "Por omisión (ofensivo)"
+msgstr "Predeterminado (ofensivo)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr "Por omisión (débil)"
+msgstr "Predeterminado (débil)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
@@ -559,18 +542,13 @@ msgid "Human (Spectator)"
 msgstr "Humano (espectador)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Jugador"
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -580,10 +558,7 @@ msgstr ""
 "construidas"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -593,10 +568,7 @@ msgstr ""
 "conquistados"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -606,10 +578,7 @@ msgstr ""
 "lanzadas"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -619,10 +588,7 @@ msgstr ""
 "destruidas"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -632,10 +598,7 @@ msgstr ""
 "destruidas"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -645,10 +608,7 @@ msgstr ""
 "actual"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
