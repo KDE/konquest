@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the konquest package.
 #
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2023-12-18 12:31+0100\n"
+"PO-Revision-Date: 2024-05-06 12:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -40,15 +40,13 @@ msgid "Fleet No."
 msgstr ""
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Fonte"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Destination"
@@ -298,7 +296,7 @@ msgstr ""
 #: gameview.cc:426
 #, kde-format
 msgid "Turn %1:"
-msgstr ""
+msgstr "Torno %1:"
 
 #: gameview.cc:523
 #, kde-format
@@ -309,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "End Game"
-msgstr ""
+msgstr "Termina Joco"
 
 #: gameview.cc:552
 #, kde-format
@@ -320,7 +318,7 @@ msgstr ""
 #: Konquest.cc:29
 #, kde-format
 msgid "Konquest"
-msgstr ""
+msgstr "Konquest"
 
 #: Konquest.cc:31
 #, kde-format
@@ -429,15 +427,13 @@ msgid "&Fleet Overview"
 msgstr ""
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Messages"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "&Monstra messages"
@@ -449,16 +445,15 @@ msgid "Standings"
 msgstr ""
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
-msgstr "&Monstra messages"
+msgstr "Monstra Positione&s"
 
 #: mainwin.cc:215
 #, kde-format
 msgid "Turn # %1"
-msgstr ""
+msgstr "Torno # %1"
 
 #: map/mapitems.cc:214
 #, kde-format
@@ -530,9 +525,7 @@ msgid "Human (Spectator)"
 msgstr ""
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Jocator"
@@ -578,13 +571,14 @@ msgid ""
 msgstr ""
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid "Production:"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
-msgstr "Production:"
+msgstr ""
+"Production\n"
+"Currente"
 
 #: view/standingswidget.cpp:158
 #, kde-format
