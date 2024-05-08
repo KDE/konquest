@@ -646,6 +646,3 @@ msgid ""
 msgstr ""
 "Noverande\n"
 "flåtestorleik"
-
-#~ msgid "&Fleet Overview..."
-#~ msgstr "&Flåteoversikt …"

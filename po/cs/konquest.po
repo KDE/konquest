@@ -37,46 +37,40 @@ msgid "Fleet Overview"
 msgstr "Přehled flotily"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
-msgstr "Číslo flotily"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Zdroj"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Cíl"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
-msgstr "Lodí"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
-msgstr "Zabitých v %"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
-msgstr "Příchozí tah"
+msgstr ""
 
 #: dialogs/fleetdlg.cc:136
 #, kde-format
@@ -250,30 +244,26 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Planeta %2 padla do rukou %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
-msgstr "Ukončit tah"
+msgstr ""
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
-msgstr "Trvalý příkaz"
+msgstr ""
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Vyber počáteční planetu."
+msgstr ""
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Vyber cílovou planetu."
+msgstr ""
 
 #: gameview.cc:318
 #, kde-format
@@ -431,49 +421,40 @@ msgid "Galactic Conquest"
 msgstr "Galaktické dobývání"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr "Z&měřit vzdálenost..."
+msgstr ""
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Přehled flotily"
+msgstr ""
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
-msgstr "Zprávy"
+msgstr ""
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
-msgstr "Zobrazit zprávy"
+msgstr ""
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
-msgstr "Konečný stav"
+msgstr ""
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
-msgstr "Konečný stav"
+msgstr ""
 
 #: mainwin.cc:215
 #, kde-format
@@ -550,103 +531,63 @@ msgid "Human (Spectator)"
 msgstr "Člověk (Pozorovatel)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
-msgstr "Hráč"
+msgstr ""
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr ""
-"Postaveno\n"
-"lodí"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr ""
-"Dobyto\n"
-"planet"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr ""
-"Vypuštěno\n"
-"flotil"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr ""
-"Zničeno\n"
-"flotil"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr ""
-"Zničeno\n"
-"lodí"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr ""
-"Současná\n"
-"produkce"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-"Současná\n"
-"Velikost flotily"
-
-#~ msgid "&Fleet Overview..."
-#~ msgstr "&Přehled flotily..."
