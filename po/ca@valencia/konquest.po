@@ -250,12 +250,12 @@ msgstr "Finalitza el torn"
 #: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet..."
-msgstr "%1: Selecciona el planeta d'origen..."
+msgstr "%1: Selecciona el planeta d'origen…"
 
 #: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet..."
-msgstr "%1: Selecciona el planeta de destinació..."
+msgstr "%1: Selecciona el planeta de destinació…"
 
 #: gameview.cc:318
 #, kde-format
@@ -415,12 +415,12 @@ msgstr "Conquesta galàctica"
 #: mainwin.cc:74
 #, kde-format
 msgid "&Measure Distance..."
-msgstr "&Mesura la distància..."
+msgstr "&Mesura la distància…"
 
 #: mainwin.cc:80
 #, kde-format
 msgid "&Fleet Overview..."
-msgstr "Vista general de la &flota..."
+msgstr "Vista general de la &flota…"
 
 #: mainwin.cc:89
 #, kde-format
