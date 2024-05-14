@@ -2,19 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2005.
+# SPDX-FileCopyrightText: 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2005-11-23 00:05+0200\n"
-"Last-Translator: Златко Попов <zlatkopopov@fsa-bg.org>\n"
-"Language-Team:  <en@li.org>\n"
+"PO-Revision-Date: 2024-05-13 22:48+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -260,12 +261,12 @@ msgstr "Крайно класиране"
 #: gameview.cc:290
 #, fuzzy, kde-format
 msgid "%1: Select source planet…"
-msgstr "Изберете начална планета..."
+msgstr "Изберете начална планета…"
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 msgid "%1: Select destination planet…"
-msgstr "Изберете крайна планета..."
+msgstr "Изберете крайна планета…"
 
 #: gameview.cc:318
 #, kde-format
