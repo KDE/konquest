@@ -109,7 +109,21 @@
 ><contrib
 >Traductor</contrib
 ></othercredit
->  
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
+> 
 </authorgroup>
 
 <othercredit role="developer"
@@ -234,7 +248,7 @@
 </screenshot>
 
 <para
->&konquest; es una versión para &kde; del juego &gnu-lactic;. Los jugadores conquistan otros planetas enviando sus naves. El objetivo es crear un imperio interestelar y en última instancia conquistar todos los demás planetas. &konquest; puede jugarse contra otras personas o contra una máquina. </para>
+>&konquest; es una versión para &kde; del juego &gnu-lactic;. Los jugadores conquistan otros planetas enviando sus naves. El objetivo es crear un imperio interestelar y, en última instancia, conquistar todos los demás planetas. &konquest; puede jugarse contra otras personas o contra una máquina. </para>
 
 </chapter>
 
@@ -243,9 +257,9 @@
 >Cómo jugar</title>
 
 <para
->Cuando inicie &konquest;, presione <guibutton
+>Tras lanzar &konquest;, pulsa <guibutton
 >Nuevo</guibutton
-> para empezar un juego nuevo. Verá un diálogo en el que necesitará introducir información para configurar su juego. Abajo se listan los siguientes parámetros para el nuevo juego: </para>
+> para empezar un juego nuevo. Verás un diálogo en el que tendrás que introducir información para configurar el juego. A continuación se listan los siguientes parámetros para el nuevo juego: </para>
 
   <para
 ><guilabel
@@ -267,20 +281,20 @@
 ></listitem>
     <listitem
 ><para
->Tipo de jugadores (Equipo contra Humano)</para
+>Tipo de jugadores (Máquina contra Humano)</para
 ></listitem>
     <listitem
 ><para
->Dificultad de los jugadores controlados por el ordenador (Baja/Normal/Alta)</para
+>Dificultad de los jugadores controlados por la máquina (Baja/Normal/Alta)</para
 ></listitem>
   </itemizedlist>
 
 <para
->Para cambiar el nombre del jugador, haga doble clic en la columna <guilabel
+>Para cambiar el nombre del jugador, haz doble clic en la columna <guilabel
 >Nombre</guilabel
-> y edítela. Para cambiar el tipo de jugador abra la lista desplegable haciendo doble clic en la columna <guilabel
+> y modifícalo. Para cambiar el tipo de jugador, abre la lista desplegable haciendo doble clic en la columna <guilabel
 >Tipo</guilabel
->. También es posible seleccionar el tipo del nuevo jugador usando la lista desplegable del botón <guibutton
+>. También se puede seleccionar el tipo del nuevo jugador usando la lista desplegable del botón <guibutton
 >Añadir</guibutton
 >.</para>
 
@@ -292,7 +306,7 @@
 >. La última opción permite observar la partida sin formar parte de ella.</para>
 
 <para
->El tipo de jugador de IA puede ser escogido entre <guimenuitem
+>El tipo de jugador de IA se puede escoger entre <guimenuitem
 >Por omisión (débil)</guimenuitem
 > (el jugador no es agresivo atacando ni defendiendo), <guimenuitem
 >Por omisión (ofensivo)</guimenuitem
@@ -306,7 +320,7 @@
 > es un jugador balanceado que tiene la mayor parte de <xref linkend="strattips"/> en cuenta.</para>
 
 <para
->Tenga en cuenta que la dificultad actual de cada oponente depende de su propia estrategia. Si juega de forma agresiva, un jugador de IA agresivo puede ser más fácil de vencer que uno defensivo, y viceversa.</para>
+>Ten en cuenta que la dificultad actual de cada oponente depende de tu propia estrategia. Si juegas de forma agresiva, un jugador de IA agresivo puede ser más fácil de vencer que uno defensivo, y viceversa.</para>
 
 <variablelist>
   <varlistentry>
@@ -334,17 +348,17 @@
 >Producción</guilabel
 > de un determinado planeta.</para>
     <para
->Cambiar la distribución de planetas. Presione <guibutton
->Aleatorizar</guibutton
+>Cambiar la distribución de planetas. Pulsa <guibutton
+>Al azar</guibutton
 > para hacerla aleatoria.</para
 ></listitem>
   </varlistentry>
 </variablelist>
 
 <para
->Puede seleccionar el planeta usando la miniatura del mapa en el centro del panel de <guilabel
+>Puedes seleccionar el planeta usando la miniatura del mapa en el centro del panel de <guilabel
 >Mapa</guilabel
->. Tan solo tiene que hacer clic en el planeta con el &LMB; y cambiar luego las opciones deseadas.</para>
+>. Tan solo tienes que hacer clic en el planeta con el &LMB; y cambiar luego las opciones deseadas.</para>
 
 <variablelist>
   <varlistentry>
@@ -356,7 +370,7 @@
 ><para
 ><guilabel
 >Mapa ciego</guilabel
->: Si puede o no ver información sobre los planetas de sus oponentes.</para>
+>: Si puedes o no ver información sobre los planetas de tus oponentes.</para>
     <para
 ><guilabel
 >Producción acumulada</guilabel
@@ -378,9 +392,9 @@
 </variablelist>
 
 <para
->Cuando haya terminado de cambiar estos ajustes (opcional), haga clic en <guibutton
+>Cuando hayas terminado de cambiar estos ajustes (opcionales), pulsa <guibutton
 >Aceptar</guibutton
-> para empezar el juego.</para>
+> para empezar a jugar.</para>
 
 <screenshot>
 <mediaobject>
@@ -398,11 +412,11 @@
 </screenshot>
 
 <para
->Al iniciar la partida se mostrará el tablero de juego. Los cuadrados en blanco componen el espacio vacío. Al principio, a cada jugador le pertenece un planeta. El fondo del planeta es el color del jugador. Mueva el ratón sobre un planeta para ver información adicional. Si la opción <guilabel
+>Al iniciar la partida se mostrará el tablero de juego. Los cuadrados en blanco componen el espacio vacío. Al principio, a cada jugador le pertenece un planeta. El fondo del planeta es el color del jugador. Mueve el ratón sobre un planeta para ver información adicional. Si la opción <guilabel
 >Mapa ciego</guilabel
-> no está marcada al seleccionar un juego, podrá ver información sobre todos los planetas al situar el ratón sobre ellos. Si ha seleccionado la opción <guilabel
+> no está marcada al seleccionar un juego, podrás ver información sobre todos los planetas al situar el ratón sobre ellos. Si has seleccionado la opción <guilabel
 >Mapa ciego</guilabel
-> al empezar el juego, solo podrá ver los nombres de los planetas que han sido conquistados por los oponentes. La información puede incluir: </para>
+> al empezar el juego, solo podrás ver los nombres de los planetas que han sido conquistados por los oponentes. La información puede incluir: </para>
 
 <itemizedlist>
 <listitem
@@ -460,8 +474,8 @@
 
 <para
 >El <guilabel
->Nombre del Planeta</guilabel
-> es para referirse a él en el juego. Los planetas se nombran alfabéticamente con letras mayúsculas. El <guilabel
+>Nombre del planeta</guilabel
+> sirve para referirse a él en el juego. Los planetas se nombran alfabéticamente con letras mayúsculas. El <guilabel
 >Propietario</guilabel
 > es quien posee el planeta. Si el planeta es conquistado por otro jugador, este dato cambiará. <guilabel
 >Naves</guilabel
@@ -469,19 +483,19 @@
 >Producción de naves</guilabel
 > es el número de naves que el planeta puede producir en cada turno. La producción varía de planeta a planeta, pero siempre permanece igual. El <guilabel
 >Porcentaje de muertes</guilabel
-> es una medida de la efectividad de las naves producidas en ese planeta. Las flotas de ataque llevan el porcentaje de muertes de su planeta de origen, y las flotas de defensa utilizan el porcentaje de muertes del planeta que están defendiendo. Puede ver fácilmente el nombre del planeta, el propietario y el número actual de naves en el cuadrado donde está situado el planeta. El propietario se representa con el color de fondo del planeta, el nombre está en la esquina superior izquierda y el número de naves está en la esquina inferior derecha. </para>
+> es una medida de la efectividad de las naves producidas en ese planeta. Las flotas de ataque llevan el porcentaje de muertes de su planeta de origen, y las flotas de defensa utilizan el porcentaje de muertes del planeta que están defendiendo. Puedes ver fácilmente el nombre del planeta, el propietario y el número actual de naves en el cuadrado donde está situado el planeta. El propietario se representa con el color de fondo del planeta, el nombre está en la esquina superior izquierda y el número de naves está en la esquina inferior derecha. </para>
 
 <para
->Para enviar naves de un planeta a otro, seleccione el planeta desde el que desea enviar las naves, introduzca el número de naves en el cuadro verde de la parte superior derecha y pulse &Enter;. Repita este procedimiento hasta que envíe todos las naves que desee. Si desea enviar una cantidad constante de naves de un planeta a otro en cada turno, introduzca el número, marque la casilla <guilabel
+>Para enviar naves de un planeta a otro, selecciona el planeta desde el que deseas enviar las naves, introduce el número de naves en el cuadro verde de la parte superior derecha y pulsa &Enter;. Repite este procedimiento hasta que envíes todas las naves que quieras. Si deseas enviar una cantidad constante de naves de un planeta a otro en cada turno, introduce el número, marca la casilla <guilabel
 >Envío fijo</guilabel
-> y presione &Enter;. El número de naves indicado se enviará al final del turno. Cuando haya terminado, presione <guibutton
+> y pulsa &Enter;. El número de naves indicado se enviará al final del turno. Cuando hayas terminado, pulsa <guibutton
 >Finalizar turno</guibutton
->. Cuando todos los jugadores hayan jugado un turno, aparecerán cuadros de diálogo que le darán las últimas noticias. El juego continuará así hasta que uno de los jugadores se adueñe de toda la galaxia. </para>
+>. Cuando todos los jugadores hayan jugado un turno, aparecerán cuadros de diálogo que te darán las últimas noticias. El juego continuará así hasta que uno de los jugadores se apropie de toda la galaxia. </para>
 <tip>
   <para
 >El atajo de teclado para la acción <guibutton
 >Terminar turno</guibutton
-> puede ser configurada dirigiéndose al menú <menuchoice
+> se puede configurar con la opción del menú <menuchoice
 ><guimenu
 >Preferencias</guimenu
 > <guimenuitem
@@ -489,7 +503,7 @@
 ></menuchoice
 >  </para>
   <para
->Para más información lea la sección <ulink url="help:/fundamentals/config.html#shortcuts"
+>Para más información, consulta la sección <ulink url="help:/fundamentals/config.html#shortcuts"
 >Modificar los atajos de teclado</ulink
 > del manual Fundamentos de &kde;. </para>
 </tip>
@@ -505,7 +519,7 @@
 <itemizedlist>
   <listitem
 ><para
->Las naves no pueden detenerse hasta que no lleguen al planeta.</para
+>Las naves no se pueden detener hasta que no lleguen al planeta.</para
 ></listitem>
   <listitem
 ><para
@@ -513,11 +527,11 @@
 ></listitem>
   <listitem
 ><para
->Las naves no se pueden guardar en los planetas para usarlas después.</para
+>Las naves no se pueden almacenar en los planetas para usarlas después.</para
 ></listitem>
   <listitem
 ><para
->Un planeta no puede abandonarse.</para
+>Un planeta no se puede abandonar.</para
 ></listitem>
   <listitem
 ><para
@@ -535,35 +549,35 @@
 <itemizedlist>
   <listitem
 ><para
->El juego trata sobre la producción de naves. Trate de conseguir tantos planetas como sea posible tan rápido como pueda para construir más naves que sus adversarios.</para
+>El juego trata sobre la producción de naves. Trata de conseguir tantos planetas como sea posible tan rápido como puedas para construir más naves que tus adversarios.</para
 ></listitem>
   <listitem
 ><para
->No ataque un planeta con menos de 10 naves, a menos que pueda conquistarlo.</para
+>No ataques un planeta con menos de 10 naves, a menos que puedas conquistarlo.</para
 ></listitem>
   <listitem
 ><para
->Ataque planetas neutrales antes que los planetas de los demás jugadores.</para
+>Ataca planetas neutrales antes que los planetas de los demás jugadores.</para
 ></listitem>
   <listitem
 ><para
->Divida sus naves guardándolas en varios planetas.</para
+>Divide tus naves guardándolas en varios planetas.</para
 ></listitem>
   <listitem
 ><para
->Planee sus ataques con anticipación.</para
+>Planea tus ataques con anticipación.</para
 ></listitem>
   <listitem
 ><para
->Utilice la regla para averiguar la distancia entre planetas.</para
+>Usa la regla para averiguar la distancia entre planetas.</para
 ></listitem>
   <listitem
 ><para
->Utilice la ventana de información para obtener información sobre los planetas antes de atacar.</para
+>Usa la ventana de información para obtener datos sobre los planetas antes de un ataque.</para
 ></listitem>
   <listitem
 ><para
->Si esta información está disponible para usted, es preferible atacar un planeta con una tasa de muertes baja desde un planeta con una tasa alta.</para
+>Si esta información está disponible para ti, es preferible atacar un planeta con una tasa de muertes baja desde un planeta con una tasa alta.</para
 ></listitem>
 </itemizedlist>
 </sect1>
@@ -575,7 +589,7 @@
 
 <sect1 id="menu-items">
 <title
->Opciones de menú</title>
+>Opciones del menú</title>
 
 <variablelist>
 <varlistentry>
@@ -596,7 +610,7 @@
 <listitem
 ><para
 ><action
->Comienza una nueva partida.</action
+>Empieza una nueva partida.</action
 ></para
 ></listitem>
 </varlistentry>
@@ -617,7 +631,7 @@
 <listitem
 ><para
 ><action
->Finaliza el juego actual, sin cerrar</action
+>Termina la partida actual, sin cerrar</action
 > &konquest;.</para
 ></listitem>
 </varlistentry>
@@ -628,14 +642,14 @@
 ><guimenu
 >Juego</guimenu
 > <guimenuitem
->Distancia de medida...</guimenuitem
+>Medir distancia...</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
 ><action
 >Permite medir la distancia.</action
-> Pulse con el &LMB; en dos planetas para ver la distancia que hay entre ellos.</para
+> Pulsa con el &LMB; en dos planetas para ver la distancia que hay entre ellos.</para
 ></listitem>
 </varlistentry>
 
@@ -645,7 +659,7 @@
 ><guimenu
 >Juego</guimenu
 > <guimenuitem
->Vista general de la flota...</guimenuitem
+>Resumen de la flota...</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -690,8 +704,8 @@
 ></term>
 <listitem
 ><para
->Le permite <action
->Terminar turno </action
+>Permite <action
+>terminar el turno </action
 > desde el menú principal.</para
 ></listitem>
 </varlistentry>
@@ -725,7 +739,7 @@
 <listitem
 ><para
 ><action
->Mostrar u ocultar la tabla de clasificación actual de los jugadores.</action
+>Mostrar u ocultar la tabla de clasificación de los jugadores actuales.</action
 ></para
 ></listitem>
 </varlistentry>
@@ -733,15 +747,15 @@
 </variablelist>
 
 <para
->Además &konquest; tiene las opciones de menú <guimenu
+>Además, &konquest; tiene las opciones de los menús <guimenu
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
-> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+> comunes de &kde;. Para obtener más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Menú «Preferencias»</ulink
-> y <ulink url="help:/fundamentals/menus.html#menus-help"
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menú «Ayuda» </ulink
-> de «Aspectos básicos de &kde;». </para>
+> de los «Aspectos básicos de &kde;». </para>
 
 </sect1>
 </chapter>
@@ -754,18 +768,18 @@
   <qandaentry>
     <question
 ><para
->Puedo cambiar la dirección de las naves antes de que alcancen un planeta?</para
+>¿Puedo cambiar la dirección de las naves cuando han dejado un planeta?</para
 ></question>
     <answer
 ><para
->No, una vez que las naves dejan el planeta no puede detenerse o cambiarse de dirección.</para
+>No. Una vez que las naves dejan un planeta, no se pueden detener ni cambiar su dirección.</para
 ></answer>
   </qandaentry>
 
   <qandaentry>
     <question
 ><para
->Los diferentes colores y formas de los planetas ¿significan algo?</para
+>¿Significan algo los diferentes colores y formas de los planetas?</para
 ></question>
     <answer
 ><para
@@ -780,20 +794,20 @@
 ></question>
     <answer
 ><para
->Pulse <guibutton
+>Pulsa <guibutton
 >Mostrar posiciones</guibutton
->. Obtendrá información sobre las flotas en vuelo.</para
+>. Obtendrás información sobre las flotas en vuelo.</para
 ></answer>
   </qandaentry>
 
   <qandaentry>
     <question
 ><para
->He perdido todos mis planetas, pero todavía continúo en el juego ¿por qué?</para
+>He perdido todos mis planetas, pero todavía continúo en el juego. ¿Por qué?</para
 ></question>
     <answer
 ><para
->No perderá el juego hasta que haya perdido todas sus naves.</para
+>No perderás el juego hasta que hayas perdido todas sus naves.</para
 ></answer>
   </qandaentry>
 
@@ -804,7 +818,7 @@
 ></question>
     <answer
 ><para
->Sí, no obstante debería guardarlas en varios planetas para poder enviarlas a los planetas cercanos.</para
+>Sí. No obstante, deberías guardarlas en varios planetas para poder enviarlas a los planetas cercanos.</para
 ></answer>
   </qandaentry>
 
@@ -844,7 +858,7 @@
 >Copyright de la documentación 2012 Viktor Chynarov</para>
 
 <para
->Traducido por Rocío Gallego <email
+>Documentación traducida por Rocío Gallego <email
 >traducciones@rociogallego.com</email
 >, Rafael Osuna <email
 >rosuna@wol.es</email
@@ -856,6 +870,10 @@
 >kirajfdez@gmail.com</email
 >y David Paul Peña <email
 >eodos0@gmail.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 
