@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2024-04-24 12:56+0300\n"
+"PO-Revision-Date: 2024-05-25 18:50+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -38,43 +38,37 @@ msgid "Fleet Overview"
 msgstr "Flotes pārskats"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Flotes Nr."
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Avots"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Galamērķis"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "Kuģi"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Nogalināšanas procents"
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Pienākšanas gājiens"
@@ -251,28 +245,24 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Planētu %2 ieguva %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Beigt gājienu"
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "Pastāvīgais rīkojums"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
 msgstr "%1: norādiet avota planētu..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
 msgstr "%1: norādiet mērķa planētu..."
 
@@ -432,44 +422,37 @@ msgid "Galactic Conquest"
 msgstr "Galaktikas iekarošana"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
 msgstr "&Mērīt attālumu..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Flotes pārskats"
+msgstr "&Flotes pārskats"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Ziņojumi"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Rādīt &ziņojumus"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Rezultāti"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "&Rādīt rezultātus"
@@ -549,18 +532,13 @@ msgid "Human (Spectator)"
 msgstr "Cilvēks (skatītājs)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Spēlētājs"
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -570,10 +548,7 @@ msgstr ""
 "uzbūvēts"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -583,10 +558,7 @@ msgstr ""
 "iekarots"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -596,10 +568,7 @@ msgstr ""
 "palaists"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -609,10 +578,7 @@ msgstr ""
 "iznīcināts"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -622,10 +588,7 @@ msgstr ""
 "iznīcināts"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -635,10 +598,7 @@ msgstr ""
 "ražošana"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
