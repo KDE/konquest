@@ -1,4 +1,4 @@
-# Version: $Revision: 1680898 $
+# Version: $Revision: 1681083 $
 # translation of konquest.po to Polish
 # translation of konquest.po to
 # translation of konquest.po to
@@ -18,9 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
-" || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,42 +39,36 @@ msgstr "Przegląd floty"
 
 #: dialogs/fleetdlg.cc:105
 #, kde-format
-#| msgid "Fleet No."
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Flota nr"
 
 #: dialogs/fleetdlg.cc:106
 #, kde-format
-#| msgid "Source"
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Źródło"
 
 #: dialogs/fleetdlg.cc:107
 #, kde-format
-#| msgid "Destination"
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Cel"
 
 #: dialogs/fleetdlg.cc:108
 #, kde-format
-#| msgid "Ships"
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "Statki"
 
 #: dialogs/fleetdlg.cc:109
 #, kde-format
-#| msgid "Kill Percentage"
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Skuteczność"
 
 #: dialogs/fleetdlg.cc:110
 #, kde-format
-#| msgid "Arrival Turn"
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Czas przybycia"
@@ -253,27 +246,23 @@ msgstr "%1 podbił planetę %2."
 
 #: gameview.cc:107
 #, kde-format
-#| msgid "End Turn"
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Koniec tury"
 
 #: gameview.cc:120
 #, kde-format
-#| msgid "Standing order"
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "Zlecenie stałe"
 
 #: gameview.cc:290
 #, kde-format
-#| msgid "%1: Select source planet..."
 msgid "%1: Select source planet…"
 msgstr "%1: Wybierz planetę źródłową…"
 
 #: gameview.cc:307
 #, kde-format
-#| msgid "%1: Select destination planet..."
 msgid "%1: Select destination planet…"
 msgstr "%1: Wybierz planetę docelową…"
 
@@ -434,43 +423,36 @@ msgstr "Podbój Galaktyki"
 
 #: mainwin.cc:74
 #, kde-format
-#| msgid "&Measure Distance..."
 msgctxt "@action"
 msgid "&Measure Distance…"
 msgstr "Z&mierz odległość…"
 
 #: mainwin.cc:80
 #, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
 msgctxt "@action"
 msgid "&Fleet Overview"
 msgstr "Przegląd &floty"
 
 #: mainwin.cc:89
 #, kde-format
-#| msgid "Messages"
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Wiadomości"
 
 #: mainwin.cc:95
 #, kde-format
-#| msgid "Show &Messages"
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Pokaż wiado&mości"
 
 #: mainwin.cc:114
 #, kde-format
-#| msgid "Standings"
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Ostateczne wyniki"
 
 #: mainwin.cc:121
 #, kde-format
-#| msgid "Show &Standings"
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Pokaż o&stateczne wyniki"
@@ -551,17 +533,12 @@ msgstr "Człowiek (Obserwator)"
 
 #: view/standingswidget.cpp:151
 #, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Gracz"
 
 #: view/standingswidget.cpp:152
 #, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -572,9 +549,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:153
 #, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -585,9 +559,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:154
 #, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -598,9 +569,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:155
 #, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -611,9 +579,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:156
 #, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -624,9 +589,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:157
 #, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -637,9 +599,6 @@ msgstr ""
 
 #: view/standingswidget.cpp:158
 #, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
 msgctxt "@title:column"
 msgid ""
 "Current\n"
@@ -687,4 +646,3 @@ msgstr ""
 
 #~ msgid "&Reject"
 #~ msgstr "&Odrzuć"
-
