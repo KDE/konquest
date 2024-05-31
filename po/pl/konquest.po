@@ -1,11 +1,11 @@
-# Version: $Revision: 1681083 $
+# Version: $Revision: 1681191 $
 # translation of konquest.po to Polish
 # translation of konquest.po to
 # translation of konquest.po to
 # translation of konquest.po to
+# SPDX-FileCopyrightText: 2011, 2012, 2014, 2020, 2021, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2003, 2004, 2005, 2007, 2009.
-# SPDX-FileCopyrightText: 2011, 2012, 2014, 2020, 2021, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"

@@ -594,7 +594,3 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-
-#, fuzzy
-#~ msgid "&Fleet Overview..."
-#~ msgstr "&Преглед на флотилиите"
