@@ -2,6 +2,7 @@
 Icon=konquest
 Name=Konquest
 Name[af]=Konquest
+Name[ar]=الغزو
 Name[ast]=Konquest
 Name[be]=Заваёва
 Name[bn]=কনকোয়েস্ট
@@ -72,6 +73,7 @@ Name[zh_TW]=Konquest 征服
 Exec=konquest -qwindowtitle %c
 Type=Application
 GenericName=Galactic Strategy Game
+GenericName[ar]=لعبة استراتيجية المجرة
 GenericName[be]=Стратэгічная галактычная гульня
 GenericName[bn]=গ্যালাকটিক কৌশলের খেলা
 GenericName[bs]=Galaktička strateška igra
