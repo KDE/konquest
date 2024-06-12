@@ -3,20 +3,22 @@
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
+# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:36+0000\n"
-"PO-Revision-Date: 2007-10-14 15:45+0000\n"
-"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2024-06-08 17:22+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,8 +31,7 @@ msgid "Your emails"
 msgstr "metehyi@free.fr,zayed.alsaidi@gmail.com"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "استعراض الأسطول"
@@ -43,7 +44,7 @@ msgstr "رقم الأسطول"
 #: dialogs/fleetdlg.cc:107
 #, kde-format
 msgid "Source"
-msgstr ""
+msgstr "المصدر"
 
 #: dialogs/fleetdlg.cc:108
 #, kde-format
@@ -68,7 +69,7 @@ msgstr "دور الوصول"
 #: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
 msgid "Standing order"
-msgstr ""
+msgstr "طلب مستديم"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
 #: dialogs/newGameDialog.ui:14
@@ -121,69 +122,69 @@ msgstr "الإرت&فاع:"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: dialogs/newGameDialog.ui:153 dialogs/newGameDialog.ui:287
-#, fuzzy, kde-format
+#, kde-format
 msgid "Production:"
-msgstr "الإنتاج: %1"
+msgstr "الإنتاج:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kill percentage:"
-msgstr "نسبة الخسارة"
+msgstr "نسبة الخسارة:"
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
 #: dialogs/newGameDialog.ui:202
 #, kde-format
 msgid "&Randomize"
-msgstr ""
+msgstr "&عشوائي"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Owner:"
-msgstr "المالك: %1"
+msgstr "المالك:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "خيارات"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
 #, kde-format
 msgid "Blind map"
-msgstr ""
+msgstr "خريطة عمياء"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cumulative production"
-msgstr "الإنتاج: %1"
+msgstr "الإنتاج الكلي"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
 #, kde-format
 msgid "Production after capture"
-msgstr ""
+msgstr "الإنتاج بعد الاستيلاء"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: dialogs/newGameDialog.ui:258
-#, fuzzy, kde-format
+#, kde-format
 msgid "Neutrals"
-msgstr "ا&لكواكب المحايدة:"
+msgstr "محايدون"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show ships"
-msgstr "السفن"
+msgstr "اعرض السفن"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show stats"
-msgstr "ا&عرض المواقف"
+msgstr "اعرض الإحصائيات"
 
 #: dialogs/newgamedlg.cc:79
 #, kde-format
@@ -203,8 +204,7 @@ msgid "Type"
 msgstr "النوع"
 
 #: dialogs/newgamedlg.cc:314
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "ابدأ اللعبة جديدة"
@@ -212,12 +212,12 @@ msgstr "ابدأ اللعبة جديدة"
 #: dialogs/newgamedlg.cc:385
 #, kde-format
 msgid "vacant"
-msgstr ""
+msgstr "شاغر"
 
 #: dialogs/newgamedlg.cc:388
-#, fuzzy, kde-format
+#, kde-format
 msgid "neutral"
-msgstr "ا&لكواكب المحايدة:"
+msgstr "محايد"
 
 #: game.cpp:103
 #, kde-format
@@ -246,14 +246,14 @@ msgid "End Turn"
 msgstr "انقر هنا للدور التالي"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: Select source planet..."
-msgstr "اختر الكوكب المصدر..."
+msgstr "%1: اختر الكوكب المصدر..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: Select destination planet..."
-msgstr "اختر الكوكب الهدف..."
+msgstr "%1: اختر الكوكب الهدف..."
 
 #: gameview.cc:318
 #, kde-format
@@ -261,9 +261,9 @@ msgid "Not enough ships to send."
 msgstr "السفن غير كافية للإرسال."
 
 #: gameview.cc:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: How many ships?"
-msgstr ": كم من السفن ؟"
+msgstr "%1: كم من السفن ؟"
 
 #: gameview.cc:351
 #, kde-format
@@ -300,15 +300,13 @@ msgid "Do you wish to retire this game?"
 msgstr "هل تريد الإنسحاب من هذه اللعبة ؟"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "إنهاء اللعبة"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "المواقف النهائية"
@@ -319,15 +317,14 @@ msgid "Konquest"
 msgstr "الغزو"
 
 #: Konquest.cc:31
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "لعبة استراتجية في الكون للكِيدِي"
+msgstr "لعبة استراتيجية المجرة"
 
 #: Konquest.cc:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copyright (c) 1999-2013, Developers"
-msgstr "Copyright (c) 1999-2006, المطورون"
+msgstr "حقوق الطبع والنشر (ج) 1999-2013، للمطورين"
 
 #: Konquest.cc:37
 #, kde-format
@@ -345,9 +342,9 @@ msgid "Computer/AI Player"
 msgstr "اللاعب الحاسوبي/AI"
 
 #: Konquest.cc:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dimitry Suzalev"
+msgstr "ديمتري سوزداليف"
 
 #: Konquest.cc:39
 #, kde-format
@@ -370,19 +367,19 @@ msgid "Pierre Ducroquet"
 msgstr "Pierre Ducroquet"
 
 #: Konquest.cc:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cleaning and bugfixing, maintenance"
 msgstr "التنظيف و تصليح الأخطاء"
 
 #: Konquest.cc:42
 #, kde-format
 msgid "Sean D'Epagnier"
-msgstr ""
+msgstr "شون ديبانييه"
 
 #: Konquest.cc:42
 #, kde-format
 msgid "Gameplay Enhancements"
-msgstr ""
+msgstr "تحسينات اللعب"
 
 #. i18n: ectx: Menu (game)
 #: konquestui.rc:10
@@ -394,7 +391,7 @@ msgstr "الل&عبة"
 #: konquestui.rc:14
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&عرض"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: konquestui.rc:20
@@ -403,8 +400,7 @@ msgid "Main Toolbar"
 msgstr "شريط الأدوات العام"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
 msgstr "إحتلال الكون"
@@ -415,37 +411,32 @@ msgid "Galactic Conquest"
 msgstr "إحتلال الكون"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgid "&Measure Distance..."
-msgstr "&قياس المسافة"
+msgstr "&قياس المسافة..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "&Fleet Overview"
+#, kde-format
 msgid "&Fleet Overview..."
-msgstr "استعراض الأس&طول"
+msgstr "ا&ستعراض الأسطول..."
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages for %1"
+#, kde-format
 msgid "Messages"
-msgstr "رسائل لـ %1"
+msgstr "الرسائل"
 
 #: mainwin.cc:95
 #, kde-format
 msgid "Show &Messages"
-msgstr ""
+msgstr "اعرض الر&سائل"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgid "Standings"
-msgstr "المواقف النهائية"
+msgstr "المواقف"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "&Show Standings"
+#, kde-format
 msgid "Show &Standings"
 msgstr "ا&عرض المواقف"
 
@@ -470,10 +461,10 @@ msgid "Ships: %1"
 msgstr "السفن: %1"
 
 #: map/mapitems.cc:232
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "regarding standing orders"
 msgid "Ships due: %1"
-msgstr "السفن: %1"
+msgstr "السفن المستحقة: %1"
 
 #: map/mapitems.cc:235
 #, kde-format
@@ -489,39 +480,39 @@ msgstr "نسبة الخسائر: %1"
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
-msgstr ""
+msgstr "بيكاي (متوازن)"
 
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr ""
+msgstr "الافتراضي (دفاعي)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr ""
+msgstr "الافتراضي (دفاعي)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr ""
+msgstr "الافتراضي (ضعيف)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr ""
+msgstr "مثال (السلبي)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr ""
+msgstr "إنسان (لاعب)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr ""
+msgstr "الإنسان (مشاهد)"
 
 #: view/standingswidget.cpp:152
 #, kde-format
@@ -575,11 +566,13 @@ msgstr ""
 "المدمرة"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Current\n"
 "Production"
-msgstr "الإنتاج: %1"
+msgstr ""
+"الإنتاج\n"
+"الحالي"
 
 #: view/standingswidget.cpp:159
 #, kde-format
@@ -587,6 +580,8 @@ msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
+"حجم الأسطول\n"
+"الحالي"
 
 #, fuzzy
 #~ msgid "Production"
