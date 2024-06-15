@@ -7,6 +7,7 @@
     <name translate="no">KDE</name>
   </developer>
   <name>Konquest</name>
+  <name xml:lang="ar">الغزو</name>
   <name xml:lang="ast">Konquest</name>
   <name xml:lang="ca">Konquest</name>
   <name xml:lang="ca-valencia">Konquest</name>
@@ -49,6 +50,7 @@
   <name xml:lang="zh-CN">Konquest</name>
   <name xml:lang="zh-TW">Konquest</name>
   <summary>Galactic Strategy Game</summary>
+  <summary xml:lang="ar">لعبة استراتيجية المجرة</summary>
   <summary xml:lang="ca">Joc d'estratègia galàctica</summary>
   <summary xml:lang="ca-valencia">Joc d'estratègia galàctica</summary>
   <summary xml:lang="cs">Strategická galaktická hra</summary>
@@ -94,6 +96,7 @@
       by sending ships to them. The goal is to build an interstellar empire and ultimately
       conquer all other player's planets.
     </p>
+    <p xml:lang="ar">الغزو هي نسخة من Gnu-Lactic Konquest. يغزو اللاعبون الكواكب الأخرى عن طريق إرسال السفن إليهم. الهدف هو بناء إمبراطورية بين النجوم وغزو جميع كواكب اللاعبين الآخرين في النهاية.</p>
     <p xml:lang="ca">El Konquest és una versió del Gnu-Lactic Konquest. Els jugadors conquereixen altres planetes enviant-hi naus. L'objectiu és construir un imperi interestel·lar i finalment conquerir els planetes de tots els altres jugadors.</p>
     <p xml:lang="ca-valencia">Konquest és una versió del Gnu-Lactic Konquest. Els jugadors conquerixen altres planetes enviant-hi naus. L'objectiu és construir un imperi interestel·lar i finalment conquerir els planetes de tots els altres jugadors.</p>
     <p xml:lang="da">Konquest er en version af Gnu-Lactic Konquest. Spillere erobrer andre planeter  ved at sende skibe til dem. Målet er at opbygge et interstellart imperium og  i sidste ende erobre alle andre spilleres planeter.</p>
