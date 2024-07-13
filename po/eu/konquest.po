@@ -1,26 +1,26 @@
 # Translation for konquest.po to Euskara/Basque (eu).
-# Copyright (C) 2003-2022 This file is copyright:
+# Copyright (C) 2003-2024 This file is copyright:
 # This file is distributed under the same license as the konquest package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2005.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2022-12-01 00:10+0100\n"
+"PO-Revision-Date: 2024-07-12 12:03+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -40,43 +40,37 @@ msgid "Fleet Overview"
 msgstr "Ontzidiaren ikuspegi orokorra"
 
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "Ontzidi zk."
 
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Sorburua"
 
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "Jomuga"
 
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "Ontziak"
 
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "Hildakoen ehunekoa"
 
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "Heltze-txanda"
@@ -84,7 +78,7 @@ msgstr "Heltze-txanda"
 #: dialogs/fleetdlg.cc:136
 #, kde-format
 msgid "Standing order"
-msgstr "Ordena iraunkorra"
+msgstr "Agindu iraunkorra"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
 #: dialogs/newGameDialog.ui:14
@@ -252,28 +246,24 @@ msgid "Planet %2 has fallen to %1."
 msgstr "%2 planeta %1(r)en esku erori da."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Bukatu txanda"
 
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
-msgstr "Ordena iraunkorra"
+msgstr "Agindu iraunkorra"
 
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
 msgstr "%1: Hautatu sorburu-planeta..."
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
 msgstr "%1: Hautatu jomuga-planeta..."
 
@@ -381,7 +371,7 @@ msgstr "Inge Wallin"
 #: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing"
-msgstr "Garbiketa eta akatsen konponketak"
+msgstr "Garbiketa eta akatsen konponketa"
 
 #: Konquest.cc:41
 #, kde-format
@@ -433,44 +423,37 @@ msgid "Galactic Conquest"
 msgstr "Konkista galaktikoa"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance..."
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr "&Neurtu distantzia"
+msgstr "&Neurtu distantzia..."
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Ontzidiaren ikuspegi orokorra"
+msgstr "&Ontzidiaren ikuspegi orokorra"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Mezuak"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Erakutsi &mezuak"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Posizioak"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Erakutsi po&sizioak"
@@ -504,7 +487,7 @@ msgstr "Dagokien ontziak: %1"
 #: map/mapitems.cc:235
 #, kde-format
 msgid "Production: %1"
-msgstr "Ekoizketa: %1"
+msgstr "Ekoizpena: %1"
 
 #: map/mapitems.cc:237
 #, kde-format
@@ -550,103 +533,80 @@ msgid "Human (Spectator)"
 msgstr "Gizakia (Ikuslea)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
 msgstr "Jokalaria"
 
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Built"
 msgstr ""
-"Eraikitako\n"
-"ontziak"
+"Ontziak\n"
+"Eraikitakoak"
 
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
 "Conquered"
 msgstr ""
-"Konkistatutako\n"
-"planetak"
+"Planetak\n"
+"Konkistatutakoak"
 
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Launched"
 msgstr ""
-"Jaurtitako\n"
-"ontzidiak"
+"Ontzidiak\n"
+"Jaurtitakoak"
 
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
 "Destroyed"
 msgstr ""
-"Suntsitutako\n"
-"ontzidiak"
+"Ontzidiak\n"
+"Suntsitutakoak"
 
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
 "Destroyed"
 msgstr ""
-"Suntsitutako\n"
-"ontziak"
+"Ontziak\n"
+"Suntsitutakoak"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr ""
-"Uneko\n"
+"Unekoa\n"
 "ekoizpena"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-"Ontzidiaren\n"
-"uneko neurria"
+"Unekoa\n"
+"Ontzidiaren neurria"
 
 #~ msgid "&Fleet Overview..."
 #~ msgstr "&Ontzidiaren ikuspegi orokorra..."
