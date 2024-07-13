@@ -1,7 +1,7 @@
 # Translation for konquest.po to Euskara/Basque (eu).
 # Copyright (C) 2003-2022 This file is copyright:
 # This file is distributed under the same license as the konquest package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2005.
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:36+0000\n"
-"PO-Revision-Date: 2022-12-01 00:10+0100\n"
+"PO-Revision-Date: 2024-07-12 12:03+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "Heltze-txanda"
 #: dialogs/fleetdlg.cc:136 gameview.cc:120
 #, kde-format
 msgid "Standing order"
-msgstr "Ordena iraunkorra"
+msgstr "Agindu iraunkorra"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, newGameDialog)
 #: dialogs/newGameDialog.ui:14
@@ -358,7 +358,7 @@ msgstr "Inge Wallin"
 #: Konquest.cc:40
 #, kde-format
 msgid "Cleaning and bugfixing"
-msgstr "Garbiketa eta akatsen konponketak"
+msgstr "Garbiketa eta akatsen konponketa"
 
 #: Konquest.cc:41
 #, kde-format
@@ -468,7 +468,7 @@ msgstr "Dagokien ontziak: %1"
 #: map/mapitems.cc:235
 #, kde-format
 msgid "Production: %1"
-msgstr "Ekoizketa: %1"
+msgstr "Ekoizpena: %1"
 
 #: map/mapitems.cc:237
 #, kde-format
