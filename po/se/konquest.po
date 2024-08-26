@@ -43,7 +43,6 @@ msgstr ""
 
 #: dialogs/fleetdlg.cc:106
 #, fuzzy, kde-format
-#| msgid "Source"
 msgctxt "@title:column"
 msgid "Source"
 msgstr "Gáldu"
