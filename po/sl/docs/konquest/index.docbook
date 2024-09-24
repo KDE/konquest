@@ -1,0 +1,794 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>&konquest; Priročnik</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Razvijalec</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Recenzent</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>08.08.2021</date>
+<releaseinfo
+>2.4 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&konquest; je igra galaktičnega osvajanja </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konquest</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>tabla</keyword>
+<keyword
+>več igralcev</keyword>
+<keyword
+>strategija</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+<note
+><title
+>Vrsta igre:</title
+><para
+>Strategija, namizna</para
+></note>
+<note
+><title
+>Število igralcev:</title
+><para
+>Igra za več igralcev</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Glavno okno &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Glavno okno &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&konquest; je &kde; različica &gnu-lactic;. Igralci osvajajo druge planete tako, da nanje pošiljajo ladje. Cilj je zgraditi medzvezdni imperij in na koncu osvojiti vse planete drugih igralcev. &konquest; lahko igrate proti drugim osebam ali računalniku. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>Kako igrati</title>
+
+<para
+>Ko zaženete &konquest;, pritisnite <guibutton
+>Novo</guibutton
+>, da začnete novo igro. Videli boste pogovorno okno, v katerega morate vnesti različne informacije za nastavitev igre. Spodaj so navedeni naslednji parametri za novo igro: </para>
+
+  <para
+><guilabel
+>Igralci</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>Število igralcev z igralci <guibutton
+>Dodaj</guibutton
+> ali <guibutton
+>Odstrani</guibutton
+></para
+></listitem>
+    <listitem
+><para
+>Imena igralcev</para
+></listitem>
+    <listitem
+><para
+>Vrsta igralcev (računalnik proti človeku)</para
+></listitem>
+    <listitem
+><para
+>Težavnost računalniških igralcev (nizka/normalna/težka)</para
+></listitem>
+  </itemizedlist>
+
+<para
+>Če želite spremeniti ime igralca, dvokliknite v stolpec <guilabel
+>Ime</guilabel
+> in ga uredite. Če želite spremeniti vrsto predvajalnika, odprite spustni seznam z dvoklikom v stolpcu <guilabel
+>Vrsta</guilabel
+>. Možno je tudi izbrati vrsto novih igralcev s spustnim seznamom gumba <guibutton
+>Dodaj</guibutton
+>.</para>
+
+<para
+>V &konquest; obstajata dve vrsti človeških igralcev, in sicer <guimenuitem
+>človek (igralec)</guimenuitem
+> in <guimenuitem
+>človek (gledalec)</guimenuitem
+>. Slednja možnost omogoča ogled igre brez sodelovanja v njej.</para>
+
+<para
+>Vrsto igralca z umetno inteligenco lahko izberete med <guimenuitem
+>Privzeto (šibek)</guimenuitem
+> (igralec, ki ni niti agresiven v napadih niti v obrambi), <guimenuitem
+>Privzeto (žaljiv)</guimenuitem
+> (agresiven napadalec) in <guimenuitem
+>Privzeto (obrambno)</guimenuitem
+> (igralec z obrambno strategijo).</para>
+
+<para
+>Poleg teh klasičnih igralcev AI je <guimenuitem
+>Becai (Uravnoteženi)</guimenuitem
+> uravnotežen igralec, ki upošteva večino <xref linkend="strattips"/>.</para>
+
+<para
+>Ne pozabite, da je dejanska težavnost katerega koli nasprotnika odvisna od vaše lastne strategije. Če sami igrate agresivno, je morda lažje premagati agresivnega igralca z umetno inteligenco kot obrambnega igralca in obratno.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Zemljevid</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Nevtralni planeti:</guilabel
+> Število nevtralnih planetov.</para>
+    <para
+><guilabel
+>Širina:</guilabel
+> in <guilabel
+>Višina:</guilabel
+> zemljevida v enotah ploščic.</para>
+    <para
+>Spreminjanje ravni <guilabel
+>Lastnik:</guilabel
+>, <guilabel
+>Odstotek ubijanja:</guilabel
+> in <guilabel
+>Proizvodnja:</guilabel
+> določenega planeta.</para>
+    <para
+>Spremenite porazdelitev planetov. Pritisnite <guibutton
+>Randomize</guibutton
+>, da bo naključno.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Planet lahko izberete s sličico zemljevida na sredini podokna <guilabel
+>Zemljevid</guilabel
+>. Samo kliknite na planet z &LMB;, nato spremenite želene možnosti.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Možnosti</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Slepi zemljevid</guilabel
+>: Ali vidite informacije o nasprotnikovih planetih ali ne.</para>
+    <para
+><guilabel
+>Kumulativna proizvodnja</guilabel
+>: ne glede na to, ali je omogočeno ali ne.</para>
+    <para
+><guilabel
+>Izdelava po zajemu</guilabel
+>: če je takoj omogočena.</para>
+    <para
+><guilabel
+>Pokaži ladje</guilabel
+>: Omogoča prikaz števila ladij in drugih statistik za nevtralne planete.</para>
+    <para
+><guilabel
+>Prikaži statistiko</guilabel
+>: Nastavite raven proizvodnje za nevtralne planete.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Ko končate s spreminjanjem teh nastavitev (neobvezno), kliknite <guibutton
+>V redu</guibutton
+>, da začnete igro.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Novo pogovorno okno igre &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Novo pogovorno okno igre &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Ko se igra začne, se vam prikaže igralna plošča. Prazni kvadratki so prazen prostor. Sprva ima vsak igralec en planet. Ozadje planeta je barva igralca. Če premaknete miško nad planet, lahko vidite dodatne informacije. Če pri izbiri igre ni omogočena možnost <guilabel
+>Slepi zemljevid</guilabel
+>, si lahko ogledate vse informacije o planetu, če nad njim premaknete miško. Če ste ob začetku nove igre izbrali možnost <guilabel
+>Slepi zemljevid</guilabel
+>, boste videli ime planeta samo na planetih, ki so jih osvojili nasprotniki. Informacije lahko vključujejo: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Ime planeta:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Lastnik:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Ladje:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Ladje do:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Produkcija:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Odstotek ubijanja:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Igranje &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Igranje &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Ime planeta:</guilabel
+> je planet v igri imenovan. Planeti so poimenovani po abecedi z velikimi črkami. <guilabel
+>Lastnik:</guilabel
+> je lastnik planeta. Če planet osvoji drug igralec, se to spremeni. <guilabel
+>Ladje:</guilabel
+> je trenutno število ladij na planetu. <guilabel
+>Zakon za pošiljanje:</guilabel
+> se bo prikazal le, če ste izbrali trajno naročilo za ta planet, sicer ga ni. <guilabel
+>Proizvodnja:</guilabel
+> je število ladij, ki jih bo planet proizvedel v vsakem obratu. Proizvodnja se razlikuje od planeta do planeta, a vedno ostaja enaka. <guilabel
+>Odstotek ubijanja:</guilabel
+> je merilo učinkovitosti ladij, proizvedenih na tem planetu. Napadalne flote vzamejo odstotek ubijanja svojega planeta odhoda, obrambne flote pa uporabljajo odstotek ubijanja planeta, ki ga branijo. Ime planeta, lastnika in trenutno število ladij na planetu lahko preprosto vidite v kvadratu, v katerem planet leži. Lastnik je predstavljen z barvo ozadja planeta, ime je v zgornjem levem kotu in število ladij je v spodnjem desnem kotu. </para>
+
+<para
+>Če želite poslati ladje z enega planeta na drugega, izberite planet, s katerega želite poslati ladje, vnesite število ladij v zeleno polje v zgornjem desnem kotu in pritisnite &Enter;. Ta postopek ponavljajte, dokler ne razpošljete vseh želenih ladij. Če želite poslati stalno število ladij z enega planeta na drugega na vsakem koraku, vnesite to številko in označite polje <guilabel
+>Trajni nalog</guilabel
+> ter pritisnite &Enter;. Ladje zaradi trajnega naloga bodo poslane na koncu obrata. Ko končate, pritisnite <guibutton
+>Končaj zavoj</guibutton
+>. Ko vsi igralci odigrajo eno potezo, se prikažejo pogovorna okna z najnovejšimi novicami. Igra bo potekala tako dolgo, dokler ed od igralcev ne bo lastnik celotne galaksije. </para>
+<tip>
+  <para
+>Bližnjico na tipkovnici za dejanje <guibutton
+>Končaj potezo</guibutton
+> lahko konfigurirate z menijsko postavko <menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguriraj bližnjice…</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Za več informacij preberite razdelek o <ulink url="help:/fundamentals/config.html#shortcuts"
+>uporabi in prilagajanju bližnjic</ulink
+> v &kde; Osnove. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>Pravila igre, strategije in nasveti</title>
+<sect1 id="rules">
+<title
+>Pravila</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Ladij ni mogoče ustaviti, ko zapustijo planet.</para
+></listitem>
+  <listitem
+><para
+>Ladje ne morejo napadati drugih ladij v zraku.</para
+></listitem>
+  <listitem
+><para
+>Ladje lahko shranite na planetih za kasnejšo uporabo.</para
+></listitem>
+  <listitem
+><para
+>Planeta ni mogoče podariti.</para
+></listitem>
+  <listitem
+><para
+>Igralec lahko preskoči potezo tako, da pritisne <guibutton
+>Končaj potezo</guibutton
+>, ne da bi izstrelil katero koli ladjo.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Strategije in nasveti</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Igra je namenjena proizvodnji ladij. Poskusite pridobiti čim več planetov, kolikor je le mogoče, da bi zgradili več ladij kot kateri koli vaš nasprotnik.</para
+></listitem>
+  <listitem
+><para
+>Ne napadajte planeta z manj kot 10 ladjami, razen če ga lahko osvojite.</para
+></listitem>
+  <listitem
+><para
+>Napadite nevtralne planete pred planeti drugih igralcev.</para
+></listitem>
+  <listitem
+><para
+>Razdelite svoja ladijska skladišča na več planetov.</para
+></listitem>
+  <listitem
+><para
+>Napade načrtujte vnaprej.</para
+></listitem>
+  <listitem
+><para
+>Z ravnilom ugotovite razdaljo med planeti.</para
+></listitem>
+  <listitem
+><para
+>Uporabite informacijsko okno za pridobitev informacij o planetih pred napadom.</para
+></listitem>
+  <listitem
+><para
+>Če so vam te informacije na voljo, je bolje, da napadete planet z nizkim številom ubijanj s planeta z visokim.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>Meniji</title>
+
+<sect1 id="menu-items">
+<title
+>Elementi menija</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Začne novo igro.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Končaj igro</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Končajte trenutno igro, ne da bi zaprli</action
+> &konquest;.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Igra</guimenu
+> <guimenuitem
+>Izmeri razdaljo…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Omogoča merjenje razdalje.</action
+> Kliknite z &LMB; na dveh planetih, da vidite njuno oddaljenost.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Igra</guimenu
+> <guimenuitem
+>Pregled flote…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Odpre okno</action
+> za prikaz podrobnih informacij za vse flote.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Zapusti</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Zapusti igro.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Premik</guimenu
+> <guimenuitem
+>Končaj potezo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Omogoča vam, da <action
+>končate potezo</action
+> iz glavnega menija.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guimenuitem
+>Prikaži sporočila</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Prikaži ali skrij ploščo s sporočili.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ogled</guimenu
+> <guimenuitem
+>Prikaži stanja</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Pokaži ali skrij trenutno tabelo stanj igralca.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Poleg tega &konquest; ima skupno &kde; Elemente menija <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite razdelke o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>meniju z nastavitvami</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>meni Pomoč</ulink
+> v &kde; Osnove. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Pogosto zastavljena vprašanja</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Ali lahko preusmerim ladje, ko zapustijo planet?</para
+></question>
+    <answer
+><para
+>Ne, ko ladje enkrat zapustijo planet, jih ni več mogoče ustaviti ali preusmeriti.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Ali različne barve in oblike planetov kaj pomenijo?</para
+></question>
+    <answer
+><para
+>Ne, naključne so.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Kako lahko vem, kje so moje ladje?</para
+></question>
+    <answer
+><para
+>Kliknite <guibutton
+>Prikaži stanja</guibutton
+>. Dal vam bo informacije o flotah, ki trenutno letijo.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Izgubil sem vse svoje planete, vendar sem še vedno v igri, zakaj?</para
+></question>
+    <answer
+><para
+>Igre niste izgubili, dokler ne izgubite vseh svojih ladij.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Ali lahko shranim ladje na planet za kasnejšo uporabo?</para
+></question>
+    <answer
+><para
+>Da, vendar bi jih morali shraniti na več planetih, da bi jih lahko poslali na bližnje planete.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Ali je možno spremeniti temo?</para
+></question>
+    <answer
+><para
+>Ne, to trenutno ni mogoče.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>Zasluge in licenca</title>
+
+<para
+>&konquest;</para>
+
+<para
+>&gnu-lactic; Conquest Project, &kde; različica &Russ.Steffen;, &Russ.Steffen.mail;.</para>
+
+<para
+>Copyright &copy; 1998 avtor &gnu-lactic; Projekt osvajanja </para>
+
+<para
+>Avtorske pravice za dokumentacijo 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>Avtorske pravice za dokumentacijo 2012 Viktor Chynarov</para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
