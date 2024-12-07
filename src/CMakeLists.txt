@@ -6,8 +6,8 @@ ecm_setup_version(${KONQUEST_VERSION}
 add_executable(konquest)
 
 target_sources(konquest PRIVATE
-    game.cpp
-    localgame.cpp
+    game.cpp game.h
+    localgame.cpp localgame.h
 
     Konquest.cc
     planet.cc
@@ -26,25 +26,25 @@ target_sources(konquest PRIVATE
     dialogs/scoredlg.cc
     dialogs/fleetdlg.cc
 
-    players/ai/becai/becai.cpp
-    players/ai/becai/becai_gui.cpp
+    players/ai/becai/becai.cpp players/ai/becai/becai.h
+    players/ai/becai/becai_gui.cpp players/ai/becai/becai_gui.h
     players/ai/default/default.cpp
-    players/ai/default/weak.cpp
-    players/ai/default/weak_gui.cpp
-    players/ai/default/normal.cpp
-    players/ai/default/normal_gui.cpp
-    players/ai/default/hard.cpp
-    players/ai/default/hard_gui.cpp
-    players/computerplayer.cpp
-    players/localplayer.cpp
-    players/localplayer_gui.cpp
-    players/neutralplayer.cpp
+    players/ai/default/weak.cpp players/ai/default/weak.h
+    players/ai/default/weak_gui.cpp players/ai/default/weak_gui.h
+    players/ai/default/normal.cpp players/ai/default/normal.h
+    players/ai/default/normal_gui.cpp players/ai/default/normal_gui.h
+    players/ai/default/hard.cpp players/ai/default/hard.h
+    players/ai/default/hard_gui.cpp players/ai/default/hard_gui.h
+    players/computerplayer.cpp players/computerplayer.h
+    players/localplayer.cpp players/localplayer.h
+    players/localplayer_gui.cpp players/localplayer_gui.h
+    players/neutralplayer.cpp players/neutralplayer.h
     players/player.cpp
     players/player_gui.cpp
-    players/spectatorplayer.cpp
-    players/spectatorplayer_gui.cpp
+    players/spectatorplayer.cpp players/spectatorplayer.h
+    players/spectatorplayer_gui.cpp players/spectatorplayer_gui.h
 
-    view/standingswidget.cpp
+    view/standingswidget.cpp view/standingswidget.h
 
     konquest.qrc
 )
@@ -53,8 +53,8 @@ if(KONQUEST_EXAMPLE_PLAYER)
     message(STATUS "KONQUEST_EXAMPLE_PLAYER")
     target_compile_definitions(konquest PRIVATE -DKONQUEST_EXAMPLE_PLAYER)
     target_sources(konquest PRIVATE
-        players/ai/example/example.cpp
-        players/ai/example/example_gui.cpp
+        players/ai/example/example.cpp players/ai/example/example.h
+        players/ai/example/example_gui.cpp players/ai/example/example_gui.h
     )
 endif()
 
