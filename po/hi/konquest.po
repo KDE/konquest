@@ -4,20 +4,21 @@
 #
 # Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
 # Raghavendra Kamath <raghu@raghukamath.com>, 2021.
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-08-21 16:25+0530\n"
-"Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
-"Language-Team: kde-hindi\n"
+"PO-Revision-Date: 2024-12-15 19:31+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, fuzzy, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -275,13 +276,13 @@ msgstr "फाइनल स्टैंडिंग्स"
 #, fuzzy, kde-format
 #| msgid "Select source planet..."
 msgid "%1: Select source planet…"
-msgstr "स्रोत प्लेनेट चुनें..."
+msgstr "स्रोत प्लेनेट चुनें…"
 
 #: gameview.cc:307
 #, fuzzy, kde-format
 #| msgid "Select destination planet..."
 msgid "%1: Select destination planet…"
-msgstr "गंतव्य प्लेनेट चुनें..."
+msgstr "गंतव्य प्लेनेट चुनें…"
 
 #: gameview.cc:318
 #, kde-format
