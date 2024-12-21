@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -110,7 +110,7 @@ msgstr "मानचित्र"
 #: dialogs/newGameDialog.ui:74
 #, kde-format
 msgid "&Neutral planets:"
-msgstr "&तटस्थ ग्रहाः : १."
+msgstr "&तटस्थ ग्रहाः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: dialogs/newGameDialog.ui:97
@@ -135,7 +135,7 @@ msgstr "उत्पादन:"
 #: dialogs/newGameDialog.ui:192
 #, kde-format
 msgid "Kill percentage:"
-msgstr "किल प्रतिशतम् : १."
+msgstr "किल प्रतिशतम् :"
 
 #. i18n: ectx: property (text), widget (QPushButton, randomizeMap)
 #: dialogs/newGameDialog.ui:202
@@ -494,39 +494,39 @@ msgstr "प्रतिशतं मारयतु : %1"
 #, kde-format
 msgctxt "A distinct unique AI playing a balanced strategy"
 msgid "Becai (Balanced)"
-msgstr "बेकै (सन्तुलित) २."
+msgstr "बेकै (सन्तुलित)"
 
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr "पूर्वनिर्धारित (रक्षात्मक) २."
+msgstr "पूर्वनिर्धारित (रक्षात्मक)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr "पूर्वनिर्धारित (आक्रामक) २."
+msgstr "पूर्वनिर्धारित (आक्रामक)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr "पूर्वनिर्धारित (दुर्बल) २."
+msgstr "पूर्वनिर्धारित (दुर्बल)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr "उदाहरणम् (Passive) २."
+msgstr "उदाहरणम् (Passive)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr "मानवः (क्रीडकः) ९."
+msgstr "मानवः (क्रीडकः)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr "मानवः (प्रेक्षकः) २."
+msgstr "मानवः (प्रेक्षकः)"
 
 #: view/standingswidget.cpp:151
 #, kde-format
