@@ -1,23 +1,20 @@
-# translation of konquest.po to Español
-# traducción de konquest.po a Español
-# Copyright (C) 1998,2003, 2004, 2006, 2007 Free Software Foundation, Inc.
+# Spanish translations for konquest.po package.
+# Copyright (C) 1998-2015 Free Software Foundation, Inc.
 #
-# Alonso Lara <jlaram@nexo.es>, 1998.
-# Lucas Garcia <tanke@escomposlinux.org>, 2003.
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2003.
-# Rafael Osuna <rosuna@wol.es>, 2003, 2004.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2004, 2006.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007.
+# SPDX-FileCopyrightText: 1998 Alonso Lara <jlaram@nexo.es>
+# SPDX-FileCopyrightText: 2003 Lucas Garcia <tanke@escomposlinux.org>
+# SPDX-FileCopyrightText: 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2003, 2004 Rafael Osuna <rosuna@wol.es>
+# SPDX-FileCopyrightText: 2004, 2006, 2007 Santiago Fernández Sancho <santi@kde-es.org>
 # SPDX-FileCopyrightText: 2009, 2013, 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Huever, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010, 2011.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2010, 2011 Kira J. Fernandez <kirajfdez@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2024-05-05 22:53+0100\n"
+"PO-Revision-Date: 2025-04-07 21:49+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -269,12 +266,12 @@ msgstr "Orden de posición"
 #: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Selecciona planeta de origen..."
+msgstr "%1: Selecciona planeta de origen…"
 
 #: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Selecciona planeta de destino..."
+msgstr "%1: Selecciona planeta de destino…"
 
 #: gameview.cc:318
 #, kde-format
@@ -435,7 +432,7 @@ msgstr "Conquista galáctica"
 #, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr "&Medir distancia..."
+msgstr "&Medir distancia…"
 
 #: mainwin.cc:80
 #, kde-format
@@ -616,31 +613,3 @@ msgid ""
 msgstr ""
 "Tamaño actual\n"
 "de la flota"
-
-#~ msgid "&Fleet Overview..."
-#~ msgstr "Vista general de la &flota..."
-
-#~ msgid "Production"
-#~ msgstr "Producción"
-
-#~ msgid "Current Standings"
-#~ msgstr "Posiciones actuales"
-
-#~ msgid "Default (Hard)"
-#~ msgstr "Por omisión (fuerte)"
-
-#~ msgctxt "A human player"
-#~ msgid "Human"
-#~ msgstr "Humano"
-
-#~ msgid "Computer Weak"
-#~ msgstr "Máquina sencilla"
-
-#~ msgid "Computer Normal"
-#~ msgstr "Máquina normal"
-
-#~ msgid "Computer Hard"
-#~ msgstr "Máquina complicada"
-
-#~ msgid "The game is much more fun when you add a human player!"
-#~ msgstr "¡El juego es mucho más divertido cuando añades un jugador humano!"
