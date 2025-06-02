@@ -160,6 +160,7 @@
     <binary>konquest</binary>
   </provides>
   <releases>
+    <release version="2.4.25042" date="2025-06-05"/>
     <release version="2.4.25041" date="2025-05-08"/>
     <release version="2.4.25040" date="2025-04-17"/>
     <release version="2.4.24123" date="2025-03-06"/>
