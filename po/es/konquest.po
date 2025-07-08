@@ -1,5 +1,6 @@
 # Spanish translations for konquest.po package.
-# Copyright (C) 1998-2015 Free Software Foundation, Inc.
+# Copyright (C) 1998-2025 This file is copyright:
+# This file is distributed under the same license as the konquest package.
 #
 # SPDX-FileCopyrightText: 1998 Alonso Lara <jlaram@nexo.es>
 # SPDX-FileCopyrightText: 2003 Lucas Garcia <tanke@escomposlinux.org>
@@ -14,7 +15,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2025-04-07 21:49+0100\n"
+"PO-Revision-Date: 2025-07-07 17:59+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
