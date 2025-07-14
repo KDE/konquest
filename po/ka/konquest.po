@@ -498,12 +498,12 @@ msgstr "ბეკაი (ბალანსირებული)"
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr "ნაგულისხმები (დაცვითი)"
+msgstr "ნაგულისხმევი (დაცვითი)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr "ნაგულისხმები (შეტევითი)"
+msgstr "ნაგულისხმევი (შეტევითი)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
