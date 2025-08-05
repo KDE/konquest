@@ -504,17 +504,17 @@ msgstr "بيكاي (متوازن)"
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr "الافتراضي (دفاعي)"
+msgstr "المبدئي (دفاعي)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr "الافتراضي (دفاعي)"
+msgstr "المبدئي (دفاعي)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr "الافتراضي (ضعيف)"
+msgstr "المبدئي (ضعيف)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
