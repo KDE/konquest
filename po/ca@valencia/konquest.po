@@ -263,12 +263,12 @@ msgstr "Ordre permanent"
 #: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Selecciona el planeta d'origen…"
+msgstr "%1: Tria el planeta d'origen…"
 
 #: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Selecciona el planeta de destinació…"
+msgstr "%1: Tria el planeta de destinació…"
 
 #: gameview.cc:318
 #, kde-format
@@ -283,7 +283,7 @@ msgstr "%1: Quantes naus?"
 #: gameview.cc:351
 #, kde-format
 msgid "Ruler: Select starting planet."
-msgstr "Regle: Selecciona el planeta inicial."
+msgstr "Regle: Tria el planeta inicial."
 
 #: gameview.cc:365
 #, kde-format
@@ -302,7 +302,7 @@ msgstr "Distància"
 #: gameview.cc:376
 #, kde-format
 msgid "Ruler: Select ending planet."
-msgstr "Regle: Selecciona el planeta final."
+msgstr "Regle: Tria el planeta final."
 
 #: gameview.cc:426
 #, kde-format
