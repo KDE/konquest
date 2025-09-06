@@ -51,7 +51,7 @@ find_package(KDEGames6 6.0.0 REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.9.0
-    KF 6.17.0
+    KF 6.18.0
     KDEGAMES 6.0
 )
 
