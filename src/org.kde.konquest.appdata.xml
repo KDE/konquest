@@ -48,7 +48,6 @@
   <name xml:lang="sv">Erövring</name>
   <name xml:lang="tr">Konquest</name>
   <name xml:lang="uk">Konquest</name>
-  <name xml:lang="x-test">xxKonquestxx</name>
   <name xml:lang="zh-CN">Konquest</name>
   <name xml:lang="zh-TW">Konquest</name>
   <summary>Galactic Strategy Game</summary>
@@ -91,7 +90,6 @@
   <summary xml:lang="sv">Galaktiskt strategispel</summary>
   <summary xml:lang="tr">Galaktik Strateji Oyunu</summary>
   <summary xml:lang="uk">Галактична гра-стратегія</summary>
-  <summary xml:lang="x-test">xxGalactic Strategy Gamexx</summary>
   <summary xml:lang="zh-CN">星际策略游戏</summary>
   <summary xml:lang="zh-TW">銀河戰略遊戲</summary>
   <description>
@@ -138,7 +136,6 @@
     <p xml:lang="sv">Erövring är en version av Gnu-Lactic Konquest. Spelare erövrar andra planeter genom att skicka farkoster till dem. Målet är att bygga ett interstellärt imperium och slutligen erövra alla andra spelares planeter.</p>
     <p xml:lang="tr">Konquest, Gnu-Laktik Konquest’in bir sürümüdür. Oyuncular diğer gezegenlere gemi göndererek ele geçirirler. Hedef yıldızlararası bir imparatorluk kurmak ve sonuç olarak diğer oyuncunun gezegenlerini fethetmektir.</p>
     <p xml:lang="uk">Konquest — версія гри Gnu-Lacticю У цій грі гравці підкорюють планети, надсилаючи до них космічні кораблі. Метою гри є побудова міжзоряної імперії і повне підкорення планет всіх інших гравців.</p>
-    <p xml:lang="x-test">xxKonquest is a version of Gnu-Lactic Konquest. Players conquer other planets by sending ships to them. The goal is to build an interstellar empire and ultimately conquer all other player's planets.xx</p>
     <p xml:lang="zh-CN">Konque是Gnu-Lactic Konques的版本。玩家通过向其他星球派遣飞船来征服它们。 目标是建立一个星际帝国并最终征服所有其他玩家的星球。</p>
     <p xml:lang="zh-TW">Konquest 是 Gnu-Lactic Konquest 的一個版本。玩家藉由派遣戰艦來征服其他星球。遊戲的目標是建立一個星際帝國，並征服所有其他玩家的星球。</p>
   </description>
