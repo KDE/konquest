@@ -1,10 +1,10 @@
 # SPDX-FileCopyrightText: 2009, 2010, 2011, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# Stefan Winter <swinter@kde.org>, 2003, 2004, 2005, 2007.
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2008.
-# Panagiotis Papadopoulos <pano_90@gmx.net>, 2009.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2022.
-# Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2020.
-# Jonas Schürmann <jonasschuermann@aol.de>, 2012.
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2007 Stefan Winter <swinter@kde.org>
+# SPDX-FileCopyrightText: 2005, 2008 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2009 Panagiotis Papadopoulos <pano_90@gmx.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2022 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2020 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2012 Jonas Schürmann <jonasschuermann@aol.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
