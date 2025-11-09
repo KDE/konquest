@@ -253,12 +253,12 @@ msgstr "定期支付"
 #: gameview.cc:290
 #, kde-format
 msgid "%1: Select source planet…"
-msgstr ""
+msgstr "%1：选择起点星球..."
 
 #: gameview.cc:307
 #, kde-format
 msgid "%1: Select destination planet…"
-msgstr ""
+msgstr "%1：选择目标星球..."
 
 #: gameview.cc:318
 #, kde-format
@@ -419,13 +419,13 @@ msgstr "星系征服游戏"
 #, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr ""
+msgstr "测量距离...(&M)"
 
 #: mainwin.cc:80
 #, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr ""
+msgstr "舰队概览(&F)"
 
 #: mainwin.cc:89
 #, kde-format
