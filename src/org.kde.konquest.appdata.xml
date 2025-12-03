@@ -157,6 +157,7 @@
     <binary>konquest</binary>
   </provides>
   <releases>
+    <release version="2.4.25120" date="2025-12-11"/>
     <release version="2.4.25083" date="2025-11-06"/>
     <release version="2.4.25082" date="2025-10-09"/>
     <release version="2.4.25081" date="2025-09-11"/>
