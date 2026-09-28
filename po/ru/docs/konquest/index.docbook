@@ -1,18 +1,18 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&konquest;">
-  <!ENTITY package "kdegames"
->	
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Russian "INCLUDE"
 > <!-- change language only here -->
 ]>
 
-<book lang="&language;">
+<book id="konquest" lang="&language;">
 
 <bookinfo>
 <title
->Справочное руководство по &konquest;</title>
+>Руководство пользователя &konquest;</title>
 
 <authorgroup>
 <author
@@ -22,43 +22,9 @@
 >Robbins</surname
 > <affiliation
 > <address
-><email
->logik9000@chartermi.net</email
-></address>
+>&Nicholas.Robbins.mail;</address>
 </affiliation>
 </author>
-</authorgroup>
-
-<othercredit role="developer"
-><firstname
->Russ</firstname
-> <surname
->Steffen</surname
-> <affiliation
-> <address
-><email
->rsteffen@bayarea.net</email
-></address
-></affiliation>
-<contrib
->Разработчик</contrib>
-</othercredit>
-
-<othercredit role="reviewer"
-><firstname
->Lauri</firstname
-> <surname
->Watts</surname
-> <affiliation
-> <address
-><email
->lauri@kde.org</email
-></address>
-</affiliation>
-<contrib
->Редактор</contrib>
-</othercredit>
-
 <othercredit role="translator"
 ><firstname
 >Валя</firstname
@@ -74,6 +40,33 @@
 >Перевод на русский язык</contrib
 ></othercredit
 > 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>Разработчик</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>Редактор</contrib>
+</othercredit>
 
 <copyright>
 <year
@@ -82,18 +75,45 @@
 >Николас Роббинс (Nicholas Robbins)</holder>
 </copyright>
 
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
 <legalnotice
 >&FDLNotice;</legalnotice>
 
 <date
->2000-12-16</date>
+>8 августа 2021 г.</date>
 <releaseinfo
->0.99.02</releaseinfo>
+>2.4 (KDE Gear 21.08)</releaseinfo>
 
-<abstract
-><para
->&konquest; &mdash; великолепная игра для захвата мира.</para
-></abstract>
+<abstract>
+<para
+>&konquest; — игра о завоевании галактики </para>
+</abstract>
 
 <keywordset>
 <keyword
@@ -102,6 +122,12 @@
 >Konquest</keyword>
 <keyword
 >kdegames</keyword>
+<keyword
+>настольная</keyword>
+<keyword
+>для нескольких игроков</keyword>
+<keyword
+>стратегия</keyword>
 </keywordset>
 
 </bookinfo>
@@ -109,87 +135,394 @@
 <chapter id="introduction">
 <title
 >Введение</title>
+<note
+><title
+>Тип игры:</title
+><para
+>Стратегия, настольная</para
+></note>
+<note
+><title
+>Количество игроков:</title
+><para
+>Несколько</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Главное окно &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Главное окно &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
 
 <para
->Это &kde;-версия <application
->Gnu-Lactic Konquest</application
->, многопользовательской стратегии. Цель игры &mdash; расширить свою межзвездную империю на всю галактику и, конечно, сокрушить своих противников.</para>
+>&konquest; — версия &gnu-lactic; для &kde;. Игроки захватывают чужие планеты, отправляя к ним корабли. Цель — построить межзвёздную империю и в конце концов захватить планеты всех остальных игроков. Играть в &konquest; можно против людей или против компьютера. </para>
 
 </chapter>
 
-<chapter id="using-konquest">
+<chapter id="playing">
 <title
->Использование &konquest;</title>
-
-<sect1 id="konquest-features">
-<title
->Особенности &konquest;</title>
+>Как играть</title>
 
 <para
->увлекательная игра для захвата вселенной. </para>
-
-</sect1>
-
-<sect1 id="configuration">
-<title
->Настройка</title>
-
-<para
->При первом запуске &konquest; открывается окно настроек. В нем вы можете указать имена игроков, определить количество планет, а также допустимое число ходов (не беспокойтесь, позже вы сможете добавить еще). Вы также можете отказываться от карты до тех пор, пока не найдете подходящую вам галактику. После этого нажмите на кнопку <guibutton
+>После запуска &konquest; нажмите <guibutton
 >Начать игру</guibutton
->!</para>
+>. Откроется диалог, в котором задаются параметры игры. Вот эти параметры: </para>
 
-</sect1>
+  <para
+><guilabel
+>Игроки</guilabel
+></para>
 
+  <itemizedlist>
+    <listitem
+><para
+>Число игроков — кнопками <guibutton
+>Добавить</guibutton
+> и <guibutton
+>Удалить</guibutton
+></para
+></listitem>
+    <listitem
+><para
+>Имена игроков</para
+></listitem>
+    <listitem
+><para
+>Тип игроков (компьютер или человек)</para
+></listitem>
+    <listitem
+><para
+>Сложность компьютерных игроков</para
+></listitem>
+  </itemizedlist>
+
+<para
+>Чтобы изменить имя игрока, дважды щёлкните в столбце <guilabel
+>Имя</guilabel
+> и отредактируйте его. Чтобы изменить тип игрока, дважды щёлкните в столбце <guilabel
+>Тип</guilabel
+> и выберите тип в раскрывающемся списке. Тип новых игроков можно также выбрать в раскрывающемся списке кнопки <guibutton
+>Добавить</guibutton
+>.</para>
+
+<para
+>Игроки-люди в &konquest; бывают двух типов: <guimenuitem
+>Человек (игрок)</guimenuitem
+> и <guimenuitem
+>Человек (зритель)</guimenuitem
+>. Зритель наблюдает за игрой, не участвуя в ней.</para>
+
+<para
+>Компьютерный игрок может быть одного из типов: <guimenuitem
+>Стандартный (слабый)</guimenuitem
+> (не проявляет агрессии ни в нападении, ни в обороне), <guimenuitem
+>Стандартный (нападающий)</guimenuitem
+> (агрессивно нападает) и <guimenuitem
+>Стандартный (обороняющийся)</guimenuitem
+> (придерживается оборонительной стратегии).</para>
+
+<para
+>Кроме этих классических компьютерных игроков есть <guimenuitem
+>Бекаи (сбалансированный)</guimenuitem
+> — сбалансированный игрок, учитывающий большую часть советов из раздела <xref linkend="strattips"/>.</para>
+
+<para
+>Помните, что на деле сложность соперника зависит от вашей собственной стратегии. Если вы сами играете агрессивно, агрессивного компьютерного игрока может оказаться легче победить, чем обороняющегося, и наоборот.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Карта</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Количество нейтральных планет:</guilabel
+> число нейтральных планет.</para>
+    <para
+><guilabel
+>Ширина:</guilabel
+> и <guilabel
+>Высота:</guilabel
+> карты в клетках.</para>
+    <para
+>Изменение параметров <guilabel
+>Владелец:</guilabel
+>, <guilabel
+>Мощь флота:</guilabel
+> и <guilabel
+>Производство:</guilabel
+> выбранной планеты.</para>
+    <para
+>Изменение расположения планет. Чтобы расположить их случайным образом, нажмите <guibutton
+>Другое расположение</guibutton
+>.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Планету можно выбрать на миниатюре карты в середине панели <guilabel
+>Карта</guilabel
+>: щёлкните по планете левой кнопкой мыши и измените нужные параметры.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>Параметры</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>Неразведанная карта</guilabel
+>: видны ли вам сведения о планетах соперников.</para>
+    <para
+><guilabel
+>Общее производство</guilabel
+>: включено ли накопление производства.</para>
+    <para
+><guilabel
+>Производство после захвата</guilabel
+>: начинается ли производство сразу после захвата.</para>
+    <para
+><guilabel
+>Показывать количество кораблей</guilabel
+>: показывать ли число кораблей и другие сведения для нейтральных планет.</para>
+    <para
+><guilabel
+>Показывать статистику</guilabel
+>: задать уровень производства для нейтральных планет.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>Изменив нужные параметры (это необязательно), нажмите <guibutton
+>ОК</guibutton
+>, чтобы начать игру.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Диалог новой игры &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Диалог новой игры &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>После начала игры появляется игровое поле. Пустые клетки — это открытый космос. Вначале у каждого игрока одна планета, фон которой окрашен в цвет игрока. Если навести указатель мыши на планету, появятся дополнительные сведения. Если при создании игры параметр <guilabel
+>Неразведанная карта</guilabel
+> не был включён, при наведении на планету видны все сведения о ней. Если же параметр <guilabel
+>Неразведанная карта</guilabel
+> был включён, на планетах, захваченных соперниками, видно только название. Сведения могут включать: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Название планеты:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Владелец:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Кораблей:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Кораблей на отправку:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Производство:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Мощь флота:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>Игра в &konquest;</phrase
+></textobject>
+	<caption
+><para
+>Игра в &konquest;.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+><guilabel
+>Название планеты:</guilabel
+> — имя, под которым планета известна в игре. Планеты называются по алфавиту заглавными буквами. <guilabel
+>Владелец:</guilabel
+> — игрок, которому принадлежит планета; если её захватит другой игрок, владелец сменится. <guilabel
+>Кораблей:</guilabel
+> — число кораблей на планете сейчас. <guilabel
+>Кораблей на отправку:</guilabel
+> появляется, только если для планеты задан повтор отправки. <guilabel
+>Производство:</guilabel
+> — сколько кораблей планета производит за ход; у разных планет оно разное, но у каждой постоянно. <guilabel
+>Мощь флота:</guilabel
+> — боевая эффективность кораблей этой планеты: атакующие флоты получают мощь флота планеты, с которой вылетели, а обороняющиеся — мощь флота планеты, которую защищают. Название планеты, её владельца и число кораблей легко увидеть прямо в клетке планеты: владельца обозначает цвет фона, название написано в левом верхнем углу, а число кораблей — в правом нижнем. </para>
+
+<para
+>Чтобы отправить корабли с одной планеты на другую, выберите планету, с которой их нужно отправить, введите число кораблей в зелёном поле в правом верхнем углу и нажмите &Enter;. Повторяйте, пока не отправите все нужные корабли. Чтобы каждый ход отправлять с одной планеты на другую одно и то же число кораблей, введите это число, установите флажок <guilabel
+>Повтор отправки</guilabel
+> и нажмите &Enter;. Такие корабли отправляются в конце хода. Закончив, нажмите <guibutton
+>Завершить ход</guibutton
+>. Когда все игроки сделают ход, появятся окна с последними новостями. Так игра продолжается, пока кто-то из игроков не завладеет всей галактикой. </para>
+<tip>
+  <para
+>Комбинацию клавиш для действия <guibutton
+>Завершить ход</guibutton
+> можно задать в пункте меню <menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить комбинации клавиш…</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Подробнее — в разделе <ulink url="help:/fundamentals/config.html#shortcuts"
+>Использование и настройка комбинаций клавиш</ulink
+> руководства «Основы &kde;». </para>
+</tip>
 </chapter>
 
-<chapter id="commands">
+<chapter id="rulestips">
+<title
+>Правила игры, стратегия и советы</title>
+<sect1 id="rules">
+<title
+>Правила</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Корабли нельзя остановить после того, как они покинули планету.</para
+></listitem>
+  <listitem
+><para
+>Корабли не могут атаковать другие корабли в полёте.</para
+></listitem>
+  <listitem
+><para
+>Корабли можно хранить на планетах для дальнейшего использования.</para
+></listitem>
+  <listitem
+><para
+>Планету нельзя подарить.</para
+></listitem>
+  <listitem
+><para
+>Чтобы пропустить ход, нажмите <guibutton
+>Завершить ход</guibutton
+>, не отправляя кораблей.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>Стратегия и советы</title>
+
+<itemizedlist>
+  <listitem
+><para
+>Вся игра — в производстве кораблей. Старайтесь как можно быстрее захватить как можно больше планет, чтобы строить больше кораблей, чем соперники.</para
+></listitem>
+  <listitem
+><para
+>Не нападайте на планету меньше чем 10 кораблями, если только не уверены, что захватите её.</para
+></listitem>
+  <listitem
+><para
+>Сначала захватывайте нейтральные планеты, потом — планеты других игроков.</para
+></listitem>
+  <listitem
+><para
+>Держите запасы кораблей на нескольких планетах.</para
+></listitem>
+  <listitem
+><para
+>Планируйте атаки заранее.</para
+></listitem>
+  <listitem
+><para
+>Расстояние между планетами можно узнать линейкой.</para
+></listitem>
+  <listitem
+><para
+>Перед атакой смотрите сведения о планетах во всплывающем окне.</para
+></listitem>
+  <listitem
+><para
+>Если эти сведения доступны, лучше атаковать планету с низкой мощью флота с планеты, где мощь высокая.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
 <title
 >Меню</title>
 
-<para
-></para>
-
-<sect1 id="konquest-mainwindow">
+<sect1 id="menu-items">
 <title
->Основное окно &konquest;</title>
-
-<para
->Сведения о планете (большой черный прямоугольник справа) &mdash; ваш источник информации о состоянии Галактики. Ваши шпионы будут докладывать вам о действиях ваших соперников, но только не на собственных планетах. В число сведений о планете входят: <guilabel
->Название планеты</guilabel
->, <guilabel
->Правитель</guilabel
->, <guilabel
->Производство</guilabel
->, информация о флоте(<guilabel
->Кораблей</guilabel
-> и <guilabel
->Мощь кораблей</guilabel
->).</para>
-
-<para
->Уровень <guilabel
->Производства</guilabel
-> равен числу кораблей, которые могут быть созданы на планете за один ход. Флот представлен количеством <guilabel
->Кораблей</guilabel
-> на планете. <guilabel
->Мощь кораблей</guilabel
-> &mdash; мера эффективности кораблей, произведенных на этой планете. У атакующей флотилии мощь равна мощи кораблей на той планете, откуда они летят, а у защищающей &mdash; мощи планеты, находящейся под защитой.</para>
-
-<sect2>
-<title
->Меню <guimenu
->Игра</guimenu
-></title>
+>Пункты меню</title>
 
 <variablelist>
 <varlistentry>
 <term
 ><menuchoice
-><guimenu
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
 >Игра</guimenu
 > <guimenuitem
->Новая игра</guimenuitem
+>Начать игру</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -199,10 +532,72 @@
 ></para
 ></listitem>
 </varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Закончить игру</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Закончить текущую игру, не закрывая</action
+> &konquest;.</para
+></listitem>
+</varlistentry>
+
 <varlistentry>
 <term
 ><menuchoice
 ><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Измерить расстояние…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Измерить расстояние.</action
+> Щёлкните левой кнопкой мыши по двум планетам, чтобы узнать расстояние между ними.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Обзор флота</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Открыть окно</action
+> с подробными сведениями обо всех флотах.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
 >Игра</guimenu
 > <guimenuitem
 >Выход</guimenuitem
@@ -215,78 +610,176 @@
 ></para
 ></listitem>
 </varlistentry>
-</variablelist>
-</sect2>
 
-<sect2>
-<title
->Меню <guimenu
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ход</guimenu
+> <guimenuitem
+>Завершить ход</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Завершить ход</action
+> из главного меню.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Показать сообщения</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Показать или скрыть панель сообщений.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Вид</guimenu
+> <guimenuitem
+>Показать результаты</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Показать или скрыть таблицу с текущим положением игроков.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Кроме того, в &konquest; есть стандартные для &kde; меню <guimenu
+>Настройка</guimenu
+> и <guimenu
 >Справка</guimenu
-></title>
-&help.menu.documentation; </sect2>
+>, описанные в разделах <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> руководства «Основы &kde;». </para>
+
 </sect1>
 </chapter>
+
+<chapter id="faq">
+<title
+>Вопросы и ответы</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>Можно ли перенаправить корабли после того, как они покинули планету?</para
+></question>
+    <answer
+><para
+>Нет, после того как корабли покидают планету, их нельзя остановить или перенаправить.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Что-нибудь означают разные цвета и формы планет?</para
+></question>
+    <answer
+><para
+>Нет, они выбираются случайно.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Как узнать, где находятся мои корабли?</para
+></question>
+    <answer
+><para
+>Нажмите <guibutton
+>Показать результаты</guibutton
+>: там есть сведения о флотах в пути.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Я потерял все планеты, но всё ещё в игре. Почему?</para
+></question>
+    <answer
+><para
+>Вы не проиграли, пока у вас остаются корабли.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Можно ли хранить корабли на планете для дальнейшего использования?</para
+></question>
+    <answer
+><para
+>Да, но лучше держать их на нескольких планетах, чтобы можно было отправлять их к соседним планетам.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>Можно ли изменить оформление?</para
+></question>
+    <answer
+><para
+>Нет, пока нельзя.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
 
 <chapter id="credits">
 
 
 <title
->Авторские права и лицензирование</title>
+>Авторские права и лицензия</title>
 
 <para
 >&konquest;</para>
 
 <para
->Проект GNU-Lactic Conquest, версия для &kde; создана Руссом Штеффеном (Russ Steffen), <email
->rsteffen@ia.net</email
->. См. также сайт <ulink url="http://www.ia.net/~rsteffen/konquest.html"
->http://www.ia.net/~rsteffen/konquest.html</ulink
->.</para>
+>&gnu-lactic; Conquest Project, версия для &kde;: &Russ.Steffen;, &Russ.Steffen.mail;.</para>
 
 <para
->Авторские права на программу принадлежат проекту GNU-Lactic Conquest, 1998. </para>
+>© Проект &gnu-lactic; Conquest, 1998 </para>
 
 <para
->Авторские права на документацию принадлежат проекту Николасу Роббинсу (Nicholas Robbins) <email
->logik9000@chartermi.com</email
->, 2000.</para>
+>© Nicholas Robbins &Nicholas.Robbins.mail;, 2000 (документация)</para>
+
+<para
+>© Viktor Chynarov, 2012 (документация)</para>
 
 <para
 >Валя Ванеева <email
 >fattie@altlinux.ru</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
-
-<appendix id="installation">
-<title
->Установка</title>
-
-<sect1 id="getting-konquest">
-<title
->Как получить &konquest;</title>
-&install.intro.documentation; </sect1>
-
-<sect1 id="requirements">
-<title
->Системные требования</title>
-
-<para
->Для игры в &konquest; вам необходимо установить &kde; 3.0. Рекомендуется также установить глубину цвета у X-сервера в значение не менее 8 битов на точку, так как в программе содержатся отсканированные изображения, которые могут потребовать большой глубины цвета. </para>
-
-<para
->Все библиотеки, необходимые для &konquest; и саму программу можно скачать с <ulink url="http://www.ia.net/~rsteffen/konquest.html"
->сайта &konquest;</ulink
->.</para>
-
-</sect1>
-
-<sect1 id="compilation">
-<title
->Компиляция и установка</title>
-&install.compile.documentation; </sect1>
-
-</appendix>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 

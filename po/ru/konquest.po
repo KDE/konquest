@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2024-10-07 16:27+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2026-09-26 10:20+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -481,7 +481,7 @@ msgstr "Название планеты: %1"
 #: map/mapitems.cc:219
 #, kde-format
 msgid "Owner: %1"
-msgstr "Правитель: %1"
+msgstr "Владелец: %1"
 
 #: map/mapitems.cc:222
 #, kde-format
@@ -502,7 +502,7 @@ msgstr "Производство: %1"
 #: map/mapitems.cc:237
 #, kde-format
 msgid "Kill percent: %1"
-msgstr "Мощь кораблей: %1"
+msgstr "Мощь флота: %1"
 
 #: players/ai/becai/becai_gui.cpp:13
 #, kde-format
