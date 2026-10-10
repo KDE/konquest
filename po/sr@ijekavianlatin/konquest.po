@@ -5,13 +5,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2009.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2013-12-29 10:14+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-09 22:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
 "MIME-Version: 1.0\n"
@@ -26,26 +27,25 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Miloš Puzović,Slobodan Marković,Časlav Ilić,Slobodan Simić"
+msgstr ""
+"Miloš Puzović,Slobodan Marković,Časlav Ilić,Slobodan Simić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "m.puzovic@etoncollege.org.uk,twiddle@eunet.yu,caslav.ilic@gmx.net,"
-"slsimic@gmail.com"
+"slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: dialogs/fleetdlg.cc:33
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@title:window"
 msgid "Fleet Overview"
 msgstr "Pregled flote"
 
 # >> @title:column
 #: dialogs/fleetdlg.cc:105
-#, fuzzy, kde-format
-#| msgid "Fleet No."
+#, kde-format
 msgctxt "@title:column"
 msgid "Fleet No."
 msgstr "br. flote"
@@ -53,40 +53,35 @@ msgstr "br. flote"
 # >> @title:column
 # skip-rule: t-source, t-source2
 #: dialogs/fleetdlg.cc:106
-#, fuzzy, kde-format
-#| msgid "Source"
+#, kde-format
 msgctxt "@title:column"
 msgid "Source"
 msgstr "ishodište"
 
 # >> @title:column
 #: dialogs/fleetdlg.cc:107
-#, fuzzy, kde-format
-#| msgid "Destination"
+#, kde-format
 msgctxt "@title:column"
 msgid "Destination"
 msgstr "odredište"
 
 # >> @title:column
 #: dialogs/fleetdlg.cc:108
-#, fuzzy, kde-format
-#| msgid "Ships"
+#, kde-format
 msgctxt "@title:column"
 msgid "Ships"
 msgstr "brodovi"
 
 # >> @title:column Measure of effectiveness in combat
 #: dialogs/fleetdlg.cc:109
-#, fuzzy, kde-format
-#| msgid "Kill Percentage"
+#, kde-format
 msgctxt "@title:column"
 msgid "Kill Percentage"
 msgstr "pobjedonosnost"
 
 # >> @title:column
 #: dialogs/fleetdlg.cc:110
-#, fuzzy, kde-format
-#| msgid "Arrival Turn"
+#, kde-format
 msgctxt "@title:column"
 msgid "Arrival Turn"
 msgstr "potez dolaska"
@@ -155,8 +150,7 @@ msgstr "Proizvodnja:"
 # >> Measure of effectiveness in combat
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: dialogs/newGameDialog.ui:192
-#, fuzzy, kde-format
-#| msgid "Kill Percentage:"
+#, kde-format
 msgid "Kill percentage:"
 msgstr "Pobjedonosnost:"
 
@@ -168,10 +162,9 @@ msgstr "&Nasumično"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/newGameDialog.ui:209
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "Vlasnik"
+msgstr "Vlasnik:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: dialogs/newGameDialog.ui:228
@@ -181,22 +174,19 @@ msgstr "Opcije"
 
 #. i18n: ectx: property (text), widget (QCheckBox, BlindMapCB)
 #: dialogs/newGameDialog.ui:234
-#, fuzzy, kde-format
-#| msgid "Blind Map"
+#, kde-format
 msgid "Blind map"
 msgstr "Slijepa mapa"
 
 #. i18n: ectx: property (text), widget (QCheckBox, CumulativeProductionCB)
 #: dialogs/newGameDialog.ui:241
-#, fuzzy, kde-format
-#| msgid "Cumulative Production"
+#, kde-format
 msgid "Cumulative production"
 msgstr "Kumulativna proizvodnja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ProductionAfterConquereCB)
 #: dialogs/newGameDialog.ui:248
-#, fuzzy, kde-format
-#| msgid "Production After Capture"
+#, kde-format
 msgid "Production after capture"
 msgstr "Proizvodnja po zarobljavanju"
 
@@ -208,15 +198,13 @@ msgstr "Neutralni"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowShipsCB)
 #: dialogs/newGameDialog.ui:273
-#, fuzzy, kde-format
-#| msgid "Show Ships"
+#, kde-format
 msgid "Show ships"
 msgstr "Prikaži brodove"
 
 #. i18n: ectx: property (text), widget (QCheckBox, NeutralsShowStatsCB)
 #: dialogs/newGameDialog.ui:280
-#, fuzzy, kde-format
-#| msgid "Show Stats"
+#, kde-format
 msgid "Show stats"
 msgstr "Prikaži statistiku"
 
@@ -241,8 +229,7 @@ msgstr "vrsta"
 
 # >> @title:window
 #: dialogs/newgamedlg.cc:314
-#, fuzzy, kde-format
-#| msgid "Start New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Započinjanje nove igre"
@@ -279,32 +266,28 @@ msgid "Planet %2 has fallen to %1."
 msgstr "Planeta %2 je pala u ruke %1."
 
 #: gameview.cc:107
-#, fuzzy, kde-format
-#| msgid "End Turn"
+#, kde-format
 msgctxt "@action:button"
 msgid "End Turn"
 msgstr "Kraj poteza"
 
 # >> @option:check
 #: gameview.cc:120
-#, fuzzy, kde-format
-#| msgid "Standing order"
+#, kde-format
 msgctxt "@option:check"
 msgid "Standing order"
 msgstr "Trajno naređenje"
 
 # rewrite-msgid: /source/start/
 #: gameview.cc:290
-#, fuzzy, kde-format
-#| msgid "%1: Select source planet..."
+#, kde-format
 msgid "%1: Select source planet…"
-msgstr "%1: Izaberite polaznu planetu..."
+msgstr "%1: Izaberite polaznu planetu…"
 
 #: gameview.cc:307
-#, fuzzy, kde-format
-#| msgid "%1: Select destination planet..."
+#, kde-format
 msgid "%1: Select destination planet…"
-msgstr "%1: Izaberite odredišnu planetu..."
+msgstr "%1: Izaberite odredišnu planetu…"
 
 #: gameview.cc:318
 #, kde-format
@@ -351,15 +334,13 @@ msgid "Do you wish to retire this game?"
 msgstr "Želite li da se povučete iz igre?"
 
 #: gameview.cc:524
-#, fuzzy, kde-format
-#| msgid "End Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "End Game"
 msgstr "Kraj igre"
 
 #: gameview.cc:552
-#, fuzzy, kde-format
-#| msgid "Final Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Final Standings"
 msgstr "Konačne pozicije"
@@ -370,10 +351,9 @@ msgid "Konquest"
 msgstr "K‑osvajanje"
 
 #: Konquest.cc:31
-#, fuzzy, kde-format
-#| msgid "Galactic Strategy KDE Game"
+#, kde-format
 msgid "Galactic Strategy Game"
-msgstr "Galaktička strateška igra za KDE"
+msgstr "Galaktička strateška igra"
 
 #: Konquest.cc:33
 #, kde-format
@@ -454,8 +434,7 @@ msgid "Main Toolbar"
 msgstr "Glavna traka"
 
 #: mainwin.cc:33
-#, fuzzy, kde-format
-#| msgid "Galactic Conquest"
+#, kde-format
 msgctxt "@title:window"
 msgid "Galactic Conquest"
 msgstr "Galaktičko osvajanje"
@@ -466,43 +445,37 @@ msgid "Galactic Conquest"
 msgstr "Galaktičko osvajanje"
 
 #: mainwin.cc:74
-#, fuzzy, kde-format
-#| msgid "&Measure Distance"
+#, kde-format
 msgctxt "@action"
 msgid "&Measure Distance…"
-msgstr "&Izmjeri rastojanje"
+msgstr "&Izmjeri rastojanje…"
 
 #: mainwin.cc:80
-#, fuzzy, kde-format
-#| msgid "Fleet Overview"
+#, kde-format
 msgctxt "@action"
 msgid "&Fleet Overview"
-msgstr "Pregled flote"
+msgstr "Pregled &flote"
 
 #: mainwin.cc:89
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Messages"
 msgstr "Poruke"
 
 #: mainwin.cc:95
-#, fuzzy, kde-format
-#| msgid "Show &Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Messages"
 msgstr "Prikaži &poruke"
 
 #: mainwin.cc:114
-#, fuzzy, kde-format
-#| msgid "Standings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Standings"
 msgstr "Pozicije"
 
 #: mainwin.cc:121
-#, fuzzy, kde-format
-#| msgid "Show &Standings"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show &Standings"
 msgstr "Prikaži &pozicije"
@@ -554,49 +527,44 @@ msgstr "Bekai (balansirano)"
 #: players/ai/default/hard_gui.cpp:13
 #, kde-format
 msgid "Default (Defensive)"
-msgstr "Podrazumevano (defanzivno)"
+msgstr "Podrazumijevano (defanzivno)"
 
 #: players/ai/default/normal_gui.cpp:13
 #, kde-format
 msgid "Default (Offensive)"
-msgstr "Podrazumevano (ofanzivno)"
+msgstr "Podrazumijevano (ofanzivno)"
 
 #: players/ai/default/weak_gui.cpp:13
 #, kde-format
 msgid "Default (Weak)"
-msgstr "Podrazumevano (slabo)"
+msgstr "Podrazumijevano (slabo)"
 
 #: players/ai/example/example_gui.cpp:15
 #, kde-format
 msgid "Example (Passive)"
-msgstr "Primer (pasivno)"
+msgstr "Primjer (pasivno)"
 
 #: players/localplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human player"
 msgid "Human (Player)"
-msgstr "Čovek (igrač)"
+msgstr "Čovjek (igrač)"
 
 #: players/spectatorplayer_gui.cpp:13
 #, kde-format
 msgctxt "A human spectator"
 msgid "Human (Spectator)"
-msgstr "Čovek (posmatrač)"
+msgstr "Čovjek (posmatrač)"
 
 #: view/standingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "The player name"
-#| msgid "Player"
+#, kde-format
 msgctxt "@title:column the player name"
 msgid "Player"
-msgstr "Igrač"
+msgstr "igrač"
 
 # >> @title:column
 #: view/standingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Built"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -607,10 +575,7 @@ msgstr ""
 
 # >> @title:column
 #: view/standingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Planets\n"
-#| "Conquered"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Planets\n"
@@ -621,10 +586,7 @@ msgstr ""
 
 # >> @title:column
 #: view/standingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Launched"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -635,10 +597,7 @@ msgstr ""
 
 # >> @title:column
 #: view/standingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fleets\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Fleets\n"
@@ -649,10 +608,7 @@ msgstr ""
 
 # >> @title:column
 #: view/standingswidget.cpp:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ships\n"
-#| "Destroyed"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Ships\n"
@@ -662,35 +618,21 @@ msgstr ""
 "brodova"
 
 #: view/standingswidget.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Production"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Production"
 msgstr ""
-"Trenutna\n"
+"trenutna\n"
 "proizvodnja"
 
 #: view/standingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Current\n"
-#| "Fleet Size"
+#, kde-format
 msgctxt "@title:column"
 msgid ""
 "Current\n"
 "Fleet Size"
 msgstr ""
-"Trenutna\n"
+"trenutna\n"
 "veličina flote"
-
-#, fuzzy
-#~| msgid "&Fleet Overview"
-#~ msgid "&Fleet Overview..."
-#~ msgstr "Pregled &flote"
-
-#~ msgid "Production"
-#~ msgstr "Proizvodnja"
