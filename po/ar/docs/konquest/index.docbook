@@ -1,0 +1,794 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY gnu-lactic "<application
+>&GNU;-Lactic</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id="konquest" lang="&language;">
+
+<bookinfo>
+<title
+>دليل لعبة الغزو</title>
+
+<authorgroup>
+<author
+><firstname
+>Nicholas</firstname
+> <surname
+>Robbins</surname
+> <affiliation
+> <address
+>&Nicholas.Robbins.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<othercredit role="developer"
+><firstname
+>Russ</firstname
+> <surname
+>Steffen</surname
+> <affiliation
+> <address
+>&Russ.Steffen.mail;</address
+></affiliation>
+<contrib
+>مطوّر</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+>&Lauri.Watts.mail;</address>
+</affiliation>
+<contrib
+>مُراجِع</contrib>
+</othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicholas Robbins</holder>
+</copyright>
+
+<copyright>
+<year
+>2012</year>
+<holder
+>Viktor Chynarov</holder>
+</copyright>
+
+<author
+><firstname
+>Anton</firstname
+> <surname
+>Brondz</surname
+> <affiliation
+> <address
+><email
+>dinolinux@gmail.com</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Viktor</firstname
+> <surname
+>Chynarov</surname
+> </author>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-08-08</date>
+<releaseinfo
+>2.4 (ترس كيدي 21.08)</releaseinfo>
+
+<abstract>
+<para
+>الغزو هي لعبة غزو مجرّي. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>الغزو</keyword>
+<keyword
+>ألعاب كيدي</keyword>
+<keyword
+>لوحة</keyword>
+<keyword
+>جماعية</keyword>
+<keyword
+>استراتيجية</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+<note
+><title
+>نوع اللعبة:</title
+><para
+>إستراتيجية، لوحية</para
+></note>
+<note
+><title
+>عدد اللاعبين:</title
+><para
+>جماعية</para
+></note>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="main_game_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>النافذة الرئيسة للعبة الغزو.</phrase
+></textobject>
+	<caption
+><para
+>النافذة الرئيسة للعبة الغزو.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>الغزو هي نسخة كيدي من لعبة &gnu-lactic;. يغزو اللاعبون الكواكب الأخرى عبر إرسال السفن إليها. الهدف هو بناء إمبراطورية بين النجوم وغزو جميع كواكب اللاعبين الآخرين في نهاية المطاف. يمكن لعب الغزو ضد أشخاص آخرين أو ضد الحاسوب. </para>
+
+</chapter>
+
+<chapter id="playing">
+<title
+>كيف تلعب</title>
+
+<para
+>عند بدء الغزو، اضغط على <guibutton
+>جديد</guibutton
+> لبدء لعبة جديدة. سيظهر مربع حوار يطلب منك إدخال معلومات متنوعة لضبط لعبتك. فيما يلي المعايير الخاصة باللعبة الجديدة: </para>
+
+  <para
+><guilabel
+>اللاعبون</guilabel
+></para>
+
+  <itemizedlist>
+    <listitem
+><para
+>عدد اللاعبين باستخدام زر <guibutton
+>أضف</guibutton
+> أو <guibutton
+>أزل</guibutton
+> اللاعبين.</para
+></listitem>
+    <listitem
+><para
+>أسماء اللاعبين.</para
+></listitem>
+    <listitem
+><para
+>نوع اللاعبين (حاسوب ضد بشر).</para
+></listitem>
+    <listitem
+><para
+>صعوبة لاعبي الحاسوب (منخفضة/عادية/صعبة).</para
+></listitem>
+  </itemizedlist>
+
+<para
+>لتغيير اسم اللاعب، انقر نقرًا مزدوجًا في عمود <guilabel
+>الاسم</guilabel
+> وحرره. لتغيير نوع اللاعب، افتح القائمة المنسدلة بالنقر المزدوج في عمود <guilabel
+>النوع</guilabel
+>. يمكن أيضًا تحديد نوع اللاعبين الجدد باستخدام القائمة المنسدلة لزر <guibutton
+>أضف</guibutton
+>.</para>
+
+<para
+>يوجد نوعان من اللاعبين البشر في الغزو، وهما <guimenuitem
+>بشر (لاعب)</guimenuitem
+> و <guimenuitem
+>بشر (مشاهد)</guimenuitem
+>. الخيار الأخير يتيح مشاهدة اللعبة دون المشاركة فيها.</para>
+
+<para
+>يمكن اختيار نوع لاعب الذكاء الاصطناعي من <guimenuitem
+>مبدئي (ضعيف)</guimenuitem
+> (لاعب ليس هجوميًا ولا دفاعيًا)، و <guimenuitem
+>مبدئي (هجومي)</guimenuitem
+> (لاعب مهاجم شرس)، و <guimenuitem
+>مبدئي (دفاعي)</guimenuitem
+> (لاعب باستراتيجية دفاعية).</para>
+
+<para
+>بالإضافة إلى لاعبي الذكاء الاصطناعي التقليديين هؤلاء، يعد <guimenuitem
+>Becai (متوازن)</guimenuitem
+> لاعبًا متوازنًا يأخذ معظم <xref linkend="strattips"/> في الحسبان.</para>
+
+<para
+>تذكر أن الصعوبة الفعلية لأي خصم تعتمد على استراتيجيتك الخاصة. إذا كنت تلعب بهجومية، فقد يكون هزيمة لاعب ذكاء اصطناعي هجومي أسهل من لاعب دفاعي، والعكس صحيح.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>الخريطة</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>الكواكب المحايدة:</guilabel
+> عدد الكواكب المحايدة.</para>
+    <para
+><guilabel
+>العرض:</guilabel
+> و <guilabel
+>الارتفاع:</guilabel
+> للخريطة بوحدات البلاط.</para>
+    <para
+>تغيير مستوى <guilabel
+>المالك:</guilabel
+>، و <guilabel
+>نسبة الخسائر:</guilabel
+>، و <guilabel
+>الإنتاج:</guilabel
+> لكوكب معين.</para>
+    <para
+>تغيير توزيع الكواكب. اضغط على <guibutton
+>عشوائي</guibutton
+> لجعله عشوائيًا.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>يمكنك تحديد الكوكب باستخدام الصورة المصغرة للخريطة في منتصف لوح <guilabel
+>الخريطة</guilabel
+>. فقط انقر فوق الكوكب بزر الفأرة الأيسر، ثم غير الخيارات المطلوبة.</para>
+
+<variablelist>
+  <varlistentry>
+    <term
+><guilabel
+>خيارات</guilabel
+></term>
+    <listitem
+><para
+><guilabel
+>خريطة عمياء</guilabel
+>: ما إذا كان بإمكانك رؤية معلومات حول كواكب الخصوم أم لا.</para>
+    <para
+><guilabel
+>إنتاج تراكمي</guilabel
+>: ما إذا كان مفعلًا أم لا.</para>
+    <para
+><guilabel
+>الإنتاج بعد الاستيلاء</guilabel
+>: ما إذا كان يُفعل فورًا.</para>
+    <para
+><guilabel
+>أظهر السفن</guilabel
+>: السماح بعرض عدد السفن والإحصائيات الأخرى للكواكب المحايدة.</para>
+    <para
+><guilabel
+>أظهر الإحصائيات</guilabel
+>: ضبط مستوى الإنتاج للكواكب المحايدة.</para
+></listitem>
+  </varlistentry>
+</variablelist>
+
+<para
+>عند الانتهاء من تغيير هذه الإعدادات (اختياري)، انقر فوق <guibutton
+>موافق</guibutton
+> لبدء اللعبة.</para>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="new_game_settings.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>مربع حوار لعبة جديدة في الغزو.</phrase
+></textobject>
+	<caption
+><para
+>مربع حوار لعبة جديدة في الغزو.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>بمجرد بدء اللعبة، ستُعرض لك لوحة اللعبة. المربعات الفارغة هي فضاء خالٍ. في البداية، يمتلك كل لاعب كوكبًا واحدًا. خلفية الكوكب هي لون اللاعب. إذا حركت الفأرة فوق كوكب، يمكنك رؤية معلومات إضافية. بدون تفعيل خيار <guilabel
+>الخريطة العمياء</guilabel
+> عند اختيار اللعبة، يمكنك رؤية أي معلومات عن الكوكب بمجرد الحوم فوقه بالفأرة. أما إذا كنت قد اخترت خيار <guilabel
+>الخريطة العمياء</guilabel
+> عند بدء لعبة جديدة، فسترى فقط اسم الكوكب على الكواكب التي غزاها الخصوم. يمكن أن تشمل المعلومات ما يلي: </para>
+
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>اسم الكوكب:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>المالك:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>السفن:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>السفن المستحقة:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>الإنتاج:</guilabel
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>نسبة الخسائر:</guilabel
+></para
+></listitem>
+</itemizedlist>
+
+<screenshot>
+<mediaobject>
+	<imageobject
+><imagedata fileref="ingame_window.png" format="PNG"/></imageobject>
+	<textobject
+><phrase
+>لعب الغزو.</phrase
+></textobject>
+	<caption
+><para
+>لعب الغزو.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>يُعد <guilabel
+>اسم الكوكب:</guilabel
+> هو كيفية الإشارة إلى الكوكب في اللعبة. تُسمى الكواكب أبجديًا بأحرف كبيرة. <guilabel
+>المالك:</guilabel
+> هو من يملك الكوكب، وإذا غزا لاعب آخر الكوكب فسيحدث تغيير هنا. <guilabel
+>السفن:</guilabel
+> هي عدد السفن الحالي على الكوكب. <guilabel
+>السفن المستحقة:</guilabel
+> تظهر فقط إذا اخترت أمرًا مستديمًا لهذا الكوكب، وإلا فلن تظهر. <guilabel
+>الإنتاج:</guilabel
+> هو عدد السفن التي سينتجها الكوكب في كل دور، ويختلف الإنتاج من كوكب لآخر ولكنه يظل ثابتًا دائمًا. <guilabel
+>نسبة الخسائر:</guilabel
+> هي مقياس لفعالية السفن المنتجة في ذلك الكوكب؛ حيث تأخذ أساطيل الهجوم نسبة الخسائر من كوكب الانطلاق، وتستخدم أساطيل الدفاع نسبة الخسائر للكوكب الذي تدافع عنه. يمكنك بسهولة رؤية اسم الكوكب والمالك وعدد السفن الحالي في المربع الذي يقع فيه الكوكب؛ حيث يمثل المالك بلون خلفية الكوكب، والاسم في الزاوية العلوية اليسرى، وعدد السفن في الزاوية السفلية اليمنى. </para>
+
+<para
+>لإرسال سفن من كوكب إلى آخر، حدد الكوكب الذي تريد إرسال السفن منه، وأدخل عدد السفن في المربع الأخضر في الزاوية العلوية اليمنى واضغط على &Enter;. كرر هذا الإجراء حتى ترسل جميع السفن التي تريدها. إذا كنت ترغب في إرسال كمية ثابتة من السفن من كوكب إلى آخر في كل دور، فأدخل ذلك الرقم وحدد خانة <guilabel
+>أمر مستديم</guilabel
+>، واضغط على &Enter;. ستُرسل السفن المستحقة للأمر المستديم في نهاية الدور. عند الانتهاء، اضغط على <guibutton
+>أنهِ الدور</guibutton
+>. عندما يلعب جميع اللاعبين دورًا واحدًا، ستظهر مربعات حوار لتعطيك آخر الأخبار. ستستمر اللعبة على هذا المنوال حتى يمتلك أحد اللاعبين المجرة بأكملها. </para>
+<tip>
+  <para
+>يمكن ضبط اختصار لوحة المفاتيح لإجراء <guibutton
+>أنهِ الدور</guibutton
+> باستخدام عنصر القائمة <menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط الاختصارات…</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>لمزيد من المعلومات، اقرأ القسم الخاص بـ <ulink url="help:/fundamentals/config.html#shortcuts"
+>استخدام وتخصيص الاختصارات</ulink
+> في أساسيات كيدي. </para>
+</tip>
+</chapter>
+
+<chapter id="rulestips">
+<title
+>قواعد اللعبة واستراتيجياتها وتلميحاتها</title>
+<sect1 id="rules">
+<title
+>القواعد</title>
+
+<itemizedlist>
+  <listitem
+><para
+>لا يمكن إيقاف السفن بمجرد مغادرتها للكوكب.</para
+></listitem>
+  <listitem
+><para
+>لا يمكن للسفن مهاجمة سفن أخرى في الجو.</para
+></listitem>
+  <listitem
+><para
+>يمكن تخزين السفن في الكواكب لاستخدامها لاحقًا.</para
+></listitem>
+  <listitem
+><para
+>لا يمكن التخلي عن الكوكب.</para
+></listitem>
+  <listitem
+><para
+>يمكن للاعب تخطي دور بالضغط على <guibutton
+>أنهِ الدور</guibutton
+> دون إطلاق أي سفن.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="strattips">
+<title
+>الاستراتيجيات والتلميحات</title>
+
+<itemizedlist>
+  <listitem
+><para
+>تعتمد اللعبة بالكامل على إنتاج السفن. حاول الحصول على أكبر عدد ممكن من الكواكب بأسرع ما يمكن لبناء سفن أكثر من أي من خصومك.</para
+></listitem>
+  <listitem
+><para
+>لا تهاجم كوكبًا بأقل من 10 سفن، إلا إذا كنت متأكدًا من غزوها.</para
+></listitem>
+  <listitem
+><para
+>هاجم الكواكب المحايدة قبل كواكب اللاعبين الآخرين.</para
+></listitem>
+  <listitem
+><para
+>وزع مخزونات سفنك عبر عدة كواكب.</para
+></listitem>
+  <listitem
+><para
+>خطط لهجماتك مسبقًا.</para
+></listitem>
+  <listitem
+><para
+>استخدم المسطرة لمعرفة المسافة بين الكواكب.</para
+></listitem>
+  <listitem
+><para
+>استخدم نافذة المعلومات للحصول على معلومات عن الكواكب قبل الهجوم.</para
+></listitem>
+  <listitem
+><para
+>إذا كانت هذه المعلومات متاحة لك، فمن الأفضل مهاجمة كوكب ذي نسبة خسائر منخفضة من كوكب ذي نسبة عالية.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title
+>القوائم</title>
+
+<sect1 id="menu-items">
+<title
+>عناصر القائمة</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>جديد</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يبدأ لعبة جديدة.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ اللعبة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>ينهي اللعبة الحالية، دون إغلاق</action
+> الغزو.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>لعبة</guimenu
+> <guimenuitem
+>قس المسافة…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يتيح قياس المسافة.</action
+> انقر بزر الفأرة الأيسر على كوكبين لرؤية المسافة بينهما.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>لعبة</guimenu
+> <guimenuitem
+>نظرة عامة على الأسطول</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يفتح نافذة</action
+> لعرض معلومات مفصلة لجميع الأساطيل.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>ينهي اللعبة.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>حركة</guimenu
+><guimenuitem
+>أنهِ الدور</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك <action
+>إنهاء الدور</action
+> من القائمة الرئيسة.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>أظهر الرسائل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>إظهار أو إخفاء لوحة الرسائل.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>عرض</guimenu
+> <guimenuitem
+>أظهر الترتيب</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>إظهار أو إخفاء جدول ترتيب اللاعبين الحالي.</action
+></para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، تحتوي الغزو على عناصر قائمة <guimenu
+>الإعدادات</guimenu
+> و <guimenu
+>مساعدة</guimenu
+> الشائعة في كيدي، لمزيد من المعلومات اقرأ الأقسام حول <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و <ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> في أساسيات كيدي. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>الأسئلة المتكررة</title>
+
+<qandaset>
+  <qandaentry>
+    <question
+><para
+>هل يمكنني إعادة توجيه السفن بمجرد مغادرتها للكوكب؟</para
+></question>
+    <answer
+><para
+>لا، بمجرد مغادرة السفن للكوكب، لا يمكن إيقافها أو إعادة توجيهها.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>هل تعني الألوان والأشكال المختلفة للكواكب أي شيء؟</para
+></question>
+    <answer
+><para
+>لا، فهي عشوائية.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>كيف يمكنني معرفة مكان سفني؟</para
+></question>
+    <answer
+><para
+>انقر فوق <guibutton
+>أظهر الترتيب</guibutton
+>. سيعطيك معلومات عن الأساطيل الموجودة حاليًا في الجو.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>لقد فقدت كل كواكبي، ولكنني ما زلت في اللعبة، لماذا؟</para
+></question>
+    <answer
+><para
+>لم تخسر اللعبة حتى تفقد جميع سفنك.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>هل يمكنني تخزين السفن على كوكب لاستخدامها لاحقًا؟</para
+></question>
+    <answer
+><para
+>نعم، ولكن يجب عليك تخزينها في كواكب متعددة لتتمكن من إرسالها إلى الكواكب القريبة.</para
+></answer>
+  </qandaentry>
+
+  <qandaentry>
+    <question
+><para
+>هل من الممكن تغيير السمة؟</para
+></question>
+    <answer
+><para
+>لا، هذا غير ممكن في الوقت الحالي.</para
+></answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits">
+
+
+<title
+>الحقوق والترخيص</title>
+
+<para
+>الغزو</para>
+
+<para
+>مشروع غزو &gnu-lactic;، نسخة كيدي بواسطة &Russ.Steffen;، و &Russ.Steffen.mail;.</para>
+
+<para
+>حقوق النشر &copy; 1998 بواسطة مشروع غزو &gnu-lactic; </para>
+
+<para
+>حقوق نشر التوثيق 2000 Nicholas Robbins &Nicholas.Robbins.mail;</para>
+
+<para
+>حقوق نشر التوثيق 2012 Viktor Chynarov</para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
