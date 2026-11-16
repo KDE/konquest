@@ -2,7 +2,7 @@
 # Translation of konquest.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian msg. catalog for Konquest
 # Copyright (C) 2001, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# $Id: konquest.po 1723087 2025-11-17 12:44:32Z scripty $
+# $Id$
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 1999.
