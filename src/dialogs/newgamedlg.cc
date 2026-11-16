@@ -38,10 +38,11 @@
 #include <QLineEdit>
 #include <QList>
 #include <QMenu>
-#include <QPair>
 #include <QPushButton>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+#include <utility>
 
 /*************************************************************************
  New Game Dialog Members
@@ -62,7 +63,7 @@ static const QColor PlayerColors[MAX_PLAYERS] = {
 
 class playersListModel : public QAbstractTableModel
 {
-    typedef QPair<QColor, QString> PlayerId;
+    typedef std::pair<QColor, QString> PlayerId;
     QList<PlayerId> m_availablePlayerId;
     NewGameDlg *m_newGameDlg;
 
