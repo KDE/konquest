@@ -1,4 +1,4 @@
-# Version: $Revision: 1723076 $
+# Version: $Revision$
 # translation of konquest.po to Polish
 # translation of konquest.po to
 # translation of konquest.po to
