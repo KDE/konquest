@@ -2,7 +2,7 @@
 # Translation of konquest.po to Slovenian
 # -*- mode:po; coding:iso-latin-2; -*- Slovenian msg. catalog for Konquest
 # Copyright (C) 2001, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# $Id$
+# $Id: konquest.po 1753447 2026-11-17 01:57:26Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 1999.
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-17 01:02+0000\n"
 "PO-Revision-Date: 2024-05-03 12:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -206,35 +206,35 @@ msgstr "Pokaži ladje"
 msgid "Show stats"
 msgstr "Pokaži statistiko"
 
-#: dialogs/newgamedlg.cc:79
+#: dialogs/newgamedlg.cc:80
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Igralec %1"
 
-#: dialogs/newgamedlg.cc:124
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "Ime"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:126
 #, kde-format
 msgid "Type"
 msgstr "Vrsta"
 
-#: dialogs/newgamedlg.cc:314
+#: dialogs/newgamedlg.cc:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Začni novo igro"
 
-#: dialogs/newgamedlg.cc:385
+#: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
 msgstr "prazno"
 
-#: dialogs/newgamedlg.cc:388
+#: dialogs/newgamedlg.cc:389
 #, kde-format
 msgid "neutral"
 msgstr "nevtralno"

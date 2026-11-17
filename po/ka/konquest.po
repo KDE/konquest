@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-17 01:02+0000\n"
 "PO-Revision-Date: 2024-05-03 03:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -190,35 +190,35 @@ msgstr "ხომალდების ჩვენება"
 msgid "Show stats"
 msgstr "სტატისტიკის ჩვენება"
 
-#: dialogs/newgamedlg.cc:79
+#: dialogs/newgamedlg.cc:80
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "მოთამაშე %1"
 
-#: dialogs/newgamedlg.cc:124
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "სახელი"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:126
 #, kde-format
 msgid "Type"
 msgstr "ტიპით"
 
-#: dialogs/newgamedlg.cc:314
+#: dialogs/newgamedlg.cc:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "ახალი თამაშის დაწყება"
 
-#: dialogs/newgamedlg.cc:385
+#: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
 msgstr "ცარიელია"
 
-#: dialogs/newgamedlg.cc:388
+#: dialogs/newgamedlg.cc:389
 #, kde-format
 msgid "neutral"
 msgstr "ნეიტრალური"

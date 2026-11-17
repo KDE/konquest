@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-17 01:02+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -191,35 +191,35 @@ msgstr "जहाजान् दर्शयतु"
 msgid "Show stats"
 msgstr "आँकडा: दर्शयतु"
 
-#: dialogs/newgamedlg.cc:79
+#: dialogs/newgamedlg.cc:80
 #, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "खिलाडी %1"
 
-#: dialogs/newgamedlg.cc:124
+#: dialogs/newgamedlg.cc:125
 #, kde-format
 msgctxt "The player name"
 msgid "Name"
 msgstr "नामः"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:126
 #, kde-format
 msgid "Type"
 msgstr "प्रकारः"
 
-#: dialogs/newgamedlg.cc:314
+#: dialogs/newgamedlg.cc:315
 #, kde-format
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "नूतनं क्रीडां आरभत"
 
-#: dialogs/newgamedlg.cc:385
+#: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
 msgstr "रिक्तम्"
 
-#: dialogs/newgamedlg.cc:388
+#: dialogs/newgamedlg.cc:389
 #, kde-format
 msgid "neutral"
 msgstr "तटस्थ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-17 01:02+0000\n"
 "PO-Revision-Date: 2004-11-07 21:52+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -205,37 +205,37 @@ msgstr "Бродови"
 msgid "Show stats"
 msgstr "&Прикажи резултат"
 
-#: dialogs/newgamedlg.cc:79
+#: dialogs/newgamedlg.cc:80
 #, fuzzy, kde-format
 msgctxt "Default player name is \"player \" + player number"
 msgid "Player %1"
 msgstr "Играч"
 
-#: dialogs/newgamedlg.cc:124
+#: dialogs/newgamedlg.cc:125
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "The player name"
 msgid "Name"
 msgstr "Име"
 
-#: dialogs/newgamedlg.cc:125
+#: dialogs/newgamedlg.cc:126
 #, kde-format
 msgid "Type"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:314
+#: dialogs/newgamedlg.cc:315
 #, fuzzy, kde-format
 #| msgid "Start New Game"
 msgctxt "@title:window"
 msgid "Start New Game"
 msgstr "Започнува нова игра"
 
-#: dialogs/newgamedlg.cc:385
+#: dialogs/newgamedlg.cc:386
 #, kde-format
 msgid "vacant"
 msgstr ""
 
-#: dialogs/newgamedlg.cc:388
+#: dialogs/newgamedlg.cc:389
 #, fuzzy, kde-format
 msgid "neutral"
 msgstr "Број на неутрални &планети: %1"
