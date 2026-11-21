@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: konquest\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-17 01:02+0000\n"
-"PO-Revision-Date: 2026-09-06 17:53+0200\n"
+"PO-Revision-Date: 2026-11-20 16:35+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -273,7 +273,7 @@ msgstr "%1: Selecciona el planeta de destinació…"
 #: gameview.cc:318
 #, kde-format
 msgid "Not enough ships to send."
-msgstr "No tens naus suficients per a enviar."
+msgstr "No tens prou naus per a enviar."
 
 #: gameview.cc:330
 #, kde-format
