@@ -430,11 +430,9 @@ AiBecai::play()
         // Process the first few possible targets from the target list. As this
         // is a priority list, only consider the first few ones and do not
         // process possible targets with low priority (high score).
-        QMultiMapIterator<double, TargetPlanet> targetListIt(targetList);
         int skipCount = 3;
 
-        while (targetListIt.hasNext() && (skipCount > 0)) {
-            targetListIt.next();
+        for (auto targetListIt = targetList.cbegin(), end = targetList.cend(); (targetListIt != end) && (skipCount > 0); ++targetListIt) {
 
             // Always decrement the skip counter. If an attack can be launched
             // successfully, simply increment it again as this is no skip then.
